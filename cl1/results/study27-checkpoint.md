@@ -15,7 +15,7 @@ The independent auditor requires both paired conditions for the same seed and ac
 1. Untreated graph2, owned by process2, successfully read as tag **11**, followed by a successful internally charged `CellWritten` to **cell11**, value `v`.
 2. External `DropGraph(2)` + `PutGraph(2, identical handle/owner/readers but node0 replaced with Halt)` results in a successful graph2 read by process1 of tag **19**, followed by a successful `CellWritten` to **cell19**, **the same numeric value `v`**.
 
-**Observed strict paired cases: 2/192 distinct seeds**, exactly **2300090** and **2300118**, each native process1 and shared value **1**. Wilson two-sided 95% descriptive interval for this *specific fixed program generator* is **[0.002861, 0.037179]**.
+**Observed strict paired cases: 2/192 distinct seeds**, exactly **2300090** and **2300118**, each using native process1; the preserved numeric value was **1 for seed 2300090** and **4 for seed 2300118**. Wilson two-sided 95% descriptive interval for this *specific fixed program generator* is **[0.002861, 0.037179]**.
 
 The single-target graph1 negative-source arm yielded **0/192** false-positive `GraphTagRead(graph2 tag11) → cell19` patterns under the corresponding fixed actor/epoch criterion. The rejected sham and externally re-injected **unaltered graph2** had identical simulated final states to untreated controls; zero-credit controls did not execute CIL. All source graph interventions were explicitly `Origin::External`, and no partial or unregistered graph edits were accepted.
 
