@@ -9,7 +9,7 @@ CIOC explores what self-maintenance, organizational individuality and potentiall
 | Track | Status | Entry point |
 | --- | --- | --- |
 | **CL-0** — native digital experimental world | **Infrastructure accepted · 2026-11-13** | [Project / instructions](cl0/README.md) · [acceptance evidence](cl0/docs/CL-0-acceptance.md) |
-| **CL-1** — endogenous organization research | **Twelve preregistered feasibility studies completed; bounded negative/inconclusive, positive stage not accepted** | [CL-1 results](cl1/RESULTS.md) · [research registry](cl1/README.md) |
+| **CL-1** — endogenous organization research | **Thirteen preregistered feasibility studies completed; bounded negative/inconclusive, positive stage not accepted** | [CL-1 results](cl1/RESULTS.md) · [research registry](cl1/README.md) |
 | **CIOC V0.1–V0.16** — historical synthetic models | **Archived, retained as independent evidence and negative lessons** | [Experiment history](experiments/) · [evidence transition](cl0/docs/cioc-transition.md) |
 
 **CL-0 verification:** [latest verified end-to-end workflow](https://github.com/iFrankStudio/cioc/actions/runs/43406928175) · [archived SQLite/JSON/CSV artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406928175/artifacts/14027303037).
@@ -63,4 +63,4 @@ Read the [V0.16 research checkpoint](docs/research-checkpoint-v0.16.md) for indi
 
 We separate **externally authored initial conditions**, **internal world activity** and **kernel mechanics**. We require predeclared measurement rules, negative controls, finite resource accounting, explicit failed interventions and replay evidence. Passing VM tests, increasing activity, code mutation or arbitrary structural complexity do not justify claims of autonomy, self-maintenance, organizational closure, open-ended evolution or life.
 
-**Current scientific conclusion:** CL-0 is a verified experimental infrastructure. There is **no verified evidence yet** that cyberlife has emerged. CL-1 has begun prospective experiments. Its twelve-study feasibility campaign yielded a bounded negative/inconclusive result, **not** verified self-maintenance or life. See [CL-1 findings](cl1/RESULTS.md).
+**Current scientific conclusion:** CL-0 is a verified experimental infrastructure. There is **no verified evidence yet** that cyberlife has emerged. CL-1 has begun prospective experiments. Its thirteen-study feasibility campaign yielded a bounded negative/inconclusive result, **not** verified self-maintenance or life. See [CL-1 findings](cl1/RESULTS.md).

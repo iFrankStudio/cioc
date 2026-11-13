@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-All twelve **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All thirteen **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -300,3 +300,37 @@ The **87/96** seed-world incidence of cross-owner interaction has 95% Wilson int
 ### Updated independent cohort accounting
 
 Across **12** preregistered cohorts: **1,280** distinct seeded initial worlds, **6,464 matched experimental runs with 6,464 exact replays**, and **84,224 separately checked postepoch snapshots** from Studies 05–12. These totals describe reproducibility and experiment workload, not a statistically pooled sample of life emergence.
+
+---
+
+## Study 13 — paired graph ablations and two-window reciprocal information flow (verified 2026-11-13)
+
+The [registered protocol](studies/13-preregistered-reciprocal-information-flow.md) was separately frozen in [`85bab403`](https://github.com/iFrankStudio/cioc/commit/85bab4034ddf0e42c17db4fddac2c6bd9744badd) before implementation or outcomes. The source revision `bc670fafd26ea7c93b018f92c6bda62749036882` passed the Study-13 CI job in [workflow 43426830986](https://github.com/iFrankStudio/cioc/actions/runs/43426830986); the full 576 matched trials and 9216 postepoch states were exact-replayed and SHA-256 checked. [Original SQLite/JSON archive](https://github.com/iFrankStudio/cioc/actions/runs/43426830986/artifacts/14037911787) (temporary retention) and [permanent version-pinned JSON report](results/study13-report.json).
+
+**New independent seed-worlds:** 1930000 through 1930095 inclusive; **96** independently generated worlds, six arms per initial world, 16 external epochs per arm, 12 possible CIL attempts per epoch. The matched externally attributed arms are untreated control, invalid sham, deletion of graph1, deletion of graph2, simultaneous graph1+graph2 deletion, and zero-credit control. The common externally authored nine-node scaffold creates three shared-access graph objects; the remaining executable instructions are externally randomized. No host agent can trigger repair.
+
+The **preregistered functional marker** is not graph-count growth or arbitrary register state difference. For a pair of distinct pre-action graph owners A,B, successful `GraphCopied` events must include both A→B and B→A within one observation window (W1 = epochs0–7; W2 = epochs8–15). This marker is defined by the observer and unavailable to CIL as a fitness signal.
+
+| Independently measured endpoint | Observed |
+| --- | ---: |
+| Untreated worlds with bidirectional information flow in W1 | **4/96** |
+| Untreated worlds with bidirectional information flow in W2 | **0/96** |
+| Both separated windows contain a bidirectional candidate | **0/96** |
+| W1-qualified worlds exposed to target-specific lesion contrast | **4/96** |
+| Graph1 ablation removes the original W1 pair marker | **4/96** |
+| Graph2 ablation removes the original W1 pair marker | **4/96** |
+| Additional loss requiring joint, rather than either single, ablation | **0/96** |
+| New populated graph under any of three lesion arms | **0/96** |
+| Later-window reappearance + graph creation and node-copy evidence | **0/96** in every lesion arm |
+| Reciprocal-copy event count in untreated W1 and W2 combined | **380 in W1; 26 in W2** (including one-way events) |
+| Sham/untreated simulated-state mismatch | **0/96** |
+
+The 4/96 W1 candidate incidence has a two-sided 95% Wilson interval **[0.016321, 0.102282]**. The 0/96 two-window persistence and candidate-reappearance proportions have intervals **[0, 0.038476]** under the frozen seed generator. **Only four worlds supplied the W1 function exposure**, so all four graph lesions removing the candidate is a very small exposed subcohort, not a sweeping estimate of closure.
+
+**Result:** One-way graph copying is common, but preregistered two-way information relations are **rare and transient**. Both single-object ablations can disrupt these relations, confirming *limited causal dependence* on the preauthored graph substrate. There was **no** durable two-window reciprocal relationship, no internal reappearance candidate and no new populated graph after targeted damage in this cohort. The original runnable code and published access grants are investigator-generated; a graph-object signal is not itself a jointly maintained function. **Endogenous maintenance, semantic function restoration and organizational closure remain NOT EVALUABLE / NOT DEMONSTRATED**, never accepted on the basis of these counts.
+
+**Method note:** After implementing the runner and before publishing this result, the independent analyzer clarified the prespecified new nonempty graph endpoint to include successfully created-and-populated objects subsequently dropped before the final snapshot. This was an analyzer-only event-provenance fix, checked with a targeted test; the frozen seeds, instruction generator, interventions, observation windows and functional marker were unchanged. The report and source revision above are pinned so that this adjustment is auditable.
+
+### Updated cohort accounting
+
+Across **13** separate preregistered cohort designs there are **1,376** independently seeded initial worlds, **7,040** paired experimental runs with full exact replays, and **93,440** separately hash-checked postepoch snapshots from Studies 05–13. Different cohorts and paired arms are not interchangeable samples; none of these totals estimates a probability of life. Positive CL-1 scientific acceptance remains **open**.

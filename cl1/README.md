@@ -1,8 +1,8 @@
 # CL-1 — Endogenous Organization Research
 
-**Status: twelve preregistered feasibility studies completed; bounded negative/inconclusive findings; positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
+**Status: thirteen preregistered feasibility studies completed; bounded negative/inconclusive findings; positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
 
-[Verified outcomes and scientific boundary](RESULTS.md) · [Permanent Study-10 summary](results/study10-report.json) · [Permanent Study-11 summary](results/study11-report.json) · [Permanent Study-12 summary](results/study12-report.json) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Verified twelve-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43425754065).
+[Verified outcomes and scientific boundary](RESULTS.md) · [Permanent Study-10 summary](results/study10-report.json) · [Permanent Study-11 summary](results/study11-report.json) · [Permanent Study-12 summary](results/study12-report.json) · [Permanent Study-13 summary](results/study13-report.json) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Verified twelve-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43425754065).
 
 ## Research registry
 - [Study 01 preregistration](studies/01-preregistered-random-ecology.md) — 64 independent seeded worlds, five matched conditions per world; first negative-capable baseline.
@@ -18,9 +18,10 @@
 - [Study 11 preregistration](studies/11-preregistered-postscaffold-ecology.md) — **completed** new-seed random postscaffold graph interactions, real inter-owner causal exposure, but no maintenance or closure evidence; [results](RESULTS.md#study-11--random-cil-continuation-produces-cross-owner-exchange-without-prewired-exchange-instructions-verified-2026-11-13).
 - [Study 12 preregistration](studies/12-preregistered-graph-lineage.md) — **completed** graph allocation, existing-process-code copying and edge-edit provenance; internally executed, not intrinsically invented, with [verified results](RESULTS.md#study-12--traceable-origins-of-internally-executed-graph-construction-and-code-edits-verified-2026-11-13).
 - [Original Study 10 design proposal](docs/study-10-neutral-opportunity-design.md) — preserved as a pre-registration methodological plan, not itself the experimental protocol.
+- [Study 13 preregistration](studies/13-preregistered-reciprocal-information-flow.md) — completed 96 new worlds × six matched arms, two nonoverlapping information-flow observation windows and targeted double ablations; [results](RESULTS.md#study-13--paired-graph-ablations-and-two-window-reciprocal-information-flow-verified-2026-11-13).
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
-**No life evidence has been established.** Across twelve distinct study cohorts (1,280 initial worlds and 6,464 matched runs), rare mutual state effects and external-compute-supported persistence were observed, but registered restoration and organizational closure were not. These distinct seeded generator families must not be pooled for statistical inference. See [results](RESULTS.md).
+**No life evidence has been established.** Across thirteen distinct study cohorts (1,376 initial worlds and 7,040 matched runs), rare mutual state effects and external-compute-supported persistence were observed, but registered restoration and organizational closure were not. These distinct seeded generator families must not be pooled for statistical inference. See [results](RESULTS.md).
 
 ## Procedure
 Each study protocol was preregistered in a prior separate commit. The Study-10 protocol is commit `02092cdf`; its validated runner revision is `9bf20b08`. CI validates complete experiments and read-only analysis. Use fresh SQLite filenames rather than appending experiments to an existing database.
@@ -60,3 +61,13 @@ python3 ../cl1/analyze_study12.py ../cl1-study12.sqlite --json ../cl1-study12-re
 ```
 
 For the archived result use source revision `f64f754be50fb1f5f0cfc993a6629836ce3bba7f`, not the later documentation commit. Create a fresh SQLite database, rather than appending to an existing cohort.
+
+## Reproduce Study 13
+
+```bash
+cd cl0
+CL1_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl1-study13 -- ../cl1-study13.sqlite
+python3 ../cl1/analyze_study13.py ../cl1-study13.sqlite --json ../cl1-study13-report.json
+```
+
+Use a **fresh** SQLite path. To match the archived exact-replay report, check out source `bc670fafd26ea7c93b018f92c6bda62749036882`. The laboratory validates the full run and each epoch; the independent Python audit checks the recorded fixed cohorts and outcome semantics.

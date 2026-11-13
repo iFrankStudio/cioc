@@ -1,0 +1,134 @@
+{
+  "study": "CL-1 Study 13",
+  "status": "two-window reciprocal information-flow causal probe; not proof of closure",
+  "source_revision": "bc670fafd26ea7c93b018f92c6bda62749036882",
+  "independent_seed_worlds": 96,
+  "matched_runs": 576,
+  "hashed_epoch_snapshots": 9216,
+  "exact_replay": "Rust laboratory full world/event replays, every epoch",
+  "metrics": {
+    "bidirectional_w1": {
+      "seed_worlds": 4,
+      "denominator": 96,
+      "wilson_95": [
+        0.016321,
+        0.102282
+      ]
+    },
+    "bidirectional_w2": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "bidirectional_both_windows": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "w1_exposed": {
+      "seed_worlds": 4,
+      "denominator": 96,
+      "wilson_95": [
+        0.016321,
+        0.102282
+      ]
+    },
+    "drop_g1_function_loss": {
+      "seed_worlds": 4,
+      "denominator": 96,
+      "wilson_95": [
+        0.016321,
+        0.102282
+      ]
+    },
+    "drop_g2_function_loss": {
+      "seed_worlds": 4,
+      "denominator": 96,
+      "wilson_95": [
+        0.016321,
+        0.102282
+      ]
+    },
+    "single_target_loss_any": {
+      "seed_worlds": 4,
+      "denominator": 96,
+      "wilson_95": [
+        0.016321,
+        0.102282
+      ]
+    },
+    "joint_damage_increment": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-g1_new_nonempty": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-g2_new_nonempty": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-both_new_nonempty": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-g1_late_reappearance_candidate": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-g2_late_reappearance_candidate": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "drop-both_late_reappearance_candidate": {
+      "seed_worlds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    }
+  },
+  "control_copy_events_w1": 380,
+  "control_copy_events_w2": 26,
+  "owner_pairs_with_both_directions": {
+    "(2, 3)": 2,
+    "(1, 3)": 1,
+    "(1, 2)": 1
+  },
+  "scientific_recovery": "NOT EVALUABLE",
+  "organizational_closure": "NOT EVALUABLE",
+  "life_claim": "NONE",
+  "caveat": "Observer-defined reciprocal graph copying may reflect initially randomized code, not internally initiated functional regeneration."
+}
