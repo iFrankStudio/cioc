@@ -13,7 +13,7 @@ This increment adds general-purpose graph operations and partial shared storage 
 ## Failure record
 - Initial Stage-3 CI failed because the test fixture attempted to clone an invalid node index and then asserted the wrong edge. The fixture was corrected, not dismissed.
 - Subsequent CI demonstrated the corrected tests pass but Clippy found a collapsible-if issue in the new external storage guard. That issue was corrected without changing the capacity rule.
-- The verification status for the *latest* commit should be taken from the corresponding GitHub Actions run, not inferred from earlier passing runs.
+- Verified Stage-3 documentation commit `49024a6` in GitHub Actions run https://github.com/iFrankStudio/cioc/actions/runs/43397416909 : the workspace tests and strict Clippy completed successfully. The rustfmt command formats CI working files; it does not enforce a clean formatted repository checkout.
 
 ## Limitations
 Worlds constructed with legacy `World::new` retain unbounded **aggregate** graph storage across processes; use `with_total_capacity` for a finite Stage-3 pool. No process creation, deletion, node erasure, byte-accurate memory charging, object capabilities, arbitrary graph synthesis, observer-independent claims of fitness, or direct evidence of spontaneous evolutionary innovation.
