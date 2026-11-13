@@ -1,6 +1,6 @@
 # CL-0 — Native Cyberlife Experimental World
 
-**Status: CL-0 experimental platform accepted on 2026-11-13.** [Verified closure report](docs/CL-0-acceptance.md) · [End-to-end CI and archived artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406674543). This is a deterministic experimental world for investigating *possible* cyberlife, **not** a claim that cyberlife or open-ended evolution has emerged. The historical CIOC V0.1–V0.16 fixtures remain untouched.
+**Status: CL-0 experimental platform accepted on 2026-11-13.** [Formal acceptance](docs/CL-0-acceptance.md) · [Latest passing end-to-end CI and artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406928175). This is a deterministic experimental world for investigating *possible* cyberlife, **not** a claim that cyberlife or open-ended evolution has emerged. The historical CIOC V0.1–V0.16 fixtures remain untouched.
 
 ## Included research infrastructure
 
@@ -40,7 +40,8 @@ Import the generated `report.json` through the web observer's file selector. The
 ## Documents
 
 - [CL-0 acceptance and scientific boundary](docs/CL-0-acceptance.md)
-- [Formal architectural baseline](docs/specification.md)
+- [Current accepted system specification](docs/current-system.md)
+- [Original Stage-1 architectural baseline (historical)](docs/specification.md)
 - [CIOC historical evidence audit](docs/cioc-transition.md)
 - [Code/data allocation](docs/stage-3-graph-storage.md)
 - [Executable graph objects](docs/stage-3-objects.md)
@@ -48,5 +49,10 @@ Import the generated `report.json` through the web observer's file selector. The
 - [Causal scheduling and read permissions](docs/stage-3.4-scheduled-permissions.md)
 - [Exploratory preregistered baseline](docs/stage-5-exploratory-baseline.md)
 - [Analysis](analysis/README.md) / [Observer](console/README.md)
+- [CL-1 research handoff and falsification rules](docs/CL-1-handoff.md)
 
 The unified storage ledger uses **abstract units**, not physically calibrated bytes or wall-clock energy. Any subsequent CL-1 research requires independently preregistered hypotheses and replicates; it must not retrospectively call these CL-0 synthetic fixtures organisms.
+
+## Documentation status
+
+The early Stage-1–3 specifications and checkpoints remain available as **historical progress records**. Their “future work” statements describe their own dates and must not override [current-system.md](docs/current-system.md). The formal [CL-0 acceptance report](docs/CL-0-acceptance.md) is the scientific and engineering completion boundary. CL-1 has **not** been accepted and requires new preregistered experiments.

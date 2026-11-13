@@ -1,3 +1,5 @@
+> **Historical document — Stage-1 architecture baseline (2026-11-13).** This file intentionally retains early “future/not yet implemented” descriptions to preserve the project’s decision history. **It is not the current CL-0 feature specification.** See [current accepted system specification](current-system.md), [CL-0 acceptance](CL-0-acceptance.md) and [CL-1 handoff](CL-1-handoff.md).
+
 # CL-0 Technical Specification — 0.1 (2026-11-13)
 
 Status: normative architectural baseline. Features annotated **future** are not implemented by the Stage-1 kernel.

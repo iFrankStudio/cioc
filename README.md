@@ -1,39 +1,66 @@
 # CIOC — Cyber Individuality & Organizational Closure
 
-CIOC is a research project on organizational individuality, causal maintenance and closure in native information–computational environments.
+**赛博生命研究 / Native Cyberlife Research**
 
-**Research status:** experimental prototypes. Passing tests does not demonstrate that artificial digital life has been created.
+CIOC explores what self-maintenance, organizational individuality and potentially open-ended change could mean in a world composed of information, executable algorithms, storage and compute resources. Its governing distinction is **a working experimental platform is not evidence of life**.
 
-## Experiment history
+## Current project status
 
-| Version | Topic | Main limitation |
-|---|---|---|
-| V0.1 | causal maintenance versus call cycles | fixed repair |
-| V0.2 | regenerating maintenance programs | stored templates |
-| V0.3 | synthesizing bounded replacement algorithms | fixed searcher |
-| V0.4 | mutually regenerating regulators | host-provided evaluation |
-| V0.5 | internally executed repair control graphs | finite syntax and fixed contracts |
-| V0.6 | complementary roles and contract recovery | O/G/V/M single-point dependencies |
-| V0.7 | reconstruction of generator G from O/V/M | O, V and M cannot yet recover |
-| V0.8 | behavioral recovery using distributed instruction fragments | O/V/M remain single points of failure; host behavioral probes |
-| V0.9 | bounded recovery of G/V/M through delegated verification and installation | O and joint failures remain; host-provided repair protocols |
-| V0.10 | damaged delegated protocol programs PV/PI can be behaviorally regenerated | O, joint failure cutsets, fixed host scheduling and oracle remain |
-| V0.11 | diagnosing live semantic corruption and quarantining damaged role/protocol programs | host behavioral oracle, D and O single points of failure |
+| Track | Status | Entry point |
+| --- | --- | --- |
+| **CL-0** — native digital experimental world | **Infrastructure accepted · 2026-11-13** | [Project / instructions](cl0/README.md) · [acceptance evidence](cl0/docs/CL-0-acceptance.md) |
+| **CL-1** — endogenous organization research | **Not yet accepted; hypotheses and experimental protocol must be preregistered** | [CL-1 handoff / next-stage research gates](cl0/docs/CL-1-handoff.md) |
+| **CIOC V0.1–V0.16** — historical synthetic models | **Archived, retained as independent evidence and negative lessons** | [Experiment history](experiments/) · [evidence transition](cl0/docs/cioc-transition.md) |
 
-## Research principles
+**CL-0 verification:** [latest verified end-to-end workflow](https://github.com/iFrankStudio/cioc/actions/runs/43406928175) · [archived SQLite/JSON/CSV artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406928175/artifacts/14027303037).
 
-- Distinguish world-execution primitives from internal organizational mechanisms.
-- Attribute internal restoration separately from external repair.
-- Preserve negative controls and failures.
-- Treat causal repair evidence, not mere graph cycles, as the basis for maintenance claims.
+The CL-0 acceptance run passed **48 Rust tests**, **3 Python tests**, Rust formatting and lint checks, the Vue 3/TypeScript build, and **96 of 96 exact SQLite replays** from **24 seeds × 4 matched conditions**. These are tests of engineering determinism and reproducibility, **not** observations of spontaneous life.
 
-The research baseline is on `main`. Historical V0.1–V0.6 source directories have been uploaded to the repository by the project owner. V0.7–V0.11 are independently inspectable research baselines. V0.11 extends the V0.10 world without altering historical source, and includes code, 12 focused tests, 17 scenario records, and a reproducible experiment report.
+## What CL-0 contains
 
-## Research iterations V0.13–V0.16
+- **Rust world kernel / CIL VM:** deterministic scheduling, mutable executable graph instructions, explicit internal/external event provenance and bounded instructions.
+- **Information and resources:** generic information-to-instruction construction, graph ownership and read permissions, finite abstract storage charges, process compute credits and externally traceable compute-pool allocation.
+- **Experimental laboratory:** SQLite-recorded initial and intermediate snapshots, matched interventions at CIL-attempt offsets, reproducible replay and negative controls.
+- **Independent observation:** read-only Python analysis and browser-local Vue 3 + TypeScript report inspection.
+- **Seeded reference baseline:** externally generated programs with no host life oracle or predefined repair/reproduction objective.
 
-- [V0.13](experiments/v0.13/): conflict-aware diagnostic votes and explicit collusion controls.
-- [V0.14](experiments/v0.14/): finite-resource ecology, executable reproduction and mutation, matched-seed environment shift.
-- [V0.15](experiments/v0.15/): costly metabolic reconfiguration and damage-rate comparison.
-- [V0.16](experiments/v0.16/): two damageable maintenance controllers combined with reproduction and resource limits.
+See the **[current system specification](cl0/docs/current-system.md)** and **[acceptance contract](cl0/docs/CL-0-acceptance.md)**. The original [Stage-1 specification](cl0/docs/specification.md) is retained as an historical architecture baseline rather than a current feature list.
 
-**Research checkpoint:** [results, caveats and stopping criteria](docs/research-checkpoint-v0.16.md). V0.16 is the most integrated toy candidate, **not** evidence of life or complete organizational closure. Earlier versions explore different scientific axes and are not necessarily dominated by later ones.
+## Reproduce the accepted baseline
+
+Requirements: Rust stable, Python 3.10+, Node.js 22+ and npm.
+
+```bash
+cd cl0
+cargo fmt --all -- --check
+cargo test --locked --workspace
+cargo clippy --locked --workspace --all-targets -- -D warnings
+python3 -m unittest discover -s analysis/tests -v
+
+CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl0-explore -- experiment.sqlite 24 54129
+python3 analysis/analyze.py experiment.sqlite --json report.json --csv report.csv
+
+cd console
+npm ci
+npm run build
+npm run dev
+```
+
+Open the local observer and import `report.json`. For detailed arguments, research constraints and file layout, use [cl0/README.md](cl0/README.md). The example shell substitution is for POSIX-compatible shells; on other shells, set `CL0_SOURCE_REVISION` to the checked-out commit hash through the appropriate syntax.
+
+## Historical evidence — not proofs of cyberlife
+
+- **V0.1–V0.3:** causal maintenance, stored templates and bounded reconstruction; relied on fixed repair assumptions.
+- **V0.4–V0.10:** mutually dependent regulators, delegated verification and damage to protocols; retained specialized host support and/or structural cutsets.
+- **V0.11–V0.13:** diagnosis and conflict-aware votes; host oracles and correlated failures remained critical limitations.
+- **V0.14:** finite-resource variation and mutation; not open-ended evolution.
+- **V0.15:** explicit maintenance costs and trade-offs under damage.
+- **V0.16:** two damageable controllers under resource limits; common-mode failures and preinstalled roles remained.
+
+Read the [V0.16 research checkpoint](docs/research-checkpoint-v0.16.md) for individual results and the [CIOC → CL-0 transition audit](cl0/docs/cioc-transition.md) for the distinction between constructed success and endogenous organization.
+
+## Research commitments
+
+We separate **externally authored initial conditions**, **internal world activity** and **kernel mechanics**. We require predeclared measurement rules, negative controls, finite resource accounting, explicit failed interventions and replay evidence. Passing VM tests, increasing activity, code mutation or arbitrary structural complexity do not justify claims of autonomy, self-maintenance, organizational closure, open-ended evolution or life.
+
+**Current scientific conclusion:** CL-0 is a verified experimental infrastructure. There is **no verified evidence yet** that cyberlife has emerged. CL-1 will investigate that question with falsifiable experiments, not by relabeling engineered behavior.
