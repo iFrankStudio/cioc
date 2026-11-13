@@ -1,6 +1,8 @@
 # CL-1 — Endogenous Organization Research
 
-**Status: research initiated; not accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
+**Status: four-study preregistered feasibility campaign executed (negative/inconclusive); positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
+
+[Verified outcomes and scientific boundary](RESULTS.md) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Green four-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43411607915).
 
 ## Research registry
 - [Study 01 preregistration](studies/01-preregistered-random-ecology.md) — 64 independent seeded worlds, five matched conditions per world; first negative-capable baseline.
@@ -9,7 +11,7 @@
 - [Study 04 preregistration](studies/04-preregistered-open-compute.md) — fresh long-horizon worlds with external finite compute pools and replenishment controls.
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
-**No life evidence has yet been established.** Study 01 can measure finite CIL behavior and state sensitivity but cannot alone verify organizational closure or self-maintenance.
+**No life evidence has been established.** Across 448 differently seeded worlds and 2,368 matched runs, rare mutual state effects and external-compute-supported persistence were observed, but registered restoration and organizational closure were not. These four distinct generator families must not be pooled for statistical inference. See [results](RESULTS.md).
 
 ## Procedure
 The preregistration is a separate prior commit. The runner and analyzer are implemented separately from preregistration commit `2b4e2ea`. CI must validate the complete run, replay and analysis before outcomes can be interpreted.\n\n```bash\ncd cl0\nCL1_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl1-study01 -- ../cl1-study01.sqlite\npython3 ../cl1/analyze.py ../cl1-study01.sqlite --json ../cl1-study01-report.json\n```
