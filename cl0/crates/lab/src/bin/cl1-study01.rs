@@ -166,8 +166,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let path = env::args()
         .nth(1)
         .unwrap_or_else(|| "cl1-study01.sqlite".to_owned());
-    let revision = env::var("CL1_SOURCE_REVISION")
-        .unwrap_or_else(|_| "unverified-local-checkout".into());
+    let revision =
+        env::var("CL1_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local-checkout".into());
     let mut lab = Laboratory::open(&path)?;
     let mut replays = 0_usize;
     for seed in FIRST_SEED..FIRST_SEED + REPLICAS {
@@ -176,7 +176,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         if runs.len() != 5 {
             return Err("study condition count invalid".into());
         }
-        let same_baseline = runs.iter().all(|r| r.initial_sha256 == runs[0].initial_sha256);
+        let same_baseline = runs
+            .iter()
+            .all(|r| r.initial_sha256 == runs[0].initial_sha256);
         if !same_baseline {
             return Err(format!("matched initial worlds differ for seed {seed}").into());
         }
@@ -242,10 +244,17 @@ mod tests {
         let mut lab = Laboratory::in_memory().unwrap();
         let baseline = seeded_world(FIRST_SEED);
         let runs = lab
-            .run_scheduled(&baseline, &conditions(FIRST_SEED), HORIZON, "cl1-study01-test")
+            .run_scheduled(
+                &baseline,
+                &conditions(FIRST_SEED),
+                HORIZON,
+                "cl1-study01-test",
+            )
             .unwrap();
         assert_eq!(runs.len(), 5);
-        assert!(runs.iter().all(|r| lab.verify_scheduled_replay(r.id).unwrap()));
+        assert!(runs
+            .iter()
+            .all(|r| lab.verify_scheduled_replay(r.id).unwrap()));
         assert_eq!(runs[1].attempts, 0);
     }
 }
