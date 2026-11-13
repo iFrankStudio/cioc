@@ -1,0 +1,16 @@
+test_budget_limit (test_cioc.ProtocolRecoveryTests.test_budget_limit) ... ok
+test_corrupted_live_protocol_is_not_auto_detected (test_cioc.ProtocolRecoveryTests.test_corrupted_live_protocol_is_not_auto_detected) ... ok
+test_each_protocol_recovers_without_exact_source (test_cioc.ProtocolRecoveryTests.test_each_protocol_recovers_without_exact_source) ... ok
+test_external_restore_not_internal (test_cioc.ProtocolRecoveryTests.test_external_restore_not_internal) ... ok
+test_missing_fragments_prevent_protocol_recovery (test_cioc.ProtocolRecoveryTests.test_missing_fragments_prevent_protocol_recovery) ... ok
+test_no_damage_no_repair (test_cioc.ProtocolRecoveryTests.test_no_damage_no_repair) ... ok
+test_protocol_and_dependent_role_simultaneous_loss (test_cioc.ProtocolRecoveryTests.test_protocol_and_dependent_role_simultaneous_loss) ... ok
+test_protocol_negative_behavioral_controls (test_cioc.ProtocolRecoveryTests.test_protocol_negative_behavioral_controls) ... ok
+test_protocol_vm_is_causally_required (test_cioc.ProtocolRecoveryTests.test_protocol_vm_is_causally_required) ... ok
+test_recovered_protocol_executed_in_later_role_repair (test_cioc.ProtocolRecoveryTests.test_recovered_protocol_executed_in_later_role_repair) ... ok
+test_role_recovery_baseline (test_cioc.ProtocolRecoveryTests.test_role_recovery_baseline) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.076s
+
+OK
