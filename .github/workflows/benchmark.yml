@@ -1,0 +1,14 @@
+name: CIOC benchmark
+on:
+  push:
+  pull_request:
+jobs:
+  v07:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run bounded V0.7 benchmark
+        run: cd experiments/v0.7 && python -m unittest -v
