@@ -764,6 +764,21 @@ pub enum EventKind {
         key: CellKey,
         value: i64,
     },
+    /// Observer-only exact result of a successful native graph opcode-tag read.
+    GraphTagRead {
+        graph: u64,
+        owner: ProcessId,
+        node: usize,
+        tag: i64,
+    },
+    /// Observer-only exact result of a successful native graph descriptor-field read.
+    GraphFieldRead {
+        graph: u64,
+        owner: ProcessId,
+        node: usize,
+        field: usize,
+        word: i64,
+    },
     /// Successful resource-accounted movement of graph code into an executable child.
     GraphLaunched {
         source_graph: u64,
@@ -1967,9 +1982,16 @@ impl World {
                 }
                 let item = object.nodes.get(index).ok_or("invalid node")?;
                 let tag = item.opcode_tag();
+                let owner = object.owner;
                 let p = self.processes.get_mut(&id).expect("reader exists");
                 p.registers[dst] = tag;
                 p.pc = next;
+                self.pending_transition = Some(EventKind::GraphTagRead {
+                    graph: object_id,
+                    owner,
+                    node: index,
+                    tag,
+                });
             }
             Op::GraphReadField {
                 graph,
@@ -1994,9 +2016,18 @@ impl World {
                 }
                 let instruction = object.nodes.get(index).ok_or("invalid node")?;
                 let description = instruction.encode_instruction()?;
+                let owner = object.owner;
+                let word = description[field_index];
                 let actor = self.processes.get_mut(&id).expect("owner exists");
-                actor.registers[field] = description[field_index];
+                actor.registers[field] = word;
                 actor.pc = next;
+                self.pending_transition = Some(EventKind::GraphFieldRead {
+                    graph: object_id,
+                    owner,
+                    node: index,
+                    field: field_index,
+                    word,
+                });
             }
             Op::GraphReplace {
                 graph,
@@ -2938,8 +2969,14 @@ mod tests {
         assert_eq!(w.run(3), 3);
         assert!(matches!(
             w.events().last().unwrap().kind,
-            EventKind::Executed
+            EventKind::GraphTagRead {
+                graph: 1,
+                owner: 1,
+                node: 0,
+                tag: 0
+            }
         ));
+        assert_eq!(w.events().last().unwrap().origin, Origin::Internal(2));
         assert_eq!(w.process(2).unwrap().registers[2], 0);
         w.intervene(Intervention::SetCredits {
             process: 1,
