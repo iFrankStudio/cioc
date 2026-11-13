@@ -277,10 +277,7 @@ mod tests {
         for seed in FIRST_SEED..FIRST_SEED + REPLICAS {
             let world = seeded_world(seed);
             assert_eq!(world.occupied_units(), 51);
-            assert_eq!(
-                next_edge(&world.process(1).unwrap().code.nodes[8]),
-                Some(9)
-            );
+            assert_eq!(next_edge(&world.process(1).unwrap().code.nodes[8]), Some(9));
         }
     }
 
@@ -298,7 +295,12 @@ mod tests {
     fn constructed_small_replica_replays_all_conditions() {
         let mut lab = Laboratory::in_memory().unwrap();
         let outcomes = lab
-            .run_scheduled(&seeded_world(FIRST_SEED), &conditions(FIRST_SEED), HORIZON, "test")
+            .run_scheduled(
+                &seeded_world(FIRST_SEED),
+                &conditions(FIRST_SEED),
+                HORIZON,
+                "test",
+            )
             .unwrap();
         assert_eq!(outcomes.len(), 5);
         assert!(outcomes
