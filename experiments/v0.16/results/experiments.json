@@ -1,0 +1,27 @@
+{
+  "loss_primary": {
+    "controller_repairs": 1,
+    "healthy": true
+  },
+  "loss_secondary": {
+    "controller_repairs": 1,
+    "healthy": true
+  },
+  "both_loss": {
+    "controller_repairs": 0,
+    "alive": 31
+  },
+  "primary_then_body": {
+    "controller_repairs": 1,
+    "body_repairs": 1
+  },
+  "peer_disabled": {
+    "controller_repairs": 0
+  },
+  "fragment_missing": {
+    "controller_repairs": 0
+  },
+  "low_energy": {
+    "controller_repairs": 0
+  }
+}
