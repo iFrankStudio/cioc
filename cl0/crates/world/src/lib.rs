@@ -764,6 +764,22 @@ pub enum EventKind {
         key: CellKey,
         value: i64,
     },
+    /// Successful generic decoding of an existing shared-cell descriptor into a new node.
+    GraphEncoded {
+        graph: u64,
+        owner: ProcessId,
+        new_node: usize,
+        descriptor_base: i64,
+        descriptor: [i64; 5],
+    },
+    /// Successful generic replacement using five shared-cell descriptor words.
+    GraphReplaced {
+        graph: u64,
+        owner: ProcessId,
+        node: usize,
+        descriptor_base: i64,
+        descriptor: [i64; 5],
+    },
     /// Observer-only successful graph allocation.
     GraphCreated {
         graph: u64,
@@ -1810,6 +1826,13 @@ impl World {
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = position_reg;
                 p.pc = next;
+                self.pending_transition = Some(EventKind::GraphEncoded {
+                    graph: object_id,
+                    owner: id,
+                    new_node: position,
+                    descriptor_base: base,
+                    descriptor: words,
+                });
             }
 
             Op::GraphGrantRead {
@@ -1954,6 +1977,13 @@ impl World {
                     .expect("checked graph")
                     .nodes[index] = replacement;
                 self.processes.get_mut(&id).expect("actor exists").pc = next;
+                self.pending_transition = Some(EventKind::GraphReplaced {
+                    graph: object_id,
+                    owner: id,
+                    node: index,
+                    descriptor_base: base,
+                    descriptor: description,
+                });
             }
             Op::GraphCopyFrom {
                 target,
