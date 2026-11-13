@@ -3723,6 +3723,145 @@ mod tests {
     }
 
     #[test]
+    fn external_graph_injection_restores_exact_object_without_compute_mint() {
+        let mut world = World::with_strict_capacity(0, 10, 30);
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::Const {
+                        dst: 1,
+                        value: 2,
+                        next: 2,
+                    },
+                    Op::GraphGrantRead {
+                        graph: 0,
+                        reader: 1,
+                        next: 3,
+                    },
+                    Op::GraphCopyNode {
+                        graph: 0,
+                        source: 2,
+                        dst: 2,
+                        next: 4,
+                    },
+                    Op::Halt,
+                ],
+                7,
+            ))
+            .unwrap();
+        world.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
+        assert_eq!(world.run(4), 4);
+        let before = world.graph_object(1).unwrap().clone();
+        assert_eq!(before.readers.len(), 1);
+        let occupancy = world.occupied_units();
+        let credits = world.total_compute_inventory().unwrap();
+        world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+        assert!(world.graph_object(1).is_none());
+        world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: before.clone(),
+            })
+            .unwrap();
+        assert_eq!(world.graph_object(1), Some(&before));
+        assert_eq!(world.occupied_units(), occupancy);
+        assert_eq!(world.total_compute_inventory(), Some(credits));
+        assert_eq!(world.events().last().unwrap().origin, Origin::External);
+        assert!(matches!(
+            &world.events().last().unwrap().kind,
+            EventKind::Intervened(text) if text.contains("PutGraph")
+        ));
+    }
+
+    #[test]
+    fn external_graph_injection_invalid_cases_are_atomic() {
+        let mut world = World::with_strict_capacity(1, 8, 6);
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::GraphCopyNode {
+                        graph: 0,
+                        source: 0,
+                        dst: 1,
+                        next: 2,
+                    },
+                    Op::Halt,
+                ],
+                4,
+            ))
+            .unwrap();
+        assert_eq!(world.run(2), 2);
+        let saved = world.graph_object(1).unwrap().clone();
+        // An occupied handle cannot be injected over, and no data changes.
+        let occupied = world.occupied_units();
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: saved.clone(),
+            })
+            .is_err());
+        assert_eq!(world.occupied_units(), occupied);
+        world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+        for graph in [0, 2] {
+            assert!(world
+                .intervene(Intervention::PutGraph {
+                    graph,
+                    object: saved.clone(),
+                })
+                .is_err());
+        }
+        let mut invalid_owner = saved.clone();
+        invalid_owner.owner = 99;
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: invalid_owner,
+            })
+            .is_err());
+        let mut invalid_reader = saved.clone();
+        invalid_reader.readers.insert(99);
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: invalid_reader,
+            })
+            .is_err());
+        let mut empty = saved.clone();
+        empty.nodes.clear();
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: empty,
+            })
+            .is_err());
+        let mut oversized = saved.clone();
+        oversized.nodes = vec![Op::Halt; 9];
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: oversized,
+            })
+            .is_err());
+        // Storage refunded by DropGraph is now partially occupied by a cell.
+        world
+            .intervene(Intervention::SetCell { key: 8, value: 1 })
+            .unwrap();
+        let before_rejection = world.occupied_units();
+        assert!(world
+            .intervene(Intervention::PutGraph {
+                graph: 1,
+                object: saved,
+            })
+            .is_err());
+        assert_eq!(world.occupied_units(), before_rejection);
+        assert!(world.graph_object(1).is_none());
+    }
+
+    #[test]
     fn stable_round_robin_by_id() {
         let mut world = World::new(0, 2);
         world
