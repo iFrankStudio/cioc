@@ -1,6 +1,6 @@
 # CL-1 — Endogenous Organization Research
 
-**Status: fourteen preregistered ecological feasibility studies executed; Study 14 negative checkpoint verified; Studies 15–17 are observer-only provenance calibration and lineage tooling, not evidence of life. Positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
+**Status: fourteen preregistered ecological feasibility studies executed; Studies 15–19 are technical provenance/calibration controls, not positive cyberlife evidence. Positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
 
 [Verified outcomes and scientific boundary](RESULTS.md) · [Permanent Study-10 summary](results/study10-report.json) · [Permanent Study-11 summary](results/study11-report.json) · [Permanent Study-12 summary](results/study12-report.json) · [Permanent Study-13 summary](results/study13-report.json) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Verified thirteen-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43427188730).
 
@@ -23,7 +23,8 @@
 - [Study 15 preregistration](studies/15-preregistered-cell-io-provenance.md) — observer-only internal CellRead / CellWritten events and targeted success/trap tests; technical calibration, not a cyberlife finding.
 - [Study 16 preregistration](studies/16-preregistered-descriptor-code-ancestry.md) — success-only GraphEncoded / GraphReplaced descriptor lineage, with [read-only last-writer audit](analyze_descriptor_ancestry.py); external/unknown descriptor sources must not become internal novelty claims.
 - [Study 17 preregistration](studies/17-preregistered-graph-launch-ancestry.md) — resource-conserving GraphLaunched graph-to-process lineage, with no reproduction claim.
-- [Study 18 preregistration](studies/18-preregistered-functional-lineage-audit.md) — observer-only [strict execution ancestry auditor](analyze_study18.py) with positive synthetic and adversarial controls. It is exercised retrospectively against replayed Study-14 SQLite; **functional causality and autonomous maintenance remain NOT EVALUABLE**. No extra ecological cohorts or life evidence are claimed.
+- [Study 18 preregistration](studies/18-preregistered-functional-lineage-audit.md) — verified [zero-witness checkpoint](results/study18-checkpoint.md) from a read-only [strict execution ancestry auditor](analyze_study18.py) of Study 14, with calibrated synthetic positive/negative fixtures. **Functional causality and autonomous maintenance remain NOT EVALUABLE**. No new ecological cohort was sampled.
+- [Study 19 preregistration](studies/19-preregistered-external-graph-control.md) — verified [structural positive-control checkpoint](results/study19-checkpoint.md): external-only `PutGraph` restores exactly the removed graph within strict resource accounting and SQLite epoch replay. **Functional restoration and endogenous maintenance remain unproven.**
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
 **No life evidence has been established.** Across fourteen distinct study cohorts (1,472 initial worlds and 7,616 matched runs), rare mutual state effects and external-compute-supported persistence were observed, but registered restoration and organizational closure were not. These distinct seeded generator families must not be pooled for statistical inference. See [results](RESULTS.md).
