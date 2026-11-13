@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 //! CL-0 Stage 1: deterministic mechanics only. No hardcoded organism, repair or fitness.
+use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 
 pub type ProcessId = u64;
