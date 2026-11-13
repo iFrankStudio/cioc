@@ -667,6 +667,17 @@ mod tests {
     }
 
     #[test]
+    fn world_snapshots_preserve_explicit_version() {
+        let world = World::with_strict_capacity(2, 8, 10);
+        let encoded = serde_json::to_string(&world).unwrap();
+        let value: serde_json::Value = serde_json::from_str(&encoded).unwrap();
+        assert_eq!(value["format_version"], 1);
+        let reconstructed: World = serde_json::from_str(&encoded).unwrap();
+        assert_eq!(reconstructed, world);
+        assert_eq!(reconstructed.format_version(), 1);
+    }
+
+    #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
         assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
