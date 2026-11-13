@@ -137,6 +137,7 @@ fn seeded_world(seed: u64) -> World {
 }
 
 /// Lowest *nonempty* internally constructed object after the common history.
+#[cfg(test)]
 fn first_nonempty_graph(world: &World) -> Option<(u64, u64)> {
     (1..=64).find_map(|id| {
         let object = world.graph_object(id)?;
