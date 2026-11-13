@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-All ten **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All eleven **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -234,3 +234,35 @@ Across **ten** disjoint, nonexchangeable cohorts, there are now **1,088 initial 
 ### Next scientific experiment boundary
 
 Study 11 should isolate externally scripted opportunity behavior from subsequent internally generated functional change. A fresh registered cohort must compare identical scaffold resources with randomized versus disabled/perturbed continuations, instrument which *post-scaffold* code mutations create genuinely new effective dependencies, and use matched interventions on multiple internally produced parts. **A successful transfer or copy prewritten at a particular PC cannot count** toward functional recovery, organizational closure or “emergence.” Prospective stable function and multi-epoch recovery endpoints must be frozen **before** observing Study-11 outcomes. No host fitness, repair or reproduction oracle.
+
+---
+
+## Study 11 — random CIL continuation produces cross-owner exchange without prewired exchange instructions (verified 2026-11-13)
+
+The [Study-11 protocol](studies/11-preregistered-postscaffold-ecology.md) was frozen at [`cd859cf7`](https://github.com/iFrankStudio/cioc/commit/cd859cf7fbd844345e8969755b68eb6778dabc60) **before implementation or inspecting the new trials**. Study-11 source revision `833b6a609ebbf5a7d5d354588bb4d0770a3c595a` was validated by all **eleven** jobs in [CI 43422732727](https://github.com/iFrankStudio/cioc/actions/runs/43422732727). [Full SQLite, 7,680 epoch snapshots and JSON outcome artifact](https://github.com/iFrankStudio/cioc/actions/runs/43422732727/artifacts/14034463544). Every one of **480/480 matched runs** and **7,680/7,680 postepoch state snapshots** replayed with exact hashes.
+
+This study removed `GraphCopyFrom` and `GraphTransfer` from the nine-node **reliable externally scripted opportunity prefix**. The prefix only created three generic executable graph objects, published their handles, gave each neighboring process read access and loaded an ordinary graph reference into a register. It was followed by 18 nodes of uniform 12-choice *externally randomly generated* CIL code, with no host-defined cooperation/repair objectives. **No deliberate inter-owner copy/transfer was prewritten in the fixed prefix.**
+
+| Prospective outcome | Observed across 96 fresh initial worlds |
+| --- | ---: |
+| Eligible internally executed graph objects at the matched fork | **96/96** |
+| Successful cross-owner graph-node copies from random continuation | **308 events, 73/96 seed-worlds** |
+| Successful different-owner transfers from random continuation | **89 events, 65/96 seed-worlds** |
+| At least one successful cross-owner exchange | **89/96 seed-worlds** |
+| Original graph-node structures changed under control | **93/96 seed-worlds** |
+| Targeted graph deletion affected downstream process state | **76/96 seed-worlds** |
+| Deletion affected *nonowner* process state | **49/96 seed-worlds** |
+| Late-epoch internal activity | **10/96 seed-worlds** |
+| Nonempty graph created after target deletion by the original owner | **0/96 seed-worlds** |
+| Sham/untreated simulated-state mismatch | **0/96** |
+| Charged trapped attempts in untreated postfork execution | **212 events** |
+
+On 96 independent seed-worlds the successful-exchange incidence **89/96** has a two-sided 95% Wilson interval **[0.857070, 0.964232]**. Nonowner process-state sensitivity after graph ablation **49/96** has interval **[0.411960, 0.608071]**. This describes only this preregistered generator/horizon, not any general probability of digital life. The five conditions within one seed-world are paired, not independent.
+
+**Research interpretation:** The experiment improves substantially on Study 10's engineering calibration: with no prewired exchange instruction, general seeded CIL continuations reliably execute authorized cross-owner information transfers and their removal can alter other processes. However, the **random continuation source code was still generated by the researcher at initialization**, so these events cannot be counted as autonomous discovery, a preference for cooperation, or an evolved self-sustaining organization. The preauthored prefix creates the graph references and the mutual read rights, and therefore some causal dependencies are externally made possible. **No regenerated nonempty graph after damage, no restored joint function and no time-separated internal organizational closure were observed or even fully operationalized.** The positive CL-1 acceptance criterion remains **NOT MET**.
+
+### Aggregate verification boundary
+
+Across the **11** nonexchangeable registered cohorts: **1,184** initial seed-worlds, **5,984 matched records and exact final-state/event replays**, plus **76,544 hash-verified postepoch snapshots** from Studies 05–11. All experiment protocols were frozen in separate commits before their respective runners. These are reproducibility and research-scope totals, **not pooled data for estimating life probability**.
+
+**Next methodological priority:** provenance of actual *internally created or changed executable nodes*, including the origin of new object nodes and copied operations, followed by prospective **joint information-function** ablations of two genuinely internal components and explicit internal restoration analysis across separate epochs. Copy events sourced from investigator-randomized *initial* code cannot be promoted to endogenous adaptive maintenance merely because they influence other processes.
