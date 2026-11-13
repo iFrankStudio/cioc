@@ -562,7 +562,7 @@ mod tests {
     fn clone_node_is_generic_and_resource_priced() {
         let mut world = World::with_total_capacity(2, 12, 8);
         world.load(Process::new(1, vec![
-            Op::Const { dst: 0, value: 4, next: 1 },
+            Op::Const { dst: 0, value: 1, next: 1 },
             Op::CloneNode { dst: 1, source: 0, next: 2 },
             Op::ReadNext { dst: 2, node: 1, next: 3 },
             Op::Halt,
