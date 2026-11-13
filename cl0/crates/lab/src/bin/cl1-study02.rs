@@ -110,7 +110,6 @@ fn seeded_world(seed: u64) -> World {
     world
 }
 
-
 fn conditions(seed: u64) -> Vec<ScheduledCondition> {
     let action = |after_attempts, action| ScheduledAction {
         after_attempts,
