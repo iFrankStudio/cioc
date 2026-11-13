@@ -257,6 +257,28 @@ mod tests {
     }
 
     #[test]
+    fn replay_includes_resource_priced_code_allocation() {
+        let mut world = World::with_total_capacity(0, 8, 4);
+        world.load(Process::new(5, vec![
+            Op::Const { dst: 0, value: 0, next: 1 },
+            Op::CloneNode { dst: 1, source: 0, next: 2 },
+            Op::Halt,
+        ], 5)).unwrap();
+        let mut lab = Laboratory::in_memory().unwrap();
+        let records = lab.run_matched(&world, &[
+            Condition { label: "allocation".into(), interventions: vec![] },
+            Condition { label: "zero-compute".into(), interventions: vec![
+                Intervention::SetCredits { process: 5, credits: 0 }
+            ] },
+        ], 8, "stage3-test").unwrap();
+        assert_eq!(records[0].world.occupied_units(), 4);
+        assert_eq!(records[1].world.occupied_units(), 3);
+        assert_eq!(records[0].attempts, 3);
+        assert_eq!(records[1].attempts, 0);
+        assert!(records.iter().all(|run| lab.verify_replay(run.id).unwrap()));
+    }
+
+    #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
         assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
