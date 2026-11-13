@@ -24,34 +24,114 @@ fn seeded_world(seed: u64) -> World {
         let predecessor = (id + 1) % 3 + 1;
         let mut nodes = vec![
             Op::GraphNew { dst: 3, next: 1 },
-            Op::GraphCopyNode { graph: 3, source: 2, dst: 2, next: 2 },
-            Op::Const { dst: 0, value: id as i64 - 1, next: 3 },
-            Op::Write { address: 0, value: 3, next: 4 },
-            Op::Const { dst: 1, value: predecessor as i64, next: 5 },
-            Op::GraphGrantRead { graph: 3, reader: 1, next: 6 },
-            Op::Const { dst: 0, value: (id % 3) as i64, next: 7 },
-            Op::Read { dst: 1, address: 0, next: 8 },
-            Op::Const { dst: 2, value: 0, next: 9 },
+            Op::GraphCopyNode {
+                graph: 3,
+                source: 2,
+                dst: 2,
+                next: 2,
+            },
+            Op::Const {
+                dst: 0,
+                value: id as i64 - 1,
+                next: 3,
+            },
+            Op::Write {
+                address: 0,
+                value: 3,
+                next: 4,
+            },
+            Op::Const {
+                dst: 1,
+                value: predecessor as i64,
+                next: 5,
+            },
+            Op::GraphGrantRead {
+                graph: 3,
+                reader: 1,
+                next: 6,
+            },
+            Op::Const {
+                dst: 0,
+                value: (id % 3) as i64,
+                next: 7,
+            },
+            Op::Read {
+                dst: 1,
+                address: 0,
+                next: 8,
+            },
+            Op::Const {
+                dst: 2,
+                value: 0,
+                next: 9,
+            },
         ];
         for index in 9..27 {
             let next = index + 1;
             let op = match random(&mut state) % 12 {
-                0 | 1 => Op::GraphCopyFrom { target: 3, source: 1, node: 2, next },
-                2 => Op::GraphCopyNode { graph: 3, source: 2, dst: 2, next },
-                3 => Op::GraphSetConst { graph: 3, node: 2, value: 0, next },
-                4 => Op::GraphSetNext { graph: 3, node: 2, target: 2, next },
-                5 => Op::GraphReadTag { dst: 0, graph: 1, node: 2, next },
-                6 => Op::GraphGrantRead { graph: 3, reader: 1, next },
-                7 => Op::GraphTransfer { graph: 3, recipient: 1, next },
+                0 | 1 => Op::GraphCopyFrom {
+                    target: 3,
+                    source: 1,
+                    node: 2,
+                    next,
+                },
+                2 => Op::GraphCopyNode {
+                    graph: 3,
+                    source: 2,
+                    dst: 2,
+                    next,
+                },
+                3 => Op::GraphSetConst {
+                    graph: 3,
+                    node: 2,
+                    value: 0,
+                    next,
+                },
+                4 => Op::GraphSetNext {
+                    graph: 3,
+                    node: 2,
+                    target: 2,
+                    next,
+                },
+                5 => Op::GraphReadTag {
+                    dst: 0,
+                    graph: 1,
+                    node: 2,
+                    next,
+                },
+                6 => Op::GraphGrantRead {
+                    graph: 3,
+                    reader: 1,
+                    next,
+                },
+                7 => Op::GraphTransfer {
+                    graph: 3,
+                    recipient: 1,
+                    next,
+                },
                 8 => Op::GraphNew { dst: 3, next },
-                9 => Op::Const { dst: 2, value: 0, next },
-                10 => Op::Write { address: 0, value: 3, next },
-                _ => Op::Branch { test: 1, nonzero: index - 2, zero: next },
+                9 => Op::Const {
+                    dst: 2,
+                    value: 0,
+                    next,
+                },
+                10 => Op::Write {
+                    address: 0,
+                    value: 3,
+                    next,
+                },
+                _ => Op::Branch {
+                    test: 1,
+                    nonzero: index - 2,
+                    zero: next,
+                },
             };
             nodes.push(op);
         }
         nodes.push(Op::Halt);
-        world.load(Process::new(id, nodes, 56)).expect("registered initial graph fits");
+        world
+            .load(Process::new(id, nodes, 56))
+            .expect("registered initial graph fits");
     }
     world
 }
