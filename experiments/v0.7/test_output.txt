@@ -17,4 +17,4 @@ Ran 12 tests in 0.002s
 OK
 
 Local original V0.7 source: python -m unittest -v (exit code 0).
-GitHub baseline is an adapted version; this is NOT a GitHub CI log.
+Original GitHub source and tests were restored on main; local test execution passed. This is a local run record, NOT a GitHub Actions CI log.
