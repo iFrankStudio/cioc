@@ -341,3 +341,40 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study09.sqlite
             ${{ runner.temp }}/cl1-study09-report.json
+
+  study10:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered neutral opportunity protocol
+        run: test -f ../cl1/studies/10-preregistered-neutral-opportunity.md
+      - name: Check Rust formatting, tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 64 independently seeded neutral opportunity worlds
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study10 -- "$RUNNER_TEMP/cl1-study10.sqlite"
+      - name: Independent source-aware scientific audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study10.py "$RUNNER_TEMP/cl1-study10.sqlite" --json "$RUNNER_TEMP/cl1-study10-report.json"
+          cat "$RUNNER_TEMP/cl1-study10-report.json"
+      - name: Archive Study 10 matched worlds and snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study10
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study10.sqlite
+            ${{ runner.temp }}/cl1-study10-report.json
