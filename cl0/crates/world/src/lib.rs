@@ -19,6 +19,13 @@ pub enum Op {
     CloneNode { dst: usize, source: usize, next: usize },
     PatchConst { node: usize, value: usize, next: usize },
     Delete { address: usize, next: usize },
+    GraphNew { dst: usize, next: usize },
+    GraphCopyNode { graph: usize, source: usize, dst: usize, next: usize },
+    GraphSetNext { graph: usize, node: usize, target: usize, next: usize },
+    GraphSetConst { graph: usize, node: usize, value: usize, next: usize },
+    GraphReadNext { dst: usize, graph: usize, node: usize, next: usize },
+    GraphDrop { graph: usize, next: usize },
+    GraphLaunch { graph: usize, credits: usize, dst: usize, next: usize },
     Halt,
 }
 
@@ -34,7 +41,14 @@ impl Op {
             | Op::ReadNext { next, .. }
             | Op::CloneNode { next, .. }
             | Op::PatchConst { next, .. }
-            | Op::Delete { next, .. } => Some(next),
+            | Op::Delete { next, .. }
+            | Op::GraphNew { next, .. }
+            | Op::GraphCopyNode { next, .. }
+            | Op::GraphSetNext { next, .. }
+            | Op::GraphSetConst { next, .. }
+            | Op::GraphReadNext { next, .. }
+            | Op::GraphDrop { next, .. }
+            | Op::GraphLaunch { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
@@ -95,6 +109,12 @@ pub struct Event {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+pub struct GraphObject {
+    pub owner: ProcessId,
+    pub nodes: Vec<Op>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct World {
     processes: BTreeMap<ProcessId, Process>,
     cells: BTreeMap<CellKey, i64>,
@@ -102,6 +122,12 @@ pub struct World {
     max_nodes_per_process: usize,
     /// Optional common allocation cap: all executable nodes plus shared cells.
     total_storage_limit: Option<usize>,
+    #[serde(default)]
+    graph_objects: BTreeMap<u64, GraphObject>,
+    #[serde(default = "default_graph_id")]
+    next_graph_id: u64,
+    #[serde(default = "default_process_id")]
+    next_process_id: u64,
     cursor: Option<ProcessId>,
     tick: u64,
     events: Vec<Event>,
@@ -116,6 +142,9 @@ pub enum Intervention {
     PatchEdge { process: ProcessId, node: usize, next: usize },
 }
 
+fn default_graph_id() -> u64 { 1 }
+fn default_process_id() -> u64 { 1 }
+
 impl World {
     pub fn new(storage_limit: usize, max_nodes_per_process: usize) -> Self {
         Self {
@@ -124,6 +153,9 @@ impl World {
             storage_limit,
             max_nodes_per_process,
             total_storage_limit: None,
+            graph_objects: BTreeMap::new(),
+            next_graph_id: 1,
+            next_process_id: 1,
             cursor: None,
             tick: 0,
             events: Vec::new(),
@@ -139,10 +171,17 @@ impl World {
     }
 
     pub fn occupied_units(&self) -> usize {
-        self.processes.values().fold(self.cells.len(), |used, p| used.saturating_add(p.code.nodes.len()))
+        let used = self.processes.values().fold(self.cells.len(), |used, p| used.saturating_add(p.code.nodes.len()));
+        self.graph_objects.values().fold(used, |used, g| used.saturating_add(1).saturating_add(g.nodes.len()))
     }
 
     pub fn total_capacity(&self) -> Option<usize> { self.total_storage_limit }
+
+    /// Read-only visibility for analysis. Graph capabilities remain local to the creator.
+    pub fn graph_object(&self, id: u64) -> Option<&GraphObject> {
+        self.graph_objects.get(&id)
+    }
+    pub fn graph_count(&self) -> usize { self.graph_objects.len() }
 
     fn can_allocate(&self, additional: usize) -> bool {
         self.total_storage_limit.is_none_or(|limit| {
@@ -164,7 +203,9 @@ impl World {
         if !self.can_allocate(process.code.nodes.len()) {
             return Err("total storage capacity exhausted");
         }
+        let next_id = process.id.checked_add(1).ok_or("process id exhausted")?;
         let id = process.id;
+        self.next_process_id = self.next_process_id.max(next_id);
         let pc = process.pc;
         let credits = process.credits;
         self.processes.insert(id, process);
@@ -320,6 +361,13 @@ impl World {
 
     /// Returns Ok(true) on halt; no instruction expresses semantic notions of repair.
     fn execute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        if matches!(op,
+            Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
+            | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
+            | Op::GraphDrop { .. } | Op::GraphLaunch { .. }
+        ) {
+            return self.execute_graph(id, op);
+        }
         let can_add_unit = self.can_allocate(1);
         let (processes, cells) = (&mut self.processes, &mut self.cells);
         let p = processes.get_mut(&id).expect("selected process exists");
@@ -404,6 +452,10 @@ impl World {
                     | Op::Read { next, .. } | Op::Write { next, .. } | Op::PatchNext { next, .. }
                     | Op::ReadNext { next, .. } | Op::CloneNode { next, .. }
                     | Op::PatchConst { next, .. } | Op::Delete { next, .. } => *next,
+                    Op::GraphNew { next, .. } | Op::GraphCopyNode { next, .. }
+                    | Op::GraphSetNext { next, .. } | Op::GraphSetConst { next, .. }
+                    | Op::GraphReadNext { next, .. } | Op::GraphDrop { next, .. }
+                    | Op::GraphLaunch { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
                 };
                 p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
@@ -443,6 +495,132 @@ impl World {
                 p.pc = next;
             }
             Op::Halt => return Ok(true),
+            Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
+            | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
+            | Op::GraphDrop { .. } | Op::GraphLaunch { .. } => unreachable!("dispatched above"),
+        }
+        Ok(false)
+    }
+
+    fn execute_graph(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        if self.total_storage_limit.is_none() {
+            return Err("graph object operations require a bounded world".into());
+        }
+        let p = self.processes.get(&id).ok_or("unknown process")?;
+        let len = p.code.nodes.len();
+        let reg = |i: usize| -> Result<i64, String> {
+            p.registers.get(i).copied().ok_or_else(|| "invalid register".into())
+        };
+        let edge = |i: usize| -> Result<(), String> {
+            if i < len { Ok(()) } else { Err("invalid execution edge".into()) }
+        };
+        // Resolve and validate register values before mutating any state.
+        match op {
+            Op::GraphNew { dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                if !self.can_allocate(1) { return Err("storage capacity exhausted".into()); }
+                let object_id = self.next_graph_id;
+                let new_id = object_id.checked_add(1).ok_or("graph id exhausted")?;
+                let encoded = i64::try_from(object_id).map_err(|_| "graph id overflow")?;
+                self.graph_objects.insert(object_id, GraphObject { owner: id, nodes: Vec::new() });
+                self.next_graph_id = new_id;
+                let p = self.processes.get_mut(&id).expect("owner exists");
+                p.registers[dst] = encoded;
+                p.pc = next;
+            }
+            Op::GraphCopyNode { graph, source, dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(source)?).map_err(|_| "invalid source node")?;
+                let source_node = p.code.nodes.get(index).ok_or("invalid source node")?.clone();
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if object.nodes.len() >= self.max_nodes_per_process || !self.can_allocate(1) {
+                    return Err("code storage capacity exhausted".into());
+                }
+                let new_index = object.nodes.len();
+                let encoded = i64::try_from(new_index).map_err(|_| "node index overflow")?;
+                self.graph_objects.get_mut(&object_id).expect("checked graph").nodes.push(source_node);
+                let p = self.processes.get_mut(&id).expect("owner exists");
+                p.registers[dst] = encoded;
+                p.pc = next;
+            }
+            Op::GraphSetNext { graph, node, target, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let target_index = usize::try_from(reg(target)?).map_err(|_| "invalid target edge")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if target_index >= object.nodes.len() { return Err("invalid target edge".into()); }
+                let item = object.nodes.get(index).ok_or("invalid node")?;
+                if item.clone().next_mut().is_none() { return Err("node has no patchable edge".into()); }
+                *self.graph_objects.get_mut(&object_id).expect("checked graph")
+                    .nodes[index].next_mut().expect("checked edge") = target_index;
+                self.processes.get_mut(&id).expect("owner exists").pc = next;
+            }
+            Op::GraphSetConst { graph, node, value, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let new_value = reg(value)?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if !matches!(object.nodes.get(index), Some(Op::Const { .. })) {
+                    return Err("node is not a const".into());
+                }
+                if let Op::Const { value, .. } = &mut self.graph_objects.get_mut(&object_id)
+                    .expect("checked graph").nodes[index] { *value = new_value; }
+                self.processes.get_mut(&id).expect("owner exists").pc = next;
+            }
+            Op::GraphReadNext { dst, graph, node, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                let mut item = object.nodes.get(index).ok_or("invalid node")?.clone();
+                let outgoing = *item.next_mut().ok_or("node has no single next edge")?;
+                let encoded = i64::try_from(outgoing).map_err(|_| "edge index overflow")?;
+                let p = self.processes.get_mut(&id).expect("owner exists");
+                p.registers[dst] = encoded;
+                p.pc = next;
+            }
+            Op::GraphDrop { graph, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                self.graph_objects.remove(&object_id);
+                self.processes.get_mut(&id).expect("owner exists").pc = next;
+            }
+            Op::GraphLaunch { graph, credits, dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let requested = u64::try_from(reg(credits)?).map_err(|_| "invalid credit amount")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if object.nodes.is_empty() || object.nodes.len() > self.max_nodes_per_process {
+                    return Err("invalid executable graph size".into());
+                }
+                if requested > p.credits { return Err("insufficient transferable credit".into()); }
+                let child_id = self.next_process_id;
+                let next_id = child_id.checked_add(1).ok_or("process id exhausted")?;
+                let encoded = i64::try_from(child_id).map_err(|_| "process id overflow")?;
+                // Move, rather than duplicate, graph instruction nodes.
+                let object = self.graph_objects.remove(&object_id).expect("checked object");
+                let parent = self.processes.get_mut(&id).expect("owner exists");
+                parent.credits -= requested;
+                parent.registers[dst] = encoded;
+                parent.pc = next;
+                self.processes.insert(child_id, Process::new(child_id, object.nodes, requested));
+                self.next_process_id = next_id;
+            }
+            _ => unreachable!("only graph operations are dispatched here"),
         }
         Ok(false)
     }
@@ -615,6 +793,92 @@ mod tests {
         world.load(Process::new(1, vec![Op::Halt], 1)).unwrap();
         assert!(world.intervene(Intervention::SetCell { key: 1, value: 2 }).is_err());
         assert_eq!(world.occupied_units(), 1);
+    }
+
+    #[test]
+    fn constructed_graph_launch_transfers_nodes_and_credits_without_creation() {
+        let mut world = World::with_total_capacity(2, 32, 20);
+        world.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 8, next: 2 },
+            Op::Const { dst: 2, value: 12, next: 3 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 4 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 5 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 6 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 7 },
+            Op::GraphLaunch { graph: 0, credits: 1, dst: 3, next: 8 },
+            Op::Halt,
+        ], 20)).unwrap();
+        let initial = world.occupied_units();
+        assert_eq!(world.run(7), 7);
+        assert_eq!(world.graph_count(), 1);
+        assert_eq!(world.occupied_units(), initial + 5);
+        let object = world.graph_object(1).unwrap();
+        assert_eq!(object.owner, 1);
+        assert_eq!(object.nodes.len(), 4);
+        assert_eq!(world.run(1), 1);
+        assert_eq!(world.graph_count(), 0);
+        assert_eq!(world.occupied_units(), initial + 4);
+        assert_eq!(world.process(2).unwrap().credits, 8);
+        assert_eq!(world.process(1).unwrap().credits, 4);
+        assert_eq!(world.remaining_credits(), 12);
+    }
+
+    #[test]
+    fn graph_object_access_denied_without_mutating_target() {
+        let mut world = World::with_total_capacity(1, 20, 20);
+        world.load(Process::new(1, vec![Op::GraphNew { dst: 0, next: 1 }, Op::Halt], 5)).unwrap();
+        world.load(Process::new(2, vec![
+            Op::Const { dst: 0, value: 1, next: 1 },
+            Op::GraphDrop { graph: 0, next: 2 },
+            Op::Halt,
+        ], 5)).unwrap();
+        assert_eq!(world.run(3), 3);
+        assert!(world.graph_object(1).is_some());
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn empty_graph_capacity_and_invalid_handle_are_atomic() {
+        let mut world = World::with_total_capacity(0, 8, 2);
+        world.load(Process::new(1, vec![Op::GraphNew { dst: 0, next: 1 }, Op::Halt], 2)).unwrap();
+        assert_eq!(world.run(1), 1);
+        assert_eq!(world.graph_count(), 0);
+        assert_eq!(world.occupied_units(), 2);
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn graph_drop_reclaims_header_and_nodes() {
+        let mut world = World::with_total_capacity(0, 12, 10);
+        world.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 3, next: 2 },
+            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
+            Op::GraphDrop { graph: 0, next: 4 },
+            Op::Halt,
+        ], 10)).unwrap();
+        let baseline = world.occupied_units();
+        world.run(3);
+        assert_eq!(world.occupied_units(), baseline + 2);
+        world.run(1);
+        assert_eq!(world.occupied_units(), baseline);
+    }
+
+    #[test]
+    fn invalid_graph_edges_and_literals_are_not_written() {
+        let mut world = World::with_total_capacity(0, 16, 20);
+        world.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 5, next: 2 },
+            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
+            Op::GraphSetNext { graph: 0, node: 2, target: 1, next: 4 },
+            Op::Halt,
+        ], 9)).unwrap();
+        world.run(4);
+        assert_eq!(world.graph_object(1).unwrap().nodes[0],
+                   Op::Const { dst: 1, value: 5, next: 2 });
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
 
     #[test]
