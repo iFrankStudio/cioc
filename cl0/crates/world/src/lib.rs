@@ -1129,10 +1129,13 @@ mod tests {
         // Owner creates and explicitly grants read-only access; receiver has no compute yet.
         assert_eq!(w.run(5), 5);
         assert!(w.graph_object(1).unwrap().readers.contains(&2));
+        w.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
         w.intervene(Intervention::SetCredits { process: 2, credits: 3 }).unwrap();
-        // Interleaving is deterministic: read before owner's revocation.
-        assert_eq!(w.run(4), 4);
+        assert_eq!(w.run(3), 3);
+        assert!(matches!(w.events().last().unwrap().kind, EventKind::Executed));
         assert_eq!(w.process(2).unwrap().registers[2], 0);
+        w.intervene(Intervention::SetCredits { process: 1, credits: 1 }).unwrap();
+        assert_eq!(w.run(1), 1);
         assert!(w.graph_object(1).unwrap().readers.is_empty());
     }
 
