@@ -1,0 +1,46 @@
+name: CL-1 preregistered research
+
+on:
+  push:
+    paths:
+      - 'cl1/**'
+      - 'cl0/**'
+      - '.github/workflows/cl1.yml'
+  workflow_dispatch:
+
+jobs:
+  study01:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen preregistration
+        run: test -f ../cl1/studies/01-preregistered-random-ecology.md
+      - name: Rust formatting, unit tests, strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Study 01 64-seed 320-run experiment with exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study01 -- "$RUNNER_TEMP/cl1-study01.sqlite"
+      - name: Independent CL-1 analysis and integrity checks
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze.py "$RUNNER_TEMP/cl1-study01.sqlite" --json "$RUNNER_TEMP/cl1-study01-report.json"
+      - name: Archive study evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study01
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study01.sqlite
+            ${{ runner.temp }}/cl1-study01-report.json
