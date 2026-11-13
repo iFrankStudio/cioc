@@ -416,7 +416,9 @@ mod tests {
             if changed {
                 let mut replacement = original.clone();
                 replacement.nodes[0] = Op::Halt;
-                world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+                world
+                    .intervene(Intervention::DropGraph { graph: 1 })
+                    .unwrap();
                 world
                     .intervene(Intervention::PutGraph {
                         graph: 1,
@@ -425,7 +427,9 @@ mod tests {
                     .unwrap();
             } else {
                 // Exact original-content reinjection is a separate negative control.
-                world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+                world
+                    .intervene(Intervention::DropGraph { graph: 1 })
+                    .unwrap();
                 world
                     .intervene(Intervention::PutGraph {
                         graph: 1,
