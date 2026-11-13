@@ -1,0 +1,17 @@
+test_budget (test_cioc.QuorumTests.test_budget) ... ok
+test_disable (test_cioc.QuorumTests.test_disable) ... ok
+test_duplicate_conflicting_identity_abstains (test_cioc.QuorumTests.test_duplicate_conflicting_identity_abstains) ... ok
+test_external_separation (test_cioc.QuorumTests.test_external_separation) ... ok
+test_matrix (test_cioc.QuorumTests.test_matrix) ... ok
+test_missing_fragments (test_cioc.QuorumTests.test_missing_fragments) ... ok
+test_no_false_alarm (test_cioc.QuorumTests.test_no_false_alarm) ... ok
+test_one_fault (test_cioc.QuorumTests.test_one_fault) ... ok
+test_quorum_unavailable (test_cioc.QuorumTests.test_quorum_unavailable) ... ok
+test_replay_and_sybil_dont_vote (test_cioc.QuorumTests.test_replay_and_sybil_dont_vote) ... ok
+test_single_byzantine (test_cioc.QuorumTests.test_single_byzantine) ... ok
+test_two_colluders_limit (test_cioc.QuorumTests.test_two_colluders_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK
