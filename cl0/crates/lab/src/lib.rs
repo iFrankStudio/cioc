@@ -745,6 +745,66 @@ mod tests {
     }
 
     #[test]
+    fn exact_epoch_replay_preserves_external_graph_drop_and_put() {
+        let mut world = World::with_strict_capacity(0, 8, 12);
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::GraphCopyNode {
+                        graph: 0,
+                        source: 0,
+                        dst: 1,
+                        next: 2,
+                    },
+                    Op::Halt,
+                ],
+                4,
+            ))
+            .unwrap();
+        assert_eq!(world.run(2), 2);
+        let saved = world.graph_object(1).unwrap().clone();
+        let mut lab = Laboratory::in_memory().unwrap();
+        let outcomes = lab
+            .run_epochs(
+                &world,
+                &[
+                    EpochCondition {
+                        label: "untreated".into(),
+                        actions: vec![],
+                    },
+                    EpochCondition {
+                        label: "external-graph-positive-control".into(),
+                        actions: vec![
+                            EpochAction {
+                                epoch: 0,
+                                action: Intervention::DropGraph { graph: 1 },
+                            },
+                            EpochAction {
+                                epoch: 1,
+                                action: Intervention::PutGraph {
+                                    graph: 1,
+                                    object: saved.clone(),
+                                },
+                            },
+                        ],
+                    },
+                ],
+                3,
+                1,
+                "study19-calibration",
+            )
+            .unwrap();
+        assert_eq!(outcomes.len(), 2);
+        assert_eq!(outcomes[1].world.graph_object(1), Some(&saved));
+        assert_eq!(outcomes[0].initial_sha256, outcomes[1].initial_sha256);
+        for outcome in outcomes {
+            assert!(lab.verify_epoch_replay(outcome.id).unwrap());
+        }
+    }
+
+    #[test]
     fn external_epochs_arrive_even_after_world_becomes_inert() {
         let mut laboratory = Laboratory::in_memory().unwrap();
         let conditions = [
