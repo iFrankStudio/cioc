@@ -91,18 +91,39 @@ def reciprocal_pairs(groups: list[list[dict]]) -> tuple[set[tuple[int, int]], Co
 
 
 def newly_populated_graph(initial: dict, final: dict, events: list[dict]) -> bool:
-    initial_keys = set(initial["graph_objects"])
-    created = {
-        str(event["kind"]["GraphCreated"]["graph"])
-        for event in events
-        if isinstance(event["kind"], dict) and "GraphCreated" in event["kind"]
-        and analyze.internal_process(event) is not None
-    }
-    filled = {
-        key
-        for key, graph in final["graph_objects"].items()
-        if key not in initial_keys and key in created and graph["nodes"]
-    }
+    """Any observed internally sourced new graph later receiving a code node.
+
+    Event ordering is stronger than final-state-only growth, because an
+    internally created graph may be dropped before the final snapshot.
+    Old graph handles are excluded, and mere header allocation is not growth.
+    """
+    old_handles = set(initial["graph_objects"])
+    created: set[str] = set()
+    filled: set[str] = set()
+    for event in events:
+        actor = analyze.internal_process(event)
+        kind = event["kind"]
+        if actor is None or not isinstance(kind, dict):
+            continue
+        if "GraphCreated" in kind:
+            graph_id = str(kind["GraphCreated"]["graph"])
+            if graph_id not in old_handles:
+                created.add(graph_id)
+        elif "GraphNodeCopied" in kind:
+            graph_id = str(kind["GraphNodeCopied"]["graph"])
+            if graph_id in created:
+                filled.add(graph_id)
+        elif "GraphCopied" in kind:
+            graph_id = str(kind["GraphCopied"]["target_graph"])
+            if graph_id in created:
+                filled.add(graph_id)
+    # Other generic graph-code append operations are only visible in state
+    # snapshots; retain a conservative surviving final-state fallback.
+    filled.update(
+        graph_id
+        for graph_id, obj in final["graph_objects"].items()
+        if graph_id in created and obj["nodes"]
+    )
     return bool(filled)
 
 
