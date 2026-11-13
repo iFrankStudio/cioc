@@ -1,0 +1,46 @@
+{
+  "single_body_repair": {
+    "repaired": 1,
+    "body": [
+      "EAT_A",
+      "EAT_A",
+      "DIVIDE"
+    ],
+    "energy": 21
+  },
+  "no_repair": {
+    "alive": 0,
+    "repairs": 0
+  },
+  "damaged_controller": {
+    "alive": 0,
+    "repairs": 0
+  },
+  "missing_anchor": {
+    "alive": 0,
+    "repairs": 0
+  },
+  "resource_switch": {
+    "alive": 21,
+    "repairs": 14,
+    "B_bodies": 21
+  },
+  "without_damage": {
+    "alive": 23,
+    "repairs": 14,
+    "births": 162,
+    "faults": 0
+  },
+  "damage_with_repair": {
+    "alive": 23,
+    "repairs": 45,
+    "births": 110,
+    "faults": 110
+  },
+  "damage_no_repair": {
+    "alive": 30,
+    "repairs": 0,
+    "births": 61,
+    "faults": 108
+  }
+}
