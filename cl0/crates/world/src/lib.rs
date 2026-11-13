@@ -26,6 +26,7 @@ pub enum Op {
     GraphReadNext { dst: usize, graph: usize, node: usize, next: usize },
     GraphDrop { graph: usize, next: usize },
     GraphLaunch { graph: usize, credits: usize, dst: usize, next: usize },
+    GraphEncode { graph: usize, address: usize, dst: usize, next: usize },
     Halt,
 }
 
@@ -48,11 +49,44 @@ impl Op {
             | Op::GraphSetConst { next, .. }
             | Op::GraphReadNext { next, .. }
             | Op::GraphDrop { next, .. }
-            | Op::GraphLaunch { next, .. } => Some(next),
+            | Op::GraphLaunch { next, .. }
+            | Op::GraphEncode { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
 }
+
+
+    /// Stable Stage-3.3 ABI: five integer data cells [tag, arg0, arg1, arg2, arg3].
+    /// The descriptor is ordinary world data; no semantic goal oracle is involved.
+    pub fn decode_instruction(words: [i64; 5]) -> Result<Op, String> {
+        let slot = |index: usize| -> Result<usize, String> {
+            usize::try_from(words[index]).map_err(|_| "negative or overflowing instruction operand".to_string())
+        };
+        match words[0] {
+            0 => Ok(Op::Const { dst: slot(1)?, value: words[2], next: slot(3)? }),
+            1 => Ok(Op::Add { dst: slot(1)?, lhs: slot(2)?, rhs: slot(3)?, next: slot(4)? }),
+            2 => Ok(Op::Sub { dst: slot(1)?, lhs: slot(2)?, rhs: slot(3)?, next: slot(4)? }),
+            3 => Ok(Op::Read { dst: slot(1)?, address: slot(2)?, next: slot(3)? }),
+            4 => Ok(Op::Write { address: slot(1)?, value: slot(2)?, next: slot(3)? }),
+            5 => Ok(Op::Branch { test: slot(1)?, nonzero: slot(2)?, zero: slot(3)? }),
+            6 => Ok(Op::PatchNext { node: slot(1)?, target: slot(2)?, next: slot(3)? }),
+            7 => Ok(Op::ReadNext { dst: slot(1)?, node: slot(2)?, next: slot(3)? }),
+            8 => Ok(Op::CloneNode { dst: slot(1)?, source: slot(2)?, next: slot(3)? }),
+            9 => Ok(Op::PatchConst { node: slot(1)?, value: slot(2)?, next: slot(3)? }),
+            10 => Ok(Op::Delete { address: slot(1)?, next: slot(2)? }),
+            11 => Ok(Op::GraphNew { dst: slot(1)?, next: slot(2)? }),
+            12 => Ok(Op::GraphCopyNode { graph: slot(1)?, source: slot(2)?, dst: slot(3)?, next: slot(4)? }),
+            13 => Ok(Op::GraphSetNext { graph: slot(1)?, node: slot(2)?, target: slot(3)?, next: slot(4)? }),
+            14 => Ok(Op::GraphSetConst { graph: slot(1)?, node: slot(2)?, value: slot(3)?, next: slot(4)? }),
+            15 => Ok(Op::GraphReadNext { dst: slot(1)?, graph: slot(2)?, node: slot(3)?, next: slot(4)? }),
+            16 => Ok(Op::GraphDrop { graph: slot(1)?, next: slot(2)? }),
+            17 => Ok(Op::GraphLaunch { graph: slot(1)?, credits: slot(2)?, dst: slot(3)?, next: slot(4)? }),
+            18 => Ok(Op::GraphEncode { graph: slot(1)?, address: slot(2)?, dst: slot(3)?, next: slot(4)? }),
+            19 => Ok(Op::Halt),
+            _ => Err("unknown opcode tag".into()),
+        }
+    }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Program {
@@ -364,7 +398,7 @@ impl World {
         if matches!(op,
             Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
-            | Op::GraphDrop { .. } | Op::GraphLaunch { .. }
+            | Op::GraphDrop { .. } | Op::GraphLaunch { .. } | Op::GraphEncode { .. }
         ) {
             return self.execute_graph(id, op);
         }
@@ -455,7 +489,7 @@ impl World {
                     Op::GraphNew { next, .. } | Op::GraphCopyNode { next, .. }
                     | Op::GraphSetNext { next, .. } | Op::GraphSetConst { next, .. }
                     | Op::GraphReadNext { next, .. } | Op::GraphDrop { next, .. }
-                    | Op::GraphLaunch { next, .. } => *next,
+                    | Op::GraphLaunch { next, .. } | Op::GraphEncode { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
                 };
                 p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
@@ -497,7 +531,8 @@ impl World {
             Op::Halt => return Ok(true),
             Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
-            | Op::GraphDrop { .. } | Op::GraphLaunch { .. } => unreachable!("dispatched above"),
+            | Op::GraphDrop { .. } | Op::GraphLaunch { .. }
+            | Op::GraphEncode { .. } => unreachable!("dispatched above"),
         }
         Ok(false)
     }
@@ -619,6 +654,32 @@ impl World {
                 parent.pc = next;
                 self.processes.insert(child_id, Process::new(child_id, object.nodes, requested));
                 self.next_process_id = next_id;
+            }
+
+            Op::GraphEncode { graph, address, dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let base = reg(address)?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if object.nodes.len() >= self.max_nodes_per_process || !self.can_allocate(1) {
+                    return Err("code storage capacity exhausted".into());
+                }
+                let mut words = [0_i64; 5];
+                for (offset, word) in words.iter_mut().enumerate() {
+                    let offset = i64::try_from(offset).map_err(|_| "descriptor offset overflow")?;
+                    let address = base.checked_add(offset).ok_or("descriptor address overflow")?;
+                    *word = *self.cells.get(&address).ok_or("incomplete instruction descriptor")?;
+                }
+                let candidate = Op::decode_instruction(words)?;
+                let position = object.nodes.len();
+                let position_reg = i64::try_from(position).map_err(|_| "node index overflow")?;
+                self.graph_objects.get_mut(&object_id).expect("validated handle")
+                    .nodes.push(candidate);
+                let p = self.processes.get_mut(&id).expect("owner exists");
+                p.registers[dst] = position_reg;
+                p.pc = next;
             }
             _ => unreachable!("only graph operations are dispatched here"),
         }
@@ -881,6 +942,60 @@ mod tests {
         assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
 
+
+    #[test]
+    fn graph_encode_constructs_new_opcode_from_world_data() {
+        let mut w = World::with_total_capacity(8, 16, 24);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 100, next: 2 },
+            Op::GraphEncode { graph: 0, address: 1, dst: 2, next: 3 },
+            Op::Const { dst: 1, value: 2, next: 4 },
+            Op::GraphLaunch { graph: 0, credits: 1, dst: 2, next: 5 },
+            Op::Halt,
+        ], 12)).unwrap();
+        // The descriptor is investigator-supplied data, NOT spontaneous discovery.
+        for (offset, value) in [19, 0, 0, 0, 0].into_iter().enumerate() {
+            w.intervene(Intervention::SetCell { key: 100 + offset as i64, value }).unwrap();
+        }
+        assert_eq!(w.run(3), 3);
+        assert_eq!(w.graph_object(1).unwrap().nodes, vec![Op::Halt]);
+        assert_eq!(w.run(4), 4);
+        assert!(w.process(2).unwrap().stopped);
+        assert_eq!(w.graph_count(), 0);
+        assert_eq!(w.occupied_units(), 12);
+        assert_eq!(w.remaining_credits(), 5);
+    }
+
+    #[test]
+    fn malformed_descriptor_does_not_allocate_and_is_charged() {
+        let mut w = World::with_total_capacity(8, 12, 20);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 30, next: 2 },
+            Op::GraphEncode { graph: 0, address: 1, dst: 2, next: 3 },
+            Op::Halt,
+        ], 8)).unwrap();
+        for (offset, value) in [200, 0, 0, 0, 0].into_iter().enumerate() {
+            w.intervene(Intervention::SetCell { key: 30 + offset as i64, value }).unwrap();
+        }
+        let before = w.occupied_units();
+        assert_eq!(w.run(3), 3);
+        assert_eq!(w.occupied_units(), before + 1);
+        assert!(w.graph_object(1).unwrap().nodes.is_empty());
+        assert_eq!(w.remaining_credits(), 5);
+        assert!(matches!(w.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn decoding_supports_branches_and_self_reference_without_templates() {
+        assert_eq!(Op::decode_instruction([5, 0, 2, 3, 0]).unwrap(),
+            Op::Branch { test: 0, nonzero: 2, zero: 3 });
+        assert_eq!(Op::decode_instruction([18, 0, 1, 2, 3]).unwrap(),
+            Op::GraphEncode { graph: 0, address: 1, dst: 2, next: 3 });
+        assert!(Op::decode_instruction([0, -1, 12, 0, 0]).is_err());
+        assert!(Op::decode_instruction([999, 0, 0, 0, 0]).is_err());
+    }
     #[test]
     fn stable_round_robin_by_id() {
         let mut world = World::new(0, 2);
