@@ -883,6 +883,12 @@ pub enum Intervention {
     DropGraph {
         graph: u64,
     },
+    /// External injection of an already allocated but currently absent graph.
+    /// This is a laboratory positive control, never a native CIL primitive.
+    PutGraph {
+        graph: u64,
+        object: GraphObject,
+    },
 }
 
 fn default_world_format_version() -> u32 {
@@ -1072,7 +1078,8 @@ impl World {
             | Intervention::PatchEdge { process, .. } => *process,
             Intervention::SetCell { .. }
             | Intervention::SetComputePool { .. }
-            | Intervention::DropGraph { .. } => 0,
+            | Intervention::DropGraph { .. }
+            | Intervention::PutGraph { .. } => 0,
         };
         let result = self.intervene_inner(&intervention);
         self.tick += 1;
@@ -1146,6 +1153,36 @@ impl World {
                 if self.graph_objects.remove(&graph).is_none() {
                     return Err("unknown graph handle".into());
                 }
+            }
+            Intervention::PutGraph { graph, ref object } => {
+                if graph == 0 || graph >= self.next_graph_id {
+                    return Err("graph handle was never allocated".into());
+                }
+                if self.graph_objects.contains_key(&graph) {
+                    return Err("graph handle already exists".into());
+                }
+                if !self.processes.contains_key(&object.owner)
+                    || object.readers.iter().any(|id| !self.processes.contains_key(id))
+                {
+                    return Err("unknown graph owner or reader".into());
+                }
+                if object.nodes.is_empty() || object.nodes.len() > self.max_nodes_per_process {
+                    return Err("invalid injected graph size".into());
+                }
+                let additional = object.nodes.len()
+                    .checked_add(1)
+                    .and_then(|n| {
+                        if self.strict_accounting {
+                            n.checked_add(object.readers.len())
+                        } else {
+                            Some(n)
+                        }
+                    })
+                    .ok_or("injected graph storage overflow")?;
+                if !self.can_allocate(additional) {
+                    return Err("total storage capacity exhausted".into());
+                }
+                self.graph_objects.insert(graph, object.clone());
             }
         }
         Ok(())
