@@ -7,7 +7,8 @@ interface RunRecord {
   initial_sha256: string; final_sha256: string; hashes_valid: boolean;
   attempt_limit: number; attempts: number; cells: number; processes: number;
   graph_objects: number; code_nodes: number; distinct_opcode_types: number;
-  remaining_credits: number; active_processes: number;
+  remaining_credits: number; world_compute_pool: number; total_compute_inventory: number;
+  strict_accounting: boolean; active_processes: number;
   opcode_histogram: Record<string, number>; event_histogram: Record<string, number>;
   trace_preview?: TraceEvent[]
 }
@@ -107,6 +108,7 @@ const eventOrigin = (value: TraceEvent['origin']) =>
               <div><span>进程</span><strong>{{ selected.processes }}</strong></div><div><span>活跃进程</span><strong>{{ selected.active_processes }}</strong></div>
               <div><span>程序图节点</span><strong>{{ selected.code_nodes }}</strong></div><div><span>独立图对象</span><strong>{{ selected.graph_objects }}</strong></div>
               <div><span>共享存储单元</span><strong>{{ selected.cells }}</strong></div><div><span>剩余计算额度</span><strong>{{ selected.remaining_credits }}</strong></div>
+              <div><span>世界计算池</span><strong>{{ selected.world_compute_pool ?? 0 }}</strong></div><div><span>计算总库存</span><strong>{{ selected.total_compute_inventory ?? selected.remaining_credits }}</strong></div>
             </div>
             <p class="eyebrow section-label">OPCODE DIVERSITY</p>
             <div v-for="(value, name) in selected.opcode_histogram" :key="name" class="opcode"><span>{{ name }}</span><span>{{ value }}</span></div>
