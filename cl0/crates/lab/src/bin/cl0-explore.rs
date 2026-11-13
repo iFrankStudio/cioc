@@ -28,7 +28,7 @@ fn seed_world(seed: u64) -> World {
         nodes.push(op);
     }
     nodes.push(Op::Halt);
-    let mut world = World::with_total_capacity(24, 32, 64);
+    let mut world = World::with_strict_capacity(24, 32, 64);
     world.load(Process::new(1, nodes, 48)).expect("generated baseline fits");
     world
 }
@@ -90,7 +90,8 @@ mod tests {
         let a = seed_world(17);
         let b = seed_world(18);
         assert_ne!(a, b);
-        assert_eq!(a.occupied_units(), 12);
+        assert_eq!(a.occupied_units(), 13);
         assert_eq!(a.total_capacity(), Some(64));
+        assert!(a.strict_accounting());
     }
 }
