@@ -4,3 +4,9 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+
+# CL-0 generated files
+/cl0/target/
+/cl0/*.sqlite
+/cl0/*.sqlite-shm
+/cl0/*.sqlite-wal

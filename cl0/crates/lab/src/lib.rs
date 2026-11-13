@@ -234,6 +234,29 @@ mod tests {
     }
 
     #[test]
+    fn disk_database_reopens_and_replays() {
+        let directory = tempfile::tempdir().unwrap();
+        let db = directory.path().join("cl0.sqlite");
+        let id;
+        {
+            let mut lab = Laboratory::open(&db).unwrap();
+            let records = lab.run_matched(&fixture(), &[
+                Condition { label: "unmodified".into(), interventions: vec![] },
+                Condition { label: "zero-budget".into(), interventions: vec![
+                    Intervention::SetCredits { process: 1, credits: 0 }
+                ] },
+            ], 20, "test-revision").unwrap();
+            id = records[0].id;
+            assert_eq!(records[1].attempts, 0);
+            assert_eq!(records[1].world.cell(5), None);
+        }
+        let reopened = Laboratory::open(&db).unwrap();
+        assert_eq!(reopened.count().unwrap(), 2);
+        assert!(reopened.verify_replay(id).unwrap());
+        assert!(reopened.verify_replay(id + 1).unwrap());
+    }
+
+    #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
         assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
