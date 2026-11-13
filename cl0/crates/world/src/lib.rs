@@ -2988,6 +2988,101 @@ mod tests {
     }
 
     #[test]
+    fn graph_field_read_records_exact_source_owner_and_word() {
+        let mut world = World::with_total_capacity(0, 16, 40);
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::Const {
+                        dst: 2,
+                        value: 3,
+                        next: 2,
+                    },
+                    Op::GraphCopyNode {
+                        graph: 0,
+                        source: 2,
+                        dst: 3,
+                        next: 3,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 42,
+                        next: 4,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 2,
+                        next: 5,
+                    },
+                    Op::GraphGrantRead {
+                        graph: 0,
+                        reader: 1,
+                        next: 6,
+                    },
+                    Op::Halt,
+                ],
+                6,
+            ))
+            .unwrap();
+        world
+            .load(Process::new(
+                2,
+                vec![
+                    Op::Const {
+                        dst: 0,
+                        value: 1,
+                        next: 1,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 0,
+                        next: 2,
+                    },
+                    Op::Const {
+                        dst: 2,
+                        value: 2,
+                        next: 3,
+                    },
+                    Op::GraphReadField {
+                        graph: 0,
+                        node: 1,
+                        field: 2,
+                        next: 4,
+                    },
+                    Op::Halt,
+                ],
+                0,
+            ))
+            .unwrap();
+        assert_eq!(world.run(6), 6);
+        world
+            .intervene(Intervention::SetCredits {
+                process: 2,
+                credits: 4,
+            })
+            .unwrap();
+        assert_eq!(world.run(4), 4);
+        let event = world.events().last().unwrap();
+        assert_eq!(event.origin, Origin::Internal(2));
+        assert_eq!(event.process, 2);
+        assert_eq!(event.pc, 3);
+        assert!(matches!(
+            event.kind,
+            EventKind::GraphFieldRead {
+                graph: 1,
+                owner: 1,
+                node: 0,
+                field: 2,
+                word: 42
+            }
+        ));
+        assert_eq!(world.process(2).unwrap().registers[2], 42);
+        assert_eq!(world.remaining_credits(), 0);
+    }
+
+    #[test]
     fn guessed_graph_handle_cannot_read_without_grant() {
         let mut w = World::with_total_capacity(0, 10, 14);
         w.load(Process::new(
