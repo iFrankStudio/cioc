@@ -561,3 +561,32 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study20.sqlite
             ${{ runner.temp }}/cl1-study20-report.json
+
+  study21:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study-21 temporal preregistration
+        run: test -f ../cl1/studies/21-preregistered-temporal-restoration-calibration.md
+      - name: Execute eleven-arm three-epoch time-separated functional assay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study21 -- "$RUNNER_TEMP/cl1-study21.sqlite"
+      - name: Independently audit observed loss, later external restoration and exact snapshot hashes
+        run: |
+          python3 ../cl1/analyze_study21.py "$RUNNER_TEMP/cl1-study21.sqlite" --json "$RUNNER_TEMP/cl1-study21-report.json"
+          cat "$RUNNER_TEMP/cl1-study21-report.json"
+      - name: Archive source-pinned Study-21 calibration
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study21
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study21.sqlite
+            ${{ runner.temp }}/cl1-study21-report.json
