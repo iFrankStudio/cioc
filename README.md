@@ -9,7 +9,7 @@ CIOC explores what self-maintenance, organizational individuality and potentiall
 | Track | Status | Entry point |
 | --- | --- | --- |
 | **CL-0** — native digital experimental world | **Infrastructure accepted · 2026-11-13** | [Project / instructions](cl0/README.md) · [acceptance evidence](cl0/docs/CL-0-acceptance.md) |
-| **CL-1** — endogenous organization research | **Not yet accepted; hypotheses and experimental protocol must be preregistered** | [CL-1 handoff / next-stage research gates](cl0/docs/CL-1-handoff.md) |
+| **CL-1** — endogenous organization research | **Research initiated; first prospective study preregistered, no CL-1 acceptance** | [CL-1 research registry](cl1/README.md) · [research handoff](cl0/docs/CL-1-handoff.md) |
 | **CIOC V0.1–V0.16** — historical synthetic models | **Archived, retained as independent evidence and negative lessons** | [Experiment history](experiments/) · [evidence transition](cl0/docs/cioc-transition.md) |
 
 **CL-0 verification:** [latest verified end-to-end workflow](https://github.com/iFrankStudio/cioc/actions/runs/43406928175) · [archived SQLite/JSON/CSV artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406928175/artifacts/14027303037).
