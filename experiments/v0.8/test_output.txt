@@ -1,0 +1,13 @@
+test_behavioral_contract_rejects_wrong_order_and_noop (test_cioc.RecoveryTests.test_behavioral_contract_rejects_wrong_order_and_noop) ... ok
+test_critical_roles_remain_single_points (test_cioc.RecoveryTests.test_critical_roles_remain_single_points) ... ok
+test_external_restore_not_misclassified (test_cioc.RecoveryTests.test_external_restore_not_misclassified) ... ok
+test_generator_recovers_behaviorally_with_different_source (test_cioc.RecoveryTests.test_generator_recovers_behaviorally_with_different_source) ... ok
+test_joint_failures (test_cioc.RecoveryTests.test_joint_failures) ... ok
+test_missing_fragment_and_budget (test_cioc.RecoveryTests.test_missing_fragment_and_budget) ... ok
+test_no_damage_needs_no_repair (test_cioc.RecoveryTests.test_no_damage_needs_no_repair) ... ok
+test_recovered_generator_operates_through_alternative_opcode (test_cioc.RecoveryTests.test_recovered_generator_operates_through_alternative_opcode) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.008s
+
+OK
