@@ -63,7 +63,10 @@ def audit_events(events: list[dict]) -> dict:
             cells[key] = ("internal-executed", actor, value, i)
             if actor in children:
                 child = children[actor]
-                if child.get("input_read") is None:
+                node = child["code"].get(event.get("pc"))
+                if node is None or node["opcode_tag"] != 4:
+                    reject(i, name, "child_write_not_linked_to_descriptor_node")
+                elif child.get("input_read") is None:
                     reject(i, name, "missing_child_input_read")
                 elif child.get("output_write") is None:
                     child["output_write"] = i
@@ -89,8 +92,11 @@ def audit_events(events: list[dict]) -> dict:
                 raise ValueError(f"internal cell read has invalid actor at {i}")
             key, value = int(data["key"]), int(data["value"])
             last_read[(actor, key)] = (value, i)
-            if actor in children and children[actor].get("input_read") is None:
-                children[actor]["input_read"] = i
+            if actor in children:
+                child = children[actor]
+                node = child["code"].get(event.get("pc"))
+                if node is not None and node["opcode_tag"] == 3 and child.get("input_read") is None:
+                    child["input_read"] = i
             continue
         if name == "GraphCreated":
             if actor is None or actor != data["owner"]:
@@ -98,7 +104,7 @@ def audit_events(events: list[dict]) -> dict:
             gid = int(data["graph"])
             if gid in graphs:
                 reject(i, name, "graph_identity_reused")
-            graphs[gid] = {"created": i, "owner": actor, "code": None, "invalid": False}
+            graphs[gid] = {"created": i, "owner": actor, "code": {}, "invalid": False}
             continue
         if name in ("GraphEncoded", "GraphReplaced"):
             if actor is None or actor != data["owner"]:
@@ -133,23 +139,31 @@ def audit_events(events: list[dict]) -> dict:
                 origin = "external"
             else:
                 origin = "internal-executed"
-            if len(read_ids) != 5:
+            if len(read_ids) != 5 or any(
+                (base + j in cells and read_ids[j] <= cells[base + j][3])
+                for j in range(5)
+            ):
                 reject(i, name, "missing_explicit_descriptor_reads")
                 graph["invalid"] = True
                 continue
-            # A writer can predate the last read; source is NOT design authorship.
-            graph["code"] = {
+            node = int(data.get("new_node", data.get("node", -1)))
+            if node < 0 or (name == "GraphEncoded" and node in graph["code"]):
+                reject(i, name, "invalid_node_lineage")
+                graph["invalid"] = True
+                continue
+            # The event records the exact data words; not causal design authorship.
+            graph["code"][node] = {
                 "descriptor_event_id": i,
                 "descriptor_read_event_ids": read_ids,
                 "writer_event_ids": writer_ids,
                 "origin": origin,
+                "opcode_tag": int(words[0]),
             }
-            graph["invalid"] = False
             counts["descriptor_" + origin] += 1
             continue
         if name in ("GraphNodeEdited", "GraphNodeCopied", "GraphCopied"):
             gid = int(data.get("graph", data.get("target_graph", -1)))
-            if gid in graphs and graphs[gid]["code"] is not None:
+            if gid in graphs and graphs[gid]["code"]:
                 graphs[gid]["invalid"] = True
             continue
         if name == "GraphTransferred":
@@ -169,16 +183,20 @@ def audit_events(events: list[dict]) -> dict:
             if graph is None:
                 reject(i, name, "missing_graph_ancestry")
                 continue
-            if graph["owner"] != actor or graph["code"] is None or graph["invalid"]:
+            if graph["owner"] != actor or not graph["code"] or graph["invalid"]:
                 reject(i, name, "missing_effective_code_link")
                 continue
-            if int(data["moved_nodes"]) != 1:
-                # Exact one-node fixture is the only currently unambiguous
-                # successful descriptor-to-executable-code lineage.
-                reject(i, name, "ambiguous_multi_node_code")
+            moved = int(data["moved_nodes"])
+            if moved < 2 or set(graph["code"]) != set(range(moved)):
+                reject(i, name, "incomplete_executable_node_ancestry")
                 continue
+            origins = {node["origin"] for node in graph["code"].values()}
+            origin = ("unknown" if "unknown" in origins else
+                      "external" if "external" in origins else "internal-executed")
             children[child_id] = {
-                **graph["code"],
+                "code": graph["code"],
+                "descriptor_event_id": [node["descriptor_event_id"] for node in graph["code"].values()],
+                "origin": origin,
                 "graph_creation_event_id": graph["created"],
                 "launch_event_id": i,
                 "graph": gid,
