@@ -627,3 +627,42 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study22.sqlite
             ${{ runner.temp }}/cl1-study22-report.json
+
+  study24:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require Study-24 frozen audit preregistration
+        run: test -f ../cl1/studies/24-preregistered-foreign-graph-read-output-audit.md
+      - name: Verify source-pinned Rust and independent Python fixture controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Exact rerun of historical 96-seed Study-22 ecology under graph-read instrumentation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study22 -- "$RUNNER_TEMP/cl1-study24-rerun.sqlite"
+      - name: Independently audit frozen Study-22 controls and all Study-24 source-read exposures
+        run: |
+          python3 ../cl1/analyze_study22.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-baseline-report.json"
+          python3 ../cl1/analyze_study24.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-report.json"
+          cat "$RUNNER_TEMP/cl1-study24-report.json"
+      - name: Archive exact provenance and independent read-only reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study24
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study24-rerun.sqlite
+            ${{ runner.temp }}/cl1-study24-baseline-report.json
+            ${{ runner.temp }}/cl1-study24-report.json
