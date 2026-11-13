@@ -452,3 +452,40 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study12.sqlite
             ${{ runner.temp }}/cl1-study12-report.json
+
+  study13:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify earlier Study 13 preregistration
+        run: test -f ../cl1/studies/13-preregistered-reciprocal-information-flow.md
+      - name: Verify format, workspace tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute 96-seed two-window graph ablation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study13 -- "$RUNNER_TEMP/cl1-study13.sqlite"
+      - name: Independent reciprocal-flow analysis and all null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study13.py "$RUNNER_TEMP/cl1-study13.sqlite" --json "$RUNNER_TEMP/cl1-study13-report.json"
+          cat "$RUNNER_TEMP/cl1-study13-report.json"
+      - name: Archive raw Study 13 experiments and findings
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study13
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study13.sqlite
+            ${{ runner.temp }}/cl1-study13-report.json
