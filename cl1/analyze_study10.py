@@ -244,11 +244,36 @@ def audit(db: Path) -> dict:
         successful_copies = 0
         successful_transfers = 0
         seeds_with_exchange = 0
+        seeds_reaching_random_tail = 0
+        random_tail_successful_attempts = 0
+        total_postfork_traps = 0
         for seed, arms in by_seed.items():
             control = arms["control"]
             prefix_length = len(control["initial"]["events"])
             new_events = control["final"]["events"][prefix_length:]
             copied, transferred = successful_exchange(new_events)
+            # Both successful graph transitions are from the explicitly
+            # preauthored scaffold; never classify them as spontaneous.
+            if any(
+                (event["pc"] != 9 if "GraphCopied" in event["kind"]
+                 else event["pc"] != 11 if "GraphTransferred" in event["kind"]
+                 else False)
+                for event in new_events
+                if isinstance(event["kind"], dict)
+            ):
+                raise ValueError(f"unexpected source of graph transition: seed={seed}")
+            successful_tail = sum(
+                event["pc"] >= 12 and event["kind"] == "Executed"
+                for event in new_events
+                if analyze.internal_process(event) is not None
+            )
+            random_tail_successful_attempts += successful_tail
+            seeds_reaching_random_tail += successful_tail > 0
+            total_postfork_traps += sum(
+                isinstance(event["kind"], dict) and "Trapped" in event["kind"]
+                for event in new_events
+                if analyze.internal_process(event) is not None
+            )
             successful_copies += copied
             successful_transfers += transferred
             seeds_with_exchange += copied > 0 or transferred > 0
@@ -285,6 +310,15 @@ def audit(db: Path) -> dict:
                 "wilson_95": [round(lo_exchange, 6), round(hi_exchange, 6)],
             },
             "scaffold_opportunity_source": "EXTERNAL PREAUTHORED CIL, INTERNALLY EXECUTED",
+            "successful_random_tail_instruction_attempts": random_tail_successful_attempts,
+            "seeds_reaching_random_continuation": {
+                "seeds": seeds_reaching_random_tail, "denominator": SEEDS,
+                "wilson_95": [
+                    round(wilson_95(seeds_reaching_random_tail, SEEDS)[0], 6),
+                    round(wilson_95(seeds_reaching_random_tail, SEEDS)[1], 6),
+                ],
+            },
+            "total_postfork_trapped_attempts_in_control": total_postfork_traps,
             "organizational_closure": "NOT EVALUABLE",
             "functional_recovery": "NOT EVALUABLE",
             "life_claim": "NONE",
