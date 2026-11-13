@@ -13,4 +13,4 @@
 - Constructed fixtures demonstrate instrumentation capabilities, not life, spontaneous closure, self-maintenance, or open-ended evolution.
 
 ## Verification
-Use the latest commit's GitHub Actions workflow for acceptance. CI requires Rust workspace tests and strict Clippy. No success may be claimed before both complete.
+Verified with GitHub Actions run https://github.com/iFrankStudio/cioc/actions/runs/43402811526 at commit `2095b5e`: **35/35 Rust tests passed** (11 lab + 24 world), strict Clippy passed. This run covers the scheduled intervention table, disk reopen/tamper controls and graph read permissions. The CI formatting step still runs `cargo fmt --all` rather than enforcing `--check`.
