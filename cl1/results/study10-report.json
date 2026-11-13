@@ -1,0 +1,92 @@
+{
+  "study": "CL-1 Study 10",
+  "status": "engineered neutral exchange opportunity calibration; NOT evidence of emergence",
+  "source_revision": "de8d6ead2cd0792069e1c16295f20f2616174b7e",
+  "independent_seed_worlds": 64,
+  "matched_runs": 320,
+  "hashed_epoch_snapshots": 3840,
+  "exact_replay": "verified by Rust lab for each full run and each epoch",
+  "metrics": {
+    "eligible_target": {
+      "seeds": 64,
+      "denominator": 64,
+      "wilson_95": [
+        0.943376,
+        1
+      ]
+    },
+    "drop_exposed": {
+      "seeds": 64,
+      "denominator": 64,
+      "wilson_95": [
+        0.943376,
+        1
+      ]
+    },
+    "indirect_process_impact": {
+      "seeds": 64,
+      "denominator": 64,
+      "wilson_95": [
+        0.943376,
+        1
+      ]
+    },
+    "nonowner_process_impact": {
+      "seeds": 64,
+      "denominator": 64,
+      "wilson_95": [
+        0.943376,
+        1
+      ]
+    },
+    "postdrop_object_creation": {
+      "seeds": 0,
+      "denominator": 64,
+      "wilson_95": [
+        0,
+        0.056624
+      ]
+    },
+    "sham_mismatch": {
+      "seeds": 0,
+      "denominator": 64,
+      "wilson_95": [
+        0,
+        0.056624
+      ]
+    },
+    "no_target": {
+      "seeds": 0,
+      "denominator": 64,
+      "wilson_95": [
+        0,
+        0.056624
+      ]
+    }
+  },
+  "successful_cross_owner_copy_events": 192,
+  "successful_different_owner_transfer_events": 192,
+  "seeds_with_successful_cross_owner_exchange": {
+    "seeds": 64,
+    "denominator": 64,
+    "wilson_95": [
+      0.943376,
+      1
+    ]
+  },
+  "scaffold_opportunity_source": "EXTERNAL PREAUTHORED CIL, INTERNALLY EXECUTED",
+  "successful_random_tail_instruction_attempts": 747,
+  "seeds_reaching_random_continuation": {
+    "seeds": 63,
+    "denominator": 64,
+    "wilson_95": [
+      0.916659,
+      0.997236
+    ]
+  },
+  "total_postfork_trapped_attempts_in_control": 148,
+  "organizational_closure": "NOT EVALUABLE",
+  "functional_recovery": "NOT EVALUABLE",
+  "life_claim": "NONE",
+  "caveat": "All three cross-owner copies and owner transfers were externally scripted in the preauthored scaffold. None can count as autonomous organization or functional repair."
+}

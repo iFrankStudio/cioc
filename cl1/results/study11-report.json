@@ -1,0 +1,89 @@
+{
+  "study": "CL-1 Study 11",
+  "status": "randomized postscaffold graph operation audit; NOT functional maintenance evidence",
+  "source_revision": "833b6a609ebbf5a7d5d354588bb4d0770a3c595a",
+  "independent_seed_worlds": 96,
+  "matched_runs": 480,
+  "hashed_epoch_snapshots": 7680,
+  "exact_replay": "verified by Rust lab for each full run and each epoch",
+  "metrics": {
+    "eligible_target": {
+      "seeds": 96,
+      "denominator": 96,
+      "wilson_95": [
+        0.961524,
+        1
+      ]
+    },
+    "drop_exposed": {
+      "seeds": 96,
+      "denominator": 96,
+      "wilson_95": [
+        0.961524,
+        1
+      ]
+    },
+    "indirect_process_impact": {
+      "seeds": 76,
+      "denominator": 96,
+      "wilson_95": [
+        0.699998,
+        0.860892
+      ]
+    },
+    "nonowner_process_impact": {
+      "seeds": 49,
+      "denominator": 96,
+      "wilson_95": [
+        0.41196,
+        0.608071
+      ]
+    },
+    "postdrop_object_creation": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "sham_mismatch": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "no_target": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    }
+  },
+  "successful_cross_owner_copy_events": 308,
+  "successful_different_owner_transfer_events": 89,
+  "seeds_with_successful_cross_owner_exchange": {
+    "seeds": 89,
+    "denominator": 96,
+    "wilson_95": [
+      0.85707,
+      0.964232
+    ]
+  },
+  "scaffold_opportunity_source": "EXTERNAL NINE-NODE PREFIX; NO PREWIRED COPY OR TRANSFER",
+  "successful_random_cross_owner_copy_events": 308,
+  "successful_random_graph_transfer_events": 89,
+  "seeds_with_random_copy": 73,
+  "seeds_with_random_transfer": 65,
+  "seeds_with_original_graph_mutation": 93,
+  "seeds_with_activity_in_late_epochs": 10,
+  "postfork_trapped_attempts_in_control": 212,
+  "organizational_closure": "NOT EVALUABLE",
+  "functional_recovery": "NOT EVALUABLE",
+  "life_claim": "NONE",
+  "caveat": "All graph exchanges in the randomized continuation originate in externally seeded instruction data. Causal effects and mutations are not evidence of autonomous functional maintenance."
+}
