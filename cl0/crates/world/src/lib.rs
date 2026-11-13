@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 //! CL-0 Stage 1: deterministic mechanics only. No hardcoded organism, repair or fitness.
 use std::collections::BTreeMap;
 
@@ -5,7 +6,7 @@ pub type ProcessId = u64;
 pub type CellKey = i64;
 pub const REGISTERS: usize = 4;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Op {
     Const { dst: usize, value: i64, next: usize },
     Add { dst: usize, lhs: usize, rhs: usize, next: usize },
@@ -31,12 +32,12 @@ impl Op {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Program {
     pub nodes: Vec<Op>,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Process {
     pub id: ProcessId,
     pub code: Program,
@@ -59,21 +60,23 @@ impl Process {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Origin {
     External,
     Internal(ProcessId),
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
     Loaded,
     Executed,
     Halted,
     Trapped(String),
+    Intervened(String),
+    InterventionRejected(String),
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Event {
     pub tick: u64,
     pub origin: Origin,
@@ -83,7 +86,7 @@ pub struct Event {
     pub credits_after: u64,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct World {
     processes: BTreeMap<ProcessId, Process>,
     cells: BTreeMap<CellKey, i64>,
@@ -92,6 +95,15 @@ pub struct World {
     cursor: Option<ProcessId>,
     tick: u64,
     events: Vec<Event>,
+}
+
+
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+pub enum Intervention {
+    Disable { process: ProcessId },
+    SetCredits { process: ProcessId, credits: u64 },
+    SetCell { key: CellKey, value: i64 },
+    PatchEdge { process: ProcessId, node: usize, next: usize },
 }
 
 impl World {
@@ -155,6 +167,60 @@ impl World {
 
     pub fn remaining_credits(&self) -> u64 {
         self.processes.values().map(|p| p.credits).sum()
+    }
+
+
+    /// Applies a labeled experimenter action, never attributed to internal CIL.
+    /// Rejected interventions are also observable. There is no host-side repair policy.
+    pub fn intervene(&mut self, intervention: Intervention) -> Result<(), String> {
+        let description = format!("{intervention:?}");
+        let process = match &intervention {
+            Intervention::Disable { process }
+            | Intervention::SetCredits { process, .. }
+            | Intervention::PatchEdge { process, .. } => *process,
+            Intervention::SetCell { .. } => 0,
+        };
+        let result = self.intervene_inner(&intervention);
+        self.tick += 1;
+        self.events.push(Event {
+            tick: self.tick,
+            origin: Origin::External,
+            process,
+            pc: self.processes.get(&process).map_or(0, |p| p.pc),
+            kind: match &result {
+                Ok(()) => EventKind::Intervened(description),
+                Err(reason) => EventKind::InterventionRejected(format!("{description}: {reason}")),
+            },
+            credits_after: self.processes.get(&process).map_or(0, |p| p.credits),
+        });
+        result
+    }
+
+    fn intervene_inner(&mut self, intervention: &Intervention) -> Result<(), String> {
+        match *intervention {
+            Intervention::Disable { process } => {
+                let p = self.processes.get_mut(&process).ok_or("unknown process")?;
+                p.stopped = true;
+            }
+            Intervention::SetCredits { process, credits } => {
+                self.processes.get_mut(&process).ok_or("unknown process")?.credits = credits;
+            }
+            Intervention::SetCell { key, value } => {
+                if !self.cells.contains_key(&key) && self.cells.len() >= self.storage_limit {
+                    return Err("storage capacity exhausted".into());
+                }
+                self.cells.insert(key, value);
+            }
+            Intervention::PatchEdge { process, node, next } => {
+                let p = self.processes.get_mut(&process).ok_or("unknown process")?;
+                if node >= p.code.nodes.len() || next >= p.code.nodes.len() {
+                    return Err("invalid graph node or edge".into());
+                }
+                let dest = p.code.nodes[node].next_mut().ok_or("no patchable edge")?;
+                *dest = next;
+            }
+        }
+        Ok(())
     }
 
     pub fn step(&mut self) -> bool {
@@ -369,6 +435,30 @@ mod tests {
         assert_eq!(world.run(10), 6);
         assert_eq!(world.process(1).unwrap().registers[2], 17);
         assert!(matches!(world.process(1).unwrap().code.nodes[3], Op::Const { next: 5, .. }));
+    }
+
+    #[test]
+    fn matched_external_intervention_is_attributed_and_causal() {
+        let mut base = World::new(2, 16);
+        base.load(writer(8)).unwrap();
+        let mut normal = base.clone();
+        let mut disabled = base;
+        disabled.intervene(Intervention::Disable { process: 1 }).unwrap();
+        normal.run(20);
+        disabled.run(20);
+        assert_eq!(normal.cell(7), Some(42));
+        assert_eq!(disabled.cell(7), None);
+        assert!(disabled.events().iter().any(|e| e.origin == Origin::External
+            && matches!(e.kind, EventKind::Intervened(_))));
+    }
+
+    #[test]
+    fn rejected_intervention_is_atomic_and_logged() {
+        let mut world = World::new(0, 16);
+        world.load(writer(8)).unwrap();
+        assert!(world.intervene(Intervention::SetCell { key: 3, value: 9 }).is_err());
+        assert_eq!(world.cell(3), None);
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::InterventionRejected(_)));
     }
 
     #[test]

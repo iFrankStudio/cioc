@@ -5,6 +5,9 @@ edition = "2021"
 description = "Deterministic resource-bounded native digital world, not a life simulator"
 license = "MIT"
 
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+
 [lib]
 name = "cl0_world"
 path = "src/lib.rs"
