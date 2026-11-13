@@ -149,7 +149,7 @@ fn prefork_world(seed: u64) -> World {
         assert_eq!(graph.owner, id);
         assert_eq!(graph.nodes.len(), 1);
         assert!(graph.readers.contains(&((id + 1) % 3 + 1)));
-        assert_eq!(world.cell(id - 1), Some(id as i64));
+        assert_eq!(world.cell(id as i64 - 1), Some(id as i64));
     }
     world
 }
