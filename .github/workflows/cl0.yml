@@ -2,7 +2,12 @@ name: CL-0 Rust kernel
 on:
   push:
     paths:
-      - 'cl0/**'
+      - 'cl0/crates/world/**'
+      - 'cl0/crates/lab/src/lib.rs'
+      - 'cl0/Cargo.toml'
+      - 'cl0/Cargo.lock'
+      - 'cl0/analysis/**'
+      - 'cl0/console/**'
       - '.github/workflows/cl0.yml'
   workflow_dispatch:
 
