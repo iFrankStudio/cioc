@@ -334,3 +334,33 @@ The 4/96 W1 candidate incidence has a two-sided 95% Wilson interval **[0.016321,
 ### Updated cohort accounting
 
 Across **13** separate preregistered cohort designs there are **1,376** independently seeded initial worlds, **7,040** paired experimental runs with full exact replays, and **93,440** separately hash-checked postepoch snapshots from Studies 05–13. Different cohorts and paired arms are not interchangeable samples; none of these totals estimates a probability of life. Positive CL-1 scientific acceptance remains **open**.
+
+## Study 14 — extended-window randomized reciprocity (verified 2026-11-13)
+
+This is the 96-world preregistered cohort in [Study 14](studies/14-preregistered-functional-restoration-gate.md), 576 matched runs, and 13,824 hashed epoch snapshots. Exact replay and independent audit passed. Early first-window reciprocal graph-copy candidates occurred in **4/96** untreated worlds; W2 and W3 each had **0/96**; all three-window persistence was **0/96**. No newly populated graph or late reappearance candidate was seen under the three damage arms. **Graph copying was only an exposure proxy**, and no attributable source-sensitive functional output could be established. The structural mechanism-positive arm was not yet implemented for the random cohort. Read the [frozen null checkpoint](results/study14-checkpoint.md). Functional maintenance and closure were **NOT EVALUABLE**, not zero.
+
+## Studies 15–21 — source attribution and external function-control calibration (verified 2026-11-13)
+
+These were *technical* calibrations, **not seven additional independent ecological cohorts**. Studies 15–17 added origin-attributed successful cell I/O, generic cell-descriptor-to-graph coding and graph-to-process launch metadata. Study 18 demonstrated a read-only source-chain auditor using predeclared synthetic positives and counterexamples; retrospectively the fixed Study-14 cohort yielded **0** fully traceable strict chains in **576 paired runs**, with **1,086** native trapped-instruction events ([checkpoint](results/study18-checkpoint.md)). This cannot be interpreted as an estimated maintenance rate.
+
+Study 19 verified exact externally initiated graph-object reinjection without compute minting, preserving source provenance and replay ([checkpoint](results/study19-checkpoint.md)). Study 20 used a hand-authored two-graph reader: untreated/sham output **11**, either graph loss **no output**, same-object exogenous reinjection **11**, external code replacement **30**, zero-credit **no output** ([checkpoint](results/study20-checkpoint.md)). Study 21 improved the positive control: an actual failed readout in W0 followed by **externally initiated restoration**, with new, externally authored reader probes outputting **11 in both W1 and W2**; unrepaired damage remained inoperative, mutated code yielded **30**, and zero-credit did not execute. Exactly **11 paired fixture arms, 33 hashed snapshots and 0 newly sampled independent ecological worlds** ([source-verified checkpoint](results/study21-checkpoint.md)). These functions were *designed by the investigator*. **No endogenous regeneration was observed.**
+
+## Study 22 — fresh-seed independent test of late compute limitation (verified 2026-11-13)
+
+**Preregistration**: [Study 22](studies/22-preregistered-compute-limitation-ecology.md), frozen at `ce6f78bd` before implementation. **Evidence**: [verified source-pinned checkpoint](results/study22-checkpoint.md) and [successful full CL-1 CI](https://github.com/iFrankStudio/cioc/actions/runs/43445242022), source revision `7da289de`.
+
+Exactly **96 independent new seed worlds**, **768 paired runs** and **18,432 hashed epoch snapshots** were preregistered and independently audited. All eight matched schedules and the untouched/sham state comparison passed; zero-credit never executed postfork. Recharges `SetCredits(1..3,47)` were externally scheduled at epochs 8 and 16 and do not restart trapped processes.
+
+| Endpoint (worlds / 96) | Untreated W3 | External recharge W3 |
+| --- | ---: | ---: |
+| Any charged native CIL attempt | **0** | **57** |
+| Successful cross-owner GraphCopied | **0** | **15** |
+| Successful CellRead | **0** | **23** |
+| Successful CellWritten | **0** | **0** |
+| Both-direction graph copy in window | **0** | **0** |
+
+The paired W3 comparison had **57 recharge-only active worlds versus zero untreated-only**, and **15 recharge-only successful cross-owner copy worlds versus zero untreated-only**. W3 recharge active-world frequency 57/96 had Wilson 95% interval **[0.493739, 0.686547]**; W3 copied-world frequency 15/96 had interval **[0.097037, 0.241915]**. This is a concrete demonstration that **externally subsidized compute is a confound for late activity and copying**, yet **not enough to restore sustained code-dependent cell-output function**. Exogenous credit is never spontaneous energy harvesting, and successful graph copying is not a maintenance mechanism.
+
+### Updated stage ledger through Study 22
+
+Across **15 separately preregistered ecological study cohorts (Studies 01–14 and 22)**: **1,568 initial independent seed worlds** and **8,384 total matched runs**. The separately scripted technical calibrations Studies 15–21 do not enter those denominators. Do not pool heterogeneous generators or matched arms to infer a universal life-emergence rate. No CL-1 positive scientific milestone has been accepted.
