@@ -1,14 +1,45 @@
-# CIOC V0.8 — distributed fragments and role recovery
+# CIOC V0.8 — 分布式片段与行为等价程序再生
 
-Research toy model. No holder has a complete copy of another role's two-instruction program.
+此版本是有限的机制验证实验，不证明已创造数字生命，也不证明形成了完整组织闭合。
 
-Run from this directory with Python 3.10+:
+## 与 V0.7 的区别
 
-    python -m unittest -v
-    python run.py
+- 维护程序扩展为三条指令；存活角色只分别持有目标程序的**部分位置约束**，关键中间指令未知。
+- 候选不再通过与原程序逐字匹配来验收，而是运行独立的正向和负向行为探针。
+- `PROPOSE_ALT` 与原来的 `PROPOSE` 对当前世界的可观察作用一致，因此可以恢复出**源码不同而测试行为等价**的 G 程序。
+- 记录候选被拒绝和继续搜索的过程；统计计算预算、提案探测次数、内部安装及外部恢复。
+- 恢复后的 G 能在再次损伤其他角色后执行替代的 `PROPOSE_ALT` 指令，产生实际修复候选提案，而不只通过孤立测试。
 
-The environment supplies deterministic instruction interpretation, a bounded candidate alphabet, exact-code role oracle, budget and atomic program installation. O detects failures and can enumerate a replacement for G; G proposes for other roles; V checks; M commits.
+## 运行
 
-Expected results: G-only loss recovers internally; O, V and M losses do not; G+M loss, missing fragments and insufficient budget fail. External restoration is separately counted.
+需要 Python 3.10+，仅使用标准库。
 
-**Limits:** Exact-code matching is not independent behavioral verification; fragments and role protocols are predesigned; no emergent self-organization, autonomous evolution, or demonstration of life is claimed. The central hypothesis of full organizational closure remains unverified.
+```bash
+cd experiments/v0.8
+python -m unittest -v
+python run.py
+```
+
+`run.py` 更新 `results/experiments.json`。执行顺序确定，结果可复现。
+
+## 干预及预期
+
+| 干预 | 预期 |
+|---|---|
+| G 单独丢失 | 内部恢复；候选程序可与原程序不同 |
+| O / V / M 单独丢失 | 失败，暴露维护链单点故障 |
+| G+M / G+V 同时丢失 | 失败 |
+| 预算不足 | 失败 |
+| G 的关键片段丢失 | 失败 |
+| 外部恢复 G | 成功，但计入外部而非内部恢复 |
+
+## 科学局限
+
+1. **行为等价仅相对于有限探针**：两个布尔刺激不能证明对所有输入和环境等价。
+2. 指令原语、调度、计算预算、程序片段及验证接口均由实验者设计；并非开放式演化结果。
+3. `O` 的 G 备用合成仍是预设的有限策略。O/V/M 存在单点故障。
+4. 本实验实现的行为探针是**宿主提供的裁判**，不是由生命体自己形成、修复的契约。
+5. 世界中 O/G/V/M 的真实调度语义与探针是简化近似；`CHECK` 等原语尚未具备独立权限流，不可推论其安全性。
+6. 结论只限本实验定义的操作空间和损伤分布，不构成自组织或赛博生命存在的证据。
+
+详见 `实验报告.md` 和结果文件。
