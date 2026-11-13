@@ -1,0 +1,622 @@
+{
+  "0.0": {
+    "surviving_runs": 0,
+    "runs": [
+      {
+        "seed": 0,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 1,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 2,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 3,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 4,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 5,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 6,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 7,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 8,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 9,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 10,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 11,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 12,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 13,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 14,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 15,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 16,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 17,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 18,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 19,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 20,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 21,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 22,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 23,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 24,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 25,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 26,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 27,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 28,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 29,
+        "survived": false,
+        "population": 0
+      }
+    ]
+  },
+  "0.05": {
+    "surviving_runs": 24,
+    "runs": [
+      {
+        "seed": 0,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 1,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 2,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 3,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 4,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 5,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 6,
+        "survived": true,
+        "population": 43
+      },
+      {
+        "seed": 7,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 8,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 9,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 10,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 11,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 12,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 13,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 14,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 15,
+        "survived": true,
+        "population": 43
+      },
+      {
+        "seed": 16,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 17,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 18,
+        "survived": true,
+        "population": 42
+      },
+      {
+        "seed": 19,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 20,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 21,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 22,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 23,
+        "survived": false,
+        "population": 0
+      },
+      {
+        "seed": 24,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 25,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 26,
+        "survived": true,
+        "population": 2
+      },
+      {
+        "seed": 27,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 28,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 29,
+        "survived": true,
+        "population": 43
+      }
+    ]
+  },
+  "0.12": {
+    "surviving_runs": 30,
+    "runs": [
+      {
+        "seed": 0,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 1,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 2,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 3,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 4,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 5,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 6,
+        "survived": true,
+        "population": 36
+      },
+      {
+        "seed": 7,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 8,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 9,
+        "survived": true,
+        "population": 44
+      },
+      {
+        "seed": 10,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 11,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 12,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 13,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 14,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 15,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 16,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 17,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 18,
+        "survived": true,
+        "population": 42
+      },
+      {
+        "seed": 19,
+        "survived": true,
+        "population": 3
+      },
+      {
+        "seed": 20,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 21,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 22,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 23,
+        "survived": true,
+        "population": 2
+      },
+      {
+        "seed": 24,
+        "survived": true,
+        "population": 1
+      },
+      {
+        "seed": 25,
+        "survived": true,
+        "population": 38
+      },
+      {
+        "seed": 26,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 27,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 28,
+        "survived": true,
+        "population": 43
+      },
+      {
+        "seed": 29,
+        "survived": true,
+        "population": 35
+      }
+    ]
+  },
+  "0.25": {
+    "surviving_runs": 30,
+    "runs": [
+      {
+        "seed": 0,
+        "survived": true,
+        "population": 38
+      },
+      {
+        "seed": 1,
+        "survived": true,
+        "population": 43
+      },
+      {
+        "seed": 2,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 3,
+        "survived": true,
+        "population": 42
+      },
+      {
+        "seed": 4,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 5,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 6,
+        "survived": true,
+        "population": 36
+      },
+      {
+        "seed": 7,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 8,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 9,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 10,
+        "survived": true,
+        "population": 4
+      },
+      {
+        "seed": 11,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 12,
+        "survived": true,
+        "population": 42
+      },
+      {
+        "seed": 13,
+        "survived": true,
+        "population": 42
+      },
+      {
+        "seed": 14,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 15,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 16,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 17,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 18,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 19,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 20,
+        "survived": true,
+        "population": 40
+      },
+      {
+        "seed": 21,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 22,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 23,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 24,
+        "survived": true,
+        "population": 37
+      },
+      {
+        "seed": 25,
+        "survived": true,
+        "population": 41
+      },
+      {
+        "seed": 26,
+        "survived": true,
+        "population": 38
+      },
+      {
+        "seed": 27,
+        "survived": true,
+        "population": 39
+      },
+      {
+        "seed": 28,
+        "survived": true,
+        "population": 43
+      },
+      {
+        "seed": 29,
+        "survived": true,
+        "population": 37
+      }
+    ]
+  }
+}
