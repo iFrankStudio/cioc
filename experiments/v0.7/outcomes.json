@@ -1,0 +1,39 @@
+{
+  "damage_O": {
+    "recovered": false,
+    "internal": 0,
+    "checked": 0
+  },
+  "damage_G": {
+    "recovered": true,
+    "internal": 1,
+    "checked": 32
+  },
+  "damage_V": {
+    "recovered": false,
+    "internal": 0,
+    "checked": 81
+  },
+  "damage_M": {
+    "recovered": false,
+    "internal": 0,
+    "checked": 47
+  },
+  "damage_G_M": {
+    "recovered": false,
+    "internal": 0
+  },
+  "low_budget": {
+    "recovered": false,
+    "internal": 0
+  },
+  "missing_fragment": {
+    "recovered": false,
+    "internal": 0
+  },
+  "external": {
+    "recovered": true,
+    "internal": 0,
+    "external": 1
+  }
+}
