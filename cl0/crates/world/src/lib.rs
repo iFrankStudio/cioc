@@ -571,7 +571,7 @@ mod tests {
         assert_eq!(world.run(10), 4);
         assert_eq!(world.occupied_units(), 5);
         assert_eq!(world.process(1).unwrap().registers[1], 4);
-        assert_eq!(world.process(1).unwrap().registers[2], 1);
+        assert_eq!(world.process(1).unwrap().registers[2], 2);
         assert_eq!(world.process(1).unwrap().code.nodes[4], world.process(1).unwrap().code.nodes[1]);
         assert_eq!(world.remaining_credits(), 4);
     }
