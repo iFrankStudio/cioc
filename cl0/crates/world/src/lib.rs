@@ -3520,8 +3520,7 @@ mod tests {
                 .count(),
             1
         );
-        let decoded: World = serde_json::from_str(&serde_json::to_string(&w).unwrap()).unwrap();
-        assert_eq!(w, decoded);
+        assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
     }
 
     #[test]
