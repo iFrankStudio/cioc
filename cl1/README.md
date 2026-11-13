@@ -6,6 +6,7 @@
 - [Study 01 preregistration](studies/01-preregistered-random-ecology.md) — 64 independent seeded worlds, five matched conditions per world; first negative-capable baseline.
 - [Study 02 preregistration](studies/02-preregistered-reciprocal-causality.md) — 128 fresh seeds, six matched conditions, reciprocal state sensitivity audited with sham and zero-credit controls.
 - [Study 03 preregistration](studies/03-preregistered-code-recovery.md) — 128 fresh seeds, targeted edge disruption, sham and explicitly external restoration controls.
+- [Study 04 preregistration](studies/04-preregistered-open-compute.md) — fresh long-horizon worlds with external finite compute pools and replenishment controls.
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
 **No life evidence has yet been established.** Study 01 can measure finite CIL behavior and state sensitivity but cannot alone verify organizational closure or self-maintenance.
