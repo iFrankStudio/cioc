@@ -9,11 +9,11 @@ CL-0 is a new research platform, **not** a continuation of CIOC's pre-programmed
 - Stage 0: specification, limitations and preregistered tests.
 - Stage 1: Rust deterministic minimal kernel, finite execution/storage, CIL graph interpreter, event trace and matched negative controls.
 - Stage 2: **implemented foundation**: SQLite matched-run registry, labeled external interventions, serializable world snapshots and exact same-version replay. Mid-run interventions and long-term compatibility remain deferred.
-- Stage 3: generalized code/object operations, durable self-modification and capability sandbox.
+- Stage 3: **partial**: CIL graph-edge inspection, generic node clone, constant replacement, cell deletion, and an opt-in common storage capacity for CIL code nodes plus data cells. No full object creation, access capabilities, process copying, or global memory accounting yet.
 - Stage 4: Python analysis and Vue 3 / TypeScript observational console.
 - Stage 5: exploratory populations and open-endedness measurements.
 
-See [technical specification](docs/specification.md), [stage plan](docs/stage-1-plan.md) and [CIOC evidence audit](docs/cioc-transition.md).
+See [technical specification](docs/specification.md), [stage plan](docs/stage-1-plan.md), [CIOC evidence audit](docs/cioc-transition.md), and [Stage-3 incremental specification](docs/stage-3-graph-storage.md).
 
 The experimental world does not label programs as organisms. An observer may later classify organization candidates from externally computed evidence. Initial programs are interventions supplied by the experimenter, not instances of discovered life.
 
