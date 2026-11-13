@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26)
           selected='|'
           quick=false
           full=false
@@ -816,3 +816,36 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study25.sqlite
             ${{ runner.temp }}/cl1-study25-report.json
+
+  study26:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study26|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify explicitly post-outcome exploratory registration
+        run: test -f ../cl1/studies/26-preregistered-retrospective-dropout-audit.md
+      - name: Rerun original Study-25 matched worlds with unchanged interventions and exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study25 -- "$RUNNER_TEMP/cl1-study26-rerun.sqlite"
+      - name: Confirm original Study-25 outcome before classifying previously known dropouts
+        run: |
+          python3 ../cl1/analyze_study25.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-baseline.json"
+          python3 ../cl1/analyze_study26.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-report.json"
+          cat "$RUNNER_TEMP/cl1-study26-report.json"
+      - name: Archive matched exploratory mechanism cases and source-pinned SQLite
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study26
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study26-rerun.sqlite
+            ${{ runner.temp }}/cl1-study26-baseline.json
+            ${{ runner.temp }}/cl1-study26-report.json
