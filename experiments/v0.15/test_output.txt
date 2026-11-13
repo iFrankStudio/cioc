@@ -1,0 +1,16 @@
+test_anchor_absence_blocks (test_cioc.MaintenanceEcologyTests.test_anchor_absence_blocks) ... ok
+test_capacity (test_cioc.MaintenanceEcologyTests.test_capacity) ... ok
+test_controller_damage_blocks (test_cioc.MaintenanceEcologyTests.test_controller_damage_blocks) ... ok
+test_determinism (test_cioc.MaintenanceEcologyTests.test_determinism) ... ok
+test_disabled_repair_negative_control (test_cioc.MaintenanceEcologyTests.test_disabled_repair_negative_control) ... ok
+test_healthy_does_not_repair (test_cioc.MaintenanceEcologyTests.test_healthy_does_not_repair) ... ok
+test_not_full_template_restore (test_cioc.MaintenanceEcologyTests.test_not_full_template_restore) ... ok
+test_repair_costs_energy (test_cioc.MaintenanceEcologyTests.test_repair_costs_energy) ... ok
+test_scenarios (test_cioc.MaintenanceEcologyTests.test_scenarios) ... ok
+test_scheduled_damage_is_not_fault_signal (test_cioc.MaintenanceEcologyTests.test_scheduled_damage_is_not_fault_signal) ... ok
+test_self_restoration (test_cioc.MaintenanceEcologyTests.test_self_restoration) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.025s
+
+OK
