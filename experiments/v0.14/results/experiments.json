@@ -1,0 +1,25 @@
+{
+  "replication": {
+    "population": 43,
+    "births": 223,
+    "external_insertions": 1
+  },
+  "no_food": {
+    "population": 0,
+    "births": 0
+  },
+  "switch_no_mutation": {
+    "alive": 0,
+    "deaths": 77
+  },
+  "switch_with_mutation": {
+    "alive": 42,
+    "births": 128,
+    "mutations": 25,
+    "B_type": 10
+  },
+  "switch_with_initial_diversity": {
+    "alive": 42,
+    "B_type": 42
+  }
+}
