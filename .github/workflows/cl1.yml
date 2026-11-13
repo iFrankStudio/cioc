@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30 study31)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30 study31 study32)
           selected='|'
           quick=false
           full=false
@@ -1026,3 +1026,42 @@ jobs:
             ${{ runner.temp }}/cl1-study31-rerun.sqlite
             ${{ runner.temp }}/cl1-study31-baseline.json
             ${{ runner.temp }}/cl1-study31-report.json
+
+  study32:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study32|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm new independent native resource study was preregistered
+        run: test -f ../cl1/studies/32-preregistered-native-compute-pool-uptake.md
+      - name: Check strict Rust workspace and independent Python protocol controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 new CIL resource worlds with source-pinned full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study32 -- "$RUNNER_TEMP/cl1-study32.sqlite"
+      - name: Independently reconstruct each resource-pool transition and audit all 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study32.py "$RUNNER_TEMP/cl1-study32.sqlite" --json "$RUNNER_TEMP/cl1-study32-report.json"
+          cat "$RUNNER_TEMP/cl1-study32-report.json"
+      - name: Archive entire externally-controlled native resource ecology and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study32
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study32.sqlite
+            ${{ runner.temp }}/cl1-study32-report.json
