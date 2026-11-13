@@ -3460,59 +3460,62 @@ mod tests {
             1,
             vec![
                 Op::GraphNew { dst: 0, next: 1 },
+                Op::Const {
+                    dst: 2,
+                    value: 3,
+                    next: 2,
+                },
                 Op::GraphCopyNode {
                     graph: 0,
                     source: 2,
                     dst: 1,
-                    next: 2,
+                    next: 3,
                 },
                 Op::Const {
                     dst: 2,
                     value: 0,
-                    next: 3,
+                    next: 4,
                 },
                 Op::GraphSetConst {
                     graph: 0,
                     node: 2,
                     value: 2,
-                    next: 4,
+                    next: 5,
                 },
                 Op::GraphSetNext {
                     graph: 0,
                     node: 2,
                     target: 2,
-                    next: 5,
+                    next: 6,
                 },
                 Op::Halt,
             ],
             8,
         ))
         .unwrap();
-        assert_eq!(w.run(5), 5);
+        assert_eq!(w.run(6), 6);
         assert!(matches!(
             &w.events()[1].kind,
             EventKind::GraphCreated { graph: 1, owner: 1 }
         ));
         assert!(matches!(
-            &w.events()[2].kind,
+            &w.events()[3].kind,
             EventKind::GraphNodeCopied {
                 graph: 1,
                 owner: 1,
                 source_process: 1,
-                source_node: 2,
+                source_node: 3,
                 new_node: 0
             }
         ));
-        // Both edits are rejected: register r2=0 points at graph node 0
-        // which holds a Const copied from process code; but its next target
-        // register r2=0 is valid for the single-node graph.
-        assert!(matches!(&w.events()[4].kind, EventKind::GraphNodeEdited {
+        // Both edits succeed on the copied Const node at index 0.
+        assert!(matches!(&w.events()[6].kind, EventKind::GraphNodeEdited {
             graph: 1, owner: 1, node: 0, edit
         } if edit == "const"));
         assert!(matches!(&w.events()[5].kind, EventKind::GraphNodeEdited {
             graph: 1, owner: 1, node: 0, edit
         } if edit == "next"));
-        assert_eq!(w.remaining_credits(), 3);
+        assert_eq!(w.remaining_credits(), 2);
         assert_eq!(
             w.events()
                 .iter()
