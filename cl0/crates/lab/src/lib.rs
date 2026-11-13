@@ -311,6 +311,37 @@ mod tests {
     }
 
     #[test]
+    fn constructed_instruction_descriptor_replays_with_negative_control() {
+        let mut initial = World::with_total_capacity(8, 16, 24);
+        initial.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 100, next: 2 },
+            Op::GraphEncode { graph: 0, address: 1, dst: 2, next: 3 },
+            Op::Const { dst: 1, value: 2, next: 4 },
+            Op::GraphLaunch { graph: 0, credits: 1, dst: 2, next: 5 },
+            Op::Halt,
+        ], 12)).unwrap();
+        for (offset, value) in [19, 0, 0, 0, 0].into_iter().enumerate() {
+            initial.intervene(Intervention::SetCell { key: 100 + offset as i64, value }).unwrap();
+        }
+        let mut lab = Laboratory::in_memory().unwrap();
+        let cases = [
+            Condition { label: "described-program".into(), interventions: vec![] },
+            Condition { label: "no-computation".into(),
+                interventions: vec![Intervention::SetCredits { process: 1, credits: 0 }] },
+        ];
+        let outcomes = lab.run_matched(&initial, &cases, 32, "stage3.3-test").unwrap();
+        assert_eq!(outcomes[0].initial_sha256, outcomes[1].initial_sha256);
+        assert!(outcomes[0].world.process(2).unwrap().stopped);
+        assert_eq!(outcomes[1].world.process(2), None);
+        assert_eq!(outcomes[0].world.remaining_credits(), 5);
+        assert_eq!(outcomes[1].attempts, 0);
+        for run in outcomes {
+            assert!(lab.verify_replay(run.id).unwrap());
+        }
+    }
+
+    #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
         assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
