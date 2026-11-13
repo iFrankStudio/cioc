@@ -15,6 +15,7 @@ CIOC is a research project on organizational individuality, causal maintenance a
 | V0.5 | internally executed repair control graphs | finite syntax and fixed contracts |
 | V0.6 | complementary roles and contract recovery | O/G/V/M single-point dependencies |
 | V0.7 | reconstruction of generator G from O/V/M | O, V and M cannot yet recover |
+| V0.8 | bounded recovery from distributed instruction fragments | O/V/M remain single points of failure; host exact-code oracle |
 
 ## Research principles
 
@@ -23,4 +24,4 @@ CIOC is a research project on organizational individuality, causal maintenance a
 - Preserve negative controls and failures.
 - Treat causal repair evidence, not mere graph cycles, as the basis for maintenance claims.
 
-The research baseline is on `main`. Historical V0.1–V0.6 source archives are pending exact-byte GitHub import; the version table is an index, not a claim that every historical implementation is committed.
+The research baseline is on `main`. Historical V0.1–V0.6 source directories have been uploaded to the repository by the project owner. V0.7 and V0.8 are independently inspectable research baselines.
