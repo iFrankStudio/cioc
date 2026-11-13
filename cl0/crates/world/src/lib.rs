@@ -3542,22 +3542,68 @@ mod tests {
     #[test]
     fn cell_io_events_are_success_only_and_do_not_mint_resources() {
         let mut world = World::with_strict_capacity(1, 8, 12);
-        world.load(Process::new(1, vec![
-            Op::Const { dst: 0, value: 7, next: 1 },
-            Op::Read { dst: 1, address: 0, next: 2 },
-            Op::Write { address: 0, value: 1, next: 3 },
-            Op::Read { dst: 2, address: 0, next: 4 },
-            Op::Const { dst: 0, value: 8, next: 5 },
-            Op::Write { address: 0, value: 1, next: 6 },
-            Op::Halt,
-        ], 7)).unwrap();
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::Const {
+                        dst: 0,
+                        value: 7,
+                        next: 1,
+                    },
+                    Op::Read {
+                        dst: 1,
+                        address: 0,
+                        next: 2,
+                    },
+                    Op::Write {
+                        address: 0,
+                        value: 1,
+                        next: 3,
+                    },
+                    Op::Read {
+                        dst: 2,
+                        address: 0,
+                        next: 4,
+                    },
+                    Op::Const {
+                        dst: 0,
+                        value: 8,
+                        next: 5,
+                    },
+                    Op::Write {
+                        address: 0,
+                        value: 1,
+                        next: 6,
+                    },
+                    Op::Halt,
+                ],
+                7,
+            ))
+            .unwrap();
         let initial_inventory = world.total_compute_inventory().unwrap();
         assert_eq!(world.run(6), 6);
-        assert!(matches!(world.events()[2].kind, EventKind::CellRead { key: 7, value: 0 }));
-        assert!(matches!(world.events()[3].kind, EventKind::CellWritten { key: 7, value: 0 }));
-        assert!(matches!(world.events()[4].kind, EventKind::CellRead { key: 7, value: 0 }));
+        assert!(matches!(
+            world.events()[2].kind,
+            EventKind::CellRead { key: 7, value: 0 }
+        ));
+        assert!(matches!(
+            world.events()[3].kind,
+            EventKind::CellWritten { key: 7, value: 0 }
+        ));
+        assert!(matches!(
+            world.events()[4].kind,
+            EventKind::CellRead { key: 7, value: 0 }
+        ));
         assert!(matches!(world.events()[6].kind, EventKind::Trapped(_)));
-        assert_eq!(world.events().iter().filter(|e| matches!(e.kind, EventKind::CellWritten { .. })).count(), 1);
+        assert_eq!(
+            world
+                .events()
+                .iter()
+                .filter(|e| matches!(e.kind, EventKind::CellWritten { .. }))
+                .count(),
+            1
+        );
         assert_eq!(world.remaining_credits(), initial_inventory - 6);
         assert_eq!(world.cell(7), Some(0));
         assert_eq!(world.cell(8), None);
