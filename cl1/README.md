@@ -11,6 +11,7 @@
 - [Study 04 preregistration](studies/04-preregistered-open-compute.md) — fresh long-horizon worlds with external finite compute pools and replenishment controls.
 - [Study 05 preregistration](studies/05-preregistered-exogenous-epochs.md) — independent environment epochs and full epoch-snapshot replay; [verified results](RESULTS.md#study-05--independent-external-epoch-environment-verified-2026-11-13).
 - [Study 06 preregistration](studies/06-preregistered-internal-graph-ablation.md) — completed ablation of internally created graphs; [verified results](RESULTS.md#study-06--internally-constructed-graph-object-ablation-verified-2026-11-13).
+- [Study 07 preregistration](studies/07-preregistered-cross-owner-information.md) — generic graph-to-graph code copying and explicit owner transfer under a new negative-capable cohort.
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
 **No life evidence has been established.** Across six distinct study cohorts (640 initial worlds and 3,264 matched runs), rare mutual state effects and external-compute-supported persistence were observed, but registered restoration and organizational closure were not. These four distinct generator families must not be pooled for statistical inference. See [results](RESULTS.md).

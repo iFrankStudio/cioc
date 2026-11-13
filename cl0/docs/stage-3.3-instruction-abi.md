@@ -7,7 +7,7 @@
 
 All five cells are mandatory. Input shape is `[opcode_tag, operand0, operand1, operand2, operand3]`. Unused operands have no effect for that tag. Index and register operands must be representable as nonnegative `usize` values; the `Const.value` literal is signed `i64`. The appended node is an `Op`, not a sequence of external Rust source code. Generated control flow is **not** automatically relinked or optimized.
 
-## CIL instruction ABI — base tags 0–19 with additive extensions 20–27
+## CIL instruction ABI — base tags 0–19 with additive extensions 20–29
 
 | tag | opcode | operand0, operand1, operand2, operand3 |
 | ---: | --- | --- |
@@ -39,6 +39,10 @@ All five cells are mandatory. Input shape is `[opcode_tag, operand0, operand1, o
 | 25 | TransferCompute | recipient, amount, next, unused |
 | 26 | GraphReadField | graph, node, field, next |
 | 27 | GraphReplace | graph, node, address, next |
+| 28 | GraphCopyFrom | target, source, node, next |
+| 29 | GraphTransfer | graph, recipient, next, unused |
+
+`GraphCopyFrom` copies an instruction node from an owned or read-authorized source graph into an actor-owned target graph, consuming one storage unit; the register selected by `node` receives the newly appended node index. `GraphTransfer` changes an existing graph object's owner to an existing process, without copying its contents or minting resources. An owner's previous owner privileges vanish after transfer unless a read grant independently permits limited access. In-place transfer preserves explicit read grants. Both operations are ordinary, non-teleological VM primitives, not special cooperation or reproduction actions.
 
 Existing numeric tags are never renumbered; new tags are explicitly additive and require updating this table and the conformance tests. `GraphReadField` reads descriptor field 0–4 from an owned or authorized graph node into the register that previously held the field selector. `GraphReplace` overwrites an owned node from a validated five-cell descriptor without allocating another node. `DrawCompute`, `ReturnCompute` and `TransferCompute` transfer existing computation credits; the world pool can be replenished only through an explicitly recorded external intervention. A new tag requires an explicit *world ABI revision*. The opcode vocabulary is fixed at this stage; combinatorial reconstruction within this vocabulary should never be marketed as open-ended invention of new primitives. An assembled program can contain control-flow edges that do not yet point to valid nodes. If executed, invalid edges trap according to ordinary VM semantics.
 
