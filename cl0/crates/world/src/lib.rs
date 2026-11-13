@@ -366,8 +366,8 @@ mod tests {
             Op::Halt,
             Op::Const { dst: 2, value: 17, next: 4 }, // new edge
         ], 10)).unwrap();
-        assert_eq!(world.run(10), 5);
-        assert_eq!(world.process(1).unwrap().registers[2], 99);
+        assert_eq!(world.run(10), 6);
+        assert_eq!(world.process(1).unwrap().registers[2], 17);
         assert!(matches!(world.process(1).unwrap().code.nodes[3], Op::Const { next: 5, .. }));
     }
 
