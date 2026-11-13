@@ -3145,7 +3145,7 @@ mod tests {
                 Op::GraphNew { dst: 0, next: 1 },
                 Op::Const {
                     dst: 1,
-                    value: 4,
+                    value: 1,
                     next: 2,
                 },
                 Op::GraphCopyNode {
@@ -3225,7 +3225,7 @@ mod tests {
             assembled.nodes,
             vec![Op::Const {
                 dst: 1,
-                value: 4,
+                value: 1,
                 next: 2
             }]
         );
