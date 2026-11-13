@@ -197,6 +197,9 @@ pub struct World {
     max_nodes_per_process: usize,
     /// Optional common allocation cap: all executable nodes plus shared cells.
     total_storage_limit: Option<usize>,
+    /// Versioned opt-in accounting for process headers and graph reader entries.
+    #[serde(default)]
+    strict_accounting: bool,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -228,6 +231,7 @@ impl World {
             storage_limit,
             max_nodes_per_process,
             total_storage_limit: None,
+            strict_accounting: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -247,10 +251,26 @@ impl World {
 
     pub fn occupied_units(&self) -> usize {
         let used = self.processes.values().fold(self.cells.len(), |used, p| used.saturating_add(p.code.nodes.len()));
-        self.graph_objects.values().fold(used, |used, g| used.saturating_add(1).saturating_add(g.nodes.len()))
+        let used = self.graph_objects.values().fold(used, |used, g| used.saturating_add(1).saturating_add(g.nodes.len()));
+        if self.strict_accounting {
+            let with_processes = used.saturating_add(self.processes.len());
+            self.graph_objects.values().fold(with_processes, |count, g| count.saturating_add(g.readers.len()))
+        } else {
+            used
+        }
+    }
+
+    /// CL-0 acceptance baseline: price each process header and graph read grant.
+    /// Existing `with_total_capacity` snapshots retain their earlier semantics.
+    pub fn with_strict_capacity(storage_limit: usize, max_nodes_per_process: usize, total: usize) -> Self {
+        let mut world = Self::with_total_capacity(storage_limit, max_nodes_per_process, total);
+        world.strict_accounting = true;
+        world
     }
 
     pub fn total_capacity(&self) -> Option<usize> { self.total_storage_limit }
+
+    pub fn strict_accounting(&self) -> bool { self.strict_accounting }
 
     /// Read-only visibility for analysis. Graph capabilities remain local to the creator.
     pub fn graph_object(&self, id: u64) -> Option<&GraphObject> {
@@ -275,7 +295,9 @@ impl World {
         if process.pc >= process.code.nodes.len() {
             return Err("invalid initial pc");
         }
-        if !self.can_allocate(process.code.nodes.len()) {
+        let needed = process.code.nodes.len().checked_add(usize::from(self.strict_accounting))
+            .ok_or("total storage capacity exhausted")?;
+        if !self.can_allocate(needed) {
             return Err("total storage capacity exhausted");
         }
         let next_id = process.id.checked_add(1).ok_or("process id exhausted")?;
@@ -736,6 +758,9 @@ impl World {
                 if !self.processes.contains_key(&reader_id) {
                     return Err("unknown reader process".into());
                 }
+                if self.strict_accounting && !object.readers.contains(&reader_id) && !self.can_allocate(1) {
+                    return Err("read grant storage capacity exhausted".into());
+                }
                 self.graph_objects.get_mut(&object_id).expect("checked object").readers.insert(reader_id);
                 self.processes.get_mut(&id).expect("owner exists").pc = next;
             }
@@ -1154,6 +1179,60 @@ mod tests {
         assert!(matches!(w.events().iter().rev().find(|e|
             e.process == 2 && e.origin == Origin::Internal(2)).unwrap().kind,
             EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn strict_capacity_prices_process_headers_and_read_grants() {
+        let mut world = World::with_strict_capacity(0, 16, 10);
+        world.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 2, next: 2 },
+            Op::GraphGrantRead { graph: 0, reader: 1, next: 3 },
+            Op::GraphRevokeRead { graph: 0, reader: 1, next: 4 },
+            Op::Halt,
+        ], 8)).unwrap();
+        world.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
+        assert!(world.strict_accounting());
+        assert_eq!(world.occupied_units(), 8);
+        assert_eq!(world.run(1), 1);
+        assert_eq!(world.occupied_units(), 9);
+        assert_eq!(world.run(2), 2);
+        assert_eq!(world.occupied_units(), 10);
+        assert!(world.graph_object(1).unwrap().readers.contains(&2));
+        assert_eq!(world.run(1), 1);
+        assert_eq!(world.occupied_units(), 9);
+        assert!(!world.graph_object(1).unwrap().readers.contains(&2));
+    }
+
+    #[test]
+    fn strict_capacity_rejects_grant_without_leaking_storage() {
+        let mut world = World::with_strict_capacity(0, 16, 9);
+        world.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 2, next: 2 },
+            Op::GraphGrantRead { graph: 0, reader: 1, next: 3 },
+            Op::Halt,
+        ], 6)).unwrap();
+        world.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
+        assert_eq!(world.occupied_units(), 7);
+        world.run(2);
+        assert_eq!(world.occupied_units(), 8);
+        // One free slot allows a grant, proving that it is actually charged.
+        assert_eq!(world.run(1), 1);
+        assert_eq!(world.occupied_units(), 9);
+        assert!(world.graph_object(1).unwrap().readers.contains(&2));
+        let mut smaller = World::with_strict_capacity(0, 16, 8);
+        smaller.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 2, next: 2 },
+            Op::GraphGrantRead { graph: 0, reader: 1, next: 3 },
+            Op::Halt,
+        ], 6)).unwrap();
+        smaller.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
+        smaller.run(3);
+        assert!(smaller.graph_object(1).unwrap().readers.is_empty());
+        assert_eq!(smaller.occupied_units(), 8);
+        assert!(matches!(smaller.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
 
     #[test]
