@@ -40,6 +40,9 @@ def summarize_world(world: dict) -> dict:
         "code_nodes": sum(len(a.get("code", {}).get("nodes", [])) for a in actors.values())
                       + sum(len(g.get("nodes", [])) for g in graphs.values()),
         "remaining_credits": sum(a.get("credits", 0) for a in actors.values()),
+        "world_compute_pool": world.get("compute_pool", 0),
+        "total_compute_inventory": world.get("compute_pool", 0) + sum(a.get("credits", 0) for a in actors.values()),
+        "strict_accounting": world.get("strict_accounting", False),
         "distinct_opcode_types": len(opcodes),
         "opcode_histogram": dict(sorted(opcodes.items())),
         "event_histogram": dict(sorted(kinds.items())),
@@ -120,7 +123,8 @@ def main() -> None:
         args.csv.parent.mkdir(parents=True, exist_ok=True)
         cols = ["type", "id", "revision", "condition", "initial_sha256",
                 "hashes_valid", "attempt_limit", "attempts", "cells", "processes",
-                "graph_objects", "code_nodes", "distinct_opcode_types", "remaining_credits"]
+                "graph_objects", "code_nodes", "distinct_opcode_types", "remaining_credits",
+                "world_compute_pool", "total_compute_inventory", "strict_accounting"]
         with args.csv.open("w", encoding="utf-8", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=cols, extrasaction="ignore")
             writer.writeheader()
