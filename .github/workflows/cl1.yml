@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30 study31)
           selected='|'
           quick=false
           full=false
@@ -993,3 +993,36 @@ jobs:
             ${{ runner.temp }}/cl1-study30-rerun.sqlite
             ${{ runner.temp }}/cl1-study30-baseline.json
             ${{ runner.temp }}/cl1-study30-report.json
+
+  study31:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study31|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered post-result native register-lineage protocol
+        run: test -f ../cl1/studies/31-registered-retrospective-register-lineage.md
+      - name: Repeat exact known Study27 world corpus with native SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study31-rerun.sqlite"
+      - name: Independently audit the original study before testing register value lineage
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-baseline.json"
+          python3 ../cl1/analyze_study31.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-report.json"
+          cat "$RUNNER_TEMP/cl1-study31-report.json"
+      - name: Archive immutable paired native events and def-use report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study31
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study31-rerun.sqlite
+            ${{ runner.temp }}/cl1-study31-baseline.json
+            ${{ runner.temp }}/cl1-study31-report.json
