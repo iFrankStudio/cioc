@@ -240,10 +240,10 @@ impl World {
                 self.processes.get_mut(&process).ok_or("unknown process")?.credits = credits;
             }
             Intervention::SetCell { key, value } => {
-                if !self.cells.contains_key(&key) {
-                    if self.cells.len() >= self.storage_limit || !self.can_allocate(1) {
-                        return Err("storage capacity exhausted".into());
-                    }
+                if !self.cells.contains_key(&key)
+                    && (self.cells.len() >= self.storage_limit || !self.can_allocate(1))
+                {
+                    return Err("storage capacity exhausted".into());
                 }
                 self.cells.insert(key, value);
             }
