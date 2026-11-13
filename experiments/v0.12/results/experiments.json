@@ -1,0 +1,87 @@
+{
+  "loss_DR": {
+    "recovered": true,
+    "internal": 1,
+    "cross_detections": 1
+  },
+  "corrupt_DR": {
+    "recovered": true,
+    "internal": 1,
+    "cross_detections": 1
+  },
+  "loss_DP": {
+    "recovered": true,
+    "internal": 1,
+    "cross_detections": 1
+  },
+  "corrupt_DP": {
+    "recovered": true,
+    "internal": 1,
+    "cross_detections": 1
+  },
+  "corrupt_G": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1
+  },
+  "corrupt_V": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1
+  },
+  "corrupt_M": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1
+  },
+  "corrupt_PV": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1
+  },
+  "corrupt_PI": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1
+  },
+  "corrupt_O": {
+    "recovered": false,
+    "internal": 0,
+    "detections": 1
+  },
+  "loss_both": {
+    "recovered": false,
+    "internal": 0
+  },
+  "corrupt_peer": {
+    "recovered": false,
+    "internal": 0
+  },
+  "missing_fragment": {
+    "recovered": false,
+    "internal": 0
+  },
+  "low_budget": {
+    "recovered": false,
+    "internal": 0
+  },
+  "disable_peer_repair": {
+    "recovered": false,
+    "internal": 0
+  },
+  "equivalent": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0
+  },
+  "sequential_DR_DP": {
+    "first": true,
+    "second": true,
+    "internal": 2
+  },
+  "external_unrelated": {
+    "recovered": true,
+    "diagnostic_repairs": 1,
+    "external": 1
+  }
+}
