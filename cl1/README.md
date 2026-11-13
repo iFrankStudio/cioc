@@ -4,6 +4,7 @@
 
 ## Research registry
 - [Study 01 preregistration](studies/01-preregistered-random-ecology.md) — 64 independent seeded worlds, five matched conditions per world; first negative-capable baseline.
+- [Study 02 preregistration](studies/02-preregistered-reciprocal-causality.md) — 128 fresh seeds, six matched conditions, reciprocal state sensitivity audited with sham and zero-credit controls.
 - [CL-0 → CL-1 handoff](../cl0/docs/CL-1-handoff.md) — scientific boundaries, controls and research acceptance rule.
 
 **No life evidence has yet been established.** Study 01 can measure finite CIL behavior and state sensitivity but cannot alone verify organizational closure or self-maintenance.
