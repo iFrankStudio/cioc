@@ -13,7 +13,7 @@ All positive results are **constructed tests of infrastructure**, not autonomous
 
 ## Observed validation
 Prior workflow run on Stage-2 SQLite code: https://github.com/iFrankStudio/cioc/actions/runs/43396033217 — 12 tests passed (4 lab + 8 world), Clippy passed.
-The additional disk-backed regression is only confirmed after its own GitHub workflow run passes. Do not count it as passing until then.
+Additional disk-backed regression verified by https://github.com/iFrankStudio/cioc/actions/runs/43396346773 : 13/13 workspace tests passed (5 lab + 8 world), and Clippy passed. The CI formatting command runs rustfmt rather than checking that committed source is already formatted.
 
 ## Unresolved
 1. The code storage cap and shared cell capacity remain separate, not a fully uniform resource ledger.
