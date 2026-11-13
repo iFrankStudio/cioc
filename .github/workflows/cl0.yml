@@ -33,9 +33,9 @@ jobs:
         run: python3 -m unittest discover -s analysis/tests -v
       - name: Generate matched exploratory experiments and verify SQLite replay
         run: |
-          CL0_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl0-explore -- "$RUNNER_TEMP/cl0-acceptance.sqlite" 4 54129
+          CL0_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl0-explore -- "$RUNNER_TEMP/cl0-acceptance.sqlite" 24 54129
           python3 analysis/analyze.py "$RUNNER_TEMP/cl0-acceptance.sqlite" --json "$RUNNER_TEMP/cl0-acceptance.json" --csv "$RUNNER_TEMP/cl0-acceptance.csv"
-          python3 -c 'import json,os,pathlib; d=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"cl0-acceptance.json").read_text()); assert d["counts"]["runs"] == 16, d["counts"]; assert d["counts"]["matched_initials"] == 4, d["counts"]; assert d["counts"]["invalid_hash_records"] == 0, d["counts"]; assert all(r["hashes_valid"] for r in d["records"]); assert all(r["attempts"] == 0 for r in d["records"] if r["condition"].endswith("/zero-credit"))'
+          python3 -c 'import json,os,pathlib; d=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"cl0-acceptance.json").read_text()); assert d["counts"]["runs"] == 96, d["counts"]; assert d["counts"]["matched_initials"] == 24, d["counts"]; assert d["counts"]["invalid_hash_records"] == 0, d["counts"]; assert all(r["hashes_valid"] for r in d["records"]); assert all(r["attempts"] == 0 for r in d["records"] if r["condition"].endswith("/zero-credit"))'
       - name: Install Vue observer dependencies
         run: npm ci --prefix console --no-audit --no-fund
       - name: Build and type-check Vue 3 observer
