@@ -1519,7 +1519,8 @@ mod tests {
     fn world_snapshot_carries_explicit_format_version() {
         let world = World::with_strict_capacity(2, 8, 10);
         let json = serde_json::to_string(&world).unwrap();
-        assert!(json.contains("\\"format_version\\":1"));
+        let encoded: serde_json::Value = serde_json::from_str(&json).unwrap();
+        assert_eq!(encoded["format_version"], 1);
         let restored: World = serde_json::from_str(&json).unwrap();
         assert_eq!(restored.format_version(), WORLD_FORMAT_VERSION);
         assert_eq!(world, restored);
