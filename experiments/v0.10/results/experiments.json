@@ -1,0 +1,98 @@
+{
+  "damage_O": {
+    "recovered": false,
+    "internal": 0,
+    "checks": 0,
+    "searches": 0
+  },
+  "damage_G": {
+    "recovered": true,
+    "internal": 1,
+    "checks": 4,
+    "searches": 3
+  },
+  "damage_V": {
+    "recovered": true,
+    "internal": 1,
+    "checks": 2,
+    "searches": 1
+  },
+  "damage_M": {
+    "recovered": true,
+    "internal": 1,
+    "checks": 3,
+    "searches": 2
+  },
+  "damage_V_M": {
+    "recovered": false,
+    "internal": 0
+  },
+  "damage_G_V": {
+    "recovered": false,
+    "internal": 0
+  },
+  "low_budget": {
+    "recovered": false,
+    "internal": 0
+  },
+  "missing_fragment": {
+    "recovered": false,
+    "internal": 0
+  },
+  "without_validation_delegation": {
+    "recovered": false,
+    "internal": 0
+  },
+  "without_installation_delegation": {
+    "recovered": false,
+    "internal": 0
+  },
+  "external": {
+    "recovered": true,
+    "internal": 0,
+    "external": 1
+  },
+  "damage_PV": {
+    "recovered": true,
+    "internal": 1,
+    "protocol_repairs": 1,
+    "checks": 2
+  },
+  "damage_PI": {
+    "recovered": true,
+    "internal": 1,
+    "protocol_repairs": 1,
+    "checks": 3
+  },
+  "damage_PV_V": {
+    "recovered": false,
+    "internal": 0
+  },
+  "damage_PI_M": {
+    "recovered": false,
+    "internal": 0
+  },
+  "sequential_PV_V": {
+    "first": true,
+    "second": true,
+    "internal": 2
+  },
+  "sequential_PI_M": {
+    "first": true,
+    "second": true,
+    "internal": 2
+  },
+  "missing_protocol_fragment": {
+    "recovered": false,
+    "internal": 0
+  },
+  "protocol_budget_exhausted": {
+    "recovered": false,
+    "internal": 0
+  },
+  "external_protocol_repair": {
+    "recovered": true,
+    "internal": 0,
+    "external": 1
+  }
+}
