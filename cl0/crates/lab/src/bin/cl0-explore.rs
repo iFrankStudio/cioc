@@ -14,6 +14,8 @@ fn next_random(state: &mut u64) -> u64 {
 /// No reward, repair, reproduction, selection, or survival check appears here.
 fn seed_world(seed: u64) -> World {
     let mut state = seed;
+    let mut world = World::with_strict_capacity(24, 32, 64);
+    for process_id in 1..=3 {
     let mut nodes = vec![
         Op::Const {
             dst: 0,
@@ -61,10 +63,10 @@ fn seed_world(seed: u64) -> World {
         nodes.push(op);
     }
     nodes.push(Op::Halt);
-    let mut world = World::with_strict_capacity(24, 32, 64);
     world
-        .load(Process::new(1, nodes, 48))
+        .load(Process::new(process_id, nodes, 8))
         .expect("generated baseline fits");
+    }
     world
 }
 
@@ -90,13 +92,12 @@ fn main() -> Result<(), Box<dyn Error>> {
             },
             ScheduledCondition {
                 label: format!("seed={trial_seed}/zero-credit"),
-                actions: vec![ScheduledAction {
-                    after_attempts: 0,
-                    action: Intervention::SetCredits {
-                        process: 1,
-                        credits: 0,
-                    },
-                }],
+                actions: (1..=3)
+                    .map(|process| ScheduledAction {
+                        after_attempts: 0,
+                        action: Intervention::SetCredits { process, credits: 0 },
+                    })
+                    .collect(),
             },
             ScheduledCondition {
                 label: format!("seed={trial_seed}/disable-after-8"),
@@ -153,7 +154,9 @@ mod tests {
         let a = seed_world(17);
         let b = seed_world(18);
         assert_ne!(a, b);
-        assert_eq!(a.occupied_units(), 13);
+        assert_eq!(a.occupied_units(), 39);
+        assert!(a.process(2).is_some());
+        assert!(a.process(3).is_some());
         assert_eq!(a.total_capacity(), Some(64));
         assert!(a.strict_accounting());
     }
