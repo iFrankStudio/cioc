@@ -279,6 +279,38 @@ mod tests {
     }
 
     #[test]
+    fn graph_object_launch_replays_with_zero_credit_control() {
+        let mut initial = World::with_total_capacity(0, 16, 16);
+        initial.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 7, next: 2 },
+            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
+            Op::Const { dst: 1, value: 2, next: 4 },
+            Op::GraphLaunch { graph: 0, credits: 1, dst: 2, next: 5 },
+            Op::Halt,
+            Op::Halt,
+            Op::Halt,
+        ], 12)).unwrap();
+        let mut lab = Laboratory::in_memory().unwrap();
+        let runs = lab.run_matched(&initial, &[
+            Condition { label: "constructed-runner".into(), interventions: vec![] },
+            Condition { label: "no-computation".into(), interventions: vec![
+                Intervention::SetCredits { process: 1, credits: 0 },
+            ] },
+        ], 20, "stage-3.2-test").unwrap();
+        assert_eq!(runs[0].world.graph_count(), 0);
+        assert!(runs[0].world.process(2).is_some());
+        assert!(runs[0].world.process(2).unwrap().stopped);
+        assert_eq!(runs[0].world.occupied_units(), 9);
+        assert_eq!(runs[1].world.graph_count(), 0);
+        assert!(runs[1].world.process(2).is_none());
+        assert_eq!(runs[1].world.occupied_units(), 8);
+        for run in runs {
+            assert!(lab.verify_replay(run.id).unwrap());
+        }
+    }
+
+    #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
         assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
