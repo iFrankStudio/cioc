@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-All eight **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All nine **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -170,3 +170,30 @@ Across all **eight** distinct preregistered cohorts: **896** independently initi
 The latest [full study workflow](https://github.com/iFrankStudio/cioc/actions/runs/43418306702) and [CL-0 regression](https://github.com/iFrankStudio/cioc/actions/runs/43418306631) passed. Outcomes remain **bounded negative / inconclusive for the positive CL-1 goal**: no preregistered multi-component functional restoration, mutual maintenance or organizational closure has been verified.
 
 The next useful scientific step is not merely adding more random seeds to a grammar that rarely creates shared objects. It is a **prospectively specified, broader but still non-teleological mechanism** for discoverable object references, provenance of internally constructed code and functionality tests across multiple causally connected parts. That protocol must be frozen before using any new data and must not insert a host-defined repair, fitness or reproduction oracle.
+
+---
+
+## Study 09 — permission-reachable general ecology, but no eligible internal objects (verified 2026-11-13)
+
+[Study-09 protocol](studies/09-preregistered-permission-ecology.md) was frozen in [`8baeb530`](https://github.com/iFrankStudio/cioc/commit/8baeb530767bcc78df0e6069e4700649be8bf713) **before** running new seeds or inspecting Study-09 outcomes. This was a prospective correction to Study 08's *structurally unavailable read-grant pathway*. The Study-09 generator included `GraphGrantRead` and `GraphRevokeRead`, in addition to ordinary graph allocation, copying and transfer, and used three 32-node random programs per initial world rather than 16-node programs. No beneficial repair or cooperation instruction was introduced.
+
+**Verified source:** `b5cdbb6122781560b41c7b07e2622b806c018b02`. [Nine-job CI](https://github.com/iFrankStudio/cioc/actions/runs/43419453968) · [SQLite/JSON evidence](https://github.com/iFrankStudio/cioc/actions/runs/43419453968/artifacts/14033347855). New independent seeds 1490000..1490127; **640/640 exact final replays and 20,480/20,480 epoch snapshots validated**.
+
+| Preregistered outcome | Observed |
+| --- | ---: |
+| Internal nonempty graph eligible at the shared intervention fork | **0/128** |
+| Successful graph deletion exposure | **0/128** |
+| Cross-owner successful graph copy events in untreated arms | **0 events** |
+| Successful different-owner transfers in untreated arms | **0 events** |
+| Indirect process-state consequences of graph deletion | **Not causally exposed (0 eligible targets)** |
+| Nonowner process-state impact from deletion | **Not causally exposed (0 eligible targets)** |
+| Sham effect | **0/128 mismatches** |
+| Every matched condition and snapshot deterministically replayable | **640/640 runs; 20,480/20,480 snapshots** |
+
+**Interpretation:** Adding the missing permission opcodes made cross-owner exchange *possible in the VM grammar*, but did not ensure any randomly seeded population reached a state with a usable nonempty graph before treatment. Thus zero observed exchanges and zero ablation effects are **not** informative null findings about organizational closure: exposure was absent in all 128 worlds. This finding also rules out treating a larger opcode vocabulary or greater source code length as automatic progress toward life.
+
+The next experimental bottleneck is to create an **investigator-disclosed, neutral opportunity scaffold** where generic CIL information/object operations actually become reachable without installing life-specific survival/repair goals. Such a scaffold is external initial engineering, never itself counted as emergent organization. See [Study-10 design proposal](docs/study-10-neutral-opportunity-design.md). No Study-10 protocol or outcome is preregistered yet.
+
+### Updated project totals — engineering reproducibility only
+
+Across **nine** different preregistered cohorts: **1,024 independent seed-worlds**, **5,184 matched runs**, **5,184/5,184 exact final-state/event replays** and **65,024** independently hash-verified, replay-consistent post-epoch snapshots from Studies 05–09. These values demonstrate reproducibility, **not** life or autonomous self-maintenance. Generator families and matched conditions are not statistically exchangeable. **CL-1's positive scientific target remains unaccepted.**
