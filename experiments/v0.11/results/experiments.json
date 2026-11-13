@@ -1,0 +1,95 @@
+{
+  "corrupt_O": {
+    "recovered": false,
+    "internal": 0,
+    "detections": 1,
+    "audits": 12
+  },
+  "corrupt_G": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1,
+    "audits": 24
+  },
+  "corrupt_V": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1,
+    "audits": 12
+  },
+  "corrupt_M": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1,
+    "audits": 18
+  },
+  "corrupt_PV": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1,
+    "audits": 12
+  },
+  "corrupt_PI": {
+    "recovered": true,
+    "internal": 1,
+    "detections": 1,
+    "audits": 18
+  },
+  "equivalent_G": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0,
+    "audits": 6
+  },
+  "equivalent_V": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0,
+    "audits": 6
+  },
+  "equivalent_M": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0,
+    "audits": 6
+  },
+  "equivalent_PV": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0,
+    "audits": 6
+  },
+  "equivalent_PI": {
+    "healthy": true,
+    "internal": 0,
+    "detections": 0,
+    "audits": 6
+  },
+  "without_diagnostics": {
+    "recovered": false,
+    "internal": 0
+  },
+  "low_budget": {
+    "recovered": false,
+    "internal": 0
+  },
+  "broken_diagnostics": {
+    "recovered": false,
+    "internal": 0
+  },
+  "sequential_V_M": {
+    "first": true,
+    "second": true,
+    "internal": 2,
+    "detections": 2
+  },
+  "joint_PV_V": {
+    "recovered": false,
+    "internal": 0
+  },
+  "external": {
+    "recovered": true,
+    "internal": 0,
+    "external": 1
+  }
+}
