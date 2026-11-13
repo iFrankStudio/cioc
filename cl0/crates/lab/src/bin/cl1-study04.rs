@@ -142,10 +142,7 @@ fn conditions(seed: u64) -> Vec<ScheduledCondition> {
         },
         ScheduledCondition {
             label: format!("seed={seed}/disable-p1"),
-            actions: vec![
-                supply(0),
-                action(32, Intervention::Disable { process: 1 }),
-            ],
+            actions: vec![supply(0), action(32, Intervention::Disable { process: 1 })],
         },
         ScheduledCondition {
             label: format!("seed={seed}/zero-credit-pool"),
@@ -175,7 +172,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     for seed in FIRST_SEED..FIRST_SEED + REPLICAS {
         let world = seeded_world(seed);
         let runs = lab.run_scheduled(&world, &conditions(seed), HORIZON, &revision)?;
-        if runs.len() != 5 || runs.iter().any(|r| r.initial_sha256 != runs[0].initial_sha256) {
+        if runs.len() != 5
+            || runs
+                .iter()
+                .any(|r| r.initial_sha256 != runs[0].initial_sha256)
+        {
             return Err(format!("unmatched study conditions for seed {seed}").into());
         }
         for run in &runs {
@@ -186,7 +187,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                 return Err(format!("resource capacity exceeded for seed {seed}").into());
             }
             if run.label.ends_with("/closed") && run.attempts > 84 {
-                return Err(format!("closed-world compute inventory increased: seed {seed}").into());
+                return Err(
+                    format!("closed-world compute inventory increased: seed {seed}").into(),
+                );
             }
             if run.label.ends_with("/zero-credit-pool") && run.attempts != 0 {
                 return Err(format!("zero-credit control ran unexpectedly: seed {seed}").into());
@@ -231,7 +234,12 @@ mod tests {
     fn matched_condition_replay_survives_late_inert_offsets() {
         let mut lab = Laboratory::in_memory().unwrap();
         let runs = lab
-            .run_scheduled(&seeded_world(FIRST_SEED), &conditions(FIRST_SEED), HORIZON, "test")
+            .run_scheduled(
+                &seeded_world(FIRST_SEED),
+                &conditions(FIRST_SEED),
+                HORIZON,
+                "test",
+            )
             .unwrap();
         assert_eq!(runs.len(), 5);
         assert!(runs
