@@ -870,14 +870,14 @@ mod tests {
         let mut world = World::with_total_capacity(0, 16, 20);
         world.load(Process::new(1, vec![
             Op::GraphNew { dst: 0, next: 1 },
-            Op::Const { dst: 1, value: 5, next: 2 },
+            Op::Const { dst: 1, value: 1, next: 2 },
             Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
             Op::GraphSetNext { graph: 0, node: 2, target: 1, next: 4 },
             Op::Halt,
         ], 9)).unwrap();
         world.run(4);
         assert_eq!(world.graph_object(1).unwrap().nodes[0],
-                   Op::Const { dst: 1, value: 5, next: 2 });
+                   Op::Const { dst: 1, value: 1, next: 2 });
         assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
 
