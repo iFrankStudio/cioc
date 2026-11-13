@@ -758,6 +758,10 @@ pub enum Intervention {
         node: usize,
         next: usize,
     },
+    /// Explicit researcher-side structural ablation, never native CIL.
+    DropGraph {
+        graph: u64,
+    },
 }
 
 fn default_world_format_version() -> u32 {
@@ -944,7 +948,9 @@ impl World {
             Intervention::Disable { process }
             | Intervention::SetCredits { process, .. }
             | Intervention::PatchEdge { process, .. } => *process,
-            Intervention::SetCell { .. } | Intervention::SetComputePool { .. } => 0,
+            Intervention::SetCell { .. }
+            | Intervention::SetComputePool { .. }
+            | Intervention::DropGraph { .. } => 0,
         };
         let result = self.intervene_inner(&intervention);
         self.tick += 1;
@@ -1013,6 +1019,11 @@ impl World {
                 }
                 let dest = p.code.nodes[node].next_mut().ok_or("no patchable edge")?;
                 *dest = next;
+            }
+            Intervention::DropGraph { graph } => {
+                if self.graph_objects.remove(&graph).is_none() {
+                    return Err("unknown graph handle".into());
+                }
             }
         }
         Ok(())
@@ -2973,6 +2984,33 @@ mod tests {
         );
         // Replacement overwrites exactly one node and does not allocate any extra node.
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
+    }
+
+    #[test]
+    fn external_graph_ablation_is_logged_and_refunds_strict_storage() {
+        let mut w = World::with_strict_capacity(0, 12, 16);
+        w.load(Process::new(
+            1,
+            vec![Op::GraphNew { dst: 0, next: 1 }, Op::Halt],
+            3,
+        )).unwrap();
+        assert_eq!(w.occupied_units(), 3);
+        assert_eq!(w.run(1), 1);
+        assert_eq!(w.occupied_units(), 4);
+        assert_eq!(w.graph_count(), 1);
+        let credits = w.remaining_credits();
+        w.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+        assert_eq!(w.occupied_units(), 3);
+        assert_eq!(w.graph_count(), 0);
+        assert_eq!(w.remaining_credits(), credits);
+        assert_eq!(w.events().last().unwrap().origin, Origin::External);
+        let prior = w.occupied_units();
+        assert!(w.intervene(Intervention::DropGraph { graph: 1 }).is_err());
+        assert_eq!(w.occupied_units(), prior);
+        assert!(matches!(
+            &w.events().last().unwrap().kind,
+            EventKind::InterventionRejected(_)
+        ));
     }
 
     #[test]
