@@ -9,11 +9,11 @@ CL-0 is a new research platform, **not** a continuation of CIOC's pre-programmed
 - Stage 0: specification, limitations and preregistered tests.
 - Stage 1: Rust deterministic minimal kernel, finite execution/storage, CIL graph interpreter, event trace and matched negative controls.
 - Stage 2: **implemented foundation**: SQLite matched-run registry, labeled external interventions, serializable world snapshots and exact same-version replay. Mid-run interventions and long-term compatibility remain deferred.
-- Stage 3: **partial**: CIL graph-edge inspection, generic node clone, constant replacement, cell deletion, and an opt-in common storage capacity for CIL code nodes plus data cells. No full object creation, access capabilities, process copying, or global memory accounting yet.
+- Stage 3: **partial**: bounded executable graph objects with owner-only mutation, node copying from current code, general control-edge edits, graph launch with credit transfer, and shared allocation ceilings. Still no universal instruction synthesis, permission delegation, or byte-accurate memory accounting.
 - Stage 4: Python analysis and Vue 3 / TypeScript observational console.
 - Stage 5: exploratory populations and open-endedness measurements.
 
-See [technical specification](docs/specification.md), [stage plan](docs/stage-1-plan.md), [CIOC evidence audit](docs/cioc-transition.md), and [Stage-3 incremental specification](docs/stage-3-graph-storage.md).
+See [technical specification](docs/specification.md), [stage plan](docs/stage-1-plan.md), [CIOC evidence audit](docs/cioc-transition.md), [Stage-3.1 allocation](docs/stage-3-graph-storage.md), and [Stage-3.2 graph objects](docs/stage-3-objects.md).
 
 The experimental world does not label programs as organisms. An observer may later classify organization candidates from externally computed evidence. Initial programs are interventions supplied by the experimenter, not instances of discovered life.
 
