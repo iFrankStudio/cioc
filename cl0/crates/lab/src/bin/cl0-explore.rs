@@ -95,7 +95,10 @@ fn main() -> Result<(), Box<dyn Error>> {
                 actions: (1..=3)
                     .map(|process| ScheduledAction {
                         after_attempts: 0,
-                        action: Intervention::SetCredits { process, credits: 0 },
+                        action: Intervention::SetCredits {
+                            process,
+                            credits: 0,
+                        },
                     })
                     .collect(),
             },
