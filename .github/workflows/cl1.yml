@@ -415,3 +415,40 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study11.sqlite
             ${{ runner.temp }}/cl1-study11-report.json
+
+  study12:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify preregistration of source attribution
+        run: test -f ../cl1/studies/12-preregistered-graph-lineage.md
+      - name: Rust workspace test, format and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute fresh postscaffold lineage world cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study12 -- "$RUNNER_TEMP/cl1-study12.sqlite"
+      - name: Independently audit event provenance and matched null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study12.py "$RUNNER_TEMP/cl1-study12.sqlite" --json "$RUNNER_TEMP/cl1-study12-report.json"
+          cat "$RUNNER_TEMP/cl1-study12-report.json"
+      - name: Archive Study-12 sqlite and lineage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study12
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study12.sqlite
+            ${{ runner.temp }}/cl1-study12-report.json
