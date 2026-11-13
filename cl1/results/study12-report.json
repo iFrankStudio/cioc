@@ -1,0 +1,98 @@
+{
+  "study": "CL-1 Study 12",
+  "status": "observer-only graph origin and code edit provenance; NOT autonomous maintenance evidence",
+  "source_revision": "f64f754be50fb1f5f0cfc993a6629836ce3bba7f",
+  "independent_seed_worlds": 96,
+  "matched_runs": 480,
+  "hashed_epoch_snapshots": 7680,
+  "exact_replay": "verified by Rust lab for each full run and each epoch",
+  "metrics": {
+    "eligible_target": {
+      "seeds": 96,
+      "denominator": 96,
+      "wilson_95": [
+        0.961524,
+        1
+      ]
+    },
+    "drop_exposed": {
+      "seeds": 96,
+      "denominator": 96,
+      "wilson_95": [
+        0.961524,
+        1
+      ]
+    },
+    "indirect_process_impact": {
+      "seeds": 74,
+      "denominator": 96,
+      "wilson_95": [
+        0.677315,
+        0.843511
+      ]
+    },
+    "nonowner_process_impact": {
+      "seeds": 44,
+      "denominator": 96,
+      "wilson_95": [
+        0.362188,
+        0.557684
+      ]
+    },
+    "postdrop_object_creation": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "sham_mismatch": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    },
+    "no_target": {
+      "seeds": 0,
+      "denominator": 96,
+      "wilson_95": [
+        0,
+        0.038476
+      ]
+    }
+  },
+  "successful_cross_owner_copy_events": 279,
+  "successful_different_owner_transfer_events": 103,
+  "seeds_with_successful_cross_owner_exchange": {
+    "seeds": 87,
+    "denominator": 96,
+    "wilson_95": [
+      0.831347,
+      0.949892
+    ]
+  },
+  "scaffold_opportunity_source": "EXTERNAL NINE-NODE PREFIX; NO PREWIRED COPY OR TRANSFER",
+  "successful_random_cross_owner_copy_events": 279,
+  "successful_random_graph_transfer_events": 103,
+  "seeds_with_random_copy": 62,
+  "seeds_with_random_transfer": 69,
+  "seeds_with_original_graph_mutation": 88,
+  "seeds_with_activity_in_late_epochs": 8,
+  "postfork_trapped_attempts_in_control": 219,
+  "graph_lineage_observer_coverage": "GraphNew, GraphCopyNode, GraphCopyFrom, GraphSetNext, GraphSetConst; not GraphEncode/Replace/Launch",
+  "postfork_graph_created_events": 433,
+  "postfork_process_code_copy_events": 25,
+  "postfork_graph_const_edits": 0,
+  "postfork_graph_next_edits": 218,
+  "worlds_with_graph_created": 58,
+  "worlds_with_process_code_copy": 22,
+  "worlds_with_graph_edit": 58,
+  "worlds_with_intergraph_copy_and_edit": 33,
+  "organizational_closure": "NOT EVALUABLE",
+  "functional_recovery": "NOT EVALUABLE",
+  "life_claim": "NONE",
+  "caveat": "Lineage covers selected graph operations only; process code was initially investigator generated. These observations do not demonstrate semantic novelty, maintenance or life."
+}

@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-All eleven **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All twelve **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -266,3 +266,37 @@ On 96 independent seed-worlds the successful-exchange incidence **89/96** has a 
 Across the **11** nonexchangeable registered cohorts: **1,184** initial seed-worlds, **5,984 matched records and exact final-state/event replays**, plus **76,544 hash-verified postepoch snapshots** from Studies 05–11. All experiment protocols were frozen in separate commits before their respective runners. These are reproducibility and research-scope totals, **not pooled data for estimating life probability**.
 
 **Next methodological priority:** provenance of actual *internally created or changed executable nodes*, including the origin of new object nodes and copied operations, followed by prospective **joint information-function** ablations of two genuinely internal components and explicit internal restoration analysis across separate epochs. Copy events sourced from investigator-randomized *initial* code cannot be promoted to endogenous adaptive maintenance merely because they influence other processes.
+
+---
+
+## Study 12 — traceable origins of internally executed graph construction and code edits (verified 2026-11-13)
+
+The independent [Study-12 preregistration](studies/12-preregistered-graph-lineage.md) was frozen in commit [`9dae1bb`](https://github.com/iFrankStudio/cioc/commit/9dae1bbfdc06a4988fe56137a63695a2efc79460) before implementation or inspection of outcomes. The verified executable source `f64f754be50fb1f5f0cfc993a6629836ce3bba7f` produced the study report in [GitHub CI 43425754065](https://github.com/iFrankStudio/cioc/actions/runs/43425754065) with [raw SQLite and JSON artifact](https://github.com/iFrankStudio/cioc/actions/runs/43425754065/artifacts/14037216449), and an independently committed [permanent JSON summary](results/study12-report.json).
+
+New VM observer events distinguish `GraphCreated` (graph allocation), `GraphNodeCopied` (node copied from executable process code), and `GraphNodeEdited` (generic set-constant or edge-edit operation). Existing `GraphCopied` and `GraphTransferred` preserve graph-to-graph source/owner and transfer provenance. Each event replaces a successful ordinary `Executed` event; none changes resources, agent behavior, or CIL-visible observation rights. Traps generate no false success event. The new information does **not** fully trace the ancestry of shared cells, graph encoding/replacement or launched process code.
+
+The fixed Study-11 grammar and scaffold were reused with fresh pre-registered seeds **1810000–1810095**: 96 independent initial worlds, 5 matched conditions each, **480 exact run replays and 7,680 epoch snapshot hashes**.
+
+| Prespecified or source-tracing observation | Fresh Study-12 result |
+| --- | ---: |
+| Valid externally scripted prefix graph creation and node copy | **3 + 3 per seed** |
+| Postfork successful graph allocations (untreated runs) | **433 events**, across **58/96 worlds** |
+| Postfork copies from existing process code | **25 events**, across **22/96 worlds** |
+| Postfork successful graph edge edits | **218 events** |
+| Postfork successful graph constant edits | **0 events** |
+| Worlds with any successful postfork graph edit | **58/96** |
+| Worlds with both successful cross-graph copying and a successful edit | **33/96** |
+| Cross-owner graph node copy events | **279** |
+| Different-owner graph transfer events | **103** |
+| Worlds with at least one successful cross-owner transition | **87/96** |
+| Targeted deletion effects on nonowner process states | **44/96** |
+| New nonempty graph by original owner after targeted damage | **0/96** |
+| Invalid sham mismatch | **0/96** |
+
+The **87/96** seed-world incidence of cross-owner interaction has 95% Wilson interval **[0.831347, 0.949892]**; nonowner lesion effects **44/96** have **[0.362188, 0.557684]**. These are within-generator intervals, not population-wide probabilities of life.
+
+**Interpretation:** Study 12 supplies concrete, source-attributed evidence that CIL operations can create graph headers, copy existing executable instruction nodes and edit some graph edges. It also demonstrates that information exchange and editing co-occur in some worlds. **It does not prove the copies were newly invented, causally necessary for a maintained function, or restored after damage.** Initial process code, the scaffold and the random continuation are all generated by the investigator. The successful edits could even set an edge to its existing value. Semantic novelty, organizational closure and internal functional restoration remain **NOT EVALUABLE**, not demonstrated negative probabilities.
+
+### Updated independent cohort accounting
+
+Across **12** preregistered cohorts: **1,280** distinct seeded initial worlds, **6,464 matched experimental runs with 6,464 exact replays**, and **84,224 separately checked postepoch snapshots** from Studies 05–12. These totals describe reproducibility and experiment workload, not a statistically pooled sample of life emergence.
