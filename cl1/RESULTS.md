@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-All nine **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All ten **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -197,3 +197,34 @@ The next experimental bottleneck is to create an **investigator-disclosed, neutr
 ### Updated project totals — engineering reproducibility only
 
 Across **nine** different preregistered cohorts: **1,024 independent seed-worlds**, **5,184 matched runs**, **5,184/5,184 exact final-state/event replays** and **65,024** independently hash-verified, replay-consistent post-epoch snapshots from Studies 05–09. These values demonstrate reproducibility, **not** life or autonomous self-maintenance. Generator families and matched conditions are not statistically exchangeable. **CL-1's positive scientific target remains unaccepted.**
+
+---
+
+## Study 10 — reliable neutral graph interactions are reachable, but externally scripted (verified 2026-11-13)
+
+[Precommitted Study-10 protocol](studies/10-preregistered-neutral-opportunity.md) at [`02092cdf`](https://github.com/iFrankStudio/cioc/commit/02092cdff530936b5e3fda9a744133f52d27050b), **committed before implementation and results**. Verified implementation source: `9bf20b088036479d28dcc9442c23097d478234e3`. [Full ten-job CI](https://github.com/iFrankStudio/cioc/actions/runs/43421195384) · [raw SQLite and JSON](https://github.com/iFrankStudio/cioc/actions/runs/43421195384/artifacts/14034830489).
+
+Study 10 explicitly replaced the Study-09 trap-prone random starting programs with a **symmetric, externally programmed generic CIL opportunity prefix**, followed by an eight-node random continuation. For every seed, the first 18 instruction attempts produced three nonempty graph objects, published their handles to shared cells and granted read permissions to ring neighbors. These actions were *executed internally* but **were specified by the researcher in the initial code**, so they are not spontaneous construction, social interaction or emergence.
+
+New independent seeds **1600000–1600063**; 64 matched baseline worlds × five conditions = **320 matched records**, 12 external epochs per treatment with eight CIL opportunities per epoch, **3,840 post-epoch snapshots**, **320/320 exact world+event replays**, all hashes and strict storage checks verified.
+
+| Prespecified measure | Observed |
+| --- | ---: |
+| Three nonempty published graph objects with expected grants at fork | **64/64** |
+| Target graph actually deleted in target-drop arm | **64/64** |
+| Successful cross-owner instruction copies in untreated postfork CIL | **192 successful events (3/world)** |
+| Successful different-owner graph transfers in untreated CIL | **192 successful events (3/world)** |
+| Worlds with a successful cross-owner exchange | **64/64** |
+| Indirect process-state change after object deletion | **64/64** |
+| Nonowner process-state change after object deletion | **64/64** |
+| Sham/untreated simulated-state mismatch | **0/64** |
+| Post-ablation nonempty graph construction | **0/64** |
+| Zero-credit activity | **0 CIL attempts** |
+
+**Interpretation:** The engineering mechanism and causal exposure problem from Study 09 are corrected: accessible graph handles, authorized copying and owner transfer can all execute reliably within finite credits, and deletion affects otherwise unchanged programs. **This was expected from the prewritten scaffold**. The measured cross-owner transfer cycle is **investigator-designed**, not an evolved social structure; the forced disruption and its effects are not evidence of internally initiated maintenance. No prospective functional output independent of the scaffold was assessed, no successful repair or spontaneous closure was demonstrated, and the study cannot be used to claim life.
+
+Across **ten** disjoint, nonexchangeable cohorts, there are now **1,088 initial seed-worlds**, **5,504 matched experimental records and exact final-state replays**, plus **68,864 hash-verified, replay-consistent post-epoch snapshots** from Studies 05–10. These are *engineering workload totals*, not an estimate of life probability. The positive CL-1 scientific goal remains **unaccepted**.
+
+### Next scientific experiment boundary
+
+Study 11 should isolate externally scripted opportunity behavior from subsequent internally generated functional change. A fresh registered cohort must compare identical scaffold resources with randomized versus disabled/perturbed continuations, instrument which *post-scaffold* code mutations create genuinely new effective dependencies, and use matched interventions on multiple internally produced parts. **A successful transfer or copy prewritten at a particular PC cannot count** toward functional recovery, organizational closure or “emergence.” Prospective stable function and multi-epoch recovery endpoints must be frozen **before** observing Study-11 outcomes. No host fitness, repair or reproduction oracle.

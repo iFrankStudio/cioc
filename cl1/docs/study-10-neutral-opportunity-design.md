@@ -1,6 +1,6 @@
-# CL-1 Study 10 — neutral executable ecology design proposal (NOT preregistered)
+# CL-1 Study 10 — original neutral executable ecology design proposal (historical)
 
-**Status:** methodological engineering design only. No Study-10 trial has been run, no seed-range registration made and no outcome threshold is fixed. This document must not be treated as a preregistration or positive scientific result.
+**Historical design memo.** This document originally predated Study 10; it is not the binding protocol. The experiment was later [preregistered](../studies/10-preregistered-neutral-opportunity.md) and [executed](../RESULTS.md#study-10--reliable-neutral-graph-interactions-are-reachable-but-externally-scripted-verified-2026-11-13). The completed calibration provides evidence of reachable generic VM operations only, not spontaneous life.
 
 ## Motivation from the completed null-capable studies
 
