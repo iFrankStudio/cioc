@@ -57,6 +57,7 @@ impl Op {
 }
 
 
+impl Op {
     /// Stable Stage-3.3 ABI: five integer data cells [tag, arg0, arg1, arg2, arg3].
     /// The descriptor is ordinary world data; no semantic goal oracle is involved.
     pub fn decode_instruction(words: [i64; 5]) -> Result<Op, String> {
@@ -87,6 +88,7 @@ impl Op {
             _ => Err("unknown opcode tag".into()),
         }
     }
+}
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Program {
