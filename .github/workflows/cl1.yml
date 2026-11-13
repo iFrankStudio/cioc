@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30)
           selected='|'
           quick=false
           full=false
@@ -960,3 +960,36 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study29.sqlite
             ${{ runner.temp }}/cl1-study29-report.json
+
+  study30:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study30|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicit post-result exploratory protocol
+        run: test -f ../cl1/studies/30-registered-retrospective-dual-source-pipeline.md
+      - name: Rerun exact Study29 independent ecology without change of seeds or generator
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study30-rerun.sqlite"
+      - name: Verify baseline 0/256 and independently audit source read, Add and Write exposure stages
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-baseline.json"
+          python3 ../cl1/analyze_study30.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-report.json"
+          cat "$RUNNER_TEMP/cl1-study30-report.json"
+      - name: Archive known-negative-stage diagnosis and full original event snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study30
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study30-rerun.sqlite
+            ${{ runner.temp }}/cl1-study30-baseline.json
+            ${{ runner.temp }}/cl1-study30-report.json
