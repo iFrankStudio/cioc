@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29)
           selected='|'
           quick=false
           full=false
@@ -921,3 +921,42 @@ jobs:
             ${{ runner.temp }}/cl1-study28-rerun.sqlite
             ${{ runner.temp }}/cl1-study28-baseline.json
             ${{ runner.temp }}/cl1-study28-report.json
+
+  study29:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study29|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen prospective independent-seed dual-source protocol
+        run: test -f ../cl1/studies/29-preregistered-independent-dual-source-arithmetic.md
+      - name: Validate exact Rust source grammar and native synthetic auditor controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 256 new independent stochastic worlds and full SQLite replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study29.sqlite"
+      - name: Independently verify two owner-tag reads and all four output-address edits
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study29.sqlite" --json "$RUNNER_TEMP/cl1-study29-report.json"
+          cat "$RUNNER_TEMP/cl1-study29-report.json"
+      - name: Archive source-pinned randomized dual-source ecology and independent audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study29
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study29.sqlite
+            ${{ runner.temp }}/cl1-study29-report.json
