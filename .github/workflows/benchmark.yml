@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ['v0.7', 'v0.8', 'v0.9', 'v0.10', 'v0.11']
+        version: ['v0.7', 'v0.8', 'v0.9', 'v0.10', 'v0.11', 'v0.12']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
