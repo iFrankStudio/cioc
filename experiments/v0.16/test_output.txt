@@ -1,0 +1,16 @@
+test_child_carries_controller (test_cioc.MutualTests.test_child_carries_controller) ... ok
+test_controller_recovery_enables_metabolism_repair (test_cioc.MutualTests.test_controller_recovery_enables_metabolism_repair) ... ok
+test_disable_peer (test_cioc.MutualTests.test_disable_peer) ... ok
+test_equivalent_program_valid (test_cioc.MutualTests.test_equivalent_program_valid) ... ok
+test_finite_budget (test_cioc.MutualTests.test_finite_budget) ... ok
+test_joint_loss_cut_set (test_cioc.MutualTests.test_joint_loss_cut_set) ... ok
+test_no_backup_fragment (test_cioc.MutualTests.test_no_backup_fragment) ... ok
+test_no_false_alarm (test_cioc.MutualTests.test_no_false_alarm) ... ok
+test_primary_rebuilt (test_cioc.MutualTests.test_primary_rebuilt) ... ok
+test_scenarios (test_cioc.MutualTests.test_scenarios) ... ok
+test_secondary_rebuilt (test_cioc.MutualTests.test_secondary_rebuilt) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.004s
+
+OK
