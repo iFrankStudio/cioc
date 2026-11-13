@@ -23,4 +23,4 @@ CIOC is a research project on organizational individuality, causal maintenance a
 - Preserve negative controls and failures.
 - Treat causal repair evidence, not mere graph cycles, as the basis for maintenance claims.
 
-The development branch contains the research baseline; experimental source archives will be staged for review rather than overwritten.
+The research baseline is on `main`. Historical V0.1–V0.6 source archives are pending exact-byte GitHub import; the version table is an index, not a claim that every historical implementation is committed.
