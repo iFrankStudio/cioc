@@ -107,7 +107,15 @@ impl Laboratory {
                final_json TEXT NOT NULL
              );
              CREATE INDEX IF NOT EXISTS idx_scheduled_initial
-               ON scheduled_runs(initial_sha256);",
+               ON scheduled_runs(initial_sha256);
+             CREATE TABLE IF NOT EXISTS scheduled_checkpoints (
+               run_id INTEGER NOT NULL REFERENCES scheduled_runs(id),
+               ordinal INTEGER NOT NULL,
+               after_attempts INTEGER NOT NULL,
+               state_sha256 TEXT NOT NULL,
+               state_json TEXT NOT NULL,
+               PRIMARY KEY (run_id, ordinal)
+             );",
         )?;
         Ok(Self { conn })
     }
@@ -270,8 +278,25 @@ impl Laboratory {
                 params![source_revision, condition.label, initial_sha256, initial_json,
                     actions_json, limit as i64, attempts as i64, final_sha256, final_json],
             )?;
+            // Persist each reached pre-intervention fork state, including prior same-offset actions.
+            let run_id = transaction.last_insert_rowid();
+            let mut checkpoint_world: World = serde_json::from_str(&initial_json)?;
+            let mut completed = 0;
+            for (ordinal, action) in condition.actions.iter().enumerate() {
+                completed += checkpoint_world.run(action.after_attempts - completed);
+                if completed != action.after_attempts { break; }
+                let snapshot = serde_json::to_string(&checkpoint_world)?;
+                let digest = hash_bytes(snapshot.as_bytes());
+                transaction.execute(
+                    "INSERT INTO scheduled_checkpoints
+                     (run_id, ordinal, after_attempts, state_sha256, state_json)
+                     VALUES (?1, ?2, ?3, ?4, ?5)",
+                    params![run_id, ordinal as i64, completed as i64, digest, snapshot],
+                )?;
+                let _ = checkpoint_world.intervene(action.action.clone());
+            }
             runs.push(RecordedRun {
-                id: transaction.last_insert_rowid(),
+                id: run_id,
                 label: condition.label.clone(),
                 initial_sha256: initial_sha256.clone(),
                 final_sha256,
@@ -314,7 +339,39 @@ impl Laboratory {
             return Ok(false);
         }
         let actual = Self::execute_schedule(&mut world, &actions, limit as usize);
-        Ok(actual == attempts as usize && serde_json::to_string(&world)? == final_json)
+        if actual != attempts as usize || serde_json::to_string(&world)? != final_json {
+            return Ok(false);
+        }
+        let mut expected = Vec::new();
+        let mut fork = serde_json::from_str::<World>(&initial_json)?;
+        let mut performed = 0;
+        for (ordinal, action) in actions.iter().enumerate() {
+            performed += fork.run(action.after_attempts - performed);
+            if performed != action.after_attempts { break; }
+            let json = serde_json::to_string(&fork)?;
+            expected.push((ordinal as i64, performed as i64, hash_bytes(json.as_bytes()), json));
+            let _ = fork.intervene(action.action.clone());
+        }
+        let mut query = self.conn.prepare(
+            "SELECT ordinal,after_attempts,state_sha256,state_json
+             FROM scheduled_checkpoints WHERE run_id=?1 ORDER BY ordinal")?;
+        let saved: Vec<(i64, i64, String, String)> = query
+            .query_map([id], |row| Ok((row.get(0)?, row.get(1)?, row.get(2)?, row.get(3)?)))?
+            .collect::<Result<_, _>>()?;
+        Ok(saved == expected)
+    }
+
+    /// Load a durable *pre-intervention* world to fork a new experiment.
+    /// A checkpoint's index is the action ordinal, including ties at the same offset.
+    pub fn load_scheduled_checkpoint(&self, run_id: i64, ordinal: i64) -> Result<World, LabError> {
+        let (digest, json): (String, String) = self.conn.query_row(
+            "SELECT state_sha256,state_json FROM scheduled_checkpoints
+             WHERE run_id=?1 AND ordinal=?2", params![run_id, ordinal],
+            |row| Ok((row.get(0)?, row.get(1)?)))?;
+        if hash_bytes(json.as_bytes()) != digest {
+            return Err(LabError::Integrity("checkpoint digest mismatch".into()));
+        }
+        Ok(serde_json::from_str(&json)?)
     }
 
     pub fn scheduled_count(&self) -> Result<i64, LabError> {
@@ -558,6 +615,30 @@ mod tests {
         lab.conn.execute(
             "UPDATE scheduled_runs SET final_json='{}' WHERE id=?1", [id]).unwrap();
         assert!(!lab.verify_scheduled_replay(id).unwrap());
+    }
+
+
+    #[test]
+    fn checkpoints_preserve_exact_pre_intervention_fork_and_detect_tampering() {
+        let mut lab = Laboratory::in_memory().unwrap();
+        let runs = lab.run_scheduled(&fixture(), &[
+            ScheduledCondition { label: "snapshot".into(), actions: vec![
+                ScheduledAction { after_attempts: 2,
+                    action: Intervention::Disable { process: 1 } }
+            ] },
+        ], 8, "checkpoint-test").unwrap();
+        let id = runs[0].id;
+        let checkpoint = lab.load_scheduled_checkpoint(id, 0).unwrap();
+        assert_eq!(checkpoint.process(1).unwrap().pc, 2);
+        assert_eq!(checkpoint.process(1).unwrap().registers[1], 91);
+        assert_eq!(checkpoint.cell(5), None);
+        assert_eq!(checkpoint.events().len(), 3); // external load + two internal CIL steps
+        assert!(lab.verify_scheduled_replay(id).unwrap());
+        lab.conn.execute(
+            "UPDATE scheduled_checkpoints SET state_sha256='corrupt' WHERE run_id=?1",
+            [id]).unwrap();
+        assert!(!lab.verify_scheduled_replay(id).unwrap());
+        assert!(lab.load_scheduled_checkpoint(id, 0).is_err());
     }
 
     #[test]
