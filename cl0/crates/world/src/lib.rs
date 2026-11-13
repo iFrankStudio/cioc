@@ -33,10 +33,47 @@ pub enum Op {
     DrawCompute { amount: usize, next: usize },
     ReturnCompute { amount: usize, next: usize },
     TransferCompute { recipient: usize, amount: usize, next: usize },
+    GraphReadField { graph: usize, node: usize, field: usize, next: usize },
+    GraphReplace { graph: usize, node: usize, address: usize, next: usize },
     Halt,
 }
 
 impl Op {
+    /// Numeric description of an existing instruction, preserving signed literals.
+    /// Five cells match the GraphEncode descriptor contract.
+    fn encode_instruction(&self) -> Result<[i64; 5], String> {
+        match self {
+            Op::Const { dst, value, next } => Ok([0, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, *value, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::Add { dst, lhs, rhs, next } => Ok([1, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*lhs).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*rhs).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::Sub { dst, lhs, rhs, next } => Ok([2, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*lhs).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*rhs).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::Read { dst, address, next } => Ok([3, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::Write { address, value, next } => Ok([4, i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*value).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::Branch { test, nonzero, zero } => Ok([5, i64::try_from(*test).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*nonzero).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*zero).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::PatchNext { node, target, next } => Ok([6, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*target).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::ReadNext { dst, node, next } => Ok([7, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::CloneNode { dst, source, next } => Ok([8, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*source).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::PatchConst { node, value, next } => Ok([9, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*value).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::Delete { address, next } => Ok([10, i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0, 0]),
+            Op::GraphNew { dst, next } => Ok([11, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0, 0]),
+            Op::GraphCopyNode { graph, source, dst, next } => Ok([12, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*source).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphSetNext { graph, node, target, next } => Ok([13, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*target).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphSetConst { graph, node, value, next } => Ok([14, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*value).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphReadNext { dst, graph, node, next } => Ok([15, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphDrop { graph, next } => Ok([16, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0, 0]),
+            Op::GraphLaunch { graph, credits, dst, next } => Ok([17, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*credits).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphEncode { graph, address, dst, next } => Ok([18, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::Halt => Ok([19, 0, 0, 0, 0]),
+            Op::GraphGrantRead { graph, reader, next } => Ok([20, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*reader).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::GraphRevokeRead { graph, reader, next } => Ok([21, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*reader).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::GraphReadTag { dst, graph, node, next } => Ok([22, i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::DrawCompute { amount, next } => Ok([23, i64::try_from(*amount).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0, 0]),
+            Op::ReturnCompute { amount, next } => Ok([24, i64::try_from(*amount).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0, 0]),
+            Op::TransferCompute { recipient, amount, next } => Ok([25, i64::try_from(*recipient).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*amount).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?, 0]),
+            Op::GraphReadField { graph, node, field, next } => Ok([26, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*field).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+            Op::GraphReplace { graph, node, address, next } => Ok([27, i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*node).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?, i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?]),
+        }
+    }
+
     fn opcode_tag(&self) -> i64 {
         match self {
             Op::Const { .. } => 0,
@@ -65,6 +102,8 @@ impl Op {
             Op::DrawCompute { .. } => 23,
             Op::ReturnCompute { .. } => 24,
             Op::TransferCompute { .. } => 25,
+            Op::GraphReadField { .. } => 26,
+            Op::GraphReplace { .. } => 27,
         }
     }
 
@@ -93,7 +132,9 @@ impl Op {
             | Op::GraphReadTag { next, .. }
             | Op::DrawCompute { next, .. }
             | Op::ReturnCompute { next, .. }
-            | Op::TransferCompute { next, .. } => Some(next),
+            | Op::TransferCompute { next, .. }
+            | Op::GraphReadField { next, .. }
+            | Op::GraphReplace { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
@@ -134,6 +175,8 @@ impl Op {
             23 => Ok(Op::DrawCompute { amount: slot(1)?, next: slot(2)? }),
             24 => Ok(Op::ReturnCompute { amount: slot(1)?, next: slot(2)? }),
             25 => Ok(Op::TransferCompute { recipient: slot(1)?, amount: slot(2)?, next: slot(3)? }),
+            26 => Ok(Op::GraphReadField { graph: slot(1)?, node: slot(2)?, field: slot(3)?, next: slot(4)? }),
+            27 => Ok(Op::GraphReplace { graph: slot(1)?, node: slot(2)?, address: slot(3)?, next: slot(4)? }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -505,6 +548,7 @@ impl World {
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
             | Op::GraphDrop { .. } | Op::GraphLaunch { .. } | Op::GraphEncode { .. }
             | Op::GraphGrantRead { .. } | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. }
+            | Op::GraphReadField { .. } | Op::GraphReplace { .. }
         ) {
             return self.execute_graph(id, op);
         }
@@ -598,7 +642,8 @@ impl World {
                     | Op::GraphLaunch { next, .. } | Op::GraphEncode { next, .. }
                     | Op::GraphGrantRead { next, .. } | Op::GraphRevokeRead { next, .. }
                     | Op::GraphReadTag { next, .. } | Op::DrawCompute { next, .. }
-                    | Op::ReturnCompute { next, .. } | Op::TransferCompute { next, .. } => *next,
+                    | Op::ReturnCompute { next, .. } | Op::TransferCompute { next, .. }
+                    | Op::GraphReadField { next, .. } | Op::GraphReplace { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
                 };
                 p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
@@ -644,7 +689,8 @@ impl World {
             | Op::GraphEncode { .. } | Op::GraphGrantRead { .. }
             | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. }
             | Op::DrawCompute { .. } | Op::ReturnCompute { .. }
-            | Op::TransferCompute { .. } => unreachable!("dispatched above"),
+            | Op::TransferCompute { .. } | Op::GraphReadField { .. }
+            | Op::GraphReplace { .. } => unreachable!("dispatched above"),
         }
         Ok(false)
     }
@@ -880,6 +926,40 @@ impl World {
                 let p = self.processes.get_mut(&id).expect("reader exists");
                 p.registers[dst] = tag;
                 p.pc = next;
+            }
+            Op::GraphReadField { graph, node, field, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let field_index = usize::try_from(reg(field)?).map_err(|_| "invalid descriptor field")?;
+                if field_index >= 5 { return Err("invalid descriptor field".into()); }
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id && !object.readers.contains(&id) {
+                    return Err("access denied".into());
+                }
+                let instruction = object.nodes.get(index).ok_or("invalid node")?;
+                let description = instruction.encode_instruction()?;
+                let actor = self.processes.get_mut(&id).expect("owner exists");
+                actor.registers[field] = description[field_index];
+                actor.pc = next;
+            }
+            Op::GraphReplace { graph, node, address, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let base = reg(address)?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if index >= object.nodes.len() { return Err("invalid node".into()); }
+                let mut description = [0_i64; 5];
+                for (offset, word) in description.iter_mut().enumerate() {
+                    let offset = i64::try_from(offset).map_err(|_| "descriptor offset overflow")?;
+                    let key = base.checked_add(offset).ok_or("descriptor address overflow")?;
+                    *word = *self.cells.get(&key).ok_or("incomplete instruction descriptor")?;
+                }
+                let replacement = Op::decode_instruction(description)?;
+                self.graph_objects.get_mut(&object_id).expect("checked graph").nodes[index] = replacement;
+                self.processes.get_mut(&id).expect("actor exists").pc = next;
             }
             _ => unreachable!("only graph operations are dispatched here"),
         }
@@ -1388,6 +1468,44 @@ mod tests {
         assert_eq!(w.total_compute_inventory(), Some(u64::MAX));
         assert!(w.load(Process::new(2, vec![Op::Halt], 1)).is_err());
         assert!(w.process(2).is_none());
+    }
+
+    #[test]
+    fn instruction_descriptor_is_round_trip_for_all_opcodes() {
+        let examples = [
+            Op::Const { dst: 0, value: -17, next: 1 },
+            Op::Branch { test: 0, nonzero: 2, zero: 3 },
+            Op::GraphGrantRead { graph: 0, reader: 1, next: 2 },
+            Op::DrawCompute { amount: 0, next: 1 },
+            Op::GraphReadField { graph: 0, node: 1, field: 2, next: 3 },
+            Op::GraphReplace { graph: 0, node: 1, address: 2, next: 3 },
+            Op::Halt,
+        ];
+        for op in examples {
+            assert_eq!(Op::decode_instruction(op.encode_instruction().unwrap()).unwrap(), op);
+        }
+    }
+
+    #[test]
+    fn graph_replace_can_edit_branch_structure_without_special_semantics() {
+        let mut w = World::with_strict_capacity(5, 14, 25);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 100, next: 2 },
+            Op::Const { dst: 2, value: 2, next: 3 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 4 },
+            Op::Const { dst: 2, value: 0, next: 5 },
+            Op::GraphReplace { graph: 0, node: 2, address: 1, next: 6 },
+            Op::Halt,
+        ], 12)).unwrap();
+        for (offset, word) in [5, 0, 0, 0, 0].into_iter().enumerate() {
+            w.intervene(Intervention::SetCell { key: 100 + offset as i64, value: word }).unwrap();
+        }
+        assert_eq!(w.run(6), 6);
+        assert_eq!(w.graph_object(1).unwrap().nodes[0],
+            Op::Branch { test: 0, nonzero: 0, zero: 0 });
+        // Replacement overwrites exactly one node and does not allocate any extra node.
+        assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
     }
 
     #[test]
