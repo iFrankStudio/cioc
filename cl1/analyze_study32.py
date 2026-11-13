@@ -148,7 +148,7 @@ def audit(path: Path) -> dict:
                 process = initial["processes"].get(str(actor))
                 if process is None or process["credits"] != 47:
                     raise ValueError("invalid original 47-credit process budget")
-                if process["registers"][1] != ((actor + 1) % 3 + 1):
+                if process["registers"][1] != (actor % 3 + 1):
                     raise ValueError("registered stable positive draw amount changed")
                 if process["code"]["nodes"][9:27] != source[actor]:
                     raise ValueError("random source code differs from preregistered 54 LCG draws")
@@ -204,7 +204,7 @@ def audit(path: Path) -> dict:
                     counts[actor] += 1
                     if isinstance(opcode, dict) and "DrawCompute" in opcode:
                         if kind == "Executed":
-                            quantity = ((actor + 1) % 3 + 1)
+                            quantity = (actor % 3 + 1)
                             if quantity > pool:
                                 raise ValueError("native DrawCompute issued without resource")
                             pool -= quantity
@@ -214,7 +214,7 @@ def audit(path: Path) -> dict:
                             raise ValueError("native DrawCompute has unrecognized success event")
                     if isinstance(opcode, dict) and "ReturnCompute" in opcode:
                         if kind == "Executed":
-                            pool += ((actor + 1) % 3 + 1)
+                            pool += (actor % 3 + 1)
                             successes["return"][epoch] += 1
                         elif not (isinstance(kind, dict) and "Trapped" in kind):
                             raise ValueError("native ReturnCompute has unrecognized success event")
