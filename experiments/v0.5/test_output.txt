@@ -1,0 +1,22 @@
+test_budget_limited (test_cioc.CiocV05Tests.test_budget_limited) ... ok
+test_candidate_graphs_are_distinct_objects (test_cioc.CiocV05Tests.test_candidate_graphs_are_distinct_objects) ... ok
+test_contract_ablation_fails (test_cioc.CiocV05Tests.test_contract_ablation_fails) ... ok
+test_damage_erases_executable_program (test_cioc.CiocV05Tests.test_damage_erases_executable_program) ... ok
+test_external_restoration_is_separate (test_cioc.CiocV05Tests.test_external_restoration_is_separate) ... ok
+test_invalid_graph_halts_without_install (test_cioc.CiocV05Tests.test_invalid_graph_halts_without_install) ... ok
+test_invalid_policy_does_not_repair (test_cioc.CiocV05Tests.test_invalid_policy_does_not_repair) ... ok
+test_multiple_sequential_faults (test_cioc.CiocV05Tests.test_multiple_sequential_faults) ... ok
+test_mutation_permission_ablation_fails (test_cioc.CiocV05Tests.test_mutation_permission_ablation_fails) ... ok
+test_no_damage_does_not_propose_repair (test_cioc.CiocV05Tests.test_no_damage_does_not_propose_repair) ... ok
+test_no_target_oracle_in_host_repair_dispatch (test_cioc.CiocV05Tests.test_no_target_oracle_in_host_repair_dispatch) ... ok
+test_repair_has_actual_vm_instruction_trace (test_cioc.CiocV05Tests.test_repair_has_actual_vm_instruction_trace) ... ok
+test_repair_requires_live_controller_not_just_code_available (test_cioc.CiocV05Tests.test_repair_requires_live_controller_not_just_code_available) ... ok
+test_search_space_lacks_solution (test_cioc.CiocV05Tests.test_search_space_lacks_solution) ... ok
+test_single_fault_repaired_by_graph_program (test_cioc.CiocV05Tests.test_single_fault_repaired_by_graph_program) ... ok
+test_total_maintenance_loss_fails (test_cioc.CiocV05Tests.test_total_maintenance_loss_fails) ... ok
+test_two_faults_recover (test_cioc.CiocV05Tests.test_two_faults_recover) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.012s
+
+OK

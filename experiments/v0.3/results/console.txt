@@ -1,0 +1,9 @@
+chain_regeneration     viable=True  internal=2 external=0 checks=47 budget=547 programs={'B': ['DOUBLE', 'INC'], 'C': ['SQUARE', 'DEC']}
+no_search              viable=False internal=0 external=0 checks=0 budget=600 programs={}
+external_baseline      viable=True  internal=0 external=1 checks=0 budget=595 programs={}
+disable_source         viable=False internal=0 external=0 checks=0 budget=600 programs={}
+low_budget             viable=False internal=0 external=0 checks=15 budget=0 programs={}
+missing_primitive      viable=False internal=0 external=0 checks=155 budget=445 programs={}
+destroyed_search       viable=False internal=0 external=0 checks=0 budget=600 programs={}
+recover_A              viable=True  internal=1 external=0 checks=8 budget=589 programs={'A': ['INC', 'INC']}
+saved: /mnt/data/cioc_v03/results/experiments.json

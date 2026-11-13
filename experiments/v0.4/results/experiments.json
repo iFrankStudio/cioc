@@ -1,0 +1,7790 @@
+[
+  {
+    "scenario": "search_regeneration",
+    "viable": true,
+    "remaining_budget": 1085,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "probes": 12,
+    "regenerated": {
+      "S.search": [
+        "ENUM",
+        "LIMIT3"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "repair_started",
+        "target": "S",
+        "role": "search",
+        "roles": {
+          "search": "V",
+          "verify": "V",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "holdout",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "S"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "M",
+        "target": "S",
+        "role": "search",
+        "program": [
+          "ENUM",
+          "LIMIT3"
+        ],
+        "revision": 1
+      }
+    ]
+  },
+  {
+    "scenario": "verify_regeneration",
+    "viable": true,
+    "remaining_budget": 1059,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "probes": 38,
+    "regenerated": {
+      "V.verify": [
+        "CHECK_TRAIN",
+        "CHECK_HOLDOUT"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "verify"
+      },
+      {
+        "event": "repair_started",
+        "target": "V",
+        "role": "verify",
+        "roles": {
+          "search": "S",
+          "verify": "M",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "holdout",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "V"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "M",
+        "target": "V",
+        "role": "verify",
+        "program": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ],
+        "revision": 1
+      }
+    ]
+  },
+  {
+    "scenario": "commit_regeneration",
+    "viable": true,
+    "remaining_budget": 1041,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "probes": 56,
+    "regenerated": {
+      "M.commit": [
+        "CHECK_PERMIT",
+        "WRITE_ATOMIC"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "node": "M",
+        "role": "commit"
+      },
+      {
+        "event": "repair_started",
+        "target": "M",
+        "role": "commit",
+        "roles": {
+          "search": "S",
+          "verify": "V",
+          "commit": "S"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "holdout",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "M"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "S",
+        "target": "M",
+        "role": "commit",
+        "program": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ],
+        "revision": 1
+      }
+    ]
+  },
+  {
+    "scenario": "sequential_regeneration",
+    "viable": true,
+    "remaining_budget": 985,
+    "internal_commits": 3,
+    "external_repairs": 0,
+    "probes": 106,
+    "regenerated": {
+      "S.search": [
+        "ENUM",
+        "LIMIT3"
+      ],
+      "V.verify": [
+        "CHECK_TRAIN",
+        "CHECK_HOLDOUT"
+      ],
+      "M.commit": [
+        "CHECK_PERMIT",
+        "WRITE_ATOMIC"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "repair_started",
+        "target": "S",
+        "role": "search",
+        "roles": {
+          "search": "V",
+          "verify": "V",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "holdout",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "S"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "M",
+        "target": "S",
+        "role": "search",
+        "program": [
+          "ENUM",
+          "LIMIT3"
+        ],
+        "revision": 1
+      },
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "verify"
+      },
+      {
+        "event": "repair_started",
+        "target": "V",
+        "role": "verify",
+        "roles": {
+          "search": "S",
+          "verify": "M",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "holdout",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "V"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "M",
+        "target": "V",
+        "role": "verify",
+        "program": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ],
+        "revision": 2
+      },
+      {
+        "event": "damage",
+        "node": "M",
+        "role": "commit"
+      },
+      {
+        "event": "repair_started",
+        "target": "M",
+        "role": "commit",
+        "roles": {
+          "search": "S",
+          "verify": "V",
+          "commit": "S"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "commit",
+        "phase": "holdout",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "M"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "S",
+        "target": "M",
+        "role": "commit",
+        "program": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ],
+        "revision": 3
+      }
+    ]
+  },
+  {
+    "scenario": "joint_failure",
+    "viable": false,
+    "remaining_budget": 1100,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "probes": 0,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "verify"
+      },
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "search"
+      },
+      {
+        "event": "repair_blocked",
+        "target": "S",
+        "role": "search",
+        "reason": "missing_resident_capability",
+        "roles": {
+          "search": null,
+          "verify": "M",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "repair_blocked",
+        "target": "V",
+        "role": "verify",
+        "reason": "missing_resident_capability",
+        "roles": {
+          "search": null,
+          "verify": "M",
+          "commit": "M"
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "no_backup_search",
+    "viable": false,
+    "remaining_budget": 1100,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "probes": 0,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "search"
+      },
+      {
+        "event": "repair_blocked",
+        "target": "S",
+        "role": "search",
+        "reason": "missing_resident_capability",
+        "roles": {
+          "search": null,
+          "verify": "V",
+          "commit": "M"
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "no_contract",
+    "viable": false,
+    "remaining_budget": 1100,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "probes": 0,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "repair_started",
+        "target": "S",
+        "role": "search",
+        "roles": {
+          "search": "V",
+          "verify": "V",
+          "commit": "M"
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "low_budget",
+    "viable": false,
+    "remaining_budget": 0,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "probes": 14,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "repair_started",
+        "target": "S",
+        "role": "search",
+        "roles": {
+          "search": "V",
+          "verify": "V",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "holdout",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "insufficient_budget",
+        "attempt": "commit_cost",
+        "target": "S"
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "insufficient_budget",
+        "attempt": "probe",
+        "verifier": "V",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "missing_primitive",
+    "viable": false,
+    "remaining_budget": 701,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "probes": 399,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "verify"
+      },
+      {
+        "event": "repair_started",
+        "target": "V",
+        "role": "verify",
+        "roles": {
+          "search": "S",
+          "verify": "M",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "REVERSE",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "ENUM",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "REVERSE",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "LIMIT3",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_TRAIN",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "CHECK_PERMIT",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "WRITE_ATOMIC",
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "verify",
+        "phase": "train",
+        "candidate": [
+          "NOP",
+          "NOP",
+          "NOP"
+        ]
+      },
+      {
+        "event": "search_exhausted",
+        "target": "V",
+        "role": "verify"
+      }
+    ]
+  },
+  {
+    "scenario": "external_baseline",
+    "viable": true,
+    "remaining_budget": 1095,
+    "internal_commits": 0,
+    "external_repairs": 1,
+    "probes": 0,
+    "regenerated": {},
+    "history": [
+      {
+        "event": "damage",
+        "node": "S",
+        "role": "search"
+      },
+      {
+        "event": "external_cost",
+        "cost": 5,
+        "target": "S"
+      },
+      {
+        "event": "external_restore",
+        "target": "S"
+      }
+    ]
+  },
+  {
+    "scenario": "destroy_secondary",
+    "viable": true,
+    "remaining_budget": 1085,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "probes": 12,
+    "regenerated": {
+      "V.search": [
+        "ENUM",
+        "LIMIT3"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "node": "V",
+        "role": "search"
+      },
+      {
+        "event": "repair_started",
+        "target": "V",
+        "role": "search",
+        "roles": {
+          "search": "S",
+          "verify": "M",
+          "commit": "M"
+        }
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_TRAIN"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_HOLDOUT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "CHECK_PERMIT"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "WRITE_ATOMIC"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "NOP"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "ENUM"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "REVERSE"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "train",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "probe",
+        "cost": 1,
+        "verifier": "M",
+        "target_role": "search",
+        "phase": "holdout",
+        "candidate": [
+          "ENUM",
+          "LIMIT3"
+        ]
+      },
+      {
+        "event": "commit_cost",
+        "cost": 3,
+        "target": "V"
+      },
+      {
+        "event": "internal_commit",
+        "operator": "M",
+        "target": "V",
+        "role": "search",
+        "program": [
+          "ENUM",
+          "LIMIT3"
+        ],
+        "revision": 1
+      }
+    ]
+  }
+]

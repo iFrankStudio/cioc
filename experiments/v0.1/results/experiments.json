@@ -1,0 +1,402 @@
+{
+  "protocol": {
+    "repetitions_deterministic": 50,
+    "repetitions_stochastic": 200,
+    "max_ablation_order": 2,
+    "horizon_events": 4,
+    "initial_budget": 14,
+    "repair_cost": 2,
+    "maintenance_per_event": 1,
+    "detect_loss_threshold": 0.25
+  },
+  "scenarios": [
+    {
+      "scenario": "call_cycle",
+      "baseline_recovery": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0
+      },
+      "minimal_disabling_sets": [],
+      "rule": "A disabling set suppresses repair under the tested conditions; it is not necessarily a direct maintenance hyperedge.",
+      "summary": {
+        "scenario": "call_cycle",
+        "three_node_internal_maintenance_cycle_detected": false,
+        "strongly_connected_internal_support_candidate": false,
+        "external_dependency_targets": [],
+        "inference_status": "candidate only: component-level intervention effects are not full organizational closure proof"
+      }
+    },
+    {
+      "scenario": "internal_closure",
+      "baseline_recovery": {
+        "A": 1.0,
+        "B": 1.0,
+        "C": 1.0,
+        "D": 1.0
+      },
+      "minimal_disabling_sets": [
+        {
+          "target": "A",
+          "disabled": [
+            "C"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "B",
+          "disabled": [
+            "A"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "C",
+          "disabled": [
+            "B"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "D",
+          "disabled": [
+            "A"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        }
+      ],
+      "rule": "A disabling set suppresses repair under the tested conditions; it is not necessarily a direct maintenance hyperedge.",
+      "summary": {
+        "scenario": "internal_closure",
+        "three_node_internal_maintenance_cycle_detected": true,
+        "strongly_connected_internal_support_candidate": true,
+        "external_dependency_targets": [],
+        "inference_status": "candidate only: component-level intervention effects are not full organizational closure proof"
+      }
+    },
+    {
+      "scenario": "external_repair",
+      "baseline_recovery": {
+        "A": 1.0,
+        "B": 1.0,
+        "C": 1.0,
+        "D": 1.0
+      },
+      "minimal_disabling_sets": [
+        {
+          "target": "A",
+          "disabled": [
+            "F"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "B",
+          "disabled": [
+            "F"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "C",
+          "disabled": [
+            "F"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "D",
+          "disabled": [
+            "F"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        }
+      ],
+      "rule": "A disabling set suppresses repair under the tested conditions; it is not necessarily a direct maintenance hyperedge.",
+      "summary": {
+        "scenario": "external_repair",
+        "three_node_internal_maintenance_cycle_detected": false,
+        "strongly_connected_internal_support_candidate": false,
+        "external_dependency_targets": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "inference_status": "candidate only: component-level intervention effects are not full organizational closure proof"
+      }
+    },
+    {
+      "scenario": "redundant_maintenance",
+      "baseline_recovery": {
+        "A": 1.0,
+        "B": 1.0,
+        "C": 1.0,
+        "D": 1.0
+      },
+      "minimal_disabling_sets": [
+        {
+          "target": "A",
+          "disabled": [
+            "C"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "B",
+          "disabled": [
+            "C"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "C",
+          "disabled": [
+            "A",
+            "B"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        },
+        {
+          "target": "D",
+          "disabled": [
+            "A"
+          ],
+          "baseline_rate": 1.0,
+          "intervention_rate": 0.0,
+          "loss_of_recovery": 1.0,
+          "baseline_wilson": [
+            0.9286499658256813,
+            1.0
+          ],
+          "intervention_wilson": [
+            0.0,
+            0.07135003417431873
+          ]
+        }
+      ],
+      "rule": "A disabling set suppresses repair under the tested conditions; it is not necessarily a direct maintenance hyperedge.",
+      "summary": {
+        "scenario": "redundant_maintenance",
+        "three_node_internal_maintenance_cycle_detected": false,
+        "strongly_connected_internal_support_candidate": true,
+        "external_dependency_targets": [],
+        "inference_status": "candidate only: component-level intervention effects are not full organizational closure proof"
+      }
+    }
+  ],
+  "resource_scarcity": [
+    {
+      "budget": 1,
+      "recovered": false,
+      "remaining": 0,
+      "repairs": 0
+    },
+    {
+      "budget": 2,
+      "recovered": false,
+      "remaining": 0,
+      "repairs": 0
+    },
+    {
+      "budget": 3,
+      "recovered": true,
+      "remaining": 0,
+      "repairs": 1
+    },
+    {
+      "budget": 4,
+      "recovered": true,
+      "remaining": 0,
+      "repairs": 1
+    },
+    {
+      "budget": 14,
+      "recovered": true,
+      "remaining": 8,
+      "repairs": 1
+    }
+  ],
+  "stochastic_checks": [
+    {
+      "target": "B",
+      "disabled": [
+        "A"
+      ],
+      "baseline_rate": 0.7,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.7,
+      "baseline_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    },
+    {
+      "target": "B",
+      "disabled": [
+        "F"
+      ],
+      "baseline_rate": 0.7,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.7,
+      "baseline_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    },
+    {
+      "target": "C",
+      "disabled": [
+        "A"
+      ],
+      "baseline_rate": 0.88,
+      "intervention_rate": 0.7,
+      "loss_of_recovery": 0.18,
+      "baseline_wilson": [
+        0.8276563857409517,
+        0.9180206497611246
+      ],
+      "intervention_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ]
+    },
+    {
+      "target": "C",
+      "disabled": [
+        "A",
+        "B"
+      ],
+      "baseline_rate": 0.88,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.88,
+      "baseline_wilson": [
+        0.8276563857409517,
+        0.9180206497611246
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    }
+  ]
+}

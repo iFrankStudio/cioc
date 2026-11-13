@@ -1,0 +1,8582 @@
+[
+  {
+    "scenario": "single_fault",
+    "viable": true,
+    "remaining_compute": 1100,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "actors": [
+      "B"
+    ],
+    "repaired": {
+      "A": 15
+    },
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "B",
+        "target": "A",
+        "genome": 15,
+        "revision": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "sequential_faults",
+    "viable": true,
+    "remaining_compute": 500,
+    "internal_commits": 3,
+    "external_repairs": 0,
+    "actors": [
+      "B",
+      "A",
+      "A"
+    ],
+    "repaired": {
+      "A": 15,
+      "B": 15,
+      "C": 15
+    },
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "B",
+        "target": "A",
+        "genome": 15,
+        "revision": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "A",
+        "target": "B",
+        "genome": 15,
+        "revision": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "damage",
+        "target": "C"
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "A",
+        "target": "C",
+        "genome": 15,
+        "revision": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "double_fault",
+    "viable": true,
+    "remaining_compute": 1100,
+    "internal_commits": 2,
+    "external_repairs": 0,
+    "actors": [
+      "C",
+      "A"
+    ],
+    "repaired": {
+      "A": 15,
+      "B": 15
+    },
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "C",
+        "target": "A",
+        "genome": 15,
+        "revision": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "internal_commit",
+        "actor": "A",
+        "target": "B",
+        "genome": 15,
+        "revision": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "all_fault",
+    "viable": false,
+    "remaining_compute": 1400,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "damage",
+        "target": "C"
+      }
+    ]
+  },
+  {
+    "scenario": "no_contract",
+    "viable": false,
+    "remaining_compute": 1230,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "no_mutation",
+    "viable": false,
+    "remaining_compute": 1104,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "PUT",
+        "pc": 8
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "low_budget",
+    "viable": false,
+    "remaining_compute": 0,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "out_of_budget",
+        "program": "B",
+        "op": "EVAL"
+      },
+      {
+        "event": "out_of_budget",
+        "program": "C",
+        "op": "EVAL"
+      }
+    ]
+  },
+  {
+    "scenario": "no_valid_genome",
+    "viable": false,
+    "remaining_compute": 1120,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "ZERO",
+        "pc": 2
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "DECODE",
+        "pc": 3
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "EVAL",
+        "pc": 4
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_VALID",
+        "pc": 5
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "INC",
+        "pc": 6
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_MORE",
+        "pc": 7
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  },
+  {
+    "scenario": "external_baseline",
+    "viable": true,
+    "remaining_compute": 1400,
+    "internal_commits": 0,
+    "external_repairs": 1,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "external_restore",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "scenario": "idle",
+    "viable": true,
+    "remaining_compute": 1388,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "actors": [],
+    "repaired": {},
+    "events": [
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "READ",
+        "pc": 0
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "FIRST",
+        "pc": 11
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "IF_NONE",
+        "pc": 1
+      },
+      {
+        "event": "step",
+        "actor": "A",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "B",
+        "op": "HALT",
+        "pc": 10
+      },
+      {
+        "event": "step",
+        "actor": "C",
+        "op": "HALT",
+        "pc": 10
+      }
+    ]
+  }
+]

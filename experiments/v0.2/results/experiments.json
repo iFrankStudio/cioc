@@ -1,0 +1,308 @@
+[
+  {
+    "scenario": "internal_regeneration",
+    "first_result": true,
+    "second_result": true,
+    "viable": true,
+    "remaining_budget": 84,
+    "external_repairs": 0,
+    "revisions": 2,
+    "candidates_tested": 8,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "VERIFY",
+          "LOAD",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "VERIFY",
+          "WRITE",
+          "LOAD"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "LOAD",
+          "VERIFY",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "LOAD",
+          "WRITE",
+          "VERIFY"
+        ],
+        "accepted": true,
+        "origin": "internal"
+      },
+      {
+        "event": "commit",
+        "source": "A",
+        "target": "B",
+        "revision": 1,
+        "origin": "internal"
+      },
+      {
+        "event": "fault",
+        "module": "C",
+        "kind": "erase_program"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "B",
+        "target": "C",
+        "candidate": [
+          "VERIFY",
+          "LOAD",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "B",
+        "target": "C",
+        "candidate": [
+          "VERIFY",
+          "WRITE",
+          "LOAD"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "B",
+        "target": "C",
+        "candidate": [
+          "LOAD",
+          "VERIFY",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "B",
+        "target": "C",
+        "candidate": [
+          "LOAD",
+          "WRITE",
+          "VERIFY"
+        ],
+        "accepted": true,
+        "origin": "internal"
+      },
+      {
+        "event": "commit",
+        "source": "B",
+        "target": "C",
+        "revision": 2,
+        "origin": "internal"
+      }
+    ]
+  },
+  {
+    "scenario": "fixed",
+    "first_result": false,
+    "second_result": false,
+    "viable": false,
+    "remaining_budget": 100,
+    "external_repairs": 0,
+    "revisions": 0,
+    "candidates_tested": 0,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      }
+    ]
+  },
+  {
+    "scenario": "external",
+    "first_result": true,
+    "second_result": true,
+    "viable": true,
+    "remaining_budget": 95,
+    "external_repairs": 1,
+    "revisions": 1,
+    "candidates_tested": 0,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      },
+      {
+        "event": "external_restore",
+        "target": "B",
+        "revision": 1
+      }
+    ]
+  },
+  {
+    "scenario": "maintenance_cut",
+    "first_result": false,
+    "second_result": false,
+    "viable": false,
+    "remaining_budget": 100,
+    "external_repairs": 0,
+    "revisions": 0,
+    "candidates_tested": 0,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      }
+    ]
+  },
+  {
+    "scenario": "insufficient_resources",
+    "first_result": false,
+    "second_result": false,
+    "viable": false,
+    "remaining_budget": 1,
+    "external_repairs": 0,
+    "revisions": 0,
+    "candidates_tested": 1,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "VERIFY",
+          "LOAD",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      }
+    ]
+  },
+  {
+    "scenario": "broken_blueprint",
+    "first_result": false,
+    "second_result": false,
+    "viable": false,
+    "remaining_budget": 88,
+    "external_repairs": 0,
+    "revisions": 0,
+    "candidates_tested": 6,
+    "history": [
+      {
+        "event": "fault",
+        "module": "B",
+        "kind": "erase_program"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "VERIFY",
+          "LOAD",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "VERIFY",
+          "WRITE",
+          "LOAD"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "LOAD",
+          "VERIFY",
+          "WRITE"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "LOAD",
+          "WRITE",
+          "VERIFY"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "WRITE",
+          "VERIFY",
+          "LOAD"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      },
+      {
+        "event": "candidate_evaluated",
+        "source": "A",
+        "target": "B",
+        "candidate": [
+          "WRITE",
+          "LOAD",
+          "VERIFY"
+        ],
+        "accepted": false,
+        "origin": "internal"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+internal_regeneration      viable=True  internal_commits=2 external=0 candidates=8 budget_left=84
+fixed                      viable=False internal_commits=0 external=0 candidates=0 budget_left=100
+external                   viable=True  internal_commits=0 external=1 candidates=0 budget_left=95
+maintenance_cut            viable=False internal_commits=0 external=0 candidates=0 budget_left=100
+insufficient_resources     viable=False internal_commits=0 external=0 candidates=1 budget_left=1
+broken_blueprint           viable=False internal_commits=0 external=0 candidates=6 budget_left=88

@@ -1,0 +1,2758 @@
+[
+  {
+    "scenario": "chain_regeneration",
+    "viable": true,
+    "remaining_budget": 547,
+    "internal_commits": 2,
+    "external_repairs": 0,
+    "candidate_checks": 47,
+    "synthesized_programs": {
+      "B": [
+        "DOUBLE",
+        "INC"
+      ],
+      "C": [
+        "SQUARE",
+        "DEC"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": true
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "holdout",
+        "passed": true
+      },
+      {
+        "event": "internal_commit",
+        "source": "A",
+        "target": "B",
+        "from": null,
+        "to": [
+          "DOUBLE",
+          "INC"
+        ],
+        "revision": 1
+      },
+      {
+        "event": "damage",
+        "target": "C"
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "SQUARE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "SQUARE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": true
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "SQUARE",
+          "DEC"
+        ],
+        "phase": "holdout",
+        "passed": true
+      },
+      {
+        "event": "internal_commit",
+        "source": "B",
+        "target": "C",
+        "from": null,
+        "to": [
+          "SQUARE",
+          "DEC"
+        ],
+        "revision": 2
+      }
+    ]
+  },
+  {
+    "scenario": "no_search",
+    "viable": false,
+    "remaining_budget": 600,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "candidate_checks": 0,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "scenario": "external_baseline",
+    "viable": true,
+    "remaining_budget": 595,
+    "internal_commits": 0,
+    "external_repairs": 1,
+    "candidate_checks": 0,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "external_restore",
+        "target": "B",
+        "revision": 1
+      }
+    ]
+  },
+  {
+    "scenario": "disable_source",
+    "viable": false,
+    "remaining_budget": 600,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "candidate_checks": 0,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "scenario": "low_budget",
+    "viable": false,
+    "remaining_budget": 0,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "candidate_checks": 15,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "A",
+        "target": "B",
+        "program": [
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "budget_exhausted",
+        "source": "A",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "scenario": "missing_primitive",
+    "viable": false,
+    "remaining_budget": 445,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "candidate_checks": 155,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "C"
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "INC",
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DEC",
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "DOUBLE",
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "NEG",
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "INC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DEC",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "DOUBLE",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "NEG",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3",
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3",
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3",
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "B",
+        "target": "C",
+        "program": [
+          "ADD3",
+          "ADD3",
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "scenario": "destroyed_search",
+    "viable": false,
+    "remaining_budget": 600,
+    "internal_commits": 0,
+    "external_repairs": 0,
+    "candidate_checks": 0,
+    "synthesized_programs": {},
+    "history": [
+      {
+        "event": "damage",
+        "target": "B"
+      },
+      {
+        "event": "limitation",
+        "message": "resident search engine cannot regenerate itself"
+      }
+    ]
+  },
+  {
+    "scenario": "recover_A",
+    "viable": true,
+    "remaining_budget": 589,
+    "internal_commits": 1,
+    "external_repairs": 0,
+    "candidate_checks": 8,
+    "synthesized_programs": {
+      "A": [
+        "INC",
+        "INC"
+      ]
+    },
+    "history": [
+      {
+        "event": "damage",
+        "target": "A"
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "INC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "DEC"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "DOUBLE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "SQUARE"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "NEG"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "ADD3"
+        ],
+        "phase": "train",
+        "passed": false
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "train",
+        "passed": true
+      },
+      {
+        "event": "candidate_check",
+        "source": "C",
+        "target": "A",
+        "program": [
+          "INC",
+          "INC"
+        ],
+        "phase": "holdout",
+        "passed": true
+      },
+      {
+        "event": "internal_commit",
+        "source": "C",
+        "target": "A",
+        "from": null,
+        "to": [
+          "INC",
+          "INC"
+        ],
+        "revision": 1
+      }
+    ]
+  }
+]

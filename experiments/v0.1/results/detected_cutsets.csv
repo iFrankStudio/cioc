@@ -1,0 +1,13 @@
+scenario,target,disabled,baseline,intervention,loss
+internal_closure,A,C,1.0,0.0,1.0
+internal_closure,B,A,1.0,0.0,1.0
+internal_closure,C,B,1.0,0.0,1.0
+internal_closure,D,A,1.0,0.0,1.0
+external_repair,A,F,1.0,0.0,1.0
+external_repair,B,F,1.0,0.0,1.0
+external_repair,C,F,1.0,0.0,1.0
+external_repair,D,F,1.0,0.0,1.0
+redundant_maintenance,A,C,1.0,0.0,1.0
+redundant_maintenance,B,C,1.0,0.0,1.0
+redundant_maintenance,C,A+B,1.0,0.0,1.0
+redundant_maintenance,D,A,1.0,0.0,1.0

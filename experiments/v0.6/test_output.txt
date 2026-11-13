@@ -1,0 +1,21 @@
+test_all_roles_necessary_for_task (test_cioc.TestComplementaryOrganization.test_all_roles_necessary_for_task) ... ok
+test_budget_limits (test_cioc.TestComplementaryOrganization.test_budget_limits) ... ok
+test_candidate_enumeration_bounded (test_cioc.TestComplementaryOrganization.test_candidate_enumeration_bounded) ... ok
+test_complementary_roles_not_duplicate_repairers (test_cioc.TestComplementaryOrganization.test_complementary_roles_not_duplicate_repairers) ... ok
+test_contract_reconstruction (test_cioc.TestComplementaryOrganization.test_contract_reconstruction) ... ok
+test_corrupted_share_rejected (test_cioc.TestComplementaryOrganization.test_corrupted_share_rejected) ... ok
+test_external_restoration_not_internal (test_cioc.TestComplementaryOrganization.test_external_restoration_not_internal) ... ok
+test_joint_reconstruction (test_cioc.TestComplementaryOrganization.test_joint_reconstruction) ... ok
+test_missing_necessary_primitive (test_cioc.TestComplementaryOrganization.test_missing_necessary_primitive) ... ok
+test_no_detection (test_cioc.TestComplementaryOrganization.test_no_detection) ... ok
+test_reject_unknown_op (test_cioc.TestComplementaryOrganization.test_reject_unknown_op) ... ok
+test_repair_logged_with_causal_messages (test_cioc.TestComplementaryOrganization.test_repair_logged_with_causal_messages) ... ok
+test_shares_reconstruct_bytes (test_cioc.TestComplementaryOrganization.test_shares_reconstruct_bytes) ... ok
+test_shares_required (test_cioc.TestComplementaryOrganization.test_shares_required) ... ok
+test_task_reconstruction (test_cioc.TestComplementaryOrganization.test_task_reconstruction) ... ok
+test_typed_program (test_cioc.TestComplementaryOrganization.test_typed_program) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.006s
+
+OK

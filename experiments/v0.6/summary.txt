@@ -1,0 +1,13 @@
+task_algorithm_reconstruction         task=True  contract=True  internal=1/0 heldout=True attempts=9
+contract_data_reconstruction          task=True  contract=True  internal=0/1 heldout=True attempts=0
+contract_then_algorithm_reconstruction task=True  contract=True  internal=1/1 heldout=True attempts=9
+observer_disabled                     task=False contract=True  internal=0/0 heldout=False attempts=0
+generator_disabled                    task=False contract=True  internal=0/0 heldout=False attempts=0
+verifier_disabled                     task=False contract=True  internal=0/0 heldout=False attempts=1
+modifier_disabled                     task=False contract=True  internal=0/0 heldout=False attempts=84
+contract_share_O_missing              task=True  contract=False internal=0/0 heldout=True attempts=0
+contract_share_V_missing              task=True  contract=False internal=0/0 heldout=True attempts=0
+resource_exhaustion                   task=False contract=True  internal=0/0 heldout=False attempts=4
+required_primitive_missing            task=False contract=True  internal=0/0 heldout=False attempts=39
+external_restore_control              task=True  contract=True  internal=0/0 heldout=True attempts=0
+no_internal_detection                 task=False contract=True  internal=0/0 heldout=False attempts=0

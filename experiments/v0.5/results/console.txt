@@ -1,0 +1,10 @@
+single_fault          viable=True  internal=1 external=0 remaining=1100
+sequential_faults     viable=True  internal=3 external=0 remaining=500
+double_fault          viable=True  internal=2 external=0 remaining=1100
+all_fault             viable=False internal=0 external=0 remaining=1400
+no_contract           viable=False internal=0 external=0 remaining=1230
+no_mutation           viable=False internal=0 external=0 remaining=1104
+low_budget            viable=False internal=0 external=0 remaining=0
+no_valid_genome       viable=False internal=0 external=0 remaining=1120
+external_baseline     viable=True  internal=0 external=1 remaining=1400
+idle                  viable=True  internal=0 external=0 remaining=1388

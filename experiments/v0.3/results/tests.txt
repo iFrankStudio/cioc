@@ -1,0 +1,19 @@
+test_budget (test_cioc.CIOCTests.test_budget) ... ok
+test_budget_never_negative (test_cioc.CIOCTests.test_budget_never_negative) ... ok
+test_chain (test_cioc.CIOCTests.test_chain) ... ok
+test_cut_source (test_cioc.CIOCTests.test_cut_source) ... ok
+test_determinism (test_cioc.CIOCTests.test_determinism) ... ok
+test_external_baseline_not_internal (test_cioc.CIOCTests.test_external_baseline_not_internal) ... ok
+test_genesis_functional (test_cioc.CIOCTests.test_genesis_functional) ... ok
+test_invalid_commit_rejected (test_cioc.CIOCTests.test_invalid_commit_rejected) ... ok
+test_no_blueprint_needed_for_B (test_cioc.CIOCTests.test_no_blueprint_needed_for_B) ... ok
+test_no_search (test_cioc.CIOCTests.test_no_search) ... ok
+test_no_square_cannot_recover_C (test_cioc.CIOCTests.test_no_square_cannot_recover_C) ... ok
+test_no_wrong_source (test_cioc.CIOCTests.test_no_wrong_source) ... ok
+test_restore_A (test_cioc.CIOCTests.test_restore_A) ... ok
+test_search_engine_limitation (test_cioc.CIOCTests.test_search_engine_limitation) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.004s
+
+OK

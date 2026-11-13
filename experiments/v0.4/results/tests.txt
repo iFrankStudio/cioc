@@ -1,0 +1,20 @@
+test_all_three_single_damages (test_cioc.TestControlRegeneration.test_all_three_single_damages) ... ok
+test_budget_nonnegative (test_cioc.TestControlRegeneration.test_budget_nonnegative) ... ok
+test_external_baseline_not_counted_internal (test_cioc.TestControlRegeneration.test_external_baseline_not_counted_internal) ... ok
+test_failed_gate_cannot_install (test_cioc.TestControlRegeneration.test_failed_gate_cannot_install) ... ok
+test_joint_failure_without_proposer (test_cioc.TestControlRegeneration.test_joint_failure_without_proposer) ... ok
+test_low_budget (test_cioc.TestControlRegeneration.test_low_budget) ... ok
+test_missing_primitive (test_cioc.TestControlRegeneration.test_missing_primitive) ... ok
+test_no_backup_search (test_cioc.TestControlRegeneration.test_no_backup_search) ... ok
+test_no_contract (test_cioc.TestControlRegeneration.test_no_contract) ... ok
+test_no_privileged_external_rescue (test_cioc.TestControlRegeneration.test_no_privileged_external_rescue) ... ok
+test_no_self_repair_with_sole_damaged_operator (test_cioc.TestControlRegeneration.test_no_self_repair_with_sole_damaged_operator) ... ok
+test_role_program_contract (test_cioc.TestControlRegeneration.test_role_program_contract) ... ok
+test_secondary_capability_regeneration (test_cioc.TestControlRegeneration.test_secondary_capability_regeneration) ... ok
+test_sequential_regeneration (test_cioc.TestControlRegeneration.test_sequential_regeneration) ... ok
+test_target_code_erased_before_synthesis (test_cioc.TestControlRegeneration.test_target_code_erased_before_synthesis) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.006s
+
+OK

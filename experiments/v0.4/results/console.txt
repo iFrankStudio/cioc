@@ -1,0 +1,11 @@
+search_regeneration        viable=True  internal=1 external=0 probes=12 budget=1085
+verify_regeneration        viable=True  internal=1 external=0 probes=38 budget=1059
+commit_regeneration        viable=True  internal=1 external=0 probes=56 budget=1041
+sequential_regeneration    viable=True  internal=3 external=0 probes=106 budget=985
+joint_failure              viable=False internal=0 external=0 probes=0 budget=1100
+no_backup_search           viable=False internal=0 external=0 probes=0 budget=1100
+no_contract                viable=False internal=0 external=0 probes=0 budget=1100
+low_budget                 viable=False internal=0 external=0 probes=14 budget=0
+missing_primitive          viable=False internal=0 external=0 probes=399 budget=701
+external_baseline          viable=True  internal=0 external=1 probes=0 budget=1095
+destroy_secondary          viable=True  internal=1 external=0 probes=12 budget=1085

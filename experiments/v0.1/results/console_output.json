@@ -1,0 +1,203 @@
+{
+  "cutsets": [
+    {
+      "scenario": "internal_closure",
+      "target": "A",
+      "disabled": "C",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "internal_closure",
+      "target": "B",
+      "disabled": "A",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "internal_closure",
+      "target": "C",
+      "disabled": "B",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "internal_closure",
+      "target": "D",
+      "disabled": "A",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "external_repair",
+      "target": "A",
+      "disabled": "F",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "external_repair",
+      "target": "B",
+      "disabled": "F",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "external_repair",
+      "target": "C",
+      "disabled": "F",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "external_repair",
+      "target": "D",
+      "disabled": "F",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "redundant_maintenance",
+      "target": "A",
+      "disabled": "C",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "redundant_maintenance",
+      "target": "B",
+      "disabled": "C",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "redundant_maintenance",
+      "target": "C",
+      "disabled": "A+B",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    },
+    {
+      "scenario": "redundant_maintenance",
+      "target": "D",
+      "disabled": "A",
+      "baseline": 1.0,
+      "intervention": 0.0,
+      "loss": 1.0
+    }
+  ],
+  "resource_scarcity": [
+    {
+      "budget": 1,
+      "recovered": false,
+      "remaining": 0,
+      "repairs": 0
+    },
+    {
+      "budget": 2,
+      "recovered": false,
+      "remaining": 0,
+      "repairs": 0
+    },
+    {
+      "budget": 3,
+      "recovered": true,
+      "remaining": 0,
+      "repairs": 1
+    },
+    {
+      "budget": 4,
+      "recovered": true,
+      "remaining": 0,
+      "repairs": 1
+    },
+    {
+      "budget": 14,
+      "recovered": true,
+      "remaining": 8,
+      "repairs": 1
+    }
+  ],
+  "stochastic_checks": [
+    {
+      "target": "B",
+      "disabled": [
+        "A"
+      ],
+      "baseline_rate": 0.7,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.7,
+      "baseline_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    },
+    {
+      "target": "B",
+      "disabled": [
+        "F"
+      ],
+      "baseline_rate": 0.7,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.7,
+      "baseline_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    },
+    {
+      "target": "C",
+      "disabled": [
+        "A"
+      ],
+      "baseline_rate": 0.88,
+      "intervention_rate": 0.7,
+      "loss_of_recovery": 0.18,
+      "baseline_wilson": [
+        0.8276563857409517,
+        0.9180206497611246
+      ],
+      "intervention_wilson": [
+        0.6332080400667355,
+        0.759253557565936
+      ]
+    },
+    {
+      "target": "C",
+      "disabled": [
+        "A",
+        "B"
+      ],
+      "baseline_rate": 0.88,
+      "intervention_rate": 0.0,
+      "loss_of_recovery": 0.88,
+      "baseline_wilson": [
+        0.8276563857409517,
+        0.9180206497611246
+      ],
+      "intervention_wilson": [
+        0.0,
+        0.018846005918320894
+      ]
+    }
+  ]
+}
