@@ -1,0 +1,17 @@
+test_budget_bounds_detection (test_cioc.LiveDiagnosticsTests.test_budget_bounds_detection) ... ok
+test_clean_world (test_cioc.LiveDiagnosticsTests.test_clean_world) ... ok
+test_diagnostic_code_damage (test_cioc.LiveDiagnosticsTests.test_diagnostic_code_damage) ... ok
+test_diagnostic_inhibition (test_cioc.LiveDiagnosticsTests.test_diagnostic_inhibition) ... ok
+test_equivalent_code_not_quarantined (test_cioc.LiveDiagnosticsTests.test_equivalent_code_not_quarantined) ... ok
+test_external_repair_not_counted_as_internal (test_cioc.LiveDiagnosticsTests.test_external_repair_not_counted_as_internal) ... ok
+test_joint_damage_still_fails (test_cioc.LiveDiagnosticsTests.test_joint_damage_still_fails) ... ok
+test_live_protocol_corruption (test_cioc.LiveDiagnosticsTests.test_live_protocol_corruption) ... ok
+test_observer_remains_single_point (test_cioc.LiveDiagnosticsTests.test_observer_remains_single_point) ... ok
+test_role_corruption_is_detected_and_repaired_where_possible (test_cioc.LiveDiagnosticsTests.test_role_corruption_is_detected_and_repaired_where_possible) ... ok
+test_scenario_matrix (test_cioc.LiveDiagnosticsTests.test_scenario_matrix) ... ok
+test_sequential_recovery (test_cioc.LiveDiagnosticsTests.test_sequential_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.046s
+
+OK
