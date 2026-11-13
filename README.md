@@ -17,6 +17,7 @@ CIOC is a research project on organizational individuality, causal maintenance a
 | V0.7 | reconstruction of generator G from O/V/M | O, V and M cannot yet recover |
 | V0.8 | behavioral recovery using distributed instruction fragments | O/V/M remain single points of failure; host behavioral probes |
 | V0.9 | bounded recovery of G/V/M through delegated verification and installation | O and joint failures remain; host-provided repair protocols |
+| V0.10 | damaged delegated protocol programs PV/PI can be behaviorally regenerated | O, joint failure cutsets, fixed host scheduling and oracle remain |
 
 ## Research principles
 
@@ -25,4 +26,4 @@ CIOC is a research project on organizational individuality, causal maintenance a
 - Preserve negative controls and failures.
 - Treat causal repair evidence, not mere graph cycles, as the basis for maintenance claims.
 
-The research baseline is on `main`. Historical V0.1–V0.6 source directories have been uploaded to the repository by the project owner. V0.7–V0.9 are independently inspectable research baselines. V0.9 provides source, negative controls, an experiment report and reproducible results.
+The research baseline is on `main`. Historical V0.1–V0.6 source directories have been uploaded to the repository by the project owner. V0.7–V0.10 are independently inspectable research baselines. V0.10 includes source, negative controls, 20 scenario records and a reproducible experiment report.
