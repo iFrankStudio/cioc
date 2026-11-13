@@ -1,6 +1,6 @@
 //! CL-0 Stage 1: deterministic mechanics only. No hardcoded organism, repair or fitness.
 use serde::{Deserialize, Serialize};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 pub type ProcessId = u64;
 pub type CellKey = i64;
@@ -27,10 +27,41 @@ pub enum Op {
     GraphDrop { graph: usize, next: usize },
     GraphLaunch { graph: usize, credits: usize, dst: usize, next: usize },
     GraphEncode { graph: usize, address: usize, dst: usize, next: usize },
+    GraphGrantRead { graph: usize, reader: usize, next: usize },
+    GraphRevokeRead { graph: usize, reader: usize, next: usize },
+    GraphReadTag { dst: usize, graph: usize, node: usize, next: usize },
     Halt,
 }
 
 impl Op {
+    fn opcode_tag(&self) -> i64 {
+        match self {
+            Op::Const { .. } => 0,
+            Op::Add { .. } => 1,
+            Op::Sub { .. } => 2,
+            Op::Read { .. } => 3,
+            Op::Write { .. } => 4,
+            Op::Branch { .. } => 5,
+            Op::PatchNext { .. } => 6,
+            Op::ReadNext { .. } => 7,
+            Op::CloneNode { .. } => 8,
+            Op::PatchConst { .. } => 9,
+            Op::Delete { .. } => 10,
+            Op::GraphNew { .. } => 11,
+            Op::GraphCopyNode { .. } => 12,
+            Op::GraphSetNext { .. } => 13,
+            Op::GraphSetConst { .. } => 14,
+            Op::GraphReadNext { .. } => 15,
+            Op::GraphDrop { .. } => 16,
+            Op::GraphLaunch { .. } => 17,
+            Op::GraphEncode { .. } => 18,
+            Op::Halt => 19,
+            Op::GraphGrantRead { .. } => 20,
+            Op::GraphRevokeRead { .. } => 21,
+            Op::GraphReadTag { .. } => 22,
+        }
+    }
+
     fn next_mut(&mut self) -> Option<&mut usize> {
         match self {
             Op::Const { next, .. }
@@ -50,7 +81,10 @@ impl Op {
             | Op::GraphReadNext { next, .. }
             | Op::GraphDrop { next, .. }
             | Op::GraphLaunch { next, .. }
-            | Op::GraphEncode { next, .. } => Some(next),
+            | Op::GraphEncode { next, .. }
+            | Op::GraphGrantRead { next, .. }
+            | Op::GraphRevokeRead { next, .. }
+            | Op::GraphReadTag { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
@@ -85,6 +119,9 @@ impl Op {
             17 => Ok(Op::GraphLaunch { graph: slot(1)?, credits: slot(2)?, dst: slot(3)?, next: slot(4)? }),
             18 => Ok(Op::GraphEncode { graph: slot(1)?, address: slot(2)?, dst: slot(3)?, next: slot(4)? }),
             19 => Ok(Op::Halt),
+            20 => Ok(Op::GraphGrantRead { graph: slot(1)?, reader: slot(2)?, next: slot(3)? }),
+            21 => Ok(Op::GraphRevokeRead { graph: slot(1)?, reader: slot(2)?, next: slot(3)? }),
+            22 => Ok(Op::GraphReadTag { dst: slot(1)?, graph: slot(2)?, node: slot(3)?, next: slot(4)? }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -148,6 +185,8 @@ pub struct Event {
 pub struct GraphObject {
     pub owner: ProcessId,
     pub nodes: Vec<Op>,
+    #[serde(default)]
+    pub readers: BTreeSet<ProcessId>,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -401,6 +440,7 @@ impl World {
             Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
             | Op::GraphDrop { .. } | Op::GraphLaunch { .. } | Op::GraphEncode { .. }
+            | Op::GraphGrantRead { .. } | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. }
         ) {
             return self.execute_graph(id, op);
         }
@@ -491,7 +531,9 @@ impl World {
                     Op::GraphNew { next, .. } | Op::GraphCopyNode { next, .. }
                     | Op::GraphSetNext { next, .. } | Op::GraphSetConst { next, .. }
                     | Op::GraphReadNext { next, .. } | Op::GraphDrop { next, .. }
-                    | Op::GraphLaunch { next, .. } | Op::GraphEncode { next, .. } => *next,
+                    | Op::GraphLaunch { next, .. } | Op::GraphEncode { next, .. }
+                    | Op::GraphGrantRead { next, .. } | Op::GraphRevokeRead { next, .. }
+                    | Op::GraphReadTag { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
                 };
                 p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
@@ -534,7 +576,8 @@ impl World {
             Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
             | Op::GraphDrop { .. } | Op::GraphLaunch { .. }
-            | Op::GraphEncode { .. } => unreachable!("dispatched above"),
+            | Op::GraphEncode { .. } | Op::GraphGrantRead { .. }
+            | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. } => unreachable!("dispatched above"),
         }
         Ok(false)
     }
@@ -560,7 +603,7 @@ impl World {
                 let object_id = self.next_graph_id;
                 let new_id = object_id.checked_add(1).ok_or("graph id exhausted")?;
                 let encoded = i64::try_from(object_id).map_err(|_| "graph id overflow")?;
-                self.graph_objects.insert(object_id, GraphObject { owner: id, nodes: Vec::new() });
+                self.graph_objects.insert(object_id, GraphObject { owner: id, nodes: Vec::new(), readers: BTreeSet::new() });
                 self.next_graph_id = new_id;
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = encoded;
@@ -618,7 +661,7 @@ impl World {
                 let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
                 let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
                 let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
-                if object.owner != id { return Err("access denied".into()); }
+                if object.owner != id && !object.readers.contains(&id) { return Err("access denied".into()); }
                 let mut item = object.nodes.get(index).ok_or("invalid node")?.clone();
                 let outgoing = *item.next_mut().ok_or("node has no single next edge")?;
                 let encoded = i64::try_from(outgoing).map_err(|_| "edge index overflow")?;
@@ -681,6 +724,41 @@ impl World {
                     .nodes.push(candidate);
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = position_reg;
+                p.pc = next;
+            }
+
+            Op::GraphGrantRead { graph, reader, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let reader_id = u64::try_from(reg(reader)?).map_err(|_| "invalid reader id")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                if !self.processes.contains_key(&reader_id) {
+                    return Err("unknown reader process".into());
+                }
+                self.graph_objects.get_mut(&object_id).expect("checked object").readers.insert(reader_id);
+                self.processes.get_mut(&id).expect("owner exists").pc = next;
+            }
+            Op::GraphRevokeRead { graph, reader, next } => {
+                edge(next)?;
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let reader_id = u64::try_from(reg(reader)?).map_err(|_| "invalid reader id")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id { return Err("access denied".into()); }
+                self.graph_objects.get_mut(&object_id).expect("checked object").readers.remove(&reader_id);
+                self.processes.get_mut(&id).expect("owner exists").pc = next;
+            }
+            Op::GraphReadTag { dst, graph, node, next } => {
+                edge(next)?;
+                if dst >= REGISTERS { return Err("invalid destination register".into()); }
+                let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node")?;
+                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                if object.owner != id && !object.readers.contains(&id) { return Err("access denied".into()); }
+                let item = object.nodes.get(index).ok_or("invalid node")?;
+                let tag = item.opcode_tag();
+                let p = self.processes.get_mut(&id).expect("reader exists");
+                p.registers[dst] = tag;
                 p.pc = next;
             }
             _ => unreachable!("only graph operations are dispatched here"),
@@ -1029,6 +1107,52 @@ mod tests {
         assert!(Op::decode_instruction([0, -1, 12, 0, 0]).is_err());
         assert!(Op::decode_instruction([999, 0, 0, 0, 0]).is_err());
     }
+
+    #[test]
+    fn graph_read_authorization_and_revocation_follow_scheduler() {
+        let mut w = World::with_total_capacity(0, 16, 20);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 3, next: 2 },
+            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
+            Op::Const { dst: 1, value: 2, next: 4 },
+            Op::GraphGrantRead { graph: 0, reader: 1, next: 5 },
+            Op::GraphRevokeRead { graph: 0, reader: 1, next: 6 },
+            Op::Halt,
+        ], 12)).unwrap();
+        w.load(Process::new(2, vec![
+            Op::Const { dst: 0, value: 1, next: 1 },
+            Op::Const { dst: 1, value: 0, next: 2 },
+            Op::GraphReadTag { dst: 2, graph: 0, node: 1, next: 3 },
+            Op::Halt,
+        ], 0)).unwrap();
+        // Owner creates and explicitly grants read-only access; receiver has no compute yet.
+        assert_eq!(w.run(5), 5);
+        assert!(w.graph_object(1).unwrap().readers.contains(&2));
+        w.intervene(Intervention::SetCredits { process: 2, credits: 3 }).unwrap();
+        // Interleaving is deterministic: read before owner's revocation.
+        assert_eq!(w.run(4), 4);
+        assert_eq!(w.process(2).unwrap().registers[2], 0);
+        assert!(w.graph_object(1).unwrap().readers.is_empty());
+    }
+
+    #[test]
+    fn guessed_graph_handle_cannot_read_without_grant() {
+        let mut w = World::with_total_capacity(0, 10, 14);
+        w.load(Process::new(1, vec![Op::GraphNew { dst: 0, next: 1 }, Op::Halt], 3)).unwrap();
+        w.load(Process::new(2, vec![
+            Op::Const { dst: 0, value: 1, next: 1 },
+            Op::Const { dst: 1, value: 0, next: 2 },
+            Op::GraphReadTag { dst: 2, graph: 0, node: 1, next: 3 },
+            Op::Halt,
+        ], 5)).unwrap();
+        w.run(7);
+        assert_eq!(w.process(2).unwrap().registers[2], 0);
+        assert!(matches!(w.events().iter().rev().find(|e|
+            e.process == 2 && e.origin == Origin::Internal(2)).unwrap().kind,
+            EventKind::Trapped(_)));
+    }
+
     #[test]
     fn stable_round_robin_by_id() {
         let mut world = World::new(0, 2);
