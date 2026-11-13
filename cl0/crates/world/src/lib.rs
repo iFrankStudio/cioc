@@ -5,6 +5,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub type ProcessId = u64;
 pub type CellKey = i64;
 pub const REGISTERS: usize = 4;
+pub const WORLD_FORMAT_VERSION: u32 = 1;
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Op {
@@ -246,6 +247,8 @@ pub struct GraphObject {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct World {
+    #[serde(default = "default_world_format_version")]
+    format_version: u32,
     processes: BTreeMap<ProcessId, Process>,
     cells: BTreeMap<CellKey, i64>,
     storage_limit: usize,
@@ -279,12 +282,14 @@ pub enum Intervention {
     PatchEdge { process: ProcessId, node: usize, next: usize },
 }
 
+fn default_world_format_version() -> u32 { WORLD_FORMAT_VERSION }
 fn default_graph_id() -> u64 { 1 }
 fn default_process_id() -> u64 { 1 }
 
 impl World {
     pub fn new(storage_limit: usize, max_nodes_per_process: usize) -> Self {
         Self {
+            format_version: WORLD_FORMAT_VERSION,
             processes: BTreeMap::new(),
             cells: BTreeMap::new(),
             storage_limit,
@@ -329,6 +334,8 @@ impl World {
     }
 
     pub fn total_capacity(&self) -> Option<usize> { self.total_storage_limit }
+
+    pub fn format_version(&self) -> u32 { self.format_version }
 
     pub fn strict_accounting(&self) -> bool { self.strict_accounting }
 
@@ -1506,6 +1513,16 @@ mod tests {
             Op::Branch { test: 0, nonzero: 0, zero: 0 });
         // Replacement overwrites exactly one node and does not allocate any extra node.
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
+    }
+
+    #[test]
+    fn world_snapshot_carries_explicit_format_version() {
+        let world = World::with_strict_capacity(2, 8, 10);
+        let json = serde_json::to_string(&world).unwrap();
+        assert!(json.contains("\\"format_version\\":1"));
+        let restored: World = serde_json::from_str(&json).unwrap();
+        assert_eq!(restored.format_version(), WORLD_FORMAT_VERSION);
+        assert_eq!(world, restored);
     }
 
     #[test]
