@@ -23,10 +23,14 @@ impl fmt::Display for LabError {
 }
 impl Error for LabError {}
 impl From<rusqlite::Error> for LabError {
-    fn from(value: rusqlite::Error) -> Self { Self::Sqlite(value) }
+    fn from(value: rusqlite::Error) -> Self {
+        Self::Sqlite(value)
+    }
 }
 impl From<serde_json::Error> for LabError {
-    fn from(value: serde_json::Error) -> Self { Self::Json(value) }
+    fn from(value: serde_json::Error) -> Self {
+        Self::Json(value)
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -72,13 +76,21 @@ pub fn hash_bytes(bytes: &[u8]) -> String {
 }
 
 impl Laboratory {
-    fn validate_inputs(initial: &World, conditions: usize, limit: usize, revision: &str)
-        -> Result<(), LabError>
-    {
-        if revision.is_empty() || conditions == 0 || conditions > MAX_EXPERIMENT_CONDITIONS
-            || limit > MAX_EXPERIMENT_ATTEMPTS || initial.format_version() != 1
+    fn validate_inputs(
+        initial: &World,
+        conditions: usize,
+        limit: usize,
+        revision: &str,
+    ) -> Result<(), LabError> {
+        if revision.is_empty()
+            || conditions == 0
+            || conditions > MAX_EXPERIMENT_CONDITIONS
+            || limit > MAX_EXPERIMENT_ATTEMPTS
+            || initial.format_version() != 1
         {
-            return Err(LabError::Integrity("invalid experiment revision, format or bounds".into()));
+            return Err(LabError::Integrity(
+                "invalid experiment revision, format or bounds".into(),
+            ));
         }
         Ok(())
     }
@@ -148,7 +160,9 @@ impl Laboratory {
         Self::validate_inputs(initial, conditions.len(), limit, source_revision)?;
         let initial_json = serde_json::to_string(initial)?;
         if initial_json.len() > MAX_INITIAL_SNAPSHOT_BYTES {
-            return Err(LabError::Integrity("initial snapshot exceeds size limit".into()));
+            return Err(LabError::Integrity(
+                "initial snapshot exceeds size limit".into(),
+            ));
         }
         let initial_sha256 = hash_bytes(initial_json.as_bytes());
         let transaction = self.conn.transaction()?;
@@ -203,12 +217,28 @@ impl Laboratory {
                 row.get::<_, String>(8)?,
             )),
         )?;
-        let (version, revision, initial_hash, initial_json, interventions_json, limit, attempts, final_hash, final_json) = row;
-        if version != 1 || revision.is_empty() || limit < 0 || attempts < 0
-            || limit as u64 > MAX_EXPERIMENT_ATTEMPTS as u64 {
+        let (
+            version,
+            revision,
+            initial_hash,
+            initial_json,
+            interventions_json,
+            limit,
+            attempts,
+            final_hash,
+            final_json,
+        ) = row;
+        if version != 1
+            || revision.is_empty()
+            || limit < 0
+            || attempts < 0
+            || limit as u64 > MAX_EXPERIMENT_ATTEMPTS as u64
+        {
             return Ok(false);
         }
-        if hash_bytes(initial_json.as_bytes()) != initial_hash || hash_bytes(final_json.as_bytes()) != final_hash {
+        if hash_bytes(initial_json.as_bytes()) != initial_hash
+            || hash_bytes(final_json.as_bytes()) != final_hash
+        {
             return Ok(false);
         }
         let mut world: World = serde_json::from_str(&initial_json)?;
@@ -221,12 +251,13 @@ impl Laboratory {
         Ok(observed == attempts as usize && reconstructed == final_json)
     }
 
-
     fn validate_schedule(actions: &[ScheduledAction], limit: usize) -> Result<(), LabError> {
         let mut last = 0;
         for a in actions {
             if a.after_attempts < last || a.after_attempts > limit {
-                return Err(LabError::Integrity("schedule offsets must be ascending and <= limit".into()));
+                return Err(LabError::Integrity(
+                    "schedule offsets must be ascending and <= limit".into(),
+                ));
             }
             last = a.after_attempts;
         }
@@ -235,11 +266,7 @@ impl Laboratory {
 
     /// Scheduled actions are timed in *attempted CIL instructions*, not wall clock.
     /// If the world becomes inert before an action's offset, that action is NOT applied.
-    fn execute_schedule(
-        world: &mut World,
-        actions: &[ScheduledAction],
-        limit: usize,
-    ) -> usize {
+    fn execute_schedule(world: &mut World, actions: &[ScheduledAction], limit: usize) -> usize {
         let mut attempted = 0;
         let mut index = 0;
         while index < actions.len() {
@@ -274,7 +301,9 @@ impl Laboratory {
         }
         let initial_json = serde_json::to_string(initial)?;
         if initial_json.len() > MAX_INITIAL_SNAPSHOT_BYTES {
-            return Err(LabError::Integrity("initial snapshot exceeds size limit".into()));
+            return Err(LabError::Integrity(
+                "initial snapshot exceeds size limit".into(),
+            ));
         }
         let initial_sha256 = hash_bytes(initial_json.as_bytes());
         let transaction = self.conn.transaction()?;
@@ -290,8 +319,17 @@ impl Laboratory {
                  (schema_version,source_revision,condition,initial_sha256,initial_json,actions_json,
                   attempt_limit,attempts,final_sha256,final_json)
                  VALUES (1,?1,?2,?3,?4,?5,?6,?7,?8,?9)",
-                params![source_revision, condition.label, initial_sha256, initial_json,
-                    actions_json, limit as i64, attempts as i64, final_sha256, final_json],
+                params![
+                    source_revision,
+                    condition.label,
+                    initial_sha256,
+                    initial_json,
+                    actions_json,
+                    limit as i64,
+                    attempts as i64,
+                    final_sha256,
+                    final_json
+                ],
             )?;
             // Persist each reached pre-intervention fork state, including prior same-offset actions.
             let run_id = transaction.last_insert_rowid();
@@ -299,7 +337,9 @@ impl Laboratory {
             let mut completed = 0;
             for (ordinal, action) in condition.actions.iter().enumerate() {
                 completed += checkpoint_world.run(action.after_attempts - completed);
-                if completed != action.after_attempts { break; }
+                if completed != action.after_attempts {
+                    break;
+                }
                 let snapshot = serde_json::to_string(&checkpoint_world)?;
                 let digest = hash_bytes(snapshot.as_bytes());
                 transaction.execute(
@@ -328,26 +368,41 @@ impl Laboratory {
         let row = self.conn.query_row(
             "SELECT schema_version,source_revision,initial_sha256,initial_json,
                     actions_json,attempt_limit,attempts,final_sha256,final_json
-             FROM scheduled_runs WHERE id=?1", [id],
-            |row| Ok((
-                row.get::<_, i64>(0)?,
-                row.get::<_, String>(1)?,
-                row.get::<_, String>(2)?,
-                row.get::<_, String>(3)?,
-                row.get::<_, String>(4)?,
-                row.get::<_, i64>(5)?,
-                row.get::<_, i64>(6)?,
-                row.get::<_, String>(7)?,
-                row.get::<_, String>(8)?,
-            )),
+             FROM scheduled_runs WHERE id=?1",
+            [id],
+            |row| {
+                Ok((
+                    row.get::<_, i64>(0)?,
+                    row.get::<_, String>(1)?,
+                    row.get::<_, String>(2)?,
+                    row.get::<_, String>(3)?,
+                    row.get::<_, String>(4)?,
+                    row.get::<_, i64>(5)?,
+                    row.get::<_, i64>(6)?,
+                    row.get::<_, String>(7)?,
+                    row.get::<_, String>(8)?,
+                ))
+            },
         )?;
-        let (version, revision, initial_hash, initial_json, actions_json, limit, attempts,
-            final_hash, final_json) = row;
+        let (
+            version,
+            revision,
+            initial_hash,
+            initial_json,
+            actions_json,
+            limit,
+            attempts,
+            final_hash,
+            final_json,
+        ) = row;
         if version != 1 || revision.is_empty() || limit < 0 || attempts < 0 {
             return Ok(false);
         }
         if hash_bytes(initial_json.as_bytes()) != initial_hash
-            || hash_bytes(final_json.as_bytes()) != final_hash { return Ok(false); }
+            || hash_bytes(final_json.as_bytes()) != final_hash
+        {
+            return Ok(false);
+        }
         let mut world: World = serde_json::from_str(&initial_json)?;
         let actions: Vec<ScheduledAction> = serde_json::from_str(&actions_json)?;
         if Self::validate_schedule(&actions, limit as usize).is_err() {
@@ -362,16 +417,26 @@ impl Laboratory {
         let mut performed = 0;
         for (ordinal, action) in actions.iter().enumerate() {
             performed += fork.run(action.after_attempts - performed);
-            if performed != action.after_attempts { break; }
+            if performed != action.after_attempts {
+                break;
+            }
             let json = serde_json::to_string(&fork)?;
-            expected.push((ordinal as i64, performed as i64, hash_bytes(json.as_bytes()), json));
+            expected.push((
+                ordinal as i64,
+                performed as i64,
+                hash_bytes(json.as_bytes()),
+                json,
+            ));
             let _ = fork.intervene(action.action.clone());
         }
         let mut query = self.conn.prepare(
             "SELECT ordinal,after_attempts,state_sha256,state_json
-             FROM scheduled_checkpoints WHERE run_id=?1 ORDER BY ordinal")?;
+             FROM scheduled_checkpoints WHERE run_id=?1 ORDER BY ordinal",
+        )?;
         let saved: Vec<(i64, i64, String, String)> = query
-            .query_map([id], |row| Ok((row.get(0)?, row.get(1)?, row.get(2)?, row.get(3)?)))?
+            .query_map([id], |row| {
+                Ok((row.get(0)?, row.get(1)?, row.get(2)?, row.get(3)?))
+            })?
             .collect::<Result<_, _>>()?;
         Ok(saved == expected)
     }
@@ -381,8 +446,10 @@ impl Laboratory {
     pub fn load_scheduled_checkpoint(&self, run_id: i64, ordinal: i64) -> Result<World, LabError> {
         let (digest, json): (String, String) = self.conn.query_row(
             "SELECT state_sha256,state_json FROM scheduled_checkpoints
-             WHERE run_id=?1 AND ordinal=?2", params![run_id, ordinal],
-            |row| Ok((row.get(0)?, row.get(1)?)))?;
+             WHERE run_id=?1 AND ordinal=?2",
+            params![run_id, ordinal],
+            |row| Ok((row.get(0)?, row.get(1)?)),
+        )?;
         if hash_bytes(json.as_bytes()) != digest {
             return Err(LabError::Integrity("checkpoint digest mismatch".into()));
         }
@@ -390,12 +457,15 @@ impl Laboratory {
     }
 
     pub fn scheduled_count(&self) -> Result<i64, LabError> {
-        Ok(self.conn.query_row("SELECT COUNT(*) FROM scheduled_runs", [],
-            |row| row.get(0))?)
+        Ok(self
+            .conn
+            .query_row("SELECT COUNT(*) FROM scheduled_runs", [], |row| row.get(0))?)
     }
 
     pub fn count(&self) -> Result<i64, LabError> {
-        Ok(self.conn.query_row("SELECT COUNT(*) FROM runs", [], |row| row.get(0))?)
+        Ok(self
+            .conn
+            .query_row("SELECT COUNT(*) FROM runs", [], |row| row.get(0))?)
     }
 }
 
@@ -406,22 +476,53 @@ mod tests {
 
     fn fixture() -> World {
         let mut world = World::new(1, 8);
-        world.load(Process::new(1, vec![
-            Op::Const { dst: 0, value: 5, next: 1 },
-            Op::Const { dst: 1, value: 91, next: 2 },
-            Op::Write { address: 0, value: 1, next: 3 },
-            Op::Halt,
-        ], 10)).unwrap();
+        world
+            .load(Process::new(
+                1,
+                vec![
+                    Op::Const {
+                        dst: 0,
+                        value: 5,
+                        next: 1,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 91,
+                        next: 2,
+                    },
+                    Op::Write {
+                        address: 0,
+                        value: 1,
+                        next: 3,
+                    },
+                    Op::Halt,
+                ],
+                10,
+            ))
+            .unwrap();
         world
     }
 
     #[test]
     fn matched_runs_share_initial_snapshot_and_have_causal_difference() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let outcomes = lab.run_matched(&fixture(), &[
-            Condition { label: "control".into(), interventions: vec![] },
-            Condition { label: "disable".into(), interventions: vec![Intervention::Disable { process: 1 }] },
-        ], 20, "test-revision").unwrap();
+        let outcomes = lab
+            .run_matched(
+                &fixture(),
+                &[
+                    Condition {
+                        label: "control".into(),
+                        interventions: vec![],
+                    },
+                    Condition {
+                        label: "disable".into(),
+                        interventions: vec![Intervention::Disable { process: 1 }],
+                    },
+                ],
+                20,
+                "test-revision",
+            )
+            .unwrap();
         assert_eq!(outcomes[0].initial_sha256, outcomes[1].initial_sha256);
         assert_eq!(outcomes[0].world.cell(5), Some(91));
         assert_eq!(outcomes[1].world.cell(5), None);
@@ -435,12 +536,20 @@ mod tests {
     #[test]
     fn rejected_intervention_replays_without_hidden_mutation() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let outcomes = lab.run_matched(&fixture(), &[
-            Condition { label: "reject-capacity".into(), interventions: vec![
-                Intervention::SetCell { key: 2, value: 1 },
-                Intervention::SetCell { key: 3, value: 2 },
-            ] },
-        ], 0, "test-revision").unwrap();
+        let outcomes = lab
+            .run_matched(
+                &fixture(),
+                &[Condition {
+                    label: "reject-capacity".into(),
+                    interventions: vec![
+                        Intervention::SetCell { key: 2, value: 1 },
+                        Intervention::SetCell { key: 3, value: 2 },
+                    ],
+                }],
+                0,
+                "test-revision",
+            )
+            .unwrap();
         assert_eq!(outcomes[0].world.used_cells(), 1);
         assert!(lab.verify_replay(outcomes[0].id).unwrap());
     }
@@ -448,12 +557,22 @@ mod tests {
     #[test]
     fn record_tampering_is_detected_on_replay() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let outcomes = lab.run_matched(&fixture(), &[
-            Condition { label: "control".into(), interventions: vec![] },
-        ], 10, "test-revision").unwrap();
+        let outcomes = lab
+            .run_matched(
+                &fixture(),
+                &[Condition {
+                    label: "control".into(),
+                    interventions: vec![],
+                }],
+                10,
+                "test-revision",
+            )
+            .unwrap();
         let id = outcomes[0].id;
         assert!(lab.verify_replay(id).unwrap());
-        lab.conn.execute("UPDATE runs SET final_json='{}' WHERE id=?1", [id]).unwrap();
+        lab.conn
+            .execute("UPDATE runs SET final_json='{}' WHERE id=?1", [id])
+            .unwrap();
         assert!(!lab.verify_replay(id).unwrap());
     }
 
@@ -464,12 +583,26 @@ mod tests {
         let id;
         {
             let mut lab = Laboratory::open(&db).unwrap();
-            let records = lab.run_matched(&fixture(), &[
-                Condition { label: "unmodified".into(), interventions: vec![] },
-                Condition { label: "zero-budget".into(), interventions: vec![
-                    Intervention::SetCredits { process: 1, credits: 0 }
-                ] },
-            ], 20, "test-revision").unwrap();
+            let records = lab
+                .run_matched(
+                    &fixture(),
+                    &[
+                        Condition {
+                            label: "unmodified".into(),
+                            interventions: vec![],
+                        },
+                        Condition {
+                            label: "zero-budget".into(),
+                            interventions: vec![Intervention::SetCredits {
+                                process: 1,
+                                credits: 0,
+                            }],
+                        },
+                    ],
+                    20,
+                    "test-revision",
+                )
+                .unwrap();
             id = records[0].id;
             assert_eq!(records[1].attempts, 0);
             assert_eq!(records[1].world.cell(5), None);
@@ -483,18 +616,46 @@ mod tests {
     #[test]
     fn replay_includes_resource_priced_code_allocation() {
         let mut world = World::with_total_capacity(0, 8, 4);
-        world.load(Process::new(5, vec![
-            Op::Const { dst: 0, value: 0, next: 1 },
-            Op::CloneNode { dst: 1, source: 0, next: 2 },
-            Op::Halt,
-        ], 5)).unwrap();
+        world
+            .load(Process::new(
+                5,
+                vec![
+                    Op::Const {
+                        dst: 0,
+                        value: 0,
+                        next: 1,
+                    },
+                    Op::CloneNode {
+                        dst: 1,
+                        source: 0,
+                        next: 2,
+                    },
+                    Op::Halt,
+                ],
+                5,
+            ))
+            .unwrap();
         let mut lab = Laboratory::in_memory().unwrap();
-        let records = lab.run_matched(&world, &[
-            Condition { label: "allocation".into(), interventions: vec![] },
-            Condition { label: "zero-compute".into(), interventions: vec![
-                Intervention::SetCredits { process: 5, credits: 0 }
-            ] },
-        ], 8, "stage3-test").unwrap();
+        let records = lab
+            .run_matched(
+                &world,
+                &[
+                    Condition {
+                        label: "allocation".into(),
+                        interventions: vec![],
+                    },
+                    Condition {
+                        label: "zero-compute".into(),
+                        interventions: vec![Intervention::SetCredits {
+                            process: 5,
+                            credits: 0,
+                        }],
+                    },
+                ],
+                8,
+                "stage3-test",
+            )
+            .unwrap();
         assert_eq!(records[0].world.occupied_units(), 4);
         assert_eq!(records[1].world.occupied_units(), 3);
         assert_eq!(records[0].attempts, 3);
@@ -505,23 +666,61 @@ mod tests {
     #[test]
     fn graph_object_launch_replays_with_zero_credit_control() {
         let mut initial = World::with_total_capacity(0, 16, 16);
-        initial.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::Const { dst: 1, value: 7, next: 2 },
-            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
-            Op::Const { dst: 1, value: 2, next: 4 },
-            Op::GraphLaunch { graph: 0, credits: 1, dst: 2, next: 5 },
-            Op::Halt,
-            Op::Halt,
-            Op::Halt,
-        ], 12)).unwrap();
+        initial
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::Const {
+                        dst: 1,
+                        value: 7,
+                        next: 2,
+                    },
+                    Op::GraphCopyNode {
+                        graph: 0,
+                        source: 1,
+                        dst: 2,
+                        next: 3,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 2,
+                        next: 4,
+                    },
+                    Op::GraphLaunch {
+                        graph: 0,
+                        credits: 1,
+                        dst: 2,
+                        next: 5,
+                    },
+                    Op::Halt,
+                    Op::Halt,
+                    Op::Halt,
+                ],
+                12,
+            ))
+            .unwrap();
         let mut lab = Laboratory::in_memory().unwrap();
-        let runs = lab.run_matched(&initial, &[
-            Condition { label: "constructed-runner".into(), interventions: vec![] },
-            Condition { label: "no-computation".into(), interventions: vec![
-                Intervention::SetCredits { process: 1, credits: 0 },
-            ] },
-        ], 20, "stage-3.2-test").unwrap();
+        let runs = lab
+            .run_matched(
+                &initial,
+                &[
+                    Condition {
+                        label: "constructed-runner".into(),
+                        interventions: vec![],
+                    },
+                    Condition {
+                        label: "no-computation".into(),
+                        interventions: vec![Intervention::SetCredits {
+                            process: 1,
+                            credits: 0,
+                        }],
+                    },
+                ],
+                20,
+                "stage-3.2-test",
+            )
+            .unwrap();
         assert_eq!(runs[0].world.graph_count(), 0);
         assert!(runs[0].world.process(2).is_some());
         assert!(runs[0].world.process(2).unwrap().stopped);
@@ -537,24 +736,63 @@ mod tests {
     #[test]
     fn constructed_instruction_descriptor_replays_with_negative_control() {
         let mut initial = World::with_total_capacity(8, 16, 24);
-        initial.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::Const { dst: 1, value: 100, next: 2 },
-            Op::GraphEncode { graph: 0, address: 1, dst: 2, next: 3 },
-            Op::Const { dst: 1, value: 2, next: 4 },
-            Op::GraphLaunch { graph: 0, credits: 1, dst: 2, next: 5 },
-            Op::Halt,
-        ], 12)).unwrap();
+        initial
+            .load(Process::new(
+                1,
+                vec![
+                    Op::GraphNew { dst: 0, next: 1 },
+                    Op::Const {
+                        dst: 1,
+                        value: 100,
+                        next: 2,
+                    },
+                    Op::GraphEncode {
+                        graph: 0,
+                        address: 1,
+                        dst: 2,
+                        next: 3,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 2,
+                        next: 4,
+                    },
+                    Op::GraphLaunch {
+                        graph: 0,
+                        credits: 1,
+                        dst: 2,
+                        next: 5,
+                    },
+                    Op::Halt,
+                ],
+                12,
+            ))
+            .unwrap();
         for (offset, value) in [19, 0, 0, 0, 0].into_iter().enumerate() {
-            initial.intervene(Intervention::SetCell { key: 100 + offset as i64, value }).unwrap();
+            initial
+                .intervene(Intervention::SetCell {
+                    key: 100 + offset as i64,
+                    value,
+                })
+                .unwrap();
         }
         let mut lab = Laboratory::in_memory().unwrap();
         let cases = [
-            Condition { label: "described-program".into(), interventions: vec![] },
-            Condition { label: "no-computation".into(),
-                interventions: vec![Intervention::SetCredits { process: 1, credits: 0 }] },
+            Condition {
+                label: "described-program".into(),
+                interventions: vec![],
+            },
+            Condition {
+                label: "no-computation".into(),
+                interventions: vec![Intervention::SetCredits {
+                    process: 1,
+                    credits: 0,
+                }],
+            },
         ];
-        let outcomes = lab.run_matched(&initial, &cases, 32, "stage3.3-test").unwrap();
+        let outcomes = lab
+            .run_matched(&initial, &cases, 32, "stage3.3-test")
+            .unwrap();
         assert_eq!(outcomes[0].initial_sha256, outcomes[1].initial_sha256);
         assert!(outcomes[0].world.process(2).unwrap().stopped);
         assert_eq!(outcomes[1].world.process(2), None);
@@ -565,46 +803,78 @@ mod tests {
         }
     }
 
-
     #[test]
     fn timed_intervention_changes_only_later_execution() {
         let initial = fixture();
         let mut lab = Laboratory::in_memory().unwrap();
-        let matched = lab.run_scheduled(&initial, &[
-            ScheduledCondition { label: "control".into(), actions: vec![] },
-            ScheduledCondition { label: "disable-before-write".into(), actions: vec![
-                ScheduledAction { after_attempts: 2,
-                    action: Intervention::Disable { process: 1 } }
-            ] },
-        ], 8, "stage3.4-timing").unwrap();
+        let matched = lab
+            .run_scheduled(
+                &initial,
+                &[
+                    ScheduledCondition {
+                        label: "control".into(),
+                        actions: vec![],
+                    },
+                    ScheduledCondition {
+                        label: "disable-before-write".into(),
+                        actions: vec![ScheduledAction {
+                            after_attempts: 2,
+                            action: Intervention::Disable { process: 1 },
+                        }],
+                    },
+                ],
+                8,
+                "stage3.4-timing",
+            )
+            .unwrap();
         assert_eq!(matched[0].initial_sha256, matched[1].initial_sha256);
         assert_eq!(matched[0].world.cell(5), Some(91));
         assert_eq!(matched[1].world.cell(5), None);
         assert_eq!(matched[1].attempts, 2);
-        assert!(matched.iter().all(|r| lab.verify_scheduled_replay(r.id).unwrap()));
+        assert!(matched
+            .iter()
+            .all(|r| lab.verify_scheduled_replay(r.id).unwrap()));
     }
 
     #[test]
     fn missed_event_and_bad_schedule_do_not_apply_silently() {
         let mut lab = Laboratory::in_memory().unwrap();
         let initial = fixture();
-        let missed = lab.run_scheduled(&initial, &[
-            ScheduledCondition { label: "too-late".into(), actions: vec![
-                ScheduledAction { after_attempts: 6,
-                    action: Intervention::SetCell { key: 99, value: 1 } }
-            ] },
-        ], 8, "stage3.4-timing").unwrap();
+        let missed = lab
+            .run_scheduled(
+                &initial,
+                &[ScheduledCondition {
+                    label: "too-late".into(),
+                    actions: vec![ScheduledAction {
+                        after_attempts: 6,
+                        action: Intervention::SetCell { key: 99, value: 1 },
+                    }],
+                }],
+                8,
+                "stage3.4-timing",
+            )
+            .unwrap();
         assert_eq!(missed[0].attempts, 4);
         assert_eq!(missed[0].world.cell(99), None);
         assert!(lab.verify_scheduled_replay(missed[0].id).unwrap());
-        let result = lab.run_scheduled(&initial, &[
-            ScheduledCondition { label: "bad-order".into(), actions: vec![
-                ScheduledAction { after_attempts: 3,
-                    action: Intervention::Disable { process: 1 } },
-                ScheduledAction { after_attempts: 2,
-                    action: Intervention::Disable { process: 1 } },
-            ] },
-        ], 8, "stage3.4-timing");
+        let result = lab.run_scheduled(
+            &initial,
+            &[ScheduledCondition {
+                label: "bad-order".into(),
+                actions: vec![
+                    ScheduledAction {
+                        after_attempts: 3,
+                        action: Intervention::Disable { process: 1 },
+                    },
+                    ScheduledAction {
+                        after_attempts: 2,
+                        action: Intervention::Disable { process: 1 },
+                    },
+                ],
+            }],
+            8,
+            "stage3.4-timing",
+        );
         assert!(result.is_err());
         assert_eq!(lab.scheduled_count().unwrap(), 1);
     }
@@ -616,32 +886,51 @@ mod tests {
         let id;
         {
             let mut lab = Laboratory::open(&path).unwrap();
-            let outcomes = lab.run_scheduled(&fixture(), &[
-                ScheduledCondition { label: "set-data".into(), actions: vec![
-                    ScheduledAction { after_attempts: 1,
-                        action: Intervention::SetCell { key: 5, value: 77 } }
-                ] }
-            ], 8, "stage3.4-timing").unwrap();
+            let outcomes = lab
+                .run_scheduled(
+                    &fixture(),
+                    &[ScheduledCondition {
+                        label: "set-data".into(),
+                        actions: vec![ScheduledAction {
+                            after_attempts: 1,
+                            action: Intervention::SetCell { key: 5, value: 77 },
+                        }],
+                    }],
+                    8,
+                    "stage3.4-timing",
+                )
+                .unwrap();
             id = outcomes[0].id;
             assert_eq!(outcomes[0].world.cell(5), Some(91));
         }
         let lab = Laboratory::open(&path).unwrap();
         assert!(lab.verify_scheduled_replay(id).unwrap());
-        lab.conn.execute(
-            "UPDATE scheduled_runs SET final_json='{}' WHERE id=?1", [id]).unwrap();
+        lab.conn
+            .execute(
+                "UPDATE scheduled_runs SET final_json='{}' WHERE id=?1",
+                [id],
+            )
+            .unwrap();
         assert!(!lab.verify_scheduled_replay(id).unwrap());
     }
-
 
     #[test]
     fn checkpoints_preserve_exact_pre_intervention_fork_and_detect_tampering() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let runs = lab.run_scheduled(&fixture(), &[
-            ScheduledCondition { label: "snapshot".into(), actions: vec![
-                ScheduledAction { after_attempts: 2,
-                    action: Intervention::Disable { process: 1 } }
-            ] },
-        ], 8, "checkpoint-test").unwrap();
+        let runs = lab
+            .run_scheduled(
+                &fixture(),
+                &[ScheduledCondition {
+                    label: "snapshot".into(),
+                    actions: vec![ScheduledAction {
+                        after_attempts: 2,
+                        action: Intervention::Disable { process: 1 },
+                    }],
+                }],
+                8,
+                "checkpoint-test",
+            )
+            .unwrap();
         let id = runs[0].id;
         let checkpoint = lab.load_scheduled_checkpoint(id, 0).unwrap();
         assert_eq!(checkpoint.process(1).unwrap().pc, 2);
@@ -649,9 +938,12 @@ mod tests {
         assert_eq!(checkpoint.cell(5), None);
         assert_eq!(checkpoint.events().len(), 3); // external load + two internal CIL steps
         assert!(lab.verify_scheduled_replay(id).unwrap());
-        lab.conn.execute(
-            "UPDATE scheduled_checkpoints SET state_sha256='corrupt' WHERE run_id=?1",
-            [id]).unwrap();
+        lab.conn
+            .execute(
+                "UPDATE scheduled_checkpoints SET state_sha256='corrupt' WHERE run_id=?1",
+                [id],
+            )
+            .unwrap();
         assert!(!lab.verify_scheduled_replay(id).unwrap());
         assert!(lab.load_scheduled_checkpoint(id, 0).is_err());
     }
@@ -659,9 +951,16 @@ mod tests {
     #[test]
     fn over_budget_experiment_is_rejected_before_sqlite_write() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let conditions = [ScheduledCondition { label: "bounded".into(), actions: vec![] }];
+        let conditions = [ScheduledCondition {
+            label: "bounded".into(),
+            actions: vec![],
+        }];
         let result = lab.run_scheduled(
-            &fixture(), &conditions, MAX_EXPERIMENT_ATTEMPTS + 1, "safety-test");
+            &fixture(),
+            &conditions,
+            MAX_EXPERIMENT_ATTEMPTS + 1,
+            "safety-test",
+        );
         assert!(result.is_err());
         assert_eq!(lab.scheduled_count().unwrap(), 0);
     }
@@ -680,8 +979,20 @@ mod tests {
     #[test]
     fn empty_revision_and_conditions_are_rejected() {
         let mut lab = Laboratory::in_memory().unwrap();
-        assert!(lab.run_matched(&fixture(), &[], 10, "test-revision").is_err());
-        assert!(lab.run_matched(&fixture(), &[Condition { label: "x".into(), interventions: vec![] }], 10, "").is_err());
+        assert!(lab
+            .run_matched(&fixture(), &[], 10, "test-revision")
+            .is_err());
+        assert!(lab
+            .run_matched(
+                &fixture(),
+                &[Condition {
+                    label: "x".into(),
+                    interventions: vec![]
+                }],
+                10,
+                ""
+            )
+            .is_err());
         assert_eq!(lab.count().unwrap(), 0);
     }
 }
