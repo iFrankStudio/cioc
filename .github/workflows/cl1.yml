@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28)
           selected='|'
           quick=false
           full=false
@@ -888,3 +888,36 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study27.sqlite
             ${{ runner.temp }}/cl1-study27-report.json
+
+  study28:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study28|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicitly post-result preregistration
+        run: test -f ../cl1/studies/28-registered-retrospective-second-component-audit.md
+      - name: Repeat unchanged Study27 world cohort and exact SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study28-rerun.sqlite"
+      - name: Run original Study27 scientific audit before graph1 counterfactual classification
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-baseline.json"
+          python3 ../cl1/analyze_study28.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-report.json"
+          cat "$RUNNER_TEMP/cl1-study28-report.json"
+      - name: Archive exact matched program events and retrospective second-source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study28
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study28-rerun.sqlite
+            ${{ runner.temp }}/cl1-study28-baseline.json
+            ${{ runner.temp }}/cl1-study28-report.json
