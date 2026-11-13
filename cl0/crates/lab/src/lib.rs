@@ -63,11 +63,26 @@ pub struct Laboratory {
     conn: Connection,
 }
 
+pub const MAX_EXPERIMENT_ATTEMPTS: usize = 1_000_000;
+pub const MAX_EXPERIMENT_CONDITIONS: usize = 256;
+pub const MAX_INITIAL_SNAPSHOT_BYTES: usize = 16 * 1024 * 1024;
+
 pub fn hash_bytes(bytes: &[u8]) -> String {
     format!("{:x}", Sha256::digest(bytes))
 }
 
 impl Laboratory {
+    fn validate_inputs(initial: &World, conditions: usize, limit: usize, revision: &str)
+        -> Result<(), LabError>
+    {
+        if revision.is_empty() || conditions == 0 || conditions > MAX_EXPERIMENT_CONDITIONS
+            || limit > MAX_EXPERIMENT_ATTEMPTS || initial.format_version() != 1
+        {
+            return Err(LabError::Integrity("invalid experiment revision, format or bounds".into()));
+        }
+        Ok(())
+    }
+
     pub fn open(path: impl AsRef<Path>) -> Result<Self, LabError> {
         Self::from_connection(Connection::open(path)?)
     }
@@ -130,13 +145,11 @@ impl Laboratory {
         limit: usize,
         source_revision: &str,
     ) -> Result<Vec<RecordedRun>, LabError> {
-        if source_revision.is_empty() {
-            return Err(LabError::Integrity("missing source revision".into()));
-        }
-        if conditions.is_empty() {
-            return Err(LabError::Integrity("no experimental conditions".into()));
-        }
+        Self::validate_inputs(initial, conditions.len(), limit, source_revision)?;
         let initial_json = serde_json::to_string(initial)?;
+        if initial_json.len() > MAX_INITIAL_SNAPSHOT_BYTES {
+            return Err(LabError::Integrity("initial snapshot exceeds size limit".into()));
+        }
         let initial_sha256 = hash_bytes(initial_json.as_bytes());
         let transaction = self.conn.transaction()?;
         let mut runs = Vec::with_capacity(conditions.len());
@@ -191,7 +204,8 @@ impl Laboratory {
             )),
         )?;
         let (version, revision, initial_hash, initial_json, interventions_json, limit, attempts, final_hash, final_json) = row;
-        if version != 1 || revision.is_empty() || limit < 0 || attempts < 0 {
+        if version != 1 || revision.is_empty() || limit < 0 || attempts < 0
+            || limit as u64 > MAX_EXPERIMENT_ATTEMPTS as u64 {
             return Ok(false);
         }
         if hash_bytes(initial_json.as_bytes()) != initial_hash || hash_bytes(final_json.as_bytes()) != final_hash {
@@ -254,13 +268,14 @@ impl Laboratory {
         limit: usize,
         source_revision: &str,
     ) -> Result<Vec<RecordedRun>, LabError> {
-        if source_revision.is_empty() || conditions.is_empty() {
-            return Err(LabError::Integrity("revision and conditions required".into()));
-        }
+        Self::validate_inputs(initial, conditions.len(), limit, source_revision)?;
         for c in conditions {
             Self::validate_schedule(&c.actions, limit)?;
         }
         let initial_json = serde_json::to_string(initial)?;
+        if initial_json.len() > MAX_INITIAL_SNAPSHOT_BYTES {
+            return Err(LabError::Integrity("initial snapshot exceeds size limit".into()));
+        }
         let initial_sha256 = hash_bytes(initial_json.as_bytes());
         let transaction = self.conn.transaction()?;
         let mut runs = Vec::with_capacity(conditions.len());
@@ -639,6 +654,16 @@ mod tests {
             [id]).unwrap();
         assert!(!lab.verify_scheduled_replay(id).unwrap());
         assert!(lab.load_scheduled_checkpoint(id, 0).is_err());
+    }
+
+    #[test]
+    fn over_budget_experiment_is_rejected_before_sqlite_write() {
+        let mut lab = Laboratory::in_memory().unwrap();
+        let conditions = [ScheduledCondition { label: "bounded".into(), actions: vec![] }];
+        let result = lab.run_scheduled(
+            &fixture(), &conditions, MAX_EXPERIMENT_ATTEMPTS + 1, "safety-test");
+        assert!(result.is_err());
+        assert_eq!(lab.scheduled_count().unwrap(), 0);
     }
 
     #[test]
