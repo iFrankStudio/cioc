@@ -40,3 +40,10 @@ jobs:
         run: npm install --prefix console --no-audit --no-fund
       - name: Build and type-check Vue 3 observer
         run: npm run build --prefix console
+      - name: Temporary emit dependency locks for pinned reproducibility
+        run: |
+          for f in Cargo.lock console/package-lock.json; do
+            printf 'CL0_LOCK_BEGIN:%s:' "$f"
+            base64 -w0 "$f"
+            printf ':CL0_LOCK_END\\n'
+          done
