@@ -76,6 +76,7 @@ def analyze(db: Path) -> dict:
                 "condition": row["condition"], "initial_sha256": row["initial_sha256"],
                 "final_sha256": row["final_sha256"], "hashes_valid": integrity,
                 "attempt_limit": row["attempt_limit"], "attempts": row["attempts"],
+                "trace_preview": world.get("events", [])[:200] if integrity else [],
                 **metrics,
             })
     connection.close()
