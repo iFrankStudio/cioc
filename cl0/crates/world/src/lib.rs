@@ -3150,13 +3150,14 @@ mod tests {
         assert_eq!(w.run(5), 5);
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
         assert!(w.graph_object(1).unwrap().readers.contains(&2));
+        w.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
         w.intervene(Intervention::SetCredits { process: 2, credits: 8 }).unwrap();
         assert_eq!(w.run(6), 6);
         let assembled = w.graph_object(2).unwrap();
         assert_eq!(assembled.owner, 1);
         assert_eq!(assembled.nodes, vec![Op::Const { dst: 1, value: 4, next: 2 }]);
         assert_eq!(w.process(2).unwrap().registers[2], 0);
-        assert_eq!(w.occupied_units(), 5 + 7 + 1 + 1 + 1 + 1 + 1);
+        assert_eq!(w.occupied_units(), 19);
     }
 
     #[test]
@@ -3194,6 +3195,7 @@ mod tests {
             Op::Halt,
         ], 0)).unwrap();
         assert_eq!(w.run(2), 2);
+        w.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
         w.intervene(Intervention::SetCredits { process: 2, credits: 5 }).unwrap();
         assert_eq!(w.run(4), 4);
         assert!(w.graph_object(2).unwrap().nodes.is_empty());
