@@ -30,6 +30,9 @@ pub enum Op {
     GraphGrantRead { graph: usize, reader: usize, next: usize },
     GraphRevokeRead { graph: usize, reader: usize, next: usize },
     GraphReadTag { dst: usize, graph: usize, node: usize, next: usize },
+    DrawCompute { amount: usize, next: usize },
+    ReturnCompute { amount: usize, next: usize },
+    TransferCompute { recipient: usize, amount: usize, next: usize },
     Halt,
 }
 
@@ -59,6 +62,9 @@ impl Op {
             Op::GraphGrantRead { .. } => 20,
             Op::GraphRevokeRead { .. } => 21,
             Op::GraphReadTag { .. } => 22,
+            Op::DrawCompute { .. } => 23,
+            Op::ReturnCompute { .. } => 24,
+            Op::TransferCompute { .. } => 25,
         }
     }
 
@@ -84,7 +90,10 @@ impl Op {
             | Op::GraphEncode { next, .. }
             | Op::GraphGrantRead { next, .. }
             | Op::GraphRevokeRead { next, .. }
-            | Op::GraphReadTag { next, .. } => Some(next),
+            | Op::GraphReadTag { next, .. }
+            | Op::DrawCompute { next, .. }
+            | Op::ReturnCompute { next, .. }
+            | Op::TransferCompute { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
@@ -122,6 +131,9 @@ impl Op {
             20 => Ok(Op::GraphGrantRead { graph: slot(1)?, reader: slot(2)?, next: slot(3)? }),
             21 => Ok(Op::GraphRevokeRead { graph: slot(1)?, reader: slot(2)?, next: slot(3)? }),
             22 => Ok(Op::GraphReadTag { dst: slot(1)?, graph: slot(2)?, node: slot(3)?, next: slot(4)? }),
+            23 => Ok(Op::DrawCompute { amount: slot(1)?, next: slot(2)? }),
+            24 => Ok(Op::ReturnCompute { amount: slot(1)?, next: slot(2)? }),
+            25 => Ok(Op::TransferCompute { recipient: slot(1)?, amount: slot(2)?, next: slot(3)? }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -200,6 +212,9 @@ pub struct World {
     /// Versioned opt-in accounting for process headers and graph reader entries.
     #[serde(default)]
     strict_accounting: bool,
+    /// Environment-held computation credits; transfers preserve the total inventory.
+    #[serde(default)]
+    compute_pool: u64,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -217,6 +232,7 @@ pub enum Intervention {
     Disable { process: ProcessId },
     SetCredits { process: ProcessId, credits: u64 },
     SetCell { key: CellKey, value: i64 },
+    SetComputePool { credits: u64 },
     PatchEdge { process: ProcessId, node: usize, next: usize },
 }
 
@@ -232,6 +248,7 @@ impl World {
             max_nodes_per_process,
             total_storage_limit: None,
             strict_accounting: false,
+            compute_pool: 0,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -341,6 +358,13 @@ impl World {
         self.processes.values().map(|p| p.credits).sum()
     }
 
+    pub fn available_compute_pool(&self) -> u64 { self.compute_pool }
+
+    /// Checked aggregate inventory for scientific resource accounting.
+    pub fn total_compute_inventory(&self) -> Option<u64> {
+        self.processes.values().try_fold(self.compute_pool, |sum, p| sum.checked_add(p.credits))
+    }
+
 
     /// Applies a labeled experimenter action, never attributed to internal CIL.
     /// Rejected interventions are also observable. There is no host-side repair policy.
@@ -350,7 +374,7 @@ impl World {
             Intervention::Disable { process }
             | Intervention::SetCredits { process, .. }
             | Intervention::PatchEdge { process, .. } => *process,
-            Intervention::SetCell { .. } => 0,
+            Intervention::SetCell { .. } | Intervention::SetComputePool { .. } => 0,
         };
         let result = self.intervene_inner(&intervention);
         self.tick += 1;
@@ -376,6 +400,13 @@ impl World {
             }
             Intervention::SetCredits { process, credits } => {
                 self.processes.get_mut(&process).ok_or("unknown process")?.credits = credits;
+            }
+            Intervention::SetComputePool { credits } => {
+                let inventory_without_pool = self.processes.values()
+                    .try_fold(0_u64, |sum, p| sum.checked_add(p.credits))
+                    .ok_or("total compute inventory overflow")?;
+                inventory_without_pool.checked_add(credits).ok_or("total compute inventory overflow")?;
+                self.compute_pool = credits;
             }
             Intervention::SetCell { key, value } => {
                 if !self.cells.contains_key(&key)
@@ -458,6 +489,10 @@ impl World {
 
     /// Returns Ok(true) on halt; no instruction expresses semantic notions of repair.
     fn execute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        if matches!(op, Op::DrawCompute { .. } | Op::ReturnCompute { .. }
+            | Op::TransferCompute { .. }) {
+            return self.execute_compute(id, op);
+        }
         if matches!(op,
             Op::GraphNew { .. } | Op::GraphCopyNode { .. } | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
@@ -555,7 +590,8 @@ impl World {
                     | Op::GraphReadNext { next, .. } | Op::GraphDrop { next, .. }
                     | Op::GraphLaunch { next, .. } | Op::GraphEncode { next, .. }
                     | Op::GraphGrantRead { next, .. } | Op::GraphRevokeRead { next, .. }
-                    | Op::GraphReadTag { next, .. } => *next,
+                    | Op::GraphReadTag { next, .. } | Op::DrawCompute { next, .. }
+                    | Op::ReturnCompute { next, .. } | Op::TransferCompute { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
                 };
                 p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
@@ -599,7 +635,59 @@ impl World {
             | Op::GraphSetConst { .. } | Op::GraphReadNext { .. }
             | Op::GraphDrop { .. } | Op::GraphLaunch { .. }
             | Op::GraphEncode { .. } | Op::GraphGrantRead { .. }
-            | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. } => unreachable!("dispatched above"),
+            | Op::GraphRevokeRead { .. } | Op::GraphReadTag { .. }
+            | Op::DrawCompute { .. } | Op::ReturnCompute { .. }
+            | Op::TransferCompute { .. } => unreachable!("dispatched above"),
+        }
+        Ok(false)
+    }
+
+    /// All compute transfers are ordinary one-credit CIL operations. No host fitness policy.
+    fn execute_compute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        let p = self.processes.get(&id).expect("scheduled process exists");
+        let reg = |i: usize| -> Result<u64, String> {
+            let raw = *p.registers.get(i).ok_or("invalid compute operand register")?;
+            u64::try_from(raw).map_err(|_| "negative compute amount or process id".into())
+        };
+        let next_ok = |next: usize| -> Result<(), String> {
+            if next < p.code.nodes.len() { Ok(()) }
+            else { Err("invalid execution edge".into()) }
+        };
+        match op {
+            Op::DrawCompute { amount, next } => {
+                next_ok(next)?;
+                let quantity = reg(amount)?;
+                if quantity > self.compute_pool { return Err("insufficient world compute pool".into()); }
+                p.credits.checked_add(quantity).ok_or("process compute balance overflow")?;
+                self.compute_pool -= quantity;
+                let actor = self.processes.get_mut(&id).expect("actor exists");
+                actor.credits += quantity;
+                actor.pc = next;
+            }
+            Op::ReturnCompute { amount, next } => {
+                next_ok(next)?;
+                let quantity = reg(amount)?;
+                if quantity > p.credits { return Err("insufficient process compute".into()); }
+                self.compute_pool.checked_add(quantity).ok_or("world compute pool overflow")?;
+                self.compute_pool += quantity;
+                let actor = self.processes.get_mut(&id).expect("actor exists");
+                actor.credits -= quantity;
+                actor.pc = next;
+            }
+            Op::TransferCompute { recipient, amount, next } => {
+                next_ok(next)?;
+                let target_id = reg(recipient)?;
+                let quantity = reg(amount)?;
+                if quantity > p.credits { return Err("insufficient process compute".into()); }
+                let target = self.processes.get(&target_id).ok_or("unknown recipient process")?;
+                if target_id != id {
+                    target.credits.checked_add(quantity).ok_or("recipient compute balance overflow")?;
+                    self.processes.get_mut(&id).expect("actor exists").credits -= quantity;
+                    self.processes.get_mut(&target_id).expect("recipient exists").credits += quantity;
+                }
+                self.processes.get_mut(&id).expect("actor exists").pc = next;
+            }
+            _ => unreachable!("compute-only dispatcher"),
         }
         Ok(false)
     }
@@ -1233,6 +1321,54 @@ mod tests {
         assert!(smaller.graph_object(1).unwrap().readers.is_empty());
         assert_eq!(smaller.occupied_units(), 8);
         assert!(matches!(smaller.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn compute_pool_draw_and_return_preserve_inventory_except_execution_cost() {
+        let mut w = World::with_strict_capacity(0, 10, 8);
+        w.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 3, next: 1 },
+            Op::DrawCompute { amount: 0, next: 2 },
+            Op::ReturnCompute { amount: 0, next: 3 },
+            Op::Halt,
+        ], 5)).unwrap();
+        w.intervene(Intervention::SetComputePool { credits: 10 }).unwrap();
+        assert_eq!(w.total_compute_inventory(), Some(15));
+        assert_eq!(w.run(4), 4);
+        assert_eq!(w.total_compute_inventory(), Some(11));
+        assert_eq!(w.available_compute_pool(), 10);
+        assert_eq!(w.remaining_credits(), 1);
+    }
+
+    #[test]
+    fn internal_credit_transfer_cannot_mint_credits() {
+        let mut w = World::with_strict_capacity(0, 12, 10);
+        w.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 2, next: 1 },
+            Op::Const { dst: 1, value: 4, next: 2 },
+            Op::TransferCompute { recipient: 0, amount: 1, next: 3 },
+            Op::Halt,
+        ], 10)).unwrap();
+        w.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
+        assert_eq!(w.run(3), 3);
+        assert_eq!(w.process(1).unwrap().credits, 3);
+        assert_eq!(w.process(2).unwrap().credits, 4);
+        assert_eq!(w.total_compute_inventory(), Some(7));
+    }
+
+    #[test]
+    fn compute_pool_rejection_is_atomic_and_charged() {
+        let mut w = World::with_strict_capacity(0, 10, 10);
+        w.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 6, next: 1 },
+            Op::DrawCompute { amount: 0, next: 2 },
+            Op::Halt,
+        ], 4)).unwrap();
+        w.intervene(Intervention::SetComputePool { credits: 2 }).unwrap();
+        w.run(2);
+        assert_eq!(w.available_compute_pool(), 2);
+        assert_eq!(w.remaining_credits(), 2);
+        assert!(matches!(w.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
 
     #[test]
