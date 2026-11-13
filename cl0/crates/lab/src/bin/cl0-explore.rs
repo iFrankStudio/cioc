@@ -16,56 +16,56 @@ fn seed_world(seed: u64) -> World {
     let mut state = seed;
     let mut world = World::with_strict_capacity(24, 32, 64);
     for process_id in 1..=3 {
-    let mut nodes = vec![
-        Op::Const {
-            dst: 0,
-            value: (next_random(&mut state) % 17) as i64,
-            next: 1,
-        },
-        Op::Const {
-            dst: 1,
-            value: (next_random(&mut state) % 101) as i64,
-            next: 2,
-        },
-    ];
-    for i in 2..11 {
-        let next = i + 1;
-        let op = match next_random(&mut state) % 6 {
-            0 => Op::Add {
+        let mut nodes = vec![
+            Op::Const {
+                dst: 0,
+                value: (next_random(&mut state) % 17) as i64,
+                next: 1,
+            },
+            Op::Const {
                 dst: 1,
-                lhs: 1,
-                rhs: 0,
-                next,
+                value: (next_random(&mut state) % 101) as i64,
+                next: 2,
             },
-            1 => Op::Sub {
-                dst: 1,
-                lhs: 1,
-                rhs: 0,
-                next,
-            },
-            2 => Op::Write {
-                address: 0,
-                value: 1,
-                next,
-            },
-            3 => Op::Read {
-                dst: 2,
-                address: 0,
-                next,
-            },
-            4 => Op::DrawCompute { amount: 0, next },
-            _ => Op::Branch {
-                test: 1,
-                nonzero: next,
-                zero: i - 1,
-            },
-        };
-        nodes.push(op);
-    }
-    nodes.push(Op::Halt);
-    world
-        .load(Process::new(process_id, nodes, 8))
-        .expect("generated baseline fits");
+        ];
+        for i in 2..11 {
+            let next = i + 1;
+            let op = match next_random(&mut state) % 6 {
+                0 => Op::Add {
+                    dst: 1,
+                    lhs: 1,
+                    rhs: 0,
+                    next,
+                },
+                1 => Op::Sub {
+                    dst: 1,
+                    lhs: 1,
+                    rhs: 0,
+                    next,
+                },
+                2 => Op::Write {
+                    address: 0,
+                    value: 1,
+                    next,
+                },
+                3 => Op::Read {
+                    dst: 2,
+                    address: 0,
+                    next,
+                },
+                4 => Op::DrawCompute { amount: 0, next },
+                _ => Op::Branch {
+                    test: 1,
+                    nonzero: next,
+                    zero: i - 1,
+                },
+            };
+            nodes.push(op);
+        }
+        nodes.push(Op::Halt);
+        world
+            .load(Process::new(process_id, nodes, 8))
+            .expect("generated baseline fits");
     }
     world
 }
