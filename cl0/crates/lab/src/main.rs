@@ -10,7 +10,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         Op::Const { dst: 1, value: 42, next: 2 },
         Op::Write { address: 0, value: 1, next: 3 },
         Op::Halt,
-    ], 10))?;
+    ], 10)).expect("valid externally constructed fixture");
     let source = std::env::var("CL0_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local-checkout".into());
     let mut lab = Laboratory::open(db_path)?;
     let runs = lab.run_matched(&initial, &[
