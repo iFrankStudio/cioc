@@ -276,7 +276,9 @@ mod tests {
             .run_epochs(&common, &treatments, EPOCHS, QUOTA, "study06-test")
             .unwrap();
         assert_eq!(outcomes.len(), 5);
-        assert!(outcomes.iter().all(|r| lab.verify_epoch_replay(r.id).unwrap()));
+        assert!(outcomes
+            .iter()
+            .all(|r| lab.verify_epoch_replay(r.id).unwrap()));
         assert!(outcomes[4].attempts_by_epoch.iter().all(|&n| n == 0));
     }
 }

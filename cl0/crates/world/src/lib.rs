@@ -2993,7 +2993,8 @@ mod tests {
             1,
             vec![Op::GraphNew { dst: 0, next: 1 }, Op::Halt],
             3,
-        )).unwrap();
+        ))
+        .unwrap();
         assert_eq!(w.occupied_units(), 3);
         assert_eq!(w.run(1), 1);
         assert_eq!(w.occupied_units(), 4);
