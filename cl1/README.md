@@ -9,4 +9,4 @@
 **No life evidence has yet been established.** Study 01 can measure finite CIL behavior and state sensitivity but cannot alone verify organizational closure or self-maintenance.
 
 ## Procedure
-The preregistration is a separate prior commit. The runner, analyzer and archived outcomes must be linked to a subsequent source commit and CI. Until then, do not interpret an unverified run as scientific evidence.
+The preregistration is a separate prior commit. The runner and analyzer are implemented separately from preregistration commit `2b4e2ea`. CI must validate the complete run, replay and analysis before outcomes can be interpreted.\n\n```bash\ncd cl0\nCL1_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl1-study01 -- ../cl1-study01.sqlite\npython3 ../cl1/analyze.py ../cl1-study01.sqlite --json ../cl1-study01-report.json\n```
