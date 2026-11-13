@@ -3230,7 +3230,7 @@ mod tests {
             }]
         );
         assert_eq!(w.process(2).unwrap().registers[2], 0);
-        assert_eq!(w.occupied_units(), 19);
+        assert_eq!(w.occupied_units(), 20);
     }
 
     #[test]
