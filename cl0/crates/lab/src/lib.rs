@@ -501,14 +501,13 @@ impl Laboratory {
         Ok(serde_json::from_str(&json)?)
     }
 
-    fn validate_epoch_plan(
-        actions: &[EpochAction],
-        epochs: usize,
-    ) -> Result<(), LabError> {
+    fn validate_epoch_plan(actions: &[EpochAction], epochs: usize) -> Result<(), LabError> {
         let mut previous = 0;
         for item in actions {
             if item.epoch >= epochs || item.epoch < previous {
-                return Err(LabError::Integrity("invalid or unsorted epoch action".into()));
+                return Err(LabError::Integrity(
+                    "invalid or unsorted epoch action".into(),
+                ));
             }
             previous = item.epoch;
         }
@@ -564,7 +563,9 @@ impl Laboratory {
         }
         let initial_json = serde_json::to_string(initial)?;
         if initial_json.len() > MAX_INITIAL_SNAPSHOT_BYTES {
-            return Err(LabError::Integrity("initial snapshot exceeds size limit".into()));
+            return Err(LabError::Integrity(
+                "initial snapshot exceeds size limit".into(),
+            ));
         }
         let initial_sha256 = hash_bytes(initial_json.as_bytes());
         let transaction = self.conn.transaction()?;
@@ -573,10 +574,7 @@ impl Laboratory {
             let mut world: World = serde_json::from_str(&initial_json)?;
             let (attempts_by_epoch, snapshots) =
                 Self::execute_epochs(&mut world, epochs, quota, &condition.actions);
-            let (final_sha256, final_json) = snapshots
-                .last()
-                .expect("nonzero epochs")
-                .clone();
+            let (final_sha256, final_json) = snapshots.last().expect("nonzero epochs").clone();
             transaction.execute(
                 "INSERT INTO epoch_runs (
                     schema_version,source_revision,condition,initial_sha256,
@@ -640,10 +638,25 @@ impl Laboratory {
                 ))
             },
         )?;
-        let (version, revision, initial_sha, initial_json, actions_json,
-            epochs, quota, attempts_json, final_sha, final_json) = row;
-        if version != 1 || revision.is_empty() || epochs <= 0 || epochs > 128 || quota <= 0
-            || (epochs as usize).checked_mul(quota as usize)
+        let (
+            version,
+            revision,
+            initial_sha,
+            initial_json,
+            actions_json,
+            epochs,
+            quota,
+            attempts_json,
+            final_sha,
+            final_json,
+        ) = row;
+        if version != 1
+            || revision.is_empty()
+            || epochs <= 0
+            || epochs > 128
+            || quota <= 0
+            || (epochs as usize)
+                .checked_mul(quota as usize)
                 .is_none_or(|n| n > MAX_EXPERIMENT_ATTEMPTS)
             || hash_bytes(initial_json.as_bytes()) != initial_sha
             || hash_bytes(final_json.as_bytes()) != final_sha
@@ -658,9 +671,11 @@ impl Laboratory {
         let mut world: World = serde_json::from_str(&initial_json)?;
         let (attempts, snapshots) =
             Self::execute_epochs(&mut world, epochs as usize, quota as usize, &actions);
-        if attempts != recorded || snapshots.last().is_none_or(|(sha, json)| {
-            *sha != final_sha || *json != final_json
-        }) {
+        if attempts != recorded
+            || snapshots
+                .last()
+                .is_none_or(|(sha, json)| *sha != final_sha || *json != final_json)
+        {
             return Ok(false);
         }
         let mut query = self.conn.prepare(
@@ -671,12 +686,15 @@ impl Laboratory {
             .query_map([id], |r| Ok((r.get(0)?, r.get(1)?, r.get(2)?)))?
             .collect::<Result<_, _>>()?;
         Ok(stored.len() == epochs as usize
-            && stored.iter().enumerate().all(|(epoch, (number, sha, json))| {
-                *number == epoch as i64
-                    && snapshots[epoch].0 == *sha
-                    && snapshots[epoch].1 == *json
-                    && hash_bytes(json.as_bytes()) == *sha
-            }))
+            && stored
+                .iter()
+                .enumerate()
+                .all(|(epoch, (number, sha, json))| {
+                    *number == epoch as i64
+                        && snapshots[epoch].0 == *sha
+                        && snapshots[epoch].1 == *json
+                        && hash_bytes(json.as_bytes()) == *sha
+                }))
     }
 
     pub fn scheduled_count(&self) -> Result<i64, LabError> {
@@ -730,23 +748,50 @@ mod tests {
     fn external_epochs_arrive_even_after_world_becomes_inert() {
         let mut laboratory = Laboratory::in_memory().unwrap();
         let conditions = [
-            EpochCondition { label: "untreated".into(), actions: vec![] },
-            EpochCondition { label: "pulsed".into(), actions: vec![
-                EpochAction { epoch: 0, action: Intervention::SetComputePool { credits: 3 } },
-                EpochAction { epoch: 2, action: Intervention::SetComputePool { credits: 7 } },
-            ] },
+            EpochCondition {
+                label: "untreated".into(),
+                actions: vec![],
+            },
+            EpochCondition {
+                label: "pulsed".into(),
+                actions: vec![
+                    EpochAction {
+                        epoch: 0,
+                        action: Intervention::SetComputePool { credits: 3 },
+                    },
+                    EpochAction {
+                        epoch: 2,
+                        action: Intervention::SetComputePool { credits: 7 },
+                    },
+                ],
+            },
         ];
         let mut initial = fixture();
-        initial.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
-        let results = laboratory.run_epochs(&initial, &conditions, 4, 3, "epoch-test").unwrap();
+        initial
+            .intervene(Intervention::SetCredits {
+                process: 1,
+                credits: 0,
+            })
+            .unwrap();
+        let results = laboratory
+            .run_epochs(&initial, &conditions, 4, 3, "epoch-test")
+            .unwrap();
         assert_eq!(results[0].attempts_by_epoch, vec![0, 0, 0, 0]);
         assert_eq!(results[1].attempts_by_epoch, vec![0, 0, 0, 0]);
         assert_eq!(results[1].world.available_compute_pool(), 7);
-        assert_eq!(results[1].world.events().iter().filter(|event| {
-            event.origin == cl0_world::Origin::External
-                && matches!(&event.kind, cl0_world::EventKind::Intervened(text)
+        assert_eq!(
+            results[1]
+                .world
+                .events()
+                .iter()
+                .filter(|event| {
+                    event.origin == cl0_world::Origin::External
+                        && matches!(&event.kind, cl0_world::EventKind::Intervened(text)
                     if text.contains("SetComputePool"))
-        }).count(), 2);
+                })
+                .count(),
+            2
+        );
         for result in results {
             assert!(laboratory.verify_epoch_replay(result.id).unwrap());
         }
@@ -755,17 +800,36 @@ mod tests {
     #[test]
     fn epoch_plans_reject_unsorted_and_out_of_range_before_persisting() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let bad = [EpochCondition { label: "bad".into(), actions: vec![
-            EpochAction { epoch: 2, action: Intervention::Disable { process: 1 } },
-            EpochAction { epoch: 1, action: Intervention::Disable { process: 1 } },
-        ] }];
-        assert!(lab.run_epochs(&fixture(), &bad, 4, 2, "epoch-test").is_err());
-        let bad = [EpochCondition { label: "late".into(), actions: vec![
-            EpochAction { epoch: 4, action: Intervention::Disable { process: 1 } }
-        ] }];
-        assert!(lab.run_epochs(&fixture(), &bad, 4, 2, "epoch-test").is_err());
-        let existing: i64 = lab.conn.query_row("SELECT COUNT(*) FROM epoch_runs", [],
-            |r| r.get(0)).unwrap();
+        let bad = [EpochCondition {
+            label: "bad".into(),
+            actions: vec![
+                EpochAction {
+                    epoch: 2,
+                    action: Intervention::Disable { process: 1 },
+                },
+                EpochAction {
+                    epoch: 1,
+                    action: Intervention::Disable { process: 1 },
+                },
+            ],
+        }];
+        assert!(lab
+            .run_epochs(&fixture(), &bad, 4, 2, "epoch-test")
+            .is_err());
+        let bad = [EpochCondition {
+            label: "late".into(),
+            actions: vec![EpochAction {
+                epoch: 4,
+                action: Intervention::Disable { process: 1 },
+            }],
+        }];
+        assert!(lab
+            .run_epochs(&fixture(), &bad, 4, 2, "epoch-test")
+            .is_err());
+        let existing: i64 = lab
+            .conn
+            .query_row("SELECT COUNT(*) FROM epoch_runs", [], |r| r.get(0))
+            .unwrap();
         assert_eq!(existing, 0);
     }
 
@@ -773,15 +837,26 @@ mod tests {
     fn epoch_snapshot_and_final_state_tampering_is_detected() {
         let lab = Laboratory::in_memory().unwrap();
         let mut lab = lab;
-        let results = lab.run_epochs(&fixture(), &[
-            EpochCondition { label: "control".into(), actions: vec![] }
-        ], 3, 2, "epoch-test").unwrap();
+        let results = lab
+            .run_epochs(
+                &fixture(),
+                &[EpochCondition {
+                    label: "control".into(),
+                    actions: vec![],
+                }],
+                3,
+                2,
+                "epoch-test",
+            )
+            .unwrap();
         let id = results[0].id;
         assert!(lab.verify_epoch_replay(id).unwrap());
-        lab.conn.execute(
-            "UPDATE epoch_snapshots SET state_json='{}' WHERE run_id=?1 AND epoch=1",
-            [id],
-        ).unwrap();
+        lab.conn
+            .execute(
+                "UPDATE epoch_snapshots SET state_json='{}' WHERE run_id=?1 AND epoch=1",
+                [id],
+            )
+            .unwrap();
         assert!(!lab.verify_epoch_replay(id).unwrap());
     }
 

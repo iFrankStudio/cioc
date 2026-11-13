@@ -141,10 +141,15 @@ fn conditions(seed: u64) -> Vec<EpochCondition> {
         EpochCondition {
             label: format!("seed={seed}/zero-credit-pulse"),
             actions: std::iter::once(supply(0))
-                .chain((1..=3).map(|process| action(0, Intervention::SetCredits {
-                    process,
-                    credits: 0,
-                })))
+                .chain((1..=3).map(|process| {
+                    action(
+                        0,
+                        Intervention::SetCredits {
+                            process,
+                            credits: 0,
+                        },
+                    )
+                }))
                 .chain([4, 8, 12, 16, 20].into_iter().map(supply))
                 .collect(),
         },
@@ -152,7 +157,9 @@ fn conditions(seed: u64) -> Vec<EpochCondition> {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let path = env::args().nth(1).unwrap_or_else(|| "cl1-study05.sqlite".into());
+    let path = env::args()
+        .nth(1)
+        .unwrap_or_else(|| "cl1-study05.sqlite".into());
     let revision =
         env::var("CL1_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local-checkout".into());
     let mut lab = Laboratory::open(&path)?;
@@ -160,7 +167,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     for seed in FIRST_SEED..FIRST_SEED + REPLICAS {
         let world = seeded_world(seed);
         let runs = lab.run_epochs(&world, &conditions(seed), EPOCHS, QUOTA, &revision)?;
-        if runs.len() != 4 || runs.iter().any(|r| r.initial_sha256 != runs[0].initial_sha256) {
+        if runs.len() != 4
+            || runs
+                .iter()
+                .any(|r| r.initial_sha256 != runs[0].initial_sha256)
+        {
             return Err(format!("unmatched cohort: seed={seed}").into());
         }
         for run in runs {
@@ -173,16 +184,34 @@ fn main() -> Result<(), Box<dyn Error>> {
             if run.label.ends_with("/closed") && run.attempts_by_epoch.iter().sum::<usize>() > 84 {
                 return Err(format!("closed credit conservation failed for {}", run.label).into());
             }
-            if run.label.ends_with("/zero-credit-pulse") && run.attempts_by_epoch.iter().sum::<usize>() != 0 {
-                return Err(format!("inert environment control executed CIL: {}", run.label).into());
+            if run.label.ends_with("/zero-credit-pulse")
+                && run.attempts_by_epoch.iter().sum::<usize>() != 0
+            {
+                return Err(
+                    format!("inert environment control executed CIL: {}", run.label).into(),
+                );
             }
-            let expected_supply = if run.label.ends_with("/closed") { 0 } else if run.label.ends_with("/initial-pool") { 1 } else { 6 };
-            let actual_supply = run.world.events().iter().filter(|event| {
-                event.origin == Origin::External && matches!(&event.kind,
+            let expected_supply = if run.label.ends_with("/closed") {
+                0
+            } else if run.label.ends_with("/initial-pool") {
+                1
+            } else {
+                6
+            };
+            let actual_supply = run
+                .world
+                .events()
+                .iter()
+                .filter(|event| {
+                    event.origin == Origin::External
+                        && matches!(&event.kind,
                     EventKind::Intervened(detail) if detail.contains("SetComputePool"))
-            }).count();
+                })
+                .count();
             if actual_supply != expected_supply {
-                return Err(format!("exogenous environment pulses missed for {}", run.label).into());
+                return Err(
+                    format!("exogenous environment pulses missed for {}", run.label).into(),
+                );
             }
             replayed += 1;
         }
@@ -208,8 +237,15 @@ mod tests {
     #[test]
     fn independent_pulses_continue_after_inert_processes() {
         let mut lab = Laboratory::in_memory().unwrap();
-        let runs = lab.run_epochs(&seeded_world(FIRST_SEED), &conditions(FIRST_SEED),
-            EPOCHS, QUOTA, "epoch-test").unwrap();
+        let runs = lab
+            .run_epochs(
+                &seeded_world(FIRST_SEED),
+                &conditions(FIRST_SEED),
+                EPOCHS,
+                QUOTA,
+                "epoch-test",
+            )
+            .unwrap();
         assert_eq!(runs.len(), 4);
         assert_eq!(runs[3].attempts_by_epoch, vec![0; EPOCHS]);
         assert!(runs.iter().all(|r| lab.verify_epoch_replay(r.id).unwrap()));
