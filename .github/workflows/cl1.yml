@@ -82,3 +82,40 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study02.sqlite
             ${{ runner.temp }}/cl1-study02-report.json
+
+  study03:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Study-03 preregistration exists
+        run: test -f ../cl1/studies/03-preregistered-code-recovery.md
+      - name: Rust formatting, tests and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 128-seed targeted damage and host-restoration control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study03 -- "$RUNNER_TEMP/cl1-study03.sqlite"
+      - name: Independent restoration provenance audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study03.py "$RUNNER_TEMP/cl1-study03.sqlite" --json "$RUNNER_TEMP/cl1-study03-report.json"
+          cat "$RUNNER_TEMP/cl1-study03-report.json"
+      - name: Archive Study-03 SQLite and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study03
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study03.sqlite
+            ${{ runner.temp }}/cl1-study03-report.json
