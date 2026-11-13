@@ -1,0 +1,43 @@
+{
+  "damage_O": {
+    "recovered": false,
+    "internal": 0,
+    "probes": 0
+  },
+  "damage_G": {
+    "recovered": true,
+    "internal": 1,
+    "probes": 4
+  },
+  "damage_V": {
+    "recovered": false,
+    "internal": 0,
+    "probes": 1
+  },
+  "damage_M": {
+    "recovered": false,
+    "internal": 0,
+    "probes": 1
+  },
+  "damage_G_M": {
+    "recovered": false,
+    "internal": 0
+  },
+  "damage_G_V": {
+    "recovered": false,
+    "internal": 0
+  },
+  "low_budget": {
+    "recovered": false,
+    "internal": 0
+  },
+  "lost_fragment": {
+    "recovered": false,
+    "internal": 0
+  },
+  "external": {
+    "recovered": true,
+    "internal": 0,
+    "external": 1
+  }
+}
