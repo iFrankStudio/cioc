@@ -1,0 +1,18 @@
+test_delegated_installation_is_causally_needed (test_cioc.V09Tests.test_delegated_installation_is_causally_needed) ... ok
+test_delegated_validation_is_causally_needed (test_cioc.V09Tests.test_delegated_validation_is_causally_needed) ... ok
+test_external_not_internal (test_cioc.V09Tests.test_external_not_internal) ... ok
+test_generator_still_recovers (test_cioc.V09Tests.test_generator_still_recovers) ... ok
+test_joint_failures (test_cioc.V09Tests.test_joint_failures) ... ok
+test_low_budget (test_cioc.V09Tests.test_low_budget) ... ok
+test_missing_fragment (test_cioc.V09Tests.test_missing_fragment) ... ok
+test_modifier_recovers_by_delegated_install (test_cioc.V09Tests.test_modifier_recovers_by_delegated_install) ... ok
+test_no_damage (test_cioc.V09Tests.test_no_damage) ... ok
+test_observer_is_single_point (test_cioc.V09Tests.test_observer_is_single_point) ... ok
+test_redundant_end_fragment_survives_one_loss (test_cioc.V09Tests.test_redundant_end_fragment_survives_one_loss) ... ok
+test_sequential_repair_after_regeneration (test_cioc.V09Tests.test_sequential_repair_after_regeneration) ... ok
+test_verifier_recovers_without_full_backup (test_cioc.V09Tests.test_verifier_recovers_without_full_backup) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.048s
+
+OK
