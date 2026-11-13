@@ -1,0 +1,14 @@
+[package]
+name = "cl0-world"
+version = "0.1.0"
+edition = "2021"
+description = "Deterministic resource-bounded native digital world, not a life simulator"
+license = "MIT"
+
+[lib]
+name = "cl0_world"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cl0-world"
+path = "src/main.rs"
