@@ -23,8 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Format and compile
-        run: cargo fmt --all
+      - name: Verify committed Rust formatting
+        run: cargo fmt --all -- --check
       - name: Rust kernel and laboratory tests
         run: cargo test --locked --workspace
       - name: Strict Rust lint
@@ -40,10 +40,12 @@ jobs:
         run: npm ci --prefix console --no-audit --no-fund
       - name: Build and type-check Vue 3 observer
         run: npm run build --prefix console
-      - name: Temporary emit rustfmt output for checked-in format verification
-        run: |
-          for f in crates/world/src/lib.rs crates/world/src/main.rs crates/lab/src/lib.rs crates/lab/src/main.rs crates/lab/src/bin/cl0-explore.rs; do
-            printf 'CL0_FMT_BEGIN:%s:' "$f"
-            base64 -w0 "$f"
-            printf ':CL0_FMT_END\\n'
-          done
+      - name: Archive reproducible acceptance artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl0-acceptance
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl0-acceptance.sqlite
+            ${{ runner.temp }}/cl0-acceptance.json
+            ${{ runner.temp }}/cl0-acceptance.csv
