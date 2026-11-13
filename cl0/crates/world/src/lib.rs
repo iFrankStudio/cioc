@@ -1162,14 +1162,19 @@ impl World {
                     return Err("graph handle already exists".into());
                 }
                 if !self.processes.contains_key(&object.owner)
-                    || object.readers.iter().any(|id| !self.processes.contains_key(id))
+                    || object
+                        .readers
+                        .iter()
+                        .any(|id| !self.processes.contains_key(id))
                 {
                     return Err("unknown graph owner or reader".into());
                 }
                 if object.nodes.is_empty() || object.nodes.len() > self.max_nodes_per_process {
                     return Err("invalid injected graph size".into());
                 }
-                let additional = object.nodes.len()
+                let additional = object
+                    .nodes
+                    .len()
                     .checked_add(1)
                     .and_then(|n| {
                         if self.strict_accounting {
@@ -3757,7 +3762,9 @@ mod tests {
         assert_eq!(before.readers.len(), 1);
         let occupancy = world.occupied_units();
         let credits = world.total_compute_inventory().unwrap();
-        world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+        world
+            .intervene(Intervention::DropGraph { graph: 1 })
+            .unwrap();
         assert!(world.graph_object(1).is_none());
         world
             .intervene(Intervention::PutGraph {
@@ -3805,7 +3812,9 @@ mod tests {
             })
             .is_err());
         assert_eq!(world.occupied_units(), occupied);
-        world.intervene(Intervention::DropGraph { graph: 1 }).unwrap();
+        world
+            .intervene(Intervention::DropGraph { graph: 1 })
+            .unwrap();
         for graph in [0, 2] {
             assert!(world
                 .intervene(Intervention::PutGraph {
