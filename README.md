@@ -28,3 +28,12 @@ CIOC is a research project on organizational individuality, causal maintenance a
 - Treat causal repair evidence, not mere graph cycles, as the basis for maintenance claims.
 
 The research baseline is on `main`. Historical V0.1–V0.6 source directories have been uploaded to the repository by the project owner. V0.7–V0.11 are independently inspectable research baselines. V0.11 extends the V0.10 world without altering historical source, and includes code, 12 focused tests, 17 scenario records, and a reproducible experiment report.
+
+## Research iterations V0.13–V0.16
+
+- [V0.13](experiments/v0.13/): conflict-aware diagnostic votes and explicit collusion controls.
+- [V0.14](experiments/v0.14/): finite-resource ecology, executable reproduction and mutation, matched-seed environment shift.
+- [V0.15](experiments/v0.15/): costly metabolic reconfiguration and damage-rate comparison.
+- [V0.16](experiments/v0.16/): two damageable maintenance controllers combined with reproduction and resource limits.
+
+**Research checkpoint:** [results, caveats and stopping criteria](docs/research-checkpoint-v0.16.md). V0.16 is the most integrated toy candidate, **not** evidence of life or complete organizational closure. Earlier versions explore different scientific axes and are not necessarily dominated by later ones.
