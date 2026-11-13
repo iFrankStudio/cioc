@@ -1,6 +1,6 @@
 # CL-0 — Native Cyberlife Experimental World
 
-**Status: CL-0 platform candidate, acceptance in [CL-0 validation record](docs/CL-0-acceptance.md).** This is a deterministic experimental world for investigating *possible* cyberlife, **not** a claim that cyberlife or open-ended evolution has emerged. The historical CIOC V0.1–V0.16 fixtures remain untouched.
+**Status: CL-0 experimental platform accepted on 2026-11-13.** [Verified closure report](docs/CL-0-acceptance.md) · [End-to-end CI and archived artifacts](https://github.com/iFrankStudio/cioc/actions/runs/43406674543). This is a deterministic experimental world for investigating *possible* cyberlife, **not** a claim that cyberlife or open-ended evolution has emerged. The historical CIOC V0.1–V0.16 fixtures remain untouched.
 
 ## Included research infrastructure
 
@@ -11,7 +11,7 @@
 | 2. Causality | SQLite persisted matched conditions, scheduled mid-run intervention, exact replay, persisted pre-action snapshots |
 | 3. Information ecology | General program graphs, five-cell instruction descriptors, owner read access + revocation, bounded graph/data storage, strict allocation for process headers and grants, transferable compute pool |
 | 4. Observation | Python standard-library read-only SQLite analysis and Vue 3 + TypeScript local-file observer |
-| 5. Baseline | 24 seed-controlled initial programs, four matched conditions each, negative controls, recorded independent results and replay |
+| 5. Baseline | 24 independently seeded three-process worlds, four matched conditions each, negative controls, recorded independent results and replay |
 
 Generic CPU and graph operations do **not** encode `REPAIR`, `REPRODUCE`, `FITNESS`, or a host life/death verdict. An executable process, random opcode diversity, or a positive causal contrast is not evidence of life.
 
@@ -26,7 +26,7 @@ cargo test --locked --workspace
 cargo clippy --locked --workspace --all-targets -- -D warnings
 python3 -m unittest discover -s analysis/tests -v
 
-# The 24-seed baseline registers and replay-checks 96 matched runs.
+# The 24-seed, 3-process baseline registers and replay-checks 96 matched runs.
 CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl0-explore -- experiment.sqlite 24 54129
 python3 analysis/analyze.py experiment.sqlite --json report.json --csv report.csv
 
