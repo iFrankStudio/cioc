@@ -3456,21 +3456,53 @@ mod tests {
     #[test]
     fn structured_internal_graph_lineage_is_charged_and_exact() {
         let mut w = World::with_strict_capacity(0, 16, 28);
-        w.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::GraphCopyNode { graph: 0, source: 2, dst: 1, next: 2 },
-            Op::Const { dst: 2, value: 0, next: 3 },
-            Op::GraphSetConst { graph: 0, node: 2, value: 2, next: 4 },
-            Op::GraphSetNext { graph: 0, node: 2, target: 2, next: 5 },
-            Op::Halt,
-        ], 8)).unwrap();
+        w.load(Process::new(
+            1,
+            vec![
+                Op::GraphNew { dst: 0, next: 1 },
+                Op::GraphCopyNode {
+                    graph: 0,
+                    source: 2,
+                    dst: 1,
+                    next: 2,
+                },
+                Op::Const {
+                    dst: 2,
+                    value: 0,
+                    next: 3,
+                },
+                Op::GraphSetConst {
+                    graph: 0,
+                    node: 2,
+                    value: 2,
+                    next: 4,
+                },
+                Op::GraphSetNext {
+                    graph: 0,
+                    node: 2,
+                    target: 2,
+                    next: 5,
+                },
+                Op::Halt,
+            ],
+            8,
+        ))
+        .unwrap();
         assert_eq!(w.run(5), 5);
-        assert!(matches!(&w.events()[1].kind, EventKind::GraphCreated {
-            graph: 1, owner: 1
-        }));
-        assert!(matches!(&w.events()[2].kind, EventKind::GraphNodeCopied {
-            graph: 1, owner: 1, source_process: 1, source_node: 2, new_node: 0
-        }));
+        assert!(matches!(
+            &w.events()[1].kind,
+            EventKind::GraphCreated { graph: 1, owner: 1 }
+        ));
+        assert!(matches!(
+            &w.events()[2].kind,
+            EventKind::GraphNodeCopied {
+                graph: 1,
+                owner: 1,
+                source_process: 1,
+                source_node: 2,
+                new_node: 0
+            }
+        ));
         // Both edits are rejected: register r2=0 points at graph node 0
         // which holds a Const copied from process code; but its next target
         // register r2=0 is valid for the single-node graph.
@@ -3481,7 +3513,13 @@ mod tests {
             graph: 1, owner: 1, node: 0, edit
         } if edit == "next"));
         assert_eq!(w.remaining_credits(), 3);
-        assert_eq!(w.events().iter().filter(|e| matches!(e.kind, EventKind::GraphCreated { .. })).count(), 1);
+        assert_eq!(
+            w.events()
+                .iter()
+                .filter(|e| matches!(e.kind, EventKind::GraphCreated { .. }))
+                .count(),
+            1
+        );
         let decoded: World = serde_json::from_str(&serde_json::to_string(&w).unwrap()).unwrap();
         assert_eq!(w, decoded);
     }

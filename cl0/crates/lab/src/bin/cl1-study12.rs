@@ -215,10 +215,22 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut eligible = 0_usize;
     for seed in FIRST_SEED..FIRST_SEED + REPLICAS {
         let common = prefork_world(seed);
-        let prefix: Vec<&EventKind> = common.events().iter().filter(|e| e.origin == Origin::Internal(e.process))
-            .map(|e| &e.kind).collect();
-        if prefix.iter().filter(|kind| matches!(kind, EventKind::GraphCreated { .. })).count() != 3
-            || prefix.iter().filter(|kind| matches!(kind, EventKind::GraphNodeCopied { .. })).count() != 3
+        let prefix: Vec<&EventKind> = common
+            .events()
+            .iter()
+            .filter(|e| e.origin == Origin::Internal(e.process))
+            .map(|e| &e.kind)
+            .collect();
+        if prefix
+            .iter()
+            .filter(|kind| matches!(kind, EventKind::GraphCreated { .. }))
+            .count()
+            != 3
+            || prefix
+                .iter()
+                .filter(|kind| matches!(kind, EventKind::GraphNodeCopied { .. }))
+                .count()
+                != 3
         {
             return Err(format!("scaffold lineage not observed for seed {seed}").into());
         }
