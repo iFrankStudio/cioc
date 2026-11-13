@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27)
           selected='|'
           quick=false
           full=false
@@ -849,3 +849,42 @@ jobs:
             ${{ runner.temp }}/cl1-study26-rerun.sqlite
             ${{ runner.temp }}/cl1-study26-baseline.json
             ${{ runner.temp }}/cl1-study26-report.json
+
+  study27:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study27|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert prospective replication preregistration
+        run: test -f ../cl1/studies/27-preregistered-graph-tag-address-relocation.md
+      - name: Exact source-pinned workspace and synthetic mechanism gate
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 independent prospective worlds and exact SQLite epoch replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study27.sqlite"
+      - name: Independently audit genuine paired changed-source output-address witnesses
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study27.sqlite" --json "$RUNNER_TEMP/cl1-study27-report.json"
+          cat "$RUNNER_TEMP/cl1-study27-report.json"
+      - name: Archive source-verified replicated ecology and nulls
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study27
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study27.sqlite
+            ${{ runner.temp }}/cl1-study27-report.json
