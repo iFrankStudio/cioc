@@ -1,0 +1,18 @@
+test_equivalent_diagnostic_does_not_raise_alarm (test_cioc.CrossDiagnosisTests.test_equivalent_diagnostic_does_not_raise_alarm) ... ok
+test_fragment_and_budget_controls (test_cioc.CrossDiagnosisTests.test_fragment_and_budget_controls) ... ok
+test_inhibit_peer_repair (test_cioc.CrossDiagnosisTests.test_inhibit_peer_repair) ... ok
+test_observer_remains_single_point (test_cioc.CrossDiagnosisTests.test_observer_remains_single_point) ... ok
+test_repaired_auditor_performs_real_audit (test_cioc.CrossDiagnosisTests.test_repaired_auditor_performs_real_audit) ... ok
+test_replacement_is_behavioral_not_source_equal (test_cioc.CrossDiagnosisTests.test_replacement_is_behavioral_not_source_equal) ... ok
+test_scenario_matrix (test_cioc.CrossDiagnosisTests.test_scenario_matrix) ... ok
+test_sequential_recovery (test_cioc.CrossDiagnosisTests.test_sequential_recovery) ... ok
+test_silent_corruption_is_detected (test_cioc.CrossDiagnosisTests.test_silent_corruption_is_detected) ... ok
+test_simultaneous_diagnostic_loss_fails (test_cioc.CrossDiagnosisTests.test_simultaneous_diagnostic_loss_fails) ... ok
+test_single_diagnostic_loss_is_repaired (test_cioc.CrossDiagnosisTests.test_single_diagnostic_loss_is_repaired) ... ok
+test_single_functional_corruption (test_cioc.CrossDiagnosisTests.test_single_functional_corruption) ... ok
+test_untrusted_peer_cannot_authorize_recovery (test_cioc.CrossDiagnosisTests.test_untrusted_peer_cannot_authorize_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.046s
+
+OK
