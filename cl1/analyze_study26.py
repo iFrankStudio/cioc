@@ -145,7 +145,8 @@ def audit(path: Path) -> dict:
                     category = result["category"]
                     categories[category] += 1
                     sampled_worlds[category].add(seed)
-                    if category in ("changed_read_no_output", "no_changed_read_no_output"):
+                    changed_branch, _ = _targeted_first_outputs(mutated[epoch], 2)
+                    if (actor, cell) not in changed_branch:
                         missing_worlds.add(seed)
                     cases.append({
                         "seed": seed,
