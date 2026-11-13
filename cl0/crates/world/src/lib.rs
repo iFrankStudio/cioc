@@ -3509,10 +3509,10 @@ mod tests {
             }
         ));
         // Both edits succeed on the copied Const node at index 0.
-        assert!(matches!(&w.events()[6].kind, EventKind::GraphNodeEdited {
+        assert!(matches!(&w.events()[5].kind, EventKind::GraphNodeEdited {
             graph: 1, owner: 1, node: 0, edit
         } if edit == "const"));
-        assert!(matches!(&w.events()[5].kind, EventKind::GraphNodeEdited {
+        assert!(matches!(&w.events()[6].kind, EventKind::GraphNodeEdited {
             graph: 1, owner: 1, node: 0, edit
         } if edit == "next"));
         assert_eq!(w.remaining_credits(), 2);
