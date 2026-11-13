@@ -71,7 +71,7 @@ fn seeded_world(seed: u64) -> World {
                     next,
                 },
                 4 => {
-                    if random(&mut state) % 2 == 0 {
+                    if random(&mut state).is_multiple_of(2) {
                         Op::Branch {
                             test: 2,
                             nonzero: index - 2,
