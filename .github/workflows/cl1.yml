@@ -532,3 +532,32 @@ jobs:
             ${{ runner.temp }}/cl1-study14.sqlite
             ${{ runner.temp }}/cl1-study14-report.json
             ${{ runner.temp }}/cl1-study18-calibration.json
+
+  study20:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen Study-20 mechanism preregistration
+        run: test -f ../cl1/studies/20-preregistered-functional-assay-calibration.md
+      - name: Run precommitted nine-arm two-graph function control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study20 -- "$RUNNER_TEMP/cl1-study20.sqlite"
+      - name: Independently audit source content, external interventions and full snapshot data
+        run: |
+          python3 ../cl1/analyze_study20.py "$RUNNER_TEMP/cl1-study20.sqlite" --json "$RUNNER_TEMP/cl1-study20-report.json"
+          cat "$RUNNER_TEMP/cl1-study20-report.json"
+      - name: Archive Study-20 mechanism control
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study20
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study20.sqlite
+            ${{ runner.temp }}/cl1-study20-report.json
