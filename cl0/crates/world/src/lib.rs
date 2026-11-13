@@ -317,6 +317,8 @@ impl World {
         if !self.can_allocate(needed) {
             return Err("total storage capacity exhausted");
         }
+        self.total_compute_inventory().and_then(|total| total.checked_add(process.credits))
+            .ok_or("total compute inventory overflow")?;
         let next_id = process.id.checked_add(1).ok_or("process id exhausted")?;
         let id = process.id;
         self.next_process_id = self.next_process_id.max(next_id);
@@ -399,7 +401,12 @@ impl World {
                 p.stopped = true;
             }
             Intervention::SetCredits { process, credits } => {
-                self.processes.get_mut(&process).ok_or("unknown process")?.credits = credits;
+                let previous = self.processes.get(&process).ok_or("unknown process")?.credits;
+                self.total_compute_inventory()
+                    .and_then(|total| total.checked_sub(previous))
+                    .and_then(|other| other.checked_add(credits))
+                    .ok_or("total compute inventory overflow")?;
+                self.processes.get_mut(&process).expect("checked process").credits = credits;
             }
             Intervention::SetComputePool { credits } => {
                 let inventory_without_pool = self.processes.values()
@@ -1369,6 +1376,18 @@ mod tests {
         assert_eq!(w.available_compute_pool(), 2);
         assert_eq!(w.remaining_credits(), 2);
         assert!(matches!(w.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn external_credit_overflow_is_rejected_without_mutating_balances() {
+        let mut w = World::with_strict_capacity(0, 10, 4);
+        w.load(Process::new(1, vec![Op::Halt], 1)).unwrap();
+        w.intervene(Intervention::SetComputePool { credits: u64::MAX - 1 }).unwrap();
+        assert!(w.intervene(Intervention::SetCredits { process: 1, credits: 2 }).is_err());
+        assert_eq!(w.process(1).unwrap().credits, 1);
+        assert_eq!(w.total_compute_inventory(), Some(u64::MAX));
+        assert!(w.load(Process::new(2, vec![Op::Halt], 1)).is_err());
+        assert!(w.process(2).is_none());
     }
 
     #[test]
