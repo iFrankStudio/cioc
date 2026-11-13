@@ -764,6 +764,14 @@ pub enum EventKind {
         key: CellKey,
         value: i64,
     },
+    /// Successful resource-accounted movement of graph code into an executable child.
+    GraphLaunched {
+        source_graph: u64,
+        parent_process: ProcessId,
+        child_process: ProcessId,
+        transferred_credits: u64,
+        moved_nodes: usize,
+    },
     /// Successful generic decoding of an existing shared-cell descriptor into a new node.
     GraphEncoded {
         graph: u64,
@@ -1773,6 +1781,7 @@ impl World {
                     .graph_objects
                     .remove(&object_id)
                     .expect("checked object");
+                let moved_nodes = object.nodes.len();
                 let parent = self.processes.get_mut(&id).expect("owner exists");
                 parent.credits -= requested;
                 parent.registers[dst] = encoded;
@@ -1780,6 +1789,13 @@ impl World {
                 self.processes
                     .insert(child_id, Process::new(child_id, object.nodes, requested));
                 self.next_process_id = next_id;
+                self.pending_transition = Some(EventKind::GraphLaunched {
+                    source_graph: object_id,
+                    parent_process: id,
+                    child_process: child_id,
+                    transferred_credits: requested,
+                    moved_nodes,
+                });
             }
 
             Op::GraphEncode {
