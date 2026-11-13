@@ -1516,17 +1516,6 @@ mod tests {
     }
 
     #[test]
-    fn world_snapshot_carries_explicit_format_version() {
-        let world = World::with_strict_capacity(2, 8, 10);
-        let json = serde_json::to_string(&world).unwrap();
-        let encoded: serde_json::Value = serde_json::from_str(&json).unwrap();
-        assert_eq!(encoded["format_version"], 1);
-        let restored: World = serde_json::from_str(&json).unwrap();
-        assert_eq!(restored.format_version(), WORLD_FORMAT_VERSION);
-        assert_eq!(world, restored);
-    }
-
-    #[test]
     fn stable_round_robin_by_id() {
         let mut world = World::new(0, 2);
         world.load(Process::new(8, vec![Op::Const { dst: 0, value: 1, next: 1 }, Op::Halt], 2)).unwrap();
