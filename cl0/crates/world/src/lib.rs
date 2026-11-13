@@ -801,7 +801,7 @@ mod tests {
         world.load(Process::new(1, vec![
             Op::GraphNew { dst: 0, next: 1 },
             Op::Const { dst: 1, value: 8, next: 2 },
-            Op::Const { dst: 2, value: 12, next: 3 },
+            Op::Const { dst: 2, value: 2, next: 3 },
             Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 4 },
             Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 5 },
             Op::GraphCopyNode { graph: 0, source: 2, dst: 3, next: 6 },
@@ -833,7 +833,7 @@ mod tests {
             Op::GraphDrop { graph: 0, next: 2 },
             Op::Halt,
         ], 5)).unwrap();
-        assert_eq!(world.run(3), 3);
+        assert_eq!(world.run(4), 4);
         assert!(world.graph_object(1).is_some());
         assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
     }
