@@ -3,12 +3,15 @@ on:
   push:
   pull_request:
 jobs:
-  v07:
+  benchmark:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ['v0.7', 'v0.8']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run bounded V0.7 benchmark
-        run: cd experiments/v0.7 && python -m unittest -v
+      - name: Run focused benchmark tests
+        run: cd experiments/${{ matrix.version }} && python -m unittest -v
