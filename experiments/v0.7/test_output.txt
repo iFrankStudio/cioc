@@ -1,0 +1,20 @@
+test_budget ... ok
+test_external_restore_separate ... ok
+test_fragment_cannot_be_full_program ... ok
+test_generator_program_is_restored ... ok
+test_generator_recovery ... ok
+test_missing_fragment_prevents_recovery ... ok
+test_modifier_single_point ... ok
+test_no_damage ... ok
+test_no_hidden_external_repairs ... ok
+test_observer_single_point ... ok
+test_simultaneous_loss ... ok
+test_verifier_single_point ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK
+
+Local original V0.7 source: python -m unittest -v (exit code 0).
+GitHub baseline is an adapted version; this is NOT a GitHub CI log.
