@@ -754,6 +754,16 @@ pub enum EventKind {
         former_owner: ProcessId,
         new_owner: ProcessId,
     },
+    /// Observer-only successful native shared-cell read.
+    CellRead {
+        key: CellKey,
+        value: i64,
+    },
+    /// Observer-only successful native shared-cell write.
+    CellWritten {
+        key: CellKey,
+        value: i64,
+    },
     /// Observer-only successful graph allocation.
     GraphCreated {
         graph: u64,
@@ -1277,8 +1287,10 @@ impl World {
                 if dst >= REGISTERS {
                     return Err("invalid register".into());
                 }
-                p.registers[dst] = cells.get(&key).copied().unwrap_or(0);
+                let value = cells.get(&key).copied().unwrap_or(0);
+                p.registers[dst] = value;
                 p.pc = next;
+                self.pending_transition = Some(EventKind::CellRead { key, value });
             }
             Op::Write {
                 address,
@@ -1294,6 +1306,7 @@ impl World {
                 }
                 cells.insert(key, value);
                 p.pc = next;
+                self.pending_transition = Some(EventKind::CellWritten { key, value });
             }
             Op::Branch {
                 test,
@@ -3524,6 +3537,30 @@ mod tests {
             1
         );
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
+    }
+
+    #[test]
+    fn cell_io_events_are_success_only_and_do_not_mint_resources() {
+        let mut world = World::with_strict_capacity(1, 8, 12);
+        world.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 7, next: 1 },
+            Op::Read { dst: 1, address: 0, next: 2 },
+            Op::Write { address: 0, value: 1, next: 3 },
+            Op::Read { dst: 2, address: 0, next: 4 },
+            Op::Const { dst: 0, value: 8, next: 5 },
+            Op::Write { address: 0, value: 1, next: 6 },
+            Op::Halt,
+        ], 7)).unwrap();
+        let initial_inventory = world.total_compute_inventory().unwrap();
+        assert_eq!(world.run(6), 6);
+        assert!(matches!(world.events()[2].kind, EventKind::CellRead { key: 7, value: 0 }));
+        assert!(matches!(world.events()[3].kind, EventKind::CellWritten { key: 7, value: 0 }));
+        assert!(matches!(world.events()[4].kind, EventKind::CellRead { key: 7, value: 0 }));
+        assert!(matches!(world.events()[6].kind, EventKind::Trapped(_)));
+        assert_eq!(world.events().iter().filter(|e| matches!(e.kind, EventKind::CellWritten { .. })).count(), 1);
+        assert_eq!(world.remaining_credits(), initial_inventory - 6);
+        assert_eq!(world.cell(7), Some(0));
+        assert_eq!(world.cell(8), None);
     }
 
     #[test]
