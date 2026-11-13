@@ -1885,8 +1885,10 @@ impl World {
                 next,
             } => {
                 edge(next)?;
-                let target_id = u64::try_from(reg(target)?).map_err(|_| "invalid target graph handle")?;
-                let source_id = u64::try_from(reg(source)?).map_err(|_| "invalid source graph handle")?;
+                let target_id =
+                    u64::try_from(reg(target)?).map_err(|_| "invalid target graph handle")?;
+                let source_id =
+                    u64::try_from(reg(source)?).map_err(|_| "invalid source graph handle")?;
                 let index = usize::try_from(reg(node)?).map_err(|_| "invalid source node index")?;
                 let from = self
                     .graph_objects
@@ -1906,8 +1908,7 @@ impl World {
                 if to.nodes.len() >= self.max_nodes_per_process || !self.can_allocate(1) {
                     return Err("code storage capacity exhausted".into());
                 }
-                let new_index = i64::try_from(to.nodes.len())
-                    .map_err(|_| "node index overflow")?;
+                let new_index = i64::try_from(to.nodes.len()).map_err(|_| "node index overflow")?;
                 self.graph_objects
                     .get_mut(&target_id)
                     .expect("target validated")
@@ -1924,15 +1925,22 @@ impl World {
             } => {
                 edge(next)?;
                 let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
-                let recipient_id = u64::try_from(reg(recipient)?).map_err(|_| "invalid recipient")?;
-                let object = self.graph_objects.get(&object_id).ok_or("unknown graph handle")?;
+                let recipient_id =
+                    u64::try_from(reg(recipient)?).map_err(|_| "invalid recipient")?;
+                let object = self
+                    .graph_objects
+                    .get(&object_id)
+                    .ok_or("unknown graph handle")?;
                 if object.owner != id {
                     return Err("access denied".into());
                 }
                 if !self.processes.contains_key(&recipient_id) {
                     return Err("unknown recipient process".into());
                 }
-                self.graph_objects.get_mut(&object_id).expect("checked graph").owner = recipient_id;
+                self.graph_objects
+                    .get_mut(&object_id)
+                    .expect("checked graph")
+                    .owner = recipient_id;
                 self.processes.get_mut(&id).expect("actor exists").pc = next;
             }
             _ => unreachable!("only graph operations are dispatched here"),
@@ -3129,33 +3137,96 @@ mod tests {
     #[test]
     fn cross_owner_copy_requires_explicit_grant_and_transfer_changes_owner() {
         let mut w = World::with_strict_capacity(0, 24, 32);
-        w.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::Const { dst: 1, value: 4, next: 2 },
-            Op::GraphCopyNode { graph: 0, source: 1, dst: 2, next: 3 },
-            Op::Const { dst: 1, value: 2, next: 4 },
-            Op::GraphGrantRead { graph: 0, reader: 1, next: 5 },
-            Op::Halt,
-        ], 10)).unwrap();
-        w.load(Process::new(2, vec![
-            Op::Const { dst: 0, value: 1, next: 1 },
-            Op::GraphNew { dst: 1, next: 2 },
-            Op::Const { dst: 2, value: 0, next: 3 },
-            Op::GraphCopyFrom { target: 1, source: 0, node: 2, next: 4 },
-            Op::Const { dst: 3, value: 1, next: 5 },
-            Op::GraphTransfer { graph: 1, recipient: 3, next: 6 },
-            Op::Halt,
-        ], 0)).unwrap();
+        w.load(Process::new(
+            1,
+            vec![
+                Op::GraphNew { dst: 0, next: 1 },
+                Op::Const {
+                    dst: 1,
+                    value: 4,
+                    next: 2,
+                },
+                Op::GraphCopyNode {
+                    graph: 0,
+                    source: 1,
+                    dst: 2,
+                    next: 3,
+                },
+                Op::Const {
+                    dst: 1,
+                    value: 2,
+                    next: 4,
+                },
+                Op::GraphGrantRead {
+                    graph: 0,
+                    reader: 1,
+                    next: 5,
+                },
+                Op::Halt,
+            ],
+            10,
+        ))
+        .unwrap();
+        w.load(Process::new(
+            2,
+            vec![
+                Op::Const {
+                    dst: 0,
+                    value: 1,
+                    next: 1,
+                },
+                Op::GraphNew { dst: 1, next: 2 },
+                Op::Const {
+                    dst: 2,
+                    value: 0,
+                    next: 3,
+                },
+                Op::GraphCopyFrom {
+                    target: 1,
+                    source: 0,
+                    node: 2,
+                    next: 4,
+                },
+                Op::Const {
+                    dst: 3,
+                    value: 1,
+                    next: 5,
+                },
+                Op::GraphTransfer {
+                    graph: 1,
+                    recipient: 3,
+                    next: 6,
+                },
+                Op::Halt,
+            ],
+            0,
+        ))
+        .unwrap();
         // Freeze the recipient while the original owner creates and grants source access.
         assert_eq!(w.run(5), 5);
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
         assert!(w.graph_object(1).unwrap().readers.contains(&2));
-        w.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
-        w.intervene(Intervention::SetCredits { process: 2, credits: 8 }).unwrap();
+        w.intervene(Intervention::SetCredits {
+            process: 1,
+            credits: 0,
+        })
+        .unwrap();
+        w.intervene(Intervention::SetCredits {
+            process: 2,
+            credits: 8,
+        })
+        .unwrap();
         assert_eq!(w.run(6), 6);
         let assembled = w.graph_object(2).unwrap();
         assert_eq!(assembled.owner, 1);
-        assert_eq!(assembled.nodes, vec![Op::Const { dst: 1, value: 4, next: 2 }]);
+        assert_eq!(
+            assembled.nodes,
+            vec![Op::Const {
+                dst: 1,
+                value: 4,
+                next: 2
+            }]
+        );
         assert_eq!(w.process(2).unwrap().registers[2], 0);
         assert_eq!(w.occupied_units(), 19);
     }
@@ -3163,52 +3234,119 @@ mod tests {
     #[test]
     fn ownership_transfer_is_not_a_grant_or_a_code_clone() {
         let mut w = World::with_strict_capacity(0, 12, 22);
-        w.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::Const { dst: 1, value: 2, next: 2 },
-            Op::GraphTransfer { graph: 0, recipient: 1, next: 3 },
-            Op::GraphDrop { graph: 0, next: 4 },
-            Op::Halt,
-        ], 6)).unwrap();
+        w.load(Process::new(
+            1,
+            vec![
+                Op::GraphNew { dst: 0, next: 1 },
+                Op::Const {
+                    dst: 1,
+                    value: 2,
+                    next: 2,
+                },
+                Op::GraphTransfer {
+                    graph: 0,
+                    recipient: 1,
+                    next: 3,
+                },
+                Op::GraphDrop { graph: 0, next: 4 },
+                Op::Halt,
+            ],
+            6,
+        ))
+        .unwrap();
         w.load(Process::new(2, vec![Op::Halt], 0)).unwrap();
         assert_eq!(w.run(3), 3);
         assert_eq!(w.graph_object(1).unwrap().owner, 2);
         assert_eq!(w.run(1), 1);
         assert!(w.process(1).unwrap().stopped);
         assert_eq!(w.graph_object(1).unwrap().owner, 2);
-        assert!(matches!(w.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(matches!(
+            w.events().last().unwrap().kind,
+            EventKind::Trapped(_)
+        ));
     }
 
     #[test]
     fn graph_copy_from_inaccessible_source_traps_without_allocation() {
         let mut w = World::with_strict_capacity(0, 12, 24);
-        w.load(Process::new(1, vec![
-            Op::GraphNew { dst: 0, next: 1 },
-            Op::GraphCopyNode { graph: 0, source: 0, dst: 1, next: 2 },
-            Op::Halt,
-        ], 4)).unwrap();
-        w.load(Process::new(2, vec![
-            Op::Const { dst: 0, value: 1, next: 1 },
-            Op::GraphNew { dst: 1, next: 2 },
-            Op::Const { dst: 2, value: 0, next: 3 },
-            Op::GraphCopyFrom { target: 1, source: 0, node: 2, next: 4 },
-            Op::Halt,
-        ], 0)).unwrap();
+        w.load(Process::new(
+            1,
+            vec![
+                Op::GraphNew { dst: 0, next: 1 },
+                Op::GraphCopyNode {
+                    graph: 0,
+                    source: 0,
+                    dst: 1,
+                    next: 2,
+                },
+                Op::Halt,
+            ],
+            4,
+        ))
+        .unwrap();
+        w.load(Process::new(
+            2,
+            vec![
+                Op::Const {
+                    dst: 0,
+                    value: 1,
+                    next: 1,
+                },
+                Op::GraphNew { dst: 1, next: 2 },
+                Op::Const {
+                    dst: 2,
+                    value: 0,
+                    next: 3,
+                },
+                Op::GraphCopyFrom {
+                    target: 1,
+                    source: 0,
+                    node: 2,
+                    next: 4,
+                },
+                Op::Halt,
+            ],
+            0,
+        ))
+        .unwrap();
         assert_eq!(w.run(2), 2);
-        w.intervene(Intervention::SetCredits { process: 1, credits: 0 }).unwrap();
-        w.intervene(Intervention::SetCredits { process: 2, credits: 5 }).unwrap();
+        w.intervene(Intervention::SetCredits {
+            process: 1,
+            credits: 0,
+        })
+        .unwrap();
+        w.intervene(Intervention::SetCredits {
+            process: 2,
+            credits: 5,
+        })
+        .unwrap();
         assert_eq!(w.run(4), 4);
         assert!(w.graph_object(2).unwrap().nodes.is_empty());
-        assert!(matches!(&w.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(matches!(
+            &w.events().last().unwrap().kind,
+            EventKind::Trapped(_)
+        ));
     }
 
     #[test]
     fn new_graph_instruction_tags_roundtrip() {
         for op in [
-            Op::GraphCopyFrom { target: 1, source: 2, node: 3, next: 4 },
-            Op::GraphTransfer { graph: 0, recipient: 3, next: 2 },
+            Op::GraphCopyFrom {
+                target: 1,
+                source: 2,
+                node: 3,
+                next: 4,
+            },
+            Op::GraphTransfer {
+                graph: 0,
+                recipient: 3,
+                next: 2,
+            },
         ] {
-            assert_eq!(Op::decode_instruction(op.encode_instruction().unwrap()).unwrap(), op);
+            assert_eq!(
+                Op::decode_instruction(op.encode_instruction().unwrap()).unwrap(),
+                op
+            );
         }
     }
 
