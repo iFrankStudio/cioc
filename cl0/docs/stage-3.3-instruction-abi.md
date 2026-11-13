@@ -60,3 +60,7 @@ Existing numeric tags are never renumbered; new tags are explicitly additive and
 
 ## Outstanding risks
 There is no arbitrary host-code execution, version-independent ABI upgrader, delegatable or transferable graph ownership, calibrated byte-level memory pricing, or complete untrusted SQLite deserialization hardening. A strict allocation mode prices process headers and read-permission entries as abstract units. Five-cell interpretation is an abstract fixed tariff; it is not calibrated physical energy use. External initialization of descriptors remains an investigator intervention and is not evidence of spontaneous invention.
+
+## CL-1 observer-only successful graph-transition provenance
+
+In Study 08 and later, successful `GraphCopyFrom` and `GraphTransfer` instructions emit a single `EventKind::GraphCopied` or `EventKind::GraphTransferred` **in place of** their previous generic `Executed` event. This preserves exactly one internal event per charged CIL attempt and no extra logical tick. The event contains the source/target graph IDs and owners *before the copy* or previous/new owner *at transfer*, sufficient to distinguish inter-owner exchange from ordinary intra-owner edits. Failed instructions retain only `Trapped` events, never a successful graph-transition event. The transient event staging field does not serialize into world snapshots; resulting events do. The information is observer-only and is not a CIL-accessible oracle. These events do not constitute proof of cooperation, maintenance, reproduction or cyberlife.

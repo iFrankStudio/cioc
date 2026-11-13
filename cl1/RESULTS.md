@@ -124,3 +124,49 @@ At the verified implementation revision `a7ab6753ea004d6bd63be7db517af2d89c98237
 ### Next scientific bottleneck
 
 The first six studies are highly skewed toward short-lived, investigator-seeded 16-node programs. Only 16 of 128 prefork worlds in Study 06 had eligible nonempty graph objects. Repeating this exact generator with more seeds would mostly increase statistical precision on a narrow null, **not** solve the missing mechanism of organized interaction. A genuinely new study should preregister richer **generic** object/data interoperability and longer externally supported computation *without specifying preferred repair roles or fitting seed selection to the positive result*. It must independently test internal provenance, multi-component functional dependence and multi-epoch restoration, with a matched unmodified world, sham and externally repaired controls. Positive CL-1 stage acceptance remains **open**.
+
+---
+
+## Study 07 — graph-to-graph code exchange in a fresh ecology (verified 2026-11-13)
+
+[Preregistered protocol](studies/07-preregistered-cross-owner-information.md) was committed independently in [`35865fde`](https://github.com/iFrankStudio/cioc/commit/35865fde358c2afa6309672d92c56c683a70004d) before this new run. [Verified CI](https://github.com/iFrankStudio/cioc/actions/runs/43417372928), [SQLite/JSON archive](https://github.com/iFrankStudio/cioc/actions/runs/43417372928/artifacts/14032745891); source `0ddbc8d44d9f1e414f060cbd9b49e14b1fd128f8`, new independent seeds 1270000..1270127.
+
+New generic CIL primitives `GraphCopyFrom` (authorized source graph to owned target graph, one charged code node) and `GraphTransfer` (ownership transfer to an existing process with no duplication or compute minting) passed focused hand-authored mechanism tests. The **randomized** population of 128 new seed-worlds produced **640 matched runs**, each with exact replay and 20 hash-verified epoch snapshots (**12,800 snapshots**).
+
+| Fixed outcome | Result |
+| --- | ---: |
+| Internally created eligible nonempty graph at prefork | **13/128** |
+| Successful external ablation of eligible graph | **13/128** |
+| Downstream process-state effect excluding object identity | **0/128** |
+| Cross-owner process-state effect | **0/128** |
+| New nonempty graph after object deletion | **0/128** |
+| Sham/untreated mismatch | **0/128** |
+
+**Scientific limitation:** Under Study 07's coarse `Executed` event granularity, the prespecified *successful cross-owner copy/transfer* endpoint was **NOT EVALUABLE**, not measured zero. This result must remain unchanged after adding new instrumentation. There was no evidence of reciprocal organizational maintenance or closure.
+
+## Study 08 — event-level code exchange and pre-action owner provenance (verified 2026-11-13)
+
+[Preregistered protocol](studies/08-preregistered-instruction-provenance.md) was frozen independently in [`f50694c6`](https://github.com/iFrankStudio/cioc/commit/f50694c6fe77a8332bc3875c2e137284ce63bc19) before adding event provenance or inspecting Study 08 results. [Verified eight-job CI](https://github.com/iFrankStudio/cioc/actions/runs/43418306702), [SQLite/JSON artifact](https://github.com/iFrankStudio/cioc/actions/runs/43418306702/artifacts/14033505218); source `b883be2a74828bd99337fda259f2418a74110bbc`. 128 fresh initial worlds (seeds 1380000..1380127), **640/640 final exact replays and 12,800 epoch state hashes**.
+
+The VM now records only **successful** `GraphCopyFrom` and `GraphTransfer` as structured observer events (`GraphCopied`, `GraphTransferred`) with the actor's internal provenance and the objects' pre-action owners. An unsuccessful or unauthorized attempt remains a charged `Trapped` event. This annotation does not grant CIL any access to logs, resource privileges or survival goals.
+
+| Fixed outcome | Result |
+| --- | ---: |
+| Eligible internally constructed graph at prefork | **11/128** |
+| Indirect process-state effects from deletion | **1/128** |
+| Other-owner process-state effect | **0/128** |
+| Post-ablation nonempty graph construction | **0/128** |
+| Successful cross-owner graph-node copies in untreated runs | **0 events** |
+| Successful different-owner graph transfers in untreated runs | **0 events** |
+| Worlds with at least one of either successful cross-owner exchange | **0/128** |
+| Sham mismatches | **0/128** |
+
+Study 08's observed exchange proxy 0/128 has a two-sided 95% Wilson interval **[0, 0.029137] for the preregistered generator family**. It is **not** a bound on arbitrary digital-world or life emergence probability. The event instrumentation passed positive calibration tests on an explicitly *hand-authored* cross-owner exchange, which is not counted among the randomized cohort. Study 07 remains *not evaluable* on that same metric, and neither is silently rerun to claim improved past data.
+
+### Cumulative engineering verification and continuing negative scientific result
+
+Across all **eight** distinct preregistered cohorts: **896** independently initialized seed-worlds, **4,544** matched experiment records, **4,544/4,544 exact final-state/event replays**, and **44,544** separately hash-verified post-epoch state snapshots from Studies 05–08. Cohorts use different generators, interventions and objectives. These are **not** a pooled sample for life probability estimation.
+
+The latest [full study workflow](https://github.com/iFrankStudio/cioc/actions/runs/43418306702) and [CL-0 regression](https://github.com/iFrankStudio/cioc/actions/runs/43418306631) passed. Outcomes remain **bounded negative / inconclusive for the positive CL-1 goal**: no preregistered multi-component functional restoration, mutual maintenance or organizational closure has been verified.
+
+The next useful scientific step is not merely adding more random seeds to a grammar that rarely creates shared objects. It is a **prospectively specified, broader but still non-teleological mechanism** for discoverable object references, provenance of internally constructed code and functionality tests across multiple causally connected parts. That protocol must be frozen before using any new data and must not insert a host-defined repair, fitness or reproduction oracle.
