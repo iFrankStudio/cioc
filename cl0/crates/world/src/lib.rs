@@ -2753,6 +2753,16 @@ mod tests {
         assert_eq!(w.used_cells(), 5);
         assert_eq!(w.occupied_units(), 23);
         assert_eq!(w.remaining_credits(), 4);
+        assert!(w.events().iter().any(|e| matches!(
+            e.kind,
+            EventKind::GraphEncoded {
+                graph: 1,
+                owner: 1,
+                new_node: 0,
+                descriptor_base: 100,
+                descriptor: [19, 0, 0, 0, 0]
+            }
+        )));
         assert!(w
             .events()
             .iter()
@@ -3227,6 +3237,16 @@ mod tests {
         );
         // Replacement overwrites exactly one node and does not allocate any extra node.
         assert_eq!(w.graph_object(1).unwrap().nodes.len(), 1);
+        assert!(w.events().iter().any(|e| matches!(
+            e.kind,
+            EventKind::GraphReplaced {
+                graph: 1,
+                owner: 1,
+                node: 0,
+                descriptor_base: 100,
+                descriptor: [5, 0, 0, 0, 0]
+            }
+        )));
     }
 
     #[test]
