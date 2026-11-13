@@ -233,7 +233,9 @@ fn main() -> Result<(), Box<dyn Error>> {
             return Err(format!("scaffold lineage not observed for seed {seed}").into());
         }
         for graph in 1..=3 {
-            let object = common.graph_object(graph).ok_or("missing scaffold object")?;
+            let object = common
+                .graph_object(graph)
+                .ok_or("missing scaffold object")?;
             if object.nodes.is_empty() || object.owner != graph {
                 return Err(format!("incorrect prefork scaffold for seed {seed}").into());
             }
@@ -260,15 +262,14 @@ fn main() -> Result<(), Box<dyn Error>> {
             {
                 return Err(format!("zero-credit control executed CIL: {}", run.label).into());
             }
-            let expected_ablations = if run.label.ends_with("/drop-g1")
-                || run.label.ends_with("/drop-g2")
-            {
-                1
-            } else if run.label.ends_with("/drop-both") {
-                2
-            } else {
-                0
-            };
+            let expected_ablations =
+                if run.label.ends_with("/drop-g1") || run.label.ends_with("/drop-g2") {
+                    1
+                } else if run.label.ends_with("/drop-both") {
+                    2
+                } else {
+                    0
+                };
             let ablations = run
                 .world
                 .events()
