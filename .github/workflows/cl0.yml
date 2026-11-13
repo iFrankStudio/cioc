@@ -26,24 +26,24 @@ jobs:
       - name: Format and compile
         run: cargo fmt --all
       - name: Rust kernel and laboratory tests
-        run: cargo test --workspace
+        run: cargo test --locked --workspace
       - name: Strict Rust lint
-        run: cargo clippy --workspace --all-targets -- -D warnings
+        run: cargo clippy --locked --workspace --all-targets -- -D warnings
       - name: Independent Python analysis unit tests
         run: python3 -m unittest discover -s analysis/tests -v
       - name: Generate matched exploratory experiments and verify SQLite replay
         run: |
-          cargo run --quiet -p cl0-lab --bin cl0-explore -- "$RUNNER_TEMP/cl0-acceptance.sqlite" 4 54129
+          cargo run --locked --quiet -p cl0-lab --bin cl0-explore -- "$RUNNER_TEMP/cl0-acceptance.sqlite" 4 54129
           python3 analysis/analyze.py "$RUNNER_TEMP/cl0-acceptance.sqlite" --json "$RUNNER_TEMP/cl0-acceptance.json" --csv "$RUNNER_TEMP/cl0-acceptance.csv"
           python3 -c 'import json,os,pathlib; d=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"cl0-acceptance.json").read_text()); assert d["counts"]["runs"] == 12, d["counts"]; assert d["counts"]["matched_initials"] == 4, d["counts"]; assert d["counts"]["invalid_hash_records"] == 0, d["counts"]; assert all(r["hashes_valid"] for r in d["records"])'
       - name: Install Vue observer dependencies
-        run: npm install --prefix console --no-audit --no-fund
+        run: npm ci --prefix console --no-audit --no-fund
       - name: Build and type-check Vue 3 observer
         run: npm run build --prefix console
-      - name: Temporary emit dependency locks for pinned reproducibility
+      - name: Temporary emit rustfmt output for checked-in format verification
         run: |
-          for f in Cargo.lock console/package-lock.json; do
-            printf 'CL0_LOCK_BEGIN:%s:' "$f"
+          for f in crates/world/src/lib.rs crates/world/src/main.rs crates/lab/src/lib.rs crates/lab/src/main.rs crates/lab/src/bin/cl0-explore.rs; do
+            printf 'CL0_FMT_BEGIN:%s:' "$f"
             base64 -w0 "$f"
-            printf ':CL0_LOCK_END\\n'
+            printf ':CL0_FMT_END\\n'
           done
