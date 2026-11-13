@@ -2,7 +2,7 @@
 
 **Status: thirteen preregistered feasibility studies completed; bounded negative/inconclusive findings; positive CL-1 milestone NOT accepted.** CL-0 is already accepted as laboratory infrastructure. CL-1 is a scientific program, not a new name for the VM.
 
-[Verified outcomes and scientific boundary](RESULTS.md) · [Permanent Study-10 summary](results/study10-report.json) · [Permanent Study-11 summary](results/study11-report.json) · [Permanent Study-12 summary](results/study12-report.json) · [Permanent Study-13 summary](results/study13-report.json) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Verified twelve-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43425754065).
+[Verified outcomes and scientific boundary](RESULTS.md) · [Permanent Study-10 summary](results/study10-report.json) · [Permanent Study-11 summary](results/study11-report.json) · [Permanent Study-12 summary](results/study12-report.json) · [Permanent Study-13 summary](results/study13-report.json) · [Future positive acceptance gate](docs/next-experiment-contract.md) · [Verified thirteen-study CI](https://github.com/iFrankStudio/cioc/actions/runs/43427188730).
 
 ## Research registry
 - [Study 01 preregistration](studies/01-preregistered-random-ecology.md) — 64 independent seeded worlds, five matched conditions per world; first negative-capable baseline.
