@@ -76,3 +76,25 @@ python3 ../cl1/analyze_study04.py study04.sqlite --json study04.json
 ```
 
 Start with empty, distinct SQLite databases; the runner **appends** records, so reusing a populated path will fail frozen cohort validation. Use source commit `aba4a2b` to match the cited artifact's source revision and output. The [next scientific gate](docs/next-experiment-contract.md) defines what would be required before a positive CL-1 acceptance.
+
+---
+
+## Study 05 — independent external epoch environment (verified 2026-11-13)
+
+The protocol was frozen at [preregistration `9047f751`](https://github.com/iFrankStudio/cioc/commit/9047f751c8af0214f41abf5748bbdb65bfaf2860) before code or outcomes. [Study 05 protocol](studies/05-preregistered-exogenous-epochs.md) specifies 64 new seed-worlds, four matched conditions, 24 externally administered epochs and eight CIL attempts at most per epoch.
+
+**Verified executable revision:** `0537d40964b5e68e75197b071b5d2b0be1549462`. [GitHub CI](https://github.com/iFrankStudio/cioc/actions/runs/43413383336) and [SQLite/JSON artifact](https://github.com/iFrankStudio/cioc/actions/runs/43413383336/artifacts/14030009254). All **256/256 runs** and **6,144/6,144 post-epoch snapshots** replayed and passed SHA-256 consistency checks.
+
+| Condition | Total CIL attempts (64 worlds) | External pool injections | Active in epochs 12–23 | Restart after inert epoch |
+| --- | ---: | ---: | ---: | ---: |
+| Closed | 1,464 | 0 | 0/64 | 0/64 |
+| Initial pool | 1,715 | 64 | 0/64 | 0/64 |
+| Epoch pulses | 2,012 | 384 | 2/64 | 0/64 |
+| Zero-credit + epoch pulses | **0** | **384** | **0/64** | **0/64** |
+
+In **4/64** matched seed-worlds, the final process/data state differed between initial-pool and repeated-pulse conditions, excluding the directly injected external pool and event logs. All **384** planned external pulses were delivered in the zero-credit condition even while the world was inert, demonstrating the laboratory epoch clock is **not conditional on CIL execution**. Yet no CIL process autonomously regained the capacity to execute.
+
+This strengthens environmental intervention methodology, not evidence of life. Resource supply remains **explicitly external**. No autonomous functional maintenance or organizational closure was established.
+
+
+**Cumulative technical record (not one pooled statistical sample):** 512 independently initialized seed-worlds across the five different protocols, 2,624 matched runs, and 8,768 exact replay-verified states if counting the original 2,368 final replays plus Study-05's 256 final replays and 6,144 epoch snapshots. Distinct generator distributions must never be merged to estimate a life probability. **The CL-1 positive goal remains unaccepted.**
