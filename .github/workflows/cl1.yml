@@ -156,3 +156,40 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study04.sqlite
             ${{ runner.temp }}/cl1-study04-report.json
+
+  study05:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify precommitted independent epoch protocol
+        run: test -f ../cl1/studies/05-preregistered-exogenous-epochs.md
+      - name: Verify Rust formatting, unit tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run environment epoch experiment with full epoch replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study05 -- "$RUNNER_TEMP/cl1-study05.sqlite"
+      - name: Independent environment observer and controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study05.py "$RUNNER_TEMP/cl1-study05.sqlite" --json "$RUNNER_TEMP/cl1-study05-report.json"
+          cat "$RUNNER_TEMP/cl1-study05-report.json"
+      - name: Archive environmental snapshots and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study05
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study05.sqlite
+            ${{ runner.temp }}/cl1-study05-report.json
