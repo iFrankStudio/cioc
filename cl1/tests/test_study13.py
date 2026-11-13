@@ -36,6 +36,20 @@ class Study13Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             study.reciprocal_pairs([[bad]])
 
+    def test_internal_node_addition_is_detected_even_if_graph_later_dropped(self):
+        initial = {"graph_objects": {"1": {"nodes": ["Halt"]}}}
+        final = {"graph_objects": {"1": {"nodes": ["Halt"]}}}
+        events = [
+            {"origin": {"Internal": 2},
+             "kind": {"GraphCreated": {"graph": 4, "owner": 2}}},
+            {"origin": {"Internal": 2},
+             "kind": {"GraphNodeCopied": {"graph": 4, "owner": 2,
+                                         "source_process": 2,
+                                         "source_node": 0, "new_node": 0}}},
+        ]
+        self.assertTrue(study.newly_populated_graph(initial, final, events))
+        self.assertFalse(study.newly_populated_graph(initial, final, events[:1]))
+
     def test_negative_control_schedule_is_fixed(self):
         self.assertEqual(study.expected_schedule("control", {"processes": {}}), [])
         self.assertEqual(
