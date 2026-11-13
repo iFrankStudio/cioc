@@ -26,32 +26,107 @@ fn seeded_world(seed: u64) -> World {
         let successor = id % 3 + 1;
         let mut nodes = vec![
             Op::GraphNew { dst: 3, next: 1 },
-            Op::GraphCopyNode { graph: 3, source: 2, dst: 2, next: 2 },
-            Op::Const { dst: 0, value: id as i64 - 1, next: 3 },
-            Op::Write { address: 0, value: 3, next: 4 },
-            Op::Const { dst: 1, value: predecessor as i64, next: 5 },
-            Op::GraphGrantRead { graph: 3, reader: 1, next: 6 },
-            Op::Const { dst: 0, value: (id % 3) as i64, next: 7 },
-            Op::Read { dst: 1, address: 0, next: 8 },
-            Op::Const { dst: 2, value: 0, next: 9 },
-            Op::GraphCopyFrom { target: 3, source: 1, node: 2, next: 10 },
-            Op::Const { dst: 1, value: successor as i64, next: 11 },
-            Op::GraphTransfer { graph: 3, recipient: 1, next: 12 },
+            Op::GraphCopyNode {
+                graph: 3,
+                source: 2,
+                dst: 2,
+                next: 2,
+            },
+            Op::Const {
+                dst: 0,
+                value: id as i64 - 1,
+                next: 3,
+            },
+            Op::Write {
+                address: 0,
+                value: 3,
+                next: 4,
+            },
+            Op::Const {
+                dst: 1,
+                value: predecessor as i64,
+                next: 5,
+            },
+            Op::GraphGrantRead {
+                graph: 3,
+                reader: 1,
+                next: 6,
+            },
+            Op::Const {
+                dst: 0,
+                value: (id % 3) as i64,
+                next: 7,
+            },
+            Op::Read {
+                dst: 1,
+                address: 0,
+                next: 8,
+            },
+            Op::Const {
+                dst: 2,
+                value: 0,
+                next: 9,
+            },
+            Op::GraphCopyFrom {
+                target: 3,
+                source: 1,
+                node: 2,
+                next: 10,
+            },
+            Op::Const {
+                dst: 1,
+                value: successor as i64,
+                next: 11,
+            },
+            Op::GraphTransfer {
+                graph: 3,
+                recipient: 1,
+                next: 12,
+            },
         ];
         for index in 12..20 {
             let next = index + 1;
             let op = match random(&mut state) % 6 {
-                0 => Op::Add { dst: 1, lhs: 1, rhs: 2, next },
-                1 => Op::Sub { dst: 1, lhs: 1, rhs: 2, next },
-                2 => Op::Read { dst: 0, address: 0, next },
-                3 => Op::Write { address: 0, value: 1, next },
-                4 => Op::Branch { test: 2, nonzero: next, zero: index - 1 },
-                _ => Op::GraphReadTag { dst: 0, graph: 3, node: 2, next },
+                0 => Op::Add {
+                    dst: 1,
+                    lhs: 1,
+                    rhs: 2,
+                    next,
+                },
+                1 => Op::Sub {
+                    dst: 1,
+                    lhs: 1,
+                    rhs: 2,
+                    next,
+                },
+                2 => Op::Read {
+                    dst: 0,
+                    address: 0,
+                    next,
+                },
+                3 => Op::Write {
+                    address: 0,
+                    value: 1,
+                    next,
+                },
+                4 => Op::Branch {
+                    test: 2,
+                    nonzero: next,
+                    zero: index - 1,
+                },
+                _ => Op::GraphReadTag {
+                    dst: 0,
+                    graph: 3,
+                    node: 2,
+                    next,
+                },
             };
             nodes.push(op);
         }
         nodes.push(Op::Halt);
-        world.load(Process::new(id, nodes, 40)).expect("fixed scaffold fits strict storage");
+        world
+            .load(Process::new(id, nodes, 40))
+            .expect("fixed scaffold fits strict storage");
     }
     world
 }
@@ -68,7 +143,9 @@ fn prefork_world(seed: u64) -> World {
     let mut world = seeded_world(seed);
     assert_eq!(world.run(PRE_ATTEMPTS), PRE_ATTEMPTS);
     for id in 1..=3 {
-        let graph = world.graph_object(id).expect("scaffold must allocate graph");
+        let graph = world
+            .graph_object(id)
+            .expect("scaffold must allocate graph");
         assert_eq!(graph.owner, id);
         assert_eq!(graph.nodes.len(), 1);
         assert!(graph.readers.contains(&((id + 1) % 3 + 1)));
