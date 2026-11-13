@@ -225,8 +225,7 @@ fn run(path: &str, revision: &str) -> Result<(), Box<dyn Error>> {
                 return Err(format!("missing internal output event: {}", recorded.label).into());
             }
         }
-        if recorded.label == "zero-credit"
-            && recorded.attempts_by_epoch.iter().sum::<usize>() != 0
+        if recorded.label == "zero-credit" && recorded.attempts_by_epoch.iter().sum::<usize>() != 0
         {
             return Err("zero-credit control executed CIL".into());
         }
@@ -267,10 +266,8 @@ mod tests {
 
     #[test]
     fn complete_mechanism_fixture_replays() {
-        let path = std::env::temp_dir().join(format!(
-            "cioc-study20-test-{}.sqlite",
-            std::process::id()
-        ));
+        let path =
+            std::env::temp_dir().join(format!("cioc-study20-test-{}.sqlite", std::process::id()));
         let _ = std::fs::remove_file(&path);
         run(path.to_str().unwrap(), "study20-test").unwrap();
         let _ = std::fs::remove_file(path);
