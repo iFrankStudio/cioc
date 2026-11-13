@@ -18,11 +18,12 @@ fn seed_world(seed: u64) -> World {
     ];
     for i in 2..11 {
         let next = i + 1;
-        let op = match next_random(&mut state) % 5 {
+        let op = match next_random(&mut state) % 6 {
             0 => Op::Add { dst: 1, lhs: 1, rhs: 0, next },
             1 => Op::Sub { dst: 1, lhs: 1, rhs: 0, next },
             2 => Op::Write { address: 0, value: 1, next },
             3 => Op::Read { dst: 2, address: 0, next },
+            4 => Op::DrawCompute { amount: 0, next },
             _ => Op::Branch { test: 1, nonzero: next, zero: i - 1 },
         };
         nodes.push(op);
@@ -56,6 +57,10 @@ fn main() -> Result<(), Box<dyn Error>> {
             ScheduledCondition { label: format!("seed={trial_seed}/disable-after-8"), actions: vec![
                 ScheduledAction { after_attempts: 8,
                     action: Intervention::Disable { process: 1 } }
+            ] },
+            ScheduledCondition { label: format!("seed={trial_seed}/environment-compute"), actions: vec![
+                ScheduledAction { after_attempts: 0,
+                    action: Intervention::SetComputePool { credits: 64 } }
             ] },
         ];
         for run in lab.run_scheduled(&world, &cases, 48, &revision)? {
