@@ -12,7 +12,7 @@ A bounded world now supports:
 
 A guessed object ID alone grants no access. The reader cannot write, allocate nodes in, launch, or destroy that graph. Owner-only operations retain the previous authorization rule. All read-grant operations cost one VM instruction credit, and traps consume the attempted credit.
 
-Read rights are stored as a sorted process-ID set in the graph object and serialized with the world snapshot. The grant-list metadata is **not yet charged to the shared storage pool**, an explicitly unresolved accounting limitation. Revocation takes effect immediately at its deterministic scheduling point, but a value previously read into registers or ordinary public data cannot be retroactively erased. Grants are process-ID specific, not bearer tokens. There is no delegation or owner transfer. Current introspection exposes opcode tag and a single `next` edge only; full operand introspection remains future work.
+Read rights are stored as a sorted process-ID set in the graph object and serialized with the world snapshot. The grant-list metadata is billed at **one abstract storage unit per authorized reader** in `World::with_strict_capacity`. Earlier `World::with_total_capacity` retains the historical unpriced-grant semantics for saved experimental compatibility. Revocation takes effect immediately at its deterministic scheduling point, but a value previously read into registers or ordinary public data cannot be retroactively erased. Grants are process-ID specific, not bearer tokens. There is no delegation or owner transfer. Introspection now additionally includes all fields of the five-cell instruction descriptor via `GraphReadField`. The owner can replace an entire node using `GraphReplace`.
 
 ## Scheduled intervention experiments
 A new `cl0-lab::run_scheduled` API accepts multiple `ScheduledCondition` branches from one byte-identical initial `World` snapshot. Each branch contains a nondecreasing list of `ScheduledAction { after_attempts, action }` entries.
@@ -31,9 +31,9 @@ The new SQLite `scheduled_runs` table is separate from the historical `runs` tab
 
 ## Limitations and follow-ups
 1. A scheduled action offsets by executed **attempts**. It is not condition-triggered and does not implement simultaneous physical time or external nondeterministic event ordering.
-2. No standalone snapshot fork persisted at each intervention offset; the runner reconstructs intermediate states deterministically from the baseline. Explicit checkpoint sharing/caching remains a separate engineering capability.
-3. Read grant lists are not priced as world storage; neither are process headers, registers and runtime heap structures.
+2. Reached pre-intervention snapshots are now persisted in `scheduled_checkpoints` with SHA-256, and can be loaded as independent fork initial states. These hashes provide consistency checks, not hostile-database authentication.
+3. Strict capacity prices process headers, code/data, graph headers and read-grant entries in abstract units. Exact register byte costs, heap allocations and observer-side logs remain outside the simulated world budget.
 4. Read permissions exist only for graph objects. Shared integer data cells are still public.
-5. No full graph byte-level ABI export; `GraphReadTag` provides opcode type and `GraphReadNext` provides one edge.
+5. No full graph byte-level ABI export; `GraphReadTag` and `GraphReadField` expose the complete five-cell abstract opcode descriptor, while `GraphReadNext` exposes one edge.
 6. Database SHA-256 detects inconsistent records but cannot protect against an adversary rewriting the entire SQLite database.
 7. `cargo fmt --all` in CI formats the ephemeral checkout and still does not enforce checked-in formatting; dependency lockfile and cross-version replay schema require completion.

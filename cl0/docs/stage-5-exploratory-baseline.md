@@ -4,29 +4,33 @@
 A reproducible **negative-capable baseline**, not an artificial organism or programmed evolutionary fitness competition. This experiment challenges the world's generic deterministic VM with researcher-generated arbitrary CIL and compares matched causal interventions. An apparently busy, persistent, or diverse trace has no life classification.
 
 ## Conditions (frozen before running)
-The experimenter uses a documented 64-bit LCG to generate a 12-node CIL graph for each independent seed, with a fixed `Const` prefix, random choice among `Add`, `Sub`, `Write`, `Read`, `Branch` and a terminating `Halt`. No hidden survival/repair/reproduction controller is embedded. The graph itself and the initial credits are explicitly researcher supplied; random code diversity is therefore **not** evidence of internally generated novelty.
+The experimenter uses a documented 64-bit LCG to generate a 12-node CIL graph for each independent seed, with a fixed `Const` prefix, random choice among `Add`, `Sub`, `Write`, `Read`, `DrawCompute`, `Branch` and a terminating `Halt`. No hidden survival/repair/reproduction controller is embedded. The graph itself and the initial credits are explicitly researcher supplied; random code diversity is therefore **not** evidence of internally generated novelty.
+
+Each world uses `World::with_strict_capacity(24, 32, 64)`, which prices program nodes, shared data, graph headers, process headers and read grant metadata in abstract storage units. Initial process credits are finite; compute credits can be drawn from an explicitly externally supplied world pool through generic CIL operations.
 
 Every seed forks one byte-identical initial world into:
 1. `control`: no intervention, 48 attempts maximum.
 2. `zero-credit`: externally set process credits to zero before execution.
 3. `disable-after-8`: externally disable the process after eight successful attempts, if the world reached that point.
+4. `environment-compute`: externally supply 64 credits to the world compute pool at offset zero. The program may draw them **only if its code actually executes a draw instruction**. This is externally sourced energy, not spontaneous renewal.
 
 The same seed and revision produce the same instructions and event traces. Changes in shared cells, computed opcode diversity or instruction count are descriptive engineering outcomes. Contrasts are observational unless the exact matched intervention and causal estimand are specified.
 
 ## Execute and independently analyze
 ```bash
 cd cl0
-CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run -p cl0-lab --bin cl0-explore -- experiment.sqlite 24 54129
+CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl0-explore -- experiment.sqlite 24 54129
 python3 analysis/analyze.py experiment.sqlite --json report.json --csv report.csv
-cd console && npm install && npm run dev
+cd console && npm ci && npm run dev
 ```
 Open the generated `report.json` in the browser-only observer.
 
 ## Reproducibility tests
 - Identical seeds generate structurally identical initial worlds and traces.
 - Adjacent seeds generate distinct input programs (researcher variation only).
-- Every stored run must pass exact SQLite replay verification.
+- Every stored run must pass exact SQLite replay verification, including persisted pre-intervention fork snapshots.
 - Zero-credit controls generate no internal CIL instruction attempts.
+- 24 seeds × 4 conditions = 96 reproducible records. A resource-supply treatment is explicitly `Origin::External`; activity differences cannot be counted as spontaneous energy acquisition.
 - No run should exceed the specified storage or compute budgets.
 - A timed action scheduled beyond inert termination is explicitly unperformed.
 

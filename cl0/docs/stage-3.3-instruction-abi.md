@@ -7,7 +7,7 @@
 
 All five cells are mandatory. Input shape is `[opcode_tag, operand0, operand1, operand2, operand3]`. Unused operands have no effect for that tag. Index and register operands must be representable as nonnegative `usize` values; the `Const.value` literal is signed `i64`. The appended node is an `Op`, not a sequence of external Rust source code. Generated control flow is **not** automatically relinked or optimized.
 
-## Frozen Stage-3.3 opcode tag table (version 1)
+## CIL instruction ABI — base tags 0–19 with additive extensions 20–27
 
 | tag | opcode | operand0, operand1, operand2, operand3 |
 | ---: | --- | --- |
@@ -31,8 +31,16 @@ All five cells are mandatory. Input shape is `[opcode_tag, operand0, operand1, o
 | 17 | GraphLaunch | graph, credits, dst, next |
 | 18 | GraphEncode | graph, address, dst, next |
 | 19 | Halt | unused, unused, unused, unused |
+| 20 | GraphGrantRead | graph, reader, next, unused |
+| 21 | GraphRevokeRead | graph, reader, next, unused |
+| 22 | GraphReadTag | dst, graph, node, next |
+| 23 | DrawCompute | amount, next, unused, unused |
+| 24 | ReturnCompute | amount, next, unused, unused |
+| 25 | TransferCompute | recipient, amount, next, unused |
+| 26 | GraphReadField | graph, node, field, next |
+| 27 | GraphReplace | graph, node, address, next |
 
-A new tag requires an explicit *world ABI revision*. The opcode vocabulary is fixed at this stage; combinatorial reconstruction within this vocabulary should never be marketed as open-ended invention of new primitives. An assembled program can contain control-flow edges that do not yet point to valid nodes. If executed, invalid edges trap according to ordinary VM semantics.
+Existing numeric tags are never renumbered; new tags are explicitly additive and require updating this table and the conformance tests. `GraphReadField` reads descriptor field 0–4 from an owned or authorized graph node into the register that previously held the field selector. `GraphReplace` overwrites an owned node from a validated five-cell descriptor without allocating another node. `DrawCompute`, `ReturnCompute` and `TransferCompute` transfer existing computation credits; the world pool can be replenished only through an explicitly recorded external intervention. A new tag requires an explicit *world ABI revision*. The opcode vocabulary is fixed at this stage; combinatorial reconstruction within this vocabulary should never be marketed as open-ended invention of new primitives. An assembled program can contain control-flow edges that do not yet point to valid nodes. If executed, invalid edges trap according to ordinary VM semantics.
 
 ## Accounting and atomicity
 `GraphEncode` costs one process compute credit per attempt. Five descriptor cells already occupy five data storage units. A successful append consumes one additional graph-node unit. No allocation happens on insufficient data, unknown tag, bad numeric operand, missing object, wrong owner, or exhausted node/total capacity. No externally specified instruction repair/survival oracle or exception is introduced. Failed attempts stop the process as deterministic traps.
@@ -47,4 +55,4 @@ A new tag requires an explicit *world ABI revision*. The opcode vocabulary is fi
 - SQLite records both conditions and exactly replays complete world state and event order, including experimenter-injected descriptor data.
 
 ## Outstanding risks
-There is no arbitrary bytecode runtime, version-independent ABI upgrader, graph-to-data *introspection* for all node fields, grant/revocation permission framework, full process memory pricing, or file/SQL input hardening against maliciously constructed huge snapshots. Five-cell interpretation is an abstract fixed tariff; it is not calibrated physical energy use. External initialization of descriptors remains an investigator intervention and is not evidence of spontaneous invention.
+There is no arbitrary host-code execution, version-independent ABI upgrader, delegatable or transferable graph ownership, calibrated byte-level memory pricing, or complete untrusted SQLite deserialization hardening. A strict allocation mode prices process headers and read-permission entries as abstract units. Five-cell interpretation is an abstract fixed tariff; it is not calibrated physical energy use. External initialization of descriptors remains an investigator intervention and is not evidence of spontaneous invention.

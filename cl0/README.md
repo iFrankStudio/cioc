@@ -1,35 +1,52 @@
 # CL-0 — Native Cyberlife Experimental World
 
-CL-0 is a new research platform, **not** a continuation of CIOC's pre-programmed maintenance roles. The historical experiments remain unchanged in `experiments/`.
+**Status: CL-0 platform candidate, acceptance in [CL-0 validation record](docs/CL-0-acceptance.md).** This is a deterministic experimental world for investigating *possible* cyberlife, **not** a claim that cyberlife or open-ended evolution has emerged. The historical CIOC V0.1–V0.16 fixtures remain untouched.
 
-**Evidence status:** the first milestone is infrastructure. Executing a graph or persisting a trace is not evidence of life, self-maintenance, self-organization or open-ended evolution.
+## Included research infrastructure
 
-## Scope and status
+| Milestone | Implemented scope |
+| --- | --- |
+| 0. Rules | Explicit epistemic contract, synthetic-control caveats and failure audit |
+| 1. World | Rust deterministic round-robin VM, finite CIL registers, trace with external/internal origin |
+| 2. Causality | SQLite persisted matched conditions, scheduled mid-run intervention, exact replay, persisted pre-action snapshots |
+| 3. Information ecology | General program graphs, five-cell instruction descriptors, owner read access + revocation, bounded graph/data storage, strict allocation for process headers and grants, transferable compute pool |
+| 4. Observation | Python standard-library read-only SQLite analysis and Vue 3 + TypeScript local-file observer |
+| 5. Baseline | 24 seed-controlled initial programs, four matched conditions each, negative controls, recorded independent results and replay |
 
-- Stage 0: specification, limitations and preregistered tests.
-- Stage 1: Rust deterministic minimal kernel, finite execution/storage, CIL graph interpreter, event trace and matched negative controls.
-- Stage 2: **implemented foundation**: SQLite matched-run registry, labeled external interventions, serializable world snapshots and exact same-version replay. Mid-run interventions and long-term compatibility remain deferred.
-- Stage 3: **partial**: bounded executable graph objects, owner-controlled read grants and revocation, move-based launch with credit transfer, and five-cell descriptors generating existing CIL opcodes. Byte-accurate memory accounting and full instruction introspection remain incomplete.
-- Stage 4: Python analysis and Vue 3 / TypeScript observational console.
+Generic CPU and graph operations do **not** encode `REPAIR`, `REPRODUCE`, `FITNESS`, or a host life/death verdict. An executable process, random opcode diversity, or a positive causal contrast is not evidence of life.
 
-The Stage-3.4 lab additionally supports deterministic **mid-run intervention schedules** and SQLite exact replay; see [Stage-3.4 specification](docs/stage-3.4-scheduled-permissions.md).
-- Stage 5: exploratory populations and open-endedness measurements.
+## Reproduce locally
 
-See [technical specification](docs/specification.md), [stage plan](docs/stage-1-plan.md), [CIOC evidence audit](docs/cioc-transition.md), [Stage-3.1 allocation](docs/stage-3-graph-storage.md), [Stage-3.2 graph objects](docs/stage-3-objects.md), and [Stage-3.3 data-to-instruction ABI](docs/stage-3.3-instruction-abi.md).
-
-The experimental world does not label programs as organisms. An observer may later classify organization candidates from externally computed evidence. Initial programs are interventions supplied by the experimenter, not instances of discovered life.
-
-## Local commands
-
-Once a Rust toolchain is available:
+Requires Rust stable, Python 3.10+, Node.js 22+ and npm. Cargo and npm **lockfiles are committed**.
 
 ```bash
 cd cl0
-cargo fmt --all
-cargo test --workspace
-cargo clippy --workspace --all-targets -- -D warnings
-cargo run -p cl0-world
-CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run -p cl0-lab -- experiment.sqlite
+cargo fmt --all -- --check
+cargo test --locked --workspace
+cargo clippy --locked --workspace --all-targets -- -D warnings
+python3 -m unittest discover -s analysis/tests -v
+
+# The 24-seed baseline registers and replay-checks 96 matched runs.
+CL0_SOURCE_REVISION="$(git rev-parse HEAD)" cargo run --locked -p cl0-lab --bin cl0-explore -- experiment.sqlite 24 54129
+python3 analysis/analyze.py experiment.sqlite --json report.json --csv report.csv
+
+cd console
+npm ci
+npm run dev
 ```
 
-No claims of test success should be made without actual execution. GitHub CI is a separate verification channel.
+Import the generated `report.json` through the web observer's file selector. The viewer has no direct execution, host file or mutation privileges over the world. For historical miniature fixtures use `cargo run --locked -p cl0-world` or `cargo run --locked -p cl0-lab -- experiment.sqlite`.
+
+## Documents
+
+- [CL-0 acceptance and scientific boundary](docs/CL-0-acceptance.md)
+- [Formal architectural baseline](docs/specification.md)
+- [CIOC historical evidence audit](docs/cioc-transition.md)
+- [Code/data allocation](docs/stage-3-graph-storage.md)
+- [Executable graph objects](docs/stage-3-objects.md)
+- [CIL instruction ABI](docs/stage-3.3-instruction-abi.md)
+- [Causal scheduling and read permissions](docs/stage-3.4-scheduled-permissions.md)
+- [Exploratory preregistered baseline](docs/stage-5-exploratory-baseline.md)
+- [Analysis](analysis/README.md) / [Observer](console/README.md)
+
+The unified storage ledger uses **abstract units**, not physically calibrated bytes or wall-clock energy. Any subsequent CL-1 research requires independently preregistered hypotheses and replicates; it must not retrospectively call these CL-0 synthetic fixtures organisms.
