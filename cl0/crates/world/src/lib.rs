@@ -990,6 +990,37 @@ mod tests {
     }
 
     #[test]
+    fn internal_cil_writes_descriptor_and_constructs_opcode() {
+        let mut w = World::with_total_capacity(5, 24, 30);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 100, next: 2 },
+            Op::Const { dst: 2, value: 19, next: 3 },
+            Op::Write { address: 1, value: 2, next: 4 },
+            Op::Const { dst: 2, value: 0, next: 5 },
+            Op::Const { dst: 1, value: 101, next: 6 },
+            Op::Write { address: 1, value: 2, next: 7 },
+            Op::Const { dst: 1, value: 102, next: 8 },
+            Op::Write { address: 1, value: 2, next: 9 },
+            Op::Const { dst: 1, value: 103, next: 10 },
+            Op::Write { address: 1, value: 2, next: 11 },
+            Op::Const { dst: 1, value: 104, next: 12 },
+            Op::Write { address: 1, value: 2, next: 13 },
+            Op::Const { dst: 1, value: 100, next: 14 },
+            Op::GraphEncode { graph: 0, address: 1, dst: 3, next: 15 },
+            Op::Halt,
+        ], 20)).unwrap();
+        assert_eq!(w.used_cells(), 0);
+        assert_eq!(w.run(16), 16);
+        assert_eq!(w.graph_object(1).unwrap().nodes, vec![Op::Halt]);
+        assert_eq!(w.used_cells(), 5);
+        assert_eq!(w.occupied_units(), 23);
+        assert_eq!(w.remaining_credits(), 4);
+        assert!(w.events().iter().all(|e| e.origin != Origin::External
+            || matches!(e.kind, EventKind::Loaded)));
+    }
+
+    #[test]
     fn decoding_supports_branches_and_self_reference_without_templates() {
         assert_eq!(Op::decode_instruction([5, 0, 2, 3, 0]).unwrap(),
             Op::Branch { test: 0, nonzero: 2, zero: 3 });
