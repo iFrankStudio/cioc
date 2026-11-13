@@ -2457,6 +2457,16 @@ mod tests {
         assert_eq!(world.process(2).unwrap().credits, 8);
         assert_eq!(world.process(1).unwrap().credits, 4);
         assert_eq!(world.remaining_credits(), 12);
+        assert!(world.events().iter().any(|e| matches!(
+            e.kind,
+            EventKind::GraphLaunched {
+                source_graph: 1,
+                parent_process: 1,
+                child_process: 2,
+                transferred_credits: 8,
+                moved_nodes: 4
+            }
+        )));
     }
 
     #[test]
