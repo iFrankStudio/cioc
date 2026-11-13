@@ -205,6 +205,7 @@ def audit_events(events: list[dict]) -> dict:
             }
     return {
         "status": "OBSERVER_CALIBRATION_ONLY",
+        "missing_causal_value_dependency": "NOT EVALUABLE: event provenance alone has no register/dataflow taint",
         "functional_causality": "NOT EVALUABLE",
         "autonomous_maintenance": "NOT EVALUABLE",
         "counts": dict(sorted(counts.items())),
@@ -218,6 +219,7 @@ def audit_database(path: Path) -> dict:
     db = sqlite3.connect(f"{path.resolve().as_uri()}?mode=ro", uri=True)
     try:
         revisions: set[str] = set()
+        versions: set[int] = set()
         totals: Counter = Counter()
         witnesses: list[dict] = []
         rejections: list[dict] = []
@@ -232,12 +234,16 @@ def audit_database(path: Path) -> dict:
                 raise ValueError(f"missing source revision at run {run_id}")
             revisions.add(revision)
             initial, final = json.loads(initial_json), json.loads(final_json)
+            versions.add(int(final["format_version"]))
+            if final["format_version"] != initial["format_version"]:
+                raise ValueError(f"world schema version changed within run {run_id}")
             if len(final["events"]) < len(initial["events"]):
                 raise ValueError(f"event history truncated at run {run_id}")
             if final["events"][: len(initial["events"])] != initial["events"]:
                 raise ValueError(f"initial event prefix mutated at run {run_id}")
             result = audit_events(final["events"])
             totals.update(result["counts"])
+            totals["trapped_internal_instructions"] += len(result["trapped_event_ids"])
             witnesses.extend({"run_id": run_id, **v} for v in result["witnesses"])
             rejections.extend({"run_id": run_id, **v} for v in result["rejections"])
             runs += 1
@@ -245,6 +251,7 @@ def audit_database(path: Path) -> dict:
             "study": "CL-1 Study 18",
             "source_revision": sorted(revisions),
             "schema": "epoch_runs / versioned World event log",
+            "world_format_versions": sorted(versions),
             "runs": runs,
             "counts": dict(sorted(totals.items())),
             "witnesses": witnesses,
