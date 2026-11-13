@@ -22,3 +22,9 @@ The experimenter cannot install a maintenance criterion into CIL or select offsp
 
 ## Scientific stopping decision
 If fresh studies remain null, close each *study* with an honest negative finding. Keep CL-1's **positive milestone open** rather than proclaiming cyberlife on the basis of complexity, longer execution or cloned code. A negative bound on one random program grammar is not a proof of impossibility.
+
+## Study-06 finding and design correction (2026-11-13)
+
+The first successful ablation of a genuinely internally constructed graph object produced **2/128** creator-process state differences but **0/128** cross-owner effects and **0/128** new nonempty candidate graphs after disruption. Only **16/128** seed-worlds had an eligible internal graph at all. This is not evidence of closure. [Registered Study 06](../studies/06-preregistered-internal-graph-ablation.md) and [immutable result report](../RESULTS.md#study-06--internally-constructed-graph-object-ablation-verified-2026-11-13) describe the experiment.
+
+**Next required advance:** increase opportunities for *generic*, nonhost-directed code/data/object interactions; capture graph owner/reader history and object construction ancestry; then preregister a causal test of **function maintained by multiple internally generated components** with reciprocal targeted ablations, sham controls and two separated post-damage observation windows. No additional internal `REPAIR`, `FITNESS` or reproduction oracle should be created. A longer trace is not an organism.

@@ -2,7 +2,7 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-The first four **preregistered** studies have completed their fixed experiments. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+The first six **preregistered** studies have completed their fixed experiments, including two subsequent independent-environment and internal-graph-ablation tests. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
@@ -97,4 +97,30 @@ In **4/64** matched seed-worlds, the final process/data state differed between i
 This strengthens environmental intervention methodology, not evidence of life. Resource supply remains **explicitly external**. No autonomous functional maintenance or organizational closure was established.
 
 
-**Cumulative technical record (not one pooled statistical sample):** 512 independently initialized seed-worlds across the five different protocols, 2,624 matched runs, and 8,768 exact replay-verified states if counting the original 2,368 final replays plus Study-05's 256 final replays and 6,144 epoch snapshots. Distinct generator distributions must never be merged to estimate a life probability. **The CL-1 positive goal remains unaccepted.**
+**Cumulative technical record (not one pooled statistical sample):** After adding Study 06, there are **640 different initial seed-worlds, 3,264 matched runs, 3,264 full exact replays and 18,944 post-epoch snapshots** from Studies 05 and 06. The 18,944 snapshot hashes are separately checked and their states reconstructed in exact Rust replays. Different generator distributions cannot be merged to estimate a life probability. **The CL-1 positive goal remains unaccepted.**
+
+---
+
+## Study 06 — internally constructed graph-object ablation (verified 2026-11-13)
+
+The [protocol](studies/06-preregistered-internal-graph-ablation.md) was frozen in [preregistration commit `c513fc4`](https://github.com/iFrankStudio/cioc/commit/c513fc460f147059cd02dc29ceb3e846bc5865c8) before implementation. The causal ablation used new seeds **1160000–1160127** and a fixed pretreatment period. Selection was predeclared as the **smallest nonempty internally constructed graph object** existing at the identical prefork state, not a favorable object chosen after observing treatment outcomes.
+
+At the verified implementation revision `a7ab6753ea004d6bd63be7db517af2d89c982377`, all **640/640 matched runs** and **12,800/12,800 epoch snapshots** passed exact replay and hash checks, with six CI jobs and the original CL-0 regression successful. [Workflow](https://github.com/iFrankStudio/cioc/actions/runs/43414360089) · [SQLite and JSON artifact](https://github.com/iFrankStudio/cioc/actions/runs/43414360089/artifacts/14030733004).
+
+| Prespecified endpoint | Observed initial-world count |
+| --- | ---: |
+| Nonempty internally created object available at prefork | **16/128** |
+| Corresponding external object deletion performed | **16/128** |
+| Subsequent process-state difference excluding removed object | **2/128** |
+| Difference propagated to nonowner processes | **0/128** |
+| Post-lesion nonempty graph creation by the same owner | **0/128** |
+| Sham intervention incorrectly changed simulated state | **0/128** |
+| No eligible object (retained in denominator) | **112/128** |
+
+95% Wilson intervals on the **128 independent seed-worlds**, not 640 paired conditions: eligible object 16/128 **[0.078426, 0.193426]**; indirect process effects 2/128 **[0.004295, 0.055181]**; nonowner effects 0/128 **[0, 0.029137]**.
+
+**Interpretation:** The experiment demonstrates that at least some objects created by internal CIL instructions can become causally relevant to their creator's subsequent process state. This is stronger than simply observing new graph allocations but does **not** demonstrate reciprocal distributed maintenance. No cross-owner effect, nonempty reconstruction of a replacement graph, stable functional dependency or autonomous recovery was observed in this frozen distribution. The explicit host ablation is attributed `Origin::External` and is never counted as internal maintenance.
+
+### Next scientific bottleneck
+
+The first six studies are highly skewed toward short-lived, investigator-seeded 16-node programs. Only 16 of 128 prefork worlds in Study 06 had eligible nonempty graph objects. Repeating this exact generator with more seeds would mostly increase statistical precision on a narrow null, **not** solve the missing mechanism of organized interaction. A genuinely new study should preregister richer **generic** object/data interoperability and longer externally supported computation *without specifying preferred repair roles or fitting seed selection to the positive result*. It must independently test internal provenance, multi-component functional dependence and multi-epoch restoration, with a matched unmodified world, sham and externally repaired controls. Positive CL-1 stage acceptance remains **open**.
