@@ -518,6 +518,11 @@ jobs:
           python3 -m unittest discover -s ../cl1/tests -v
           python3 ../cl1/analyze_study14.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study14-report.json"
           cat "$RUNNER_TEMP/cl1-study14-report.json"
+      - name: Study 18 retrospective lineage audit (NOT a new ecological study)
+        run: |
+          test -f ../cl1/studies/18-preregistered-functional-lineage-audit.md
+          python3 ../cl1/analyze_study18.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study18-calibration.json"
+          cat "$RUNNER_TEMP/cl1-study18-calibration.json"
       - name: Archive raw Study 14 records and read-only report
         uses: actions/upload-artifact@v4
         with:
@@ -526,3 +531,4 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study14.sqlite
             ${{ runner.temp }}/cl1-study14-report.json
+            ${{ runner.temp }}/cl1-study18-calibration.json
