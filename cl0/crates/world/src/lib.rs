@@ -1311,7 +1311,9 @@ impl World {
                     | Op::ReturnCompute { next, .. }
                     | Op::TransferCompute { next, .. }
                     | Op::GraphReadField { next, .. }
-                    | Op::GraphReplace { next, .. } => *next,
+                    | Op::GraphReplace { next, .. }
+                    | Op::GraphCopyFrom { next, .. }
+                    | Op::GraphTransfer { next, .. } => *next,
                     Op::Branch { .. } | Op::Halt => {
                         return Err("node has no single next edge".into())
                     }
