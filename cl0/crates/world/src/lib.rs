@@ -741,6 +741,9 @@ pub enum EventKind {
     Trapped(String),
     Intervened(String),
     InterventionRejected(String),
+    GraphCopied { source_graph: u64, source_owner: ProcessId, source_node: usize,
+        target_graph: u64, target_owner: ProcessId, new_node: usize },
+    GraphTransferred { graph: u64, former_owner: ProcessId, new_owner: ProcessId },
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -786,6 +789,9 @@ pub struct World {
     cursor: Option<ProcessId>,
     tick: u64,
     events: Vec<Event>,
+    /// Transient provenance for the current successful instruction only.
+    #[serde(skip)]
+    pending_transition: Option<EventKind>,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -842,6 +848,7 @@ impl World {
             cursor: None,
             tick: 0,
             events: Vec::new(),
+            pending_transition: None,
         }
     }
 
@@ -1099,6 +1106,7 @@ impl World {
             return false;
         };
         self.cursor = Some(id);
+        self.pending_transition = None;
         let (pc, op) = {
             let p = self
                 .processes
@@ -1111,6 +1119,7 @@ impl World {
             Some(op) => self.execute(id, op),
             None => Err("invalid program counter".to_string()),
         };
+        let pending = self.pending_transition.take();
         let p = self
             .processes
             .get_mut(&id)
@@ -1120,7 +1129,7 @@ impl World {
                 p.stopped = true;
                 EventKind::Halted
             }
-            Ok(false) => EventKind::Executed,
+            Ok(false) => pending.unwrap_or(EventKind::Executed),
             Err(message) => {
                 p.stopped = true;
                 EventKind::Trapped(message)
@@ -1899,6 +1908,7 @@ impl World {
                 if from.owner != id && !from.readers.contains(&id) {
                     return Err("source graph access denied".into());
                 }
+                let source_owner = from.owner;
                 let copied = from.nodes.get(index).ok_or("invalid source node")?.clone();
                 let to = self
                     .graph_objects
@@ -1910,7 +1920,9 @@ impl World {
                 if to.nodes.len() >= self.max_nodes_per_process || !self.can_allocate(1) {
                     return Err("code storage capacity exhausted".into());
                 }
-                let new_index = i64::try_from(to.nodes.len()).map_err(|_| "node index overflow")?;
+                let new_node = to.nodes.len();
+                let new_index = i64::try_from(new_node).map_err(|_| "node index overflow")?;
+                let target_owner = to.owner;
                 self.graph_objects
                     .get_mut(&target_id)
                     .expect("target validated")
@@ -1919,6 +1931,10 @@ impl World {
                 let process = self.processes.get_mut(&id).expect("actor exists");
                 process.registers[node] = new_index;
                 process.pc = next;
+                self.pending_transition = Some(EventKind::GraphCopied {
+                    source_graph: source_id, source_owner, source_node: index,
+                    target_graph: target_id, target_owner, new_node,
+                });
             }
             Op::GraphTransfer {
                 graph,
@@ -1944,6 +1960,9 @@ impl World {
                     .expect("checked graph")
                     .owner = recipient_id;
                 self.processes.get_mut(&id).expect("actor exists").pc = next;
+                self.pending_transition = Some(EventKind::GraphTransferred {
+                    graph: object_id, former_owner: id, new_owner: recipient_id,
+                });
             }
             _ => unreachable!("only graph operations are dispatched here"),
         }
@@ -3231,6 +3250,15 @@ mod tests {
         );
         assert_eq!(w.process(2).unwrap().registers[2], 0);
         assert_eq!(w.occupied_units(), 20);
+        assert!(w.events().iter().any(|e| matches!(
+            &e.kind,
+            EventKind::GraphCopied { source_graph: 1, source_owner: 1,
+                source_node: 0, target_graph: 2, target_owner: 2, new_node: 0 }
+        )));
+        assert!(w.events().iter().any(|e| matches!(
+            &e.kind,
+            EventKind::GraphTransferred { graph: 2, former_owner: 2, new_owner: 1 }
+        )));
     }
 
     #[test]
@@ -3324,6 +3352,7 @@ mod tests {
         .unwrap();
         assert_eq!(w.run(4), 4);
         assert!(w.graph_object(2).unwrap().nodes.is_empty());
+        assert!(!w.events().iter().any(|e| matches!(e.kind, EventKind::GraphCopied { .. })));
         assert!(matches!(
             &w.events().last().unwrap().kind,
             EventKind::Trapped(_)
