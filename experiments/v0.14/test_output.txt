@@ -1,0 +1,13 @@
+test_capacity (test_cioc.EcologyTests.test_capacity) ... ok
+test_deterministic (test_cioc.EcologyTests.test_deterministic) ... ok
+test_extinction_without_resource (test_cioc.EcologyTests.test_extinction_without_resource) ... ok
+test_instructions_cost_energy (test_cioc.EcologyTests.test_instructions_cost_energy) ... ok
+test_mutations_are_in_instruction_alphabet (test_cioc.EcologyTests.test_mutations_are_in_instruction_alphabet) ... ok
+test_no_exogenous_reseeding (test_cioc.EcologyTests.test_no_exogenous_reseeding) ... ok
+test_replication_without_host_repair (test_cioc.EcologyTests.test_replication_without_host_repair) ... ok
+test_scenarios (test_cioc.EcologyTests.test_scenarios) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.020s
+
+OK
