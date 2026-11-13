@@ -350,7 +350,11 @@ fn main() -> Result<(), Box<dyn Error>> {
                     })
                     .count();
                 if observed != expected_n {
-                    return Err(format!("missing source-content intervention {op} in {}", run.label).into());
+                    return Err(format!(
+                        "missing source-content intervention {op} in {}",
+                        run.label
+                    )
+                    .into());
                 }
             }
             replayed += 1;
