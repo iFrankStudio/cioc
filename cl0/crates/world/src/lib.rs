@@ -754,6 +754,26 @@ pub enum EventKind {
         former_owner: ProcessId,
         new_owner: ProcessId,
     },
+    /// Observer-only successful graph allocation.
+    GraphCreated {
+        graph: u64,
+        owner: ProcessId,
+    },
+    /// Successful node copy from an existing process's executable code.
+    GraphNodeCopied {
+        graph: u64,
+        owner: ProcessId,
+        source_process: ProcessId,
+        source_node: usize,
+        new_node: usize,
+    },
+    /// Successful generic graph node edit; does not imply effective novelty.
+    GraphNodeEdited {
+        graph: u64,
+        owner: ProcessId,
+        node: usize,
+        edit: String,
+    },
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -1524,6 +1544,10 @@ impl World {
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = encoded;
                 p.pc = next;
+                self.pending_transition = Some(EventKind::GraphCreated {
+                    graph: object_id,
+                    owner: id,
+                });
             }
             Op::GraphCopyNode {
                 graph,
@@ -1563,6 +1587,13 @@ impl World {
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = encoded;
                 p.pc = next;
+                self.pending_transition = Some(EventKind::GraphNodeCopied {
+                    graph: object_id,
+                    owner: id,
+                    source_process: id,
+                    source_node: index,
+                    new_node: new_index,
+                });
             }
             Op::GraphSetNext {
                 graph,
@@ -1597,6 +1628,12 @@ impl World {
                     .next_mut()
                     .expect("checked edge") = target_index;
                 self.processes.get_mut(&id).expect("owner exists").pc = next;
+                self.pending_transition = Some(EventKind::GraphNodeEdited {
+                    graph: object_id,
+                    owner: id,
+                    node: index,
+                    edit: "next".to_owned(),
+                });
             }
             Op::GraphSetConst {
                 graph,
@@ -1627,6 +1664,12 @@ impl World {
                     *value = new_value;
                 }
                 self.processes.get_mut(&id).expect("owner exists").pc = next;
+                self.pending_transition = Some(EventKind::GraphNodeEdited {
+                    graph: object_id,
+                    owner: id,
+                    node: index,
+                    edit: "const".to_owned(),
+                });
             }
             Op::GraphReadNext {
                 dst,
@@ -3408,6 +3451,39 @@ mod tests {
                 op
             );
         }
+    }
+
+    #[test]
+    fn structured_internal_graph_lineage_is_charged_and_exact() {
+        let mut w = World::with_strict_capacity(0, 16, 28);
+        w.load(Process::new(1, vec![
+            Op::GraphNew { dst: 0, next: 1 },
+            Op::GraphCopyNode { graph: 0, source: 2, dst: 1, next: 2 },
+            Op::Const { dst: 2, value: 0, next: 3 },
+            Op::GraphSetConst { graph: 0, node: 2, value: 2, next: 4 },
+            Op::GraphSetNext { graph: 0, node: 2, target: 2, next: 5 },
+            Op::Halt,
+        ], 8)).unwrap();
+        assert_eq!(w.run(5), 5);
+        assert!(matches!(&w.events()[1].kind, EventKind::GraphCreated {
+            graph: 1, owner: 1
+        }));
+        assert!(matches!(&w.events()[2].kind, EventKind::GraphNodeCopied {
+            graph: 1, owner: 1, source_process: 1, source_node: 2, new_node: 0
+        }));
+        // Both edits are rejected: register r2=0 points at graph node 0
+        // which holds a Const copied from process code; but its next target
+        // register r2=0 is valid for the single-node graph.
+        assert!(matches!(&w.events()[4].kind, EventKind::GraphNodeEdited {
+            graph: 1, owner: 1, node: 0, edit
+        } if edit == "const"));
+        assert!(matches!(&w.events()[5].kind, EventKind::GraphNodeEdited {
+            graph: 1, owner: 1, node: 0, edit
+        } if edit == "next"));
+        assert_eq!(w.remaining_credits(), 3);
+        assert_eq!(w.events().iter().filter(|e| matches!(e.kind, EventKind::GraphCreated { .. })).count(), 1);
+        let decoded: World = serde_json::from_str(&serde_json::to_string(&w).unwrap()).unwrap();
+        assert_eq!(w, decoded);
     }
 
     #[test]
