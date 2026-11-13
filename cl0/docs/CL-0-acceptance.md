@@ -25,7 +25,21 @@ CL-0 is a **minimal reproducible, causal-intervention-ready native digital world
 - Database SHA-256 and exact replay detect inconsistent stored state but are not an authenticated tamper-proof adversarial archive. Cross-version replay is explicitly unsupported: compare matching world format, source revision and pinned dependencies.
 - No result from this baseline warrants claims of autonomy, self-maintenance, organizational closure, open-ended evolution or life. Report null results and unperformed interventions as faithfully as positive contrasts.
 
+## Final acceptance — 2026-11-13
+
+**CL-0 infrastructure acceptance: PASS.** The final executable-code checkpoint `625d2d6922ac72dc2089c2667cc52f1e747d20fb` was verified by [GitHub Actions run 43406674543](https://github.com/iFrankStudio/cioc/actions/runs/43406674543). Evidence from that run:
+
+- Rust workspace tests: **48 passed, 0 failed** (32 world, 14 laboratory, 2 seeded-population runner).
+- Independent Python analysis: **3 passed, 0 failed**.
+- Rust `cargo fmt --all -- --check`: **passed**; strict `cargo clippy --locked --workspace --all-targets -- -D warnings`: **passed**.
+- Vue 3 + TypeScript `npm ci` and production `npm run build`: **passed**.
+- **24 independently seeded three-process worlds**, each branched into four matched conditions = **96 SQLite runs**; **96/96 exact replays passed**.
+- SQLite, descriptive JSON and CSV output were archived in the named GitHub Actions artifact `cl0-acceptance` (artifact ID `14027218262` in the same run).
+- The full CI checks committed Cargo/npm dependency lockfiles and an explicitly marked source revision. The acceptance artifact is retained by GitHub Actions for 30 days; reproducing it is documented in `cl0/README.md`.
+
+**Acceptance applies to the CL-0 experimental platform, not to evidence of cyberlife.** Neither autonomous maintenance nor organizational closure nor open-ended evolution was established. Their absence as evidenced findings is not an infrastructure-test failure.
+
 ## Operational gate
-The single end-to-end GitHub CI job verifies all components and archives SQLite, JSON and CSV acceptance data. The **latest successful workflow attached to the final code-and-document commit** is the authoritative completion evidence. A CI failure keeps the gate **open** until fixed. The full repository checkout is required to reproduce historical source revision labels; the Python observer never mutates the world.
+The single end-to-end GitHub CI job verifies all components and archives SQLite, JSON and CSV acceptance data. The accepted executable checkpoint has the green source-code workflow cited above. Subsequent documentation-only commits do not alter tested execution semantics; verify their own CI run as a final source-tree consistency check. A later code change requires a fresh acceptance run. The full repository checkout is required to reproduce historical source revision labels; the Python observer never mutates the world.
 
 For next-stage science, preregister independently falsifiable measures of maintained organizational dependencies, external-source tracing, nontrivial novelty accumulation and damage/restoration controls before exploring outcomes.
