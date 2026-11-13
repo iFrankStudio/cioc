@@ -2,11 +2,11 @@
 
 **Scientific status: BOUNDED NEGATIVE / INCONCLUSIVE. CL-1's positive organizational-closure goal is NOT ACCEPTED.**
 
-The first six **preregistered** studies have completed their fixed experiments, including two subsequent independent-environment and internal-graph-ablation tests. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
+All eight **preregistered** studies have completed their fixed experiments, including external-environment timing, internal graph-object ablation, cross-owner information exchange and event-level provenance studies. All technical controls and deterministic replays passed. None produced sufficient evidence for an autonomously maintained, causally closed organization or cyberlife. A verified **experimental execution** is not proof of a positive **scientific hypothesis**.
 
 ## Source and evidence provenance
 
-The four preregistrations were committed **before** their respective runners generated results:
+Every study protocol was committed **before** its corresponding run and before its outcomes were inspected. The first four preregistrations are listed here; Studies 05–08 have their own dated registration and archive links below:
 
 | Study | Preregistration commit | Frozen study | Archived results |
 | --- | --- | --- | --- |
