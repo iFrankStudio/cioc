@@ -15,6 +15,10 @@ pub enum Op {
     Write { address: usize, value: usize, next: usize },
     Branch { test: usize, nonzero: usize, zero: usize },
     PatchNext { node: usize, target: usize, next: usize },
+    ReadNext { dst: usize, node: usize, next: usize },
+    CloneNode { dst: usize, source: usize, next: usize },
+    PatchConst { node: usize, value: usize, next: usize },
+    Delete { address: usize, next: usize },
     Halt,
 }
 
@@ -26,7 +30,11 @@ impl Op {
             | Op::Sub { next, .. }
             | Op::Read { next, .. }
             | Op::Write { next, .. }
-            | Op::PatchNext { next, .. } => Some(next),
+            | Op::PatchNext { next, .. }
+            | Op::ReadNext { next, .. }
+            | Op::CloneNode { next, .. }
+            | Op::PatchConst { next, .. }
+            | Op::Delete { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
         }
     }
@@ -92,6 +100,8 @@ pub struct World {
     cells: BTreeMap<CellKey, i64>,
     storage_limit: usize,
     max_nodes_per_process: usize,
+    /// Optional common allocation cap: all executable nodes plus shared cells.
+    total_storage_limit: Option<usize>,
     cursor: Option<ProcessId>,
     tick: u64,
     events: Vec<Event>,
@@ -113,10 +123,31 @@ impl World {
             cells: BTreeMap::new(),
             storage_limit,
             max_nodes_per_process,
+            total_storage_limit: None,
             cursor: None,
             tick: 0,
             events: Vec::new(),
         }
+    }
+
+    /// New Stage-3 worlds can enforce a shared allocation cap for code nodes and data cells.
+    /// Legacy `new` keeps independent Stage-1 limits for experiment compatibility.
+    pub fn with_total_capacity(storage_limit: usize, max_nodes_per_process: usize, total: usize) -> Self {
+        let mut world = Self::new(storage_limit, max_nodes_per_process);
+        world.total_storage_limit = Some(total);
+        world
+    }
+
+    pub fn occupied_units(&self) -> usize {
+        self.processes.values().fold(self.cells.len(), |used, p| used.saturating_add(p.code.nodes.len()))
+    }
+
+    pub fn total_capacity(&self) -> Option<usize> { self.total_storage_limit }
+
+    fn can_allocate(&self, additional: usize) -> bool {
+        self.total_storage_limit.is_none_or(|limit| {
+            self.occupied_units().checked_add(additional).is_some_and(|new_total| new_total <= limit)
+        })
     }
 
     /// External initial loading, intentionally distinct from internally executed CIL.
@@ -129,6 +160,9 @@ impl World {
         }
         if process.pc >= process.code.nodes.len() {
             return Err("invalid initial pc");
+        }
+        if !self.can_allocate(process.code.nodes.len()) {
+            return Err("total storage capacity exhausted");
         }
         let id = process.id;
         let pc = process.pc;
@@ -206,8 +240,10 @@ impl World {
                 self.processes.get_mut(&process).ok_or("unknown process")?.credits = credits;
             }
             Intervention::SetCell { key, value } => {
-                if !self.cells.contains_key(&key) && self.cells.len() >= self.storage_limit {
-                    return Err("storage capacity exhausted".into());
+                if !self.cells.contains_key(&key) {
+                    if self.cells.len() >= self.storage_limit || !self.can_allocate(1) {
+                        return Err("storage capacity exhausted".into());
+                    }
                 }
                 self.cells.insert(key, value);
             }
@@ -284,6 +320,7 @@ impl World {
 
     /// Returns Ok(true) on halt; no instruction expresses semantic notions of repair.
     fn execute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        let can_add_unit = self.can_allocate(1);
         let (processes, cells) = (&mut self.processes, &mut self.cells);
         let p = processes.get_mut(&id).expect("selected process exists");
         let len = p.code.nodes.len();
@@ -335,7 +372,7 @@ impl World {
                 edge(next)?;
                 let key = reg(address)?;
                 let value = reg(value)?;
-                if !cells.contains_key(&key) && cells.len() >= self.storage_limit {
+                if !cells.contains_key(&key) && (cells.len() >= self.storage_limit || !can_add_unit) {
                     return Err("storage capacity exhausted".into());
                 }
                 cells.insert(key, value);
@@ -355,6 +392,54 @@ impl World {
                     .next_mut()
                     .ok_or_else(|| "node has no patchable edge".to_string())?;
                 *destination = target_edge;
+                p.pc = next;
+            }
+            Op::ReadNext { dst, node, next } => {
+                edge(next)?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node".to_string())?;
+                edge(index)?;
+                if dst >= REGISTERS { return Err("invalid register".into()); }
+                let edge_value = match &p.code.nodes[index] {
+                    Op::Const { next, .. } | Op::Add { next, .. } | Op::Sub { next, .. }
+                    | Op::Read { next, .. } | Op::Write { next, .. } | Op::PatchNext { next, .. }
+                    | Op::ReadNext { next, .. } | Op::CloneNode { next, .. }
+                    | Op::PatchConst { next, .. } | Op::Delete { next, .. } => *next,
+                    Op::Branch { .. } | Op::Halt => return Err("node has no single next edge".into()),
+                };
+                p.registers[dst] = i64::try_from(edge_value).map_err(|_| "edge does not fit register".to_string())?;
+                p.pc = next;
+            }
+            Op::CloneNode { dst, source, next } => {
+                edge(next)?;
+                let index = usize::try_from(reg(source)?).map_err(|_| "invalid node".to_string())?;
+                edge(index)?;
+                if dst >= REGISTERS { return Err("invalid register".into()); }
+                if p.code.nodes.len() >= self.max_nodes_per_process || !can_add_unit {
+                    return Err("code storage capacity exhausted".into());
+                }
+                let new_index = p.code.nodes.len();
+                let encoded = i64::try_from(new_index).map_err(|_| "node index overflow".to_string())?;
+                let new_node = p.code.nodes[index].clone();
+                p.code.nodes.push(new_node);
+                p.registers[dst] = encoded;
+                p.pc = next;
+            }
+            Op::PatchConst { node, value, next } => {
+                edge(next)?;
+                let index = usize::try_from(reg(node)?).map_err(|_| "invalid node".to_string())?;
+                edge(index)?;
+                let new_value = reg(value)?;
+                if let Op::Const { value: literal, .. } = &mut p.code.nodes[index] {
+                    *literal = new_value;
+                } else {
+                    return Err("node is not a const".into());
+                }
+                p.pc = next;
+            }
+            Op::Delete { address, next } => {
+                edge(next)?;
+                let key = reg(address)?;
+                cells.remove(&key);
                 p.pc = next;
             }
             Op::Halt => return Ok(true),
@@ -459,6 +544,77 @@ mod tests {
         assert!(world.intervene(Intervention::SetCell { key: 3, value: 9 }).is_err());
         assert_eq!(world.cell(3), None);
         assert!(matches!(world.events().last().unwrap().kind, EventKind::InterventionRejected(_)));
+    }
+
+    #[test]
+    fn total_capacity_accounts_for_code_and_data_without_side_effects() {
+        let mut world = World::with_total_capacity(4, 16, 4);
+        world.load(writer(10)).unwrap();
+        assert_eq!(world.occupied_units(), 4);
+        assert_eq!(world.run(10), 3);
+        assert_eq!(world.occupied_units(), 4);
+        assert_eq!(world.cell(7), None);
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(world.load(Process::new(2, vec![Op::Halt], 1)).is_err());
+    }
+
+    #[test]
+    fn clone_node_is_generic_and_resource_priced() {
+        let mut world = World::with_total_capacity(2, 12, 8);
+        world.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 4, next: 1 },
+            Op::CloneNode { dst: 1, source: 0, next: 2 },
+            Op::ReadNext { dst: 2, node: 1, next: 3 },
+            Op::Halt,
+        ], 8)).unwrap();
+        assert_eq!(world.occupied_units(), 4);
+        assert_eq!(world.run(10), 4);
+        assert_eq!(world.occupied_units(), 5);
+        assert_eq!(world.process(1).unwrap().registers[1], 4);
+        assert_eq!(world.process(1).unwrap().registers[2], 1);
+        assert_eq!(world.process(1).unwrap().code.nodes[4], world.process(1).unwrap().code.nodes[1]);
+        assert_eq!(world.remaining_credits(), 4);
+    }
+
+    #[test]
+    fn no_allocation_space_blocks_clone_and_still_charges_instruction() {
+        let mut world = World::with_total_capacity(2, 12, 3);
+        world.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 0, next: 1 },
+            Op::CloneNode { dst: 1, source: 0, next: 2 },
+            Op::Halt,
+        ], 5)).unwrap();
+        assert_eq!(world.run(10), 2);
+        assert_eq!(world.occupied_units(), 3);
+        assert_eq!(world.process(1).unwrap().code.nodes.len(), 3);
+        assert_eq!(world.remaining_credits(), 3);
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Trapped(_)));
+    }
+
+    #[test]
+    fn delete_reclaims_cell_allocation() {
+        let mut world = World::with_total_capacity(2, 12, 7);
+        world.load(Process::new(1, vec![
+            Op::Const { dst: 0, value: 9, next: 1 },
+            Op::Const { dst: 1, value: 3, next: 2 },
+            Op::Write { address: 0, value: 1, next: 3 },
+            Op::Delete { address: 0, next: 4 },
+            Op::Halt,
+        ], 6)).unwrap();
+        assert_eq!(world.occupied_units(), 5);
+        assert_eq!(world.run(3), 3);
+        assert_eq!(world.occupied_units(), 6);
+        assert_eq!(world.run(3), 2);
+        assert_eq!(world.occupied_units(), 5);
+        assert_eq!(world.cell(9), None);
+    }
+
+    #[test]
+    fn external_cell_intervention_respects_total_capacity() {
+        let mut world = World::with_total_capacity(5, 10, 1);
+        world.load(Process::new(1, vec![Op::Halt], 1)).unwrap();
+        assert!(world.intervene(Intervention::SetCell { key: 1, value: 2 }).is_err());
+        assert_eq!(world.occupied_units(), 1);
     }
 
     #[test]
