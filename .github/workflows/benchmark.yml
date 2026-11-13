@@ -1,7 +1,14 @@
 name: CIOC benchmark
 on:
   push:
+    paths:
+      - 'experiments/**'
+      - '.github/workflows/benchmark.yml'
   pull_request:
+    paths:
+      - 'experiments/**'
+      - '.github/workflows/benchmark.yml'
+  workflow_dispatch:
 jobs:
   benchmark:
     runs-on: ubuntu-latest
