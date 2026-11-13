@@ -168,20 +168,26 @@ fn conditions(common: &World) -> Vec<EpochCondition> {
             "restore1",
             vec![
                 at(0, Intervention::DropGraph { graph: 1 }),
-                at(1, Intervention::PutGraph {
-                    graph: 1,
-                    object: saved1,
-                }),
+                at(
+                    1,
+                    Intervention::PutGraph {
+                        graph: 1,
+                        object: saved1,
+                    },
+                ),
             ],
         ),
         (
             "restore2",
             vec![
                 at(0, Intervention::DropGraph { graph: 2 }),
-                at(1, Intervention::PutGraph {
-                    graph: 2,
-                    object: saved2.clone(),
-                }),
+                at(
+                    1,
+                    Intervention::PutGraph {
+                        graph: 2,
+                        object: saved2.clone(),
+                    },
+                ),
             ],
         ),
         (
@@ -189,27 +195,39 @@ fn conditions(common: &World) -> Vec<EpochCondition> {
             vec![
                 at(0, Intervention::DropGraph { graph: 1 }),
                 at(0, Intervention::DropGraph { graph: 2 }),
-                at(1, Intervention::PutGraph {
-                    graph: 1,
-                    object: common.graph_object(1).unwrap().clone(),
-                }),
-                at(1, Intervention::PutGraph {
-                    graph: 2,
-                    object: saved2,
-                }),
+                at(
+                    1,
+                    Intervention::PutGraph {
+                        graph: 1,
+                        object: common.graph_object(1).unwrap().clone(),
+                    },
+                ),
+                at(
+                    1,
+                    Intervention::PutGraph {
+                        graph: 2,
+                        object: saved2,
+                    },
+                ),
             ],
         ),
         (
             "mutate2",
             vec![
                 at(0, Intervention::DropGraph { graph: 2 }),
-                at(1, Intervention::PutGraph {
-                    graph: 2,
-                    object: mutated2,
-                }),
+                at(
+                    1,
+                    Intervention::PutGraph {
+                        graph: 2,
+                        object: mutated2,
+                    },
+                ),
             ],
         ),
-        ("no-repair", vec![at(0, Intervention::DropGraph { graph: 1 })]),
+        (
+            "no-repair",
+            vec![at(0, Intervention::DropGraph { graph: 1 })],
+        ),
         ("zero-credit", vec![]),
     ];
     plans
@@ -239,9 +257,7 @@ fn expected(label: &str) -> Result<[Option<i64>; 3], Box<dyn Error>> {
         "control" | "sham" => Ok([Some(11), Some(11), Some(11)]),
         "restore1" | "restore2" | "restore-both" => Ok([None, Some(11), Some(11)]),
         "mutate2" => Ok([None, Some(30), Some(30)]),
-        "drop1" | "drop2" | "drop-both" | "no-repair" | "zero-credit" => {
-            Ok([None, None, None])
-        }
+        "drop1" | "drop2" | "drop-both" | "no-repair" | "zero-credit" => Ok([None, None, None]),
         _ => Err("unregistered condition label".into()),
     }
 }
@@ -265,11 +281,9 @@ fn run(path: &str, revision: &str) -> Result<(), Box<dyn Error>> {
         for (epoch, value) in expected_values.iter().enumerate() {
             let key = epoch as i64 + 90;
             if record.world.cell(key) != *value {
-                return Err(format!(
-                    "unregistered outcome at {} epoch {epoch}",
-                    record.label
-                )
-                .into());
+                return Err(
+                    format!("unregistered outcome at {} epoch {epoch}", record.label).into(),
+                );
             }
             let matching_writes = record
                 .world
@@ -292,17 +306,17 @@ fn run(path: &str, revision: &str) -> Result<(), Box<dyn Error>> {
                 .into());
             }
         }
-        if record.label == "zero-credit"
-            && record.attempts_by_epoch.iter().sum::<usize>() != 0
-        {
+        if record.label == "zero-credit" && record.attempts_by_epoch.iter().sum::<usize>() != 0 {
             return Err("zero-credit branch executed an internal CIL instruction".into());
         }
         if record.label.starts_with("restore") || record.label == "mutate2" {
             // First window must trap the original (never restarted) reader.
             let reader3 = record.world.process(3).unwrap();
-            if !reader3.stopped || !record.world.events().iter().any(|e| {
-                e.origin == Origin::Internal(3) && matches!(e.kind, EventKind::Trapped(_))
-            }) {
+            if !reader3.stopped
+                || !record.world.events().iter().any(|e| {
+                    e.origin == Origin::Internal(3) && matches!(e.kind, EventKind::Trapped(_))
+                })
+            {
                 return Err(format!("unobserved true loss for {}", record.label).into());
             }
         }
