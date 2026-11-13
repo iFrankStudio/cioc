@@ -1,0 +1,62 @@
+{
+  "single_fault": {
+    "repair": true,
+    "healthy": true,
+    "internal": 1,
+    "remaining_budget": 389
+  },
+  "healthy": {
+    "repair": false,
+    "healthy": true,
+    "internal": 0,
+    "remaining_budget": 397
+  },
+  "one_byzantine": {
+    "repair": true,
+    "healthy": true,
+    "internal": 1,
+    "remaining_budget": 389
+  },
+  "two_byzantine": {
+    "repair": false,
+    "healthy": false,
+    "internal": 0,
+    "remaining_budget": 397
+  },
+  "quorum_lost": {
+    "repair": false,
+    "healthy": false,
+    "internal": 0,
+    "remaining_budget": 397
+  },
+  "replayed_report": {
+    "repair": true,
+    "healthy": true,
+    "internal": 1,
+    "remaining_budget": 389
+  },
+  "missing_fragments": {
+    "repair": false,
+    "healthy": false,
+    "internal": 0,
+    "remaining_budget": 395
+  },
+  "low_budget": {
+    "repair": false,
+    "healthy": false,
+    "internal": 0,
+    "remaining_budget": 0
+  },
+  "recovery_disabled": {
+    "repair": false,
+    "healthy": false,
+    "internal": 0,
+    "remaining_budget": 397
+  },
+  "external_only": {
+    "repair": false,
+    "healthy": true,
+    "internal": 0,
+    "remaining_budget": 397
+  }
+}
