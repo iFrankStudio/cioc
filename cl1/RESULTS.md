@@ -220,6 +220,12 @@ New independent seeds **1600000–1600063**; 64 matched baseline worlds × five 
 | Sham/untreated simulated-state mismatch | **0/64** |
 | Post-ablation nonempty graph construction | **0/64** |
 | Zero-credit activity | **0 CIL attempts** |
+| At least one successful random-tail instruction after scripted prefix | **63/64 seed-worlds** |
+| Successful random-tail instruction attempts | **747 total across untreated worlds** |
+| Trapped internal attempts after fork in untreated worlds | **148 total** |
+
+
+**Preregistered post-scaffold activity audit:** The `late_random_tail` outcome had been declared in the frozen Study-10 protocol. An initial read-only analyzer reported the core scaffold events but omitted this declared diagnostic; the omission was corrected in analyzer-only commit [`de8d6ead`](https://github.com/iFrankStudio/cioc/commit/de8d6ead2cd0792069e1c16295f20f2616174b7e), then the entire ten-study suite was rerun successfully ([CI 43421758544](https://github.com/iFrankStudio/cioc/actions/runs/43421758544)). **63/64** untreated seed-worlds executed at least one successful CIL instruction in the randomized continuation (95% Wilson **[0.916659, 0.997236]**); there were 747 successful random-tail attempts and 148 charged postfork traps. The fixed scaffold remained exactly as preregistered. These are *opportunities to execute externally randomized initial code*, **not** self-organized functions or accumulated novelty. The original archived source revision remains reproducible and the subsequent analysis change is disclosed rather than retrospectively editing the preregistration.
 
 **Interpretation:** The engineering mechanism and causal exposure problem from Study 09 are corrected: accessible graph handles, authorized copying and owner transfer can all execute reliably within finite credits, and deletion affects otherwise unchanged programs. **This was expected from the prewritten scaffold**. The measured cross-owner transfer cycle is **investigator-designed**, not an evolved social structure; the forced disruption and its effects are not evidence of internally initiated maintenance. No prospective functional output independent of the scaffold was assessed, no successful repair or spontaneous closure was demonstrated, and the study cannot be used to claim life.
 
