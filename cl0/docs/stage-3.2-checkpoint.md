@@ -15,7 +15,8 @@ All behaviors below are from externally constructed CIL fixtures, not spontaneou
 - Initial implementation commit `74b455c`: CI failed in three Stage-3.2 test fixtures because source-node register values and scheduler-order assumptions were inconsistent; the existing older suite passed.
 - Commit `11f5737`: corrected two fixture assumptions. CI still failed for the remaining invalid-edge fixture.
 - Commit `6b76b09`: fixed that fixture. CI run https://github.com/iFrankStudio/cioc/actions/runs/43398951758 **passed** workspace tests and strict Clippy.
-- A separate laboratory integration test was then added in commit `d665671`; its corresponding workflow must be checked independently. Do not infer it passed from the earlier run.
+- Laboratory integration test added in commit `d665671`: https://github.com/iFrankStudio/cioc/actions/runs/43399115578 passed **25/25 tests** (7 laboratory + 18 world), including matched no-computation control and exact SQLite replay.
+- Documentation checkpoint commit `ee07fa0`: https://github.com/iFrankStudio/cioc/actions/runs/43399248011 also passed the workspace suite and strict Clippy.
 
 ## Negative controls
 - No computation budget means no object allocation or process launch.
