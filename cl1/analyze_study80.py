@@ -100,10 +100,10 @@ def audit(path, revision):
             hashed += 1
         require(snap_rows[-1][2] == final_json, "last epoch state differs from final")
         require(node_edge(states[2]) == 4, "unexpected pre-lesion functional path")
-        if arm in ("lesion-edit", "lesion-disabled", "lesion-host-repair"):
-            require(node_edge(states[3]) == 5, "lesion was not present at the post-intervention boundary")
+        if arm in ("lesion-disabled", "lesion-host-repair"):
+            require(node_edge(states[3]) == 5, "disabled or externally restored control lost its lesion boundary")
         else:
-            require(node_edge(states[3]) == 4, "intact or sham edge unexpectedly changed")
+            require(node_edge(states[3]) == 4, "native repair, intact, or sham edge did not preserve function")
         if arm in ("lesion-edit", "lesion-host-repair"):
             require(node_edge(states[4]) == 4, "native or external restoration did not restore the edge")
         final_state = states[-1]
