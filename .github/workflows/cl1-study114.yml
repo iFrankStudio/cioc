@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'cl0/crates/lab/src/bin/cl1-study114.rs'
-      - 'cl1/analyze_study114.py'
+      # Observer-only fixes use the separate original-SQLite read-only workflow.
       - 'cl1/studies/114-preregistered-dormant-code-buffer-native-mutational-robustness.md'
       - '.github/workflows/cl1-study114.yml'
   workflow_dispatch:
