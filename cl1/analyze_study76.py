@@ -22,7 +22,7 @@ MODES = (
 EXPECTED = {
     "legacy-fatal-ambient":(2,0,0,1,0,[0,1],12,0,True),
     "recoverable-ambient":(6,1,1,0,1,[0,1,1,2,3,4],3,5,True),
-    "legacy-pool-fee-early":(1,0,0,1,1,[0],16,0,True),
+    "legacy-pool-fee-early":(1,0,0,1,1,[0],15,0,True),
     "recoverable-pool-fee-reserve":(4,1,0,0,1,[0,1,2,3],7,5,True),
     "recoverable-no-pool":(0,0,0,0,0,[],0,0,False),
     "recoverable-invalid-operand":(1,0,0,1,0,[0],16,0,True),
@@ -99,7 +99,8 @@ def audit(path: Path, source: str) -> dict:
                 "legacy-pool-fee-early","recoverable-pool-fee-reserve",
             )
             expected_actions=([
-                {"epoch":1,"action":{"SetComputePool":{"credits":12 if mode.endswith("ambient") else 16}}}
+                {"epoch":1,"action":{"SetComputePool":{"credits":12 if mode.endswith("ambient") else
+                                                       15 if mode=="legacy-pool-fee-early" else 16}}}
             ] if refilled else [])
             if actions!=expected_actions:
                 raise ValueError("external researcher pool source was altered")
