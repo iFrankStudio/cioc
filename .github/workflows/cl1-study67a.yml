@@ -1,0 +1,47 @@
+name: CL-1 Study67-A retrospective pending native Draw credit reachability
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study67a.py'
+      - 'cl1/tests/test_study67a.py'
+      - '.github/workflows/cl1-study67a.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen preregistration and two minimal eligibility controls
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/67a-registered-retrospective-native-Draw-loan-reachability.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study67a.py' -v
+      - name: Download original Study66 SQLite, no resampling or new epochs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study67a"
+          gh run download 43568283297 --repo "$GITHUB_REPOSITORY" --name cl1-study66-native-feedback-energy --dir "$RUNNER_TEMP/study67a"
+          test -s "$RUNNER_TEMP/study67a/cl1-study66-feedback-energy-ecology.sqlite"
+      - name: Rerun original Stage66 and Stage67 audits before checking all eight W3 native instruction slots
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study67a.py "$RUNNER_TEMP/study67a/cl1-study66-feedback-energy-ecology.sqlite" --json "$RUNNER_TEMP/study67a-report.json"
+      - name: Archive retrospective source cause report, no duplicated original SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study67a-native-pool-Draw-eligibility
+          retention-days: 30
+          path: ${{ runner.temp }}/study67a-report.json
