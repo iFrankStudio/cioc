@@ -1,4 +1,8 @@
-"""Study73 native source-feedback and compute beyond starting local credit budget."""
+"""Study73 native source-feedback and compute beyond starting local credit budget.
+
+This calibrates only the frozen paired random-code grammar; ecological assertions
+are checked independently against original Rust SQLite in analyze_study73.py.
+"""
 import sys
 import unittest
 from pathlib import Path
