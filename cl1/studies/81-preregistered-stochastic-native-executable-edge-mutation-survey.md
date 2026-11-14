@@ -13,7 +13,7 @@ Study80 Phase-0 only established with ten investigator-authored controls that th
   2 native Add(R0,R0,R1);
   3 native Sub(R0,R0,R1);
   4 Const(R0, random %8);
-  5 Branch on R0, backedge target selected uniformly via modulo of visited code index range PCs3..current (PC3 points to itself), zero edge PC+1;
+  5 Branch on R0, backedge target selected by modulo over *earlier* random-body code indices PCs3..(current−1), with PC3 targeting itself (the exact pre-existing Study77 broad-target implementation; not a claim of uniform unbiased samples), zero edge PC+1;
   6 DrawCompute(R1);
   7 native PatchNext(node=R1,target=R0,next=PC+1), targeting the executable code node PC8 and an actor-computed edge (may be invalid and trap in the ordinary VM). No other native executable edit operations in this grammar.
 - No post-outcome edit to this grammar, seeds, scheduler, storage, pool rule, epoch count or measured event definition. This is an **operation-rich environment with a hardcoded edit affordance**, and so a positive event is not spontaneous goal formation or living repair.
