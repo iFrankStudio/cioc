@@ -1,0 +1,49 @@
+name: CL-1 Study70 retrospective CIL genotype uniqueness and seed-offset correlation
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study70.py'
+      - 'cl1/tests/test_study70.py'
+      - '.github/workflows/cl1-study70.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  genotype-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify post-result frozen registration and exactly two genotype-integrity calibrations
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/70-registered-retrospective-random-genotype-seed-independence.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study70.py' -v
+      - name: Fetch original untouched paired Study68 and Study69 native SQLite archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study70/68" "$RUNNER_TEMP/study70/69"
+          gh run download 43569268106 --repo "$GITHUB_REPOSITORY" --name cl1-study68-stochastic-source-feedback --dir "$RUNNER_TEMP/study70/68"
+          gh run download 43569769695 --repo "$GITHUB_REPOSITORY" --name cl1-study69-stochastic-source-feedback --dir "$RUNNER_TEMP/study70/69"
+          test -s "$RUNNER_TEMP/study70/68/cl1-study68-feedback-ecology.sqlite"
+          test -s "$RUNNER_TEMP/study70/69/cl1-study69-feedback-ecology.sqlite"
+      - name: Independently re-audit 98304 original hashed epochs plus 512 CIL genotype and seed-offset patterns
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study70.py "$RUNNER_TEMP/study70/68/cl1-study68-feedback-ecology.sqlite" "$RUNNER_TEMP/study70/69/cl1-study69-feedback-ecology.sqlite" --json "$RUNNER_TEMP/cl1-study70-report.json"
+      - name: Archive retrospective genotype analysis only without duplicating large original SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study70-genotype-seed-independence
+          retention-days: 30
+          path: ${{ runner.temp }}/cl1-study70-report.json
