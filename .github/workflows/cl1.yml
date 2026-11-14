@@ -2,7 +2,7 @@ name: CL-1 preregistered research
 
 on:
   push:
-    # Aggregate legacy Study01-33 on own edits and on shared-kernel edits only.
+    # Aggregate legacy Study01-33 on own edits; kernel edits trigger representative regressions.
     # Study34+ each have a targeted workflow.
     paths:
       - 'cl0/crates/world/**'
@@ -35,7 +35,7 @@ jobs:
         with:
           fetch-depth: 0
       - id: choose
-        name: Select changed studies; run complete suite on shared-kernel edits
+        name: Select changed studies; run representative regressions for kernel edits
         env:
           EVENT: ${{ github.event_name }}
           BEFORE: ${{ github.event.before }}
@@ -46,14 +46,21 @@ jobs:
           selected='|'
           quick=false
           full=false
+          kernel=false
+          # A kernel-only change already runs all Rust tests, strict Clippy,
+          # and focused old/native-graph/native-compute compatibility sentinels.
+          # Replaying 27 full historical ecologies per kernel push is wasteful.
           if [[ "$EVENT" != "push" ]] || [[ -z "$BEFORE" ]] || [[ "$BEFORE" =~ ^0+$ ]]; then
             full=true
           else
             changes="$(git diff --name-only "$BEFORE" "$GITHUB_SHA")"
-            if grep -Eq '^(.github/workflows/cl1\.yml|cl0/(Cargo\.(toml|lock)|crates/lab/src/lib\.rs)|cl1/(analyze\.py|analyze_study(02|14|22)\.py))$' <<<"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+            if grep -Eq '^(.github/workflows/cl1\\.yml|cl0/(Cargo\\.(toml|lock)|crates/lab/src/lib\\.rs)|cl1/(analyze\\.py|analyze_study(02|14|22)\\.py))$' <<<"$changes"; then
               full=true
             fi
-            if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
+            if grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+              kernel=true
+            fi
+            if grep -Eq '^(cl1/.*\\.py|cl0/crates/)' <<<"$changes"; then
               quick=true
             fi
           fi
@@ -61,8 +68,13 @@ jobs:
             quick=true
             for id in "${ids[@]}"; do selected+="$id|"; done
           else
+            if [[ "$kernel" == true ]]; then
+              # Structural, epoch and compute conservation regressions
+              # under the newest kernel, without blindly rerunning 27 suites.
+              for id in study01 study14 study32 study33; do selected+="$id|"; done
+            fi
             for id in "${ids[@]}"; do
-              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\.rs$|^cl1/(analyze_$id\\.py|tests/test_$id\\.py)$" <<<"$changes"; then
+              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\\\.rs$|^cl1/(analyze_$id\\\\.py|tests/test_$id\\\\.py)$" <<<"$changes"; then
                 selected+="$id|"
               fi
             done
