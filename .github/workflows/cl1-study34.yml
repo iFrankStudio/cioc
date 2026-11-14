@@ -1,0 +1,49 @@
+name: CL-1 Study34 targeted retrospective audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study34.py'
+      - 'cl1/tests/test_study34.py'
+      - '.github/workflows/cl1-study34.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify registered retrospective protocol and source controls
+        run: |
+          test -f ../cl1/studies/34-registered-retrospective-joint-path-bottleneck.md
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study34.py' -v
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+      - name: Recreate exact Study33 seed grammar and native SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study33 -- "$RUNNER_TEMP/study34-replay.sqlite"
+      - name: Verify all 1152 paired arms and 27648 hashes before interpreting initial read exposure
+        run: |
+          python3 ../cl1/analyze_study33.py "$RUNNER_TEMP/study34-replay.sqlite" --json "$RUNNER_TEMP/study34-baseline.json"
+          python3 ../cl1/analyze_study34.py "$RUNNER_TEMP/study34-replay.sqlite" --json "$RUNNER_TEMP/study34-initial-gate.json"
+          cat "$RUNNER_TEMP/study34-initial-gate.json"
+      - name: Archive complete retrospective data and independent audits
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study34-retrospective
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study34-replay.sqlite
+            ${{ runner.temp }}/study34-baseline.json
+            ${{ runner.temp }}/study34-initial-gate.json
