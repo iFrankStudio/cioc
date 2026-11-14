@@ -1,0 +1,67 @@
+name: CL-1 Study78 prospective random native resource retry and functional feedback
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study78.rs'
+      - 'cl1/analyze_study78.py'
+      - 'cl1/tests/test_study78.py'
+      - '.github/workflows/cl1-study78.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prospective registered protocol and previously audited Stage76 mechanism
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/78-preregistered-independent-recoverable-draw-feedback-replication.md
+          test -s ../cl1/results/study77-recoverable-draw-native-functional-feedback-causal-positive.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study78.py' -v
+      - name: Run 128 new genomes and 16 exact native resource/sensor feedback arms
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study78 -- "$RUNNER_TEMP/cl1-study78-recoverable-native-feedback.sqlite"
+      - name: Independently validate every charged DrawDeferred, native Read/Write and 49152 source-pinned SHA256 epochs
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study78.py "$RUNNER_TEMP/cl1-study78-recoverable-native-feedback.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study78-independent-audit.json"
+          python3 - "$RUNNER_TEMP/cl1-study78-independent-audit.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":r["study"],"genomes":r["original_independent_seed_genomes"],
+            "runs":r["matched_native_runs"],
+            "SHA256_epochs":r["SHA256_verified_original_snapshots"],
+            "functional_energy_joint":r["primary_A_W2W3_native_feedback_with_W3_Draw"],
+            "W3_activity":r["primary_B_W3_resource_access"],
+            "life_claim":r["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive original untouched native SQLite and independent Python audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study78-recoverable-native-feedback-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study78-recoverable-native-feedback.sqlite
+            ${{ runner.temp }}/cl1-study78-independent-audit.json
