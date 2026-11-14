@@ -1,0 +1,54 @@
+name: CL-1 Study58 generic CIL graph-local copy calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study58.rs'
+      - 'cl1/analyze_study58.py'
+      - '.github/workflows/cl1-study58.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mechanism-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior frozen calibration and ABI compatibility
+        run: |
+          test -f ../cl1/studies/58-preregistered-generic-graph-local-copy-vm-calibration.md
+      - name: Rust format, workspace tests and strict Clippy
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute exactly three fixed local copy mechanism fixtures and exact native replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study58 -- "$RUNNER_TEMP/cl1-study58-calibration.sqlite"
+      - name: Independently verify 24 SHA256 epoch histories, original CIL ancestry and external-free conservation
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study58.py "$RUNNER_TEMP/cl1-study58-calibration.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study58-report.json"
+      - name: Archive exact original scripted VM calibration data and independent report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study58-generic-local-graph-calibration
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study58-calibration.sqlite
+            ${{ runner.temp }}/cl1-study58-report.json
