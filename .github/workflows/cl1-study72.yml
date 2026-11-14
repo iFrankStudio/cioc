@@ -1,0 +1,66 @@
+name: CL-1 Study72 prospective changing-sensor native feedback
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study72.rs'
+      - 'cl1/analyze_study72.py'
+      - 'cl1/tests/test_study72.py'
+      - '.github/workflows/cl1-study72.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study72:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require prospective registration and exact native SplitMix64 source grammar
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/72-preregistered-within-world-changing-sensor-feedback.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study72.py' -v
+      - name: Run all 256 new genomes under twelve paired native source-switch and Read-ablation modes
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study72 -- "$RUNNER_TEMP/cl1-study72-changing-sensor.sqlite"
+      - name: Independently verify 73728 SHA256 epochs and dynamic PRE/POST native source-to-output causality
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study72.py "$RUNNER_TEMP/cl1-study72-changing-sensor.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study72-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study72-report.json" <<'PY'
+          import json,sys
+          report=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":report["study"],
+            "independent_genomes":report["original_independent_genomes"],
+            "runs":report["matched_native_runs"],
+            "SHA256_epochs":report["SHA256_verified_epoch_snapshots"],
+            "primary":report["registered_primary_within_world_dynamic_tracking"],
+            "life_claim":report["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive unchanged original SQLite and complete independent causal audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study72-changing-sensor-causal-feedback
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study72-changing-sensor.sqlite
+            ${{ runner.temp }}/cl1-study72-report.json
