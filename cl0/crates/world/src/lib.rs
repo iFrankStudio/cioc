@@ -866,6 +866,12 @@ pub enum EventKind {
     NativeCodeEditSuppressed {
         opcode_tag: i64,
     },
+    /// Opt-in observer-only native edit trace; native actor PC is on the event.
+    ExecutableEdgePatched {
+        node: usize,
+        before: usize,
+        after: usize,
+    },
     /// Observer-only successful graph allocation.
     GraphCreated {
         graph: u64,
@@ -947,6 +953,10 @@ pub struct World {
     /// without allowing their code/edge changes. Never enabled in legacy worlds.
     #[serde(default, skip_serializing_if = "is_false")]
     native_code_edits_disabled: bool,
+    /// Observer-only event detail for native PatchNext; default off to preserve
+    /// the original hash-serialized world semantics in older studies.
+    #[serde(default, skip_serializing_if = "is_false")]
+    trace_native_executable_edits: bool,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -1022,6 +1032,7 @@ impl World {
             pool_paid_draw: false,
             recoverable_draw_shortage: false,
             native_code_edits_disabled: false,
+            trace_native_executable_edits: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -1105,6 +1116,13 @@ impl World {
 
     pub fn native_code_edits_disabled(&self) -> bool {
         self.native_code_edits_disabled
+    }
+
+    /// Instrument only real native PatchNext edge changes, never a virtual goal
+    /// checker, fitness oracle, injected edit or CIL-visible new instruction.
+    pub fn with_native_executable_edit_trace(mut self) -> Self {
+        self.trace_native_executable_edits = true;
+        self
     }
 
     pub fn total_capacity(&self) -> Option<usize> {
@@ -1599,8 +1617,16 @@ impl World {
                 let destination = p.code.nodes[target_node]
                     .next_mut()
                     .ok_or_else(|| "node has no patchable edge".to_string())?;
+                let original_edge = *destination;
                 *destination = target_edge;
                 p.pc = next;
+                if self.trace_native_executable_edits && original_edge != target_edge {
+                    self.pending_transition = Some(EventKind::ExecutableEdgePatched {
+                        node: target_node,
+                        before: original_edge,
+                        after: target_edge,
+                    });
+                }
             }
             Op::ReadNext { dst, node, next } => {
                 edge(next)?;
