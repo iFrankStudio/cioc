@@ -1,0 +1,46 @@
+name: CL-1 Study108 prospective native beneficial mutation in slow founders
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study108.rs'
+      - 'cl1/analyze_study108.py'
+      - 'cl1/studies/108-preregistered-slow-ancestor-native-beneficial-mutation-contrast.md'
+      - '.github/workflows/cl1-study108.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  slow-ancestor-native-mutational-contrast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check prospective frozen Study108 slow-original CIL genotype contract
+        run: test -s ../cl1/studies/108-preregistered-slow-ancestor-native-beneficial-mutation-contrast.md
+      - name: Execute original 128 paired native worlds and 1024 independently replayable epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study108 -- "$RUNNER_TEMP/study108-original-slow-ancestor-beneficial-mutation.sqlite"
+      - name: Independent original SQLite SHA256 actor/native mutation descendant reproduction audit
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study108.py "$RUNNER_TEMP/study108-original-slow-ancestor-beneficial-mutation.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study108-original-independent-audit.json"
+      - name: Archive original source-pinned native SQLite and independent audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study108-slow-founder-native-beneficial-mutation-causal
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study108-original-slow-ancestor-beneficial-mutation.sqlite
+            ${{ runner.temp }}/study108-original-independent-audit.json
