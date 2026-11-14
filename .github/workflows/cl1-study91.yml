@@ -1,0 +1,65 @@
+name: CL-1 Study91 first-live-pc8 function injury with reachable PC0 detour
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study91.rs'
+      - 'cl1/analyze_study91.py'
+      - 'cl1/studies/91-preregistered-live-repair-reachable-detour-ecology.md'
+      - '.github/workflows/cl1-study91.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  pre-fork-native-lesion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm prospective native lesion preregistration and source trace
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/91-preregistered-live-repair-reachable-detour-ecology.md
+          test -s ../cl1/studies/90-phase0-reachable-native-code-detour-calibration.md
+          test -s ../cl1/analyze_study82.py
+          cargo test --locked -p cl0-world --test study90_reachable_native_detour
+      - name: Execute fixed 128-genotype common-prefork lesion ecology with six intervention arms
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study91 -- "$RUNNER_TEMP/cl1-study91-original-prefork-native-lesions.sqlite"
+      - name: Independently validate exact source-pinned 27648 postfork SHA256 hashes and native restoration provenance
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study91.py "$RUNNER_TEMP/cl1-study91-original-prefork-native-lesions.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study91-independent-restoration.json"
+      - name: Archive original native world SQLite and independent original-corpus gate outcome
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study91-original-native-functional-lesion
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study91-original-prefork-native-lesions.sqlite
+            ${{ runner.temp }}/cl1-study91-independent-restoration.json
+      - name: Post verifiable Study91 result status to exact Git source commit
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study91-reencounterable-native-lesion" \
+            -f description="128 original code genomes, 1536 matched postfork worlds: CI $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
