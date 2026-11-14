@@ -4419,4 +4419,80 @@ mod tests {
             .unwrap();
         assert_eq!(disabled.run(3), 0);
     }
+
+    #[test]
+    fn opt_in_recoverable_draw_defers_charged_attempt_and_continues_when_pool_refills() {
+        let mut p = Process::new(
+            1,
+            vec![
+                Op::Const { dst: 1, value: 8, next: 1 },
+                Op::DrawCompute { amount: 1, next: 2 },
+                Op::Const { dst: 0, value: 7, next: 3 },
+                Op::Write { address: 2, value: 0, next: 4 },
+                Op::Halt,
+            ],
+            2,
+        );
+        p.registers[2] = 9;
+        let mut world = World::new(16, 16)
+            .with_pool_paid_draw()
+            .with_recoverable_draw_shortage();
+        world.load(p).unwrap();
+        world.intervene(Intervention::SetComputePool { credits: 4 }).unwrap();
+        assert_eq!(world.run(2), 2);
+        let actor = world.process(1).unwrap();
+        assert!(!actor.stopped);
+        assert_eq!(actor.pc, 1);
+        assert_eq!(actor.credits, 0);
+        assert_eq!(world.available_compute_pool(), 4);
+        assert!(matches!(
+            world.events().last().unwrap().kind,
+            EventKind::DrawDeferred { requested: 8, available: 4 }
+        ));
+        assert!(!world.events().last().unwrap().pool_paid_attempt);
+        // Ambient resource arrives to the WORLD only, never SetCredits to the actor.
+        world.intervene(Intervention::SetComputePool { credits: 16 }).unwrap();
+        assert_eq!(world.run(3), 3);
+        assert_eq!(world.process(1).unwrap().credits, 6);
+        assert_eq!(world.available_compute_pool(), 7);
+        assert!(world.events().iter().any(|e|
+            e.pool_paid_attempt && matches!(e.kind, EventKind::Executed)
+        ));
+        assert!(world.events().iter().any(|e| matches!(
+            e.kind, EventKind::CellWritten { key: 9, value: 7 }
+        )));
+        assert_eq!(world.total_compute_inventory(), Some(13));
+    }
+
+    #[test]
+    fn recoverable_pool_paid_draw_waits_for_atomic_fee_plus_requested_energy() {
+        let mut actor = Process::new(
+            1,
+            vec![Op::DrawCompute { amount: 1, next: 1 }, Op::Halt],
+            0,
+        );
+        actor.registers[1] = 8;
+        let mut world = World::new(0, 8)
+            .with_pool_paid_draw()
+            .with_recoverable_draw_shortage();
+        world.load(actor.clone()).unwrap();
+        world.intervene(Intervention::SetComputePool { credits: 8 }).unwrap();
+        assert_eq!(world.run(4), 0);
+        assert!(!world.process(1).unwrap().stopped);
+        assert_eq!(world.total_compute_inventory(), Some(8));
+        world.intervene(Intervention::SetComputePool { credits: 16 }).unwrap();
+        assert_eq!(world.run(1), 1);
+        assert!(world.events().last().unwrap().pool_paid_attempt);
+        assert_eq!(world.available_compute_pool(), 7);
+        assert_eq!(world.process(1).unwrap().credits, 8);
+        assert_eq!(world.total_compute_inventory(), Some(15));
+
+        let mut legacy = World::new(0, 8).with_pool_paid_draw();
+        legacy.load(actor).unwrap();
+        legacy.intervene(Intervention::SetComputePool { credits: 8 }).unwrap();
+        assert_eq!(legacy.run(1), 1);
+        assert!(legacy.process(1).unwrap().stopped);
+        assert!(matches!(legacy.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(!legacy.recoverable_draw_shortage_enabled());
+    }
 }
