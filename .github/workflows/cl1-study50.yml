@@ -1,0 +1,58 @@
+name: CL-1 Study50 retrospective longer graph assembly source audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study50.py'
+      - 'cl1/tests/test_study50.py'
+      - '.github/workflows/cl1-study50.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify retrospective registration and source-path actor/graph attribution
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/50-registered-posthoc-longer-native-assembly-path.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study50.py' -v
+      - name: Download unchanged original Study49 source-pinned cohort; do not rerun seed worlds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study50"
+          gh run download 43556383858 --repo "$GITHUB_REPOSITORY" --name cl1-study49-native-code-plasticity --dir "$RUNNER_TEMP/study50"
+          test -s "$RUNNER_TEMP/study50/cl1-study49.sqlite"
+      - name: Recheck original independent audit and 24576 epoch hashes for native graph construction
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study50.py "$RUNNER_TEMP/study50/cl1-study49.sqlite" --json "$RUNNER_TEMP/study50-report.json"
+          python3 - "$RUNNER_TEMP/study50-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":r["study"],
+            "reused_original_worlds":r["original_worlds_reused"],
+            "snapshots":r["original_epoch_sha256_verified"],
+            "ambient_general_gates":{k:v for k,v in r["cohort"]["stage_counts_by_arm"].items() if k.startswith("ambient-general.")},
+            "life_claim":r["life_claim"]
+          },indent=2))
+          PY
+      - name: Archive independent retrospective report, no duplicate 584MB original SQLite
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study50-native-assembly-lineage
+          retention-days: 30
+          path: ${{ runner.temp }}/study50-report.json
