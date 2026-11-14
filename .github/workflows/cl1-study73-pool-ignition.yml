@@ -1,0 +1,54 @@
+name: CL-1 Study73 generic pool-paid native Draw calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study73-pool-ignition-fixtures.rs'
+      - 'cl1/analyze_study73_pool_ignition.py'
+      - '.github/workflows/cl1-study73-pool-ignition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resource-physics-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify earlier frozen calibration protocol
+        run: |
+          test -s ../cl1/studies/73-preregistered-generic-pool-paid-draw-ignition-calibration.md
+      - name: Full kernel compatibility, format and strict Clippy
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute six human-authored source-pinned resource feasibility fixtures
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study73-pool-ignition-fixtures -- "$RUNNER_TEMP/cl1-study73-pool-ignition.sqlite"
+      - name: Independently audit pool-paid native opcode provenance and 144 SHA256 epochs
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study73_pool_ignition.py "$RUNNER_TEMP/cl1-study73-pool-ignition.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study73-pool-ignition-report.json"
+      - name: Preserve original scripted SQLite and independent report, zero ecological worlds
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study73-pool-paid-native-draw-calibration
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study73-pool-ignition.sqlite
+            ${{ runner.temp }}/cl1-study73-pool-ignition-report.json
