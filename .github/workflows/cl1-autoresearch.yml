@@ -1,0 +1,186 @@
+name: CL-1 event-driven Codex research
+
+on:
+  workflow_dispatch:
+    inputs:
+      round:
+        description: 'Bounded chain step (0-3)'
+        required: false
+        type: string
+        default: '0'
+  workflow_run:
+    workflows: ['CL-1 Study34 targeted retrospective audit']
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1-codex-research-main
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.patch.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Check key is configured; never print it
+        env:
+          KEY_PRESENT: ${{ secrets.OPENAI_API_KEY != '' }}
+          INPUT_ROUND: ${{ inputs.round }}
+        run: |
+          [[ "$KEY_PRESENT" == true ]] || { echo 'Configure OPENAI_API_KEY repository secret'; exit 1; }
+          [[ "${INPUT_ROUND:-0}" =~ ^[0-3]$ ]] || { echo 'Invalid iteration'; exit 1; }
+      - name: Show completed CI conclusion, not untrusted log instructions
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CI_ID" --jq '{name,conclusion,head_sha,html_url}'
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Propose bounded research change
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/CL1_AUTORESEARCH.md
+          permission-profile: ':workspace'
+          allow-bot-users: 'github-actions'
+      - id: patch
+        name: Export local patch with no credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -N -- cl1 cl0/crates/lab/src/bin
+          git diff --binary -- cl1 cl0/crates/lab/src/bin > "$RUNNER_TEMP/cl1.patch"
+          n="$(wc -c < "$RUNNER_TEMP/cl1.patch")"
+          (( n <= 180000 )) || { echo 'Patch too large'; exit 1; }
+          if (( n > 0 )); then
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          fi
+          echo "Patch bytes: $n"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cl1-agent-patch
+          path: ${{ runner.temp }}/cl1.patch
+          retention-days: 7
+
+  verify:
+    needs: propose
+    if: needs.propose.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: cl1-agent-patch
+          path: ${{ runner.temp }}/proposal
+      - name: Apply and independently validate Codex patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git apply --check "$RUNNER_TEMP/proposal/cl1.patch"
+          git apply --index "$RUNNER_TEMP/proposal/cl1.patch"
+          python3 .github/codex/validate_cl1_patch.py
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full Rust and Python integrity suite
+        working-directory: cl0
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Full native Study33 SQLite replay plus independent Study34 audit
+        working-directory: cl0
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study33 -- "$RUNNER_TEMP/cl1-study33.sqlite"
+          python3 ../cl1/analyze_study33.py "$RUNNER_TEMP/cl1-study33.sqlite" --json "$RUNNER_TEMP/cl1-baseline.json"
+          python3 ../cl1/analyze_study34.py "$RUNNER_TEMP/cl1-study33.sqlite" --json "$RUNNER_TEMP/cl1-retrospective.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-autoresearch-verification
+          retention-days: 7
+          path: |
+            ${{ runner.temp }}/cl1-baseline.json
+            ${{ runner.temp }}/cl1-retrospective.json
+
+  publish:
+    needs: [propose, verify]
+    if: needs.verify.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    env:
+      INPUT_ROUND: ${{ inputs.round }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: cl1-agent-patch
+          path: ${{ runner.temp }}/proposal
+      - name: Push only the independently verified patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] || {
+            echo 'main moved since proposal; abort stale update'
+            exit 1
+          }
+          git apply --check "$RUNNER_TEMP/proposal/cl1.patch"
+          git apply --index "$RUNNER_TEMP/proposal/cl1.patch"
+          python3 .github/codex/validate_cl1_patch.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'research(cl1): publish CI-verified autonomous research iteration'
+          git push origin HEAD:main
+      - name: Dispatch next round immediately, max four total
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          round="${INPUT_ROUND:-0}"
+          [[ "$round" =~ ^[0-3]$ ]] || exit 1
+          if (( round >= 3 )); then
+            echo 'Per-chain limit reached; hourly recovery task remains enabled.'
+            exit 0
+          fi
+          next=$(( round + 1 ))
+          gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/cl1-autoresearch.yml/dispatches" -f ref=main -f "inputs[round]=$next"
