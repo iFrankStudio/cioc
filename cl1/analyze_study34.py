@@ -50,6 +50,88 @@ def source2_read_events(state: dict) -> list[dict]:
     return found
 
 
+def native_address_lineage(initial: dict, final: dict, arm: str) -> dict:
+    """Read/Draw/Write exposure through native actor1 register def-use.
+
+    This diagnostic is broader than Study33's strict target-address endpoint.
+    A successful non-target write does NOT satisfy that registered endpoint.
+    """
+    program = initial["processes"]["1"]["code"]["nodes"]
+    provenance: dict[int, bool] = {}
+    seen_draw = False
+    first_draw = None
+    reads_before_draw = []
+    reads_after_draw = []
+    writes = []
+    actor_attempts = 0
+    target = 19 if arm.startswith("mutate-g2") else 11
+    for event in final["events"][len(initial["events"]):]:
+        if analyze.internal_process(event) != 1:
+            continue
+        actor_attempts += 1
+        tick = event["tick"]
+        pc = event["pc"]
+        if not isinstance(pc, int) or not 0 <= pc < len(program):
+            raise ValueError("actor1 native PC out of registered initial code")
+        op = program[pc]
+        kind = event["kind"]
+        if op == "Halt" or isinstance(kind, dict) and "Trapped" in kind:
+            continue
+        if not isinstance(op, dict) or len(op) != 1:
+            raise ValueError("unrecognized native source opcode")
+        name, args = next(iter(op.items()))
+        if name == "DrawCompute":
+            if kind != "Executed":
+                raise ValueError("unexpected native DrawCompute result")
+            seen_draw = True
+            if first_draw is None:
+                first_draw = tick
+        elif name == "GraphReadTag":
+            if not isinstance(kind, dict) or "GraphTagRead" not in kind:
+                raise ValueError("successful GraphReadTag without resolved event")
+            read = kind["GraphTagRead"]
+            qualifies = (
+                read["graph"] == 2 and read["owner"] == 2
+                and read["node"] == 0 and read["tag"] == target
+            )
+            provenance[args["dst"]] = qualifies
+            if qualifies:
+                (reads_after_draw if seen_draw else reads_before_draw).append(tick)
+        elif name == "Add":
+            if kind != "Executed":
+                raise ValueError("unexpected Add success event")
+            provenance[args["dst"]] = (
+                provenance.get(args["lhs"], False)
+                or provenance.get(args["rhs"], False)
+            )
+        elif name == "Write":
+            if not isinstance(kind, dict) or "CellWritten" not in kind:
+                raise ValueError("unexpected successful native Write")
+            if provenance.get(args["address"], False):
+                written = kind["CellWritten"]
+                writes.append({
+                    "tick": tick, "key": written["key"], "value": written["value"],
+                    "after_draw": seen_draw,
+                    "after_original_47_attempts": actor_attempts > 47,
+                    "matches_registered_source_address": written["key"] == target,
+                })
+        elif name in ("Const", "Read", "GraphNew", "GraphCopyNode"):
+            provenance[args["dst"]] = False
+        elif name == "GraphCopyFrom":
+            provenance[args["node"]] = False
+        elif name not in ("GraphGrantRead", "Branch", "ReturnCompute"):
+            raise ValueError(f"unhandled Study34 actor1 source effect: {name}")
+    return {
+        "first_draw_tick": first_draw,
+        "source_reads_before_first_draw": reads_before_draw,
+        "source_reads_after_first_draw": reads_after_draw,
+        "native_source_address_writes": writes,
+        "registered_source_address_writes": [
+            w for w in writes if w["matches_registered_source_address"]
+        ],
+    }
+
+
 def audit(path: Path) -> dict:
     connection = sqlite3.connect(f"{path.resolve().as_uri()}?mode=ro", uri=True)
     try:
@@ -65,6 +147,9 @@ def audit(path: Path) -> dict:
         source_tags = Counter()
         changed_codes = 0
         count = 0
+        gates = Counter()
+        witness_examples = []
+        per_seed = defaultdict(dict)
         for condition, initial_sha, raw, final_sha, final_raw, revision in rows:
             if not condition.startswith("seed=") or "/" not in condition:
                 raise ValueError("unregistered arm")
@@ -90,6 +175,21 @@ def audit(path: Path) -> dict:
                     raise ValueError("original code grammar differs")
                 if final_nodes != initial_nodes:
                     changed_codes += 1
+            lineage = native_address_lineage(initial, final, arm)
+            per_seed[seed][arm] = {
+                "native_draw": lineage["first_draw_tick"] is not None,
+                "source_read_before_draw": bool(lineage["source_reads_before_first_draw"]),
+                "source_read_after_draw": bool(lineage["source_reads_after_first_draw"]),
+                "source_address_write": bool(lineage["native_source_address_writes"]),
+                "registered_target_write": bool(lineage["registered_source_address_writes"]),
+            }
+            if lineage["native_source_address_writes"] and len(witness_examples) < 12:
+                witness_examples.append({
+                    "seed": seed, "arm": arm,
+                    "writes": lineage["native_source_address_writes"][:3],
+                })
+            for name, value in per_seed[seed][arm].items():
+                gates[f"{arm}.{name}"] += bool(value)
             events = source2_read_events(final)
             for actor in {e["actor"] for e in events}:
                 actor_worlds[f"{arm}.actor{actor}"] += 1
@@ -119,6 +219,11 @@ def audit(path: Path) -> dict:
             "source2_native_read_events_by_actor_and_arm": dict(sorted(actor_events.items())),
             "source2_tag_events": dict(sorted(source_tags.items())),
             "source2_process1_control_exposure": actor_worlds["control.actor1"],
+            "gate_counts": dict(sorted(gates.items())),
+            "retrospective_native_address_witnesses": witness_examples,
+            "per_seed_gates": {
+                str(seed): per_seed[seed] for seed in sorted(per_seed)
+            },
             "graph_operand_interpretation": "REGISTER INDEX, NOT DIRECT GRAPH OBJECT ID",
             "strict_joint_source_and_compute_outcome": "SEE INDEPENDENT STUDY33 AUDIT",
             "life_claim": "NONE",
