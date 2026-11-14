@@ -42,7 +42,8 @@ fn seed(with_mutation: bool) -> Vec<Op> {
 fn fixture(source: i64, mutation: bool, pool: u64) -> World {
     let mut world = World::with_strict_capacity(4, 64, 1024)
         .with_pool_paid_draw()
-        .with_recoverable_draw_shortage();
+        .with_recoverable_draw_shortage()
+        .with_native_executable_edit_trace();
     let program = seed(mutation);
     assert_eq!(program.len(), NODES);
     world.load(Process::new(1, program, 192)).unwrap();
