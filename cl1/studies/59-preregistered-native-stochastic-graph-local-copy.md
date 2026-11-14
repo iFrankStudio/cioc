@@ -1,0 +1,33 @@
+# CL-1 Study59 — preregistered native stochastic use of generic graph-local executable transport
+
+**Prospective registration, before Study59 code or outcomes.** Study58 has passed human-scripted VM mechanism calibration: new opt-in CIL `GraphCopyNodeLocal` (ABI tag30) automatically relocates all control-flow edges into the destination graph; the scripted local variant yielded three native child CellWritten, while original absolute-copy trapped on invalid edge and zero-child-credit did not execute. **Study58 used 0 ecological worlds and is NOT life evidence.** Study49/51 original stochastic graphs with old `GraphCopyNode` yielded no functional child outputs even when native graph copy→edit→launch occurred. Study59 measures a simple new **generic language affordance** in non-goal-directed stochastic CIL, not evolution or organism reproduction.
+
+## Frozen independent cohort and causal paired treatment
+
+- Exactly **256 new independent seeds4,000,000..4,000,255**, no preliminary seed search, no exclusions. For each seed create two initial CIL programs with matching LCG choice stream, `absolute` original versus `local` new graph-local transport, and each program has the **four frozen Study49 environment arms**. This produces **256 correlated seed pairs**, **2,048 native runs** and **49,152 SHA256 epoch snapshots** (24 epochs per run). Treat 256 pairs, NOT512 independent worlds.
+- Both generators copy Study49's 3-process nine-op scaffold, original 27 native prefork attempts, 56 credits/process before prefork, 47 after, researcher-provided world pool48, bounded storage cells32/max executable nodes96/total512, 72 random continuation nodes9..80 plus Halt81, 24-way opcode table and exact original 64-bit wrapping LCG (one additional draw only for case8 to sample source-index0..80). No new species, fitness functions, selection, repair/reproduce programs or imposed target output.
+- `absolute` mode uses original `Op::GraphCopyNode {graph:3,source:2,dst:2,next}` at stochastic choices1 and20; `local` replaces **only those sampled instruction variants** with `Op::GraphCopyNodeLocal {graph:3,source:2,dst:2,next}`. All other opcode weights and operands, including the original scaffolding `GraphCopyNode` at PC1, are byte-identical. This avoids pre-fork differences, preserving equal initial scaffolding but the prefork full CIL initial programs differ at the frozen stochastic opcode sites; four arms within each mode have a byte-identical prefork state.
+- Both modes share unchanged `GraphCopyNodeLocal` world semantics and all old VM opcodes are unchanged. Native `GraphNodeCopiedLocal` events must be tracked separately from old `GraphNodeCopied`, never silently assimilated to endogenous edge repair.
+
+## Frozen environment arms and timing
+
+Exactly Study49's `ambient-general`, `ambient-only`, `closed-general`, `zero-credit-ambient-general`. Ambient input adds **8 externally endowed** world-pool credits at epochs1..23, and neutral external starter moves one already present pool credit to first unstopped zero-credit actor *only if no runnable actor*, with no CIL/fitness inspection. One charged native attempted instruction costs one compute credit. Zero-credit arm sets original actors to0 at epoch0, no boot guarantees. No targeted child resource rescue.
+
+## Strict preregistered primary endpoints (ambient-general, denominator256/mode)
+
+**Primary A: genuine successful native child shared-state output.** Count worlds with a successful `Origin::Internal(child)` `CellWritten` by child>3, and a strictly earlier successful native `GraphLaunched` parent/child lineage for that child, plus executable `Write` at child PC in corresponding state. Count exact worlds, Wilson95 and paired local-only vs absolute-only, both/neither. A copied source `Write` node, native `GraphNodeCopiedLocal` event, graph-local closed edge or child `GraphCreated` **does not** satisfy Primary A. No post-result tuning if zero.
+  
+**Primary B: functional-code opportunity rather than child success.** Count worlds with a native `GraphLaunched` child whose executable code contains a `Write` opcode **at launch**, source code provenance strict earlier internal same-parent `GraphNodeCopiedLocal` or original `GraphNodeCopied` into the corresponding graph, and locally valid outgoing edge topology. If graph snapshots cannot uniquely prove launch-time child code, mark **NOT EVALUABLE** and report final-snapshot structural phenotype separately, NEVER infer launch-time structure from a later-mutated child. Report both modes, paired discordance. Primary B must never override a negative Primary A.
+
+## Frozen mechanistic secondaries
+
+- Valid internal native `GraphNodeCopiedLocal` event with actor/owner/graph/source-index and native prior `Write` source ancestry; original opcode bytes at source index plus mutation uncertainty. Child launch count, child code with non-`GraphNew`, child successful non-`GraphCreated` instructions, invalid-edge trap rate, final child graph-edge closure, actual parent-to-child shared functional data/output dependence, W1/W2/W3 native activity.
+- Exact half-open/whole-edge relocation consequences for generic `Branch` two edges, and each native copy's output graph node bounds; do not imply native repair, because localization is VM supplied automatically.
+- Ancestor/child event provenance and outcome chronology: original native actor's internal copy vs child process successful execution and later write must each be independently verified.
+- Compare resource-neutral external starter and ambient-only/closed-general matched arms without manufacturing actor-specific compute; native instruction conservation exactly one per attempted instruction, ambient input ledger +8.
+
+## Integrity, replication and interpretation
+
+Two new Rust binaries (paired old/new sample grammar), two independent Python LCG auditors plus one **independent cross-mode causal auditor** enforcing only choice1/20 replacement, full 49,152 SHA256 historical snapshots, 2,048 exact Rust `Laboratory::verify_epoch_replay` replays, initial within-mode identical SHA256, 256 unfiltered seed pairs and exact source SHA. Archive full original SQLite and paired JSON, check the paired diagnostics with a couple of focused fixtures. **No claim of life.** The general-purpose VM introduced an **externally engineered edge-localization rule**; any child Write is a *native code execution outcome using that tool*, not naturally evolved repair, self-maintenance, open-ended heredity, or autonomous resource generation. The next life acceptance gate must be independent functional preservation and genuine damage-triggered native restoration without targeted host rescue.
+
+**CL-1 remains OPEN.**
