@@ -253,15 +253,28 @@ def evaluate_pair(low: dict, high: dict) -> dict:
     pairs2 = source_pairs(low, high, 1)
     pairs3 = source_pairs(low, high, 2)
     basic = bool(pairs2 and pairs3)
-    first3 = min(pairs3, key=lambda a: max(a[0]["tick"], a[1]["tick"])) if pairs3 else None
+
     def has_draw_before(run: dict, write: dict) -> bool:
-        return any(d["tick"] <= write["tick"] for d in run["draws"])
-    primary_a = basic and first3 is not None and (
-        has_draw_before(low, first3[0]) and has_draw_before(high, first3[1])
-    )
+        return any(d["tick"] < write["tick"] for d in run["draws"])
+
+    # Frozen primary requires successful native resource uptake *before* the
+    # qualifying W3 output AND an actual native attempt ordinal >64 in each
+    # low/high world, not merely a W3 calendar label. Choose the first
+    # chronologically eligible original pair, not a post-result favored seed.
+    qualified3 = sorted((
+        (x, y) for x, y in pairs3
+        if x["native_attempt_ordinal"] > 64
+        and y["native_attempt_ordinal"] > 64
+        and has_draw_before(low, x)
+        and has_draw_before(high, y)
+    ), key=lambda a: (max(a[0]["tick"], a[1]["tick"]), a[0]["pc"]))
+    first3 = qualified3[0] if qualified3 else None
+    primary_a = basic and first3 is not None
+
     def has_draw_same_window_before(run: dict, write: dict, w: int) -> bool:
         return any(d["window"] == w and d["tick"] < write["tick"]
                    for d in run["draws"])
+
     stricter_b = primary_a and all(
         any(has_draw_same_window_before(low, x, w)
             and has_draw_same_window_before(high, y, w)
