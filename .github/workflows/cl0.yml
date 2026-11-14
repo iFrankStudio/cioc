@@ -2,7 +2,9 @@ name: CL-0 Rust kernel
 on:
   push:
     paths:
-      - 'cl0/crates/world/**'
+      # Kernel source edits need full regression; Study-specific fixture edits have targeted workflows.
+      - 'cl0/crates/world/src/**'
+      - 'cl0/crates/world/Cargo.toml'
       - 'cl0/crates/lab/src/lib.rs'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
