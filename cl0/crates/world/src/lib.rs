@@ -790,6 +790,8 @@ pub enum Origin {
 pub enum EventKind {
     Loaded,
     Executed,
+    /// Charged but unfulfilled native Draw, only with opt-in recoverable world law.
+    DrawDeferred { requested: u64, available: u64 },
     Halted,
     Trapped(String),
     Intervened(String),
@@ -929,6 +931,10 @@ pub struct World {
     /// Not equivalent to an actor-targeted host refill or autonomous energy creation.
     #[serde(default, skip_serializing_if = "is_false")]
     pool_paid_draw: bool,
+    /// Generic opt-in world physics: insufficient valid native Draw waits without stopping.
+    /// No credits are created; each attempted Draw is still charged.
+    #[serde(default, skip_serializing_if = "is_false")]
+    recoverable_draw_shortage: bool,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -1002,6 +1008,7 @@ impl World {
             strict_accounting: false,
             compute_pool: 0,
             pool_paid_draw: false,
+            recoverable_draw_shortage: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -1064,6 +1071,16 @@ impl World {
 
     pub fn pool_paid_draw_enabled(&self) -> bool {
         self.pool_paid_draw
+    }
+
+    /// Generic retry physics, not an organism-authored action or code repair.
+    pub fn with_recoverable_draw_shortage(mut self) -> Self {
+        self.recoverable_draw_shortage = true;
+        self
+    }
+
+    pub fn recoverable_draw_shortage_enabled(&self) -> bool {
+        self.recoverable_draw_shortage
     }
 
     pub fn total_capacity(&self) -> Option<usize> {
@@ -1305,7 +1322,16 @@ impl World {
                 && (p.credits > 0
                     || (self.pool_paid_draw
                         && self.compute_pool > 0
-                        && matches!(p.code.nodes.get(p.pc), Some(Op::DrawCompute { .. }))))
+                        && matches!(p.code.nodes.get(p.pc), Some(Op::DrawCompute { .. }))
+                        && (!self.recoverable_draw_shortage
+                            || matches!(
+                                p.code.nodes.get(p.pc),
+                                Some(Op::DrawCompute { amount, .. })
+                                    if p.registers.get(*amount)
+                                        .and_then(|raw| u64::try_from(*raw).ok())
+                                        .and_then(|requested| requested.checked_add(1))
+                                        .is_some_and(|required| self.compute_pool >= required)
+                            ))))
         };
         let next_id = self
             .processes
@@ -1645,6 +1671,13 @@ impl World {
                 next_ok(next)?;
                 let quantity = reg(amount)?;
                 if quantity > self.compute_pool {
+                    if self.recoverable_draw_shortage {
+                        self.pending_transition = Some(EventKind::DrawDeferred {
+                            requested: quantity,
+                            available: self.compute_pool,
+                        });
+                        return Ok(false);
+                    }
                     return Err("insufficient world compute pool".into());
                 }
                 p.credits
