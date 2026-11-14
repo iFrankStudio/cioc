@@ -1,0 +1,15 @@
+# CL-1 Study87 — registered retrospective loss-of-functional-exposure audit of Study86
+
+**Status: RETROSPECTIVE AFTER original Study86 E11/L0 outcome; zero new ecological worlds.**
+Study86 new 128-genotype prospective cohort tested a reencounterable PC8.next→8 code lesion in 1536 six-arm matched worlds, 27,648 exact postfork native state snapshots. Original successful CI run [43595688472](https://github.com/iFrankStudio/cioc/actions/runs/43595688472) showed pretreatment exposure E11/128, effective early source-function loss L0/128, native recovery R0/128 and host-positive functional restoration H0/128. An inherited JSON field still labeled study84 was corrected in independent Stage86 audit code before the final re-verification; this is a metadata error, not permission to reinterpret outcomes.
+
+**Question:** Of the 11 original pretreatment source-function witnesses, how many remained actually executing that SAME source-sensitive writer PC and affine offset during the fixed first post-fork 0..3 epoch window in untreated and sham controls? Did the experimental lesion suppress native functional output where sham otherwise would succeed, or did the baseline decay *without* any lesion? Was PC8 actually re-encountered in lesion arms, or did the actor stop before visiting it? All these are retrospective explanatory diagnostics.
+
+Require the **untouched original Study86 SQLite**, exact full 128-genotype/1536-world/27,648-hash source-pinned audit first; **never resimulate or sample again**. Fix original 11 exposure cases as every E-true from the original analyzer, not selected based on observed lesion or recovery. For each E-case, report per source3/8 in intact, sham, lesion-native, lesion-edit-disabled, host-restored and draw-ablated arms: source-tainted matching read/write first4-epochs and late 4..9/10..17, *original writer-PC+offset* only; actual native events at PC8 in early window, actual source read and output counts, trapped/stopped state/credits/PC at postfork epoch3 and12; original PC8 opcode and pre-fork outgoing edge, and whether the external lesion was a genuine change or no-op at checkpoint. Count 11 original E denominators, N 128 original fixed seed denominator, no new genotypes. Distinguish:
+1. no sham early output so **loss assay not exposed**, regardless lesion effect;
+2. both sham and lesion output (ineffective lesion);
+3. sham output while lesion missing in only one source variant (partial, not strict L);
+4. true strict L under both source variants (original0);
+5. host exact edge restoration but no function due to PC/energy/death/taint drift.
+
+Output exact source-arms and reason category table; archive JSON in dedicated targeted CI with source pin and status. Do not modify Study86 preregistered E/L/R, no post-outcome gate tuning or replacing original 128 seeds. This is a **diagnostic only**, not a scientific positive or new ecology. Any next trial that changes pre-exposure horizon, lesion site, or function persistence gate must be separately preregistered with untouched new seeds and an independently calibrated positive host assay. CL-1 remains OPEN.
