@@ -1,0 +1,46 @@
+name: CL-1 Study111 native evolutionary chassis under nondirected ambient public compute
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study111.rs'
+      - 'cl1/analyze_study111.py'
+      - 'cl1/studies/111-preregistered-replenished-native-competition.md'
+      - '.github/workflows/cl1-study111.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ambient-native-mutation-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require source-committed Study111 +400 fixed public compute protocol
+        run: test -s ../cl1/studies/111-preregistered-replenished-native-competition.md
+      - name: Execute all128 original matched CIL environments and full2048 state replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study111 -- "$RUNNER_TEMP/study111-original-public-ambient-native-ecology.sqlite"
+      - name: Independent all-epoch source/event/child/grant and public-pool delta +400 SHA256 audit
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study111.py "$RUNNER_TEMP/study111-original-public-ambient-native-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study111-original-independent-audit.json"
+      - name: Archive all raw native worlds and independent resource/provenance audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study111-public-ambient-native-mutation-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study111-original-public-ambient-native-ecology.sqlite
+            ${{ runner.temp }}/study111-original-independent-audit.json
