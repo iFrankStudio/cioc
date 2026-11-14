@@ -1,0 +1,57 @@
+name: CL-1 Study57 retrospective actual native Branch exposure
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study57.py'
+      - 'cl1/tests/test_study57.py'
+      - '.github/workflows/cl1-study57.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  study57:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert historical post-result registration and focused provenance calibration
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/57-registered-posthoc-native-branch-exposure.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study57.py' -v
+      - name: Retrieve exact original source-pinned Study55 and Study56 paired SQLites
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study57/55" "$RUNNER_TEMP/study57/56"
+          gh run download 43559752276 --repo "$GITHUB_REPOSITORY" --name cl1-study55-paired-native-branch-topology --dir "$RUNNER_TEMP/study57/55"
+          gh run download 43560259239 --repo "$GITHUB_REPOSITORY" --name cl1-study56-paired-native-branch-topology --dir "$RUNNER_TEMP/study57/56"
+          for study in 55 56; do
+            for mode in local uniform; do
+              test -s "$RUNNER_TEMP/study57/$study/cl1-study$study-$mode.sqlite"
+            done
+          done
+      - name: Revalidate 98304 original epochs and classify confirmed native changed-Branch exposure
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study57.py \
+            "$RUNNER_TEMP/study57/55/cl1-study55-local.sqlite" \
+            "$RUNNER_TEMP/study57/55/cl1-study55-uniform.sqlite" \
+            "$RUNNER_TEMP/study57/56/cl1-study56-local.sqlite" \
+            "$RUNNER_TEMP/study57/56/cl1-study56-uniform.sqlite" \
+            --json "$RUNNER_TEMP/study57-report.json"
+      - name: Archive retrospective source-and-actor-attributed report without duplicating original SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study57-original-native-branch-exposure
+          retention-days: 30
+          path: ${{ runner.temp }}/study57-report.json
