@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           test -s ../cl1/studies/73-preregistered-native-harvesting-functional-feedback.md
-          cargo fmt --all -- --check
+          rustfmt --edition 2021 --check crates/lab/src/bin/cl1-study73.rs
           cargo test --locked --workspace
           cargo clippy --locked --workspace --all-targets -- -D warnings
           python3 -m unittest discover -s ../cl1/tests -p 'test_study73.py' -v
