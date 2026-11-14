@@ -4126,4 +4126,100 @@ mod tests {
             .collect();
         assert_eq!(ids, vec![2, 8, 2, 8]);
     }
+    #[test]
+    fn graph_copy_node_local_transports_all_edges_without_changing_absolute_copy() {
+        for local in [false, true] {
+            let copy = if local {
+                Op::GraphCopyNodeLocal {
+                    graph: 0,
+                    source: 1,
+                    dst: 2,
+                    next: 3,
+                }
+            } else {
+                Op::GraphCopyNode {
+                    graph: 0,
+                    source: 1,
+                    dst: 2,
+                    next: 3,
+                }
+            };
+            let mut world = World::with_strict_capacity(2, 16, 64);
+            world
+                .load(Process::new(
+                    1,
+                    vec![
+                        Op::GraphNew { dst: 0, next: 1 },
+                        Op::Const {
+                            dst: 1,
+                            value: 4,
+                            next: 2,
+                        },
+                        copy,
+                        Op::Halt,
+                        Op::Write {
+                            address: 0,
+                            value: 2,
+                            next: 5,
+                        },
+                        Op::Halt,
+                    ],
+                    5,
+                ))
+                .unwrap();
+            assert_eq!(world.run(3), 3);
+            assert_eq!(
+                world.graph_object(1).unwrap().nodes[0],
+                Op::Write {
+                    address: 0,
+                    value: 2,
+                    next: if local { 0 } else { 5 },
+                }
+            );
+            assert!(matches!(
+                world.events().last().unwrap().kind,
+                EventKind::GraphNodeCopiedLocal { .. }
+            ) == local);
+            assert_eq!(world.total_compute_inventory(), Some(2));
+        }
+    }
+
+    #[test]
+    fn generic_graph_local_copy_relates_both_branch_edges_and_preserves_opcode_abi() {
+        let mut graph_branch = Op::Branch {
+            test: 1,
+            nonzero: 4,
+            zero: 9,
+        };
+        graph_branch.relocate_edges(7, 1);
+        assert_eq!(
+            graph_branch,
+            Op::Branch {
+                test: 1,
+                nonzero: 0,
+                zero: 1,
+            }
+        );
+        let local = Op::GraphCopyNodeLocal {
+            graph: 3,
+            source: 2,
+            dst: 0,
+            next: 17,
+        };
+        let descriptor = local.encode_instruction().unwrap();
+        assert_eq!(descriptor[0], 30);
+        assert_eq!(Op::decode_instruction(descriptor).unwrap(), local);
+        assert_eq!(
+            Op::GraphCopyNode {
+                graph: 3,
+                source: 2,
+                dst: 0,
+                next: 17,
+            }
+            .encode_instruction()
+            .unwrap()[0],
+            12
+        );
+    }
+
 }
