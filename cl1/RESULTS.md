@@ -430,3 +430,30 @@ When the world pool was externally emptied before epoch0, **62/192** worlds stil
 **19 distinct independently seeded ecological cohort designs** have been executed: Studies 01–14, 22, 25, 27, 29, 32, containing **2,304 initial independent seed-worlds** and **13,536 matched runs**. Technical controls, source-instrumentation reobservations and post-result explorations including Study31 do not increase those independent denominators. No pooling of heterogeneous random grammars or multiple arms as independent genomes is scientifically justified.
 
 **CL-1 stage verdict remains OPEN:** a native CIL program's verified source-tag register-dataflow and resource-pool uptake are distinct necessary technical capabilities, not jointly demonstrated autonomous functional organization. There remains **no verified two-component internally formed native function, nor internally initiated recovery after actual functional damage over two separated later windows**.
+
+## Study 33 — preregistered joint source-sensitive I/O and native compute-pool uptake (2026-11-14)
+
+Study33 was prospectively [registered](studies/33-preregistered-resource-linked-source-function.md) before implementation using exactly **128 new independent seed-worlds `2,600,000..2,600,127`**, nine matched conditions (**1,152 runs**), 24 observation epochs and **27,648 hash-verified full-state snapshots**. The program generator and internally charged CIL `GraphReadTag`, `Add`, `Write`, `DrawCompute` and `ReturnCompute` distribution were copied unchanged from Study32, with **externally** assigned graph2 tag11→tag19 edits, empty initial pool, paired negative controls and explicit host-credit refill arms. The world pool started with 48 experimenter-endowed units, not native energy generation.
+
+All 1,152 Rust exact epoch replays, format/workspace tests, strict lint, independent fixed-LCG verification, source graph owner/ACL/actual graph content checks, native register lineage, successful actor-specific Draw provenance, exact world pool ledger at all 27,648 snapshots, matched prefork/sham/unaltered reinjection/zero-credit controls, and read-only Python protocol audit **passed** in [source-pinned targeted CI 43537467547](https://github.com/iFrankStudio/cioc/actions/runs/43537467547) at `f7869a8b63332b80bb9e568cbb4f4b136d020e9d`. A prior report-serialization failure on missing `Counter` entries for truly null endpoints was repaired with an explicit zero-field regression test; the hypotheses, seed IDs, CIL grammar, intervention schedule and raw epoch data were never retuned.
+
+| Frozen independent seed-world endpoint | Verified result |
+| --- | ---: |
+| Successful native process1 Draw followed by code-source2-labelled native Write to cell11 in the same epoch | **0/128** |
+| Both original graph2(tag11) and external mutant(tag19) paired arms also contain same-actor prior native Draw and corresponding cell11→cell19 output, same numeric value and epoch | **0/128** |
+| Above matched source-sensitive resource-linked outputs occur **after** the actor has exceeded its original 47 postfork native instruction quota without external process-credit refill | **0/128** |
+| Process1 successful native DrawCompute at any time in untreated branch | **52/128** |
+| Any actor successfully draws compute in untreated W1 | **96/128** |
+| Source2 register-lineage-qualified output in control, with or without native Draw | **0/128** |
+| No externally granted compute, W3 native charged activity | **0/128** |
+| Explicit externally replenished process credits, W3 native charged activity | **79/128** |
+
+For the three strict primary zero-in-128 outcomes, Wilson 95% upper bound is **0.029137** for this particular fixed generator, but it is a *zero exposure rate to the specified complete function*, not a valid estimate of rate of endogenous organism emergence. Source-tag-labelled output was not reached in either control or modified branch; consequently a statistical maintenance-recovery rate based on that absent function is **NOT EVALUABLE**.
+
+This result resolves a key logical boundary: separately confirmed native code-source register-value dependence (Study31) and native finite resource pool use (Study32) are **not automatically one combined adaptive phenotype**. No successful two-component interdependent organization, internally initiated repair after a functional lesion or two-window autonomously maintained function has yet been demonstrated ([full Study33 checkpoint](results/study33-checkpoint.md)).
+
+### Independent ecological accounting through Study 33
+
+Exactly **20 independently seeded ecological study cohorts**, Studies 01–14, 22, 25, 27, 29, 32–33, comprise **2,432 new seed-worlds and 14,688 matched experimental runs**. Historic replays, scripted mechanism fixtures, and post-outcome source/reg-dataflow auditors add **zero independent worlds**. Do not pool heterogeneous grammars or the nine paired Study33 branches as separate replicates.
+
+**CL-1 scientific status: OPEN.** The next step must preserve the difference between an observer-verified source-dependent native operation, a renewable source of execution credits, and a causally necessary self-reconstructing multi-component function that persists after real damage.
