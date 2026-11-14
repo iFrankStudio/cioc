@@ -1,0 +1,48 @@
+name: CL-1 Study60 retrospective native local-copy child lineage
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study60.py'
+      - 'cl1/tests/test_study60.py'
+      - '.github/workflows/cl1-study60.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify post-result registration and two independent child attribution controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/60-registered-retrospective-local-child-source-lineage.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study60.py' -v
+      - name: Download original unchanged Study59 native SQLite source-paired ecologies
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study60"
+          gh run download 43562760289 --repo "$GITHUB_REPOSITORY" --name cl1-study59-native-locality-ecology --dir "$RUNNER_TEMP/study60"
+          test -s "$RUNNER_TEMP/study60/cl1-study59-absolute.sqlite"
+          test -s "$RUNNER_TEMP/study60/cl1-study59-local.sqlite"
+      - name: Recheck 49152 historical hashes, all original native CIL grammar and all child PC/source ancestry
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study60.py "$RUNNER_TEMP/study60/cl1-study59-absolute.sqlite" "$RUNNER_TEMP/study60/cl1-study59-local.sqlite" --json "$RUNNER_TEMP/study60-report.json"
+      - name: Archive new retrospective audit, not duplicate original 1.1GB native data
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study60-native-local-child-lineage
+          retention-days: 30
+          path: ${{ runner.temp }}/study60-report.json
