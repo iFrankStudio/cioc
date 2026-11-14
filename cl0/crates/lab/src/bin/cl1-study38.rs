@@ -203,16 +203,33 @@ fn base_conditions(seed: u64) -> Vec<(String, bool, Ignition, Vec<EpochAction>)>
     let at = |epoch, action| EpochAction { epoch, action };
     let empty = || vec![at(0, Intervention::SetComputePool { credits: 0 })];
     let zero = || {
-        (1..=3).map(|process| at(0, Intervention::SetCredits {
-            process, credits: 0,
-        })).collect::<Vec<_>>()
+        (1..=3)
+            .map(|process| {
+                at(
+                    0,
+                    Intervention::SetCredits {
+                        process,
+                        credits: 0,
+                    },
+                )
+            })
+            .collect::<Vec<_>>()
     };
     let refill = || {
-        [8, 16].into_iter().flat_map(|epoch| {
-            (1..=3).map(move |process| at(epoch, Intervention::SetCredits {
-                process, credits: 47,
-            }))
-        }).collect::<Vec<_>>()
+        [8, 16]
+            .into_iter()
+            .flat_map(|epoch| {
+                (1..=3).map(move |process| {
+                    at(
+                        epoch,
+                        Intervention::SetCredits {
+                            process,
+                            credits: 47,
+                        },
+                    )
+                })
+            })
+            .collect::<Vec<_>>()
     };
     [
         ("closed", false, Ignition::None, vec![]),
@@ -221,10 +238,25 @@ fn base_conditions(seed: u64) -> Vec<(String, bool, Ignition, Vec<EpochAction>)>
         ("ambient", true, Ignition::None, vec![]),
         ("ambient-draw", true, Ignition::Draw, vec![]),
         ("ambient-general", true, Ignition::General, vec![]),
-        ("ambient-general-empty-pool", true, Ignition::General, empty()),
-        ("ambient-general-zero-credit", true, Ignition::General, zero()),
+        (
+            "ambient-general-empty-pool",
+            true,
+            Ignition::General,
+            empty(),
+        ),
+        (
+            "ambient-general-zero-credit",
+            true,
+            Ignition::General,
+            zero(),
+        ),
         ("external-refill", false, Ignition::None, refill()),
-        ("sham", false, Ignition::None, vec![at(0, Intervention::DropGraph { graph: 0 })]),
+        (
+            "sham",
+            false,
+            Ignition::None,
+            vec![at(0, Intervention::DropGraph { graph: 0 })],
+        ),
     ]
     .into_iter()
     .map(|(arm, ambient, ignition, actions)| {
@@ -250,7 +282,9 @@ fn make_plan(
         }
         if ambient && epoch >= 1 {
             let before = predicted.available_compute_pool();
-            let after = before.checked_add(8).ok_or("ambient compute pool overflow")?;
+            let after = before
+                .checked_add(8)
+                .ok_or("ambient compute pool overflow")?;
             let input = EpochAction {
                 epoch,
                 action: Intervention::SetComputePool { credits: after },
@@ -306,7 +340,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
         for (run, expected) in runs.into_iter().zip(predicted) {
             if run.world != expected {
-                return Err(format!("predicted environment differs from replay: {}", run.label).into());
+                return Err(
+                    format!("predicted environment differs from replay: {}", run.label).into(),
+                );
             }
             if !lab.verify_epoch_replay(run.id)? {
                 return Err(format!("failed full native epoch replay: {}", run.label).into());
@@ -343,7 +379,16 @@ mod tests {
 
     #[test]
     fn general_environment_ignites_zero_credit_actor_without_inspecting_code() {
-        let w = fixture(Op::Const { dst: 0, value: 1, next: 1 }, 0, 7, false);
+        let w = fixture(
+            Op::Const {
+                dst: 0,
+                value: 1,
+                next: 1,
+            },
+            0,
+            7,
+            false,
+        );
         assert_eq!(ignition_candidate(&w, Ignition::General), Some((1, 7)));
         assert!(ignition_candidate(&w, Ignition::Draw).is_none());
         let (plan, after) = make_plan(&w, &[], false, Ignition::General).unwrap();
@@ -358,16 +403,27 @@ mod tests {
         assert!(ignition_candidate(
             &fixture(Op::DrawCompute { amount: 1, next: 1 }, 0, 2, false),
             Ignition::Draw
-        ).is_none());
+        )
+        .is_none());
         assert!(ignition_candidate(
             &fixture(Op::DrawCompute { amount: 1, next: 1 }, 0, 7, true),
             Ignition::General
-        ).is_none());
+        )
+        .is_none());
     }
 
     #[test]
     fn ambient_input_occurs_before_external_ignition_and_is_observable() {
-        let w = fixture(Op::Const { dst: 0, value: 1, next: 1 }, 0, 0, false);
+        let w = fixture(
+            Op::Const {
+                dst: 0,
+                value: 1,
+                next: 1,
+            },
+            0,
+            0,
+            false,
+        );
         let (plan, after) = make_plan(&w, &[], true, Ignition::General).unwrap();
         assert_eq!(plan[0].epoch, 1);
         assert!(matches!(
