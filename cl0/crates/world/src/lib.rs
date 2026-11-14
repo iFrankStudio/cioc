@@ -895,6 +895,9 @@ pub struct Event {
     pub pc: usize,
     pub kind: EventKind,
     pub credits_after: u64,
+    /// True only when the world's opt-in shared-pool rule paid this native Draw attempt.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub pool_paid_attempt: bool,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -921,6 +924,11 @@ pub struct World {
     /// Environment-held computation credits; transfers preserve the total inventory.
     #[serde(default)]
     compute_pool: u64,
+    /// Generic, opt-in substrate rule: a zero-credit actor may attempt its own
+    /// next DrawCompute using one world-pool credit as the instruction charge.
+    /// Not equivalent to an actor-targeted host refill or autonomous energy creation.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pool_paid_draw: bool,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -968,6 +976,10 @@ pub enum Intervention {
     },
 }
 
+fn is_false(value: &bool) -> bool {
+    !*value
+}
+
 fn default_world_format_version() -> u32 {
     WORLD_FORMAT_VERSION
 }
@@ -989,6 +1001,7 @@ impl World {
             total_storage_limit: None,
             strict_accounting: false,
             compute_pool: 0,
+            pool_paid_draw: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -1040,6 +1053,17 @@ impl World {
         let mut world = Self::with_total_capacity(storage_limit, max_nodes_per_process, total);
         world.strict_accounting = true;
         world
+    }
+
+    /// Researcher chooses an opt-in generic environment law before running.
+    /// It remains visible in the serialized world and never revives stopped actors.
+    pub fn with_pool_paid_draw(mut self) -> Self {
+        self.pool_paid_draw = true;
+        self
+    }
+
+    pub fn pool_paid_draw_enabled(&self) -> bool {
+        self.pool_paid_draw
     }
 
     pub fn total_capacity(&self) -> Option<usize> {
@@ -1106,6 +1130,7 @@ impl World {
             pc,
             kind: EventKind::Loaded,
             credits_after: credits,
+            pool_paid_attempt: false,
         });
         Ok(())
     }
@@ -1170,6 +1195,7 @@ impl World {
                 Err(reason) => EventKind::InterventionRejected(format!("{description}: {reason}")),
             },
             credits_after: self.processes.get(&process).map_or(0, |p| p.credits),
+            pool_paid_attempt: false,
         });
         result
     }
@@ -1271,18 +1297,26 @@ impl World {
     }
 
     pub fn step(&mut self) -> bool {
+        // The opt-in shared-pool rule never gives a process credits directly.
+        // At zero local credits only an actual pending native DrawCompute may
+        // execute, with its single attempt charge taken from the shared pool.
+        let eligible = |p: &Process| {
+            !p.stopped
+                && (p.credits > 0
+                    || (self.pool_paid_draw
+                        && self.compute_pool > 0
+                        && matches!(p.code.nodes.get(p.pc), Some(Op::DrawCompute { .. }))))
+        };
         let next_id = self
             .processes
             .iter()
-            .filter(|(&id, p)| {
-                !p.stopped && p.credits > 0 && self.cursor.is_none_or(|last| id > last)
-            })
+            .filter(|(&id, p)| eligible(p) && self.cursor.is_none_or(|last| id > last))
             .map(|(&id, _)| id)
             .next()
             .or_else(|| {
                 self.processes
                     .iter()
-                    .find(|(_, p)| !p.stopped && p.credits > 0)
+                    .find(|(_, p)| eligible(p))
                     .map(|(&id, _)| id)
             });
         let Some(id) = next_id else {
@@ -1290,12 +1324,23 @@ impl World {
         };
         self.cursor = Some(id);
         self.pending_transition = None;
+        let pool_paid_attempt = self
+            .processes
+            .get(&id)
+            .is_some_and(|p| p.credits == 0);
+        if pool_paid_attempt {
+            // Provenance marker below distinguishes this environmental fee
+            // from ordinary process-funded native instruction execution.
+            self.compute_pool -= 1;
+        }
         let (pc, op) = {
             let p = self
                 .processes
                 .get_mut(&id)
                 .expect("selected process exists");
-            p.credits -= 1; // every attempted instruction costs one credit, including traps
+            if !pool_paid_attempt {
+                p.credits -= 1; // all attempts, including traps, consume a credit
+            }
             (p.pc, p.code.nodes.get(p.pc).cloned())
         };
         let outcome = match op {
@@ -1326,6 +1371,7 @@ impl World {
             pc,
             kind,
             credits_after: p.credits,
+            pool_paid_attempt,
         });
         true
     }
