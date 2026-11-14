@@ -1,0 +1,42 @@
+name: CL-1 Study113 independent audit of original frozen 4096 native states
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study113.py'
+      - '.github/workflows/cl1-study113-original-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  read-only-original-native-code-ancestry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve original untouched Study113 frozen mutation survey SQLite (without rerunning CIL worlds)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/113-preregistered-unbiased-native-edge-mutation-distribution.md
+          mkdir -p "$RUNNER_TEMP/study113-original"
+          gh run download 43611914080 --repo "$GITHUB_REPOSITORY" --name cl1-study113-original-unselected-native-full-site-target --dir "$RUNNER_TEMP/study113-original"
+          test -s "$RUNNER_TEMP/study113-original/study113-original-full-site-edge-native-ecology.sqlite"
+      - name: Read-only independently reconstruct every original native executable site edit and graph-launched child
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study113.py "$RUNNER_TEMP/study113-original/study113-original-full-site-edge-native-ecology.sqlite" --expected-revision eee5e9902f3f2eba30a088975b2aa56bf02bca73 --json "$RUNNER_TEMP/study113-original-independent-native-child-ancestry.json"
+      - name: Archive original-linked 64-seed all-target native genotype audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study113-original-frozen-independent-readonly-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study113-original-independent-native-child-ancestry.json
