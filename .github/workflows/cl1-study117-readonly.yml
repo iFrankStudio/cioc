@@ -1,0 +1,42 @@
+name: CL-1 Study117 original 512 native world capacity4-vs5 read-only source audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study117.py'
+      - '.github/workflows/cl1-study117-readonly.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-source-byte-exact-native-capacity-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch frozen-original entire Study117 SQLite from original-generation GitHub CI
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/117-preregistered-storage-capacity-native-heritability-gate.md
+          mkdir -p "$RUNNER_TEMP/study117-original"
+          gh run download 43617344584 --repo "$GITHUB_REPOSITORY" --name cl1-study117-original-native-shared-storage-heredity --dir "$RUNNER_TEMP/study117-original"
+          test -s "$RUNNER_TEMP/study117-original/study117-original-capacity4-vs5-one-shot-native-heritability.sqlite"
+      - name: Independently reverify all 8192 ORIGINAL SHA256 states and actual actor-born functional granddaughter/son
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study117.py "$RUNNER_TEMP/study117-original/study117-original-capacity4-vs5-one-shot-native-heritability.sqlite" --expected-revision 330c1cf7afa97d425fdd8255141e825fcc6ea4ee --json "$RUNNER_TEMP/study117-original-native-complete-function-capacity-audit.json"
+      - name: Archive full unfiltered matched CIL code and functional grandchildren original-only report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study117-source-pinned-original-capacity5-native-grandchildren-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study117-original-native-complete-function-capacity-audit.json
