@@ -1,0 +1,49 @@
+name: CL-1 Study52 retrospective native copied-code ancestry
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study52.py'
+      - 'cl1/tests/test_study52.py'
+      - '.github/workflows/cl1-study52.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  native-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify retrospective registration and minimal false-positive controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/52-registered-retrospective-native-child-source-opcode.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study52.py' -v
+      - name: Fetch untouched original source-pinned Study49 and Study51 archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study52/49" "$RUNNER_TEMP/study52/51"
+          gh run download 43556383858 --repo "$GITHUB_REPOSITORY" --name cl1-study49-native-code-plasticity --dir "$RUNNER_TEMP/study52/49"
+          gh run download 43556991490 --repo "$GITHUB_REPOSITORY" --name cl1-study51-native-code-plasticity --dir "$RUNNER_TEMP/study52/51"
+          test -s "$RUNNER_TEMP/study52/49/cl1-study49.sqlite"
+          test -s "$RUNNER_TEMP/study52/51/cl1-study51.sqlite"
+      - name: Recheck both original independent audits and 49152 hashed epochs; classify source opcodes
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study52.py "$RUNNER_TEMP/study52/49/cl1-study49.sqlite" "$RUNNER_TEMP/study52/51/cl1-study51.sqlite" --json "$RUNNER_TEMP/study52-report.json"
+      - name: Archive independent retrospective analysis only
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study52-copied-source-opcode-ancestry
+          retention-days: 30
+          path: ${{ runner.temp }}/study52-report.json
