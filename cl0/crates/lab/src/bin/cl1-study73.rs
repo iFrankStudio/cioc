@@ -111,7 +111,7 @@ fn seeded_world(seed: u64, mode: &str) -> Result<World, Box<dyn Error>> {
                     nonzero: target,
                     zero: next,
                 }
-            },
+            }
             _ => {
                 if draw_ablated {
                     Op::Const {
