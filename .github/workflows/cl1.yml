@@ -5,7 +5,9 @@ on:
     # Aggregate legacy Study01-33 on own edits; kernel edits trigger representative regressions.
     # Study34+ each have a targeted workflow.
     paths:
-      - 'cl0/crates/world/**'
+      # Kernel source edits need full regression; Study-specific fixture edits have targeted workflows.
+      - 'cl0/crates/world/src/**'
+      - 'cl0/crates/world/Cargo.toml'
       - 'cl0/crates/*/src/lib.rs'
       - 'cl0/crates/*/Cargo.toml'
       - 'cl0/Cargo.toml'
