@@ -1,0 +1,61 @@
+name: CL-1 Study43 retrospective native child ancestry audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study43.py'
+      - 'cl1/tests/test_study43.py'
+      - '.github/workflows/cl1-study43.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  study43:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm post-result protocol discloses known child outcome and run targeted attribution controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/43-posthoc-native-child-function-ancestry-audit.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study43.py' -v
+      - name: Download source-pinned untouched original Study41 and Study42 ecology artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study43/41" "$RUNNER_TEMP/study43/42"
+          gh run download 43553705027 --repo "$GITHUB_REPOSITORY" --name cl1-study41-native-code-plasticity --dir "$RUNNER_TEMP/study43/41"
+          gh run download 43553947738 --repo "$GITHUB_REPOSITORY" --name cl1-study42-native-code-plasticity --dir "$RUNNER_TEMP/study43/42"
+          test -s "$RUNNER_TEMP/study43/41/cl1-study41.sqlite"
+          test -s "$RUNNER_TEMP/study43/42/cl1-study42.sqlite"
+      - name: Independently re-audit original 24576 hashed epochs and every native child actor lineage
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study43.py "$RUNNER_TEMP/study43/41/cl1-study41.sqlite" "$RUNNER_TEMP/study43/42/cl1-study42.sqlite" --json "$RUNNER_TEMP/study43-report.json"
+          python3 - "$RUNNER_TEMP/study43-report.json" <<'PY'
+          import json,sys
+          x=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":x["study"],
+            "new_worlds":x["new_independent_worlds"],
+            "hashed_epochs":x["validated_epoch_hashes"],
+            "study41":{k:v for k,v in x["cohorts"]["41"]["metrics"].items() if k.startswith("ambient-general.")},
+            "study42":{k:v for k,v in x["cohorts"]["42"]["metrics"].items() if k.startswith("ambient-general.")},
+            "life_claim":x["life_claim"]
+          },indent=2))
+          PY
+      - name: Archive retrospective functional child classification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study43-posthoc-child-ancestry
+          retention-days: 30
+          path: ${{ runner.temp }}/study43-report.json
