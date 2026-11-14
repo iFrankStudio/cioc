@@ -184,7 +184,7 @@ fn native_edit_ablation_does_not_turn_invalid_edit_into_success() {
         assert_eq!(world.process(1).unwrap().credits, 5);
         assert!(world.events().iter().any(|e| {
             e.origin == Origin::Internal(1)
-                && matches!(&e.kind, EventKind::Trapped(reason) if reason == "invalid node")
+                && matches!(&e.kind, EventKind::Trapped(reason) if reason == "invalid edge")
         }));
         assert!(!world.events().iter().any(|e| {
             matches!(e.kind, EventKind::NativeCodeEditSuppressed { .. })
