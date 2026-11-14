@@ -1,0 +1,22 @@
+# CL-1 Study108 — verified prospective opposite-direction native functional mutation causal contrast
+
+**All source-pinned original experiments and the independent observer PASSED** [GitHub Actions 43608972444](https://github.com/iFrankStudio/cioc/actions/runs/43608972444), source revision `406bb3e1160987113671eb9ffdf517c3edf4ad51`. The independent [preregistered protocol](../studies/108-preregistered-slow-ancestor-native-beneficial-mutation-contrast.md), commit `4bfdd5779999b59decec8b64126d737c82ea3788`, was committed before original runner/observer and outcome inspection, explicitly motivated by Study107's fast-baseline operator asymmetry. **No Stage107 original endpoint was modified retroactively.** Original SQLite and independent audit [artifact 14119765093](https://github.com/iFrankStudio/cioc/actions/runs/43608972444/artifacts/14119765093), archive SHA256 `396667835df5d7af6aba4b7e7b90f0765fe0f2efafa11778d56c6865b40909c3`.
+
+## Exact frozen original outcomes
+
+32 genuinely fresh parameterized **researcher-designed** self-replicator genotype labels `6,200,000..6,200,031`, 32 distinct initial executable code hashes, two matched source values3/8, two **byte-identical-source-CIL** arms per seed/source (normal generic native PatchNext versus narrowly suppressed only PatchNext), **128 original worlds, 1,024 / 1,024 fully SHA256-verified exact SQLite epoch snapshots, 256,000 total charged native attempts**. Independent Python observer confirmed 32/32 registered native fast-allele exposure under both input values, real native functional Read7→Write9 ancestry, full28-node native code copy and inherited functional variation, successful native Draw before GraphLaunch, original actor-PC edit provenance, and every world compute inventory equals `3400 - actual_attempts`. There were zero external per-actor rescue/host child injections.
+
+| Native mutation enabled minus patch-disabled offspring count, at original 2,000-attempt horizon | Source3 | Source8 |
+|---|---:|---:|
+| Enabled produces more children | **1/32** | **1/32** |
+| Enabled produces fewer children | **0/32** | **0/32** |
+| Equal number of children | **31/32** | **31/32** |
+| Exact paired two-sided sign p, discarding ties | **1.0** | **1.0** |
+
+The **same original seed label 6,200,017** achieved **one extra native child** under both source values; source3/8 are dependent matched observations of the same genotype, **not two independent positive seeds**. All other 31 genotype labels tied on the primary endpoint. The actor-native code mutation made a formerly slow PC4.next24 path faster PC4.next5, inherited by genuine descendants and executed; the narrow-disabled matched actor kept the originally slow code and still performed native GraphCopyNode/GraphLaunch. The observed single extra child is a **real but rare, fixed-horizon causal improvement in this authored design**, NOT a statistically established population-wide fitness benefit or natural selection effect.
+
+## Strong limitations and next gate
+
+This deliberately tests a hypothesis generated AFTER Study107: the earlier fast baseline left no beneficial target choice, so this independent **slow baseline** makes a future edge-to-fast mutation functionally meaningful. The beneficial code edit direction itself is explicitly supplied by the researcher's CIL mutator design. The initial CIL self-copying, shared mutagen input, 5↔24 toggling, gainful fast route and finite compute are all engineered; no spontaneous appearance of an evolvable mutator/genome and no two-component organizational closure. Merely lengthening the horizon or increasing delay until more positive offspring counts emerge would bias the endpoint; all frozen data including 31 ties are preserved.
+
+A useful **registered post-outcome mechanism-only audit** would compare native cumulative offspring event times and charged instruction counts *within the same original unmodified Study108 SQLite archive*, declaring retrospective status and zero new independent genomes, to see whether code efficiency effects precede the saturated integer birth-count endpoint. A truly new ecological test needs variation arising through **general native operations** without a hand-picked beneficial target, common competition among independently arising sibling genotypes, neutral/deleterious mutation controls and adaptive-benefit claims limited to actual prospective causal data. **CL-1 remains OPEN.**
