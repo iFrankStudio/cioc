@@ -1,0 +1,65 @@
+name: CL-1 Study89 original live lesion native edit reachability audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study89.py'
+      - 'cl1/studies/89-retrospective-native-lesion-repair-reachability.md'
+      - '.github/workflows/cl1-study89.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+jobs:
+  audit-original-repair-reachability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require explicit retrospective zero-new-world protocol
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/89-retrospective-native-lesion-repair-reachability.md
+          test -s ../cl1/analyze_study88.py
+          test -s ../cl1/analyze_study82.py
+      - name: Download original untouched independently verified Study88 SQLite
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study89"
+          gh run download 43597236032 --repo "$GITHUB_REPOSITORY" --name cl1-study88-original-native-functional-lesion --dir "$RUNNER_TEMP/study89"
+          test -s "$RUNNER_TEMP/study89/cl1-study88-original-prefork-native-lesions.sqlite"
+      - name: Reverify 128 source genotypes and all 27648 native SHA256 snapshots before reachability interpretation
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study89.py "$RUNNER_TEMP/study89/cl1-study88-original-prefork-native-lesions.sqlite" --json "$RUNNER_TEMP/study89-native-edit-reachability.json"
+      - name: Archive retrospective interpretation only (no duplicate original database)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study89-retrospective-native-edit-reachability
+          retention-days: 30
+          path: ${{ runner.temp }}/study89-native-edit-reachability.json
+      - name: Post source-specific independently tested reachability audit status
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study89-repair-reachability-audit" \
+            -f description="Retrospective original Study88 PC8 structural edit-reachability audit: $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
