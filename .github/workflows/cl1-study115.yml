@@ -1,0 +1,45 @@
+name: CL-1 Study115 unselected native activation of prewritten latent CIL information function
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study115.rs'
+      - 'cl1/studies/115-preregistered-latent-function-native-activation.md'
+      - '.github/workflows/cl1-study115.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-latent-function-activation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert original frozen full-source all-target latency activation preregistration
+        run: test -s ../cl1/studies/115-preregistered-latent-function-native-activation.md
+      - name: Execute 512 original new-genotype 56-node CIL worlds and exact 8192 full-state epoch replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study115 -- "$RUNNER_TEMP/study115-original-all-target-prewritten-latent-function.sqlite"
+      - name: Independently audit 8192 original SHA256 native code full-birth ancestry and child actor derived-source+1 function
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study115.py "$RUNNER_TEMP/study115-original-all-target-prewritten-latent-function.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study115-original-child-expressed-latent-module-audit.json"
+      - name: Archive all original world states even if independent observer detects missing functional heredity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study115-original-unselected-latent-activation
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study115-original-all-target-prewritten-latent-function.sqlite
+            ${{ runner.temp }}/study115-original-child-expressed-latent-module-audit.json
