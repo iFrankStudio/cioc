@@ -2,12 +2,21 @@ name: CL-1 preregistered research
 
 on:
   push:
+    # Aggregate legacy Study01-33 on own edits and on shared-kernel edits only.
+    # Study34+ each have a targeted workflow.
     paths:
-      - 'cl1/**/*.py'
-      - 'cl0/crates/**'
+      - 'cl0/crates/world/**'
+      - 'cl0/crates/*/src/lib.rs'
+      - 'cl0/crates/*/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
-      - '.github/workflows/cl1.yml'
+      - 'cl0/crates/lab/src/bin/cl1-study[0-2][0-9].rs'
+      - 'cl0/crates/lab/src/bin/cl1-study3[0-3].rs'
+      - 'cl1/analyze.py'
+      - 'cl1/analyze_study[0-2][0-9].py'
+      - 'cl1/analyze_study3[0-3].py'
+      - 'cl1/tests/test_study[0-2][0-9].py'
+      - 'cl1/tests/test_study3[0-3].py'
   workflow_dispatch:
   schedule:
     - cron: '17 5 * * 0'
