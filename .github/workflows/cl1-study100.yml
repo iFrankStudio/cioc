@@ -1,0 +1,27 @@
+name: CL-1 Study100 actual inherited native executable drift
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study100_heritable_native_drift.rs'
+      - 'cl1/studies/100-preregistered-scripted-heritable-native-code-drift.md'
+      - '.github/workflows/cl1-study100.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-heritable-drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify frozen Study100 human-scripted protocol
+        run: test -s ../cl1/studies/100-preregistered-scripted-heritable-native-code-drift.md
+      - name: Verify actual native 24-node genotype mutation and 4 descendant generations
+        run: cargo test --locked -p cl0-world --test study100_heritable_native_drift -- --nocapture
