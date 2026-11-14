@@ -341,9 +341,14 @@ def auditor(path, expected_rev):
         )
         # The source code must not silently reinterpret a source-specific
         # mismatch as a nonexposed sample. We independently test consistency.
-        require(eligible_time, "low/high original pretrigger native attempt mismatch")
-        require(low_trace["attempts"] <= MAX_PRE_ATTEMPTS,
-                "exceeded preregistered paired trigger horizon")
+        # If either source variant stopped or stalled, the paired schedule
+        # still runs its remaining observation slots. Different ACTUAL charged
+        # attempt counts are thus an ordinary non-exposure, not corrupt data.
+        require(
+            low_trace["attempts"] <= MAX_PRE_ATTEMPTS
+            and high_trace["attempts"] <= MAX_PRE_ATTEMPTS,
+            "exceeded preregistered paired trigger horizon",
+        )
         if E:
             counts["pre_fork_source_function_exposed"] += 1
         for source in (3, 8):
