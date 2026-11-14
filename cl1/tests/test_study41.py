@@ -14,8 +14,13 @@ def native(op="PatchConst", successful=True):
     mutator = {op: {"node": 2, "value": 0, "next": 2}}
     initial = [old, mutator, old]
     after = [old, mutator, patched]
-    before = {"processes": {"1": {"code": {"nodes": initial}}}}
-    final = {"processes": {"1": {"code": {"nodes": after}}}}
+    other = {"code": {"nodes": ["Halt"]}}
+    before = {"processes": {
+        "1": {"code": {"nodes": initial}}, "2": other, "3": other,
+    }}
+    final = {"processes": {
+        "1": {"code": {"nodes": after}}, "2": other, "3": other,
+    }}
     event = {"process": 1, "pc": 1, "tick": 2,
              "kind": "Executed" if successful else {"Trapped": "invalid"}}
     return before, final, [event]
