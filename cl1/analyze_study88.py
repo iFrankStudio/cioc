@@ -203,6 +203,23 @@ def auditor(path, expected_rev):
         initial = json.loads(pre_raw)
         original_code = original.expected_code(seed)
         observed_code = initial["processes"]["1"]["code"]["nodes"]
+        require(len(observed_code) == len(original_code) == 28, "wrong native genotype size")
+        # Native PatchNext can change ONLY PC8's next edge under this grammar.
+        # Everything else must remain byte-identical to the independently
+        # regenerated SplitMix64 genotype, including opcode tags and operands.
+        for pc in range(28):
+            if pc == 8:
+                observed_tag, observed_fields = variant(observed_code[pc])
+                expected_tag, expected_fields = variant(original_code[pc])
+                require(observed_tag == expected_tag, "changed native PC8 instruction tag")
+                require(
+                    {k: v for k, v in observed_fields.items() if k != "next"}
+                    == {k: v for k, v in expected_fields.items() if k != "next"},
+                    "non-edge functional genotype edit escaped trace",
+                )
+            else:
+                require(observed_code[pc] == original_code[pc],
+                        "native checkpoint code differs from source-regenerated genotype outside PC8")
         original_code_hash = sha(json.dumps(original_code, sort_keys=True))
         if seed in genotype_hashes:
             require(genotype_hashes[seed] == original_code_hash,
