@@ -1,0 +1,52 @@
+name: CL-1 Study76 generic nonfatal native Draw VM calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study76.rs'
+      - 'cl1/analyze_study76.py'
+      - '.github/workflows/cl1-study76.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check preregistered six exact scripted resource physics controls and VM native provenance
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/76-preregistered-recoverable-native-draw-calibration.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Reproduce six HUMAN-scripted native draw retry and legacy world controls
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study76 -- "$RUNNER_TEMP/study76-recoverable-native-draw.sqlite"
+      - name: Independently validate every original event-PC, external energy input and all 144 epoch SHA256 snapshots
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study76.py "$RUNNER_TEMP/study76-recoverable-native-draw.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study76-independent-audit.json"
+      - name: Archive original scripted mechanism sources and independent audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study76-recoverable-draw-physics-fixtures
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study76-recoverable-native-draw.sqlite
+            ${{ runner.temp }}/study76-independent-audit.json
