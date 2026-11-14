@@ -1,0 +1,21 @@
+# CL-1 Study72 — prospective within-world changing sensor, native functional tracking
+
+**Prospective registration.** No Study72 seeds may be run before this protocol is committed. Study68/69/71 demonstrated native W2+W3 Read→Write with fixed input across paired worlds, but did not establish within-world response to an input change. Study72 tests *live tracking*, not life or self-maintenance.
+
+## Frozen ecological sample and code
+
+Generate **256 new raw seed labels 4,800,000..4,800,255**, one-time SplitMix64 whitening and the exact Study71 six-way LCG CIL grammar, 24 sampled nodes PC3..26, fixed generic port setup PC0..2, Halt PC27, 300 initial process credits, 24 epochs×12 attempts. Broad-backedge and short-backedge programs share every opcode and random draw except native Branch nonzero edges. No hand-authored useful feedback loop, process starter, native repair, resource injection, or selected favorable seed. Include all seeds regardless of traps, halt or lack of read.
+
+## Frozen matched arms and interventions
+
+Per seed, topology broad/short × input treatment dynamic/static-low/static-high × Read intact/ablated = **12 arms**, **3,072 original runs**, **73,728 SHA256 epoch snapshots**. Initialize cell7=3 in every dynamic and static-low world, and cell7=8 in static-high. The *only* dynamic intervention is a researcher-origin SetCell(key7,value8) **at the beginning of epoch12**, before that epoch's native steps. Static worlds have no runtime intervention. Read-ablation replaces every sampled Read with Const(r0,0) while preserving PC, next edges and random draws. No host-directed process credits, process reset, code patch or forced execution. Intervention is explicitly external and never an autonomous response.
+
+## Frozen prospective primary
+
+Windows PRE=epochs8..11 and POST=epochs12..15; persistence window LATE=epochs16..23 is separately reported, not silently substituted. A seed/topology qualifies only if (1) the dynamic original actor executes a fresh successful native Read(key7) **in both PRE and POST**, (2) subsequent same-actor native CellWritten(key9) at the **same writer PC** in both windows is register0 source-tainted with no intervening Const(r0), (3) dynamic PRE native output equals the static-low matched output at the same writer PC in PRE and dynamic POST equals static-high matched output at the same writer PC in POST, while the static-high vs static-low matched native values differ by **exactly +5**, (4) a dynamic POST Write follows a native Read after the epoch12 intervention, (5) the Read-ablated dynamic trace is independent of dynamic/static source changes, with no successful native CellRead. Require actual native event provenance and temporal ordering, not only snapshot cell equality or host intervention.
+
+Because control flow may diverge, comparisons use **first qualifying Write per window at the same PC** and value, not necessarily identical tick numbers. If any arm fails to produce a qualifying event in a window, the seed fails; no conditioning on a post-hoc evaluable subset. Record a separate reachability funnel: W1 native activity, PRE read, PRE write, POST read, POST write, paired static comparator availability, taint and ablation. Count exact paired broad-only/short-only/both/neither out of all256; two-sided exact paired sign test and Wilson95 per arm. The frozen directional hypothesis is broad-only > short-only, but no effect or zero qualified worlds is a valid negative result.
+
+## Mandatory audit and limits
+
+Independently reconstruct all 256 programs from raw seed in Python; compare original CIL and every control program, complete source-pinned SQLite, exact native event actor/PC/source, intervention ordering, replay, all 73,728 snapshot hashes, native credit charge and compute conservation. Source cell SetCell is **External**, not a native sensor action. Archive untouched SQLite and JSON, record full source revision, report every seed, and do not reinterpret repeated output as adaptation, self-organization, code repair, internally acquired compute, reproduction or life. If the original event schema does not permit establishing intervention-before-Read ordering, report **NOT EVALUABLE** rather than invent provenance. CL-1 remains OPEN.
