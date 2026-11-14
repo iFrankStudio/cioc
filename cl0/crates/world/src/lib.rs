@@ -1494,6 +1494,7 @@ impl World {
                     | Op::Delete { next, .. } => *next,
                     Op::GraphNew { next, .. }
                     | Op::GraphCopyNode { next, .. }
+                    | Op::GraphCopyNodeLocal { next, .. }
                     | Op::GraphSetNext { next, .. }
                     | Op::GraphSetConst { next, .. }
                     | Op::GraphReadNext { next, .. }
@@ -1558,6 +1559,7 @@ impl World {
             Op::Halt => return Ok(true),
             Op::GraphNew { .. }
             | Op::GraphCopyNode { .. }
+            | Op::GraphCopyNodeLocal { .. }
             | Op::GraphSetNext { .. }
             | Op::GraphSetConst { .. }
             | Op::GraphReadNext { .. }
