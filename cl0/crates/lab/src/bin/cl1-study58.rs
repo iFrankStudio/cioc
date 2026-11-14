@@ -127,9 +127,11 @@ fn main() -> Result<(), Box<dyn Error>> {
             .world
             .events()
             .iter()
-            .filter(|e| e.process == 1
-                && e.origin == Origin::Internal(1)
-                && matches!(e.kind, EventKind::GraphNodeCopiedLocal { .. }))
+            .filter(|e| {
+                e.process == 1
+                    && e.origin == Origin::Internal(1)
+                    && matches!(e.kind, EventKind::GraphNodeCopiedLocal { .. })
+            })
             .count();
         println!(
             "{mode}: local native copies {local_copies}, child launches {child_launches}, \
@@ -140,8 +142,10 @@ fn main() -> Result<(), Box<dyn Error>> {
             || (mode == "zero-child-credit"
                 && (child_writes != 0 || child_launches != 1 || local_copies != 1))
             || (mode == "absolute-stale-edge"
-                && (child_writes != 0 || child_launches != 1
-                    || local_copies != 0 || invalid_edge_traps == 0))
+                && (child_writes != 0
+                    || child_launches != 1
+                    || local_copies != 0
+                    || invalid_edge_traps == 0))
         {
             return Err(format!("pre-registered scripted mechanism mismatch: {mode}").into());
         }
