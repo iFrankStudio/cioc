@@ -6,6 +6,7 @@ on:
       - 'cl0/crates/world/src/lib.rs'
       - 'cl0/crates/world/tests/study80_native_restoration.rs'
       - 'cl0/crates/lab/src/bin/cl1-study80.rs'
+      - 'cl1/analyze_study80.py'
       - 'cl1/studies/80-preregistered-native-functional-code-restoration-gate.md'
       - '.github/workflows/cl1-study80.yml'
   workflow_dispatch:
@@ -36,10 +37,16 @@ jobs:
         run: |
           set -euo pipefail
           CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study80 -- "$RUNNER_TEMP/cl1-study80-phase0.sqlite"
-      - name: Archive zero-genome calibration SQLite only
+      - name: Independently verify 120 original SHA256 epoch snapshots and actor-versus-host provenance
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study80.py "$RUNNER_TEMP/cl1-study80-phase0.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study80-independent-audit.json"
+      - name: Archive original scripted SQLite plus independent read-only audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cl1-study80-phase0-native-edge-calibration
           retention-days: 30
-          path: ${{ runner.temp }}/cl1-study80-phase0.sqlite
+          path: |
+            ${{ runner.temp }}/cl1-study80-phase0.sqlite
+            ${{ runner.temp }}/cl1-study80-independent-audit.json
