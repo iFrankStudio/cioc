@@ -1452,24 +1452,18 @@ impl World {
                     | Op::GraphCopyFrom { .. }
             )
         {
-            let next = match &op {
-                Op::PatchNext { next, .. }
-                | Op::PatchConst { next, .. }
-                | Op::CloneNode { next, .. }
-                | Op::GraphCopyNode { next, .. }
-                | Op::GraphCopyNodeLocal { next, .. }
-                | Op::GraphSetNext { next, .. }
-                | Op::GraphSetConst { next, .. }
-                | Op::GraphEncode { next, .. }
-                | Op::GraphReplace { next, .. }
-                | Op::GraphCopyFrom { next, .. } => *next,
-                _ => unreachable!("listed code-change opcodes"),
-            };
-            let actor = self.processes.get_mut(&id).expect("scheduled process exists");
-            if next >= actor.code.nodes.len() {
-                return Err("invalid execution edge".into());
-            }
-            actor.pc = next;
+            // Validate against the real VM operation on an ephemeral shadow world.
+            // This preserves invalid registers, access denial, storage exhaustion and
+            // illegal next-edge traps; the shadow's code changes never enter reality.
+            let mut shadow = self.clone();
+            shadow.native_code_edits_disabled = false;
+            let halted = shadow.execute(id, op.clone())?;
+            debug_assert!(!halted, "native code edits cannot be Halt");
+            let next_pc = shadow.process(id).expect("shadow actor exists").pc;
+            self.processes
+                .get_mut(&id)
+                .expect("scheduled process exists")
+                .pc = next_pc;
             self.pending_transition = Some(EventKind::NativeCodeEditSuppressed {
                 opcode_tag: op.opcode_tag(),
             });
