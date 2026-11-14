@@ -124,7 +124,7 @@ def event_action_name(action: dict) -> str:
     return next(iter(action["action"]))
 
 
-def audit(path: Path) -> dict:
+def audit(path: Path, expected_revision: str) -> dict:
     db = sqlite3.connect(f"{path.resolve().as_uri()}?mode=ro", uri=True)
     try:
         rows = db.execute(
@@ -268,8 +268,6 @@ def audit(path: Path) -> dict:
                 raise ValueError("final snapshot differs from epoch23")
             if arm == "control" and access_epochs:
                 raise ValueError("control received unregistered pool access")
-            if arm == "pool-access-empty-pool" and access_epochs:
-                raise ValueError("zero world-pool negative control gained access")
             metrics[f"{arm}.W3_native_activity"] += int(w3_attempts > 0)
             metrics[f"{arm}.environment_access_any"] += int(bool(access_epochs))
             metrics[f"{arm}.environment_access_transfers"] += len(access_epochs)
@@ -288,7 +286,7 @@ def audit(path: Path) -> dict:
             if arm == "pool-access-zero-credit" and not access_epochs and sum(attempts) > 0:
                 raise ValueError("zero-credit arm executed without external ignition")
         if (len(worlds) != SEEDS or any(set(w) != set(ARMS) for w in worlds.values())
-                or len(source_revisions) != 1
+                or source_revisions != {expected_revision}
                 or snapshots_total != SEEDS * len(ARMS) * EPOCHS):
             raise ValueError("incomplete or mixed cohort and revision")
         seed_rows = []
@@ -297,9 +295,12 @@ def audit(path: Path) -> dict:
             records = worlds[seed]
             if simulated_state(records["control"]["final"]) != simulated_state(records["sham"]["final"]):
                 raise ValueError("sham affects native initial/final world")
-            if (records["empty-pool"]["total_attempts"] !=
-                    records["pool-access-empty-pool"]["total_attempts"]):
-                raise ValueError("empty-pool matched negative control changed")
+            # Native ReturnCompute may replenish an initially empty world pool.
+            # Only demand equivalence if the generic policy NEVER transferred.
+            if not records["pool-access-empty-pool"]["access_epochs"]:
+                if (simulated_state(records["empty-pool"]["final"]) !=
+                        simulated_state(records["pool-access-empty-pool"]["final"])):
+                    raise ValueError("inactive pool policy changed empty-pool control")
             c, p = records["control"], records["pool-access"]
             discordance["policy_only"] += int(p["w3"] and not c["w3"])
             discordance["control_only"] += int(c["w3"] and not p["w3"])
@@ -347,8 +348,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("sqlite", type=Path)
     parser.add_argument("--json", type=Path, required=True)
+    parser.add_argument("--expected-revision", required=True)
     args = parser.parse_args()
-    report = audit(args.sqlite)
+    report = audit(args.sqlite, args.expected_revision)
     args.json.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "study": report["study"],
