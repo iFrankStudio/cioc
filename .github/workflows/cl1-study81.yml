@@ -1,0 +1,51 @@
+name: CL-1 Study81 prospective native executable mutation survey
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/src/lib.rs'
+      - 'cl0/crates/world/tests/study81_native_edit_trace.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study81.rs'
+      - 'cl1/studies/81-preregistered-stochastic-native-executable-edge-mutation-survey.md'
+      - 'cl1/analyze_study81.py'
+      - '.github/workflows/cl1-study81.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-edit-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source-precommitted ecology protocol and native code edit trace
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/81-preregistered-stochastic-native-executable-edge-mutation-survey.md
+          cargo test --locked -p cl0-world --test study81_native_edit_trace
+      - name: Execute all 128 original prospective stochastic CIL genomes and 512 paired native worlds
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study81 -- "$RUNNER_TEMP/cl1-study81-original-native-edits.sqlite"
+      - name: Independently audit every original 12288 native epoch hash and actual executable-edit lineage
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study81.py "$RUNNER_TEMP/cl1-study81-original-native-edits.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study81-independent-audit.json"
+      - name: Archive original prospective corpus and read-only audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study81-original-native-executable-edits
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study81-original-native-edits.sqlite
+            ${{ runner.temp }}/cl1-study81-independent-audit.json
