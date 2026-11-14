@@ -357,60 +357,81 @@ def audit(path: Path, revision: str) -> dict:
                 or sha_count != N*len(MODES)*EPOCHS
                 or any(set(modes) != set(MODES) for modes in worlds.values())):
             raise ValueError("incomplete independent seed ecology or native SHA256 cohort")
+        per_seed = {}
         for seed, arms in worlds.items():
-            for ablation in ("ambient-read-ablated", "ambient-draw-ablated"):
-                low = arms[f"{ablation}-low"]
-                high = arms[f"{ablation}-high"]
-                if ablation.endswith("read-ablated"):
-                    if low["native_source_Read_events"] or high["native_source_Read_events"]:
-                        raise ValueError("Read-ablation negative still has native source events")
-                    ltrace = [(w["tick"],w["pc"],w["value"]) for w in low["writes"]]
-                    htrace = [(w["tick"],w["pc"],w["value"]) for w in high["writes"]]
-                    if ltrace != htrace:
-                        raise ValueError("Read-ablated outputs falsely depend on sensor input")
-                if ablation.endswith("draw-ablated") and (
-                    low["draws"] or high["draws"]
+            per_seed[str(seed)] = {}
+            for topo in ("broad", "short"):
+                low = arms[f"{topo}-ambient-intact-low"]
+                high = arms[f"{topo}-ambient-intact-high"]
+                ablow = arms[f"{topo}-ambient-draw-ablated-low"]
+                abhigh = arms[f"{topo}-ambient-draw-ablated-high"]
+                for ab in (ablow, abhigh):
+                    if ab["draws"] or ab["native_attempts"] > 64:
+                        raise ValueError("no-Draw actor exceeded starting 64 native credits")
+                    if ab["native_attempts_by_window"][2] != 0:
+                        raise ValueError("no-Draw actor survived into W3")
+                for sensor in ("low", "high"):
+                    if arms[f"{topo}-closed-intact-{sensor}"]["draws"]:
+                        raise ValueError("closed pool improperly supported native DrawCompute")
+                    if arms[f"{topo}-closed-draw-ablated-{sensor}"]["draws"]:
+                        raise ValueError("closed Draw-ablation incorrectly transferred compute")
+                pair = evaluate_pair(low, high)
+                primary = pair["primary_A_coupled_native_pool_and_feedback"]
+                w3 = pair["first_W3_source_pair"]
+                if primary and (
+                    w3 is None or
+                    w3[0]["native_attempt_ordinal"] <= 64 or
+                    w3[1]["native_attempt_ordinal"] <= 64
                 ):
-                    raise ValueError("Draw-ablation negative has successful native DrawCompute")
-            for name in ("closed-low","closed-high"):
-                if arms[name]["draws"]:
-                    raise ValueError("closed pool supported a native DrawCompute")
-            pair = evaluate_pair(arms["ambient-low"], arms["ambient-high"])
-            counts["ambient.primary_A_coupled_native_feedback_worlds"] += int(
-                pair["primary_A_coupled_native_pool_and_feedback"])
-            counts["ambient.secondary_B_native_pool_each_W2_W3_worlds"] += int(
-                pair["secondary_B_fresh_native_pool_each_late_window"])
-            counts["ambient.source_sensitive_W2_and_W3_without_energy_gate"] += int(
-                pair["paired_source_sensitive_both_windows"])
-            if (pair["primary_A_coupled_native_pool_and_feedback"]
-                    and len(witnesses) < 20):
-                witnesses.append({
-                    "seed":seed,
-                    **pair,
-                    "native_low_draws":arms["ambient-low"]["draws"][:6],
-                    "native_high_draws":arms["ambient-high"]["draws"][:6],
-                })
-        a = counts["ambient.primary_A_coupled_native_feedback_worlds"]
-        b = counts["ambient.secondary_B_native_pool_each_W2_W3_worlds"]
-        if b > a:
-            raise ValueError("strict resource/feedback gate exceeds broader primary A")
+                    raise ValueError("native energy/function claim did not exceed seed credits")
+                per_seed[str(seed)][topo] = {
+                    "native_source_feedback_W2_W3": pair["paired_source_sensitive_both_windows"],
+                    "primary_native_Draw_and_function_beyond_budget": primary,
+                    "strict_native_Draw_in_each_late_window":
+                        pair["secondary_B_fresh_native_pool_each_late_window"],
+                }
+                counts[f"{topo}.primary_A_native_resource_feedback_worlds"] += int(primary)
+                counts[f"{topo}.strict_B_native_Draw_each_late_window_worlds"] += int(
+                    pair["secondary_B_fresh_native_pool_each_late_window"])
+                counts[f"{topo}.source_sensitive_W2_W3_without_energy_gate"] += int(
+                    pair["paired_source_sensitive_both_windows"])
+                if primary and len(witnesses)<20:
+                    witnesses.append({
+                        "seed": seed, "topology": topo, **pair,
+                        "native_low_draws": low["draws"][:6],
+                        "native_high_draws": high["draws"][:6],
+                    })
+        discordance = Counter()
+        for v in per_seed.values():
+            b = v["broad"]["primary_native_Draw_and_function_beyond_budget"]
+            q = v["short"]["primary_native_Draw_and_function_beyond_budget"]
+            discordance["broad_only"] += int(b and not q)
+            discordance["short_only"] += int(q and not b)
+            discordance["both"] += int(b and q)
+            discordance["neither"] += int(not b and not q)
+        a = counts["broad.primary_A_native_resource_feedback_worlds"]
+        b = counts["short.primary_A_native_resource_feedback_worlds"]
+        strict_b = counts["broad.strict_B_native_Draw_each_late_window_worlds"]
+        if (a != discordance["broad_only"]+discordance["both"] or
+                b != discordance["short_only"]+discordance["both"] or strict_b > a):
+            raise ValueError("registered paired native energy/function population inconsistent")
         return {
-            "study":"CL-1 Study73 native stochastic sensor feedback and compute uptake",
+            "study":"CL-1 Study73 prospective random native compute harvest and source feedback",
             "source_revision":revision,
-            "new_independent_seed_genomes":N,
+            "original_independent_seed_genomes":N,
             "matched_native_runs":n_runs,
             "SHA256_verified_original_snapshots":sha_count,
-            "primary_A_coupled_random_native_read_write_and_DrawCompute":{
-                "worlds":a,"denominator":N,
-                "wilson95":[round(x,6) for x in wilson_95(a,N)],
+            "registered_primary_A_native_resource_feedback": {
+                "broad_worlds": a, "short_worlds": b, "denominator_each": N,
+                "broad_wilson95":[round(x,6) for x in wilson_95(a,N)],
+                "short_wilson95":[round(x,6) for x in wilson_95(b,N)],
+                "paired_discordance":dict(sorted(discordance.items())),
             },
-            "secondary_B_recurrent_W2_W3_native_Draw_and_feedback":{
-                "worlds":b,"denominator":N,
-                "wilson95":[round(x,6) for x in wilson_95(b,N)],
-            },
+            "registered_strict_B_native_Draw_each_late_window":strict_b,
             "registered_secondary":dict(sorted(counts.items())),
+            "per_seed":per_seed,
             "source_and_credit_joint_witnesses":witnesses,
-            "external_ambient_pool_energy":"EXTERNAL +8 per epoch1..23; native Draw merely transfers it",
+            "external_ambient_pool_energy":"EXTERNAL +8 WORLD-POOL per epoch1..23",
             "host_actor_starter_actions":0,
             "life_claim":"NONE",
         }
@@ -428,10 +449,10 @@ def main() -> None:
     args.json.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({
         "study":report["study"],
-        "independent_seed_genomes":report["new_independent_seed_genomes"],
+        "independent_seed_genomes":report["original_independent_seed_genomes"],
         "hashes":report["SHA256_verified_original_snapshots"],
-        "primary":report["primary_A_coupled_random_native_read_write_and_DrawCompute"],
-        "strict_secondary":report["secondary_B_recurrent_W2_W3_native_Draw_and_feedback"],
+        "primary":report["registered_primary_A_native_resource_feedback"],
+        "strict_B":report["registered_strict_B_native_Draw_each_late_window"],
         "life_claim":"NONE",
     },indent=2))
 
