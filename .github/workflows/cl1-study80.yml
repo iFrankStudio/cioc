@@ -1,0 +1,33 @@
+name: CL-1 Study80 native executable restoration calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/src/lib.rs'
+      - 'cl0/crates/world/tests/study80_native_restoration.rs'
+      - 'cl1/studies/80-preregistered-native-functional-code-restoration-gate.md'
+      - '.github/workflows/cl1-study80.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase0-mechanism:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check preregistration and run only the focused Study80 mechanism tests
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/80-preregistered-native-functional-code-restoration-gate.md
+          cargo test --locked -p cl0-world --test study80_native_restoration -- --nocapture
+      - name: Check VM regression after the focused calibration
+        run: |
+          set -euo pipefail
+          cargo test --locked -p cl0-world --lib
