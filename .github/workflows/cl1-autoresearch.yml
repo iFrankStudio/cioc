@@ -66,8 +66,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Codex may have staged files; include both staged and unstaged edits.
+          git reset --quiet HEAD
           git add -N -- cl1 cl0/crates/lab/src/bin
           git diff --binary -- cl1 cl0/crates/lab/src/bin > "$RUNNER_TEMP/cl1.patch"
+          git rev-parse HEAD > "$RUNNER_TEMP/base.sha"
           n="$(wc -c < "$RUNNER_TEMP/cl1.patch")"
           (( n <= 180000 )) || { echo 'Patch too large'; exit 1; }
           if (( n > 0 )); then
@@ -79,7 +82,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: cl1-agent-patch
-          path: ${{ runner.temp }}/cl1.patch
+          path: |
+            ${{ runner.temp }}/cl1.patch
+            ${{ runner.temp }}/base.sha
           retention-days: 7
 
   verify:
@@ -102,6 +107,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          [[ "$(git rev-parse HEAD)" == "$(cat "$RUNNER_TEMP/proposal/base.sha")" ]] || {
+            echo 'main has moved since proposal; stop stale verification/publish'
+            exit 1
+          }
           git apply --check "$RUNNER_TEMP/proposal/cl1.patch"
           git apply --index "$RUNNER_TEMP/proposal/cl1.patch"
           python3 .github/codex/validate_cl1_patch.py
@@ -161,6 +170,10 @@ jobs:
           git fetch origin main
           [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] || {
             echo 'main moved since proposal; abort stale update'
+            exit 1
+          }
+          [[ "$(git rev-parse HEAD)" == "$(cat "$RUNNER_TEMP/proposal/base.sha")" ]] || {
+            echo 'main has moved since proposal; stop stale verification/publish'
             exit 1
           }
           git apply --check "$RUNNER_TEMP/proposal/cl1.patch"
