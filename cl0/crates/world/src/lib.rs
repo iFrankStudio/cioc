@@ -4175,10 +4175,12 @@ mod tests {
                     next: if local { 0 } else { 5 },
                 }
             );
-            assert!(matches!(
-                world.events().last().unwrap().kind,
-                EventKind::GraphNodeCopiedLocal { .. }
-            ) == local);
+            assert!(
+                matches!(
+                    world.events().last().unwrap().kind,
+                    EventKind::GraphNodeCopiedLocal { .. }
+                ) == local
+            );
             assert_eq!(world.total_compute_inventory(), Some(2));
         }
     }
