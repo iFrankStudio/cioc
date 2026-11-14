@@ -1,0 +1,54 @@
+name: CL-1 Study47 scripted native graph edge mechanism calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study47.rs'
+      - 'cl1/analyze_study47.py'
+      - 'cl1/tests/test_study47.py'
+      - '.github/workflows/cl1-study47.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen scripted protocol and minimal independent controls
+        run: |
+          set -euo pipefail
+          test -f ../cl1/studies/47-preregistered-scripted-graph-edge-calibration.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study47.py' -v
+      - name: Run three scripted native graph-local child fixtures and exact SQLite replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study47 -- "$RUNNER_TEMP/cl1-study47.sqlite"
+      - name: Independently audit all 24 exact epoch hashes, native child write and traps
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study47.py "$RUNNER_TEMP/cl1-study47.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study47-report.json"
+      - name: Archive original scripted calibration evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study47-scripted-child-edge-calibration
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study47.sqlite
+            ${{ runner.temp }}/cl1-study47-report.json
