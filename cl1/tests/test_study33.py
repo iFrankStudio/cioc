@@ -1,11 +1,13 @@
 """Study33 strict native register/source and resource-temporal controls."""
 import sys
 import unittest
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from analyze_study33 import (
     trace_source_and_pool,
+    ensure_registered_nulls,
     actions,
     expected_program_continuations,
 )
@@ -98,6 +100,16 @@ class Study33JointSourceResource(unittest.TestCase):
         ], PROGRAM, 11, 11, 0)
         self.assertEqual(result["qualifying_output_events"], 2)
         self.assertIsNone(result["unique_source_write"])
+
+    def test_absent_strict_positive_is_reported_as_explicit_zero(self):
+        data = Counter()
+        ensure_registered_nulls(data)
+        self.assertEqual(data["control.joint_source_and_draw"], 0)
+        self.assertEqual(data["paired_source_and_draw"], 0)
+        self.assertEqual(
+            data["paired_source_and_draw_after_budget_exhaustion"], 0
+        )
+        self.assertIn("paired_source_and_draw", data)
 
     def test_source_mutation_resource_controls_frozen(self):
         initial = {
