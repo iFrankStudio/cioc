@@ -366,7 +366,7 @@ def audit(db,revision):
             "full_56_node_births":expression["complete_birth_count"],
             "traps":source_report["traps"],
             "actual_traps_at_module_write_instruction":sum(
-                e["origin"]!=="External"
+                e["origin"]!="External"
                 and e["pc"] in (34,40,46,52)
                 and part(e,"Trapped") is not None
                 for e in state["events"]
