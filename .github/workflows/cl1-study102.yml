@@ -1,0 +1,27 @@
+name: CL-1 Study102 native sibling-branching CIL calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study102_native_branching.rs'
+      - 'cl1/studies/102-preregistered-scripted-native-branching-lineage.md'
+      - '.github/workflows/cl1-study102.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-branching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify preregistered human-scripted lineage control
+        run: test -s ../cl1/studies/102-preregistered-scripted-native-branching-lineage.md
+      - name: Verify native siblings and native grandchildren under finite shared resource
+        run: cargo test --locked -p cl0-world --test study102_native_branching -- --nocapture
