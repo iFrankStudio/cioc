@@ -1,0 +1,45 @@
+name: CL-1 Study62 retrospective descendant native graph construction
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study62.py'
+      - '.github/workflows/cl1-study62.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate post-result registered native child graph source diagnosis
+        run: |
+          test -f cl1/studies/62-registered-retrospective-native-descendant-graph-construction.md
+      - name: Download untouched Study61 exact source-pinned native SQLite
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study62"
+          gh run download 43563598365 --repo "$GITHUB_REPOSITORY" --name cl1-study61-native-locality-ecology --dir "$RUNNER_TEMP/study62"
+          test -s "$RUNNER_TEMP/study62/cl1-study61-absolute.sqlite"
+          test -s "$RUNNER_TEMP/study62/cl1-study61-local.sqlite"
+      - name: Revalidate original 49152 SHA256 epochs, child source events and native-created graph ancestry
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study62.py "$RUNNER_TEMP/study62/cl1-study61-absolute.sqlite" "$RUNNER_TEMP/study62/cl1-study61-local.sqlite" --json "$RUNNER_TEMP/study62-report.json"
+      - name: Archive retrospective source provenance without duplicating original SQLite
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study62-native-descendant-owned-graph-copy
+          retention-days: 30
+          path: ${{ runner.temp }}/study62-report.json
