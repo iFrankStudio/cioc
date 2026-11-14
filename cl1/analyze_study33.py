@@ -403,7 +403,10 @@ def audit(path: Path) -> dict:
                     if output is not None:
                         outputs.append({"epoch": epoch, **output})
                 byarm[(seed, arm)] = outputs
-                outcomes[f"{arm}.process1_native_draw"] += any(info["draw"])
+                outcomes[f"{arm}.process1_native_draw"] += any(
+                    trace["positive_native_draws"] > 0
+                    for trace in info["witnessed"]
+                )
                 outcomes[f"{arm}.source_tag_register_write"] += bool(outputs)
                 outcomes[f"{arm}.joint_source_and_draw"] += any(
                     item["prior_draw"] for item in outputs
