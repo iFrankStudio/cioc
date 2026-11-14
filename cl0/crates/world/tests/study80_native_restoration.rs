@@ -141,3 +141,42 @@ fn byte_identical_genome_native_edit_ablation_preserves_charge_and_execution_edg
         assert!(suppressed.events().iter().all(|e| !matches!(e.kind, EventKind::Trapped(_))));
     }
 }
+
+#[test]
+fn native_edit_ablation_does_not_turn_invalid_edit_into_success() {
+    for disabled in [false, true] {
+        let nodes = vec![
+            Op::Const {
+                dst: 1,
+                value: 99,
+                next: 1,
+            },
+            Op::Const {
+                dst: 2,
+                value: 0,
+                next: 2,
+            },
+            Op::PatchNext {
+                node: 1,
+                target: 2,
+                next: 0,
+            },
+        ];
+        let mut world = World::with_strict_capacity(4, 8, 16);
+        if disabled {
+            world = world.with_native_code_edits_disabled();
+        }
+        world.load(Process::new(1, nodes.clone(), 8)).unwrap();
+        assert_eq!(world.run(3), 3);
+        assert_eq!(world.process(1).unwrap().code.nodes, nodes);
+        assert!(world.process(1).unwrap().stopped);
+        assert_eq!(world.process(1).unwrap().credits, 5);
+        assert!(world.events().iter().any(|e| {
+            e.origin == Origin::Internal(1)
+                && matches!(&e.kind, EventKind::Trapped(reason) if reason == "invalid node")
+        }));
+        assert!(!world.events().iter().any(|e| {
+            matches!(e.kind, EventKind::NativeCodeEditSuppressed { .. })
+        }));
+    }
+}
