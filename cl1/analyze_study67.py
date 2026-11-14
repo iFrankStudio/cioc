@@ -50,9 +50,11 @@ def terminal_cause(native_event: dict | None, program: list) -> str:
 
 
 def audit_one(db: sqlite3.Connection, rid: int, initial: dict,
-              final: dict, actions: list[dict], attempts: list[int]) -> dict:
+              final: dict, actions: list[dict], attempts: list[int],
+              mode: str) -> dict:
     previous = initial
     snapshots = []
+    original_snapshot_rows = []
     first_terminal = None
     first_native_epoch = None
     last_native_epoch = None
@@ -104,8 +106,12 @@ def audit_one(db: sqlite3.Connection, rid: int, initial: dict,
             native_events += 1
         previous = snap
         snapshots.append(snap)
+        original_snapshot_rows.append((epoch, digest, raw))
     if len(snapshots) != EPOCHS or final != snapshots[-1]:
         raise ValueError("Stage66 original source final not equal to 24th epoch")
+    source = analyze_study66.trace_run(
+        initial, original_snapshot_rows, actions, attempts, mode
+    )
     w3 = snapshots[15]
     w3_state = resource_state(w3["processes"]["1"], w3["compute_pool"])
     if sum(attempts[16:]) != 0 or w3_state == "still_runnable":
@@ -133,6 +139,8 @@ def audit_one(db: sqlite3.Connection, rid: int, initial: dict,
         "final_actor_credits":final["processes"]["1"]["credits"],
         "charged_native_attempts":native_events,
         "sha256_snapshots_verified":len(snapshots),
+        "source_writes":source["writes"],
+        "source_draw_events":source["draws"],
     }
 
 
@@ -158,9 +166,9 @@ def audit(path: Path) -> dict:
             if (revision != REVISION or not FIRST <= seed < FIRST+N
                     or mode not in MODES or mode in seed_arms[seed]):
                 raise ValueError("historical Stage66 original source/arm identity changed")
-            seed_arms[seed][mode]=True
             d=audit_one(db,rid,json.loads(raw_initial),json.loads(raw_final),
-                        json.loads(raw_actions),json.loads(raw_attempts))
+                        json.loads(raw_actions),json.loads(raw_attempts),mode)
+            seed_arms[seed][mode]=d
             snapshots_count+=d["sha256_snapshots_verified"]
             for w, name in enumerate(("W1","W2","W3")):
                 counts[f"{mode}.{name}_native_attempt_worlds"]+=int(d["attempts_by_window"][w]>0)
@@ -187,6 +195,18 @@ def audit(path: Path) -> dict:
         for mode in MODES:
             if counts[f"{mode}.W3_native_attempt_worlds"]!=0:
                 raise ValueError("Stage66 original preregistered W3 zero changed")
+        for seed, arms in seed_arms.items():
+            low = {"writes":arms["ambient-low"]["source_writes"]}
+            high = {"writes":arms["ambient-high"]["source_writes"]}
+            for w in (0, 1):
+                matched = analyze_study66.source_pairs(low, high, w)
+                counts[f"ambient_paired.source_sensitive_W{w+1}_worlds"]+=int(bool(matched))
+                if matched and len(examples)<24:
+                    examples.append({
+                        "seed":seed,"mode":"ambient-paired",
+                        "paired_source_window":f"W{w+1}",
+                        "native_source_pair":matched[0],
+                    })
         return {
             "study":"CL-1 Study67 retrospective native actor credit and fatal resource trap diagnosis",
             "post_result_registration":True,
