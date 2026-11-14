@@ -1,0 +1,27 @@
+name: CL-1 Study118 native actor-written instruction descriptor and spawned child code construction
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study118_actor_encoded_child_graph.rs'
+      - 'cl1/studies/118-preregistered-actor-encoded-novel-child-instructions.md'
+      - '.github/workflows/cl1-study118.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actor-native-opcode-descriptor-assembly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Confirm frozen six-world CIL code construction mechanism protocol
+        run: test -s ../cl1/studies/118-preregistered-actor-encoded-novel-child-instructions.md
+      - name: Run six source/tag controls with actor-written complete descriptors and native child code provenance
+        run: cargo test --locked -p cl0-world --test study118_actor_encoded_child_graph -- --nocapture
