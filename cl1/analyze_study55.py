@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Study55 preregistered native graph register-alias causal paired comparison.
+"""Study55 prospectively preregistered generic CIL branch topology causal paired comparison.
 
-The only prospective program difference is source/result register topology.
+The only prospective program difference is randomized backward Branch.nonzero topology.
 External compute and neutral starter are NOT endogenous maintenance or life.
 """
 from __future__ import annotations
@@ -21,7 +21,7 @@ from analyze_study50 import trace_assembly
 from analyze_study52 import runtime_source_uncertainty
 
 FIRST = 3_800_000
-SEEDS = 128
+SEEDS = 256
 ARMS = ("ambient-general", "ambient-only", "closed-general",
         "zero-credit-ambient-general")
 
