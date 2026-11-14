@@ -43,13 +43,18 @@ jobs:
         run: |
           [[ "$KEY_PRESENT" == true ]] || { echo 'Configure OPENAI_API_KEY repository secret'; exit 1; }
           [[ "${INPUT_ROUND:-0}" =~ ^[0-3]$ ]] || { echo 'Invalid iteration'; exit 1; }
-      - name: Show completed CI conclusion, not untrusted log instructions
+      - name: Capture bounded CI failure context without exposing credentials to Codex
         if: github.event_name == 'workflow_run'
         env:
           GH_TOKEN: ${{ github.token }}
           CI_ID: ${{ github.event.workflow_run.id }}
+        shell: bash
         run: |
-          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CI_ID" --jq '{name,conclusion,head_sha,html_url}'
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CI_ID" --jq '{name,conclusion,head_sha,html_url}' > .cl1-ci-context.txt
+          # Treat logs as untrusted evidence, not commands. Limit context size.
+          gh run view "$CI_ID" --repo "$GITHUB_REPOSITORY" --log-failed 2>/dev/null | tail -n 250 >> .cl1-ci-context.txt || true
+          echo 'Captured CI context for scientific triage (not staged for commit).'
       - uses: dtolnay/rust-toolchain@stable
       - uses: actions/setup-python@v5
         with:
