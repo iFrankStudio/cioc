@@ -99,11 +99,11 @@ def audit(original_path, continuation_path, revision, summary_path):
         after = native_births(final)
         require(after >= before, "native child history vanished after original cutoff")
         given = claimed[old_label]
-        require(given["original_births_at_2000"] == before
+        require(given["prior_native_births"] == before
                 and given["terminal_native_births"] == after
-                and given["native_new_attempts"] == added
+                and given["additional_charged_native_attempts"] == added
                 and given["continuation_initial_sha256"] == initial_sha
-                and given["terminal_final_sha256"] == final_sha,
+                and given["continued_final_sha256"] == final_sha,
                 "Rust runner birth totals or SHA summaries not reproduced")
         source = 3 if mode.endswith("source3") else 8
         disabled = mode.startswith("patch-disabled")
@@ -141,7 +141,7 @@ def audit(original_path, continuation_path, revision, summary_path):
             and all((x["seed"] == 6200017) == (x["old_birth_delta"] == 1)
                     for x in comparisons),
             "known original Study108 positive cohort altered")
-    recorded = summary["all64_same-seed_source_paired_terminal_birth_contrasts"]
+    recorded = summary["all64_original_paired_birth_differences_at_terminal"]
     require(all(
         a["seed"] == b["seed"] and a["source"] == b["source"]
         and a["original_fixed_2000_birth_delta"] == b["old_birth_delta"]
