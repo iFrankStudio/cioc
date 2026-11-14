@@ -93,8 +93,8 @@ def paired_audit(absolute_db: Path, local_db: Path, revision: str) -> dict:
         aa = original["all_seed_outcomes"][str(seed)]["ambient-general"]
         bb = treatment["all_seed_outcomes"][str(seed)]["ambient-general"]
         # Source original auditors record strict child output per seed.
-        a = bool(aa["native_child_shared_cell_write"])
-        b = bool(bb["native_child_shared_cell_write"])
+        a = bool(aa["child_native_CellWritten"])
+        b = bool(bb["child_native_CellWritten"])
         pair["local_only"] += int(b and not a)
         pair["absolute_only"] += int(a and not b)
         pair["both"] += int(a and b)
