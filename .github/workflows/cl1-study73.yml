@@ -1,0 +1,67 @@
+name: CL-1 Study73 prospective native resource harvest and source feedback
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study73.rs'
+      - 'cl1/analyze_study73.py'
+      - 'cl1/tests/test_study73.py'
+      - '.github/workflows/cl1-study73.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study73:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate preregistration and original source/code topology
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/73-preregistered-native-harvesting-functional-feedback.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study73.py' -v
+      - name: Execute 128 new stochastic CIL genomes in 16 conserved energy/sensor/topology arms
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study73 -- "$RUNNER_TEMP/cl1-study73-native-feedback-harvest.sqlite"
+      - name: Independently audit 49152 hashed epochs for real source feedback beyond initial 64 local credits
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study73.py "$RUNNER_TEMP/cl1-study73-native-feedback-harvest.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study73-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study73-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":r["study"],
+            "new_genomes":r["original_independent_seed_genomes"],
+            "runs":r["matched_native_runs"],
+            "epochs":r["SHA256_verified_original_snapshots"],
+            "native_function_beyond_64":r["registered_primary_A_native_resource_feedback"],
+            "strict_native_draw_each_late_window":r["registered_strict_B_native_Draw_each_late_window"],
+            "life_claim":r["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive untouched native SQLite and separately reproducible independent report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study73-native-harvesting-source-feedback
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study73-native-feedback-harvest.sqlite
+            ${{ runner.temp }}/cl1-study73-report.json
