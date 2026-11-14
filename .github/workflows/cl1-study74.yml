@@ -1,0 +1,47 @@
+name: CL-1 Study74 retrospective native resource entry gate audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study74.py'
+      - 'cl1/tests/test_study74.py'
+      - '.github/workflows/cl1-study74.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify post-result registration and two narrow credit-gate tests
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/74-registered-retrospective-native-resource-entry-gates.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study74.py' -v
+      - name: Retrieve untouched original source-pinned Study73 SQLite
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study74"
+          gh run download 43580487492 --repo "$GITHUB_REPOSITORY" --name cl1-study73-native-harvesting-source-feedback --dir "$RUNNER_TEMP/study74"
+          test -s "$RUNNER_TEMP/study74/cl1-study73-native-feedback-harvest.sqlite"
+      - name: Replay original independent Study73 auditor and 49152 snapshot source/credits gates
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study74.py "$RUNNER_TEMP/study74/cl1-study73-native-feedback-harvest.sqlite" --json "$RUNNER_TEMP/study74-report.json"
+      - name: Archive concise retrospective report without duplicating original 434 MB SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study74-native-credit-gateway-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study74-report.json
