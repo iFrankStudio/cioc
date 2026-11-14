@@ -11,6 +11,7 @@ import sqlite3
 from pathlib import Path
 
 import analyze_study94 as original
+import analyze_study82 as original_module
 
 SOURCE_SHA = "b59ce0cd2b7a960d0157ca3deb54e2de9bc861ae"
 ORIGINAL_RUN = 43599692512
@@ -79,6 +80,20 @@ def read_arm(conn, seed, source, arm, site):
         preceding = state
     require(states[-1] == final, "original end state deviates from verified last epoch")
     p, writer, continuation, offset = site
+    # Exact original CIL def-use trace, not value-coincidence: a native Write
+    # of the expected number can be untainted after Const or a different path.
+    original_trace = original.trace_native(final, original_module.expected_code(seed), source)
+    true_function_ordinals = {
+        record["attempt"] for record in original_trace["writes"]
+        if record["tainted"] and record["pc"] == writer and record["offset"] == offset
+    }
+    original_native_ordinal = 0
+    true_function_ticks = set()
+    for event in final["events"]:
+        if native(event):
+            original_native_ordinal += 1
+            if original_native_ordinal in true_function_ordinals:
+                true_function_ticks.add(event["tick"])
     native_by_phase = {
         "early_0_3": [e for events in events_per_epoch[:4] for e in events if native(e)],
         "late_4_9": [e for events in events_per_epoch[4:10] for e in events if native(e)],
@@ -90,7 +105,7 @@ def read_arm(conn, seed, source, arm, site):
             {"pc": e["pc"], "value": event_value(e, "CellWritten")["value"],
              "tick": e["tick"]}
             for e in events
-            if (e["pc"] == writer
+            if (e["tick"] in true_function_ticks and e["pc"] == writer
                 and (record := event_value(e, "CellWritten")) is not None
                 and record["key"] == 9
                 and record["value"] == source + offset)
