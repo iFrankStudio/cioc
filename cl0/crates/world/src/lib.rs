@@ -953,6 +953,10 @@ pub struct World {
     /// without allowing their code/edge changes. Never enabled in legacy worlds.
     #[serde(default, skip_serializing_if = "is_false")]
     native_code_edits_disabled: bool,
+    /// Opt-in causal-control physics: suppress PatchNext alone, leaving GraphCopyNode
+    /// and native reproduction operational. Disabled by default for old worlds.
+    #[serde(default, skip_serializing_if = "is_false")]
+    native_patchnext_disabled: bool,
     /// Observer-only event detail for native PatchNext; default off to preserve
     /// the original hash-serialized world semantics in older studies.
     #[serde(default, skip_serializing_if = "is_false")]
@@ -1032,6 +1036,7 @@ impl World {
             pool_paid_draw: false,
             recoverable_draw_shortage: false,
             native_code_edits_disabled: false,
+            native_patchnext_disabled: false,
             trace_native_executable_edits: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
@@ -1116,6 +1121,17 @@ impl World {
 
     pub fn native_code_edits_disabled(&self) -> bool {
         self.native_code_edits_disabled
+    }
+
+    /// Native PatchNext-only experimental negative control with identical CIL code.
+    /// Ordinary native GraphCopyNode, GraphLaunch and other mutations remain enabled.
+    pub fn with_native_patchnext_disabled(mut self) -> Self {
+        self.native_patchnext_disabled = true;
+        self
+    }
+
+    pub fn native_patchnext_disabled(&self) -> bool {
+        self.native_patchnext_disabled
     }
 
     /// Instrument only real native PatchNext edge changes, never a virtual goal
@@ -1455,8 +1471,9 @@ impl World {
         // Study80 control physics: consume the same charged attempt and advance the
         // original next edge, while suppressing ONLY mutations of executable code.
         // Invalid next edges still trap; no actor is refilled, rescued or cloned.
-        if self.native_code_edits_disabled
-            && matches!(
+        if (self.native_patchnext_disabled && matches!(&op, Op::PatchNext { .. }))
+            || (self.native_code_edits_disabled
+                && matches!(
                 &op,
                 Op::PatchNext { .. }
                     | Op::PatchConst { .. }
@@ -1468,13 +1485,14 @@ impl World {
                     | Op::GraphEncode { .. }
                     | Op::GraphReplace { .. }
                     | Op::GraphCopyFrom { .. }
-            )
+                ))
         {
             // Validate against the real VM operation on an ephemeral shadow world.
             // This preserves invalid registers, access denial, storage exhaustion and
             // illegal next-edge traps; the shadow's code changes never enter reality.
             let mut shadow = self.clone();
             shadow.native_code_edits_disabled = false;
+            shadow.native_patchnext_disabled = false;
             let halted = shadow.execute(id, op.clone())?;
             debug_assert!(!halted, "native code edits cannot be Halt");
             let next_pc = shadow.process(id).expect("shadow actor exists").pc;
