@@ -1,0 +1,46 @@
+name: CL-1 Study107 exhaustive native executable mutation-site susceptibility
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study107.rs'
+      - 'cl1/analyze_study107.py'
+      - 'cl1/studies/107-preregistered-exhaustive-native-executable-site-susceptibility.md'
+      - '.github/workflows/cl1-study107.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  executable-site-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen original all28-node mutation site census
+        run: test -s ../cl1/studies/107-preregistered-exhaustive-native-executable-site-susceptibility.md
+      - name: Execute all112 original same-genome CIL code-mutation controls, 896 epoch full replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study107 -- "$RUNNER_TEMP/study107-original-all-site-code-fragility.sqlite"
+      - name: Independently audit every original SHA256 snapshot, actor source, trapping and native child ancestry
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study107.py "$RUNNER_TEMP/study107-original-all-site-code-fragility.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study107-original-independent-site-audit.json"
+      - name: Preserve exact original SQLite and independent all-sites results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study107-full-28site-native-code-robustness
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study107-original-all-site-code-fragility.sqlite
+            ${{ runner.temp }}/study107-original-independent-site-audit.json
