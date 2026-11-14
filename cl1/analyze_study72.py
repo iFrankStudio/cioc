@@ -402,8 +402,17 @@ def audit(path: Path, revision: str) -> dict:
                 for ab in (abdyn,ablow,abhigh):
                     if ab["native_Read_events"] != 0:
                         raise ValueError("Read-ablated control executed a native sensor Read")
-                signature=lambda run:[(w["tick"],w["pc"],w["value"]) for w in run["writes"]]
-                if signature(abdyn)!=signature(ablow) or signature(abdyn)!=signature(abhigh):
+                # The dynamic branch contains exactly one extra *external*
+                # SetCell at epoch12. It advances global event ticks by one,
+                # without advancing native PC, attempt order or register state.
+                # Compare aligned native output traces, not raw global clocks.
+                signature=lambda run,dynamic:[(
+                    w["epoch"],
+                    w["tick"] - int(dynamic and w["epoch"] >= 12),
+                    w["pc"],w["value"],
+                ) for w in run["writes"]]
+                if (signature(abdyn,True)!=signature(ablow,False)
+                        or signature(abdyn,True)!=signature(abhigh,False)):
                     raise ValueError("Read-ablated native output changed under a sensor switch")
                 # Matched programs were identical before dynamic intervention.
                 if (dyn["native_event_counts_by_epoch"][:12] != low["native_event_counts_by_epoch"][:12]
