@@ -1,0 +1,46 @@
+name: CL-1 Study110 prospective native mutation at natural energy exhaustion
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study110.rs'
+      - 'cl1/analyze_study110.py'
+      - 'cl1/studies/110-preregistered-untruncated-slow-founder-native-mutation-fitness.md'
+      - '.github/workflows/cl1-study110.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-energy-terminal-native-cil-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen new-genome terminal resource protocol
+        run: test -s ../cl1/studies/110-preregistered-untruncated-slow-founder-native-mutation-fitness.md
+      - name: Run all128 fresh native original worlds to terminal energy limit, exact 1024 epoch replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study110 -- "$RUNNER_TEMP/study110-original-energy-terminal-native-ecology.sqlite"
+      - name: Independently audit original SHA256, native code-to-child genealogy and natural stop
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study110.py "$RUNNER_TEMP/study110-original-energy-terminal-native-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study110-original-independent-audit.json"
+      - name: Archive full source-pinned original SQLite and post-run observer
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study110-full-energy-terminal-native-mutation-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study110-original-energy-terminal-native-ecology.sqlite
+            ${{ runner.temp }}/study110-original-independent-audit.json
