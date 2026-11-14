@@ -531,3 +531,39 @@ Through Study39: **24 distinct independently seeded ecological cohorts, 3,008 in
 **Independent ecological accounting through Study46:** **28** independently seeded ecological cohorts, **3,520** independent initial worlds and **21,920** matched experimental runs. Retrospectives Studies34,36,40,43,45 and three human-scripted Study47 fixtures all add **zero independent ecological worlds**. Keep original outcome-defined denominators, do not combine retrospective hypotheses with independent confirmations.
 
 **CL-1 SCIENTIFIC STATUS: OPEN.** We have independently replicated native code changes and child process initiation; have **not** observed spontaneous native functional descendants in these cohorts, and have no prospective demonstration of self-initiated repair, causally closed functional organization or sustained endogenous computation. The next decisive question is whether a non-goal-directed CIL ecology can natively construct graph-local executable control-flow and transmit functioning capability, not merely spawn processes with GraphNew loops.
+
+
+## CL-1 Studies41–54: native executable plasticity, spontaneous graph composition and functional-child null
+
+### Native executable capability validated, but no functional child (Studies41–48)
+
+Two separately preregistered 128-world cohorts demonstrated that native CIL stochastic programs can successfully mutate their own executable nodes (**64/128** Study41, **65/128** Study42) and launch children. Subsequent separate 128-world Studies44 and46 detected **0/128** native-launched child `CellWritten`, with nearly all successful child operations limited to `GraphCreated`. A human-scripted Study47 proved the unchanged VM **can** copy, close a graph-local edge and launch a child capable of Write, but this was a positive mechanism fixture with **zero independent ecological worlds**, not spontaneous life. Retrospective Study48 verified **0/128** complete native nonzero-node-copy→edge-edit→launch orderings in each of the two original Study44/46 cohorts. [Studies41–48 detailed results](results/study47-scripted-local-graph-functional-child-calibration.md).
+
+### Independent stochastic native graph-assembly replication (Studies49–52)
+
+Study49 froze a 72-node random continuation of the same Study46 24-opcode grammar (rather than36), randomly chosen source indices0..80 and 256 fresh seeds3,500,000..3,500,255. Complete [CI 43556383858](https://github.com/iFrankStudio/cioc/actions/runs/43556383858) verified **1,024 runs, 24,576 original hashes** and strict prospective functional-child Write **0/256**. A post-result (zero-new-world) Study50 lineage audit found **one** truly native same-parent/source-graph copy→edit→launch chain (seed3,500,022), but the child had no Write and an invalid final outgoing edge.
+
+The **separately preregistered** Study51 independently repeated the exact grammar using **256 fresh seed worlds3,600,000..3,600,255** and full matched native replay. [CI 43556991490](https://github.com/iFrankStudio/cioc/actions/runs/43556991490) passed **1,024 runs and 24,576 SHA256 epochs**, with **3/256** predeclared complete spontaneous copy→edit→launch chains (Wilson95 [0.003993,0.033882]), but again strict functional native child Write **0/256**, Wilson95 upper0.014784. This is a real **independently replicated finite native graph-composition pathway**, **not** offspring survival, heredity, repair, multicomponent functional closure or life.
+
+Study52 independently reaudited both source archives (**0 new worlds**): the four complete paths copied only initial-code `GraphCopyNode` (and one `CloneNode`) source opcodes, **no Write**. The original grammar uses register2 for both the randomly chosen source node and the returned graph-local copied-node index, so successful CopyNode often overwrites the source selector. [Study52 evidence](results/study52-register-alias-copy-source-bottleneck.md).
+
+### Prospectively falsified single-cause register alias hypothesis (Studies53–54)
+
+Study53 predeclared **128 new independent paired seeds3,700,000..3,700,127** comparing two CIL program-register topologies under otherwise identical 72-node stochastic opcode choices and four environmental arms/regime. The baseline uses `GraphCopyNode(source:2,dst:2)` and `GraphSetNext(node:2)`; the alternative keeps source selector register2 intact by using `GraphCopyNode(source:2,dst:0)` and `GraphSetNext(node:0)`. The initial programs are **correlated but not byte-identical across regimes**; all four within-regime environment branches share the exact same prefork state. Full [CI 43557895526](https://github.com/iFrankStudio/cioc/actions/runs/43557895526) passed 1,024 runs, 24,576 hashes and two independent native source/child audits.
+
+| Frozen Study53 ambient-general endpoint | Aliased register topology | Separate source/result registers |
+|---|---:|---:|
+| Strict native original-Write-source copy→edit→launch | **0/128** | **0/128** |
+| Native functional child `CellWritten` | **0/128** | **0/128** |
+| Any strict native copy→edit→launch | **1/128** | **0/128** |
+| Native child launch | **64/128** | **66/128** |
+
+No paired positive primary effect; the register-alias hypothesis was **not sufficient**. [Full Study53 checkpoint](results/study53-register-alias-causal-null.md).
+
+Study54 then separately registered a **read-only post-result** source-path diagnosis of the identical Study53 archive and passed independent [CI 43558325636](https://github.com/iFrankStudio/cioc/actions/runs/43558325636). It found 44 successful nonzero original-parent source-node copies in the alias arm versus23 in the separate arm; 30 versus10 of these copied early `GraphCopyNode` instructions. Crucially, **both** regimes copied **exactly one** original `Write` source node in the same seed3,700,085 (parent3, graph3, source code node71, tick37), but **neither subsequently launched that graph**. The immediate demonstrated failure lies in **temporal composition of native copying, edge edits and launch**, not absolute inability to copy a Write or a single register alias. This is descriptive after original results, **not** prospective life evidence. [Study54 checkpoint](results/study54-source-write-copy-without-subsequent-launch.md).
+
+### Research accounting and next scientific problem
+
+Through Study53, **31 independently seeded ecological cohorts**, with **4,160 independent seed units** (including Study53's 128 correlated pairs of initial code regimes) and **24,992 matched native experimental runs**. Retrospective Studies43,45,48,50,52,54 and scripted Study47 provide **zero additional independent worlds**. Distinct original program/regime pairs must not be counted as independent samples for causal uncertainty.
+
+**CL-1 remains OPEN.** We now have replicated native self-code mutation and a replicated *spontaneous sequence* of graph-code construction, but **zero verified spontaneously functional child shared writes, endogenous damage recovery or self-maintaining multicomponent organization**. The next preregistered ecology should isolate **generic CIL executable graph topology and temporal code-action composition** (e.g. unbiased branch/connectivity opportunity), without a host-authored successful organism or post-result seed optimization. Even successful native Write copied into a child would be only an intermediate functional mechanism, not life.
