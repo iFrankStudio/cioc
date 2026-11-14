@@ -96,7 +96,7 @@ def audit(path: Path) -> dict:
         or original["original_independent_seed_genomes"] != N
         or original["matched_native_runs"] != N*len(prior.MODES)
         or original["SHA256_verified_original_snapshots"] != N*len(prior.MODES)*EPOCHS
-        or original["primary_A_W2W3_native_feedback_with_W3_Draw"]["broad_on_worlds"] != 3):
+        or original["primary_A_W2W3_native_feedback_with_W3_Draw"]["broad"]["on_worlds"] != 3):
         raise ValueError("original primary and 49152 hashes did not reproduce")
     counts=Counter()
     per_seed=defaultdict(dict)
@@ -166,7 +166,7 @@ def audit(path: Path) -> dict:
             "mode_counts":dict(sorted(counts.items())),
             "paired_on_off_W3_entry_state":dict(sorted(paired.items())),
             "one_genome_only_responded_to_pool_paid_policy":
-                original["primary_B_W3_resource_access"]["broad_ambient_on_only"],
+                original["primary_B_W3_resource_access"]["broad"]["on_worlds_with_actual_pool_paid_Draw"],
             "life_claim":"NONE",
         }
     finally:
