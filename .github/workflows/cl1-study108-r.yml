@@ -1,0 +1,55 @@
+name: CL-1 Study108-R original 128 world post-outcome terminal continuation
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study108-r.rs'
+      - 'cl1/analyze_study108r.py'
+      - 'cl1/studies/108R-registered-retrospective-original-resource-terminal-continuation.md'
+      - '.github/workflows/cl1-study108-r.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-world-terminal-continuation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original source frozen retrospective registration and untouched Study108 archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/108R-registered-retrospective-original-resource-terminal-continuation.md
+          mkdir -p "$RUNNER_TEMP/study108-original"
+          gh run download 43608972444 --repo "$GITHUB_REPOSITORY" --name cl1-study108-slow-founder-native-beneficial-mutation-causal --dir "$RUNNER_TEMP/study108-original"
+          test -s "$RUNNER_TEMP/study108-original/study108-original-slow-ancestor-beneficial-mutation.sqlite"
+      - name: Resume ALL128 original Study108 final states with no new interventions to native energy exhaustion
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study108-r -- "$RUNNER_TEMP/study108-original/study108-original-slow-ancestor-beneficial-mutation.sqlite" "$RUNNER_TEMP/study108R-terminal-continuations.sqlite" "$RUNNER_TEMP/study108R-summary.json"
+      - name: Independently verify 1024 untouched original hashes and 512 exact terminal-continuation hashes
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study108r.py "$RUNNER_TEMP/study108-original/study108-original-slow-ancestor-beneficial-mutation.sqlite" "$RUNNER_TEMP/study108R-terminal-continuations.sqlite" "$RUNNER_TEMP/study108R-summary.json" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study108R-readonly-independent-audit.json"
+      - name: Preserve full final-world continuation SQLite and auditable original-linked chronology
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study108R-original-128-worlds-untruncated
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study108R-terminal-continuations.sqlite
+            ${{ runner.temp }}/study108R-summary.json
+            ${{ runner.temp }}/study108R-readonly-independent-audit.json
