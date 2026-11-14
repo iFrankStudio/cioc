@@ -1324,10 +1324,7 @@ impl World {
         };
         self.cursor = Some(id);
         self.pending_transition = None;
-        let pool_paid_attempt = self
-            .processes
-            .get(&id)
-            .is_some_and(|p| p.credits == 0);
+        let pool_paid_attempt = self.processes.get(&id).is_some_and(|p| p.credits == 0);
         if pool_paid_attempt {
             // Provenance marker below distinguishes this environmental fee
             // from ordinary process-funded native instruction execution.
