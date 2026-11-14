@@ -1,0 +1,42 @@
+name: CL-1 Study116 original 512-world native functional-germline read-only audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study116.py'
+      - '.github/workflows/cl1-study116-readonly.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-pinned-original-germline-reconstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve exact original frozen Study116 512-world SQLite without generating any new genomes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/116-preregistered-one-shot-mutator-heritable-latent-function.md
+          mkdir -p "$RUNNER_TEMP/study116-original"
+          gh run download 43616365789 --repo "$GITHUB_REPOSITORY" --name cl1-study116-original-actor-gated-functional-germline --dir "$RUNNER_TEMP/study116-original"
+          test -s "$RUNNER_TEMP/study116-original/study116-original-one-shot-native-functional-lineage.sqlite"
+      - name: Independently recheck all8192 ORIGINAL exact SHA256 and full actor-genome+grandparent functional ancestry
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study116.py "$RUNNER_TEMP/study116-original/study116-original-one-shot-native-functional-lineage.sqlite" --expected-revision 6a30420743ebc0f198925ba1eadf1d76b4fc30b9 --json "$RUNNER_TEMP/study116-original-readonly-3generation-functional-audit.json"
+      - name: Preserve complete original-only native full ancestry and mutation-damaged gate side effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study116-original-readonly-functional-3generation-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study116-original-readonly-3generation-functional-audit.json
