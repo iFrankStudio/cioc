@@ -2,7 +2,7 @@ name: CL-1 preregistered research
 
 on:
   push:
-    # Legacy Study01–33 and shared kernel only. Study34+ own targeted CI.
+    # Legacy Study01-33 only. Later studies own path-scoped workflows.
     paths:
       - 'cl0/crates/world/**'
       - 'cl0/crates/lab/src/lib.rs'
@@ -10,13 +10,28 @@ on:
       - 'cl0/crates/*/src/lib.rs'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
-      - 'cl0/crates/lab/src/bin/cl1-study[0-2][0-9].rs'
-      - 'cl0/crates/lab/src/bin/cl1-study3[0-3].rs'
+      - 'cl0/crates/lab/src/bin/cl1-study0?.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study1?.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study2?.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study30.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study31.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study32.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study33.rs'
+      - 'cl1/analyze_study0?.py'
+      - 'cl1/analyze_study1?.py'
+      - 'cl1/analyze_study2?.py'
+      - 'cl1/analyze_study30.py'
+      - 'cl1/analyze_study31.py'
+      - 'cl1/analyze_study32.py'
+      - 'cl1/analyze_study33.py'
+      - 'cl1/tests/test_study0?.py'
+      - 'cl1/tests/test_study1?.py'
+      - 'cl1/tests/test_study2?.py'
+      - 'cl1/tests/test_study30.py'
+      - 'cl1/tests/test_study31.py'
+      - 'cl1/tests/test_study32.py'
+      - 'cl1/tests/test_study33.py'
       - 'cl1/analyze.py'
-      - 'cl1/analyze_study[0-2][0-9].py'
-      - 'cl1/analyze_study3[0-3].py'
-      - 'cl1/tests/test_study[0-2][0-9].py'
-      - 'cl1/tests/test_study3[0-3].py'
       - '.github/workflows/cl1.yml'
   workflow_dispatch:
   schedule:
