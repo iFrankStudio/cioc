@@ -143,7 +143,7 @@ fn original_human_builder_synthesizes_self_reproducing_native_math_child_and_gra
             }
             assert_eq!(world.cell(10),None,"human must not insert output");
             let attempts=world.run(2500);
-            println!("Study119 six-control ORIGINAL source={source} input_tag={tag} attempted={attempts} resident_processes={} pool={} native_last_event={:?}",world.process_count(),world.available_compute_pool(),world.events().last().map(|e| (&e.pc,&e.kind)));
+            println!("Study119 six-control ORIGINAL source={source} input_tag={tag} attempted={attempts} resident_processes={} pool={} native_last_event={:?}",world.events().iter().filter(|e|matches!(e.kind,EventKind::GraphLaunched{..})).count()+1,world.available_compute_pool(),world.events().last().map(|e| (&e.pc,&e.kind)));
             assert!(attempts>0 && attempts<=2500);
             assert_eq!(world.total_compute_inventory(),Some(PARENT_CREDITS+SHARED_POOL-attempts as u64));
             assert_eq!(world.events().iter().filter(|e| e.origin==Origin::External).count(),4);
@@ -186,12 +186,13 @@ fn original_human_builder_synthesizes_self_reproducing_native_math_child_and_gra
             assert_eq!(edits.len(),CHILD_CODE_NODES-1);
             assert_eq!(parent_births.len(),1);
             for (index,e) in edits.iter().enumerate() {
+                let expected_descriptor=if index==4 {
+                    [tag,0,0,2,5]
+                } else {
+                    designed_descriptor(index)
+                };
                 assert!(matches!(&e.kind,EventKind::GraphReplaced{node,descriptor,..}
-                    if *node==index && *descriptor==if index==4 {
-                        [tag,0,0,2,5]
-                    } else {
-                        designed_descriptor(index)
-                    }));
+                    if *node==index && *descriptor==expected_descriptor));
             }
             let built=child_genome(tag);
             assert_eq!(world.process(2).unwrap().code.nodes,built,
