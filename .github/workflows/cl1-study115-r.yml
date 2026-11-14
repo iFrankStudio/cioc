@@ -1,0 +1,43 @@
+name: CL-1 Study115-R retrospective original native latent function germline persistence
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study115r.py'
+      - 'cl1/studies/115R-post-outcome-original-functional-germline-persistence.md'
+      - '.github/workflows/cl1-study115-r.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-functional-grandchild-genealogy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert post-outcome retrospective protocol and download all original Study115 native worlds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/115R-post-outcome-original-functional-germline-persistence.md
+          mkdir -p "$RUNNER_TEMP/study115-original"
+          gh run download 43615316092 --repo "$GITHUB_REPOSITORY" --name cl1-study115-original-unselected-latent-activation --dir "$RUNNER_TEMP/study115-original"
+          test -s "$RUNNER_TEMP/study115-original/study115-original-all-target-prewritten-latent-function.sqlite"
+      - name: Reaudit 8192 original state SHA256 and track unchanged copied PC4 function across grandchildren
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study115r.py "$RUNNER_TEMP/study115-original/study115-original-all-target-prewritten-latent-function.sqlite" --json "$RUNNER_TEMP/study115R-original-functional-grandchildren.json"
+      - name: Preserve all unselected original native genealogies and child/grandchild code edges
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study115R-retrospective-source-pinned-germline-original
+          retention-days: 30
+          path: ${{ runner.temp }}/study115R-original-functional-grandchildren.json
