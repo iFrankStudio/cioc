@@ -1,0 +1,45 @@
+name: CL-1 Study99 fully native functional multigeneration self-copying CIL seed calibration
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study99_multigeneration_native_self_copy.rs'
+      - 'cl1/studies/99-preregistered-scripted-native-multigeneration-self-copy.md'
+      - '.github/workflows/cl1-study99.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  resource-bounded-native-self-copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Require explicitly researcher-engineered zero-random-ecology self-copy protocol
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/99-preregistered-scripted-native-multigeneration-self-copy.md
+      - name: Execute true parent-child-grandchild-great-grandchild native self-copying source-function CIL with compute/edge negatives
+        run: |
+          set -euo pipefail
+          cargo test --locked -p cl0-world --test study99_multigeneration_native_self_copy -- --nocapture
+      - name: Publish source-exact multi-generation engineered-seed mechanism validation
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study99-engineered-native-lineage-calibration" \
+            -f description="Human-authored CIL self-copy lineage and true descendant function: $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
