@@ -143,7 +143,9 @@ fn main() -> Result<(), Box<dyn Error>> {
             )?;
             let recorded = run.first().ok_or("missing stochastic feedback run")?;
             if !lab.verify_epoch_replay(recorded.id)? {
-                return Err(format!("exact native Study64 replay failed: seed={seed}/{mode}").into());
+                return Err(
+                    format!("exact native Study64 replay failed: seed={seed}/{mode}").into(),
+                );
             }
             let attempts: usize = recorded.attempts_by_epoch.iter().sum();
             if recorded.world.total_compute_inventory() != Some(300 - attempts as u64) {
@@ -152,7 +154,11 @@ fn main() -> Result<(), Box<dyn Error>> {
             total_runs += 1;
         }
         if (seed + 1 - FIRST_SEED) % 32 == 0 {
-            println!("Study64 exact-replayed {} of {} seed genomes", seed + 1 - FIRST_SEED, SEEDS);
+            println!(
+                "Study64 exact-replayed {} of {} seed genomes",
+                seed + 1 - FIRST_SEED,
+                SEEDS
+            );
         }
     }
     if total_runs != SEEDS * MODES.len() as u64 {
