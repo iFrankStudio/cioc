@@ -32,10 +32,24 @@ jobs:
     outputs:
       changed: ${{ steps.patch.outputs.changed }}
     steps:
+      - name: Create isolated non-sudo Codex user
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo adduser --system --home /home/guest --shell /bin/bash --group guest
+          sudo usermod -a -G guest runner
+          sudo usermod -a -G runner guest
       - uses: actions/checkout@v4
         with:
           ref: main
           persist-credentials: false
+      - name: Permit isolated user to edit only the checked-out workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo chown -R runner:guest "$GITHUB_WORKSPACE"
+          sudo chmod -R g+rwX "$GITHUB_WORKSPACE"
+          sudo find "$GITHUB_WORKSPACE" -type d -exec chmod g+s {} +
       - name: Check key is configured; never print it
         env:
           KEY_PRESENT: ${{ secrets.OPENAI_API_KEY != '' }}
@@ -65,6 +79,8 @@ jobs:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .github/codex/CL1_AUTORESEARCH.md
           permission-profile: ':workspace'
+          safety-strategy: unprivileged-user
+          codex-user: guest
           allow-bot-users: 'github-actions'
       - id: patch
         name: Export local patch with no credentials
