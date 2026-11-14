@@ -561,8 +561,7 @@ impl Op {
         let move_edge = |edge: &mut usize| {
             let relative = i128::try_from(*edge).expect("bounded source edge")
                 - i128::try_from(source).expect("bounded source node");
-            let new_edge = (i128::try_from(destination).expect("bounded graph index")
-                + relative)
+            let new_edge = (i128::try_from(destination).expect("bounded graph index") + relative)
                 .rem_euclid(modulus);
             *edge = usize::try_from(new_edge).expect("positive bounded edge");
         };
