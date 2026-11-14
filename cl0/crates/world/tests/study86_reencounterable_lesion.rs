@@ -30,8 +30,8 @@ fn fixture(source: i64) -> World {
 fn native_outputs(world: &World) -> Vec<i64> {
     world.events().iter().filter_map(|event| {
         if event.origin == Origin::Internal(1) {
-            if let EventKind::CellWritten { key: 9, value } = event.kind {
-                return Some(value);
+            if let EventKind::CellWritten { key: 9, value } = &event.kind {
+                return Some(*value);
             }
         }
         None
@@ -47,8 +47,8 @@ fn self_loop_lesion_stays_reachable_and_host_restoration_recovers_original_sourc
         assert_eq!(control.run(12), 12);
         assert_eq!(world.process(1).unwrap().pc, 8);
         assert_eq!(native_outputs(&world), vec![source]);
-        let original_edge = match world.process(1).unwrap().code.nodes[8] {
-            Op::DrawCompute { next, .. } => next,
+        let original_edge = match &world.process(1).unwrap().code.nodes[8] {
+            Op::DrawCompute { next, .. } => *next,
             _ => panic!("source fixture has no native Draw node8"),
         };
         assert_eq!(original_edge, 9);
