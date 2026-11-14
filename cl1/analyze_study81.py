@@ -126,9 +126,6 @@ def audit_native_events(state, code, source):
                 "edits_before": len(actual_edits),
                 "draws_before": successful_draws,
             })
-        if trapped:
-            require(e is [x for x in events if internal(x)][-1] if False else True,
-                    "unreachable marker")
     final_node = state["processes"]["1"]["code"]["nodes"][8]
     ftag, ffields = variant(final_node)
     require(ftag == tag, "native opcode was replaced outside registered grammar")
@@ -183,10 +180,12 @@ def audit(db_path, revision):
                     "matched arm initial native code is not byte-identical")
         else:
             genotype_by_seed[seed] = genome_sha
-        require(json.loads(attempts_raw) == [
-            value for value in json.loads(attempts_raw)
-            if 0 <= value <= QUOTA
-        ] and len(json.loads(attempts_raw)) == EPOCHS, "invalid epoch charge ledger")
+        attempts = json.loads(attempts_raw)
+        require(
+            len(attempts) == EPOCHS
+            and all(isinstance(value, int) and 0 <= value <= QUOTA for value in attempts),
+            "invalid epoch charge ledger",
+        )
         snaps = con.execute(
             "SELECT epoch,state_sha256,state_json FROM epoch_snapshots WHERE run_id=? ORDER BY epoch",
             (run_id,),
