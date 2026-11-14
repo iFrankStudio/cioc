@@ -1,0 +1,27 @@
+name: CL-1 Study119 native-assembled self-replicating child full-instruction genotype
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study119_synthesized_self_replicating_child.rs'
+      - 'cl1/studies/119-preregistered-native-assembled-replicating-child-genome.md'
+      - '.github/workflows/cl1-study119.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  human-actor-created-real-self-reproducing-child:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check original six-world human native constructed-hereditary-math mechanism registration
+        run: test -s ../cl1/studies/119-preregistered-native-assembled-replicating-child-genome.md
+      - name: Execute all six source-tag controls with newly composed self-reproducing math child and native grandchild
+        run: cargo test --locked -p cl0-world --test study119_synthesized_self_replicating_child -- --nocapture
