@@ -101,11 +101,9 @@ def inspect_run(initial: dict, snapshots: list[tuple[int, str, str]],
     previous = initial
     charged = 0
     last_written = None
-    for epoch, digest, raw in snapshots:
-        if epoch < 0 or epoch >= EPOCHS or epoch != sum(x != -1 for x in native_epoch_counts[:0]):
-            # Exact consecutiveness is checked below using the current number
-            # of visited snapshots rather than event/attempt quantities.
-            pass
+    for expected_epoch, (epoch, digest, raw) in enumerate(snapshots):
+        if epoch != expected_epoch:
+            raise ValueError("missing, duplicated or reordered original epoch")
         if analyze.digest(raw) != digest:
             raise ValueError("original native SHA256 epoch payload does not match")
         state = json.loads(raw)
