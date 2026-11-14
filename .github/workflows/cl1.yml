@@ -54,13 +54,13 @@ jobs:
             full=true
           else
             changes="$(git diff --name-only "$BEFORE" "$GITHUB_SHA")"
-            if grep -Eq '^(.github/workflows/cl1\\.yml|cl0/(Cargo\\.(toml|lock)|crates/lab/src/lib\\.rs)|cl1/(analyze\\.py|analyze_study(02|14|22)\\.py))$' <<<"$changes"; then
+            if grep -Eq '^(.github/workflows/cl1\.yml|cl0/(Cargo\.(toml|lock)|crates/lab/src/lib\.rs)|cl1/(analyze\.py|analyze_study(02|14|22)\.py))$' <<<"$changes"; then
               full=true
             fi
             if grep -Eq '^cl0/crates/world/' <<<"$changes"; then
               kernel=true
             fi
-            if grep -Eq '^(cl1/.*\\.py|cl0/crates/)' <<<"$changes"; then
+            if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
               quick=true
             fi
           fi
@@ -74,7 +74,7 @@ jobs:
               for id in study01 study14 study32 study33; do selected+="$id|"; done
             fi
             for id in "${ids[@]}"; do
-              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\\\.rs$|^cl1/(analyze_$id\\\\.py|tests/test_$id\\\\.py)$" <<<"$changes"; then
+              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\.rs$|^cl1/(analyze_$id\\.py|tests/test_$id\\.py)$" <<<"$changes"; then
                 selected+="$id|"
               fi
             done
