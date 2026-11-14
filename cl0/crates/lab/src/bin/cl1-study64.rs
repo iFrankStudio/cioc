@@ -153,7 +153,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
             total_runs += 1;
         }
-        if (seed + 1 - FIRST_SEED) % 32 == 0 {
+        if (seed + 1 - FIRST_SEED).is_multiple_of(32) {
             println!(
                 "Study64 exact-replayed {} of {} seed genomes",
                 seed + 1 - FIRST_SEED,
