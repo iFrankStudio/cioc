@@ -1,0 +1,64 @@
+name: CL-1 Study83 retrospective code-edit functional causality
+
+on:
+  push:
+    paths:
+      - 'cl1/studies/83-preregistered-retrospective-native-edit-functional-causality.md'
+      - 'cl1/analyze_study83.py'
+      - '.github/workflows/cl1-study83.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+jobs:
+  original-paired-causality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require retrospective preregistration and unchanged original source
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/83-preregistered-retrospective-native-edit-functional-causality.md
+          test -s ../cl1/analyze_study82.py
+      - name: Download original Study82 successful, source-pinned 128-genome 512-world SQLite
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study83"
+          gh run download 43592985831 --repo "$GITHUB_REPOSITORY" --name cl1-study82-original-native-executable-edits --dir "$RUNNER_TEMP/study83"
+          test -s "$RUNNER_TEMP/study83/cl1-study82-original-native-edits.sqlite"
+      - name: Reaudit every original SHA256 epoch and test matched native code-edit functional causality
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study83.py "$RUNNER_TEMP/study83/cl1-study82-original-native-edits.sqlite" --json "$RUNNER_TEMP/study83-independent-causal-audit.json"
+      - name: Archive only retrospective independent causal outcome, never duplicate ecological corpus
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study83-retrospective-native-edit-causality
+          retention-days: 30
+          path: ${{ runner.temp }}/study83-independent-causal-audit.json
+      - name: Report source-pinned verified Study83 retrospective CI outcome
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study83-retrospective-native-edit-causality" \
+            -f description="Study82 original 512 worlds, independent paired causal analysis: $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
