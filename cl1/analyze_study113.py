@@ -94,9 +94,16 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
                 invalid_outputs += 1
 
         if edited is not None:
-            require(not ablated and pc == 8 and edited["node"] == site,
+            # Initial mutator site was preregistered, but native mutations can
+            # subsequently alter the CIL's own control/data flow and therefore
+            # dynamically change register R1 before PC8. This is a REAL
+            # descendant code-state consequence, not a researcher-resampled site.
+            # Verify the actor executes original native PatchNext instruction
+            # and edit-before matches its reconstructed current executable node.
+            require(not ablated and pc == 8 and 0 <= edited["node"] < 28
+                    and "PatchNext" in codes[actor][8],
                     "unregistered source of native CIL executable mutation")
-            source_op = codes[actor][site]
+            source_op = codes[actor][edited["node"]]
             op_payload = next(iter(source_op.values())) if isinstance(source_op, dict) else None
             require(isinstance(op_payload, dict) and "next" in op_payload,
                     "reported native edit on nonpatchable opcode")
@@ -106,7 +113,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
                     and 0 <= edited["after"] < 28,
                     "invalid native edit target")
             op_payload["next"] = edited["after"]
-            edits.append({"actor": actor, "site": site, "from": edited["before"],
+            edits.append({"actor": actor, "site": edited["node"], "from": edited["before"],
                           "to": edited["after"], "tick": e["tick"]})
         if disabled is not None:
             require(ablated and pc == 8 and disabled["opcode_tag"] == 6,
