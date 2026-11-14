@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'cl0/crates/world/tests/study104_native_functional_variation.rs'
-      - 'cl1/studies/103-preregistered-native-functional-inherited-variation.md'
+      - 'cl1/studies/104-preregistered-native-functional-inherited-variation.md'
       - '.github/workflows/cl1-study104.yml'
   workflow_dispatch:
 
@@ -22,6 +22,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - name: Verify source-frozen Study104 scripted functional variation contract
-        run: test -s ../cl1/studies/103-preregistered-native-functional-inherited-variation.md
+        run: test -s ../cl1/studies/104-preregistered-native-functional-inherited-variation.md
       - name: Observe same-genotype founders, native inherited fast/slow alleles, source function and resource controls
         run: cargo test --locked -p cl0-world --test study104_native_functional_variation -- --nocapture
