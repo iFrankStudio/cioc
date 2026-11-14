@@ -1,0 +1,27 @@
+name: CL-1 Study103 native functional mutation inheritance in branching CIL
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study103_native_functional_variation.rs'
+      - 'cl1/studies/103-preregistered-native-functional-inherited-variation.md'
+      - '.github/workflows/cl1-study103.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  functional-mutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify source-frozen Study103 scripted functional variation contract
+        run: test -s ../cl1/studies/103-preregistered-native-functional-inherited-variation.md
+      - name: Observe same-genotype founders, native inherited fast/slow alleles, source function and resource controls
+        run: cargo test --locked -p cl0-world --test study103_native_functional_variation -- --nocapture
