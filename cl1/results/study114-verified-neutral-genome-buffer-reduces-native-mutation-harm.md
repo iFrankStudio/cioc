@@ -15,7 +15,7 @@ For each original code seed and source, define enabled−charged-disabled actual
 | Full-site mutation policy yields larger paired code-mutation effect `I>0` | **18/32** | **18/32** |
 | Full-site mutation policy yields smaller effect `I<0` | **3/32** | **3/32** |
 | Equal `I=0` | **11/32** | **11/32** |
-| Source-correct native offspring in full-site mutation-enabled worlds (total) | **212** | **212** |
+| All native GraphLaunched children in full-site mutation-enabled worlds (regardless of source-function retention) | **212** | **212** |
 | Native offspring in core-site mutation-enabled worlds (total) | **92** | **90** |
 | Original full-site draws into actually dormant code indices | **18/32** | **18/32** |
 | Source-specific paired sign p for `I` (descriptive in this engineered code family) | 0.0014896392822265625 | 0.0014896392822265625 |
