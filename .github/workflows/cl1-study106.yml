@@ -1,0 +1,46 @@
+name: CL-1 Study106 exact-genome causal native mutation resource ecology
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study106.rs'
+      - 'cl1/analyze_study106.py'
+      - 'cl1/studies/106-preregistered-finite-resource-native-mutation-cost.md'
+      - '.github/workflows/cl1-study106.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-mutational-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen original native mutation-only same-genome causal contract
+        run: test -s ../cl1/studies/106-preregistered-finite-resource-native-mutation-cost.md
+      - name: Generate original 32 seeds times four matched fully replayed native worlds
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study106 -- "$RUNNER_TEMP/study106-original-native-mutation-ecology.sqlite"
+      - name: Independently reverify original 1024 SHA256 epoch snapshots, native code ancestry and all paired birth contrasts
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study106.py "$RUNNER_TEMP/study106-original-native-mutation-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study106-independent-original-audit.json"
+      - name: Archive original native SQLite and independent read-only audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study106-native-mutation-cost-original-32genomes
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study106-original-native-mutation-ecology.sqlite
+            ${{ runner.temp }}/study106-independent-original-audit.json
