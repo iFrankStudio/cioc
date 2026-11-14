@@ -1,0 +1,54 @@
+name: CL-1 Study74-P stochastic native pool-paid Draw and feedback
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study74.rs'
+      - 'cl1/analyze_study74_poolpaid.py'
+      - 'cl1/tests/test_study74_poolpaid.py'
+      - '.github/workflows/cl1-study74-poolpaid.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paired-native-resource:
+    runs-on: ubuntu-latest
+    timeout-minutes: 140
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify preregistered 128-genome causal pool-paid Draw experiment before execution
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/74-preregistered-poolpaid-native-feedback-causal-ecology.md
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study74_poolpaid.py' -v
+      - name: Run 128 new SplitMix64 native genomes under sixteen paired policy/source controls
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study74 -- "$RUNNER_TEMP/cl1-study74-poolpaid-native-feedback.sqlite"
+      - name: Independently audit 49152 exact SHA256 original epochs and true W3 native Draw
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study74_poolpaid.py "$RUNNER_TEMP/cl1-study74-poolpaid-native-feedback.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study74-poolpaid-report.json"
+      - name: Archive untouched source-pinned native SQLite and independent 128-world causal report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study74-poolpaid-native-feedback
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study74-poolpaid-native-feedback.sqlite
+            ${{ runner.temp }}/cl1-study74-poolpaid-report.json
