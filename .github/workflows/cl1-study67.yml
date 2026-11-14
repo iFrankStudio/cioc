@@ -1,0 +1,58 @@
+name: CL-1 Study67 retrospective native compute access and fatal process termination
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study67.py'
+      - 'cl1/tests/test_study67.py'
+      - '.github/workflows/cl1-study67.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  retrospective-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify registration before new cause analysis and two focused trap/ignition negative controls
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/67-registered-retrospective-resource-termination-cause.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study67.py' -v
+      - name: Download original untampered Study66 native SQLite; never resample
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study67"
+          gh run download 43568283297 --repo "$GITHUB_REPOSITORY" --name cl1-study66-native-feedback-energy --dir "$RUNNER_TEMP/study67"
+          test -s "$RUNNER_TEMP/study67/cl1-study66-feedback-energy-ecology.sqlite"
+      - name: First independently rerun Study66 full audit, then classify all 49152 original hashed native resource histories
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study67.py "$RUNNER_TEMP/study67/cl1-study66-feedback-energy-ecology.sqlite" --json "$RUNNER_TEMP/study67-report.json"
+          python3 - "$RUNNER_TEMP/study67-report.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":d["study"],"new_worlds":d["new_independent_worlds"],
+            "hashes":d["original_SHA256_snapshots_rechecked"],
+            "ambient_low":{k:v for k,v in d["per_arm_retrospective_resource_failure_counts"].items() if k.startswith("ambient-low.")},
+            "ambient_high":{k:v for k,v in d["per_arm_retrospective_resource_failure_counts"].items() if k.startswith("ambient-high.")},
+            "life_claim":d["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive original-data-only retrospective report without duplicating native source SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study67-original-resource-termination-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study67-report.json
