@@ -75,7 +75,11 @@ fn original(mode: &str) -> Result<(World, Vec<EpochAction>), Box<dyn Error>> {
                 0,
             ),
             8,
-            Some(if mode == "legacy-pool-fee-early" { 15 } else { 16 }),
+            Some(if mode == "legacy-pool-fee-early" {
+                15
+            } else {
+                16
+            }),
         ),
         "recoverable-no-pool" => (
             Process::new(1, vec![Op::DrawCompute { amount: 1, next: 0 }], 0),
