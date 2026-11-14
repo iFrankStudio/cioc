@@ -1,0 +1,42 @@
+name: CL-1 Study114 independent original 56-node native site-lottery audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study114.py'
+      - '.github/workflows/cl1-study114-original-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-neutral-buffer-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve the untouched original 256 56-node CIL worlds and 4096 original epochs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/114-preregistered-dormant-code-buffer-native-mutational-robustness.md
+          mkdir -p "$RUNNER_TEMP/study114-frozen"
+          gh run download 43612895938 --repo "$GITHUB_REPOSITORY" --name cl1-study114-full-native-neutral-buffer --dir "$RUNNER_TEMP/study114-frozen"
+          test -s "$RUNNER_TEMP/study114-frozen/study114-original-native-dormant-buffer.sqlite"
+      - name: Independently audit original precise native code birth, incomplete-copy failures and 4096 SHA256 snapshots
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study114.py "$RUNNER_TEMP/study114-frozen/study114-original-native-dormant-buffer.sqlite" --expected-revision dd0a1ee78765fbdcdf625ac08069198625d0f84b --json "$RUNNER_TEMP/study114-original-unchanged-independent-audit.json"
+      - name: Preserve full independent original-only genetic-buffer results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study114-original-independent-readonly-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study114-original-unchanged-independent-audit.json
