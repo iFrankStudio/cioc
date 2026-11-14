@@ -153,7 +153,8 @@ fn internal_numeric_descriptors_are_converted_to_new_executable_child_ops() {
                     && matches!(e.kind, EventKind::CellWritten { key, .. }
                         if (DESCRIPTOR_BASE..DESCRIPTOR_BASE + 5).contains(&key))
             }).count();
-            assert_eq!(authored_fields, 30, "6 node descriptors * 5 internal cell writes");
+            assert_eq!(authored_fields, if tag == 99 { 25 } else { 30 },
+                "invalid tag must trap after five complete actor-written descriptors; valid graphs require all six");
             if tag == 99 {
                 assert_eq!(replaced.len(), 4,
                     "unknown tag must trap precisely at the fifth native GraphReplace");
