@@ -861,6 +861,11 @@ pub enum EventKind {
         descriptor_base: i64,
         descriptor: [i64; 5],
     },
+    /// A native edit opcode consumed its ordinary instruction charge but had no code effect
+    /// under the researcher-selected mutation-disabled control world.
+    NativeCodeEditSuppressed {
+        opcode_tag: i64,
+    },
     /// Observer-only successful graph allocation.
     GraphCreated {
         graph: u64,
@@ -938,6 +943,10 @@ pub struct World {
     /// No credits are created; each attempted Draw is still charged.
     #[serde(default, skip_serializing_if = "is_false")]
     recoverable_draw_shortage: bool,
+    /// Opt-in matched experimental law: charge native executable-code edit attempts
+    /// without allowing their code/edge changes. Never enabled in legacy worlds.
+    #[serde(default, skip_serializing_if = "is_false")]
+    native_code_edits_disabled: bool,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -1012,6 +1021,7 @@ impl World {
             compute_pool: 0,
             pool_paid_draw: false,
             recoverable_draw_shortage: false,
+            native_code_edits_disabled: false,
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -1084,6 +1094,17 @@ impl World {
 
     pub fn recoverable_draw_shortage_enabled(&self) -> bool {
         self.recoverable_draw_shortage
+    }
+
+    /// Opt-in observational control, not a new CIL instruction or a repair mechanism.
+    /// The code bytes remain identical at initialization in paired worlds.
+    pub fn with_native_code_edits_disabled(mut self) -> Self {
+        self.native_code_edits_disabled = true;
+        self
+    }
+
+    pub fn native_code_edits_disabled(&self) -> bool {
+        self.native_code_edits_disabled
     }
 
     pub fn total_capacity(&self) -> Option<usize> {
@@ -1413,6 +1434,47 @@ impl World {
 
     /// Returns Ok(true) on halt; no instruction expresses semantic notions of repair.
     fn execute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        // Study80 control physics: consume the same charged attempt and advance the
+        // original next edge, while suppressing ONLY mutations of executable code.
+        // Invalid next edges still trap; no actor is refilled, rescued or cloned.
+        if self.native_code_edits_disabled
+            && matches!(
+                &op,
+                Op::PatchNext { .. }
+                    | Op::PatchConst { .. }
+                    | Op::CloneNode { .. }
+                    | Op::GraphCopyNode { .. }
+                    | Op::GraphCopyNodeLocal { .. }
+                    | Op::GraphSetNext { .. }
+                    | Op::GraphSetConst { .. }
+                    | Op::GraphEncode { .. }
+                    | Op::GraphReplace { .. }
+                    | Op::GraphCopyFrom { .. }
+            )
+        {
+            let next = match &op {
+                Op::PatchNext { next, .. }
+                | Op::PatchConst { next, .. }
+                | Op::CloneNode { next, .. }
+                | Op::GraphCopyNode { next, .. }
+                | Op::GraphCopyNodeLocal { next, .. }
+                | Op::GraphSetNext { next, .. }
+                | Op::GraphSetConst { next, .. }
+                | Op::GraphEncode { next, .. }
+                | Op::GraphReplace { next, .. }
+                | Op::GraphCopyFrom { next, .. } => *next,
+                _ => unreachable!("listed code-change opcodes"),
+            };
+            let actor = self.processes.get_mut(&id).expect("scheduled process exists");
+            if next >= actor.code.nodes.len() {
+                return Err("invalid execution edge".into());
+            }
+            actor.pc = next;
+            self.pending_transition = Some(EventKind::NativeCodeEditSuppressed {
+                opcode_tag: op.opcode_tag(),
+            });
+            return Ok(false);
+        }
         if matches!(
             op,
             Op::DrawCompute { .. } | Op::ReturnCompute { .. } | Op::TransferCompute { .. }
