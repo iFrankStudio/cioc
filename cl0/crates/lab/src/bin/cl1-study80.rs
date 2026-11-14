@@ -113,7 +113,8 @@ fn main() -> Result<(), Box<dyn Error>> {
                 Op::Read { next, .. } => *next,
                 _ => return Err("source-bearing node was replaced".into()),
             };
-            if next != if arm == "lesion-disabled" { 5 } else { 4 } {
+            let expected_next = if arm == "lesion-disabled" { 5 } else { 4 };
+            if next != expected_next {
                 return Err(format!("wrong preserved native functional edge: {source}/{arm}").into());
             }
             total += 1;
