@@ -1,0 +1,65 @@
+name: CL-1 Study98 exact static child-code null explanation of original 151 functional payloads
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study98.py'
+      - 'cl1/studies/98-retrospective-static-child-payload-null-explanation.md'
+      - '.github/workflows/cl1-study98.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+jobs:
+  original-static-payload-null:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require explicitly retrospective zero-new-genome original-static-model protocol
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/98-retrospective-static-child-payload-null-explanation.md
+          test -s ../cl1/analyze_study97.py
+          test -s ../cl1/analyze_study82.py
+      - name: Download the original exact Study97 SQLite from its verified immutable source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study98"
+          gh run download 43602170104 --repo "$GITHUB_REPOSITORY" --name cl1-study97-original-random-child-payloads --dir "$RUNNER_TEMP/study98"
+          test -s "$RUNNER_TEMP/study98/cl1-study97-native-random-child-payloads.sqlite"
+      - name: Reverify all 18432 native SHA hashes and compare 256 purely static random-child F predictions with original outcomes
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study98.py "$RUNNER_TEMP/study98/cl1-study97-native-random-child-payloads.sqlite" --json "$RUNNER_TEMP/study98-original-static-child-null.json"
+      - name: Archive zero-new-world independent static counterfactual diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study98-retrospective-static-native-child-payload-null
+          retention-days: 30
+          path: ${{ runner.temp }}/study98-original-static-child-null.json
+      - name: Publish exact-source retrospective static null comparison outcome
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study98-original-static-code-null" \
+            -f description="Original 151 native functional child payloads vs static code-only F null: $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
