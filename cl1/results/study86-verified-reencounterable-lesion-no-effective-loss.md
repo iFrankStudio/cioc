@@ -1,0 +1,17 @@
+# CL-1 Study86 — verified new pre-fork reachable-node lesion: baseline functional exposure decays
+
+**Status: successful CI execution and independent original-source audit; bounded negative/not evaluable native repair gate.** [Prospective protocol](../studies/86-preregistered-reencounterable-native-executable-lesion.md) committed before outcomes. Source commit `bfce0210c2e5aeabbdfe5165bcd7fdbe286cb1eb` [original full CI 43595688472](https://github.com/iFrankStudio/cioc/actions/runs/43595688472); metadata-only correction to identify this as Study86 also [passed targeted CI43595884191](https://github.com/iFrankStudio/cioc/actions/runs/43595884191). Original 128 full different per-draw SplitMix64 CIL genomes seeds 5,800,000..5,800,127, 1,536 matched original native postfork worlds, all **27,648 exact full-state SHA256 epochs** and Rust deterministic replay passed read-only Python auditor. Original SQLite+analysis [artifact14113834788](https://github.com/iFrankStudio/cioc/actions/runs/43595688472/artifacts/14113834788), ZIP SHA256 `4ec8a90e312eee8376ea2ef643595d87b24e9cec4f182a389f5f660e855989e4`.
+
+The experiment changed the outside lesion from Study84's escaping PC8→3 to **PC8→PC8**, leaving the code location reencounterable. Zero-genome scripted native Draw/Read/Write host repair positive-control test passed in the same focused CI and is **not** counted as random self-repair.
+
+| Fixed prospective gate | Observed independent genotypes |
+| --- | ---: |
+| New full distinct CIL genotypes | 128/128 |
+| E: pretreatment real two-source function, including PC8 | **11/128** |
+| L: first postfork two-source loss with sham preserving original function | **0/128** |
+| H: responsive host restore among L | **0/128** (no L exposure) |
+| R: qualifying native code-edit restoration among H and L | **0/128** (not causally evaluable) |
+
+The zero L is not evidence of failed native repair, since there are no preregistered *effective* lesions with a contemporaneously functioning sham. **Study87**, explicitly retrospective and zero new worlds, audited the same original 27,648 hashes in [successful CI43596079593](https://github.com/iFrankStudio/cioc/actions/runs/43596079593). Of the 11 E genotypes, **10/11 had no matching source-dependent function in the immediate sham control window at all**, meaning the observed prefork function naturally dropped out before the damage could be causally evaluated; the other **1/11** retained sham output but also retained corresponding lesion output, so its code lesion was ineffective for the registered W2 loss assay.
+
+**Scientific implication:** Static/earlier-window positive source-dependent Read→Write function is not a sufficient exposure gate for a *future* lesion. A meaningful lesion design must intervene while the native actor is still at/re-encountering the functioning code site and must demonstrate that a function-positive sham stays active during the proposed observation window. Mechanism calibration cannot turn an inactive stochastic baseline into a valid causal recovery opportunity. Do not run further retrospective tuning of these original seeds. A new independent prospective, pre-registered **event- or state-triggered, pretreatment-only exposure window** is the next testable design change. Stage86 contains **zero confirmed autonomous repair events**, and cannot qualify for multi-component CL-1 closure. **CL-1 remains OPEN.**
