@@ -57,14 +57,8 @@ def source_w2(low, high, filter_fn=lambda w: True):
 def late_w2(low, high):
     eligible = None
     for start, end in ((12, 17), (18, 23)):
-        lset = source_w2(
-            low, high,
-            lambda write: start <= epoch_of_attempt(
-                write["at_native_attempt"], low["charges"] if write in low["stats"]["writes"] else high["charges"]
-            ) <= end,
-        )
-        # Rebuild each input's own source-to-writer windows separately;
-        # do not use equality of structurally identical dicts for arm identity.
+        # Evaluate native writes against each input arm's own charged epoch ledger,
+        # never infer input arm identity from equal-looking event dictionaries.
         lo = {
             (w["pc"], w["offset"])
             for w in low["stats"]["writes"]
