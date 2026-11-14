@@ -1,0 +1,43 @@
+name: CL-1 Study114-F original 256-world functional children retrospective gate
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study114f.py'
+      - 'cl1/studies/114F-post-outcome-functional-offspring-gate.md'
+      - '.github/workflows/cl1-study114-f.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-functional-complete-child-ancestry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Freeze explicit retrospective gate and retrieve ORIGINAL 256 native worlds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/114F-post-outcome-functional-offspring-gate.md
+          mkdir -p "$RUNNER_TEMP/cioc-study114-original"
+          gh run download 43612895938 --repo "$GITHUB_REPOSITORY" --name cl1-study114-full-native-neutral-buffer --dir "$RUNNER_TEMP/cioc-study114-original"
+          test -s "$RUNNER_TEMP/cioc-study114-original/study114-original-native-dormant-buffer.sqlite"
+      - name: Recheck all4096 source-SHA256 states then functionally qualify every original native child and grandchild
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study114f.py "$RUNNER_TEMP/cioc-study114-original/study114-original-native-dormant-buffer.sqlite" --json "$RUNNER_TEMP/study114F-functional-all-256-native-worlds.json"
+      - name: Preserve unfiltered child source-function and ancestry audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study114F-original-functional-reproducing-offspring
+          retention-days: 30
+          path: ${{ runner.temp }}/study114F-functional-all-256-native-worlds.json
