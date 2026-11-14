@@ -1,0 +1,20 @@
+# CL-1 Study84 — prospective shared-pretreatment code-lesion experiment: narrow negative causal gate
+
+**Status: FULLY CI-VERIFIED ORIGINAL ECOLOGY; STRICT NATIVE REPAIR NOT OBSERVED.**
+Frozen prospective restricted protocol: [Study84](../studies/84-preregistered-restricted-native-function-lesion-recovery.md). Exact original source revision **`85087980474e3885f41576f3ae50f3c925edba83`**, complete [Actions run43594558556](https://github.com/iFrankStudio/cioc/actions/runs/43594558556), [original SQLite + independent JSON artifact14113728079](https://github.com/iFrankStudio/cioc/actions/runs/43594558556/artifacts/14113728079), artifact ZIP SHA256 **`decf76f56b6f95a09fe5108d47099746f08fe953985be4aa02b42a49ca1bfbaa`**.
+
+Unlike the ten earlier artificial Study80 code fixtures, this test sampled **128 fresh different CIL genotypes** using a full per-draw SplitMix64 generator. Each source input3/8 program executed **six global pretreatment epochs with native code edits allowed**, before forks into six matched conditions from identical source-specific entire program/register/resource/event histories. Only then were the exposed source-bearing PC8 code edges externally patched, sham-restored, or mutation-disabled. The randomized CIL had no author-coded lesion detector or repair routine. All original 128×2×6 = **1536 native matched postfork worlds** executed through 18 prescribed postfork epochs, producing **27,648 actual complete SHA256 epoch snapshots**, independently validated against original event/PC/source and resource ledgers and exact Rust replay.
+
+| Preregistered hierarchical gate | Observed ORIGINAL genotype count |
+| --- | ---: |
+| All original different code genotypes | **128/128** |
+| E: before any lesion, same source-sensitive native Read→Write function under both low/high and real executable node8 edge traversed | **10/128** |
+| L: function disappears in both source variants after lesion while sham preserves it in immediate window | **1/128** |
+| R: restored source-sensitive output in **both later windows** after actor-native PC8 code edits, mutation-disabled controls remain lost | **0/128** |
+| Exact external-host-restored two-late-window positive assay among L | **0/128** |
+
+**Interpretation:** The new paired genome source code and event history are real, unlike artificial Study80 fixtures. A single source-sensitive function was actually extinguished under an externally induced generic executable-edge lesion while its sham retained that function; **zero** native functional recoveries met the strict preregistered time-window and causal code-edit gate. But even external exact edge restoration did **not** recover the same function in both late windows, so the long-term recovery assay lacks a successful positive control **within the single effective lesion**. Do **not** label this a definitive causal impossibility or conclude native code edits are incapable of functional recovery: post-lesion activity can be trapped, context dependent, or functionally altered. It is a sparse causal lesion exposure, not a powered demonstration of failure of all CIL variants.
+
+**Scientific constraint:** Study84 changes only a fixed, investigator-selected **mutation-addressable PC8** edge, not Study80's general function-critical-target acceptance criterion. It neither replaces the complete Study80 Phase-1 protocol nor shows two-component repair, functional inheritance, selection or life. Study84's generic environmental +8 pool and recoverable Draw are still external laws. CL-1 remains **OPEN**.
+
+**Next gate:** Independently diagnose the **known-after-outcomes one L case**, explicitly as retrospective zero-new-world mechanism analysis, especially whether the native actor remained executable until the postfork host restoration, whether the host restored the same pre-lesion edge, and whether its native output ever recovered transiently rather than in two windows. Then freeze an independently testable lesion with a *real* host positive control **before** any new ecological cohort; do not tune the Study84 seed or recovery windows.
