@@ -1,0 +1,46 @@
+name: CL-1 Study113 unselected full native site and target code mutations
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study113.rs'
+      - 'cl1/analyze_study113.py'
+      - 'cl1/studies/113-preregistered-unbiased-native-edge-mutation-distribution.md'
+      - '.github/workflows/cl1-study113.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-site-target-unselected-native-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen original 64-seed all-node all-target pre-registration
+        run: test -s ../cl1/studies/113-preregistered-unbiased-native-edge-mutation-distribution.md
+      - name: Generate original 256 native original worlds and 4096 exact replayable full epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study113 -- "$RUNNER_TEMP/study113-original-full-site-edge-native-ecology.sqlite"
+      - name: Independently verify original SHA256, all actor source genomes and exact copied child code
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study113.py "$RUNNER_TEMP/study113-original-full-site-edge-native-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study113-original-full-genealogy-independent-audit.json"
+      - name: Preserve full original SQLite and source-specific native code genealogy proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study113-original-unselected-native-full-site-target
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study113-original-full-site-edge-native-ecology.sqlite
+            ${{ runner.temp }}/study113-original-full-genealogy-independent-audit.json
