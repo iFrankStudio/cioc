@@ -275,6 +275,8 @@ def audit(db,revision):
         family=genealogy(state,expression["module_witnesses"])
         gate_reads=[]
         gate_writes=[]
+        noncanonical_gate_reads=[]
+        noncanonical_gate_writes=[]
         native_edited=[]
         for ev in state["events"]:
             if ev["origin"]=="External":
@@ -283,13 +285,21 @@ def audit(db,revision):
             written=part(ev,"CellWritten")
             edit=part(ev,"ExecutableEdgePatched")
             if read is not None and read["key"]==13:
-                check(ev["pc"]==53 and read["value"] in (0,1),
-                      "unregistered native one-shot mutagen permission read")
-                gate_reads.append((ev["tick"],ev["process"],read["value"]))
+                if ev["pc"]==53 and read["value"] in (0,1):
+                    gate_reads.append((ev["tick"],ev["process"],read["value"]))
+                else:
+                    # Unselected code mutations can corrupt a Read's address
+                    # register. These are REAL but NONCANONICAL reads, not
+                    # proof that the intended mutagen permission gate ran.
+                    noncanonical_gate_reads.append((ev["tick"],ev["process"],ev["pc"],read["value"]))
             if written is not None and written["key"]==13:
-                check(ev["pc"]==11 and written["value"]==0,
-                      "gate shutdown was not an actor-native PC11 zero write")
-                gate_writes.append((ev["tick"],ev["process"]))
+                if ev["pc"]==11 and written["value"]==0:
+                    gate_writes.append((ev["tick"],ev["process"]))
+                else:
+                    # Real mutation-damaged paths can write other values to
+                    # the permission cell. Never erase these worlds or falsely
+                    # treat them as correctly actor-internal mutagen shutdown.
+                    noncanonical_gate_writes.append((ev["tick"],ev["process"],ev["pc"],written["value"]))
             if edit is not None and edit["node"]==4:
                 native_edited.append((ev["tick"],ev["process"]))
         check(len(gate_reads)>0 and len(gate_writes)>0,
@@ -298,6 +308,34 @@ def audit(db,revision):
         resumed_mutations_after_shutdown=sum(
             t>first_gate_shutdown for t,_ in native_edited
         )
+        # The strict inherited functional GRANDCHILD must belong to a chain
+        # in which its parent actually expressed the module before reproducing
+        # and the grandparent actually expressed the module as well. A bare
+        # inherited edge without the three actor-specific expression witnesses
+        # is not a multi-generation functional organism claim.
+        birth_by_child={
+            item["child"]:item
+            for item in family["original_all_true_descendant_births"]
+        }
+        strict_actors={
+            w["actor"] for w in expression["module_witnesses"]
+            if w["full_56_node_child_with_inherited_active_edge"]
+        }
+        all_expressing_actors={
+            w["actor"] for w in expression["module_witnesses"]
+        }
+        strict_three_generation=[]
+        for child in strict_actors:
+            child_birth=birth_by_child.get(child)
+            if child_birth is None or child_birth["generation"]<2:
+                continue
+            parent=child_birth["parent"]
+            parent_birth=birth_by_child.get(parent)
+            if parent_birth is None:
+                continue
+            grandparent=parent_birth["parent"]
+            if parent in strict_actors and grandparent in all_expressing_actors:
+                strict_three_generation.append(child)
         check(expression["native_birth_count_from_genuine_event_ancestry"]==source_report["births"]
               and expression["complete_birth_count"]==
               source_report["births"]-source_report["incomplete_copy_births"],
@@ -327,6 +365,11 @@ def audit(db,revision):
             "native_actor_gate_reads_0":sum(x[2]==0 for x in gate_reads),
             "native_actor_shutdown_zero_writes":len(gate_writes),
             "native_PC4_edits_after_first_shutdown":resumed_mutations_after_shutdown,
+            "noncanonical_native_permission_reads":len(noncanonical_gate_reads),
+            "noncanonical_native_permission_writes":len(noncanonical_gate_writes),
+            "grandchildren_with_fully_expressed_3_generation_module_chain":
+                len(strict_three_generation),
+            "full_three_generation_module_actor_ids":sorted(strict_three_generation),
             "strict_functional_firstgen_children":family["first_generation_qualified_functional_native_children"],
             "strict_functional_grandchildren_or_later":family["second_or_later_generation_qualified_functional_native_children"],
             "grandchildren_born_from_functional_firstgen":family["grandchildren_of_first_generation_qualified_native_children"],
@@ -371,6 +414,18 @@ def audit(db,revision):
             ),
             "strict_functional_grandchildren_OR_later":sum(
                 rows[(seed,f"native-latent-source{source}")]["strict_functional_grandchildren_or_later"]
+                for seed in range(FIRST,FIRST+N)
+            ),
+            "fully_expressed_three_generation_native_module_chain_count":sum(
+                rows[(seed,f"native-latent-source{source}")]["grandchildren_with_fully_expressed_3_generation_module_chain"]
+                for seed in range(FIRST,FIRST+N)
+            ),
+            "seed_labels_with_qualified_three_generation_native_module_chain":sum(
+                rows[(seed,f"native-latent-source{source}")]["grandchildren_with_fully_expressed_3_generation_module_chain"]>0
+                for seed in range(FIRST,FIRST+N)
+            ),
+            "all_source_genotype_noncanonical_gate_writes":sum(
+                rows[(seed,f"native-latent-source{source}")]["noncanonical_native_permission_writes"]
                 for seed in range(FIRST,FIRST+N)
             ),
             "strict_full_module_entry_grandchildren_born":sum(
