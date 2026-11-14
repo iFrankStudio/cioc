@@ -1,0 +1,55 @@
+name: CL-1 Study36 archived compute-deadlock audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study36.py'
+      - 'cl1/tests/test_study36.py'
+      - '.github/workflows/cl1-study36.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  study36:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm previously registered retrospective question and minimal controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/36-registered-retrospective-compute-access-deadlock.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study36.py' -v
+      - name: Download untouched archived source-pinned Study35 CI data; do not rerun worlds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study36-source"
+          gh run download 43546825859 --repo "$GITHUB_REPOSITORY" --name cl1-study35-independent-prospective --dir "$RUNNER_TEMP/study36-source"
+          test -s "$RUNNER_TEMP/study36-source/cl1-study35.sqlite"
+          test -s "$RUNNER_TEMP/study36-source/cl1-study35-report.json"
+      - name: Check original prospective verified outcome unchanged and independently audit 41472 epoch hashes
+        run: |
+          set -euo pipefail
+          python3 - "$RUNNER_TEMP/study36-source/cl1-study35-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          assert r["source_revision"]=="9ee57f2536b8cd4eed2a84817f2e7e777d9bcc00"
+          assert r["primary_paired_native_source_address_shift"]["worlds"]==1
+          assert r["independent_seed_worlds"]==192 and r["matched_runs"]==1728
+          assert r["hashed_epoch_snapshots"]==41472
+          PY
+          python3 cl1/analyze_study36.py "$RUNNER_TEMP/study36-source/cl1-study35.sqlite" --json "$RUNNER_TEMP/study36-report.json"
+      - name: Archive independent deadlock audit without duplicating 711 MB historical SQLite
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study36-retrospective-deadlock
+          retention-days: 30
+          path: ${{ runner.temp }}/study36-report.json
