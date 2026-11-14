@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from analyze_study73 import expected_code, MODES, propagate_r0
+from analyze_study73 import expected_code, MODES, propagate_r0, evaluate_pair
 
 
 class Study73ConservedNativeEnergy(unittest.TestCase):
@@ -38,6 +38,23 @@ class Study73ConservedNativeEnergy(unittest.TestCase):
                                       0,False,8),(8,True))
         self.assertEqual(propagate_r0({"Const":{"dst":0,"value":2,"next":5}},
                                       8,True,8),(2,False))
+        # A W3 label alone is not proof of spending beyond the initial
+        # 64 native credits: provenance must confirm both the Draw and the
+        # actual charged native attempt ordinal at the successful output.
+        def write(epoch,value,ordinal):
+            return {"epoch":epoch,"window":epoch//8,"tick":epoch*12+2,
+                    "pc":10,"value":value,"source_tainted":True,
+                    "latest_native_source_read_epoch":epoch,
+                    "native_attempt_ordinal":ordinal}
+        low={"writes":[write(8,3,101),write(16,3,201)],
+             "draws":[{"tick":40,"window":0}]}
+        high={"writes":[write(8,8,101),write(16,8,201)],
+              "draws":[{"tick":40,"window":0}]}
+        self.assertTrue(evaluate_pair(low,high)[
+            "primary_A_coupled_native_pool_and_feedback"])
+        high["writes"][1]["native_attempt_ordinal"]=64
+        self.assertFalse(evaluate_pair(low,high)[
+            "primary_A_coupled_native_pool_and_feedback"])
 
 
 if __name__=="__main__":
