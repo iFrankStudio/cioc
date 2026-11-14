@@ -137,6 +137,17 @@ fn byte_identical_genome_native_edit_ablation_preserves_charge_and_execution_edg
         assert_eq!(writes(&editable), vec![source, source]);
         assert_eq!(writes(&suppressed), vec![source]);
         assert_eq!(editable.total_compute_inventory(), suppressed.total_compute_inventory());
+
+        // Two further nonoverlapping execution windows: an isolated one-off Write
+        // must not satisfy a repeated native functional restoration calibration.
+        for expected in 3..=4 {
+            assert_eq!(editable.run(3), 3);
+            assert_eq!(suppressed.run(3), 3);
+            assert_eq!(writes(&editable), vec![source; expected]);
+            assert_eq!(writes(&suppressed), vec![source]);
+            assert_eq!(editable.total_compute_inventory(), suppressed.total_compute_inventory());
+        }
+
         assert!(editable.events().iter().all(|e| !matches!(e.kind, EventKind::Trapped(_))));
         assert!(suppressed.events().iter().all(|e| !matches!(e.kind, EventKind::Trapped(_))));
     }
