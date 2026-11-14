@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30 study31 study32)
+          ids=(study01 study02 study03 study04 study05 study06 study07 study08 study09 study10 study11 study12 study13 study14 study20 study21 study22 study24 study25 study26 study27 study28 study29 study30 study31 study32 study33)
           selected='|'
           quick=false
           full=false
@@ -1065,3 +1065,42 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study32.sqlite
             ${{ runner.temp }}/cl1-study32-report.json
+
+  study33:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study33|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen new-seed source-function and resource preregistration
+        run: test -f ../cl1/studies/33-preregistered-resource-linked-source-function.md
+      - name: Validate workspace Rust, strict lint and independently specified negative mechanisms
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 128 new worlds, nine matched source/resource arms and full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study33 -- "$RUNNER_TEMP/cl1-study33.sqlite"
+      - name: Independently audit graph2 register lineage, pool ledger, joint function and 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study33.py "$RUNNER_TEMP/cl1-study33.sqlite" --json "$RUNNER_TEMP/cl1-study33-report.json"
+          cat "$RUNNER_TEMP/cl1-study33-report.json"
+      - name: Preserve raw source-pinned paired worlds and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study33
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study33.sqlite
+            ${{ runner.temp }}/cl1-study33-report.json
