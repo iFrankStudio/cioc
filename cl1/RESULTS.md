@@ -476,3 +476,39 @@ Independent audit of the **unaltered Study35 SQLite archive** verified 41,472 SH
 **Updated independent cohort accounting:** **21** independent ecological cohorts, **2,624** unique initial seed-worlds and **16,416** matched experimental runs through Study35. Studies34 and36 reuse historical samples and add **0** new independent worlds. Do **not** pool the retrospective 3/128 and prospective 1/192 as one preregistered experiment.
 
 **Current CL-1 status: OPEN.** The central resource bottleneck is twofold: (i) total native compute credit inventory in an isolated closed world falls exactly one unit per attempted instruction, preventing indefinitely open-ended execution without an environmental input; and (ii) even finite credits may be inaccessible to all runnable agents because the scheduler requires a positive actor balance to execute any instruction, including a request to draw available world-pool credits. Future experiments should prospectively isolate general environmental resource access and distinguish environment-supplied compute, native resource uptake, self-initiated repair and true organizational closure.
+
+
+## Study37–40: verified resource-access ecology, independent replication, and strict autonomy boundary
+
+### Study37 — prospective finite-pool ignition negative
+
+Study37 ran **128 new worlds × 7 matched conditions = 896 native replays and 21,504 SHA256 snapshots**. A deterministic, experimenter-side one-credit transfer from the existing world pool to a zero-credit actor awaiting `DrawCompute` enabled seven normal-world startups and 32/128 from a wholly zero-credit process cohort; all 90 transfers across the seven arms were explicitly **External**, with net-zero resource injection. W3 native activity remained **0/128** in untreated and pool-access arms; direct host refills had W3 activity in **85/128**. [Full independent result](results/study37-independent-pool-ignition-null.md), [CI 43550566473](https://github.com/iFrankStudio/cioc/actions/runs/43550566473).
+
+### Studies38 and39 — separately preregistered prospective environmental-physics replication
+
+Both experiments copied the same non-goal-directed 9+18 CIL generator and its 10 matched environmental intervention arms, but used **different predeclared 128-seed cohorts**. Each archive contains **1,280 full matched native runs and 30,720 hashed epochs**. The only altered rules were **External** ambient world-pool input of 8 credits at epochs1..23 and external scheduler starter transfers of 1 *existing* pool credit to a currently zero-credit actor, either restricted to a pending native DrawCompute or neutral with respect to the actor's code.
+
+| Preregistered W3 native activity | Study38 (independent 128) | Study39 replication (independent 128) |
+|---|---:|---:|
+| Closed, original scheduler | 0/128 | 0/128 |
+| Closed + neutral external ignition, no new credit supply | 64/128 | 60/128 |
+| Ambient world-pool credit supply only | 23/128 | 26/128 |
+| Ambient + DrawCompute-gated external ignition | **33/128** | **36/128** |
+| Ambient + neutral general external ignition | **97/128** | **93/128** |
+| Paired general-only vs draw-only worlds | **64 vs 0** | **57 vs 0** |
+| Direct host process refills, separate comparator | 87/128 | 83/128 |
+
+Study39 replicated the original **predeclared direction** under new independent seeds without relaxing the rule, window or grammar. This is a robust causal finding about **environmental resource access and compute scheduling**. It establishes **neither** native energy generation **nor** organism survival. [Study38 protocol/result](results/study38-open-compute-generic-ignition-result.md), [CI 43551254964](https://github.com/iFrankStudio/cioc/actions/runs/43551254964); [Study39 replication/result](results/study39-independent-open-world-replication.md), [CI 43551653280](https://github.com/iFrankStudio/cioc/actions/runs/43551653280).
+
+### Study40 — retrospective source-pinned native successful function and host-dependence checks
+
+Study40 **reused exactly** the original Study38 and Study39 corpora, added **0** independent worlds, independently verified both original auditors and all **61,440 SHA256 epoch snapshots** and distinguished native `Executed`/`CellWritten` events from charged traps or halts. All **97/128** and **93/128** `ambient-general` W3-active worlds had actual native successes; **49/128** and **48/128** had native shared-cell `CellWritten` events; **96/128** and **92/128** had successful native work in **all eight** late epochs.
+
+But only **22/128** (Study38) and **21/128** (Study39) produced successes in at least two W3 epochs **with no same-epoch external actor starter**, **exactly the same matched seeds** as `ambient` without general ignition. No general-only no-starter two-epoch worlds emerged in either cohort. Even those 22/21 have external ambient energy and may have earlier host activations; they are **NOT** autonomous self-maintenance or host-independent life. [Full Study40 retrospective](results/study40-w3-native-success-starter-dependence.md), [CI 43552096781](https://github.com/iFrankStudio/cioc/actions/runs/43552096781).
+
+### Updated independent ecological totals and next gate
+
+Through Study39: **24 distinct independently seeded ecological cohorts, 3,008 independent original seed-worlds and 19,872 matched experiment runs**. Studies34,36,40 are post-result diagnostics that generate **zero** new independent worlds; their original samples must never be counted twice or silently pooled.
+
+**Scientific status: CL-1 OPEN.** Successful CI and persistent W3 instruction execution under a host resource-access law are not sufficient. The existing Studies37–39 random continuation grammar does **not** include generic native executable-code self-modification or new-process launch operations (`PatchNext`, `GraphReplace`, `GraphLaunch`, etc.). Hence these particular ecologies do not establish internally reconstructed executable organizations, self-repair, damage-induced functional recovery, or open-ended evolution. The next prospective study must make **generic, provenance-trackable native code construction/alteration** possible without hand-programmed fitness, rescue, replication or predetermined organism architecture, under separately measured environmental resource input and matched functional lesions.
+
