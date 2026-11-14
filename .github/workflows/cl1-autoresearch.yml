@@ -1,6 +1,10 @@
 name: CL-1 event-driven Codex research
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1-autoresearch.yml'
   workflow_dispatch:
     inputs:
       round:
@@ -24,6 +28,7 @@ jobs:
     if: >-
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'workflow_dispatch' ||
+       github.event_name == 'push' ||
        github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 40
