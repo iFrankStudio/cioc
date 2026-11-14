@@ -1,0 +1,26 @@
+# CL-1 Study108-R — definitive retrospective original-world check: previous +1 offspring contrast vanishes at terminal
+
+**Focused CI SUCCESS** [run 43610556923](https://github.com/iFrankStudio/cioc/actions/runs/43610556923) at continuation source revision `3660185704513860199a86a530a70ff0c4b751cc`. Entirely original **unmodified Study108 128 preexisting world final states** are loaded from untouched [original CI43608972444](https://github.com/iFrankStudio/cioc/actions/runs/43608972444) archive at original source revision `406bb3e1160987113671eb9ffdf517c3edf4ad51`. No random seed regeneration, no code mutation outside actor instructions, no actor-targeted resource or rescue, and **ZERO NEW INDEPENDENT GENOTYPES**. This is an explicitly POST-OUTCOME study registered before continuation implementation and results as [Study108-R](../studies/108R-registered-retrospective-original-resource-terminal-continuation.md). Initial naming collision with concurrently prospective Study111 was transparently resolved by retaining 108R identifier, not modifying scientific rules or genome labels.
+
+## Completely verified original-linked continuation
+
+The new Rust runner `cl0/crates/lab/src/bin/cl1-study108-r.rs` reads each Study108 final original SQLite `World` (after exactly 2,000 CIL attempts, with exactly1,400 remaining whole-world credits), verifies its **original recorded final-state SHA256**, and then resumes that serialized world to *true scheduler ineligibility*, 4×500 maximum additional native attempts, **never introducing host interventions**. The first new continuation snapshot is hash-linked byte-for-byte to original recorded `final_json`. Complete Rust `Laboratory::verify_epoch_replay` reconstructs each continuation. The independent read-only Python `cl1/analyze_study108r.py` re-verifies all **1,024 original** untouched Study108 epoch hashes, every original-to-continuation SHA256 linkage, all **512 new full-state continuation SHA256 epoch hashes**, source-correct Read7→Write9, actual native edit and full-code GraphCopyNode/GraphLaunch genealogy, actor events, original five external action count and conservation of all remaining 1,400 native credits. All 128 original worlds verified terminal with a real `World::step()==false`; **156,888 newly charged original-world native continuation attempts** across all arms.
+
+Original new post-outcome archive [artifact 14119827652](https://github.com/iFrankStudio/cioc/actions/runs/43610556923/artifacts/14119827652), ZIP digest `sha256:dd0d6e2f25a1f7b69f6413e3e14c6ec1592f5f36a14edcbdd17fe4800b5475a3`. This is continuation data, not new independent ecological worlds.
+
+## Exact original and terminal causal answer
+
+| Original Study108 seed-specific offspring difference | Fixed 2,000 charged native attempts | Unmodified continuation to no runnable process |
+|---|---:|---:|
+| Seed **6200017**, native mutation enabled vs byte-identical charged-PatchNext-disabled, source3 | **+1** (7 vs 6 births) | **0** (**7 vs 7** births) |
+| SAME seed **6200017**, source8 (dependent source environment) | **+1** (7 vs6 births) | **0** (**7 vs7** births) |
+| All other original31 seed labels × both source values | 0 | 0 |
+| Original complete 64 paired source-genotype comparisons | 2 positive, 62 ties | **0 positive, 0 negative, 64 ties** |
+
+**This is a direct original-world determination that the sole apparent Study108 reproductive advantage was a fixed-horizon right-censoring artifact**: the disabled arm had not completed its seventh native birth by tick2,000; continuation from the exact original state, without changing any environment or program, allows it to catch up. Study109 independently traced the enabled seventh child to tick1,996 and shows how misleadingly near-boundary it was. The original Study108 result remains genuinely true **at its preregistered fixed horizon** (7 vs6); this explicitly post-outcome analysis does not change that historical endpoint or obtain a new independent successful genotype.
+
+## Scientific interpretation and connection to later new worlds
+
+Independent prospectively frozen Study110 used **32 NEW** parameter genotypes and energy-terminal worlds: all32 ties in each source, 0 reproductive advantages despite actual fast-allele execution [CI43609676376](https://github.com/iFrankStudio/cioc/actions/runs/43609676376). The original-study continuation here supplies the exact within-genotype counterfactual missing from Study110 and confirms temporal censoring of the only former Study108 positive.
+
+Separately, prospectively frozen Study111 under **externally recurrent nondirected PUBLIC COMPUTE input** found 19/32 positive and1/32 negative among new genotype labels [CI43610057506](https://github.com/iFrankStudio/cioc/actions/runs/43610057506). That is an explicitly different environmental law and cannot be equated to self-supplied compute or retroactively used to rescue Study108. It suggests environmental flux and horizon can change reproduction patterns; the program/fast mutation strategy itself remains researcher designed. No spontaneous adaptive genetic novelty, reciprocally self-maintaining multi-process closure or open-ended evolution has been demonstrated. **CL-1 OPEN.**
