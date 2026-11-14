@@ -75,7 +75,7 @@ fn original(mode: &str) -> Result<(World, Vec<EpochAction>), Box<dyn Error>> {
                 0,
             ),
             8,
-            Some(16),
+            Some(if mode == "legacy-pool-fee-early" { 15 } else { 16 }),
         ),
         "recoverable-no-pool" => (
             Process::new(1, vec![Op::DrawCompute { amount: 1, next: 0 }], 0),
@@ -119,15 +119,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         let initial_total = world
             .total_compute_inventory()
             .ok_or("invalid initial credits")?;
-        let injected = actions
-            .iter()
-            .map(|a| match &a.action {
-                Intervention::SetComputePool { credits } => {
-                    *credits - world.available_compute_pool()
-                }
-                _ => 0,
-            })
-            .sum::<u64>();
+        // SetComputePool is absolute, but all registered epoch1 actions
+        // add exactly eight EXTERNAL units to the then-current common pool.
+        let injected: u64 = if actions.is_empty() { 0 } else { 8 };
         let records = lab.run_epochs(
             &world,
             &[EpochCondition {
