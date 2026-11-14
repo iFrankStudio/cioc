@@ -1,0 +1,27 @@
+# CL-1 Study51 — preregistered independent replication of chance native copy→edit→launch graph assembly
+
+**Prospectively frozen BEFORE implementation, random seeds, or outcomes.** Known historical context: Study49 (256 worlds) had **0/256 native functional child writes**, and Study50 post-result audit found **1/256** native same-parent/source-graph GraphNodeCopied(nonzero)→GraphNodeEdited→GraphLaunched ordered sequence (seed3500022). The unique Study50 witness had no child Write and lacked graph-local executable edge closure. Study51 must test this mechanism on entirely **new** independent native programs with no special positive-seed selection, scripted assembly or reward.
+
+## Independent frozen population
+
+- **256 new seed worlds exactly 3,600,000..3,600,255**, four matched arms per world, 24 observation epochs, 12 charged native instruction attempts/epoch, total 1,024 matched native runs and 24,576 original hashed snapshots.
+- Copy Study49 Rust `seeded_world`, `prefork_world`, continuation generator and four environment arms **byte-for-byte**, except `FIRST_SEED=3_600_000`, executable filename/research ID. Same initial three-actor nine-op scaffold, 27 prefork native attempts, code nodes9..80 inclusive randomized by the 24-way choice with `Halt` node81, and uniform `Const(dst2, value=LCG%81)` source index whenever choice8 occurs. No extra Draw, GraphCopyNode, GraphSetNext, GraphLaunch or Write weight changes, no local-edge adjustment/viability test, no manually ordered program. 47 remaining credits per process, researcher-endowed compute_pool48, strict storage32 cells/96 nodes/512 total.
+- Registered arms: `ambient-general`, `ambient-only`, `closed-general`, `zero-credit-ambient-general`, identical to Study49: external +8 world-pool credits on epochs1..23 when enabled; neutral single-credit host starter to first eligible zero-credit, nonstopped process only when no process runnable, regardless of code; zero-credit initial actor control. All external input and starter actions retain exact `External` provenance. No native lifetime-energy generation is claimed.
+
+## Dual frozen scientific endpoints
+
+**Primary A — generic assembly path opportunity (prospective replication of Study50 post-result witness):** worlds out of all 256 `ambient-general` with at least one native `GraphLaunched` whose **same-parent same-source-graph** successful `GraphNodeCopied` of an original parent code node with source_node≠0 occurred at a strictly earlier tick, a successful native `GraphNodeEdited` to that graph by the same parent occurred at a later tick, and launch was strictly later still. Require native internal actor attribution/graph owner and actual new child ID. Count worlds, events, Wilson95, deterministic first witness or 0. **Directional mechanistic replication:** at least one strict independently verified primary-A world, without any violation of source or matched-arm controls; 0 is an informative prospective null. This is a rare **native graph assembly path**, not child reproduction or life.
+
+**Primary B — native functional child shared-state output:** number of worlds with at least one successful internally attributed child `CellWritten` (earlier authentic `GraphLaunched`, actual child CIL `Write` at valid PC, cell key/value) under the same arm. Success requires at least one full native witness and strict external event rejection. Report count, denominator256 and Wilson95. This is an independent functional-child exposure endpoint and is **not** satisfied by Primary A alone.
+
+## Registered secondary (never substitutes)
+
+- Parent/source graph graph-copy, edit, launch stages individually; both unordered before launch; strict copy→edit→launch; launched child's exact opcode composition and final executable edge closure reported separately from actual behavior (the latter is required for Primary B).
+- Child successful non-GraphNew native opcode, W3 successful child activity in ≥2 epochs without **same-epoch external process starter**, successful original actor executable mutation and subsequent shared write, four-arm W1/W2/W3 native attempt activity, pool and environment-sourced credit ledger.
+- Negative controls: original `ambient-only` and `closed-general` native source process/event/graph lineage verification, exact common prefork snapshot hashes across all four arms, zero-credit control must not falsely count a host child, full 24-epoch SQLite hash chain, source revision, original frozen random generator and independent auditor, full native replay. No seed outlier exclusions, no pooled Study49+51 primary test after seeing results.
+
+## Independent execution and ethics of inference
+
+Use new Rust binary `cl1-study51`, read-only Python original generator auditor cloned from `analyze_study49.py`, plus a separately checked assembly path audit using the trusted Study48 `trace_assembly` / edge-code gates and exact child output validation. Include only the existing minimal valid lineage versus cross-actor/cross-graph synthetic controls. Archive unmodified source-pinned SQLite and both independent JSON reports. Run strictly targeted CI without triggering all previous study runners.
+
+**Neither endpoint implies a life-form, heredity, self-maintenance, adaptive behavior, internally produced compute, functional repair, or endogenous organization.** CL-1 remains OPEN until independently evidenced native multi-component functional closure, genuine damage followed by *native* function restoration, and sustained autonomous maintenance without direct host process rescue.
