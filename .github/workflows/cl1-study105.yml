@@ -1,0 +1,30 @@
+name: CL-1 Study105 narrow native PatchNext-only ablation
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/src/lib.rs'
+      - 'cl0/crates/world/tests/study105_native_patchonly_ablation.rs'
+      - 'cl1/studies/105-preregistered-narrow-native-patchnext-causal-ablation.md'
+      - '.github/workflows/cl1-study105.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  patchonly-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify strictly frozen Study105 native mutation-only law
+        run: test -s ../cl1/studies/105-preregistered-narrow-native-patchnext-causal-ablation.md
+      - name: Validate native whole-code copies and unchanged illegality in identical source programs
+        run: cargo test --locked -p cl0-world --test study105_native_patchonly_ablation -- --nocapture
+      - name: Verify native world kernel regressions only
+        run: cargo test --locked -p cl0-world --lib
