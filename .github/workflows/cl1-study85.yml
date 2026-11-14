@@ -1,0 +1,64 @@
+name: CL-1 Study85 retrospective failed host repair native ancestry
+
+on:
+  push:
+    paths:
+      - 'cl1/studies/85-registered-retrospective-failed-host-code-restoration.md'
+      - 'cl1/analyze_study85.py'
+      - '.github/workflows/cl1-study85.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+jobs:
+  original-host-repair-anatomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm original result-disclosed retrospective source protocol
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/85-registered-retrospective-failed-host-code-restoration.md
+          test -s ../cl1/analyze_study84.py
+      - name: Retrieve unchanged 128-genome 1536-world original Study84 native SQLite
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study85"
+          gh run download 43594558556 --repo "$GITHUB_REPOSITORY" --name cl1-study84-original-native-functional-lesion --dir "$RUNNER_TEMP/study85"
+          test -s "$RUNNER_TEMP/study85/cl1-study84-original-prefork-native-lesions.sqlite"
+      - name: Reaudit all original 27648 state hashes and diagnose both source host-control timelines
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study85.py "$RUNNER_TEMP/study85/cl1-study84-original-prefork-native-lesions.sqlite" --json "$RUNNER_TEMP/study85-retrospective-host-anatomy.json"
+      - name: Archive retrospective JSON only, no falsely new ecological samples
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study85-retrospective-host-control-anatomy
+          retention-days: 30
+          path: ${{ runner.temp }}/study85-retrospective-host-anatomy.json
+      - name: Publish verifiable retrospective source CI result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then state=success; else state=failure; fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$state" \
+            -f context="cl1/study85-retrospective-host-repair" \
+            -f description="Original 1536 native worlds, both lesion source timelines: CI $state" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
