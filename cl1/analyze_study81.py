@@ -196,13 +196,13 @@ def audit(db_path, revision):
     con = sqlite3.connect(db_path)
     rows = con.execute(
         "SELECT id,condition,source_revision,initial_sha256,initial_json,"
-        "attempts_json,final_sha256,final_json FROM epoch_runs ORDER BY id"
+        "actions_json,attempts_json,final_sha256,final_json FROM epoch_runs ORDER BY id"
     ).fetchall()
     require(len(rows) == 512, "missing registered seed x matched world population")
     genotype_by_seed = {}
     records = {}
     all_hashes = 0
-    for run_id, label, recorded_rev, init_sha, init_raw, attempts_raw, final_sha, final_raw in rows:
+    for run_id, label, recorded_rev, init_sha, init_raw, actions_raw, attempts_raw, final_sha, final_raw in rows:
         require(recorded_rev == revision and revision != "unverified-local-checkout",
                 "source pin mismatch")
         require(label.startswith("seed="), "bad original seeded label")
@@ -241,11 +241,18 @@ def audit(db_path, revision):
             and all(isinstance(value, int) and 0 <= value <= QUOTA for value in attempts),
             "invalid epoch charge ledger",
         )
+        actions = json.loads(actions_raw)
+        require(len(actions) == EPOCHS - 1, "wrong scheduled external input count")
+        require(
+            all(action["epoch"] == epoch for epoch, action in enumerate(actions, start=1)),
+            "unregistered ambient epoch or action ordering",
+        )
         snaps = con.execute(
             "SELECT epoch,state_sha256,state_json FROM epoch_snapshots WHERE run_id=? ORDER BY epoch",
             (run_id,),
         )
         final_state = None
+        previous = init
         last_count = 0
         for epoch, sha, raw in snaps:
             require(epoch == last_count, "missing or unordered epoch")
@@ -253,6 +260,35 @@ def audit(db_path, revision):
             final_state = json.loads(raw)
             require(final_state["format_version"] == init["format_version"],
                     "unexpected native world format migration")
+            older_events = previous["events"]
+            current_events = final_state["events"]
+            require(current_events[:len(older_events)] == older_events,
+                    "epoch events do not extend the original history")
+            appended = current_events[len(older_events):]
+            expected_host = 0 if epoch == 0 else 1
+            require(len(appended) == expected_host + attempts[epoch],
+                    "unexpected external action or native attempt count in epoch")
+            if expected_host:
+                action = actions[epoch - 1]["action"]
+                require(
+                    action == {"SetComputePool": {"credits": previous["compute_pool"] + 8}},
+                    "ambient scheduler diverged from frozen +8 environment law",
+                )
+                event = appended[0]
+                require(
+                    event["origin"] == "External"
+                    and event["process"] == 0
+                    and isinstance(event["kind"], dict)
+                    and "Intervened" in event["kind"]
+                    and "SetComputePool" in event["kind"]["Intervened"],
+                    "non-environmental host intervention inserted into epoch",
+                )
+            require(
+                all(internal(event) and event["process"] == 1
+                    for event in appended[expected_host:]),
+                "non-native instruction events or forged source actor",
+            )
+            previous = final_state
             last_count += 1
             all_hashes += 1
         require(last_count == EPOCHS and final_state is not None,
