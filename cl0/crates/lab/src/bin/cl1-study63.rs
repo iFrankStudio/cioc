@@ -110,8 +110,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let path = env::args()
         .nth(1)
         .unwrap_or_else(|| "cl1-study63-feedback-calibration.sqlite".into());
-    let revision =
-        env::var("CL1_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local".into());
+    let revision = env::var("CL1_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local".into());
     let mut lab = Laboratory::open(&path)?;
     for mode in MODES {
         let (world, actions) = scripted_world(mode)?;
