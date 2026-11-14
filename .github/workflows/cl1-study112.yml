@@ -1,0 +1,46 @@
+name: CL-1 Study112 factorial ambient public supply by native functional mutation
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study112.rs'
+      - 'cl1/analyze_study112.py'
+      - 'cl1/studies/112-preregistered-ambient-native-mutation-factorial.md'
+      - '.github/workflows/cl1-study112.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-pinned-factorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study112 source-code-constant 2x2 resource-by-mutation contrast
+        run: test -s ../cl1/studies/112-preregistered-ambient-native-mutation-factorial.md
+      - name: Execute all 256 original seeded CIL worlds in 8 arms each and replay 4096 full epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study112 -- "$RUNNER_TEMP/study112-original-native-ambient-mutation-factorial.sqlite"
+      - name: Independent original full-SHA native code/resource ancestry and +400/+0 environmental interaction audit
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study112.py "$RUNNER_TEMP/study112-original-native-ambient-mutation-factorial.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study112-original-independent-factorial-audit.json"
+      - name: Preserve untouched original SQLite and independent exhaustive factorial audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study112-native-mutation-ambient-2x2-original
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study112-original-native-ambient-mutation-factorial.sqlite
+            ${{ runner.temp }}/study112-original-independent-factorial-audit.json
