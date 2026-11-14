@@ -183,11 +183,17 @@ fn main() -> Result<(), Box<dyn Error>> {
             )?;
             let run = result.first().ok_or("missing original native seed run")?;
             if run.world != predicted || !lab.verify_epoch_replay(run.id)? {
-                return Err(format!("native replay/ambient schedule mismatch: {seed}/{mode}").into());
+                return Err(
+                    format!("native replay/ambient schedule mismatch: {seed}/{mode}").into(),
+                );
             }
             let attempts: usize = run.attempts_by_epoch.iter().sum();
             let initial = 16_u64 + if ambient { 48 } else { 0 };
-            let input = if ambient { 8_u64 * (EPOCHS as u64 - 1) } else { 0 };
+            let input = if ambient {
+                8_u64 * (EPOCHS as u64 - 1)
+            } else {
+                0
+            };
             if run.world.total_compute_inventory() != Some(initial + input - attempts as u64) {
                 return Err(format!("native compute inventory mismatch: {seed}/{mode}").into());
             }
