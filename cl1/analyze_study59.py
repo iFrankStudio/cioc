@@ -117,6 +117,11 @@ def paired_audit(absolute_db: Path, local_db: Path, revision: str) -> dict:
             "local_wilson95": [round(x,6) for x in wilson_95(n_b,SEEDS)],
             "paired_discordance": dict(sorted(pair.items())),
         },
+        "primary_B_executable_Write_graph_at_native_launch": {
+            "status": "NOT EVALUABLE AT INSTRUCTION-LEVEL FROM EPOCH-BOUNDARY SNAPSHOTS",
+            "reason": "A later code graph alone does not independently establish the child executable bytes at the exact GraphLaunched tick, nor its source-node provenance when same-epoch edits are possible.",
+            "measured_as_primary_success": False,
+        },
         "independent_secondary": {
             "absolute": original["secondary"],
             "local": treatment["secondary"],
