@@ -26,8 +26,6 @@ fn original(mode: &str) -> Result<(World, Vec<EpochAction>), Box<dyn Error>> {
     }
     if mode != "legacy-fatal-ambient" && mode != "recoverable-invalid-operand" {
         world = world.with_pool_paid_draw();
-    } else if mode == "recoverable-ambient" {
-        world = world.with_pool_paid_draw();
     }
     let (mut actor, initial_pool, refill) = match mode {
         "legacy-fatal-ambient" | "recoverable-ambient" => (
