@@ -659,3 +659,48 @@ The next preregistered phase, [Study66 protocol](studies/66-preregistered-stocha
 **Independent ecological accounting through Study65:** historical checkpoint through Study59 contained **34 independent ecological cohorts, 4,928 independent seed units and 31,136 matched native experiment runs**. Study61 adds one independent256-seed-pair cohort/2,048 runs; Study62 retrospective and Study63 scripted fixture add0 independent genomes; Study64 adds128/1,024; Study65 adds256/2,048. Thus through Stage65: **37 distinct independent cohorts, 5,568 independent seed units (not correlated program arms), 36,256 matched native runs**. Do not count Stage66 before verified, or pool outcome-conditioned cohorts without a protocol.
 
 **Scientific status remains CL-1 OPEN.** This is a rigorously replicated substrate functional opportunity but not a self-created input/output interface, internally maintained ring, renewable internally originated energy, lesion recovery, heritable phenotype or open-ended evolution.
+
+
+## Studies66–71 — repeated native information feedback without a prewritten cyclic loop, verified seed-mixing control
+
+### Native resource uptake alone is not sustainable (Studies66–67)
+
+Study66 prospectively sampled random native `Read/Write/Add/Sub/Branch/DrawCompute` with **256 new independent seed labels**, eight exact controls/genome, **2,048 source-pinned runs and 49,152 SHA256 snapshots**, a researcher-provided I/O interface, initial actor16 credits, initial external ambient pool48 and +8 external pool credits/epoch1..23. **No host process-targeted starter**. [CI43568283297](https://github.com/iFrankStudio/cioc/actions/runs/43568283297) passed full Rust/Python and compute-conservation audits.
+
+- In intact ambient high-input worlds, **155/256** successfully executed native `DrawCompute` at least once; low-input **152/256**.
+- Yet **0/256** had new successful native source-responsive output in both W2 and W3 coupled with native Draw, and **0/256 W3 native activity**. The stricter native Draw in both late windows plus feedback criterion also **0/256**.
+- Registered read/draw ablations confirm the sources of actual input and resource, not an erroneous credit subsidy.
+
+Study67 was explicitly **POST-RESULT retrospective** and re-audited **all 49,152 original hashed snapshots with zero new worlds**. At W3 entry, **207/256** ambient worlds had `credits=0` and an unstopped but unschedulable actor despite positive pool; **49/256** suffered a permanently fatal native `DrawCompute` insufficient-pool trap while ambient pool input later continued. [CI43568790315](https://github.com/iFrankStudio/cioc/actions/runs/43568790315). This distinguishes **temporary zero-credit ignition deadlock** from **fatal trap**, and shows that external environmental resource availability alone cannot create a conserved self-maintaining native acquisition pathway.
+
+### First causal recurrent source feedback without prewired cyclic tail (Study68)
+
+Study68 prospectively compared two **randomly generated executable graph backedge topologies** with identical 24 randomly chosen CIL opcodes, their register operands/Const draws and original I/O port interface, but different native Branch target distributions: `short` predecessor-only backedges vs `broad` uniform earlier-PC backedges. **Both program versions end at PC27 `Halt`**; there is no researcher-authored tail `Branch` guaranteeing repetition. Each original actor starts with **300 finite external credits**, source cell7 value3/8, and no runtime external interventions. Full original source-pinned [CI43569268106](https://github.com/iFrankStudio/cioc/actions/runs/43569268106) passed **256 new seed genomes, 2,048 matched runs and 49,152 SHA256 epoch snapshots**.
+
+Frozen primary: in BOTH W2 and W3, each matched source3/source8 world must execute a *fresh* native `Read(key7)` and actual source-tainted `CellWritten(key9)` at the same native writer PC, high−low value exactly+5. Const(r0) kills native source taint; paired Read-ablation low/high output traces must remain identical.
+
+| Strict W2+W3 recurrent native feedback | Broad random backedge | Short predecessor-only backedge |
+|---|---:|---:|
+| Study68, original LCG 256 random genomes | **79/256** | **0/256** |
+| Study69, new original-LCG numeric range of 256 genomes | **81/256** | **0/256** |
+| **Study71, NEW one-time SplitMix64-whitened cohort of 256 genomes** | **63/256** | **0/256** |
+
+Study68 paired broad-only79/short-only0, Wilson95 broad [0.255189,0.367658]. **Both** Study68 native W3-activity rates were **249/256**, despite the sharp functional difference: **W3 attempted instructions != causal function**. Example seed4,500,002, broad writer PC3, native W2 epoch8/tick101 input3→output3 versus input8→output8, W3 epoch16/tick197 a freshly native-read new source with the same matched native source-dependent Write. The I/O interface and initial genome are externally seeded but the Read→Write opcode combination and recurrent broad native control flow were not hand-sequenced.
+
+### Prospectively replicated under new seed ranges, with pseudorandom dependence explicitly checked (Studies69–71)
+
+Study69 froze the unchanged Stage68 generator/metric, changed only independent *numerical* seed labels (4,600,000..4,600,255), then independently executed **2,048 native runs and 49,152 epoch hashes**: [CI43569769695](https://github.com/iFrankStudio/cioc/actions/runs/43569769695) **success**, **81/256 vs0/256** broad/short, paired81/0, Wilson95 broad [0.262508,0.375733]. No original primary result was changed.
+
+Study70 source-pinned post-result audited both original SQLite archives anew (**4,096 matched runs and 98,304 original hashes, ZERO new worlds**), [CI43570386530](https://github.com/iFrankStudio/cioc/actions/runs/43570386530). Full original CIL programs were **all unique**: 256/256 in each cohort and **zero exact cross-cohort genotype duplicates**. However, matching numeric seed offsets had **4.835938/24** exact randomized code nodes in common compared with **2.675781/24** under the preregistered fixed permutation; matching opcode tags **5.710938/24** vs3.511719/24. The fixed alignment comparison is **descriptive, NOT a p-value**. This exhibits LCG seed-offset dependence and prevents overstating the statistical independence of different *numeric seed* ranges or pooling Stage68/69 prevalence naively.
+
+Therefore Study71 was independently **PRE-REGISTERED BEFORE new seed sampling** to change **only** the initial seed state to standard `SplitMix64(raw_seed)` once before the identical old LCG/CIL grammar, with 256 new raw seeds4,700,000..4,700,255, eight paired conditions, **2,048 original native runs and 49,152 full SHA256 snapshots**. Its independent expected-code and native taint auditors verified **256 unique complete broad CIL genotypes**, no sampled exclusions, unchanged native feedback criteria, and [CI43570810324](https://github.com/iFrankStudio/cioc/actions/runs/43570810324) **success**: **63/256** true W2+W3 broad genotype feedback vs **0/256** short, paired broad-only63/short-only0, Wilson95 broad [0.197341,0.302354]. This supports the causal topology effect under a distinctly seeded pseudorandom population, though deterministic SplitMix64+LCG is not a mathematical guarantee of IID independent worlds.
+
+### Scientific status and next gate
+
+Through Study71: **41 original source-sampled ecological cohorts, 6,592 original independent seed units** (paired input/code versions counted only once per seed), **44,448 matched original native runs**. Retrospective Studies67/70 and scripted Study63 added **ZERO independent ecological worlds**; archives and CI audits of their historical source populations must not be double counted.
+
+**What has been established:** a robust, independently audited *substrate composition opportunity*: **non-goal-directed random CIL instructions can become persistent source-sensitive feedback functions across multiple late observation windows when long-range random control-flow edges are allowed, even without any prewritten cyclic tail**. This is much more informative than counting native code copies, child launches or W3 charges.
+
+**What has NOT been established:** a process selecting/constructing its own initial feedback graph, dynamic adaptation to time-varying environmental inputs **inside the same world**, continued native information function under real damage and internally initiated repair, actor-initiated resource maintenance without ambient process-specific rescue, state-preserving inheritance, multi-component causal closure, biological autonomy or open-ended evolution. All studies still rely on researcher-provided generic input/output register ports and finite initial process credits. **CL-1 remains OPEN.**
+
+**Next highest value:** a preregistered **within-world changing sensor** input with matched static and Read-ablated controls on a *new, SplitMix64-seed-whitened random broad-backedge cohort*, validating live responsiveness rather than merely comparing two constant-input parallel worlds. Only then should separate preregistered native code/data graph construction and genuine lesion/repair functional closure experiments be attempted.
