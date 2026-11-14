@@ -59,6 +59,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
     native_draws = Counter()
     actor_launches = Counter()
     changed_births = 0
+    incomplete_copy_births = 0
     expressed_changed = set()
     # For each child remember EXACT modified instructions copied at its birth;
     # do not confuse later actor-self mutation with inheritance expression.
@@ -165,8 +166,11 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
                     and active_graphs[graph]["owner"] == actor,
                     "birth not sourced to parent-owned native graph")
             graph_nodes = active_graphs[graph]["nodes"]
-            require(len(graph_nodes) == launched["moved_nodes"] == 56,
-                    "child code not fully copied from original native CIL graph")
+            # An unselected mutation may corrupt the copy loop itself and
+            # launch a SHORTER genuinely copied child. Count that native birth,
+            # but do not falsely declare 56-node faithful inheritance.
+            require(0 < len(graph_nodes) == launched["moved_nodes"] <= 56,
+                    "native child moved-node count disagrees with actual copied graph")
             require(launched["transferred_credits"] == grant,
                     "child transfer mismatch")
             require(native_draws[actor] > actor_launches[actor],
@@ -180,14 +184,21 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
                 for i, node in enumerate(code_birth)
                 if node != original_nodes[i]
             }
-            mutated = bool(inherited_differences[child])
+            incomplete = len(code_birth) != 56
+            if incomplete:
+                incomplete_copy_births += 1
+            mutated = incomplete or bool(inherited_differences[child])
             if mutated:
                 changed_births += 1
             births.append({
                 "actor": actor, "child": child, "tick": e["tick"],
-                "born_changed": mutated, "born_site_next": (
+                "born_changed": mutated,
+                "born_incomplete_copy": incomplete,
+                "born_code_nodes": len(code_birth),
+                "born_site_next": (
                     next(iter(code_birth[site].values())).get("next")
-                    if isinstance(code_birth[site], dict) else None
+                    if site < len(code_birth) and isinstance(code_birth[site], dict)
+                    else None
                 ),
             })
             # Parent can create a new graph on a subsequent PC15; old graph is
@@ -206,6 +217,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
     return {
         "births": len(births),
         "changed_code_births": changed_births,
+        "incomplete_copy_births": incomplete_copy_births,
         "expressed_changed_actors": len(expressed_changed),
         "changed_native_edit_events": len(edits),
         "suppressed_native_edits": suppressed,
