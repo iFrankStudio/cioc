@@ -1,0 +1,49 @@
+name: CL-1 Study79 original native Draw recovery causal ancestry
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study79.py'
+      - 'cl1/tests/test_study79.py'
+      - '.github/workflows/cl1-study79.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-native-lineage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require after-result registration and original source/fake actor controls
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/79-registered-retrospective-native-resource-wait-causal-ancestry.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study79.py' -v
+      - name: Download both original untouched new-128-genome native SQLite corpora
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study79/study77" "$RUNNER_TEMP/study79/study78"
+          gh run download 43583270135 --repo "$GITHUB_REPOSITORY" --name cl1-study77-recoverable-native-feedback-ecology --dir "$RUNNER_TEMP/study79/study77"
+          gh run download 43583798688 --repo "$GITHUB_REPOSITORY" --name cl1-study78-recoverable-native-feedback-ecology --dir "$RUNNER_TEMP/study79/study78"
+          test -s "$RUNNER_TEMP/study79/study77/cl1-study77-recoverable-native-feedback.sqlite"
+          test -s "$RUNNER_TEMP/study79/study78/cl1-study78-recoverable-native-feedback.sqlite"
+      - name: Reverify complete 98304 original hashes and independent native event divergence ancestry
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study79.py "$RUNNER_TEMP/study79/study77/cl1-study77-recoverable-native-feedback.sqlite" "$RUNNER_TEMP/study79/study78/cl1-study78-recoverable-native-feedback.sqlite" --json "$RUNNER_TEMP/study79-resource-native-lineage.json"
+      - name: Archive retrospective native causal chronology, not duplicate original SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study79-original-native-DrawDeferred-source-lineage
+          retention-days: 30
+          path: ${{ runner.temp }}/study79-resource-native-lineage.json
