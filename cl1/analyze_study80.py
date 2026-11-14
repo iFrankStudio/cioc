@@ -119,6 +119,26 @@ def audit(path, revision):
         require(all(set(values).issubset({source}) for values in values_by_epoch), "output does not match source")
         if arm in ("lesion-edit", "lesion-disabled", "lesion-host-repair"):
             require(values_by_epoch[3] == [source], "lesion failed to suppress first post-lesion output")
+            # The first post-lesion two attempts must be a real Read at PC3,
+            # followed by the ORIGINAL actor executing the edit opcode at PC5.
+            new_native = [
+                event for event in states[3]["events"][len(states[2]["events"]):]
+                if event["origin"] == {"Internal": 1}
+            ]
+            require(
+                len(new_native) == 2
+                and [event["pc"] for event in new_native] == [3, 5],
+                "post-lesion source-PC chronology invalid",
+            )
+            edit_event = new_native[-1]["kind"]
+            if arm == "lesion-edit":
+                require(edit_event == "Executed", "native code edit did not execute at original PC5")
+            else:
+                require(
+                    isinstance(edit_event, dict)
+                    and edit_event.get("NativeCodeEditSuppressed", {}).get("opcode_tag") == 6,
+                    "mutation-disabled actor did not execute charged edit suppression",
+                )
         if arm == "lesion-edit":
             require(count_suppressed(final_state) == 0, "unexpected edit suppression in native arm")
             require(len(values_by_epoch[4]) > len(values_by_epoch[3]), "no first native functional restoration")
