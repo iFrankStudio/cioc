@@ -131,6 +131,30 @@ def op_name(op) -> str | None:
     return None
 
 
+def verify_native_child_write(
+    event: dict, previous: dict, state: dict, launch_tick: dict[int, int]
+) -> dict:
+    """Reject a successful child cell write without native launch and Write PC."""
+    actor = event["process"]
+    kind = event["kind"]
+    if (actor <= 3 or actor not in launch_tick
+            or event["tick"] <= launch_tick[actor]
+            or analyze.internal_process(event) != actor
+            or not isinstance(kind, dict) or "CellWritten" not in kind):
+        raise ValueError("forged or out-of-order child output")
+    pc = event["pc"]
+    if not isinstance(pc, int) or pc < 0:
+        raise ValueError("child output PC invalid")
+    op_candidates = []
+    for snapshot in (previous, state):
+        p = snapshot["processes"].get(str(actor))
+        if p is not None and pc < len(p["code"]["nodes"]):
+            op_candidates.append(p["code"]["nodes"][pc])
+    if not any(isinstance(op, dict) and "Write" in op for op in op_candidates):
+        raise ValueError("child native CellWritten lacks executable Write ancestry")
+    return kind["CellWritten"]
+
+
 def classify_mutation(before: dict, after: dict, native: list[dict]) -> dict:
     """Conservative per-epoch code diff + native successful mutator attribution.
 
@@ -325,18 +349,10 @@ def audit(path: Path, revision: str) -> dict:
                             if typ != "GraphCreated":
                                 child_non_graphcreated.add(actor)
                             if isinstance(kind, dict) and "CellWritten" in kind:
-                                cell = kind["CellWritten"]
+                                cell = verify_native_child_write(
+                                    event, previous, state, launch_tick
+                                )
                                 pc = event["pc"]
-                                op_candidates = []
-                                for candidate_state in (previous, state):
-                                    p = candidate_state["processes"].get(str(actor))
-                                    if p is not None and 0 <= pc < len(p["code"]["nodes"]):
-                                        op_candidates.append(p["code"]["nodes"][pc])
-                                if not any(
-                                    isinstance(op, dict) and "Write" in op
-                                    for op in op_candidates
-                                ):
-                                    raise ValueError("child native CellWritten lacks code ancestry")
                                 value_pair = (cell["key"], cell["value"])
                                 if value_pair in parent_output_before_launch[actor]:
                                     child_matching_parent_output.add(actor)
