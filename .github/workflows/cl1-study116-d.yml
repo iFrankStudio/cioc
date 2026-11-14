@@ -1,0 +1,43 @@
+name: CL-1 Study116-D original actor-PC and mutation-gate trace diagnosis
+
+on:
+  push:
+    paths:
+      - 'cl1/diagnose_study116d.py'
+      - 'cl1/studies/116D-post-outcome-child-PC-path-diagnosis.md'
+      - '.github/workflows/cl1-study116-d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-full-parent-child-PC-diagnosis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read source-registration and download immutable Study116 original worlds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/116D-post-outcome-child-PC-path-diagnosis.md
+          mkdir -p "$RUNNER_TEMP/original-study116"
+          gh run download 43616365789 --repo "$GITHUB_REPOSITORY" --name cl1-study116-original-actor-gated-functional-germline --dir "$RUNNER_TEMP/original-study116"
+          test -s "$RUNNER_TEMP/original-study116/study116-original-one-shot-native-functional-lineage.sqlite"
+      - name: Print original child runtime PC and noncanonical native gate writes, no new seeds
+        run: |
+          set -euo pipefail
+          python3 cl1/diagnose_study116d.py "$RUNNER_TEMP/original-study116/study116-original-one-shot-native-functional-lineage.sqlite" --json "$RUNNER_TEMP/study116D-original-PC-trace.json"
+      - name: Preserve exact 7 source-pinned real actor/child code traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study116D-original-7-actor-PC-cases
+          retention-days: 30
+          path: ${{ runner.temp }}/study116D-original-PC-trace.json
