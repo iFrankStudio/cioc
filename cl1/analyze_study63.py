@@ -83,11 +83,14 @@ def audit(path: Path, source_revision: str) -> dict:
                     or not initial["strict_accounting"]):
                 raise ValueError("scripted world differs from registered instructions/caps")
             initial_events = initial["events"]
-            if len(initial_events) != 2 or any(
-                e["origin"] != "External" or event_kind(e) != "Intervened"
-                for e in initial_events
-            ):
-                raise ValueError("initial sensor/compute were not explicitly External")
+            if (len(initial_events) != 3
+                    or initial_events[0]["origin"] != "External"
+                    or event_kind(initial_events[0]) != "Loaded"
+                    or any(
+                        e["origin"] != "External" or event_kind(e) != "Intervened"
+                        for e in initial_events[1:]
+                    )):
+                raise ValueError("original load/sensor/compute were not explicitly External")
             actions = json.loads(raw_actions)
             expected_actions = ([{
                 "epoch": 4,
