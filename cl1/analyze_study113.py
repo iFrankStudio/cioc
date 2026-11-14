@@ -84,11 +84,17 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
         trapped = event_part(e, "Trapped")
 
         if read is not None and read["key"] == 7:
-            require(pc == 2, "source sensor read at non-native PC")
-            actor_reads[actor] = read["value"]
+            # Untargeted edge edits can skip the Const address setup, causing
+            # the OTHER existing Read at PC6 to read key7. That is a genuine
+            # but noncanonical read, not evidence of the original PC2 sensor.
+            require("Read" in codes[actor][pc],
+                    "native source read not from an executable Read opcode")
+            if pc == 2:
+                actor_reads[actor] = read["value"]
         if written is not None and written["key"] == 9:
-            require(pc == 3, "source function writer at non-native PC")
-            if written["value"] == source and actor_reads.get(actor) == source:
+            require("Write" in codes[actor][pc],
+                    "native source output not from an executable Write opcode")
+            if pc == 3 and written["value"] == source and actor_reads.get(actor) == source:
                 source_writers.add(actor)
             else:
                 invalid_outputs += 1
