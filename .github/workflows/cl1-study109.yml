@@ -1,0 +1,45 @@
+name: CL-1 Study109 read-only original Study108 child ancestry audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study109.py'
+      - 'cl1/studies/109-registered-retrospective-study108-native-efficiency-causal-lineage.md'
+      - '.github/workflows/cl1-study109.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-post-outcome-lineage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior registration and download original untouched Study108 experimental archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/109-registered-retrospective-study108-native-efficiency-causal-lineage.md
+          mkdir -p "$RUNNER_TEMP/study108-original"
+          gh run download 43608972444 --repo "$GITHUB_REPOSITORY" --name cl1-study108-slow-founder-native-beneficial-mutation-causal --dir "$RUNNER_TEMP/study108-original"
+          find "$RUNNER_TEMP/study108-original" -maxdepth 2 -type f -printf '%p %s bytes\n'
+      - name: Read-only independent original 32-seed and 64-pair native mutation-to-birth causal ancestry
+        run: |
+          set -euo pipefail
+          sqlite="$RUNNER_TEMP/study108-original/study108-original-slow-ancestor-beneficial-mutation.sqlite"
+          test -s "$sqlite"
+          python3 cl1/analyze_study109.py "$sqlite" --json "$RUNNER_TEMP/study109-original-native-child-ancestry.json"
+      - name: Archive full original-pair native chronology without re-running or re-seeding original worlds
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study109-read-only-original-study108-child-genealogy
+          retention-days: 30
+          path: ${{ runner.temp }}/study109-original-native-child-ancestry.json
