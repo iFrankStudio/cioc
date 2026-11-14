@@ -1,0 +1,46 @@
+name: CL-1 Study111-B independent ambient native mutation replication
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study111-b.rs'
+      - 'cl1/analyze_study111b.py'
+      - 'cl1/studies/111B-preregistered-independent-ambient-native-mutation-replication.md'
+      - '.github/workflows/cl1-study111-b.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-ambient-native-replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prespecified independent 32-genotype frozen Study111-B protocol
+        run: test -s ../cl1/studies/111B-preregistered-independent-ambient-native-mutation-replication.md
+      - name: Run new 128 original resource input and native mutation paired worlds with exact 2048 epoch replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study111-b -- "$RUNNER_TEMP/study111B-original-independent-native-ecology.sqlite"
+      - name: Independently verify all original SHA256, 15x public +400 ambient inputs and actor code genealogy
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study111b.py "$RUNNER_TEMP/study111B-original-independent-native-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study111B-independent-audit.json"
+      - name: Archive original unselected 32-genotype ecology and independent observer
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study111B-independent-ambient-native-code-replication
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study111B-original-independent-native-ecology.sqlite
+            ${{ runner.temp }}/study111B-independent-audit.json
