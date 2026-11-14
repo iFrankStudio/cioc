@@ -175,7 +175,7 @@ fn eligible_pool_access(world: &World) -> Option<(u64, u64)> {
         let Ok(quantity) = u64::try_from(raw) else {
             continue;
         };
-        if quantity > 0 && quantity < u64::MAX && pool >= quantity + 1 {
+        if quantity > 0 && pool > quantity {
             return Some((id, pool));
         }
     }
