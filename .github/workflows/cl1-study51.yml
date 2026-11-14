@@ -1,0 +1,75 @@
+name: CL-1 Study51 native executable plasticity opportunity
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study51.rs'
+      - 'cl1/analyze_study51.py'
+      - 'cl1/tests/test_study51.py'
+      - '.github/workflows/cl1-study51.yml'
+      - 'cl1/analyze_study51_assembly.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study51:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce earlier frozen independent native plasticity protocol
+        run: |
+          test -f ../cl1/studies/51-preregistered-independent-graph-assembly-replication.md
+      - name: Verify Rust core, strict native simulator, and few independent attribution calibrations
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study51.py' -v
+      - name: Execute 256 independent native executable-plasticity ecologies x 4 matched branches
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study51 -- "$RUNNER_TEMP/cl1-study51.sqlite"
+      - name: Independently reconstruct 24576 epoch snapshots and code/graph event ancestry
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study51.py "$RUNNER_TEMP/cl1-study51.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study51-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study51-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+              "study":r["study"],
+              "independent_worlds":r["independent_worlds"],
+              "runs":r["matched_runs"],
+              "snapshots":r["hashed_epoch_snapshots"],
+              "primary":r["primary_native_child_shared_cell_write"],
+              "secondary":r["secondary"],
+              "life_claim":r["life_claim"]
+          },indent=2))
+          PY
+      - name: Verify separately preregistered strict same-parent graph copy edit launch and functional child endpoints
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study51_assembly.py "$RUNNER_TEMP/cl1-study51.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study51-assembly-report.json"
+      - name: Archive untouched native plasticity SQLite and independent audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study51-native-code-plasticity
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study51.sqlite
+            ${{ runner.temp }}/cl1-study51-report.json
+            ${{ runner.temp }}/cl1-study51-assembly-report.json
