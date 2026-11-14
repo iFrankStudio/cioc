@@ -1,0 +1,62 @@
+name: CL-1 Study45 retrospective child executable edge closure
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study45.py'
+      - 'cl1/tests/test_study45.py'
+      - '.github/workflows/cl1-study45.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  study45:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm post-hoc registration and targeted executable edge controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/45-posthoc-child-executable-edge-closure-audit.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study45.py' -v
+      - name: Download exact original frozen Studies41,42,44; do not regenerate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study45/41" "$RUNNER_TEMP/study45/42" "$RUNNER_TEMP/study45/44"
+          gh run download 43553705027 --repo "$GITHUB_REPOSITORY" --name cl1-study41-native-code-plasticity --dir "$RUNNER_TEMP/study45/41"
+          gh run download 43553947738 --repo "$GITHUB_REPOSITORY" --name cl1-study42-native-code-plasticity --dir "$RUNNER_TEMP/study45/42"
+          gh run download 43554614365 --repo "$GITHUB_REPOSITORY" --name cl1-study44-native-code-plasticity --dir "$RUNNER_TEMP/study45/44"
+          for study in 41 42 44; do test -s "$RUNNER_TEMP/study45/$study/cl1-study$study.sqlite"; done
+      - name: Validate 36864 original hashes, child source ancestry, executed invalid edges
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study45.py "$RUNNER_TEMP/study45/41/cl1-study41.sqlite" "$RUNNER_TEMP/study45/42/cl1-study42.sqlite" "$RUNNER_TEMP/study45/44/cl1-study44.sqlite" --json "$RUNNER_TEMP/study45-report.json"
+          python3 - "$RUNNER_TEMP/study45-report.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":d["study"],
+            "new_worlds":d["new_independent_worlds"],
+            "hashes":d["verified_epoch_hashes"],
+            "study41":{k:v for k,v in d["cohorts"]["41"]["topology_metrics"].items() if k.startswith("ambient-general.")},
+            "study42":{k:v for k,v in d["cohorts"]["42"]["topology_metrics"].items() if k.startswith("ambient-general.")},
+            "study44":{k:v for k,v in d["cohorts"]["44"]["topology_metrics"].items() if k.startswith("ambient-general.")},
+            "life_claim":d["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive post-hoc edge-closure audit without duplicating SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study45-retrospective-graph-edge-closure
+          retention-days: 30
+          path: ${{ runner.temp }}/study45-report.json
