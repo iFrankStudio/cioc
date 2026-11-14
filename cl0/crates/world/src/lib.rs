@@ -75,6 +75,14 @@ pub enum Op {
         dst: usize,
         next: usize,
     },
+    /// Generic local-address transport: copied control edges are normalized
+    /// into the destination graph (environmental language affordance, NOT repair).
+    GraphCopyNodeLocal {
+        graph: usize,
+        source: usize,
+        dst: usize,
+        next: usize,
+    },
     GraphSetNext {
         graph: usize,
         node: usize,
@@ -459,6 +467,18 @@ impl Op {
                 i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
                 0,
             ]),
+            Op::GraphCopyNodeLocal {
+                graph,
+                source,
+                dst,
+                next,
+            } => Ok([
+                30,
+                i64::try_from(*graph).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*source).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
+            ]),
         }
     }
 
@@ -494,6 +514,7 @@ impl Op {
             Op::GraphReplace { .. } => 27,
             Op::GraphCopyFrom { .. } => 28,
             Op::GraphTransfer { .. } => 29,
+            Op::GraphCopyNodeLocal { .. } => 30,
         }
     }
 
@@ -511,6 +532,7 @@ impl Op {
             | Op::Delete { next, .. }
             | Op::GraphNew { next, .. }
             | Op::GraphCopyNode { next, .. }
+            | Op::GraphCopyNodeLocal { next, .. }
             | Op::GraphSetNext { next, .. }
             | Op::GraphSetConst { next, .. }
             | Op::GraphReadNext { next, .. }
@@ -528,6 +550,32 @@ impl Op {
             | Op::GraphCopyFrom { next, .. }
             | Op::GraphTransfer { next, .. } => Some(next),
             Op::Branch { .. } | Op::Halt => None,
+        }
+    }
+
+    /// Explicit, generic destination-graph edge addressing for the opt-in
+    /// GraphCopyNodeLocal language primitive. Closing every edge here is a
+    /// *VM-supplied affordance*, never evidence of autonomous node repair.
+    fn relocate_edges(&mut self, source: usize, destination: usize) {
+        let modulus = i128::try_from(destination + 1).expect("bounded graph index");
+        let move_edge = |edge: &mut usize| {
+            let relative = i128::try_from(*edge).expect("bounded source edge")
+                - i128::try_from(source).expect("bounded source node");
+            let new_edge = (i128::try_from(destination).expect("bounded graph index")
+                + relative)
+                .rem_euclid(modulus);
+            *edge = usize::try_from(new_edge).expect("positive bounded edge");
+        };
+        match self {
+            Op::Branch { nonzero, zero, .. } => {
+                move_edge(nonzero);
+                move_edge(zero);
+            }
+            _ => {
+                if let Some(edge) = self.next_mut() {
+                    move_edge(edge);
+                }
+            }
         }
     }
 }
@@ -694,6 +742,12 @@ impl Op {
                 recipient: slot(2)?,
                 next: slot(3)?,
             }),
+            30 => Ok(Op::GraphCopyNodeLocal {
+                graph: slot(1)?,
+                source: slot(2)?,
+                dst: slot(3)?,
+                next: slot(4)?,
+            }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -810,6 +864,15 @@ pub enum EventKind {
     },
     /// Successful node copy from an existing process's executable code.
     GraphNodeCopied {
+        graph: u64,
+        owner: ProcessId,
+        source_process: ProcessId,
+        source_node: usize,
+        new_node: usize,
+    },
+    /// Explicit native local-address-copy event: VM automatically relocates
+    /// copied edges; this is not a self-repair or an independent organism.
+    GraphNodeCopiedLocal {
         graph: u64,
         owner: ProcessId,
         source_process: ProcessId,
@@ -1289,6 +1352,7 @@ impl World {
             op,
             Op::GraphNew { .. }
                 | Op::GraphCopyNode { .. }
+                | Op::GraphCopyNodeLocal { .. }
                 | Op::GraphSetNext { .. }
                 | Op::GraphSetConst { .. }
                 | Op::GraphReadNext { .. }
@@ -1614,6 +1678,7 @@ impl World {
             }
         };
         // Resolve and validate register values before mutating any state.
+        let is_local_copy = matches!(&op, Op::GraphCopyNodeLocal { .. });
         match op {
             Op::GraphNew { dst, next } => {
                 edge(next)?;
@@ -1648,6 +1713,12 @@ impl World {
                 source,
                 dst,
                 next,
+            }
+            | Op::GraphCopyNodeLocal {
+                graph,
+                source,
+                dst,
+                next,
             } => {
                 edge(next)?;
                 if dst >= REGISTERS {
@@ -1655,7 +1726,7 @@ impl World {
                 }
                 let object_id = u64::try_from(reg(graph)?).map_err(|_| "invalid graph handle")?;
                 let index = usize::try_from(reg(source)?).map_err(|_| "invalid source node")?;
-                let source_node = p
+                let mut source_node = p
                     .code
                     .nodes
                     .get(index)
@@ -1673,6 +1744,9 @@ impl World {
                 }
                 let new_index = object.nodes.len();
                 let encoded = i64::try_from(new_index).map_err(|_| "node index overflow")?;
+                if is_local_copy {
+                    source_node.relocate_edges(index, new_index);
+                }
                 self.graph_objects
                     .get_mut(&object_id)
                     .expect("checked graph")
@@ -1681,12 +1755,22 @@ impl World {
                 let p = self.processes.get_mut(&id).expect("owner exists");
                 p.registers[dst] = encoded;
                 p.pc = next;
-                self.pending_transition = Some(EventKind::GraphNodeCopied {
-                    graph: object_id,
-                    owner: id,
-                    source_process: id,
-                    source_node: index,
-                    new_node: new_index,
+                self.pending_transition = Some(if is_local_copy {
+                    EventKind::GraphNodeCopiedLocal {
+                        graph: object_id,
+                        owner: id,
+                        source_process: id,
+                        source_node: index,
+                        new_node: new_index,
+                    }
+                } else {
+                    EventKind::GraphNodeCopied {
+                        graph: object_id,
+                        owner: id,
+                        source_process: id,
+                        source_node: index,
+                        new_node: new_index,
+                    }
                 });
             }
             Op::GraphSetNext {
