@@ -1,0 +1,43 @@
+name: CL-1 Study113-D original unselected mutation fragility retrospective decomposition
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study113d.py'
+      - 'cl1/studies/113D-post-outcome-mutational-load-decomposition.md'
+      - '.github/workflows/cl1-study113-d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  read-only-original-native-fragility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce explicitly POST-OUTCOME registration and download original independent verified Study113 JSON
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/113D-post-outcome-mutational-load-decomposition.md
+          mkdir -p "$RUNNER_TEMP/study113-original-audit"
+          gh run download 43612353922 --repo "$GITHUB_REPOSITORY" --name cl1-study113-original-frozen-independent-readonly-audit --dir "$RUNNER_TEMP/study113-original-audit"
+          find "$RUNNER_TEMP/study113-original-audit" -maxdepth 1 -type f -printf '%f %s bytes\n'
+      - name: Read-only all64 unfiltered source-cohort region and native inherited-code attribution
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study113d.py "$RUNNER_TEMP/study113-original-audit/study113-original-independent-native-child-ancestry.json" --json "$RUNNER_TEMP/study113D-all-code-region-native-retrospective.json"
+      - name: Preserve full original-seed retrospective signed outcomes and classification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study113D-original-64genome-retrospective-code-fragility
+          retention-days: 30
+          path: ${{ runner.temp }}/study113D-all-code-region-native-retrospective.json
