@@ -1,0 +1,46 @@
+name: CL-1 Study114 56-node neutral-code buffer and original site lotteries
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study114.rs'
+      - 'cl1/analyze_study114.py'
+      - 'cl1/studies/114-preregistered-dormant-code-buffer-native-mutational-robustness.md'
+      - '.github/workflows/cl1-study114.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matched-native-neutral-buffer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen original Study114 neutral 56-node CIL site-lottery protocol
+        run: test -s ../cl1/studies/114-preregistered-dormant-code-buffer-native-mutational-robustness.md
+      - name: Execute all 256 native core/full matched site lotteries and exact 4096 complete epoch replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study114 -- "$RUNNER_TEMP/study114-original-native-dormant-buffer.sqlite"
+      - name: Independently verify all original CIL graph-node code inheritance, true expression, and 4096 SHA256 epochs
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study114.py "$RUNNER_TEMP/study114-original-native-dormant-buffer.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study114-original-readonly-independent-audit.json"
+      - name: Preserve all original 256 CIL worlds and full independent 56-node gene-audit JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study114-full-native-neutral-buffer
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study114-original-native-dormant-buffer.sqlite
+            ${{ runner.temp }}/study114-original-readonly-independent-audit.json
