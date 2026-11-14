@@ -6,7 +6,7 @@ on:
       - 'cl0/crates/world/src/lib.rs'
       - 'cl0/crates/world/tests/study81_native_edit_trace.rs'
       - 'cl0/crates/lab/src/bin/cl1-study82.rs'
-      - 'cl1/studies/81-preregistered-stochastic-native-executable-edge-mutation-survey.md'
+      - 'cl1/studies/82-preregistered-splitmix-native-executable-mutation-ecology.md'
       - 'cl1/analyze_study82.py'
       - '.github/workflows/cl1-study82.yml'
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - name: Verify source-precommitted ecology protocol and native code edit trace
         run: |
           set -euo pipefail
-          test -s ../cl1/studies/81-preregistered-stochastic-native-executable-edge-mutation-survey.md
+          test -s ../cl1/studies/82-preregistered-splitmix-native-executable-mutation-ecology.md
           cargo test --locked -p cl0-world --test study81_native_edit_trace
       - name: Execute all 128 original prospective stochastic CIL genomes and 512 paired native worlds
         run: |
