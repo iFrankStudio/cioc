@@ -4270,4 +4270,110 @@ mod tests {
             12
         );
     }
+
+    #[test]
+    fn pool_paid_native_draw_is_opt_in_and_energy_conserving() {
+        let code = vec![
+            Op::Const {
+                dst: 1,
+                value: 3,
+                next: 1,
+            },
+            Op::DrawCompute { amount: 1, next: 2 },
+            Op::Const {
+                dst: 0,
+                value: 7,
+                next: 3,
+            },
+            Op::Halt,
+        ];
+        let mut original = World::new(2, 8);
+        original.load(Process::new(1, code, 1)).unwrap();
+        original
+            .intervene(Intervention::SetComputePool { credits: 6 })
+            .unwrap();
+        assert_eq!(original.run(1), 1); // native Const set amount=3, actor now zero
+        assert_eq!(original.process(1).unwrap().credits, 0);
+        assert_eq!(original.available_compute_pool(), 6);
+        let mut baseline = original.clone();
+        assert_eq!(baseline.run(4), 0); // legacy scheduler must remain inert
+        let mut permitted = original.with_pool_paid_draw();
+        assert!(permitted.pool_paid_draw_enabled());
+        assert_eq!(permitted.run(1), 1); // one pool-paid native Draw attempt
+        assert_eq!(permitted.available_compute_pool(), 2); // -1 fee, -3 Draw
+        assert_eq!(permitted.process(1).unwrap().credits, 3);
+        assert_eq!(permitted.total_compute_inventory(), Some(5)); // 6 - 1 charged attempt
+        let last = permitted.events().last().unwrap();
+        assert!(last.pool_paid_attempt);
+        assert_eq!(last.origin, Origin::Internal(1));
+        assert!(matches!(last.kind, EventKind::Executed));
+        assert_eq!(permitted.run(1), 1); // subsequent Const uses own credits
+        assert!(!permitted.events().last().unwrap().pool_paid_attempt);
+        assert_eq!(permitted.total_compute_inventory(), Some(4));
+        assert_eq!(permitted.process(1).unwrap().registers[0], 7);
+        // Default-world JSON and old events must not acquire new fields.
+        let legacy = serde_json::to_string(&baseline).unwrap();
+        assert!(!legacy.contains("pool_paid_draw"));
+        assert!(!legacy.contains("pool_paid_attempt"));
+        let enabled = serde_json::to_string(&permitted).unwrap();
+        assert!(enabled.contains("\"pool_paid_draw\":true"));
+        assert!(enabled.contains("\"pool_paid_attempt\":true"));
+    }
+
+    #[test]
+    fn pool_paid_draw_does_not_execute_others_recover_traps_or_mint_credits() {
+        let pending = vec![
+            Op::Const {
+                dst: 1,
+                value: 9,
+                next: 1,
+            },
+            Op::DrawCompute { amount: 1, next: 2 },
+            Op::Halt,
+        ];
+        let mut failure = World::new(0, 8).with_pool_paid_draw();
+        failure.load(Process::new(1, pending.clone(), 1)).unwrap();
+        failure
+            .intervene(Intervention::SetComputePool { credits: 5 })
+            .unwrap();
+        assert_eq!(failure.run(1), 1);
+        assert_eq!(failure.run(1), 1); // pool fee leaves only 4, amount9 traps
+        assert_eq!(failure.available_compute_pool(), 4);
+        assert_eq!(failure.total_compute_inventory(), Some(4));
+        assert!(failure.events().last().unwrap().pool_paid_attempt);
+        assert!(matches!(failure.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(failure.process(1).unwrap().stopped);
+        assert_eq!(failure.run(5), 0); // even with remaining pool: no resurrection
+
+        let mut no_pool = World::new(0, 8).with_pool_paid_draw();
+        no_pool.load(Process::new(1, pending.clone(), 1)).unwrap();
+        assert_eq!(no_pool.run(1), 1);
+        assert_eq!(no_pool.run(1), 0);
+
+        let mut wrong_opcode = World::new(0, 8).with_pool_paid_draw();
+        wrong_opcode
+            .load(Process::new(
+                1,
+                vec![
+                    Op::Const { dst: 0, value: 1, next: 1 },
+                    Op::Const { dst: 1, value: 3, next: 1 },
+                ],
+                1,
+            ))
+            .unwrap();
+        wrong_opcode
+            .intervene(Intervention::SetComputePool { credits: 5 })
+            .unwrap();
+        assert_eq!(wrong_opcode.run(1), 1);
+        assert_eq!(wrong_opcode.run(1), 0);
+
+        let mut disabled = World::new(0, 8).with_pool_paid_draw();
+        disabled.load(Process::new(1, pending, 1)).unwrap();
+        disabled
+            .intervene(Intervention::SetComputePool { credits: 5 })
+            .unwrap();
+        assert_eq!(disabled.run(1), 1);
+        disabled.intervene(Intervention::Disable { process: 1 }).unwrap();
+        assert_eq!(disabled.run(3), 0);
+    }
 }
