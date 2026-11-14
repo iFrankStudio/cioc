@@ -202,6 +202,25 @@ def main():
     args = parser.parse_args()
     result = audit(args.sqlite)
     args.json.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    for arm in result["traced_arms"]:
+        if arm["arm"] in ("lesion-host-restore", "lesion-native", "sham"):
+            epochs = arm["epochs"]
+            print(json.dumps({
+                "seed": arm["seed"],
+                "source": arm["source"],
+                "arm": arm["arm"],
+                "pre_fork_edge": arm["pre_fork_edge_pc8_next"],
+                "host_restored_edge_after_epoch4": arm["host_restored_edge_after_epoch4"],
+                "host_stopped_before": arm["actor_stopped_before_host_action"],
+                "host_credits_before": arm["actor_credits_before_host_action"],
+                "classification": arm["classification"],
+                "epoch3": {k: epochs[3][k] for k in ("actor_pc","actor_credits","actor_stopped","charged_attempts","source_writes","stops")},
+                "epoch4": {k: epochs[4][k] for k in ("actor_pc","actor_credits","actor_stopped","charged_attempts","source_writes","stops")},
+                "late_charged_attempts": sum(e["charged_attempts"] for e in epochs[4:]),
+                "late_native_source_reads": sum(len(e["source_reads"]) for e in epochs[4:]),
+                "late_native_source_writes": sum(len(e["source_writes"]) for e in epochs[4:]),
+                "postfork_native_stops": [stop for e in epochs for stop in e["stops"]],
+            }, sort_keys=True))
     print(json.dumps(
         {key: result[key] for key in (
             "study", "status", "source_revision",
