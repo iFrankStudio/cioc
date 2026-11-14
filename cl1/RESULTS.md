@@ -704,3 +704,26 @@ Through Study71: **41 original source-sampled ecological cohorts, 6,592 original
 **What has NOT been established:** a process selecting/constructing its own initial feedback graph, dynamic adaptation to time-varying environmental inputs **inside the same world**, continued native information function under real damage and internally initiated repair, actor-initiated resource maintenance without ambient process-specific rescue, state-preserving inheritance, multi-component causal closure, biological autonomy or open-ended evolution. All studies still rely on researcher-provided generic input/output register ports and finite initial process credits. **CL-1 remains OPEN.**
 
 **Next highest value:** a preregistered **within-world changing sensor** input with matched static and Read-ablated controls on a *new, SplitMix64-seed-whitened random broad-backedge cohort*, validating live responsiveness rather than merely comparing two constant-input parallel worlds. Only then should separate preregistered native code/data graph construction and genuine lesion/repair functional closure experiments be attempted.
+
+
+## Studies73–74 — resource-harvesting/feedback joint failure and exact resource-state bottleneck
+
+**Study73** preregistered **128 independent SplitMix64-whitened CIL genomes**, 16 correlated topology/source/Draw-ablation/ambient branches per genome, and an absolute **64-credit initial process budget**. Native DrawCompute requested eight credits when executed; the ambient world supplied 8 EXTERNAL world-pool credits at each epoch1..23 but never directly refilled the actor. The original unchanged native CIL grammar included ordinary Read/Write/ALU, non-prewired broad/short backward Branch choices and Draw, with no hand-authored organism or host actor starter.
+
+[Original CI43580487492](https://github.com/iFrankStudio/cioc/actions/runs/43580487492) **SUCCESS**, source `2011f00cedc3121a155b078f9c127d1b8a8ec774`, **2,048 native runs and 49,152 complete, independently source-pinned SHA256 snapshots**. Both preregistered primary rates were **0/128**: no world maintained true source-sensitive Read(key7)→Write(key9) in W2 and W3 **after** successful native Draw and **past 64 cumulative attempted instructions**. This is not evidence that native Draw is impossible: in the broad ambient low arm, **82/128** worlds executed Draw natively, totaling **983 successful Draw events**, and **3/128** had any W3 attempts, but **0/128** had W3 source-tainted functional outputs. The old short-backedge arm had 0/128 W3 attempts. Host-provided pool input never equals autonomous energy production.
+
+**Study74 retrospective read-only eligibility audit** registered **after** Study73's null and generated **ZERO new genomes**. It first reran the exact original independent Study73 auditor and 49,152 original SHA256 epoch hashes, then classified the epoch15 (=W3 entry) native actor/PC/pool state and all saved epoch boundaries. [Independent CI43580936131](https://github.com/iFrankStudio/cioc/actions/runs/43580936131) **SUCCESS**; [source-pinned report](results/study74-zero-credit-native-Draw-gateway-absence.md).
+
+| Frozen epoch15 original native state, ambient low | Broad/128 | Short/128 |
+|---|---:|---:|
+| Unstopped actor with positive local credits | 3 | 0 |
+| Unstopped zero local credits, positive pool, next opcode **DrawCompute** | **0** | **0** |
+| Unstopped zero local credits, positive pool, next opcode **NOT DrawCompute** | **78** | **108** |
+| Stopped after fatal insufficient-pool native Draw trap | 43 | 16 |
+| Stopped for other native reason | 4 | 4 |
+
+Across **all 16 arms and all 24 saved epoch boundaries**, **zero** original Study73 worlds met the exact conditions for the *optional* zero-credit pool-paid Draw entry. This does **not** establish the hypothetical opt-in policy is ineffective in the new paths/within-epoch states; the original Study73 experiment left that policy OFF. It does establish that no such actor could be immediately revived *from any observed source-pinned eligible boundary*. Mere increase in external resource supply cannot by itself solve **opcode-order-specific resource access** or permanent native trap. This is an important limitation of *composable native feedback and harvesting*, not a finite-credit scarcity theorem.
+
+A separate **prospectively preregistered new-seed pool-paid policy-on/off Study74 ecology** is recorded at [protocol](studies/74-preregistered-poolpaid-native-feedback-causal-ecology.md), using entirely new seed labels5,000,000..5,000,127 and explicit environment controls; **do not confuse its independent outcome or denominator with the Study74 post-result historical audit**. Its pre-registered scientific claim must remain separate until full native source and SQLite audit passes.
+
+**Next scientific gate:** the possibility that a legitimate native Draw is never repeatedly reached at a time when resources can be acquired is more central than merely having a native Draw opcode. Compare an independently preregistered, generic **resource-acquisition/feedback control-flow opportunity** against read/write/function and resource accessibility controls, with no goal-specific repair instruction, and distinguish native source-dependent function from W3 mere instruction activity. CL-1 remains **OPEN**.
