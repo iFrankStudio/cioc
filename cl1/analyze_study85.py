@@ -122,8 +122,17 @@ def analyze_arm(original_run, seed, source, arm):
     if arm == "lesion-host-restore":
         if pre_host_actor["stopped"]:
             classification = "actor_irreversibly_stopped_before_external_restoration"
-        elif pre_host_actor["credits"] == 0 and before_host["compute_pool"] == 0:
-            classification = "zero_compute_before_external_restoration"
+        elif pre_host_actor["credits"] == 0:
+            pending_pc = pre_host_actor["pc"]
+            pending_name, _ = original.variant(
+                original.original.expected_code(seed)[pending_pc]
+            )
+            if pending_name != "DrawCompute":
+                classification = "zero_local_compute_at_non_draw_pc_before_external_restoration"
+            elif before_host["compute_pool"] == 0:
+                classification = "zero_accessible_compute_before_external_restoration"
+            else:
+                classification = "native_draw_shortage_or_gate_before_external_restoration"
         elif not any(epoch["source_writes"] for epoch in entries[4:]):
             classification = "no_native_output_after_host_restoration"
         else:
