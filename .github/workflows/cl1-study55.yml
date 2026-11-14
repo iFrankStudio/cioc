@@ -1,0 +1,79 @@
+name: CL-1 Study55 preregistered native branch topology causal trial
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study55-local.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study55-uniform.rs'
+      - 'cl1/analyze_study55_local.py'
+      - 'cl1/analyze_study55_uniform.py'
+      - 'cl1/analyze_study55.py'
+      - 'cl1/tests/test_study55.py'
+      - '.github/workflows/cl1-study55.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study55:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce prospective independent frozen protocol
+        run: |
+          set -euo pipefail
+          test -f ../cl1/studies/55-preregistered-native-branch-topology-causal-trial.md
+      - name: Verify Rust world and exact paired random grammar negative controls
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study55.py' -v
+      - name: Execute 256 independent local-backedge seed worlds x four matched native arms
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study55-local -- "$RUNNER_TEMP/cl1-study55-local.sqlite"
+      - name: Execute 256 identical-choice uniform-backedge seed worlds x four matched native arms
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study55-uniform -- "$RUNNER_TEMP/cl1-study55-uniform.sqlite"
+      - name: Independently recheck 49152 epochs, causal graph assembly and native functional child
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study55.py "$RUNNER_TEMP/cl1-study55-local.sqlite" "$RUNNER_TEMP/cl1-study55-uniform.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study55-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study55-report.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":d["study"],
+            "independent_seed_pairs":d["independent_seed_pairs"],
+            "matched_native_runs":d["matched_native_runs"],
+            "verified_epochs":d["SHA256_verified_original_epochs"],
+            "primary_A":d["primary_A_spontaneous_strict_graph_assembly"],
+            "primary_B":d["primary_B_functional_native_child"],
+            "secondary_by_mode":{k:v["registered_by_arm"] for k,v in d["original_modes"].items()},
+            "life_claim":d["life_claim"],
+          },indent=2))
+          PY
+      - name: Preserve both original native SQLite archives and paired independent audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study55-paired-native-branch-topology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study55-local.sqlite
+            ${{ runner.temp }}/cl1-study55-uniform.sqlite
+            ${{ runner.temp }}/cl1-study55-report.json
