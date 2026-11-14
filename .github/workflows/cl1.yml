@@ -66,7 +66,7 @@ jobs:
             full=true
           else
             changes="$(git diff --name-only "$BEFORE" "$GITHUB_SHA")"
-            if grep -Eq '^(cl0/(Cargo\.(toml|lock)|crates/[^/]+/Cargo\.toml|crates/[^/]+/src/lib\.rs)|cl1/(analyze\.py|analyze_study(02|14|22)\.py))"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+            if grep -Eq "cl0/Cargo|cl0/crates/world/|cl0/crates/[^/]+/src/lib[.]rs|cl0/crates/[^/]+/Cargo[.]toml|cl1/analyze([.]py|_study(02|14|22)[.]py)" <<< "$changes"; then
               full=true
             fi
             if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
