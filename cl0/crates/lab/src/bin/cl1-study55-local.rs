@@ -115,10 +115,13 @@ fn seeded_world(seed: u64) -> World {
                     let branch_draw = random(&mut state);
                     Op::Branch {
                         test: 1,
-                        nonzero: { let _ = branch_draw; index - 2 },
+                        nonzero: {
+                            let _ = branch_draw;
+                            index - 2
+                        },
                         zero: next,
                     }
-                },
+                }
                 10 => Op::ReturnCompute { amount: 1, next },
                 11 => Op::GraphGrantRead {
                     graph: 3,
