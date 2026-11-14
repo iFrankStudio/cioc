@@ -1,0 +1,48 @@
+name: CL-1 Study54 retrospective original Write copy opportunity
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study54.py'
+      - 'cl1/tests/test_study54.py'
+      - '.github/workflows/cl1-study54.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify post-result registration and independent actor/graph false-positive controls
+        run: |
+          set -euo pipefail
+          test -f cl1/studies/54-registered-retrospective-write-source-copy-opportunity.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study54.py' -v
+      - name: Fetch original two study53 program-regime data archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study54"
+          gh run download 43557895526 --repo "$GITHUB_REPOSITORY" --name cl1-study53-paired-graph-register-alias --dir "$RUNNER_TEMP/study54"
+          test -s "$RUNNER_TEMP/study54/cl1-study53-alias.sqlite"
+          test -s "$RUNNER_TEMP/study54/cl1-study53-separate.sqlite"
+      - name: Recheck 24576 immutable epoch hashes and exact native source Write copy, edit, launch
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study54.py "$RUNNER_TEMP/study54/cl1-study53-alias.sqlite" "$RUNNER_TEMP/study54/cl1-study53-separate.sqlite" --expected-revision 0cf22880fd212f5a74bbaeff74ce327f5065624f --json "$RUNNER_TEMP/study54-report.json"
+      - name: Archive retrospective causal-source histogram, not duplicate SQLite
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study54-source-Write-copy-opportunity
+          retention-days: 30
+          path: ${{ runner.temp }}/study54-report.json
