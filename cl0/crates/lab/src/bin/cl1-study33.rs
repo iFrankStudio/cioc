@@ -332,8 +332,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             {
                 return Err(format!("missing rejected sham: {}", run.label).into());
             }
-            let edited_source = run.label.contains("/mutate-g2")
-                || run.label.ends_with("/exact-original-g2");
+            let edited_source =
+                run.label.contains("/mutate-g2") || run.label.ends_with("/exact-original-g2");
             for opcode in ["DropGraph", "PutGraph"] {
                 let n = run
                     .world
@@ -346,11 +346,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                     })
                     .count();
                 if n != usize::from(edited_source) {
-                    return Err(format!(
-                        "missing graph source operation {opcode}: {}",
-                        run.label
-                    )
-                    .into());
+                    return Err(
+                        format!("missing graph source operation {opcode}: {}", run.label).into(),
+                    );
                 }
             }
             if run.label.contains("empty-pool")
