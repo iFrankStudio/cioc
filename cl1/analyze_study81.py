@@ -22,6 +22,55 @@ ARMS = (
     "source-high-edit-disabled",
 )
 OPS = ("Read", "Write", "Add", "Sub", "Const", "Branch", "DrawCompute", "PatchNext")
+A = 6_364_136_223_846_793_005
+B = 1_442_695_040_888_963_407
+MASK = (1 << 64) - 1
+
+
+def random_state(state):
+    return (state * A + B) & MASK
+
+
+def mix_seed(seed):
+    x = (seed + 0x9e3779b97f4a7c15) & MASK
+    x = ((x ^ (x >> 30)) * 0xbf58476d1ce4e5b9) & MASK
+    x = ((x ^ (x >> 27)) * 0x94d049bb133111eb) & MASK
+    return (x ^ (x >> 31)) & MASK
+
+
+def expected_code(seed):
+    state = mix_seed(seed)
+    code = [
+        {"Const": {"dst": 1, "value": 8, "next": 1}},
+        {"Const": {"dst": 2, "value": 7, "next": 2}},
+        {"Const": {"dst": 3, "value": 9, "next": 3}},
+    ]
+    for pc in range(3, 27):
+        nxt = pc + 1
+        state = random_state(state)
+        choice = state % 8
+        if choice == 0:
+            op = {"Read": {"dst": 0, "address": 2, "next": nxt}}
+        elif choice == 1:
+            op = {"Write": {"address": 3, "value": 0, "next": nxt}}
+        elif choice == 2:
+            op = {"Add": {"dst": 0, "lhs": 0, "rhs": 1, "next": nxt}}
+        elif choice == 3:
+            op = {"Sub": {"dst": 0, "lhs": 0, "rhs": 1, "next": nxt}}
+        elif choice == 4:
+            state = random_state(state)
+            op = {"Const": {"dst": 0, "value": state % 8, "next": nxt}}
+        elif choice == 5:
+            state = random_state(state)
+            back = 3 if pc == 3 else 3 + state % (pc - 3)
+            op = {"Branch": {"test": 0, "nonzero": back, "zero": nxt}}
+        elif choice == 6:
+            op = {"DrawCompute": {"amount": 1, "next": nxt}}
+        else:
+            op = {"PatchNext": {"node": 1, "target": 0, "next": nxt}}
+        code.append(op)
+    code.append("Halt")
+    return code
 
 
 def require(ok, message):
@@ -34,6 +83,8 @@ def hash_text(s):
 
 
 def variant(op):
+    if op == "Halt":
+        return "Halt", {}
     require(isinstance(op, dict) and len(op) == 1, "malformed CIL node")
     return next(iter(op.items()))
 
@@ -163,6 +214,10 @@ def audit(db_path, revision):
                 "broken original initial/final SHA256")
         init = json.loads(init_raw)
         code = init["processes"]["1"]["code"]["nodes"]
+        require(
+            code == expected_code(seed),
+            "original CIL genome differs from independently regenerated seeded grammar",
+        )
         require(len(code) == 28 and init["processes"]["1"]["credits"] == 64,
                 "unexpected original native genotype or starter")
         require(init["cells"]["7"] == (3 if "-low-" in arm else 8), "wrong external input")
