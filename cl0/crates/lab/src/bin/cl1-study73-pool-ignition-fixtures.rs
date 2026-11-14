@@ -24,8 +24,7 @@ fn original(mode: &str) -> Result<World, Box<dyn Error>> {
         world = world.with_pool_paid_draw();
     }
     let process = if mode == "pool-paid-stopped-draw" {
-        let mut process =
-            Process::new(1, vec![Op::DrawCompute { amount: 1, next: 0 }], 0);
+        let mut process = Process::new(1, vec![Op::DrawCompute { amount: 1, next: 0 }], 0);
         process.registers[1] = 3;
         process.stopped = true;
         process
@@ -33,14 +32,30 @@ fn original(mode: &str) -> Result<World, Box<dyn Error>> {
         Process::new(
             1,
             vec![
-                Op::Const { dst: 1, value: 3, next: 1 },
+                Op::Const {
+                    dst: 1,
+                    value: 3,
+                    next: 1,
+                },
                 if mode == "pool-paid-non-draw" {
-                    Op::Const { dst: 0, value: 8, next: 2 }
+                    Op::Const {
+                        dst: 0,
+                        value: 8,
+                        next: 2,
+                    }
                 } else {
                     Op::DrawCompute { amount: 1, next: 2 }
                 },
-                Op::Const { dst: 0, value: 7, next: 3 },
-                Op::Write { address: 2, value: 0, next: 4 },
+                Op::Const {
+                    dst: 0,
+                    value: 7,
+                    next: 3,
+                },
+                Op::Write {
+                    address: 2,
+                    value: 0,
+                    next: 4,
+                },
                 Op::Halt,
             ],
             1,
@@ -67,7 +82,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         let total = world.total_compute_inventory().ok_or("compute overflow")?;
         let runs = lab.run_epochs(
             &world,
-            &[EpochCondition { label: mode.into(), actions: vec![] }],
+            &[EpochCondition {
+                label: mode.into(),
+                actions: vec![],
+            }],
             EPOCHS,
             QUOTA,
             &revision,
@@ -107,9 +125,14 @@ fn main() -> Result<(), Box<dyn Error>> {
         {
             return Err(format!("native provenance/credit invariant failed: {mode}").into());
         }
-        println!("{mode}: {} native attempts, {} pool-paid, {writes} cell writes, {traps} traps",
-            native.len(), paid.len());
+        println!(
+            "{mode}: {} native attempts, {} pool-paid, {writes} cell writes, {traps} traps",
+            native.len(),
+            paid.len()
+        );
     }
-    println!("Study73 calibration: six scripted conditions, ZERO independent ecological worlds; {path}");
+    println!(
+        "Study73 calibration: six scripted conditions, ZERO independent ecological worlds; {path}"
+    );
     Ok(())
 }
