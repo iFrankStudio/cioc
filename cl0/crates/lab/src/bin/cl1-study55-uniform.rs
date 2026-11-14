@@ -118,7 +118,7 @@ fn seeded_world(seed: u64) -> World {
                         nonzero: (branch_draw % index as u64) as usize,
                         zero: next,
                     }
-                },
+                }
                 10 => Op::ReturnCompute { amount: 1, next },
                 11 => Op::GraphGrantRead {
                     graph: 3,
