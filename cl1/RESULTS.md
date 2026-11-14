@@ -616,3 +616,46 @@ Through Study53, **31 independently seeded ecological cohorts**, with **4,160 in
 **Cumulative accounting through Study59:** **34 independently seeded ecological cohorts, 4,928 independent seed units** (including correlated program-topology seed pairs, never counted twice), and **31,136 matched experiment runs**. Stage58 is scripted calibration with **0** stochastic worlds; Stage60 reuses original Study59 data, **0 new** worlds. All old documented primary outcomes remain frozen.
 
 **Scientific status: CL-1 OPEN.** The random CIL world can now execute generic locally relocated code in rare descendants, but no spontaneous parent-child shared-output function, endogenous multi-component maintenance, lesion-induced native repair or evolution has been verified. The next high-value prospective research must define **native function and loss after real damage** with matched sham, sensor/resource access and provenance, and require *internally initiated, causally necessary restoration* plus durable post-lesion output without actor-specific host rescue. Further random-seed inflation or arbitrary opcode-frequency tuning is not evidence of biological-like novelty.
+
+
+## Study61–65: independent rare descendant code-construction and replicated stochastic native information feedback
+
+### Stage61–62 boundary — native descendant action, not inherited functional output
+
+**Study61** independently replicated the extremely rare Stage59 generic graph-local child opcode event on **256 fresh seed pairs**, exactly **2,048 native runs and 49,152 independently checked epoch hashes**. Both original absolute and local semantics still yielded **0/256 native functional child `CellWritten`**; local treatment had **1/256** worlds with a successful child non-`GraphCreated` instruction versus0/256 original. [Prospective Study61 record](results/study61-independent-native-local-child-copy-replication.md); [CI43563598365](https://github.com/iFrankStudio/cioc/actions/runs/43563598365). A later **retrospective** original-sample Study62 audit proved the child copied `GraphNew` 11 times into different one-node graph objects without creating a grandchild or maintaining a functional output. [CI43564145629](https://github.com/iFrankStudio/cioc/actions/runs/43564145629). **Study62 adds zero independent worlds.**
+
+The Study62-level reassessment [research memorandum](docs/post-study62-breakthrough-assessment.md) identified the concrete original grammar limitation: original random continuations lacked ordinary shared-cell `Read`, `Write` source registers were wired to graph handles, `GraphLaunch` reset child working registers, `GraphCopyNodeLocal` made code edges valid but did not preserve original computation semantics, and initial compute inaccessible to zero-credit actors caused irrevocable deadlocks. This led to a deliberate substrate/compositionality shift away from endlessly increasing random seed volume.
+
+### Study63 — existing Rust/CIL supports genuine I/O feedback and native compute harvest when scripted
+
+[CI43566295425](https://github.com/iFrankStudio/cioc/actions/runs/43566295425) and [complete report](results/study63-scripted-feedback-energy-feasibility.md) verified exactly **six HUMAN-AUTHORED mechanism fixtures** (0 spontaneous native genomes) and all 48 hashed epochs. With external world pool energy200, one actor repeatedly performed true native `DrawCompute` 16 times and `Read→Add→Write` 15 times across all eight observation epochs. Source input3 yielded output11, input8 yielded16, and an external stimulus change at epoch4 caused internally read output to change. A Read-disabled control output constant8, no-pool Draw trapped, and an initially zero-credit actor could not start even with positive pool. **This is VM/circuit feasibility, not discovered organism feedback.**
+
+### Study64 — first prospectively preregistered *random* source-sensitive two-window function
+
+Study64 froze **128 independent seed genomes** 4,200,000..4,200,127, six-way 24-stochastic-op grammar with generic `Read`, source-dependent `Write`, Add/Sub, Const and Branch; same externally provided three-node sensor/output interface; two generic topology choices `cyclic` vs `linear`; source input3/8 and Read-ablated negative controls, exactly **eight correlated variants/genome**. Actor received **300 finite externally endowed starting credits**, no world pool or targeted host starter, and no native executable construction/repair. Complete source-pinned native [CI43567010308](https://github.com/iFrankStudio/cioc/actions/runs/43567010308) passed **1,024 matched runs and 24,576 original SHA256 epochs**, all true native register0 source-taint and alternative-code negative checks.
+
+**Frozen primary:** for a genome to count, both low/high sources must have in EACH W2 and W3 a new true native `Read(key7)` in that same respective window, causally linked by preserved register0 taint to native `CellWritten(key9)` at matching Writer PC, with output difference high−low exactly5. Unexecuted code, cached W1 input, CIL activity alone and any External output do not count.
+
+| Prospective primary | Study64 first independent cohort (n128) | Study65 unchanged independent replication (n256) |
+|---|---:|---:|
+| Cyclic ring topology **and** true W2+W3 native source function | **5/128** | **9/256** |
+| Linear tail topology, identical random 24 CIL instructions | **0/128** | **0/256** |
+| Exact paired cyclic-only / linear-only discordances | **5 / 0** | **9 / 0** |
+| Wilson95 cyclic | [0.016799,0.088187] | [0.018604,0.065453] |
+| Wilson95 linear | [0,0.029137] | [0,0.014784] |
+
+The Stage64 paired two-sided exact sign probability is0.0625; this first small cohort meets the preregistered weak *directional* hypothesis but is not alone conclusive. Witness seed4,200,069, native PC12 in epochs9 and17, yielded genuine low3 versus high8 after a freshly recorded source read in each window. All 128 cyclic genomes had W3 native charged activity, while only five qualified as actual source feedback. [Frozen Study64 source record](results/study64-stochastic-recurrent-native-feedback.md).
+
+### Study65 — strict independent replication under unchanged CIL grammar
+
+Study65 preregistered **256 new independent genomes** 4,300,000..4,300,255 without changing any opcode weights, topology/credit rule, data source, outcome or control. It passed exact Rust replay, strict tests, native origin, all 49,152 snapshot hashes, per-epoch read recency and Read-ablation counterfactuals: [CI43567386274](https://github.com/iFrankStudio/cioc/actions/runs/43567386274), [complete original report](results/study65-independent-stochastic-feedback-replication.md). **9/256** cyclic genomes versus **0/256** linear produced the exact same source-sensitive W2+W3 native feedback function, paired cyclic-only9 versus linear-only0. The registered directional replication passed; two-sided exact paired sign probability **0.00390625**, one-sided0.001953125. Do **not** pool discovery and replication to retroactively manufacture a single prospective inferential test.
+
+This is the first **reproduced truly randomly sampled operation order** creating repeated input-output feedback under a supplied generic cyclic connector, not an evolved functional organization. Its prevalence remains low (~3.5–3.9%). Initial program interface, connector and 300 finite credits remain entirely **RESEARCHER PROVIDED**. No native code construction, native energy uptake or child generation is involved; no repair, self-organization or digital life is proved.
+
+### Next causal gate
+
+The next preregistered phase, [Study66 protocol](studies/66-preregistered-stochastic-feedback-native-energy-coupling.md), tests whether a *new, independent* seven-choice random CIL grammar including ordinary `DrawCompute` can couple source-sensitive recurrent output to the actor's own native resource uptake with an externally passive shared pool, only16 initial process credits and no actor-targeted host starter. The protocol also freezes closed-pool, Read-disabled and Draw-disabled controls, complete native resource conservation, and strict two-window functionality. Study66 findings must be reported **only after its exact original CI and independent audit finish**.
+
+**Independent ecological accounting through Study65:** historical checkpoint through Study59 contained **34 independent ecological cohorts, 4,928 independent seed units and 31,136 matched native experiment runs**. Study61 adds one independent256-seed-pair cohort/2,048 runs; Study62 retrospective and Study63 scripted fixture add0 independent genomes; Study64 adds128/1,024; Study65 adds256/2,048. Thus through Stage65: **37 distinct independent cohorts, 5,568 independent seed units (not correlated program arms), 36,256 matched native runs**. Do not count Stage66 before verified, or pool outcome-conditioned cohorts without a protocol.
+
+**Scientific status remains CL-1 OPEN.** This is a rigorously replicated substrate functional opportunity but not a self-created input/output interface, internally maintained ring, renewable internally originated energy, lesion recovery, heritable phenotype or open-ended evolution.
