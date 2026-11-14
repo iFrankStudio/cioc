@@ -1,0 +1,45 @@
+name: CL-1 Study117 same original CIL genome shared storage capacity4 vs5 causal lineage
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study117.rs'
+      - 'cl1/studies/117-preregistered-storage-capacity-native-heritability-gate.md'
+      - '.github/workflows/cl1-study117.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-generic-shared-storage-threshold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate original preregistered 64 unselected exact-same-genome capacity4/5 causal contrasts
+        run: test -s ../cl1/studies/117-preregistered-storage-capacity-native-heritability-gate.md
+      - name: Run 512 original native CIL mutator/cell-capacity worlds with 8192 exact full-state replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study117 -- "$RUNNER_TEMP/study117-original-capacity4-vs5-one-shot-native-heritability.sqlite"
+      - name: Independently hash-check all original 8192 epochs, cloned child code and sourced grandchild transforms
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study117.py "$RUNNER_TEMP/study117-original-capacity4-vs5-one-shot-native-heritability.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study117-original-independent-functional-capacity-gate.json"
+      - name: Preserve entire original 512 CIL worlds and per-child native code-and-storage ancestry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study117-original-native-shared-storage-heredity
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study117-original-capacity4-vs5-one-shot-native-heritability.sqlite
+            ${{ runner.temp }}/study117-original-independent-functional-capacity-gate.json
