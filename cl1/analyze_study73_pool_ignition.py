@@ -128,6 +128,20 @@ def audit(path: Path, revision: str) -> dict:
                 snapshots_count += 1
             if previous != json.loads(end_raw) or sum(attempts) != len(steps):
                 raise ValueError("original final state or attempt history differs")
+            # Native executable PC ancestry must match the fixed source code,
+            # including the zero-credit scheduler's single pool-paid Draw.
+            expected_pc = {
+                "pool-paid-draw": [0, 1, 2, 3, 4],
+                "legacy-zero-credit-draw": [0],
+                "pool-paid-non-draw": [0],
+                "pool-paid-empty-pool": [0],
+                "pool-paid-insufficient-pool": [0, 1],
+                "pool-paid-stopped-draw": [],
+            }[name]
+            if [e["pc"] for e in steps] != expected_pc:
+                raise ValueError("native CIL sequence was not the frozen original program")
+            if any(e.get("pool_paid_attempt", False) for e in steps if e["pc"] != 1):
+                raise ValueError("non-Draw code improperly accessed pooled ignition")
             writes = [e for e in steps if kind(e) == "CellWritten"]
             traps = [e for e in steps if kind(e) == "Trapped"]
             fees = [e for e in steps if e.get("pool_paid_attempt", False)]
