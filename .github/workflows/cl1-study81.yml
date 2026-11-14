@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 jobs:
   original-native-edit-ecology:
@@ -49,3 +50,20 @@ jobs:
           path: |
             ${{ runner.temp }}/cl1-study81-original-native-edits.sqlite
             ${{ runner.temp }}/cl1-study81-independent-audit.json
+      - name: Publish verifiable Study81 pass/fail status to the exact source commit
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_CONCLUSION: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ "$JOB_CONCLUSION" = success ]; then
+            result=success
+          else
+            result=failure
+          fi
+          gh api -X POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$result" \
+            -f context="cl1/study81-prospective-native-edits" \
+            -f description="128 seeded code genomes, 512 matched worlds: CI $result" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
