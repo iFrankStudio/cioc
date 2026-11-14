@@ -154,7 +154,9 @@ fn prefork_world(seed: u64) -> World {
 /// This policy is **external** environmental access, not native CIL or repair.
 fn eligible_pool_access(world: &World) -> Option<(u64, u64)> {
     if (1..=3).any(|id| {
-        world.process(id).is_some_and(|p| !p.stopped && p.credits > 0)
+        world
+            .process(id)
+            .is_some_and(|p| !p.stopped && p.credits > 0)
     }) {
         return None;
     }
@@ -167,8 +169,12 @@ fn eligible_pool_access(world: &World) -> Option<(u64, u64)> {
         let Some(Op::DrawCompute { amount, .. }) = p.code.nodes.get(p.pc) else {
             continue;
         };
-        let Some(&raw) = p.registers.get(*amount) else { continue };
-        let Ok(quantity) = u64::try_from(raw) else { continue };
+        let Some(&raw) = p.registers.get(*amount) else {
+            continue;
+        };
+        let Ok(quantity) = u64::try_from(raw) else {
+            continue;
+        };
         if quantity > 0 && quantity < u64::MAX && pool >= quantity + 1 {
             return Some((id, pool));
         }
@@ -180,23 +186,44 @@ fn base_conditions(seed: u64) -> Vec<(String, bool, Vec<EpochAction>)> {
     let at = |epoch, action| EpochAction { epoch, action };
     let empty = || vec![at(0, Intervention::SetComputePool { credits: 0 })];
     let zero = || {
-        (1..=3).map(|process| at(0, Intervention::SetCredits {
-            process, credits: 0,
-        })).collect::<Vec<_>>()
+        (1..=3)
+            .map(|process| {
+                at(
+                    0,
+                    Intervention::SetCredits {
+                        process,
+                        credits: 0,
+                    },
+                )
+            })
+            .collect::<Vec<_>>()
     };
     let refill = || {
-        [8, 16].into_iter().flat_map(|epoch| {
-            (1..=3).map(move |process| at(epoch, Intervention::SetCredits {
-                process, credits: 47,
-            }))
-        }).collect::<Vec<_>>()
+        [8, 16]
+            .into_iter()
+            .flat_map(|epoch| {
+                (1..=3).map(move |process| {
+                    at(
+                        epoch,
+                        Intervention::SetCredits {
+                            process,
+                            credits: 47,
+                        },
+                    )
+                })
+            })
+            .collect::<Vec<_>>()
     };
     [
         ("control", false, vec![]),
         ("pool-access", true, vec![]),
         ("empty-pool", false, empty()),
         ("pool-access-empty-pool", true, empty()),
-        ("sham", false, vec![at(0, Intervention::DropGraph { graph: 0 })]),
+        (
+            "sham",
+            false,
+            vec![at(0, Intervention::DropGraph { graph: 0 })],
+        ),
         ("external-refill", false, refill()),
         ("pool-access-zero-credit", true, zero()),
     ]
@@ -207,9 +234,11 @@ fn base_conditions(seed: u64) -> Vec<(String, bool, Vec<EpochAction>)> {
 
 /// Predict a full state-dependent schedule without inspecting success endpoints.
 /// The ordinary lab independently replays these actions, with exact epoch hashes.
-fn make_plan(world: &World, base: &[EpochAction], policy: bool)
-    -> Result<(Vec<EpochAction>, World), Box<dyn Error>>
-{
+fn make_plan(
+    world: &World,
+    base: &[EpochAction],
+    policy: bool,
+) -> Result<(Vec<EpochAction>, World), Box<dyn Error>> {
     let mut predicted: World = serde_json::from_str(&serde_json::to_string(world)?)?;
     let mut plan = Vec::new();
     for epoch in 0..EPOCHS {
@@ -227,7 +256,8 @@ fn make_plan(world: &World, base: &[EpochAction], policy: bool)
                 let credit = EpochAction {
                     epoch,
                     action: Intervention::SetCredits {
-                        process: id, credits: 1,
+                        process: id,
+                        credits: 1,
                     },
                 };
                 predicted.intervene(debit.action.clone())?;
@@ -241,10 +271,11 @@ fn make_plan(world: &World, base: &[EpochAction], policy: bool)
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let path = env::args().nth(1)
+    let path = env::args()
+        .nth(1)
         .unwrap_or_else(|| "cl1-study37.sqlite".into());
-    let revision = env::var("CL1_SOURCE_REVISION")
-        .unwrap_or_else(|_| "unverified-local-checkout".into());
+    let revision =
+        env::var("CL1_SOURCE_REVISION").unwrap_or_else(|_| "unverified-local-checkout".into());
     let mut lab = Laboratory::open(&path)?;
     let mut total = 0_usize;
     let mut transfers = 0_usize;
@@ -292,7 +323,8 @@ mod tests {
         let mut process = Process::new(1, vec![next, Op::Halt], credits);
         process.registers[1] = 2;
         w.load(process).unwrap();
-        w.intervene(Intervention::SetComputePool { credits: pool }).unwrap();
+        w.intervene(Intervention::SetComputePool { credits: pool })
+            .unwrap();
         if stopped {
             w.intervene(Intervention::Disable { process: 1 }).unwrap();
         }
@@ -305,8 +337,17 @@ mod tests {
         let before = w.total_compute_inventory().unwrap();
         let (plan, after) = make_plan(&w, &[], true).unwrap();
         assert_eq!(plan.len(), 2);
-        assert!(matches!(plan[0].action, Intervention::SetComputePool { credits: 6 }));
-        assert!(matches!(plan[1].action, Intervention::SetCredits { process: 1, credits: 1 }));
+        assert!(matches!(
+            plan[0].action,
+            Intervention::SetComputePool { credits: 6 }
+        ));
+        assert!(matches!(
+            plan[1].action,
+            Intervention::SetCredits {
+                process: 1,
+                credits: 1
+            }
+        ));
         assert_eq!(after.total_compute_inventory(), Some(before - 2));
         assert_eq!(after.available_compute_pool(), 4);
         assert_eq!(after.process(1).unwrap().credits, 1);
@@ -316,17 +357,37 @@ mod tests {
     #[test]
     fn no_action_if_runnable_stopped_insufficient_pool_or_wrong_opcode() {
         assert!(eligible_pool_access(&fixture(
-            Op::DrawCompute { amount: 1, next: 1 }, 2, 12, false
-        )).is_none());
+            Op::DrawCompute { amount: 1, next: 1 },
+            2,
+            12,
+            false
+        ))
+        .is_none());
         assert!(eligible_pool_access(&fixture(
-            Op::DrawCompute { amount: 1, next: 1 }, 0, 12, true
-        )).is_none());
+            Op::DrawCompute { amount: 1, next: 1 },
+            0,
+            12,
+            true
+        ))
+        .is_none());
         assert!(eligible_pool_access(&fixture(
-            Op::DrawCompute { amount: 1, next: 1 }, 0, 2, false
-        )).is_none());
+            Op::DrawCompute { amount: 1, next: 1 },
+            0,
+            2,
+            false
+        ))
+        .is_none());
         assert!(eligible_pool_access(&fixture(
-            Op::Const { dst: 0, value: 3, next: 1 }, 0, 12, false
-        )).is_none());
+            Op::Const {
+                dst: 0,
+                value: 3,
+                next: 1
+            },
+            0,
+            12,
+            false
+        ))
+        .is_none());
     }
 
     #[test]
