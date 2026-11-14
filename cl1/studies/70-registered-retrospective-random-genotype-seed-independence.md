@@ -1,0 +1,28 @@
+# CL-1 Study70 — registered post-result audit of stochastic CIL genotype uniqueness and seed-cohort dependence
+
+**RETROSPECTIVE and integrity-focused; ZERO new native worlds.** Stage68 prospectively observed W2+W3 genuine source-tainted feedback in broad 79/256 versus short0/256 from random executable graphs with no prewired tail. Stage69 registered independent seed numbers and exactly replicated code/endpoint, observing broad81/256 versus short0/256. The source CIL generator uses a 64-bit wrapping linear congruential random recurrence with `random(state)%6`, with 256 sequential seeds in each cohort separated by100,000. The first archived affirmative witnesses at matching seed offset +2 share initial functional writer PC/tick, a plausible warning that changing seed numbers does **not automatically imply independent stochastic code genotypes**. This post-result audit freezes uniqueness/dependence diagnostics **before inspecting full initial program collision patterns**. No retrospective metric can turn into a prospective life result.
+
+## Original immutable source-pinned input
+
+Original successful full source/auditor SQLite archives ONLY:
+- Stage68 Actions [43569268106](https://github.com/iFrankStudio/cioc/actions/runs/43569268106), artifact `cl1-study68-stochastic-source-feedback` ID14104235307, executed source `49a74113de513b32984f3656733087e9ae3a8b74`, frozen seeds4,500,000..4,500,255.
+- Stage69 Actions [43569769695](https://github.com/iFrankStudio/cioc/actions/runs/43569769695), artifact `cl1-study69-stochastic-source-feedback` ID14103762556, executed source `f06e71294c055e4ebff6bf543a5f0f324e3718a6`, frozen seeds4,600,000..4,600,255.
+- **512 original seed labels reused, ZERO newly sampled genomes, 4,096 original matched runs and 98,304 original SHA256 epoch snapshots**. Before new diagnostics, run both independent original `analyze_study68.audit` and `analyze_study69.audit` on read-only archived SQLite with their source revisions, the original exact program grammar and all 98,304 native event state hashes, original primary 79/256 versus0 and81/256 versus0. Do not rerun, alter or cherry-pick seeds.
+
+## Frozen duplicate and dependence metrics
+
+1. From every seed's original `broad-low` native process1 original executable `code.nodes`, canonicalize JSON with sorted keys and compact separators (do NOT include seed ID, source input cell or external hash/credits). Compute SHA256 exact full native instruction-graph fingerprints. Independently do the same for `short-low`; verify exactly one 8-arm original seed cluster and the registered broad-vs-short difference only in Branch.nonzero, with all other random opcodes, Const values, PC27 Halt and source register opcodes identical.
+2. For each cohort and combined 512 source worlds, report **unique complete genotype fingerprints, exact duplicate worlds, largest duplicate equivalence class and example collision pairs** (within Stage68, within Stage69 and across cohorts) separately for broad and short variants. Show **independent seed labels != statistically independent CIL executable genotypes** if duplicates or systematic correlations appear.
+3. Compare paired offset i=0..255 Stage68(4,500,000+i) versus Stage69(4,600,000+i) for exact full genotype identity; also report matches under deterministic negative alignment `permuted(i)=(73*i+19)%256` (73 coprime256). Report all paired offset exact duplicates and a fixed 24-node instruction-code equality count per pair (full opcode + operands) with mean/median/range, separately broad and short. Report same quantities for the deterministic permutation, explicitly labelled a **diagnostic alignment not an independence test or p-value**.
+4. Report **op-name-only** overlap/hamming at the same 24 random PCs and random Branch target overlap; flag periodicity of `random(state)%6` among adjacent numbered seeds without claiming their underlying full code equal. The small fragment of 3 initial interface constants is identical by design and must not be counted toward genotype similarity.
+5. If source genotypes collide, cross-check those collisions against the original primary feedback outcomes using **source-pinned read-only per-run event audit** before discussing effective independent positive replicates. Do not compute a post-result adjusted p-value by treating correlated seed labels as independent. Original Stage68/69 registered sample counts 79 and81 remain unchanged; any corrected independence interpretation is *an additional research limitation*, not historical data deletion.
+
+## Controls
+
+Synthetic compact identical-code/different-JSON-state sample should collide; changed Branch target must not collide. Original 8-mode within-seed code differences from Read ablation, static sensor low/high values and normalized code comparison must be accurately distinguished. Original run source revisions, CIL genotype random draws, all hashed epochs and no host runtime actions must be revalidated first.
+
+## Decision
+
+If cross-cohort or within-cohort duplicates dominate, do **not** call Stage69 an independent genotype-level statistical replication merely because seed IDs differ. A future **newly preregistered** study should use unbiased high-quality deterministic seed mixing (e.g. SplitMix64 initialization before LCG or a counter-based generator), freeze the output grammar and demonstrate genotype uniqueness **before outcome inspection**, then separately replicate broad-vs-short causal feedback. This is scientific integrity work, not new life. If genotypes are unique but correlated in opcode patterns, describe the evidence/limits and test stronger seed mixing prospectively before broad generalization.
+
+**CL-1 OPEN.**
