@@ -457,3 +457,22 @@ This result resolves a key logical boundary: separately confirmed native code-so
 Exactly **20 independently seeded ecological study cohorts**, Studies 01–14, 22, 25, 27, 29, 32–33, comprise **2,432 new seed-worlds and 14,688 matched experimental runs**. Historic replays, scripted mechanism fixtures, and post-outcome source/reg-dataflow auditors add **zero independent worlds**. Do not pool heterogeneous grammars or the nine paired Study33 branches as separate replicates.
 
 **CL-1 scientific status: OPEN.** The next step must preserve the difference between an observer-verified source-dependent native operation, a renewable source of execution credits, and a causally necessary self-reconstructing multi-component function that persists after real damage.
+
+
+## Study 34–36 source-register correction, prospective replication and resource-access diagnosis
+
+### Study 34 (retrospective; zero new worlds)
+
+Study34 corrected a **false static impossibility** statement from an early auditor: `GraphReadTag.graph` and `.node` are **register indexes** in the Rust VM, not fixed graph-object IDs. The original Study33 native events do contain resolved graph2/node0 owner2 reads by process1 in **25/128** untreated worlds; **3/128** produce a source-tainted address Write outside Study33's frozen target address. Retrospective source tag11→19 perturbation changed addresses 12→20 or 22→30 in those three worlds. The strict Study33 exact-address endpoint **remains 0/128**. [Full correction](results/study34-replayed-native-register-lineage.md); [CI 43546238925](https://github.com/iFrankStudio/cioc/actions/runs/43546238925).
+
+### Study 35 (prospective independent new seeds)
+
+A **separately preregistered** 192-new-world replication, frozen before its runner, verified one paired native source-conditioned output address shift in **1/192** (seed 2,700,001, epoch3, process1 cell22→30 and identical written value1), Wilson 95% interval **[0.000920, 0.028907]**. This is a rare *source-conditioned output address* phenomenon, **not** a persistent endogenous phenotype. No same-epoch Draw-and-source-write or post-original-budget matched positive witness emerged. W3 untreated native activity remains 0/192. The externally changed source graph and researcher-endowed code/compute are not endogenous. [Full prospectively verified result](results/study35-prospective-source-shift-result.md); [CI 43546825859](https://github.com/iFrankStudio/cioc/actions/runs/43546825859).
+
+### Study 36 (retrospective mechanical theorem; zero new worlds)
+
+Independent audit of the **unaltered Study35 SQLite archive** verified 41,472 SHA256 snapshots and the one-credit-per-native-attempt conservation identity. All **192/192** untreated worlds have **no runnable process** at W3 entry despite **192/192 retaining positive total compute inventory** (median 102.5 credits). Exactly **138/192** have a positive world pool plus at least one unstopped but zero-credit actor, a real ignition deadlock: an actor cannot execute native `DrawCompute` unless the scheduler first selects it, and selection requires positive actor credits. Another 33/192 have positive pool but all processes stopped. External per-process refills restore W3 execution in 139/192, which is a *host subsidy*, not autonomous computation. [Detailed audit](results/study36-compute-ignition-deadlock.md); [CI 43547650082](https://github.com/iFrankStudio/cioc/actions/runs/43547650082).
+
+**Updated independent cohort accounting:** **21** independent ecological cohorts, **2,624** unique initial seed-worlds and **16,416** matched experimental runs through Study35. Studies34 and36 reuse historical samples and add **0** new independent worlds. Do **not** pool the retrospective 3/128 and prospective 1/192 as one preregistered experiment.
+
+**Current CL-1 status: OPEN.** The central resource bottleneck is twofold: (i) total native compute credit inventory in an isolated closed world falls exactly one unit per attempted instruction, preventing indefinitely open-ended execution without an environmental input; and (ii) even finite credits may be inaccessible to all runnable agents because the scheduler requires a positive actor balance to execute any instruction, including a request to draw available world-pool credits. Future experiments should prospectively isolate general environmental resource access and distinguish environment-supplied compute, native resource uptake, self-initiated repair and true organizational closure.
