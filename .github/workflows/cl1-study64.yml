@@ -1,0 +1,69 @@
+name: CL-1 Study64 stochastic native feedback composition and topology
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study64.rs'
+      - 'cl1/analyze_study64.py'
+      - 'cl1/tests/test_study64.py'
+      - '.github/workflows/cl1-study64.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study64:
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce prospective registration and independent Study63 feasibility
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/64-preregistered-stochastic-feedback-composition-topology.md
+          test -s ../cl1/studies/63-preregistered-native-feedback-resource-feasibility.md
+      - name: Rust strict compilation, native world tests and exactly two causal source-taint calibrations
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study64.py' -v
+      - name: Generate 128 independent random CIL genomes across eight frozen sensor/topology/read controls
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study64 -- "$RUNNER_TEMP/cl1-study64-feedback-ecology.sqlite"
+      - name: Independently reconstruct all 1024 original programs, native causal Read-Write pairs and 24576 SHA256 snapshots
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study64.py "$RUNNER_TEMP/cl1-study64-feedback-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study64-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study64-report.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "study":d["study"],
+            "independent_genomes":d["original_independent_genomes"],
+            "hashed_original_snapshots":d["SHA256_verified_epoch_snapshots"],
+            "preregistered_primary":d["registered_primary_recurrent_source_sensitive_W2_and_W3"],
+            "life_claim":d["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive both original native data and full independent causal feedback audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study64-stochastic-source-feedback
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study64-feedback-ecology.sqlite
+            ${{ runner.temp }}/cl1-study64-report.json
