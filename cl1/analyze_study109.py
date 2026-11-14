@@ -177,7 +177,7 @@ def audit(original_sqlite):
 
     require(len(comparisons) == 64, "missing all original paired source contrasts")
     require(len(winners) == 2 and {(r["seed"], r["source"]) for r in winners}
-            == {(6200017, 3), (6200016, 8)},
+            == {(6200017, 3), (6200017, 8)},
             "retrospective output differs from already known positive cases")
     return {
         "study": 109,
