@@ -264,7 +264,9 @@ fn make_plan(
         }
         if ambient && epoch >= 1 {
             let before = predicted.available_compute_pool();
-            let after = before.checked_add(8).ok_or("ambient compute pool overflow")?;
+            let after = before
+                .checked_add(8)
+                .ok_or("ambient compute pool overflow")?;
             let input = EpochAction {
                 epoch,
                 action: Intervention::SetComputePool { credits: after },
@@ -319,7 +321,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
         for (run, expected) in runs.into_iter().zip(predicted) {
             if run.world != expected {
-                return Err(format!("predicted world differs from native replay: {}", run.label).into());
+                return Err(
+                    format!("predicted world differs from native replay: {}", run.label).into(),
+                );
             }
             if !lab.verify_epoch_replay(run.id)? {
                 return Err(format!("full epoch replay failed for {}", run.label).into());
