@@ -1,0 +1,29 @@
+name: CL-1 Study101 finite native self-replicator compute competition
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study101_finite_pool_competition.rs'
+      - 'cl1/studies/101-preregistered-founder-variant-finite-pool-competition.md'
+      - '.github/workflows/cl1-study101.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-standing-variant-competition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify precommitted ten-world scripted mechanism contract
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/101-preregistered-founder-variant-finite-pool-competition.md
+      - name: Execute complete finite-pool native F/S founder competition and print all outcomes
+        run: cargo test --locked -p cl0-world --test study101_finite_pool_competition -- --nocapture
