@@ -99,10 +99,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             .filter(|e| {
                 e.process > 1
                     && e.origin == Origin::Internal(e.process)
-                    && matches!(
-                        e.kind,
-                        EventKind::CellWritten { key: 0, value: 0 }
-                    )
+                    && matches!(e.kind, EventKind::CellWritten { key: 0, value: 0 })
             })
             .count();
         let child_launches = run
