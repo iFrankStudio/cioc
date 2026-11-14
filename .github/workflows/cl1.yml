@@ -66,7 +66,2133 @@ jobs:
             full=true
           else
             changes="$(git diff --name-only "$BEFORE" "$GITHUB_SHA")"
-            if grep -Eq '^(cl0/(Cargo\.(toml|lock)|crates/[^/]+/Cargo\.toml|crates/[^/]+/src/lib\.rs)|cl1/(analyze\.py|analyze_study(02|14|22)\.py)) <<<"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+            if grep -Eq '^(cl0/(Cargo\.(toml|lock)|crates/[^/]+/Cargo\.toml|crates/[^/]+/src/lib\.rs)|cl1/(analyze\.py|analyze_study(02|14|22)\.py))"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+              full=true
+            fi
+            if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
+              quick=true
+            fi
+          fi
+          if [[ "$full" == true ]]; then
+            quick=true
+            for id in "${ids[@]}"; do selected+="$id|"; done
+          else
+            for id in "${ids[@]}"; do
+              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\.rs$|^cl1/(analyze_$id\\.py|tests/test_$id\\.py)$" <<<"$changes"; then
+                selected+="$id|"
+              fi
+            done
+          fi
+          echo "selected=$selected" >> "$GITHUB_OUTPUT"
+          echo "quick=$quick" >> "$GITHUB_OUTPUT"
+          echo "Selected study jobs: $selected; quick: $quick"
+
+  quick:
+    needs: select
+    if: needs.select.outputs.quick == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fast Rust and Python checks
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+
+  study01:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study01|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen preregistration
+        run: test -f ../cl1/studies/01-preregistered-random-ecology.md
+      - name: Rust formatting, unit tests, strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Study 01 64-seed 320-run experiment with exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study01 -- "$RUNNER_TEMP/cl1-study01.sqlite"
+      - name: Independent CL-1 analysis and integrity checks
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze.py "$RUNNER_TEMP/cl1-study01.sqlite" --json "$RUNNER_TEMP/cl1-study01-report.json"
+          cat "$RUNNER_TEMP/cl1-study01-report.json"
+      - name: Archive study evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study01
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study01.sqlite
+            ${{ runner.temp }}/cl1-study01-report.json
+
+  study02:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study02|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Study-02 preregistration is available
+        run: test -f ../cl1/studies/02-preregistered-reciprocal-causality.md
+      - name: Verify all Rust formatting, tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 128 independent seeds, six matched conditions each, all replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study02 -- "$RUNNER_TEMP/cl1-study02.sqlite"
+      - name: Audit 128 independent units and reciprocal sensitivity
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study02.py "$RUNNER_TEMP/cl1-study02.sqlite" --json "$RUNNER_TEMP/cl1-study02-report.json"
+          cat "$RUNNER_TEMP/cl1-study02-report.json"
+      - name: Archive Study-02 SQLite and read-only statistics
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study02
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study02.sqlite
+            ${{ runner.temp }}/cl1-study02-report.json
+
+  study03:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study03|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Study-03 preregistration exists
+        run: test -f ../cl1/studies/03-preregistered-code-recovery.md
+      - name: Rust formatting, tests and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 128-seed targeted damage and host-restoration control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study03 -- "$RUNNER_TEMP/cl1-study03.sqlite"
+      - name: Independent restoration provenance audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study03.py "$RUNNER_TEMP/cl1-study03.sqlite" --json "$RUNNER_TEMP/cl1-study03-report.json"
+          cat "$RUNNER_TEMP/cl1-study03-report.json"
+      - name: Archive Study-03 SQLite and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study03
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study03.sqlite
+            ${{ runner.temp }}/cl1-study03-report.json
+
+  study04:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study04|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fourth study preregistration
+        run: test -f ../cl1/studies/04-preregistered-open-compute.md
+      - name: Verify formatting, Rust tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute matched 128-seed open-compute ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study04 -- "$RUNNER_TEMP/cl1-study04.sqlite"
+      - name: Independent open-compute audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study04.py "$RUNNER_TEMP/cl1-study04.sqlite" --json "$RUNNER_TEMP/cl1-study04-report.json"
+          cat "$RUNNER_TEMP/cl1-study04-report.json"
+      - name: Archive Study-04 SQLite and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study04
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study04.sqlite
+            ${{ runner.temp }}/cl1-study04-report.json
+
+  study05:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study05|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify precommitted independent epoch protocol
+        run: test -f ../cl1/studies/05-preregistered-exogenous-epochs.md
+      - name: Verify Rust formatting, unit tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run environment epoch experiment with full epoch replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study05 -- "$RUNNER_TEMP/cl1-study05.sqlite"
+      - name: Independent environment observer and controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study05.py "$RUNNER_TEMP/cl1-study05.sqlite" --json "$RUNNER_TEMP/cl1-study05-report.json"
+          cat "$RUNNER_TEMP/cl1-study05-report.json"
+      - name: Archive environmental snapshots and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study05
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study05.sqlite
+            ${{ runner.temp }}/cl1-study05-report.json
+
+  study06:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study06|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior research registration
+        run: test -f ../cl1/studies/06-preregistered-internal-graph-ablation.md
+      - name: Rust test and strict format/lint checks
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute seed-prefork graph-object ablations
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study06 -- "$RUNNER_TEMP/cl1-study06.sqlite"
+      - name: Independent graph ablation controls and analysis
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study06.py "$RUNNER_TEMP/cl1-study06.sqlite" --json "$RUNNER_TEMP/cl1-study06-report.json"
+          cat "$RUNNER_TEMP/cl1-study06-report.json"
+      - name: Archive graph ablation and complete epoch snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study06
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study06.sqlite
+            ${{ runner.temp }}/cl1-study06-report.json
+
+  study07:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study07|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Study-07 protocol was preregistered
+        run: test -f ../cl1/studies/07-preregistered-cross-owner-information.md
+      - name: Rust format, tests and strict Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute independently initialized cross-object ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study07 -- "$RUNNER_TEMP/cl1-study07.sqlite"
+      - name: Analyze cross-owner causal sensitivity and matched controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study07.py "$RUNNER_TEMP/cl1-study07.sqlite" --json "$RUNNER_TEMP/cl1-study07-report.json"
+          cat "$RUNNER_TEMP/cl1-study07-report.json"
+      - name: Archive raw Study-07 state and analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study07
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study07.sqlite
+            ${{ runner.temp }}/cl1-study07-report.json
+
+  study08:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study08|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior structured provenance preregistration
+        run: test -f ../cl1/studies/08-preregistered-instruction-provenance.md
+      - name: Rust format, workspace tests and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute new 128-seed information-provenance cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study08 -- "$RUNNER_TEMP/cl1-study08.sqlite"
+      - name: Check successful interowner exchange with independent Python audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study08.py "$RUNNER_TEMP/cl1-study08.sqlite" --json "$RUNNER_TEMP/cl1-study08-report.json"
+          cat "$RUNNER_TEMP/cl1-study08-report.json"
+      - name: Archive immutable provenance cohort
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study08
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study08.sqlite
+            ${{ runner.temp }}/cl1-study08-report.json
+
+  study09:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study09|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Study-09 permission-reachable preregistration
+        run: test -f ../cl1/studies/09-preregistered-permission-ecology.md
+      - name: Verify committed Rust format, tests and strict Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute 128-seed permission-enabled general information ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study09 -- "$RUNNER_TEMP/cl1-study09.sqlite"
+      - name: Independent exact-provenance and causal outcome analysis
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study09.py "$RUNNER_TEMP/cl1-study09.sqlite" --json "$RUNNER_TEMP/cl1-study09-report.json"
+          cat "$RUNNER_TEMP/cl1-study09-report.json"
+      - name: Archive permissions-enabled experiment with all snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study09
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study09.sqlite
+            ${{ runner.temp }}/cl1-study09-report.json
+
+  study10:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study10|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered neutral opportunity protocol
+        run: test -f ../cl1/studies/10-preregistered-neutral-opportunity.md
+      - name: Check Rust formatting, tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 64 independently seeded neutral opportunity worlds
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study10 -- "$RUNNER_TEMP/cl1-study10.sqlite"
+      - name: Independent source-aware scientific audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study10.py "$RUNNER_TEMP/cl1-study10.sqlite" --json "$RUNNER_TEMP/cl1-study10-report.json"
+          cat "$RUNNER_TEMP/cl1-study10-report.json"
+      - name: Archive Study 10 matched worlds and snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study10
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study10.sqlite
+            ${{ runner.temp }}/cl1-study10-report.json
+
+  study11:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study11|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen random-continuation protocol
+        run: test -f ../cl1/studies/11-preregistered-postscaffold-ecology.md
+      - name: Validate Rust formatting, all tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 96 new independent graph-interaction seed worlds
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study11 -- "$RUNNER_TEMP/cl1-study11.sqlite"
+      - name: Independently audit randomized CIL execution and matched controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study11.py "$RUNNER_TEMP/cl1-study11.sqlite" --json "$RUNNER_TEMP/cl1-study11-report.json"
+          cat "$RUNNER_TEMP/cl1-study11-report.json"
+      - name: Archive Study 11 initial/final matched worlds and epoch snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study11
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study11.sqlite
+            ${{ runner.temp }}/cl1-study11-report.json
+
+  study12:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study12|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify preregistration of source attribution
+        run: test -f ../cl1/studies/12-preregistered-graph-lineage.md
+      - name: Rust workspace test, format and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute fresh postscaffold lineage world cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study12 -- "$RUNNER_TEMP/cl1-study12.sqlite"
+      - name: Independently audit event provenance and matched null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study12.py "$RUNNER_TEMP/cl1-study12.sqlite" --json "$RUNNER_TEMP/cl1-study12-report.json"
+          cat "$RUNNER_TEMP/cl1-study12-report.json"
+      - name: Archive Study-12 sqlite and lineage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study12
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study12.sqlite
+            ${{ runner.temp }}/cl1-study12-report.json
+
+  study13:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study13|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify earlier Study 13 preregistration
+        run: test -f ../cl1/studies/13-preregistered-reciprocal-information-flow.md
+      - name: Verify format, workspace tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute 96-seed two-window graph ablation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study13 -- "$RUNNER_TEMP/cl1-study13.sqlite"
+      - name: Independent reciprocal-flow analysis and all null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study13.py "$RUNNER_TEMP/cl1-study13.sqlite" --json "$RUNNER_TEMP/cl1-study13-report.json"
+          cat "$RUNNER_TEMP/cl1-study13-report.json"
+      - name: Archive raw Study 13 experiments and findings
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study13
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study13.sqlite
+            ${{ runner.temp }}/cl1-study13-report.json
+
+  study14:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study14|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study-14 preregistration
+        run: test -f ../cl1/studies/14-preregistered-functional-restoration-gate.md
+      - name: Rust format, workspace tests, strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute prospective 96-seed 24-epoch feasibility cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study14 -- "$RUNNER_TEMP/cl1-study14.sqlite"
+      - name: Independently audit exposures, sham, zero-credit and snapshot integrity
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study14.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study14-report.json"
+          cat "$RUNNER_TEMP/cl1-study14-report.json"
+      - name: Study 18 retrospective lineage audit (NOT a new ecological study)
+        run: |
+          test -f ../cl1/studies/18-preregistered-functional-lineage-audit.md
+          python3 ../cl1/analyze_study18.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study18-calibration.json"
+          cat "$RUNNER_TEMP/cl1-study18-calibration.json"
+      - name: Archive raw Study 14 records and read-only report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study14
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study14.sqlite
+            ${{ runner.temp }}/cl1-study14-report.json
+            ${{ runner.temp }}/cl1-study18-calibration.json
+
+  study20:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study20|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen Study-20 mechanism preregistration
+        run: test -f ../cl1/studies/20-preregistered-functional-assay-calibration.md
+      - name: Run precommitted nine-arm two-graph function control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study20 -- "$RUNNER_TEMP/cl1-study20.sqlite"
+      - name: Independently audit source content, external interventions and full snapshot data
+        run: |
+          python3 ../cl1/analyze_study20.py "$RUNNER_TEMP/cl1-study20.sqlite" --json "$RUNNER_TEMP/cl1-study20-report.json"
+          cat "$RUNNER_TEMP/cl1-study20-report.json"
+      - name: Archive Study-20 mechanism control
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study20
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study20.sqlite
+            ${{ runner.temp }}/cl1-study20-report.json
+
+  study21:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study21|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study-21 temporal preregistration
+        run: test -f ../cl1/studies/21-preregistered-temporal-restoration-calibration.md
+      - name: Execute eleven-arm three-epoch time-separated functional assay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study21 -- "$RUNNER_TEMP/cl1-study21.sqlite"
+      - name: Independently audit observed loss, later external restoration and exact snapshot hashes
+        run: |
+          python3 ../cl1/analyze_study21.py "$RUNNER_TEMP/cl1-study21.sqlite" --json "$RUNNER_TEMP/cl1-study21-report.json"
+          cat "$RUNNER_TEMP/cl1-study21-report.json"
+      - name: Archive source-pinned Study-21 calibration
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study21
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study21.sqlite
+            ${{ runner.temp }}/cl1-study21-report.json
+
+  study22:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study22|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen independent-seed Study-22 preregistration
+        run: test -f ../cl1/studies/22-preregistered-compute-limitation-ecology.md
+      - name: Strict Rust format, tests, Clippy and independent Python unit tests
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run 96 independent CIL worlds and 768 matched experiments with full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study22 -- "$RUNNER_TEMP/cl1-study22.sqlite"
+      - name: Independently audit resource intervention, match integrity and three windows
+        run: |
+          python3 ../cl1/analyze_study22.py "$RUNNER_TEMP/cl1-study22.sqlite" --json "$RUNNER_TEMP/cl1-study22-report.json"
+          cat "$RUNNER_TEMP/cl1-study22-report.json"
+      - name: Archive raw fresh-seed ecology and independent null-capable audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study22
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study22.sqlite
+            ${{ runner.temp }}/cl1-study22-report.json
+
+  study24:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study24|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require Study-24 frozen audit preregistration
+        run: test -f ../cl1/studies/24-preregistered-foreign-graph-read-output-audit.md
+      - name: Verify source-pinned Rust and independent Python fixture controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Exact rerun of historical 96-seed Study-22 ecology under graph-read instrumentation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study22 -- "$RUNNER_TEMP/cl1-study24-rerun.sqlite"
+      - name: Independently audit frozen Study-22 controls and all Study-24 source-read exposures
+        run: |
+          python3 ../cl1/analyze_study22.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-baseline-report.json"
+          python3 ../cl1/analyze_study24.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-report.json"
+          cat "$RUNNER_TEMP/cl1-study24-report.json"
+      - name: Archive exact provenance and independent read-only reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study24
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study24-rerun.sqlite
+            ${{ runner.temp }}/cl1-study24-baseline-report.json
+            ${{ runner.temp }}/cl1-study24-report.json
+
+  study25:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study25|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require prospective preregistration before new seed experiment
+        run: test -f ../cl1/studies/25-preregistered-prospective-code-content-causality.md
+      - name: Verify Rust and Python code under source revision
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run 96 new worlds and 864 matched perturbation controls with exact epoch replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study25 -- "$RUNNER_TEMP/cl1-study25.sqlite"
+      - name: Independent SQLite source-code-read and output-causality audit
+        run: |
+          python3 ../cl1/analyze_study25.py "$RUNNER_TEMP/cl1-study25.sqlite" --json "$RUNNER_TEMP/cl1-study25-report.json"
+          cat "$RUNNER_TEMP/cl1-study25-report.json"
+      - name: Archive raw matched runs and independent audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study25
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study25.sqlite
+            ${{ runner.temp }}/cl1-study25-report.json
+
+  study26:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study26|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify explicitly post-outcome exploratory registration
+        run: test -f ../cl1/studies/26-preregistered-retrospective-dropout-audit.md
+      - name: Rerun original Study-25 matched worlds with unchanged interventions and exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study25 -- "$RUNNER_TEMP/cl1-study26-rerun.sqlite"
+      - name: Confirm original Study-25 outcome before classifying previously known dropouts
+        run: |
+          python3 ../cl1/analyze_study25.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-baseline.json"
+          python3 ../cl1/analyze_study26.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-report.json"
+          cat "$RUNNER_TEMP/cl1-study26-report.json"
+      - name: Archive matched exploratory mechanism cases and source-pinned SQLite
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study26
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study26-rerun.sqlite
+            ${{ runner.temp }}/cl1-study26-baseline.json
+            ${{ runner.temp }}/cl1-study26-report.json
+
+  study27:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study27|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert prospective replication preregistration
+        run: test -f ../cl1/studies/27-preregistered-graph-tag-address-relocation.md
+      - name: Exact source-pinned workspace and synthetic mechanism gate
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 independent prospective worlds and exact SQLite epoch replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study27.sqlite"
+      - name: Independently audit genuine paired changed-source output-address witnesses
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study27.sqlite" --json "$RUNNER_TEMP/cl1-study27-report.json"
+          cat "$RUNNER_TEMP/cl1-study27-report.json"
+      - name: Archive source-verified replicated ecology and nulls
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study27
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study27.sqlite
+            ${{ runner.temp }}/cl1-study27-report.json
+
+  study28:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study28|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicitly post-result preregistration
+        run: test -f ../cl1/studies/28-registered-retrospective-second-component-audit.md
+      - name: Repeat unchanged Study27 world cohort and exact SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study28-rerun.sqlite"
+      - name: Run original Study27 scientific audit before graph1 counterfactual classification
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-baseline.json"
+          python3 ../cl1/analyze_study28.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-report.json"
+          cat "$RUNNER_TEMP/cl1-study28-report.json"
+      - name: Archive exact matched program events and retrospective second-source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study28
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study28-rerun.sqlite
+            ${{ runner.temp }}/cl1-study28-baseline.json
+            ${{ runner.temp }}/cl1-study28-report.json
+
+  study29:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study29|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen prospective independent-seed dual-source protocol
+        run: test -f ../cl1/studies/29-preregistered-independent-dual-source-arithmetic.md
+      - name: Validate exact Rust source grammar and native synthetic auditor controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 256 new independent stochastic worlds and full SQLite replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study29.sqlite"
+      - name: Independently verify two owner-tag reads and all four output-address edits
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study29.sqlite" --json "$RUNNER_TEMP/cl1-study29-report.json"
+          cat "$RUNNER_TEMP/cl1-study29-report.json"
+      - name: Archive source-pinned randomized dual-source ecology and independent audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study29
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study29.sqlite
+            ${{ runner.temp }}/cl1-study29-report.json
+
+  study30:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study30|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicit post-result exploratory protocol
+        run: test -f ../cl1/studies/30-registered-retrospective-dual-source-pipeline.md
+      - name: Rerun exact Study29 independent ecology without change of seeds or generator
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study30-rerun.sqlite"
+      - name: Verify baseline 0/256 and independently audit source read, Add and Write exposure stages
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-baseline.json"
+          python3 ../cl1/analyze_study30.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-report.json"
+          cat "$RUNNER_TEMP/cl1-study30-report.json"
+      - name: Archive known-negative-stage diagnosis and full original event snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study30
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study30-rerun.sqlite
+            ${{ runner.temp }}/cl1-study30-baseline.json
+            ${{ runner.temp }}/cl1-study30-report.json
+
+  study31:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study31|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered post-result native register-lineage protocol
+        run: test -f ../cl1/studies/31-registered-retrospective-register-lineage.md
+      - name: Repeat exact known Study27 world corpus with native SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study31-rerun.sqlite"
+      - name: Independently audit the original study before testing register value lineage
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-baseline.json"
+          python3 ../cl1/analyze_study31.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-report.json"
+          cat "$RUNNER_TEMP/cl1-study31-report.json"
+      - name: Archive immutable paired native events and def-use report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study31
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study31-rerun.sqlite
+            ${{ runner.temp }}/cl1-study31-baseline.json
+            ${{ runner.temp }}/cl1-study31-report.json
+
+  study32:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study32|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm new independent native resource study was preregistered
+        run: test -f ../cl1/studies/32-preregistered-native-compute-pool-uptake.md
+      - name: Check strict Rust workspace and independent Python protocol controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 new CIL resource worlds with source-pinned full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study32 -- "$RUNNER_TEMP/cl1-study32.sqlite"
+      - name: Independently reconstruct each resource-pool transition and audit all 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study32.py "$RUNNER_TEMP/cl1-study32.sqlite" --json "$RUNNER_TEMP/cl1-study32-report.json"
+          cat "$RUNNER_TEMP/cl1-study32-report.json"
+      - name: Archive entire externally-controlled native resource ecology and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study32
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study32.sqlite
+            ${{ runner.temp }}/cl1-study32-report.json
+
+  study33:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study33|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen new-seed source-function and resource preregistration
+        run: test -f ../cl1/studies/33-preregistered-resource-linked-source-function.md
+      - name: Validate workspace Rust, strict lint and independently specified negative mechanisms
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 128 new worlds, nine matched source/resource arms and full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study33 -- "$RUNNER_TEMP/cl1-study33.sqlite"
+      - name: Independently audit graph2 register lineage, pool ledger, joint function and 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study33.py "$RUNNER_TEMP/cl1-study33.sqlite" --json "$RUNNER_TEMP/cl1-study33-report.json"
+          cat "$RUNNER_TEMP/cl1-study33-report.json"
+      - name: Preserve raw source-pinned paired worlds and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study33
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study33.sqlite
+            ${{ runner.temp }}/cl1-study33-report.json
+ <<<"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
+              full=true
+            fi
+            if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
+              quick=true
+            fi
+          fi
+          if [[ "$full" == true ]]; then
+            quick=true
+            for id in "${ids[@]}"; do selected+="$id|"; done
+          else
+            for id in "${ids[@]}"; do
+              if grep -Eq "^cl0/crates/lab/src/bin/cl1-$id\\.rs$|^cl1/(analyze_$id\\.py|tests/test_$id\\.py)$" <<<"$changes"; then
+                selected+="$id|"
+              fi
+            done
+          fi
+          echo "selected=$selected" >> "$GITHUB_OUTPUT"
+          echo "quick=$quick" >> "$GITHUB_OUTPUT"
+          echo "Selected study jobs: $selected; quick: $quick"
+
+  quick:
+    needs: select
+    if: needs.select.outputs.quick == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fast Rust and Python checks
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+
+  study01:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study01|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen preregistration
+        run: test -f ../cl1/studies/01-preregistered-random-ecology.md
+      - name: Rust formatting, unit tests, strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Study 01 64-seed 320-run experiment with exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study01 -- "$RUNNER_TEMP/cl1-study01.sqlite"
+      - name: Independent CL-1 analysis and integrity checks
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze.py "$RUNNER_TEMP/cl1-study01.sqlite" --json "$RUNNER_TEMP/cl1-study01-report.json"
+          cat "$RUNNER_TEMP/cl1-study01-report.json"
+      - name: Archive study evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study01
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study01.sqlite
+            ${{ runner.temp }}/cl1-study01-report.json
+
+  study02:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study02|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Study-02 preregistration is available
+        run: test -f ../cl1/studies/02-preregistered-reciprocal-causality.md
+      - name: Verify all Rust formatting, tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 128 independent seeds, six matched conditions each, all replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study02 -- "$RUNNER_TEMP/cl1-study02.sqlite"
+      - name: Audit 128 independent units and reciprocal sensitivity
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study02.py "$RUNNER_TEMP/cl1-study02.sqlite" --json "$RUNNER_TEMP/cl1-study02-report.json"
+          cat "$RUNNER_TEMP/cl1-study02-report.json"
+      - name: Archive Study-02 SQLite and read-only statistics
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study02
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study02.sqlite
+            ${{ runner.temp }}/cl1-study02-report.json
+
+  study03:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study03|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Study-03 preregistration exists
+        run: test -f ../cl1/studies/03-preregistered-code-recovery.md
+      - name: Rust formatting, tests and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 128-seed targeted damage and host-restoration control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study03 -- "$RUNNER_TEMP/cl1-study03.sqlite"
+      - name: Independent restoration provenance audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study03.py "$RUNNER_TEMP/cl1-study03.sqlite" --json "$RUNNER_TEMP/cl1-study03-report.json"
+          cat "$RUNNER_TEMP/cl1-study03-report.json"
+      - name: Archive Study-03 SQLite and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study03
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study03.sqlite
+            ${{ runner.temp }}/cl1-study03-report.json
+
+  study04:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study04|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fourth study preregistration
+        run: test -f ../cl1/studies/04-preregistered-open-compute.md
+      - name: Verify formatting, Rust tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute matched 128-seed open-compute ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study04 -- "$RUNNER_TEMP/cl1-study04.sqlite"
+      - name: Independent open-compute audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study04.py "$RUNNER_TEMP/cl1-study04.sqlite" --json "$RUNNER_TEMP/cl1-study04-report.json"
+          cat "$RUNNER_TEMP/cl1-study04-report.json"
+      - name: Archive Study-04 SQLite and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study04
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study04.sqlite
+            ${{ runner.temp }}/cl1-study04-report.json
+
+  study05:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study05|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify precommitted independent epoch protocol
+        run: test -f ../cl1/studies/05-preregistered-exogenous-epochs.md
+      - name: Verify Rust formatting, unit tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run environment epoch experiment with full epoch replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study05 -- "$RUNNER_TEMP/cl1-study05.sqlite"
+      - name: Independent environment observer and controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study05.py "$RUNNER_TEMP/cl1-study05.sqlite" --json "$RUNNER_TEMP/cl1-study05-report.json"
+          cat "$RUNNER_TEMP/cl1-study05-report.json"
+      - name: Archive environmental snapshots and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study05
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study05.sqlite
+            ${{ runner.temp }}/cl1-study05-report.json
+
+  study06:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study06|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior research registration
+        run: test -f ../cl1/studies/06-preregistered-internal-graph-ablation.md
+      - name: Rust test and strict format/lint checks
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute seed-prefork graph-object ablations
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study06 -- "$RUNNER_TEMP/cl1-study06.sqlite"
+      - name: Independent graph ablation controls and analysis
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study06.py "$RUNNER_TEMP/cl1-study06.sqlite" --json "$RUNNER_TEMP/cl1-study06-report.json"
+          cat "$RUNNER_TEMP/cl1-study06-report.json"
+      - name: Archive graph ablation and complete epoch snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study06
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study06.sqlite
+            ${{ runner.temp }}/cl1-study06-report.json
+
+  study07:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study07|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Study-07 protocol was preregistered
+        run: test -f ../cl1/studies/07-preregistered-cross-owner-information.md
+      - name: Rust format, tests and strict Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute independently initialized cross-object ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study07 -- "$RUNNER_TEMP/cl1-study07.sqlite"
+      - name: Analyze cross-owner causal sensitivity and matched controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study07.py "$RUNNER_TEMP/cl1-study07.sqlite" --json "$RUNNER_TEMP/cl1-study07-report.json"
+          cat "$RUNNER_TEMP/cl1-study07-report.json"
+      - name: Archive raw Study-07 state and analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study07
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study07.sqlite
+            ${{ runner.temp }}/cl1-study07-report.json
+
+  study08:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study08|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior structured provenance preregistration
+        run: test -f ../cl1/studies/08-preregistered-instruction-provenance.md
+      - name: Rust format, workspace tests and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute new 128-seed information-provenance cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study08 -- "$RUNNER_TEMP/cl1-study08.sqlite"
+      - name: Check successful interowner exchange with independent Python audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study08.py "$RUNNER_TEMP/cl1-study08.sqlite" --json "$RUNNER_TEMP/cl1-study08-report.json"
+          cat "$RUNNER_TEMP/cl1-study08-report.json"
+      - name: Archive immutable provenance cohort
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study08
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study08.sqlite
+            ${{ runner.temp }}/cl1-study08-report.json
+
+  study09:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study09|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Study-09 permission-reachable preregistration
+        run: test -f ../cl1/studies/09-preregistered-permission-ecology.md
+      - name: Verify committed Rust format, tests and strict Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute 128-seed permission-enabled general information ecology
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study09 -- "$RUNNER_TEMP/cl1-study09.sqlite"
+      - name: Independent exact-provenance and causal outcome analysis
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study09.py "$RUNNER_TEMP/cl1-study09.sqlite" --json "$RUNNER_TEMP/cl1-study09-report.json"
+          cat "$RUNNER_TEMP/cl1-study09-report.json"
+      - name: Archive permissions-enabled experiment with all snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study09
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study09.sqlite
+            ${{ runner.temp }}/cl1-study09-report.json
+
+  study10:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study10|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered neutral opportunity protocol
+        run: test -f ../cl1/studies/10-preregistered-neutral-opportunity.md
+      - name: Check Rust formatting, tests and lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 64 independently seeded neutral opportunity worlds
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study10 -- "$RUNNER_TEMP/cl1-study10.sqlite"
+      - name: Independent source-aware scientific audit
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study10.py "$RUNNER_TEMP/cl1-study10.sqlite" --json "$RUNNER_TEMP/cl1-study10-report.json"
+          cat "$RUNNER_TEMP/cl1-study10-report.json"
+      - name: Archive Study 10 matched worlds and snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study10
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study10.sqlite
+            ${{ runner.temp }}/cl1-study10-report.json
+
+  study11:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study11|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen random-continuation protocol
+        run: test -f ../cl1/studies/11-preregistered-postscaffold-ecology.md
+      - name: Validate Rust formatting, all tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Run 96 new independent graph-interaction seed worlds
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study11 -- "$RUNNER_TEMP/cl1-study11.sqlite"
+      - name: Independently audit randomized CIL execution and matched controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study11.py "$RUNNER_TEMP/cl1-study11.sqlite" --json "$RUNNER_TEMP/cl1-study11-report.json"
+          cat "$RUNNER_TEMP/cl1-study11-report.json"
+      - name: Archive Study 11 initial/final matched worlds and epoch snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study11
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study11.sqlite
+            ${{ runner.temp }}/cl1-study11-report.json
+
+  study12:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study12|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify preregistration of source attribution
+        run: test -f ../cl1/studies/12-preregistered-graph-lineage.md
+      - name: Rust workspace test, format and strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute fresh postscaffold lineage world cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study12 -- "$RUNNER_TEMP/cl1-study12.sqlite"
+      - name: Independently audit event provenance and matched null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study12.py "$RUNNER_TEMP/cl1-study12.sqlite" --json "$RUNNER_TEMP/cl1-study12-report.json"
+          cat "$RUNNER_TEMP/cl1-study12-report.json"
+      - name: Archive Study-12 sqlite and lineage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study12
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study12.sqlite
+            ${{ runner.temp }}/cl1-study12-report.json
+
+  study13:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study13|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify earlier Study 13 preregistration
+        run: test -f ../cl1/studies/13-preregistered-reciprocal-information-flow.md
+      - name: Verify format, workspace tests and Clippy
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute 96-seed two-window graph ablation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study13 -- "$RUNNER_TEMP/cl1-study13.sqlite"
+      - name: Independent reciprocal-flow analysis and all null controls
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study13.py "$RUNNER_TEMP/cl1-study13.sqlite" --json "$RUNNER_TEMP/cl1-study13-report.json"
+          cat "$RUNNER_TEMP/cl1-study13-report.json"
+      - name: Archive raw Study 13 experiments and findings
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study13
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study13.sqlite
+            ${{ runner.temp }}/cl1-study13-report.json
+
+  study14:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study14|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study-14 preregistration
+        run: test -f ../cl1/studies/14-preregistered-functional-restoration-gate.md
+      - name: Rust format, workspace tests, strict lint
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+      - name: Execute prospective 96-seed 24-epoch feasibility cohort
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study14 -- "$RUNNER_TEMP/cl1-study14.sqlite"
+      - name: Independently audit exposures, sham, zero-credit and snapshot integrity
+        run: |
+          python3 -m unittest discover -s ../cl1/tests -v
+          python3 ../cl1/analyze_study14.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study14-report.json"
+          cat "$RUNNER_TEMP/cl1-study14-report.json"
+      - name: Study 18 retrospective lineage audit (NOT a new ecological study)
+        run: |
+          test -f ../cl1/studies/18-preregistered-functional-lineage-audit.md
+          python3 ../cl1/analyze_study18.py "$RUNNER_TEMP/cl1-study14.sqlite" --json "$RUNNER_TEMP/cl1-study18-calibration.json"
+          cat "$RUNNER_TEMP/cl1-study18-calibration.json"
+      - name: Archive raw Study 14 records and read-only report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study14
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study14.sqlite
+            ${{ runner.temp }}/cl1-study14-report.json
+            ${{ runner.temp }}/cl1-study18-calibration.json
+
+  study20:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study20|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen Study-20 mechanism preregistration
+        run: test -f ../cl1/studies/20-preregistered-functional-assay-calibration.md
+      - name: Run precommitted nine-arm two-graph function control
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study20 -- "$RUNNER_TEMP/cl1-study20.sqlite"
+      - name: Independently audit source content, external interventions and full snapshot data
+        run: |
+          python3 ../cl1/analyze_study20.py "$RUNNER_TEMP/cl1-study20.sqlite" --json "$RUNNER_TEMP/cl1-study20-report.json"
+          cat "$RUNNER_TEMP/cl1-study20-report.json"
+      - name: Archive Study-20 mechanism control
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study20
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study20.sqlite
+            ${{ runner.temp }}/cl1-study20-report.json
+
+  study21:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study21|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen Study-21 temporal preregistration
+        run: test -f ../cl1/studies/21-preregistered-temporal-restoration-calibration.md
+      - name: Execute eleven-arm three-epoch time-separated functional assay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study21 -- "$RUNNER_TEMP/cl1-study21.sqlite"
+      - name: Independently audit observed loss, later external restoration and exact snapshot hashes
+        run: |
+          python3 ../cl1/analyze_study21.py "$RUNNER_TEMP/cl1-study21.sqlite" --json "$RUNNER_TEMP/cl1-study21-report.json"
+          cat "$RUNNER_TEMP/cl1-study21-report.json"
+      - name: Archive source-pinned Study-21 calibration
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study21
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study21.sqlite
+            ${{ runner.temp }}/cl1-study21-report.json
+
+  study22:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study22|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require frozen independent-seed Study-22 preregistration
+        run: test -f ../cl1/studies/22-preregistered-compute-limitation-ecology.md
+      - name: Strict Rust format, tests, Clippy and independent Python unit tests
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run 96 independent CIL worlds and 768 matched experiments with full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study22 -- "$RUNNER_TEMP/cl1-study22.sqlite"
+      - name: Independently audit resource intervention, match integrity and three windows
+        run: |
+          python3 ../cl1/analyze_study22.py "$RUNNER_TEMP/cl1-study22.sqlite" --json "$RUNNER_TEMP/cl1-study22-report.json"
+          cat "$RUNNER_TEMP/cl1-study22-report.json"
+      - name: Archive raw fresh-seed ecology and independent null-capable audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study22
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study22.sqlite
+            ${{ runner.temp }}/cl1-study22-report.json
+
+  study24:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study24|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require Study-24 frozen audit preregistration
+        run: test -f ../cl1/studies/24-preregistered-foreign-graph-read-output-audit.md
+      - name: Verify source-pinned Rust and independent Python fixture controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Exact rerun of historical 96-seed Study-22 ecology under graph-read instrumentation
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study22 -- "$RUNNER_TEMP/cl1-study24-rerun.sqlite"
+      - name: Independently audit frozen Study-22 controls and all Study-24 source-read exposures
+        run: |
+          python3 ../cl1/analyze_study22.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-baseline-report.json"
+          python3 ../cl1/analyze_study24.py "$RUNNER_TEMP/cl1-study24-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study24-report.json"
+          cat "$RUNNER_TEMP/cl1-study24-report.json"
+      - name: Archive exact provenance and independent read-only reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study24
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study24-rerun.sqlite
+            ${{ runner.temp }}/cl1-study24-baseline-report.json
+            ${{ runner.temp }}/cl1-study24-report.json
+
+  study25:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study25|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require prospective preregistration before new seed experiment
+        run: test -f ../cl1/studies/25-preregistered-prospective-code-content-causality.md
+      - name: Verify Rust and Python code under source revision
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run 96 new worlds and 864 matched perturbation controls with exact epoch replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study25 -- "$RUNNER_TEMP/cl1-study25.sqlite"
+      - name: Independent SQLite source-code-read and output-causality audit
+        run: |
+          python3 ../cl1/analyze_study25.py "$RUNNER_TEMP/cl1-study25.sqlite" --json "$RUNNER_TEMP/cl1-study25-report.json"
+          cat "$RUNNER_TEMP/cl1-study25-report.json"
+      - name: Archive raw matched runs and independent audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study25
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study25.sqlite
+            ${{ runner.temp }}/cl1-study25-report.json
+
+  study26:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study26|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify explicitly post-outcome exploratory registration
+        run: test -f ../cl1/studies/26-preregistered-retrospective-dropout-audit.md
+      - name: Rerun original Study-25 matched worlds with unchanged interventions and exact replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study25 -- "$RUNNER_TEMP/cl1-study26-rerun.sqlite"
+      - name: Confirm original Study-25 outcome before classifying previously known dropouts
+        run: |
+          python3 ../cl1/analyze_study25.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-baseline.json"
+          python3 ../cl1/analyze_study26.py "$RUNNER_TEMP/cl1-study26-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study26-report.json"
+          cat "$RUNNER_TEMP/cl1-study26-report.json"
+      - name: Archive matched exploratory mechanism cases and source-pinned SQLite
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study26
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study26-rerun.sqlite
+            ${{ runner.temp }}/cl1-study26-baseline.json
+            ${{ runner.temp }}/cl1-study26-report.json
+
+  study27:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study27|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert prospective replication preregistration
+        run: test -f ../cl1/studies/27-preregistered-graph-tag-address-relocation.md
+      - name: Exact source-pinned workspace and synthetic mechanism gate
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 independent prospective worlds and exact SQLite epoch replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study27.sqlite"
+      - name: Independently audit genuine paired changed-source output-address witnesses
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study27.sqlite" --json "$RUNNER_TEMP/cl1-study27-report.json"
+          cat "$RUNNER_TEMP/cl1-study27-report.json"
+      - name: Archive source-verified replicated ecology and nulls
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study27
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study27.sqlite
+            ${{ runner.temp }}/cl1-study27-report.json
+
+  study28:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study28|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicitly post-result preregistration
+        run: test -f ../cl1/studies/28-registered-retrospective-second-component-audit.md
+      - name: Repeat unchanged Study27 world cohort and exact SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study28-rerun.sqlite"
+      - name: Run original Study27 scientific audit before graph1 counterfactual classification
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-baseline.json"
+          python3 ../cl1/analyze_study28.py "$RUNNER_TEMP/cl1-study28-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study28-report.json"
+          cat "$RUNNER_TEMP/cl1-study28-report.json"
+      - name: Archive exact matched program events and retrospective second-source audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study28
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study28-rerun.sqlite
+            ${{ runner.temp }}/cl1-study28-baseline.json
+            ${{ runner.temp }}/cl1-study28-report.json
+
+  study29:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study29|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen prospective independent-seed dual-source protocol
+        run: test -f ../cl1/studies/29-preregistered-independent-dual-source-arithmetic.md
+      - name: Validate exact Rust source grammar and native synthetic auditor controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 256 new independent stochastic worlds and full SQLite replays
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study29.sqlite"
+      - name: Independently verify two owner-tag reads and all four output-address edits
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study29.sqlite" --json "$RUNNER_TEMP/cl1-study29-report.json"
+          cat "$RUNNER_TEMP/cl1-study29-report.json"
+      - name: Archive source-pinned randomized dual-source ecology and independent audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study29
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study29.sqlite
+            ${{ runner.temp }}/cl1-study29-report.json
+
+  study30:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study30|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm explicit post-result exploratory protocol
+        run: test -f ../cl1/studies/30-registered-retrospective-dual-source-pipeline.md
+      - name: Rerun exact Study29 independent ecology without change of seeds or generator
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study29 -- "$RUNNER_TEMP/cl1-study30-rerun.sqlite"
+      - name: Verify baseline 0/256 and independently audit source read, Add and Write exposure stages
+        run: |
+          python3 ../cl1/analyze_study29.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-baseline.json"
+          python3 ../cl1/analyze_study30.py "$RUNNER_TEMP/cl1-study30-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study30-report.json"
+          cat "$RUNNER_TEMP/cl1-study30-report.json"
+      - name: Archive known-negative-stage diagnosis and full original event snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study30
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study30-rerun.sqlite
+            ${{ runner.temp }}/cl1-study30-baseline.json
+            ${{ runner.temp }}/cl1-study30-report.json
+
+  study31:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study31|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check registered post-result native register-lineage protocol
+        run: test -f ../cl1/studies/31-registered-retrospective-register-lineage.md
+      - name: Repeat exact known Study27 world corpus with native SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study27 -- "$RUNNER_TEMP/cl1-study31-rerun.sqlite"
+      - name: Independently audit the original study before testing register value lineage
+        run: |
+          python3 ../cl1/analyze_study27.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-baseline.json"
+          python3 ../cl1/analyze_study31.py "$RUNNER_TEMP/cl1-study31-rerun.sqlite" --json "$RUNNER_TEMP/cl1-study31-report.json"
+          cat "$RUNNER_TEMP/cl1-study31-report.json"
+      - name: Archive immutable paired native events and def-use report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study31
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study31-rerun.sqlite
+            ${{ runner.temp }}/cl1-study31-baseline.json
+            ${{ runner.temp }}/cl1-study31-report.json
+
+  study32:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study32|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm new independent native resource study was preregistered
+        run: test -f ../cl1/studies/32-preregistered-native-compute-pool-uptake.md
+      - name: Check strict Rust workspace and independent Python protocol controls
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Run all 192 new CIL resource worlds with source-pinned full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study32 -- "$RUNNER_TEMP/cl1-study32.sqlite"
+      - name: Independently reconstruct each resource-pool transition and audit all 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study32.py "$RUNNER_TEMP/cl1-study32.sqlite" --json "$RUNNER_TEMP/cl1-study32-report.json"
+          cat "$RUNNER_TEMP/cl1-study32-report.json"
+      - name: Archive entire externally-controlled native resource ecology and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study32
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study32.sqlite
+            ${{ runner.temp }}/cl1-study32-report.json
+
+  study33:
+    needs: select
+    if: contains(needs.select.outputs.selected, '|study33|')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen new-seed source-function and resource preregistration
+        run: test -f ../cl1/studies/33-preregistered-resource-linked-source-function.md
+      - name: Validate workspace Rust, strict lint and independently specified negative mechanisms
+        run: |
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -v
+      - name: Execute 128 new worlds, nine matched source/resource arms and full SQLite replay
+        run: |
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study33 -- "$RUNNER_TEMP/cl1-study33.sqlite"
+      - name: Independently audit graph2 register lineage, pool ledger, joint function and 27,648 epochs
+        run: |
+          python3 ../cl1/analyze_study33.py "$RUNNER_TEMP/cl1-study33.sqlite" --json "$RUNNER_TEMP/cl1-study33-report.json"
+          cat "$RUNNER_TEMP/cl1-study33-report.json"
+      - name: Preserve raw source-pinned paired worlds and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study33
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study33.sqlite
+            ${{ runner.temp }}/cl1-study33-report.json
+ <<<"$changes" || grep -Eq '^cl0/crates/world/' <<<"$changes"; then
               full=true
             fi
             if grep -Eq '^(cl1/.*\.py|cl0/crates/)' <<<"$changes"; then
