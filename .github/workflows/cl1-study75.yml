@@ -1,0 +1,47 @@
+name: CL-1 Study75 retrospective native resource and feedback gates
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study75.py'
+      - 'cl1/tests/test_study75.py'
+      - '.github/workflows/cl1-study75.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require registered historical observation and two native gating controls
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/75-registered-retrospective-resource-feedback-cooccurrence.md
+          python3 -m unittest discover -s cl1/tests -p 'test_study75.py' -v
+      - name: Obtain immutable source-pinned Stage74-P original native corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study75"
+          gh run download 43581225480 --repo "$GITHUB_REPOSITORY" --name cl1-study74-poolpaid-native-feedback --dir "$RUNNER_TEMP/study75"
+          test -s "$RUNNER_TEMP/study75/cl1-study74-poolpaid-native-feedback.sqlite"
+      - name: Verify all 49152 original epoch hashes and independently classify original resource/feedback gates
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study75.py "$RUNNER_TEMP/study75/cl1-study74-poolpaid-native-feedback.sqlite" --json "$RUNNER_TEMP/study75-original-resource-gates.json"
+      - name: Archive only new retrospective source/actor state decomposition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study75-retrospective-native-resource-feedback-gates
+          retention-days: 30
+          path: ${{ runner.temp }}/study75-original-resource-gates.json
