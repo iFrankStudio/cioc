@@ -83,3 +83,61 @@ fn mutation_disabled_and_explicit_host_restoration_controls() {
         assert_eq!(writes(&host_restored), vec![source, source]);
     }
 }
+
+#[test]
+fn byte_identical_genome_native_edit_ablation_preserves_charge_and_execution_edge() {
+    for source in [3, 8] {
+        let mut editable = fixture(source, true);
+        // The flag changes generic world law, never CIL genotype or process endowment.
+        let mut suppressed = fixture(source, true).with_native_code_edits_disabled();
+        assert_eq!(editable.process(1).unwrap(), suppressed.process(1).unwrap());
+        assert!(!editable.native_code_edits_disabled());
+        assert!(suppressed.native_code_edits_disabled());
+
+        assert_eq!(editable.run(6), 6);
+        assert_eq!(suppressed.run(6), 6);
+        assert_eq!(writes(&editable), writes(&suppressed));
+        assert_eq!(editable.process(1).unwrap().code, suppressed.process(1).unwrap().code);
+        assert_eq!(editable.total_compute_inventory(), suppressed.total_compute_inventory());
+
+        for world in [&mut editable, &mut suppressed] {
+            world
+                .intervene(Intervention::PatchEdge {
+                    process: 1,
+                    node: 3,
+                    next: 5,
+                })
+                .unwrap();
+            assert_eq!(world.run(2), 2); // first no-output Read, then native edit attempt
+        }
+        assert_eq!(editable.process(1).unwrap().pc, 3);
+        assert_eq!(suppressed.process(1).unwrap().pc, 3);
+        assert!(matches!(
+            editable.process(1).unwrap().code.nodes[3],
+            Op::Read { next: 4, .. }
+        ));
+        assert!(matches!(
+            suppressed.process(1).unwrap().code.nodes[3],
+            Op::Read { next: 5, .. }
+        ));
+        assert!(suppressed.events().iter().any(|e| {
+            e.origin == Origin::Internal(1)
+                && matches!(
+                    e.kind,
+                    EventKind::NativeCodeEditSuppressed { opcode_tag: 6 }
+                )
+        }));
+        assert!(!editable.events().iter().any(|e| {
+            matches!(e.kind, EventKind::NativeCodeEditSuppressed { .. })
+        }));
+        assert_eq!(editable.total_compute_inventory(), suppressed.total_compute_inventory());
+
+        assert_eq!(editable.run(2), 2);
+        assert_eq!(suppressed.run(2), 2);
+        assert_eq!(writes(&editable), vec![source, source]);
+        assert_eq!(writes(&suppressed), vec![source]);
+        assert_eq!(editable.total_compute_inventory(), suppressed.total_compute_inventory());
+        assert!(editable.events().iter().all(|e| !matches!(e.kind, EventKind::Trapped(_))));
+        assert!(suppressed.events().iter().all(|e| !matches!(e.kind, EventKind::Trapped(_))));
+    }
+}
