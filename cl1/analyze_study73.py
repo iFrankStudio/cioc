@@ -314,7 +314,7 @@ def audit(path: Path, revision: str) -> dict:
                     or epochs != EPOCHS or quota != QUOTA):
                 raise ValueError("frozen original run hash, epoch or quota changed")
             initial = json.loads(raw_initial)
-            ambient = mode.startswith("ambient")
+            ambient = "-ambient-" in mode
             sensor = 3 if mode.endswith("-low") else 8
             if (set(initial["processes"]) != {"1"}
                     or initial["processes"]["1"]["code"]["nodes"] != expected_code(seed,mode)
