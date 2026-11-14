@@ -5,6 +5,7 @@ on:
     paths:
       - 'cl0/crates/world/src/lib.rs'
       - 'cl0/crates/world/tests/study80_native_restoration.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study80.rs'
       - 'cl1/studies/80-preregistered-native-functional-code-restoration-gate.md'
       - '.github/workflows/cl1-study80.yml'
   workflow_dispatch:
@@ -31,3 +32,14 @@ jobs:
         run: |
           set -euo pipefail
           cargo test --locked -p cl0-world --lib
+      - name: Generate original ten HUMAN-authored SQLite controls and verify full exact epoch replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study80 -- "$RUNNER_TEMP/cl1-study80-phase0.sqlite"
+      - name: Archive zero-genome calibration SQLite only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study80-phase0-native-edge-calibration
+          retention-days: 30
+          path: ${{ runner.temp }}/cl1-study80-phase0.sqlite
