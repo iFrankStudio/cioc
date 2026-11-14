@@ -1,0 +1,70 @@
+name: CL-1 Study39 ambient supply and neutral ignition
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study39.rs'
+      - 'cl1/analyze_study39.py'
+      - 'cl1/tests/test_study39.py'
+      - '.github/workflows/cl1-study39.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study39:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen earlier prospective preregistration
+        run: |
+          test -f ../cl1/studies/39-preregistered-independent-open-compute-replication.md
+      - name: Validate strict kernel, baseline grammar and environment negative controls
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study39.py' -v
+      - name: Execute 128 new independent seeds x ten paired native conditions with replay
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study39 -- "$RUNNER_TEMP/cl1-study39.sqlite"
+      - name: Independently audit 30720 hashes, ambient supply and neutral ignition causal contrasts
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study39.py "$RUNNER_TEMP/cl1-study39.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study39-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study39-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+              "study":r["study"],
+              "revision":r["source_revision"],
+              "independent_worlds":r["independent_seed_worlds"],
+              "runs":r["matched_runs"],
+              "epochs":r["hashed_epoch_snapshots"],
+              "primary":r["registered_primary"],
+              "secondary":r["secondary"],
+              "life_claim":r["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive untouched ambient ecology and independently verified causal audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1-study39-ambient-neutral-ignition
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study39.sqlite
+            ${{ runner.temp }}/cl1-study39-report.json
