@@ -1,0 +1,45 @@
+name: CL-1 Study116 actor-disabled native one-shot mutagen and inherited new-function grandchildren
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study116.rs'
+      - 'cl1/studies/116-preregistered-one-shot-mutator-heritable-latent-function.md'
+      - '.github/workflows/cl1-study116.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actor-one-shot-mutation-and-functional-grandchildren:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen all64 seed and true 2-generation original function gate
+        run: test -s ../cl1/studies/116-preregistered-one-shot-mutator-heritable-latent-function.md
+      - name: Run 512 new 56-node original CIL worlds with actor-written mutagen shutdown and 8192 exact epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study116 -- "$RUNNER_TEMP/study116-original-one-shot-native-functional-lineage.sqlite"
+      - name: Independently verify every SHA256, native parent/child/grandchild birth-code and actor-written gate source
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study116.py "$RUNNER_TEMP/study116-original-one-shot-native-functional-lineage.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study116-original-independent-functional-germline-audit.json"
+      - name: Preserve ALL original code and full child/grandchild state genealogy
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study116-original-actor-gated-functional-germline
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study116-original-one-shot-native-functional-lineage.sqlite
+            ${{ runner.temp }}/study116-original-independent-functional-germline-audit.json
