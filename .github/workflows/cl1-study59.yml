@@ -1,0 +1,76 @@
+name: CL-1 Study59 prospective native graph-code locality ecology
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study59-absolute.rs'
+      - 'cl0/crates/lab/src/bin/cl1-study59-local.rs'
+      - 'cl1/analyze_study59_absolute.py'
+      - 'cl1/analyze_study59_local.py'
+      - 'cl1/analyze_study59.py'
+      - 'cl1/tests/test_study59.py'
+      - '.github/workflows/cl1-study59.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study59:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce frozen prospective protocol and prior CI-validated VM calibration
+        run: |
+          test -s ../cl1/studies/59-preregistered-native-local-copy-ecology.md
+          test -s ../cl1/studies/58-preregistered-generic-graph-local-copy-vm-calibration.md
+      - name: Strict Rust/VM tests, clippy and exact 256-pair independent CIL grammar
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study59.py' -v
+      - name: Run frozen legacy absolute GraphCopyNode original CIL on 256 new native worlds
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study59-absolute -- "$RUNNER_TEMP/cl1-study59-absolute.sqlite"
+      - name: Run generically relocated native GraphCopyNodeLocal on identical independent seed pairs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study59-local -- "$RUNNER_TEMP/cl1-study59-local.sqlite"
+      - name: Audit all 49152 original epoch SHA256 hashes, exact code-only differential and native child writes
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study59.py "$RUNNER_TEMP/cl1-study59-absolute.sqlite" "$RUNNER_TEMP/cl1-study59-local.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study59-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study59-report.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          print(json.dumps({
+            "independent_seed_pairs":r["independent_seed_pairs"],
+            "matched_runs":r["matched_native_runs"],
+            "SHA256_snapshots":r["SHA256_verified_snapshots"],
+            "primary":r["primary_functional_native_child_CellWritten"],
+            "life_claim":r["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive untouched paired native SQLite and independent source-pinned report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study59-native-locality-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study59-absolute.sqlite
+            ${{ runner.temp }}/cl1-study59-local.sqlite
+            ${{ runner.temp }}/cl1-study59-report.json
