@@ -200,6 +200,18 @@ def trace_source_and_pool(
     }
 
 
+
+def ensure_registered_nulls(outcomes: Counter) -> None:
+    """Every frozen primary endpoint must be explicit even when 0/128."""
+    for key in (
+        "control.joint_source_and_draw",
+        "paired_source_and_draw",
+        "paired_source_and_draw_after_budget_exhaustion",
+    ):
+        outcomes.setdefault(key, 0)
+
+
+
 def audit(path: Path) -> dict:
     db = sqlite3.connect(f"{path.resolve().as_uri()}?mode=ro", uri=True)
     try:
@@ -462,14 +474,7 @@ def audit(path: Path) -> dict:
                 empty_has = bool(byarm[(seed, empty_arm)])
                 outcomes[f"paired.{arm}.source_only"] += source_has and not empty_has
                 outcomes[f"paired.{arm}.empty_only"] += empty_has and not source_has
-        # A valid preregistered null must be an explicit 0/128 row, never
-        # disappear from the audit report or raise KeyError on zero exposure.
-        for key in (
-            "control.joint_source_and_draw",
-            "paired_source_and_draw",
-            "paired_source_and_draw_after_budget_exhaustion",
-        ):
-            outcomes.setdefault(key, 0)
+        ensure_registered_nulls(outcomes)
         metrics = {}
         for name, n in sorted(outcomes.items()):
             lo, hi = wilson_95(n, SEEDS)
