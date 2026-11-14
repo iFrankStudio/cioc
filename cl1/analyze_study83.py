@@ -179,7 +179,15 @@ def audit(path):
                 causal_pc[f"{name}_diverged_seeds"] += 1
             if on["stats"]["effective_edits"]:
                 counts[f"{name}_native_effective_edit_seeds"] += 1
-            if on["stats"]["writes"] != off["stats"]["writes"]:
+            emitted_on = [
+                (w["pc"], w["value"], w["source_coefficient"], w["offset"])
+                for w in on["stats"]["writes"]
+            ]
+            emitted_off = [
+                (w["pc"], w["value"], w["source_coefficient"], w["offset"])
+                for w in off["stats"]["writes"]
+            ]
+            if emitted_on != emitted_off:
                 counts[f"{name}_different_native_output_trace_seeds"] += 1
         if on_w2:
             counts["source_W2_enabled"] += 1
