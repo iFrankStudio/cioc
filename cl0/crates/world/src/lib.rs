@@ -4338,7 +4338,10 @@ mod tests {
         assert_eq!(failure.available_compute_pool(), 4);
         assert_eq!(failure.total_compute_inventory(), Some(4));
         assert!(failure.events().last().unwrap().pool_paid_attempt);
-        assert!(matches!(failure.events().last().unwrap().kind, EventKind::Trapped(_)));
+        assert!(matches!(
+            failure.events().last().unwrap().kind,
+            EventKind::Trapped(_)
+        ));
         assert!(failure.process(1).unwrap().stopped);
         assert_eq!(failure.run(5), 0); // even with remaining pool: no resurrection
 
@@ -4352,8 +4355,16 @@ mod tests {
             .load(Process::new(
                 1,
                 vec![
-                    Op::Const { dst: 0, value: 1, next: 1 },
-                    Op::Const { dst: 1, value: 3, next: 1 },
+                    Op::Const {
+                        dst: 0,
+                        value: 1,
+                        next: 1,
+                    },
+                    Op::Const {
+                        dst: 1,
+                        value: 3,
+                        next: 1,
+                    },
                 ],
                 1,
             ))
@@ -4370,7 +4381,9 @@ mod tests {
             .intervene(Intervention::SetComputePool { credits: 5 })
             .unwrap();
         assert_eq!(disabled.run(1), 1);
-        disabled.intervene(Intervention::Disable { process: 1 }).unwrap();
+        disabled
+            .intervene(Intervention::Disable { process: 1 })
+            .unwrap();
         assert_eq!(disabled.run(3), 0);
     }
 }
