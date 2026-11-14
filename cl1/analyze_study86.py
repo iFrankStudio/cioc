@@ -388,7 +388,7 @@ def auditor(path, expected_rev):
     require(sum(1 for x in detail if x["eligible_E"]) == counts["pre_fork_source_function_exposed"],
             "wrong preselection denominator")
     return {
-        "study": 84,
+        "study": 86,
         "status": "PROSPECTIVE_PRE_FORK_NATIVE_CODE_LESION_CAUSAL_SURVEY",
         "source_revision": expected_rev,
         "original_distinct_genotypes": N,
