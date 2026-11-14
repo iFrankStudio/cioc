@@ -80,8 +80,14 @@ def classify_native_branch_exposure(initial: dict, events: list[dict],
             continue
         pc = event["pc"]
         original = initial["processes"][str(actor)]["code"]["nodes"]
-        if not isinstance(pc, int) or not 0 <= pc < len(original):
+        if not isinstance(pc, int) or pc < 0:
             raise ValueError("invalid original actor PC")
+        if pc >= len(original):
+            # Native CloneNode may have added executable nodes after prefork:
+            # never classify an unknown new opcode as the frozen Branch.
+            if event["kind"] == "Executed":
+                tainted.add(actor)
+            continue
         if event["kind"] != "Executed":
             continue
         name = op_name(original[pc])
