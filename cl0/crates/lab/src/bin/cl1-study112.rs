@@ -135,7 +135,8 @@ fn main() -> Result<(), Box<dyn Error>> {
                 return Err(format!("full original SHA256 epoch replay mismatch: {seed}/{mode}").into());
             }
             let attempts: usize = run.attempts_by_epoch.iter().sum();
-            if run.world.total_compute_inventory() != Some(if mode.ends_with("-ambient-on") { 7800 } else { 1800 } - attempts as u64) {
+            let total_supplied = if mode.ends_with("-ambient-on") { 7800_u64 } else { 1800_u64 };
+            if run.world.total_compute_inventory() != Some(total_supplied - attempts as u64) {
                 return Err(format!("total native compute inventory mismatch: {seed}/{mode}").into());
             }
             if run.attempts_by_epoch.len() != EPOCHS {
