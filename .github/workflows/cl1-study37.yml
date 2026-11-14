@@ -1,0 +1,68 @@
+name: CL-1 Study37 independent conserved pool ignition
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study37.rs'
+      - 'cl1/analyze_study37.py'
+      - 'cl1/tests/test_study37.py'
+      - '.github/workflows/cl1-study37.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study37:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify preregistration precedes execution
+        run: |
+          test -f ../cl1/studies/37-preregistered-native-pool-access-ignition.md
+      - name: Validate strict native world and independent Python calibration
+        run: |
+          set -euo pipefail
+          cargo fmt --all -- --check
+          cargo test --locked --workspace
+          cargo clippy --locked --workspace --all-targets -- -D warnings
+          python3 -m unittest discover -s ../cl1/tests -p 'test_study37.py' -v
+      - name: Run all 128 new seed worlds, 896 paired arms, exact 24-epoch SQLite replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --quiet -p cl0-lab --bin cl1-study37 -- "$RUNNER_TEMP/cl1-study37.sqlite"
+      - name: Independently validate every epoch hash, environment policy transfer and W3 outcome
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study37.py "$RUNNER_TEMP/cl1-study37.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/cl1-study37-report.json"
+          python3 - "$RUNNER_TEMP/cl1-study37-report.json" <<'PY'
+          import json,sys
+          x=json.load(open(sys.argv[1]))
+          print(json.dumps({
+              "source_revision":x["source_revision"],
+              "independent_worlds":x["independent_seed_worlds"],
+              "matched_runs":x["matched_runs"],
+              "hashed_epochs":x["hashed_epoch_snapshots"],
+              "primary":x["registered_primary"],
+              "life_claim":x["life_claim"],
+          },indent=2))
+          PY
+      - name: Archive original 896 complete resource-conserved run histories
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study37-native-pool-ignition
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/cl1-study37.sqlite
+            ${{ runner.temp }}/cl1-study37-report.json
