@@ -59,6 +59,9 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
     actor_launches = Counter()
     changed_births = 0
     expressed_changed = set()
+    # For each child remember EXACT modified instructions copied at its birth;
+    # do not confuse later actor-self mutation with inheritance expression.
+    inherited_differences = {}
     child_birth_tick = {}
     native_events = 0
 
@@ -72,7 +75,9 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
         native_events += 1
         pc = e["pc"]
         require(0 <= pc < 28, "invalid native executable PC")
-        if actor in child_birth_tick and pc == site and codes[actor][site] != original_nodes[site]:
+        if (actor in inherited_differences
+                and pc in inherited_differences[actor]
+                and codes[actor][pc] == inherited_differences[actor][pc]):
             expressed_changed.add(actor)
         read = event_part(e, "CellRead")
         written = event_part(e, "CellWritten")
@@ -169,7 +174,12 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
             code_birth = copy.deepcopy(graph_nodes)
             codes[child] = code_birth
             child_birth_tick[child] = e["tick"]
-            mutated = code_birth != original_nodes
+            inherited_differences[child] = {
+                i: copy.deepcopy(node)
+                for i, node in enumerate(code_birth)
+                if node != original_nodes[i]
+            }
+            mutated = bool(inherited_differences[child])
             if mutated:
                 changed_births += 1
             births.append({
