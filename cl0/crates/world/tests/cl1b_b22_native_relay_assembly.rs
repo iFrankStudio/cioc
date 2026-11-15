@@ -12,7 +12,7 @@ enum Arm {
     BuildNoSecondPacket,
 }
 
-fn founder(transfer: bool) -> Vec<Op> {
+pub(crate) fn founder(transfer: bool) -> Vec<Op> {
     vec![
         // Graph creation and 5 source-embedded helper-template copies.
         Op::GraphNew { dst: 0, next: 1 },                         // 0
