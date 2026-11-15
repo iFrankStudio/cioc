@@ -1,0 +1,46 @@
+name: CL-1 Study126 independent new 32 native shared competitors to true natural terminal
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study126.rs'
+      - 'cl1/analyze_study126.py'
+      - 'cl1/studies/126-preregistered-independent-natural-terminal-shared-native-competition.md'
+      - '.github/workflows/cl1-study126.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-terminal-first-competing-lineages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require source-frozen fresh 32 genotype pair and terminal-first preregistration
+        run: test -s ../cl1/studies/126-preregistered-independent-natural-terminal-shared-native-competition.md
+      - name: Execute all 256 new two-founder same-world CIL competitors until true no-replenishment terminal, 12288 full SHA epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study126 -- "$RUNNER_TEMP/study126-original-128-control-new32-ecologies-native-terminal.sqlite"
+      - name: Independently verify all original 12288 terminal/epoch15 full-state SHA256 and real native lineages
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study126.py "$RUNNER_TEMP/study126-original-128-control-new32-ecologies-native-terminal.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study126-original-natural-terminal-independent-native-audit.json"
+      - name: Archive all 32 new genotype-pairs with 256 original no-selection native worlds and true terminal observer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study126-original-independent-native-two-lineage-natural-terminal
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study126-original-128-control-new32-ecologies-native-terminal.sqlite
+            ${{ runner.temp }}/study126-original-natural-terminal-independent-native-audit.json
