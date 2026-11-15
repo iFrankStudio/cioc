@@ -4,13 +4,21 @@ on:
   push:
     branches: [main]
     paths:
-      - 'cl1b/**'
+      - 'cl0/crates/world/src/**'
       - 'cl0/crates/world/tests/cl1b_*.rs'
+      - 'cl0/crates/world/Cargo.toml'
+      - 'cl0/Cargo.toml'
+      - 'cl0/Cargo.lock'
+      - 'cl1b/analysis/**'
       - '.github/workflows/cl1b-focused.yml'
   pull_request:
     paths:
-      - 'cl1b/**'
+      - 'cl0/crates/world/src/**'
       - 'cl0/crates/world/tests/cl1b_*.rs'
+      - 'cl0/crates/world/Cargo.toml'
+      - 'cl0/Cargo.toml'
+      - 'cl0/Cargo.lock'
+      - 'cl1b/analysis/**'
       - '.github/workflows/cl1b-focused.yml'
   workflow_dispatch:
 
