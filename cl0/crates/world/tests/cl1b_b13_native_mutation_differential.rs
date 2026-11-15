@@ -30,6 +30,11 @@ struct Counts {
     false_negative_decisions: usize,
     marker_without_service: usize,
     service_without_marker: usize,
+    actual_decision_fp_worlds: usize,
+    actual_decision_fn_worlds: usize,
+    actual_decision_fp_events: usize,
+    actual_decision_fn_events: usize,
+    skipped_marker_read_worlds: usize,
 }
 
 #[test]
@@ -114,8 +119,29 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
                 let mut false_positives = 0_usize;
                 let mut false_negatives = 0_usize;
                 let mut trapped = false;
+                // Post-hoc B13b robustness audit: a marker READ counts as an
+                // actual decision only if PC12 Branch runs immediately after it.
+                // Preserve the original B13 readback counts separately.
+                let mut pending_marker: Option<(i64, usize)> = None;
+                let mut strict_fp = 0_usize;
+                let mut strict_fn = 0_usize;
+                let mut bypassed_marker_reads = 0_usize;
 
                 for event in world.events() {
+                    if let Some((observed, recent_service_count)) = pending_marker.take() {
+                        if event.origin == Origin::Internal(1)
+                            && event.pc == 12
+                            && matches!(event.kind, EventKind::Executed)
+                        {
+                            if observed != 0 && recent_service_count == 0 {
+                                strict_fp += 1;
+                            } else if observed == 0 && recent_service_count > 0 {
+                                strict_fn += 1;
+                            }
+                        } else {
+                            bypassed_marker_reads += 1;
+                        }
+                    }
                     if event.origin != Origin::Internal(1) {
                         continue;
                     }
@@ -134,6 +160,7 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
                             genuine_markers += 1;
                         }
                         EventKind::CellRead { key: 13, value } if event.pc == 11 => {
+                            pending_marker = Some((*value, valid_since_reset));
                             if *value != 0 && valid_since_reset == 0 {
                                 false_positives += 1;
                             } else if *value == 0 && valid_since_reset != 0 {
@@ -147,6 +174,11 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
                     }
                 }
 
+                local.actual_decision_fp_worlds += usize::from(strict_fp > 0);
+                local.actual_decision_fn_worlds += usize::from(strict_fn > 0);
+                local.actual_decision_fp_events += strict_fp;
+                local.actual_decision_fn_events += strict_fn;
+                local.skipped_marker_read_worlds += usize::from(bypassed_marker_reads > 0);
                 local.worlds += 1;
                 local.false_positive_worlds += usize::from(false_positives > 0);
                 local.false_negative_worlds += usize::from(false_negatives > 0);
@@ -161,10 +193,24 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
         }
         assert_eq!(local.worlds, 361, "complete finite mutation denominator");
         assert_eq!(
+            (local.actual_decision_fp_worlds, local.actual_decision_fn_worlds),
+            (expected_fp, expected_fn),
+            "actual immediately-consumed branch decisions differ from B13 proxy at input={input}"
+        );
+        assert_eq!(
+            local.skipped_marker_read_worlds, 19,
+            "B13b expects 19 bypassed-marker-read mutants per input"
+        );
+        assert_eq!(
             (local.false_positive_worlds, local.false_negative_worlds, local.trapped_worlds),
             (expected_fp, expected_fn, expected_trapped),
             "native Rust differed from independent observer-side scan for input={input}"
         );
+        cumulative.actual_decision_fp_worlds += local.actual_decision_fp_worlds;
+        cumulative.actual_decision_fn_worlds += local.actual_decision_fn_worlds;
+        cumulative.actual_decision_fp_events += local.actual_decision_fp_events;
+        cumulative.actual_decision_fn_events += local.actual_decision_fn_events;
+        cumulative.skipped_marker_read_worlds += local.skipped_marker_read_worlds;
         cumulative.worlds += local.worlds;
         cumulative.false_positive_worlds += local.false_positive_worlds;
         cumulative.false_negative_worlds += local.false_negative_worlds;
@@ -183,4 +229,9 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
     assert_eq!(cumulative.false_negative_decisions, 82);
     assert_eq!(cumulative.marker_without_service, 218);
     assert_eq!(cumulative.service_without_marker, 52);
+    assert_eq!(cumulative.actual_decision_fp_worlds, 66);
+    assert_eq!(cumulative.actual_decision_fn_worlds, 52);
+    assert_eq!(cumulative.actual_decision_fp_events, 381);
+    assert_eq!(cumulative.actual_decision_fn_events, 82);
+    assert_eq!(cumulative.skipped_marker_read_worlds, 95);
 }
