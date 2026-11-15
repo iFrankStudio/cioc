@@ -49,3 +49,5 @@ jobs:
         run: cargo test --locked -p cl0-world --test cl1b_b05_reciprocal_monitors
       - name: B07 double checkpoint agreement and correlated faults
         run: cargo test --locked -p cl0-world --test cl1b_b07_checkpoint_agreement
+      - name: B08 observationally identical histories information-loss bound
+        run: cargo test --locked -p cl0-world --test cl1b_b08_indistinguishable_histories
