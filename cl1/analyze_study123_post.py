@@ -59,6 +59,8 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
     actor_launches = Counter()
     changed_births = 0
     noncanonical_native_child_credit_transfers = 0
+    native_launches_using_prior_local_credits = 0
+    noncanonical_native_copy_source_launches = 0
     incomplete_copy_births = 0
     expressed_changed = set()
     # For each child remember EXACT modified instructions copied at its birth;
@@ -174,12 +176,17 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
             # A genuine untargeted executable mutation can change R2 or
             # launch control and therefore a real child's transferred credits.
             # Do not incorrectly reject the outcome as nonnative.
-            require(0 < launched["transferred_credits"] <= 7800,
+            require(0 <= launched["transferred_credits"] <= 7800,
                     "invalid original native offspring credit transfer")
             if launched["transferred_credits"] != grant:
                 noncanonical_native_child_credit_transfers += 1
-            require(native_draws[actor] > actor_launches[actor],
-                    "CIL newborn not funded by preceding native DrawCompute")
+            # A CIL actor may legitimately finance GraphLaunch from its
+            # EXISTING local credit reserve, not necessarily a fresh Draw.
+            # Record the route rather than invent a Draw requirement.
+            if native_draws[actor] <= actor_launches[actor]:
+                native_launches_using_prior_local_credits += 1
+            if copied[actor] != set(range(28)):
+                noncanonical_native_copy_source_launches += 1
             actor_launches[actor] += 1
             code_birth = copy.deepcopy(graph_nodes)
             codes[child] = code_birth
@@ -224,6 +231,8 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
         "changed_code_births": changed_births,
         "incomplete_copy_births": incomplete_copy_births,
         "noncanonical_native_child_credit_transfers": noncanonical_native_child_credit_transfers,
+        "native_launches_using_prior_local_credits": native_launches_using_prior_local_credits,
+        "noncanonical_native_copy_source_launches": noncanonical_native_copy_source_launches,
         "expressed_changed_actors": len(expressed_changed),
         "changed_native_edit_events": len(edits),
         "suppressed_native_edits": suppressed,
