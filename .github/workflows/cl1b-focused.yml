@@ -147,21 +147,38 @@ jobs:
           if [ "${failures}" -ne 0 ]; then
             exit 1
           fi
-      - name: Run independent B13 observer-side edge-mutation screen
+      - name: Run all independent observer analyses; preserve every failure
         if: always()
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p cl1b-ci-evidence
-          node --version > cl1b-ci-evidence/b13-node-version.txt
-          node ../cl1b/analysis/b13_edge_mutation_scan.mjs > cl1b-ci-evidence/b13-observer-scan.json
-          node ../cl1b/analysis/b14_search_policy_path_audit.mjs > cl1b-ci-evidence/b14-observer-scan.json
-          node ../cl1b/analysis/b15_policy_generalization.mjs > cl1b-ci-evidence/b15-observer-generalization.json
-          node ../cl1b/analysis/b16_functional_challenge_scan.mjs > cl1b-ci-evidence/b16-observer-functional-challenge.json
-          node ../cl1b/analysis/b17_challenge_mutation_scan.mjs > cl1b-ci-evidence/b17-observer-exhaustive-checker.json
-          node ../cl1b/analysis/b19_compute_flux_model.mjs > cl1b-ci-evidence/b19-observer-neutral-resource-flux.json
-          node ../cl1b/analysis/b20_resource_feedback_barrier.mjs > cl1b-ci-evidence/b20-observer-resource-barrier.json
-          node ../cl1b/analysis/b21_cooperative_compute_relay.mjs > cl1b-ci-evidence/b21-observer-cooperative-relay.json
+          node --version > cl1b-ci-evidence/observer-node-version.txt
+          observers=(
+            b13_edge_mutation_scan
+            b14_search_policy_path_audit
+            b15_policy_generalization
+            b16_functional_challenge_scan
+            b17_challenge_mutation_scan
+            b19_compute_flux_model
+            b20_resource_feedback_barrier
+            b21_cooperative_compute_relay
+          )
+          observer_failures=0
+          for observer in "${observers[@]}"; do
+            if node "../cl1b/analysis/${observer}.mjs" \
+              > "cl1b-ci-evidence/${observer}.json" \
+              2> "cl1b-ci-evidence/${observer}.stderr.log"; then
+              echo "PASS observer=${observer}" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL observer=${observer}" | tee -a cl1b-ci-evidence/summary.txt
+              observer_failures=$((observer_failures + 1))
+            fi
+          done
+          echo "failed_observer_count=${observer_failures}" | tee -a cl1b-ci-evidence/summary.txt
+          if [ "${observer_failures}" -ne 0 ]; then
+            exit 1
+          fi
       - name: Upload verifiable native CL-1B logs (including failed runs)
         if: always()
         uses: actions/upload-artifact@v4
