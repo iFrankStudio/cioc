@@ -2,7 +2,7 @@
 """PRE-OUTCOME complete-state genotype observer for Study124: all-target actor-native CIL mutation and graph-copy audit.
 
 The CIL self-copy strategy is human-designed. Original random target sites and
-destinations are unselected; all 64 seeds and even structurally invalid edits count.
+destinations are unselected; all 128 seed labels and even structurally invalid edits count.
 """
 import argparse
 import copy
@@ -364,7 +364,7 @@ def audit(db, revision):
             for seed in range(FIRST, FIRST+N)
         ]
         by_source[f"source{source}"] = {
-            "full_64_seed_signed_birth_deltas": deltas,
+            "full_128_seed_signed_birth_deltas": deltas,
             "positive": sum(x>0 for x in deltas),
             "negative": sum(x<0 for x in deltas),
             "ties": sum(x==0 for x in deltas),
