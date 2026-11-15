@@ -173,9 +173,10 @@ jobs:
             b20_resource_feedback_barrier
             b21_cooperative_compute_relay
             b22_native_relay_assembly
+            b23_assembly_cost_solo_scan
           )
-          if [ "${#observers[@]}" -ne 9 ]; then
-            echo "Expected 9 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 10 ]; then
+            echo "Expected 10 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
