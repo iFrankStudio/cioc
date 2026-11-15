@@ -110,8 +110,8 @@ fn b22_single_native_founder_builds_and_launches_a_working_energy_relay() {
         assert_eq!(w.graph_count(), 0, "owned graph was moved into child process, not cloned at no cost");
         assert_eq!((w.process(1).unwrap().pc, w.process(1).unwrap().credits), (26, 0));
         assert_eq!((w.process(2).unwrap().pc, w.process(2).unwrap().credits), (1, 0));
-        assert_eq!(w.process(1).unwrap().registers[3], 1,
-            "the parent later overwrites GraphLaunch's returned r3 child ID while preparing its service write; child identity is verified from the actual GraphLaunched event");
+        assert_eq!(w.process(1).unwrap().registers[3], 2,
+            "at startup cutoff the parent has only executed PC25 Const and a deferred PC26 Draw; r3 still holds the native GraphLaunch child ID");
 
         let created = w.events().iter().filter(|e| matches!(
             (&e.origin, &e.kind),
