@@ -1,6 +1,6 @@
 # CL-1B native verification ledger — experiment code versus evidence
 
-**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B20 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
+**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B21 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
 
 | Study | Declared scope | Present evidence tier | Scientific stage accepted? |
 | --- | --- | --- | --- |
@@ -26,8 +26,9 @@
 | B18 | finite-inventory theorem: total local credits plus pool declines by one per native attempt unless an external supply intervenes | audited VM Rust source and committed 4 native conservation/positive-control tests, **native CI unverified** | No — source-level necessary condition only |
 | B19 | generic world-pool environmental compute influx and native actor acquisition under pulse controls | source-shaped 5-world observer model and native per-step conservation/source-provenance tests committed, **native CI unverified** | No — authored resource access feasibility only |
 | B20 | CIL resource-feedback accessibility / draw-size threshold under seven policy×pulse worlds | source-shaped independent seven-world model predicts threshold and post-draw debt deadlocks; native CIL scheduler tests committed, **CI unverified** | No — substrate obstruction and fixed-policy controls only |
+| B21 | CIL cross-process compute transfer can rescue another zero-credit worker's ordinary Write | source-parsed deterministic 3-arm scheduler audit and native Rust transfer-control test committed, **CI unverified** | No — engineered cooperative control only |
 
-**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **21 named Rust integration-test targets** currently cover the above 12 study labels.
+**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **22 named Rust integration-test targets** currently cover the above 12 study labels.
 
 ## New machine-readable verification channel (configured, not yet observed)
 
@@ -37,7 +38,7 @@ The [focused workflow](../.github/workflows/cl1b-focused.yml) now has two separa
 
 ## Scope-aware CI note
 
-The native workflow now selects only the modified `cl1b_*.rs` test and known direct imported dependents for routine code changes; a CL-0 VM source/Cargo/workflow change or **manual workflow dispatch** forces the full suite. The `summary.txt` artifact records `scope`, `selected_native_targets` and changed paths. A successful **changed-only** run must never be represented as a passing B00–B20 campaign. Source-pinned reports remain unconfirmed until a real GitHub run/artifact is inspected.
+The native workflow now selects only the modified `cl1b_*.rs` test and known direct imported dependents for routine code changes; a CL-0 VM source/Cargo/workflow change or **manual workflow dispatch** forces the full suite. The `summary.txt` artifact records `scope`, `selected_native_targets` and changed paths. A successful **changed-only** run must never be represented as a passing B00–B21 campaign. Source-pinned reports remain unconfirmed until a real GitHub run/artifact is inspected.
 
 ## Native verification runbook
 
