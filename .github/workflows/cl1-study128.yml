@@ -1,0 +1,47 @@
+name: CL-1 Study128 prospective three-generation native functional mutant allele heredity
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study128.rs'
+      - 'cl1/analyze_study128_world.py'
+      - 'cl1/analyze_study128.py'
+      - 'cl1/studies/128-preregistered-prospective-functional-allele-transmission-in-shared-competition.md'
+      - '.github/workflows/cl1-study128.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-native-functional-allele-lineages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify before-outcome all32 fresh genotype-pairs and native full-allele 3-generation source-function protocol
+        run: test -s ../cl1/studies/128-preregistered-prospective-functional-allele-transmission-in-shared-competition.md
+      - name: Generate exactly256 new same-world native CIL original worlds with true terminal and12288 full SHA states
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study128 -- "$RUNNER_TEMP/study128-new32-original-full-native-allele-ecology.sqlite"
+      - name: Independently rehash all original full SHA states and compute true same allele X to Y to Z generations with canonical CIL function
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study128.py "$RUNNER_TEMP/study128-new32-original-full-native-allele-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study128-original-three-native-functional-generations.json"
+      - name: Archive all original256 study worlds and all altered/unaltered allele ancestry, no selection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study128-prospective-independent-three-functional-generation-alleles
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study128-new32-original-full-native-allele-ecology.sqlite
+            ${{ runner.temp }}/study128-original-three-native-functional-generations.json
