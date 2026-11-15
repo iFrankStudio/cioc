@@ -80,6 +80,7 @@ jobs:
             cl1b_b16_functional_challenge
             cl1b_b17_native_challenge_mutation
             cl1b_b18_finite_compute_bound
+            cl1b_b19_neutral_compute_flux
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
