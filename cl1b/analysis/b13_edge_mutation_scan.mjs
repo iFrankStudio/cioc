@@ -20,7 +20,7 @@ function simulate(ops,input,mutation) {
     case "Const":r[o.dst]=o.value;pc=edge(o.next);break;
     case "Delete":cells.delete(reg(o.address));pc=edge(o.next);if(at===2)serviceSinceReset=0;break;
     case "Read":{let key=reg(o.address),v=cells.get(key)??0;r[o.dst]=v;pc=edge(o.next);if(at===11&&key===13){if(v!==0){accepts++;if(!serviceSinceReset)fp++;}else{rejects++;if(serviceSinceReset)fn++;}}break;}
-    case "Write":{let key=reg(o.address),v=reg(o.value);pc=edge(o.next);if(!cells.has(key)&&cells.size+20>=64)throw Error("storage");cells.set(key,v);if(key===11){if(v===input){correct++;serviceSinceReset++;}else wrong++;}else if(key===13&&v===1)markers++;else if(key!==7)side++;break;}
+    case "Write":{let key=reg(o.address),v=reg(o.value);pc=edge(o.next);if(!cells.has(key)&&(cells.size>=16||cells.size+21>=64))throw Error("storage");cells.set(key,v);if(key===11){if(v===input){correct++;serviceSinceReset++;}else wrong++;}else if(key===13&&v===1)markers++;else if(key!==7)side++;break;}
     case "Branch":pc=edge(reg(o.test)!==0?o.nonzero:o.zero);break;
     case "ReadNext":{let target=edge(reg(o.node));if(code[target].next===undefined)throw Error("no readable edge");r[o.dst]=code[target].next;pc=edge(o.next);break;}
     case "Sub":r[o.dst]=reg(o.lhs)-reg(o.rhs);pc=edge(o.next);break;
