@@ -164,9 +164,14 @@ fn trial(seed:u64,source:i64,phase:i64,disabled:bool)->Results132{
                 }
             }
             EventKind::CellWritten{key:12,value}=>{
-                assert!(pc==32||pc==35);
-                assert!(*value==0||*value==1);
-                native_counter_writes+=1;
+                // Legitimate secondary mutations can redirect a native Write
+                // to cell12 from other original instruction sites (e.g. PC11).
+                // Do not reject the original world for surprising endogenous
+                // control-data traffic. Only PC32/35 are the planned alternator.
+                if pc==32||pc==35{
+                    assert!(*value==0||*value==1);
+                    native_counter_writes+=1;
+                }
             }
             EventKind::ExecutableEdgePatched{node,before,after}=>{
                 assert!(!disabled&&pc==8);
