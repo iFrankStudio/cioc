@@ -38,12 +38,16 @@ jobs:
         working-directory: cl0
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: cl0
-      - name: Run active B00-B12 and archive source-pinned original Rust evidence
+      - name: Run changed CL-1B targets, or all on kernel/build/workflow change and manual dispatch
         shell: bash
+        env:
+          DIFF_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
           set -euo pipefail
           mkdir -p cl1b-ci-evidence
@@ -76,8 +80,50 @@ jobs:
             cl1b_b16_functional_challenge
             cl1b_b17_native_challenge_mutation
           )
-          failures=0
+          # Only a changed test and its direct imports need routine validation.
+          # Full suite is available through workflow_dispatch, and required
+          # when kernel semantics, Cargo dependencies or this workflow change.
+          full=0
+          changed=()
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] ||
+             [ -z "${DIFF_BASE_SHA}" ] ||
+             [[ "${DIFF_BASE_SHA}" =~ ^0+$ ]]; then
+            full=1
+          else
+            while IFS= read -r name; do
+              [ -z "${name}" ] || changed+=("${name}")
+            done < <(git diff --name-only "${DIFF_BASE_SHA}" HEAD)
+          fi
+          selected=()
+          declare -A wanted=()
+          if [ "${full}" -eq 0 ]; then
+            for changed_path in "${changed[@]}"; do
+              case "${changed_path}" in
+                cl0/crates/world/src/*|cl0/crates/world/Cargo.toml|cl0/Cargo.toml|cl0/Cargo.lock|.github/workflows/cl1b-focused.yml)
+                  full=1 ;;
+                cl0/crates/world/tests/cl1b_*.rs)
+                  name="${changed_path##*/}"
+                  wanted["${name%.rs}"]=1
+                  case "${name}" in
+                    cl1b_b10_freshness.rs) wanted[cl1b_b13_native_mutation_differential]=1 ;;
+                    cl1b_b14_search_policy_mutation.rs) wanted[cl1b_b15_policy_generalization]=1 ;;
+                    cl1b_b16_functional_challenge.rs) wanted[cl1b_b17_native_challenge_mutation]=1 ;;
+                  esac ;;
+              esac
+            done
+          fi
           for target in "${targets[@]}"; do
+            if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
+              selected+=("${target}")
+            fi
+          done
+          {
+            echo "scope=$(if [ "${full}" -eq 1 ]; then echo full; else echo changed-only; fi)"
+            echo "selected_native_targets=${#selected[@]}"
+            printf "changed_path=%s\n" "${changed[@]}"
+          } | tee -a cl1b-ci-evidence/summary.txt
+          failures=0
+          for target in "${selected[@]}"; do
             echo "RUN ${target}" | tee -a cl1b-ci-evidence/summary.txt
             # pipefail retains cargo's failure even though stdout is archived.
             if cargo test --locked -p cl0-world --test "${target}" -- --nocapture \
