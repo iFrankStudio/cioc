@@ -40,7 +40,7 @@ fn program(arm:Arm)->Vec<Op>{
   Op::Read{dst:3,address:2,next:21}, //20
   Op::Branch{test:3,nonzero:22,zero:25}, //21 real edit vs original
   Op::Const{dst:2,value:11,next:23}, //22 original numeric target key
-  Op::Read{dst:3,address:2,next:26}, //23 actually dynamic native target
+  if arm==Arm::Sham {Op::Const{dst:3,value:5,next:26}} else {Op::Read{dst:3,address:2,next:26}}, //23 sham constant same native VM charge, active/null read true target
   Op::Halt, //24 unreachable placeholder
   Op::Const{dst:3,value:arm.original_next() as i64,next:26}, //25 no change
   Op::Const{dst:2,value:100,next:27}, //26 descriptor tag key
