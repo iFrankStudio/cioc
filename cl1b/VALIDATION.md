@@ -6,35 +6,35 @@
 
 | Study | Declared scope | Present evidence tier | Scientific stage accepted? |
 | --- | --- | --- | --- |
-| B00 | self-edit control |source integration test; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
-| B01 | functional continuity under two native self-edits |source integration test and lightweight execution audit — **PASS at verified SHA 5f4ce96e** | No |
-| B02 | scripted single-code-edge repair |source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
-| B03a | computed code-edge variation |source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
-| B03b | scripted trial-feedback choice |source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
-| B04 | actor-written checkpoint rollback |source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
-| B05 | mutually guarding monitors / false throughput gains |source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
+| B00 | self-edit control | source integration test; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
+| B01 | functional continuity under two native self-edits | source integration test and lightweight execution audit — **PASS at verified SHA 5f4ce96e** | No |
+| B02 | scripted single-code-edge repair | source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
+| B03a | computed code-edge variation | source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
+| B03b | scripted trial-feedback choice | source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
+| B04 | actor-written checkpoint rollback | source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
+| B05 | mutually guarding monitors / false throughput gains | source integration test and lightweight path audit — **PASS at verified SHA 5f4ce96e** | No |
 | B06 | poisoned checkpoint causing self-damage |native test in B05 file, simplified audit, failed two-patch preregistration preserved — **PASS at verified SHA 5f4ce96e** | No |
-| B07 | two-copy checkpoint agreement tradeoffs |source integration test and simplified audit — **PASS at verified SHA 5f4ce96e** | No |
-| B08 | state-indistinguishable history loss |source integration test and simplified audit — **PASS at verified SHA 5f4ce96e** | No |
-| B09 | trial output readback and zero/stale ambiguity |source integration test and full 25-path independent audit — **PASS at verified SHA 5f4ce96e** | No |
-| B10 | CIL-cleared marker and timed spoof control |source integration test and full 25-path independent audit — **PASS at verified SHA 5f4ce96e** | No |
-| B11 | one-actor repeated CIL candidate generation/trial |source integration test and full 30-path independent audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
-| B12 | marker/function divergence, false positives and damaging false-negative self-repair |source integration test and independent path audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
-| B13 / B13b | exhaustive single-edge evaluator robustness (1,805 mutants) and post-hoc decision-consumption audit |source-parsed scan, decision-edge correction and dedicated Rust VM differential committed; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
-| B14 | one actor modifies its own executable candidate-policy literal, with cross-lesion overfitting control |source integration test and 30-world lightweight path audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
+| B07 | two-copy checkpoint agreement tradeoffs | source integration test and simplified audit — **PASS at verified SHA 5f4ce96e** | No |
+| B08 | state-indistinguishable history loss | source integration test and simplified audit — **PASS at verified SHA 5f4ce96e** | No |
+| B09 | trial output readback and zero/stale ambiguity | source integration test and full 25-path independent audit — **PASS at verified SHA 5f4ce96e** | No |
+| B10 | CIL-cleared marker and timed spoof control | source integration test and full 25-path independent audit — **PASS at verified SHA 5f4ce96e** | No |
+| B11 | one-actor repeated CIL candidate generation/trial | source integration test and full 30-path independent audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
+| B12 | marker/function divergence, false positives and damaging false-negative self-repair | source integration test and independent path audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
+| B13 / B13b | exhaustive single-edge evaluator robustness (1,805 mutants) and post-hoc decision-consumption audit | source-parsed scan, decision-edge correction and dedicated Rust VM differential committed; native run now verified; **381 raw misleading reads vs 355 actual incorrect branch decisions** — **PASS at verified SHA 5f4ce96e** | No |
+| B14 | one actor modifies its own executable candidate-policy literal, with cross-lesion overfitting control | source integration test and 30-world lightweight path audit; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
 | B15 / B15b | exhaustive 350-world B14 policy comparison; corrected independent mutation units and actual use of policy |independent scan: **0/32 distinct holdout edge types benefit**, 2 types harmed; **31/160** input×edge cases really change and use policy (0 wins/10 losses/21 ties); Rust per-step causal differential committed, native run now verified — **PASS at verified SHA 5f4ce96e** | No |
 | B16 | actor-generated nonzero functional challenge and actual payload check with corruption/forgery negative controls |30-world source-parsed independent audit and native Rust test committed; native run now verified — **PASS at verified SHA 5f4ce96e** | No |
 | B17 | exhaustive B16 direct-payload checker robustness over 899 distinct single-edge mutations ×5 inputs |independent restricted scan: 60 false-accept worlds from 12 distinct mutations; 390 false-reject worlds from 78 mutations; source-matched 4,495-world Rust differential committed, native run verified — **PASS at verified SHA 5f4ce96e** | No |
 | B18 | finite-inventory theorem: total local credits plus pool declines by one per native attempt unless an external supply intervenes |audited VM Rust source and committed 4 native conservation/positive-control tests, native run verified — **PASS at verified SHA 5f4ce96e** | No — source-level necessary condition only |
-| B19 | generic world-pool environmental compute influx and native actor acquisition under pulse controls |source-shaped 5-world observer model and native per-step conservation/source-provenance tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — authored resource access feasibility only |
-| B20 | CIL resource-feedback accessibility / draw-size threshold under seven policy×pulse worlds |source-shaped independent seven-world model predicts threshold and post-draw debt deadlocks; native CIL scheduler tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — substrate obstruction and fixed-policy controls only |
-| B21 | CIL cross-process compute transfer can rescue another zero-credit worker's ordinary Write |source-parsed deterministic 3-arm scheduler audit and native Rust transfer-control test committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — engineered cooperative control only |
+| B19 | generic world-pool environmental compute influx and native actor acquisition under pulse controls | source-shaped 5-world observer model and native per-step conservation/source-provenance tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — authored resource access feasibility only |
+| B20 | CIL resource-feedback accessibility / draw-size threshold under seven policy×pulse worlds | source-shaped independent seven-world model predicts threshold and post-draw debt deadlocks; native CIL scheduler tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — substrate obstruction and fixed-policy controls only |
+| B21 | CIL cross-process compute transfer can rescue another zero-credit worker's ordinary Write | source-parsed deterministic 3-arm scheduler audit and native Rust transfer-control test committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — engineered cooperative control only |
 
 **Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **22 named Rust integration-test targets** cover the B00–B21 study labels (B03a/B03b separate; B05/B06 shared).
 
 ## Live SHA-pinned verification and archival channel
 
-The [focused workflow](../.github/workflows/cl1b-focused.yml) now has two separated jobs: the Rust test job remains **read-only** and runs **every** active test target, accumulating failures rather than aborting the campaign on the first one; an independent *push-to-main-only* reporting job has narrowly scoped `contents:write` and writes a source-SHA/run-ID result record plus downloadable raw target logs to a separate **`cl1b-ci-evidence` branch**. This branch is not a trigger for the CL-1B focused workflow. No PR code receives a write-privileged reporting job.
+The [focused workflow](../.github/workflows/cl1b-focused.yml) now has two separated jobs: the Rust test job remains **read-only** and runs the selected native targets (**all** targets for full verification), accumulating failures rather than aborting the campaign on the first one; an independent *push-to-main-only* reporting job has narrowly scoped `contents:write` and writes a source-SHA/run-ID result record plus downloadable raw target logs to a separate **`cl1b-ci-evidence` branch**. This branch is not a trigger for the CL-1B focused workflow. No PR code receives a write-privileged reporting job.
 
 **This route has now been observed completing successfully:** `cl1b-ci-evidence` contains the SHA-pinned full-run evidence for run 43723559666. For future commits, do not infer that a native run succeeded merely because the workflow exists. To retrieve evidence through the GitHub connector, search for branch `cl1b-ci-evidence`, then read `run-records/<main-SHA>-<run-ID>-<attempt>/result.txt` and `summary.txt` using `ref="cl1b-ci-evidence"`. Corroborate with the named per-target logs. If the evidence branch does not exist, it may indicate a queued workflow, a disabled Actions workflow, insufficient repository permissions or a job failure; report **UNVERIFIED** and inspect the Actions UI rather than guessing.
 
