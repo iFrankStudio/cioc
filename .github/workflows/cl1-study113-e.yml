@@ -1,0 +1,43 @@
+name: CL-1 Study113-E retrospective all64 native mutation functional-lineage gate
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study113e.py'
+      - 'cl1/studies/113E-post-outcome-functional-mutant-lineage-gate.md'
+      - '.github/workflows/cl1-study113-e.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-native-functional-genetic-lineages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download exactly original untouched unselected whole-mutagen Study113 archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/113E-post-outcome-functional-mutant-lineage-gate.md
+          mkdir -p "$RUNNER_TEMP/study113-original"
+          gh run download 43611914080 --repo "$GITHUB_REPOSITORY" --name cl1-study113-original-unselected-native-full-site-target --dir "$RUNNER_TEMP/study113-original"
+          test -s "$RUNNER_TEMP/study113-original/study113-original-full-site-edge-native-ecology.sqlite"
+      - name: Reverify original 4096 full-state SHA256 and all256 same-actor source/changed-genotype-to-grandchild lineages
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study113e.py "$RUNNER_TEMP/study113-original/study113-original-full-site-edge-native-ecology.sqlite" --json "$RUNNER_TEMP/study113E-original-strict-functional-lineages.json"
+      - name: Archive complete 64-genotype original-only true changed-code functional lineage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study113E-original-strict-actor-functional-lineage
+          retention-days: 30
+          path: ${{ runner.temp }}/study113E-original-strict-functional-lineages.json
