@@ -1,0 +1,55 @@
+name: CL-1 Study125-R original 256 shared competition worlds to native natural terminal
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study125-r.rs'
+      - 'cl1/analyze_study125r.py'
+      - 'cl1/studies/125R-post-outcome-original-shared-competition-natural-terminal.md'
+      - '.github/workflows/cl1-study125-r.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  all-original-worlds-unaltered-terminal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Obtain original full 256-world source-frozen Study125 SQLite, no resampling
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s ../cl1/studies/125R-post-outcome-original-shared-competition-natural-terminal.md
+          mkdir -p "$RUNNER_TEMP/study125-original"
+          gh run download 43669060441 --repo "$GITHUB_REPOSITORY" --name cl1-study125-original-native-sameworld-two-lineage-competition --dir "$RUNNER_TEMP/study125-original"
+          test -s "$RUNNER_TEMP/study125-original/study125-original-shared-two-genotype-ecology.sqlite"
+      - name: Resume every original source-hashed competitor world without ANY new host actions to actual scheduler terminal
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study125-r -- "$RUNNER_TEMP/study125-original/study125-original-shared-two-genotype-ecology.sqlite" "$RUNNER_TEMP/study125R-original-native-terminal-256worlds.sqlite" "$RUNNER_TEMP/study125R-summary.json"
+      - name: Rehash all4096 original+2048 continuation states and independently trace original/terminal true founder ancestry
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study125r.py "$RUNNER_TEMP/study125-original/study125-original-shared-two-genotype-ecology.sqlite" "$RUNNER_TEMP/study125R-original-native-terminal-256worlds.sqlite" "$RUNNER_TEMP/study125R-summary.json" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study125R-independent-original-terminal-audit.json"
+      - name: Archive full 256 immutable original linked terminal CIL worlds, native birth genealogy and independent audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study125R-original256-competing-worlds-natural-terminal
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study125R-original-native-terminal-256worlds.sqlite
+            ${{ runner.temp }}/study125R-summary.json
+            ${{ runner.temp }}/study125R-independent-original-terminal-audit.json
