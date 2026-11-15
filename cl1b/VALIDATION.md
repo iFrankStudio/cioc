@@ -29,8 +29,11 @@
 | B19 | generic world-pool environmental compute influx and native actor acquisition under pulse controls | source-shaped 5-world observer model and native per-step conservation/source-provenance tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — authored resource access feasibility only |
 | B20 | CIL resource-feedback accessibility / draw-size threshold under seven policy×pulse worlds | source-shaped independent seven-world model predicts threshold and post-draw debt deadlocks; native CIL scheduler tests committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — substrate obstruction and fixed-policy controls only |
 | B21 | CIL cross-process compute transfer can rescue another zero-credit worker's ordinary Write | source-parsed deterministic 3-arm scheduler audit and native Rust transfer-control test committed, native run verified — **PASS at verified SHA 5f4ce96e** | No — engineered cooperative control only |
+| B22 | one founder constructs and launches a separate relay graph using native CIL GraphNew, GraphCopyNodeLocal, GraphSetNext, GraphLaunch | **native targeted B22 PASS** at SHA `d028b760` ([run 43729982922](https://github.com/iFrankStudio/cioc/actions/runs/43729982922)); nine independent scans PASS. Native-created child is derived from an embedded investigator-authored complete helper template | **No — predesigned formation, not spontaneous organization** |
 
-**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **22 named Rust integration-test targets** cover the B00–B21 study labels (B03a/B03b separate; B05/B06 shared).
+**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **23 named Rust integration-test targets** cover the B00–B22 study labels (B03a/B03b separate; B05/B06 shared).
+
+**Additional B22 targeted checkpoint:** [run 43729982922](https://github.com/iFrankStudio/cioc/actions/runs/43729982922), SHA `d028b7603751502416c7923ead56581db2ae225b`: 1/1 selected Rust target + 9/9 independent analyses PASS, with [archived exact summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/d028b7603751502416c7923ead56581db2ae225b-43729982922-1/summary.txt). **This does not certify a 23/23 full suite; the 22/22 full checkpoint is a distinct source revision.**
 
 ## Live SHA-pinned verification and archival channel
 
