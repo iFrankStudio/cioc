@@ -136,6 +136,15 @@ fn b16_actor_issued_challenge_detects_skipped_payload_but_not_corrupted_checker(
             assert!(probe_outputs.iter().all(|v| *v == 17), "the native challenge output must be17");
             assert!(regular_outputs.iter().all(|v| *v == input), "the original user input must be restored");
             assert!(!regular_outputs.is_empty(), "ordinary service is distinct from challenge work");
+            let (expected_challenge, expected_regular, expected_suppressions) = match arm {
+                Arm::Intact => (5, 4, 0),
+                Arm::Skip | Arm::Stale => (4, 4, 0),
+                Arm::Disabled => (0, 4, 4),
+                Arm::CheckerBypass => (0, 5, 0),
+                Arm::TimedForgery => (3, 4, 0),
+            };
+            assert_eq!(probe_outputs.len(), expected_challenge, "{arm:?} input={input}");
+            assert_eq!(regular_outputs.len(), expected_regular, "{arm:?} input={input}");
 
             let patches: Vec<(usize, usize, usize)> = w.events().iter().filter_map(|e| match (&e.origin, &e.kind) {
                 (Origin::Internal(1), EventKind::ExecutableEdgePatched { node, before, after })
@@ -146,6 +155,7 @@ fn b16_actor_issued_challenge_detects_skipped_payload_but_not_corrupted_checker(
                 e.origin == Origin::Internal(1)
                     && matches!(e.kind, EventKind::NativeCodeEditSuppressed { opcode_tag: 6 })
             }).count();
+            assert_eq!(suppressed, expected_suppressions, "{arm:?} input={input}");
             let checks: Vec<(i64, i64)> = w.events().iter().filter_map(|e| match (&e.origin, &e.kind) {
                 (Origin::Internal(1), EventKind::CellRead { key, value }) if e.pc == 13 =>
                     Some((*key, *value)),
