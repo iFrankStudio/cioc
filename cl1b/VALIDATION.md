@@ -1,6 +1,6 @@
 # CL-1B native verification ledger — experiment code versus evidence
 
-**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B13 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
+**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B14 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
 
 | Study | Declared scope | Present evidence tier | Scientific stage accepted? |
 | --- | --- | --- | --- |
@@ -18,9 +18,10 @@
 | B10 | CIL-cleared marker and timed spoof control | source integration test and full 25-path independent audit | No |
 | B11 | one-actor repeated CIL candidate generation/trial | source integration test and full 30-path independent audit; native run unverified | No |
 | B12 | marker/function divergence, false positives and damaging false-negative self-repair | source integration test and independent path audit; native run unverified | No |
-| B13 | exhaustive single-edge evaluator robustness (1,805 mutants) | source-parsed JS and independent Python agree on primary aggregate; dedicated Rust VM differential now committed, native run unverified | No |
+| B13 / B13b | exhaustive single-edge evaluator robustness (1,805 mutants) and post-hoc decision-consumption audit | source-parsed scan, decision-edge correction and dedicated Rust VM differential committed; native run unverified | No |
+| B14 | one actor modifies its own executable candidate-policy literal, with cross-lesion overfitting control | source integration test and 30-world lightweight path audit; native run unverified | No |
 
-**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **14 named Rust integration-test targets** currently cover the above 12 study labels.
+**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **15 named Rust integration-test targets** currently cover the above 12 study labels.
 
 ## New machine-readable verification channel (configured, not yet observed)
 
