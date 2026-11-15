@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study128 POST-OUTCOME original Study128 full code-allele heredity, read only."""
+"""Study128 PROSPECTIVE new-genotype original native 3-generation functional whole-allele heredity."""
 import argparse
 import copy
 import hashlib
@@ -8,7 +8,7 @@ import sqlite3
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from analyze_study128 import audit as independent_original_audit, MODES
+from analyze_study128_world import audit as independent_original_audit, MODES
 
 SOURCE=None  # passed as original GitHub Actions run source SHA
 FIRST=7_200_000
