@@ -61,6 +61,7 @@ jobs:
             cl1b_b09_trial_evidence
             cl1b_b10_freshness
             cl1b_b11_serial_candidate_search
+            cl1b_b12_marker_function_divergence
           )
           for target in "${targets[@]}"; do
             echo "RUN ${target}" | tee -a cl1b-ci-evidence/summary.txt
