@@ -145,10 +145,26 @@ fn b10_native_freshness_defeats_stale_values_but_timed_spoof_fools_one_trial() {
                     && matches!(e.kind, EventKind::CellWritten { key: 11, value } if value == input)
             }).count();
             assert_eq!(
-                service_writes > 0,
-                !matches!(arm, Arm::Disabled),
-                "source-authored service writes cannot be faked by preseed"
+                service_writes,
+                match arm {
+                    Arm::Intact => 5,
+                    Arm::Damaged | Arm::StaleBoth => 4,
+                    Arm::Disabled => 0,
+                    Arm::TimedSpoof => 3,
+                },
+                "full instruction-window service count; zero input is not missing evidence"
             );
+            assert_eq!(
+                w.events().iter().filter(|e| {
+                    e.origin == Origin::Internal(1) && e.pc == 7
+                        && matches!(e.kind, EventKind::CellWritten { key: 13, value: 1 })
+                }).count(),
+                service_writes,
+                "each genuine source-produced marker must accompany a service output"
+            );
+            assert!(w.events().iter().any(|e| {
+                e.origin == Origin::Internal(1) && e.pc == 2
+            }), "the actor must execute its own marker deletion");
             assert_eq!(
                 w.events().iter().filter(|e| e.origin == Origin::External).count(),
                 match arm {
