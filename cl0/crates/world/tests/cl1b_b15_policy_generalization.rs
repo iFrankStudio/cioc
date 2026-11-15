@@ -28,6 +28,8 @@ struct Trial {
     trapped: bool,
     stopped: bool,
     policy_exec_count: usize,
+    policy_changed: bool,
+    policy_used_after_change: bool,
     occupied: usize,
 }
 
@@ -55,7 +57,32 @@ fn trial(input: i64, original_edge: usize, adaptive: bool) -> Trial {
             next: original_edge,
         }).unwrap();
     }
-    let attempts = w.run(120);
+    // Inspect actual native pre/post opcode states at each charged step:
+    // merely executing PC22 is not proof that it modifies PC29, nor that
+    // the changed policy literal is later used to propose any candidate.
+    let step_literal = |world: &World| -> i64 {
+        match &world.process(1).unwrap().code.nodes[29] {
+            Op::Const { value, .. } => *value,
+            _ => panic!("frozen B14 candidate policy no longer lives at PC29"),
+        }
+    };
+    let mut attempts = 0_usize;
+    let mut policy_changed = false;
+    let mut policy_used_after_change = false;
+    while attempts < 120 {
+        let pc_before = w.process(1).unwrap().pc;
+        let literal_before = step_literal(&w);
+        if !w.step() {
+            break;
+        }
+        attempts += 1;
+        if step_literal(&w) != literal_before {
+            policy_changed = true;
+        }
+        if pc_before == 29 && literal_before != 2 {
+            policy_used_after_change = true;
+        }
+    }
     assert!(attempts <= 120);
     let p = w.process(1).unwrap();
     assert_eq!(p.credits, 240 - attempts as u64);
@@ -90,6 +117,8 @@ fn trial(input: i64, original_edge: usize, adaptive: bool) -> Trial {
         trapped,
         stopped: p.stopped,
         policy_exec_count,
+        policy_changed,
+        policy_used_after_change,
         occupied: w.occupied_units(),
     }
 }
@@ -119,6 +148,9 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     let mut holdout = Outcomes::default();
     let mut active_holdout = Outcomes::default();
     let mut inactive_holdout = Outcomes::default();
+    let mut changed_and_used_holdout = Outcomes::default();
+    let mut reached_but_not_effective_holdout = Outcomes::default();
+    let mut unique_changed_and_used_holdout_edges = 0_usize;
     let mut unique_active_holdout_edges = 0_usize;
     let mut per_input_policy_active = [0_usize; 5];
 
@@ -139,6 +171,14 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
                 if adaptive.policy_exec_count > 0 || locked.policy_exec_count > 0 {
                     add(&mut active_holdout, &adaptive, &locked);
                     per_input_policy_active[input_index] += 1;
+                    if adaptive.policy_changed && adaptive.policy_used_after_change {
+                        add(&mut changed_and_used_holdout, &adaptive, &locked);
+                        if input == 23 {
+                            unique_changed_and_used_holdout_edges += 1;
+                        }
+                    } else {
+                        add(&mut reached_but_not_effective_holdout, &adaptive, &locked);
+                    }
                     if input == 23 {
                         unique_active_holdout_edges += 1;
                     }
@@ -185,6 +225,21 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     // independent structural mutations.
     assert_eq!(unique_active_holdout_edges, 13);
     assert_eq!(per_input_policy_active, [10, 10, 10, 13, 10]);
+    assert_eq!(unique_changed_and_used_holdout_edges, 7);
+    assert_eq!(
+        (changed_and_used_holdout.pairs, changed_and_used_holdout.wins,
+         changed_and_used_holdout.losses, changed_and_used_holdout.ties),
+        (31, 0, 10, 21),
+        "only 31 comparisons actually change AND execute the new policy literal"
+    );
+    assert_eq!(
+        (reached_but_not_effective_holdout.pairs,
+         reached_but_not_effective_holdout.wins,
+         reached_but_not_effective_holdout.losses,
+         reached_but_not_effective_holdout.ties),
+        (22, 0, 0, 22),
+        "PC22 execution alone is not policy-algorithm change"
+    );
     assert_eq!(
         (active_holdout.pairs, active_holdout.wins,
          active_holdout.losses, active_holdout.ties),
