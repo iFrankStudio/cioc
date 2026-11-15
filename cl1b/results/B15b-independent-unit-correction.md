@@ -29,6 +29,20 @@ The 13 distinct policy-reachable edge types are `13,15,17,20,21,22,23,24,25,27,2
 
 Consequently, the most informative restricted descriptive result is **0 improvements and 2 impaired edge types among 13 policy-reachable holdout types** (or 0/10/43 on 53 concrete input×edge trials). Even in the “policy reached” stratum, a code edit may fail to influence a meaningful output, so these are *not* 13 successful functional trials. Stratification is post-hoc, and should not be used for confirmatory significance tests.
 
+## Stronger causality check: the candidate policy must be **changed and used**
+
+PC22 merely being executed does not establish any change to the **future candidate generator**. With malformed control flow, its operand registers may point at another literal, or `PatchConst` may write a value already present. The B15 source-parsed observer reanalysis therefore distinguishes three nested states and separately counts executions of mutated candidate node29:
+
+| Holdout stratum | Input×edge conditions | Adaptive better | Adaptive worse | Equal | Distinct edge types |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Policy opcode never reached | 107 | 0 | 0 | 107 | not independently partitionable by edge, since activity varies with input |
+| PC22 reached but candidate policy **not changed and used** | 22 | 0 | 0 | 22 | — |
+| Node29 candidate step **actually changed and subsequently executed** | **31** | **0** | **10** | **21** | **7** |
+
+The seven distinct edge lesions whose source-path simulations actually modify **and subsequently use** node29 are `13,15,17,20,22,24,30`. All ten service losses are on lesions13/15 across the five inputs. The `31` conditions are **not** 31 independently sampled mutation mechanisms; they cover only seven structural sites and are correlated by shared B14 source and researcher-authored rule.
+
+The native B15 test was amended to compare PC29's **real before/after literal during each charged VM step**, and to check a future execution of PC29 with that changed value. This is considerably stronger than checking that PC22 ran, but it is **not yet a verified Rust pass**.
+
 ## Scope correction
 
 The other 30 holdout tie cases are **not proof of functional equivalence** or robust generalization. Some lesions bypass the diagnostic policy entirely or trap before it can be evaluated; other ties may reflect both arms failing. Hence the absence of holdout wins should be interpreted as:
