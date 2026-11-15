@@ -1,0 +1,39 @@
+# CL-1B — Continuous individual evolution
+
+**Status: ACTIVE — initial causal feasibility phase, not a life discovery (2026-11-15).** Replaces population reproduction as the *default* research emphasis. [CL-1A](../cl1a/README.md) remains an archived, paused research route; original historical material remains under `cl1/`.
+
+## Thesis and nonrequirements
+
+Study whether **one logically continuous native digital organization** can maintain activity, alter its own executable information, recover from harmful internal changes, and accumulate effective adaptation under bounded compute/storage and environmental perturbations.
+
+Birth, copy/launch, genetic inheritance, populations, aging, externally specified life rewards, and an immutable 'essential core' are **not necessary acceptance requirements**. Individual continuity is an empirically tested organizational relation, not process-ID equality, byte equality, uptime, or an observer's subjective attribution.
+
+An organism-level conclusion must not be inferred solely from self-modifying code, an automatic rollback instruction, increasing output, a better hand-designed algorithm, or survival of a selected subset.
+
+## Rules of the world
+
+- Keep the accepted CL-0 Rust/CIL VM and generic, resource-accounted graph/information/compute primitives. No host `LIFE`, `REPAIR`, `FITNESS`, `OPTIMIZE`, or dedicated rollback oracle.
+- Host snapshots/replay are **observer/laboratory instrumentation** unless a native agent itself constructs, owns, accesses and pays for corresponding recoverable information. Host test-harness restoration does not count as native recovery.
+- Allow native code changes via existing CIL operations, including `PatchNext`, `PatchConst`, graph edits and normal writes. Trace internal vs external origin and debit every attempted instruction.
+- A candidate may consist of several coupled processes or graph objects **within one causal organization**; do not define separate processes as separate lives by fiat. Account for all component state and storage.
+- Researcher-authored seed code, descriptor layouts, protected monitors, repair scripts, and chosen perturbations must be labeled external. They may be used as *positive engineering controls*, never scored as spontaneous invention.
+
+## Research phases / acceptance gates
+
+| Gate | Exact question | Required evidence | Forbidden inference |
+| --- | --- | --- | --- |
+| B0 substrate | Can one CIL actor change its **own running** code, with causal behavior and finite charges? | single-actor self-edit vs mutation-disabled sham, intact actor identity, event/provenance/credit checks | that an authored edit is self-improvement |
+| B1 functional continuity | Does a changing actor retain an independently declared function across multiple nontrivial internal code transitions? | matched initial worlds, measured pre/post function and code hashes, traps and losses retained | that a persistent PID equals persistent life |
+| B2 native recovery | After a harmful perturbation, can internal operations recover relevant function without laboratory restore? | damage/sham/disabled-repair/resource-ablated arms, native snapshot provenance and complete resource accounting | that a host replay is self-healing |
+| B3 cumulative adaptation | Do retained native changes improve persistence or task performance on **unseen environmental conditions**? | prospective training/holdout split, randomized order, matched edit opportunity/compute and negative controls | that externally selected best-of-N equals endogenous selection |
+| B4 endogenous organization | Do the organization and adaptation policy arise from world-local interactions rather than a scripted repair/reward apparatus? | preregistered causal component ablations, multi-window self-maintenance, non-scripted provenance, independent replication | that a single good trace establishes life |
+
+These gates are **sequential scientific claims**, not mandatory complexity of initial software releases. Negative results count. Do not quietly relax criteria or discard failed worlds.
+
+## First implementation
+
+- [Study B00 preregistered mechanism/negative-control protocol](studies/B00-self-edit-feasibility.md)
+- [Native focused Rust mechanism test](../cl0/crates/world/tests/cl1b_b00_single_actor_self_edit.rs): a human-authored single-process CIL program patches the control-flow of its own executable instruction; compare with a same-cost opt-in suppressed-patch control. This is an **engineering demonstration**, not autonomous improvement.
+- Next research proposal: B01 prospective functional-continuity assay with age/credit-matched world windows, editing pressure, non-editable and inert controls; build the independent read-only evaluator before authoring more complex seed programs.
+
+Original CI workflows running pre-split `cl1` artifacts may remain as compatibility/regression checks; they are not authorization to continue CL-1A experiments. No autonomous experiment workflow or OpenAI API action should be enabled.
