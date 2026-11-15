@@ -90,9 +90,14 @@ jobs:
              [[ "${DIFF_BASE_SHA}" =~ ^0+$ ]]; then
             full=1
           else
-            while IFS= read -r name; do
-              [ -z "${name}" ] || changed+=("${name}")
-            done < <(git diff --name-only "${DIFF_BASE_SHA}" HEAD)
+            if ! git cat-file -e "${DIFF_BASE_SHA}^{commit}" 2>/dev/null; then
+              echo "Cannot resolve diff base; run full native suite" >&2
+              full=1
+            else
+              while IFS= read -r name; do
+                [ -z "${name}" ] || changed+=("${name}")
+              done < <(git diff --name-only "${DIFF_BASE_SHA}" HEAD)
+            fi
           fi
           selected=()
           declare -A wanted=()
