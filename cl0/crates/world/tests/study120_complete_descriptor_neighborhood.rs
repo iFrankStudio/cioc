@@ -207,7 +207,11 @@ fn complete_precommitted_32_tag_native_assembler_child_grandchild_census() {
                 assert!(matches!(parent_birth[0].kind,EventKind::GraphLaunched {
                     transferred_credits:FIRST_CHILD_CREDITS,moved_nodes:CHILD_CODE_NODES,..
                 }));
-                assert_eq!(w.process(2).unwrap().code.nodes.len(),CHILD_CODE_NODES);
+                // Some valid but non-self-copying descriptors execute genuine
+                // native code-append operations after birth (e.g. tag8).
+                // Birth is proven by moved_nodes=18, not final resident length.
+                assert!(w.process(2).unwrap().code.nodes.len()>=CHILD_CODE_NODES,
+                    "resident child may grow code, never erase its assembled prefix");
                 let kind=&w.process(2).unwrap().code.nodes[4];
                 assert!(match tag {
                     1 => matches!(kind,Op::Add {dst:0,lhs:0,rhs:2,next:5}),
