@@ -84,6 +84,7 @@ jobs:
             cl1b_b20_resource_feedback_barrier
             cl1b_b21_cooperative_compute_relay
             cl1b_b22_native_relay_assembly
+            cl1b_b23_assembly_cost_vs_solo
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
@@ -118,6 +119,7 @@ jobs:
                     cl1b_b10_freshness.rs) wanted[cl1b_b13_native_mutation_differential]=1 ;;
                     cl1b_b14_search_policy_mutation.rs) wanted[cl1b_b15_policy_generalization]=1 ;;
                     cl1b_b16_functional_challenge.rs) wanted[cl1b_b17_native_challenge_mutation]=1 ;;
+                    cl1b_b22_native_relay_assembly.rs) wanted[cl1b_b23_assembly_cost_vs_solo]=1 ;;
                   esac ;;
               esac
             done
@@ -129,8 +131,8 @@ jobs:
           done
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 23 ]; then
-            echo "Expected exactly 23 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 24 ]; then
+            echo "Expected exactly 24 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
