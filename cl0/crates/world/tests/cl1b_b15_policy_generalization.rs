@@ -117,6 +117,9 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     let mut healthy = Outcomes::default();
     let mut development = Outcomes::default();
     let mut holdout = Outcomes::default();
+    let mut active_holdout = Outcomes::default();
+    let mut inactive_holdout = Outcomes::default();
+    let mut unique_active_holdout_edges = 0_usize;
 
     for input in [-13, 0, 7, 23, 101] {
         for next in 0..35_usize {
@@ -131,6 +134,16 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
                 &mut holdout
             };
             add(bucket, &adaptive, &locked);
+            if next != 7 && next != 10 && next != 11 {
+                if adaptive.policy_exec_count > 0 || locked.policy_exec_count > 0 {
+                    add(&mut active_holdout, &adaptive, &locked);
+                    if input == 23 {
+                        unique_active_holdout_edges += 1;
+                    }
+                } else {
+                    add(&mut inactive_holdout, &adaptive, &locked);
+                }
+            }
 
             if next == 7 {
                 assert_eq!(adaptive.service, locked.service);
@@ -165,4 +178,20 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     assert_eq!((holdout.adaptive_traps, holdout.locked_traps), (8, 8));
     assert_eq!((holdout.adaptive_stopped, holdout.locked_stopped), (61, 45));
     assert_eq!(holdout.unequal_attempts, 16);
+    // Post-hoc B15b evidence stratification. Input labels are deterministic
+    // repetitions of the SAME 32 structural holdout edges, not 160
+    // independent structural mutations.
+    assert_eq!(unique_active_holdout_edges, 13);
+    assert_eq!(
+        (active_holdout.pairs, active_holdout.wins,
+         active_holdout.losses, active_holdout.ties),
+        (65, 0, 10, 55),
+        "policy actually reached on 13 unique holdout edge types"
+    );
+    assert_eq!(
+        (inactive_holdout.pairs, inactive_holdout.wins,
+         inactive_holdout.losses, inactive_holdout.ties),
+        (95, 0, 0, 95),
+        "19 other holdout edge types never execute the policy opcode"
+    );
 }
