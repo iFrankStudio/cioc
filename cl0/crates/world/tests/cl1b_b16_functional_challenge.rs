@@ -14,7 +14,7 @@ enum Arm {
     TimedForgery,
 }
 
-fn founder() -> Vec<Op> {
+pub(crate) fn founder() -> Vec<Op> {
     vec![
         Op::Const { dst: 0, value: 15, next: 1 },
         Op::Const { dst: 2, value: 7, next: 2 },
