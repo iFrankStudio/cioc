@@ -1,0 +1,27 @@
+name: CL-1 Study136 prospective active versus dormant neutral whole-code native allele contrast
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study136_active_vs_dormant_neutral_cil_allele_control.rs'
+      - 'cl1/studies/136-preregistered-active-vs-dormant-neutral-native-allele-competition.md'
+      - '.github/workflows/cl1-study136.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-active-vs-neutral-genotype-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Require frozen new16 seed active vs real dormant neutral whole source allele and K240 comparison
+        run: test -s ../cl1/studies/136-preregistered-active-vs-dormant-neutral-native-allele-competition.md
+      - name: Run only Study136 all256 new true-native CIL active/dormant neutral edit same-parent sibling worlds to terminal
+        run: cargo test --locked -p cl0-world --test study136_active_vs_dormant_neutral_cil_allele_control -- --nocapture
