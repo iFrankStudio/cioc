@@ -4,8 +4,7 @@ on:
   push:
     paths:
       - 'cl0/crates/lab/src/bin/cl1-study123.rs'
-      - 'cl1/analyze_study123.py'
-      - 'cl1/analyze_study123_strict.py'
+      # Auditing fixes must read original SQLite; no new ecological run.
       - 'cl1/studies/123-preregistered-independent-untargeted-functional-mutant-lineage-replication.md'
       - '.github/workflows/cl1-study123.yml'
   workflow_dispatch:
