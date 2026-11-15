@@ -1,0 +1,27 @@
+name: CL-1 Study135 independent untargeted native CIL mutant ancestor sibling age240 fertility
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study135_untargeted_native_grant400_allele_age240_rates.rs'
+      - 'cl1/studies/135-preregistered-untargeted-native-grant400-sibling-reproduction-rate.md'
+      - '.github/workflows/cl1-study135.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-new-unselected-full-code-alleles-age240:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify new independent original16 unselected mutation source CIL genotype and daughter400 original actor-age240 matching
+        run: test -s ../cl1/studies/135-preregistered-untargeted-native-grant400-sibling-reproduction-rate.md
+      - name: Execute only original128 native fully source-traced site target worlds to true terminal with matched functional ancestor versus mutant reproduction
+        run: cargo test --locked -p cl0-world --test study135_untargeted_native_grant400_allele_age240_rates -- --nocapture
