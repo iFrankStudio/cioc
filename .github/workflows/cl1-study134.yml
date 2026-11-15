@@ -1,0 +1,27 @@
+name: CL-1 Study134 native daughter compute grant200 vs400 original parent allele age control
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study134_native_daughter_grant_age_eligibility_calibration.rs'
+      - 'cl1/studies/134-preregistered-native-daughter-compute-grant-and-age-exposure-calibration.md'
+      - '.github/workflows/cl1-study134.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-frozen-native-child-resource-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify original 16 worlds and native actor K240 eligibility contract frozen before trial
+        run: test -s ../cl1/studies/134-preregistered-native-daughter-compute-grant-and-age-exposure-calibration.md
+      - name: Only execute genuine native CIL daughter compute grant200 vs400 complete allele sibling actor-age worlds
+        run: cargo test --locked -p cl0-world --test study134_native_daughter_grant_age_eligibility_calibration -- --nocapture
