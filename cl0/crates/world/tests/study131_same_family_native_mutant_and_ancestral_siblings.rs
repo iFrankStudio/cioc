@@ -158,9 +158,12 @@ fn trial(source:i64,phase:i64,disabled:bool)->Result131{
         assert_eq!(native_edits,0);
         assert_eq!(mutation_births,0);
     }else{
+        // The precommitted main gate requires native unchanged AND changed
+        // functional siblings in at least ONE counter phase under both
+        // sources, not each initial phase. In phase1 the founder can edit
+        // before its first child, legitimately yielding zero ancestral births.
         assert!(native_edits>0);
         assert!(mutation_births>0);
-        assert!(ancestor_births>0);
     }
     let both=([1_u64,2_u64]).iter().any(|founder|{
         let originals=ancestor_siblings.get(&(*founder,4)).cloned().unwrap_or_default();
