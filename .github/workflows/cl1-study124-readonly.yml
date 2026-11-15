@@ -1,0 +1,43 @@
+name: CL-1 Study124 independent immutable 512-world functional mutant lineage audit
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study124.py'
+      - 'cl1/analyze_study124_strict.py'
+      - '.github/workflows/cl1-study124-readonly.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  immutable-source-native-actor-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download untouched original 128-new-genotype Study124 full 512-world SHA256 archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/124-preregistered-new-independent-native-mutational-functional-selection.md
+          mkdir -p "$RUNNER_TEMP/study124-original"
+          gh run download 43666723283 --repo "$GITHUB_REPOSITORY" --name cl1-study124-original-128stategenotype-native-functional-ecology --dir "$RUNNER_TEMP/study124-original"
+          test -s "$RUNNER_TEMP/study124-original/study124-original-new128-native-worlds.sqlite"
+      - name: Independently audit original 8192 frozen SHA256 native code, real child source-node ancestry and same-actor source function
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study124_strict.py "$RUNNER_TEMP/study124-original/study124-original-new128-native-worlds.sqlite" --expected-revision aa40a68f7e951ec9f6babcd9360ba4e7d5565c6a --json "$RUNNER_TEMP/study124-original-128-code-state-strict-native-genealogy.json"
+      - name: Preserve every original source-specific genotype and exact functional mutant ancestry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study124-original-independent-full-native-heredity-audit
+          retention-days: 30
+          path: ${{ runner.temp }}/study124-original-128-code-state-strict-native-genealogy.json
