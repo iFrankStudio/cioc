@@ -30,6 +30,10 @@ An organism-level conclusion must not be inferred solely from self-modifying cod
 
 These gates are **sequential scientific claims**, not mandatory complexity of initial software releases. Negative results count. Do not quietly relax criteria or discard failed worlds.
 
+## Evidence validation status
+
+**Native Rust CI remains unverified** for the complete active B00–B10 campaign. See [verification debt ledger and artifact runbook](VALIDATION.md). The focused workflow now exports source-pinned per-test cargo logs even on failed runs; **artifact creation has not yet been observed**. A source commit or lightweight interpreter trace does not count as Rust VM evidence. No CL-1B scientific gate is accepted.
+
 ## First implementation and scientific caveats
 
 - [Study B00 preregistered mechanism/negative-control protocol](studies/B00-self-edit-feasibility.md)
