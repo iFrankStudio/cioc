@@ -110,7 +110,39 @@ fn b21_native_cil_companion_relay_restores_blocked_worker_under_neutral_compute_
         }
 
         supply_neutral_pool(&mut w, 5);
-        let after_five = charged_work_until_blocked(&mut w);
+        // Measure actual worker credit movement at the exact helper PC4
+        // instruction; EventKind::Executed alone cannot distinguish Transfer
+        // from the negative-control Const with the same PC.
+        let mut after_five = 0_usize;
+        let mut witnessed_credit_relays = 0_usize;
+        loop {
+            assert!(after_five < 20);
+            let before_e = w.total_compute_inventory().unwrap();
+            let worker_before = w.process(1).unwrap().credits;
+            let helper_before_pc = w.process(2).map(|p| p.pc);
+            let previous_events = w.events().len();
+            if !w.step() {
+                assert_eq!(w.events().len(), previous_events);
+                assert_eq!(w.total_compute_inventory(), Some(before_e));
+                break;
+            }
+            after_five += 1;
+            assert_eq!(w.events().len(), previous_events + 1);
+            assert_eq!(w.total_compute_inventory(), Some(before_e - 1));
+            if w.events().last().unwrap().origin == Origin::Internal(2)
+                && helper_before_pc == Some(4)
+            {
+                if matches!(arm, Arm::Relay) {
+                    assert_eq!(w.process(1).unwrap().credits, worker_before + 1,
+                        "native helper transfer must credit worker directly");
+                    witnessed_credit_relays += 1;
+                } else {
+                    assert_eq!(w.process(1).unwrap().credits, worker_before,
+                        "matched Const at relay PC4 must not credit worker");
+                }
+            }
+        }
+        assert_eq!(witnessed_credit_relays, usize::from(matches!(arm, Arm::Relay)));
         assert_eq!(
             after_five,
             if matches!(arm, Arm::NoRelay) { 0 } else { 5 },
@@ -121,14 +153,14 @@ fn b21_native_cil_companion_relay_restores_blocked_worker_under_neutral_compute_
             (Origin::Internal(1), EventKind::CellWritten { key: 9, value: 1 })
                 if e.pc == 4
         )).count();
-        let helper_transfer_count = w.events().iter().filter(|e| matches!(
+        let helper_pc4_count = w.events().iter().filter(|e| matches!(
             (&e.origin, &e.kind),
             (Origin::Internal(2), EventKind::Executed) if e.pc == 4
         )).count();
         let expected_services = usize::from(matches!(arm, Arm::Relay));
         assert_eq!(native_service_count, expected_services, "{arm:?}");
-        assert_eq!(helper_transfer_count, usize::from(matches!(arm, Arm::Relay)),
-                   "only native CIL TransferCompute can transfer credit to a zero-credit worker");
+        assert_eq!(helper_pc4_count, usize::from(!matches!(arm, Arm::NoRelay)),
+                   "both helper policies execute PC4; only TransferCompute moves worker credits");
         assert_eq!(w.process(1).unwrap().pc, if expected_services == 1 { 1 } else { 4 });
         assert_eq!(w.process(1).unwrap().credits, 0);
         assert_eq!(w.available_compute_pool(),
