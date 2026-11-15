@@ -1,0 +1,46 @@
+name: CL-1 Study125 first shared compute pool true two-lineage native CIL competition
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study125.rs'
+      - 'cl1/analyze_study125.py'
+      - 'cl1/studies/125-preregistered-shared-pool-two-lineage-competition.md'
+      - '.github/workflows/cl1-study125.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  same-world-native-lineage-competition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify precommitted entire original two-lineage shared-pool protocol
+        run: test -s ../cl1/studies/125-preregistered-shared-pool-two-lineage-competition.md
+      - name: Run all256 two-founder same-world native CIL competitors, 4096 full original epoch SHA256
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study125 -- "$RUNNER_TEMP/study125-original-shared-two-genotype-ecology.sqlite"
+      - name: Independently verify original native graph genealogy, paired order source and edit effects, compute charges and all4096 snapshots
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study125.py "$RUNNER_TEMP/study125-original-shared-two-genotype-ecology.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study125-original-two-lineage-independent-audit.json"
+      - name: Preserve every original no-birth, disabled-edit and source/order-swapped competitor world
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study125-original-native-sameworld-two-lineage-competition
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study125-original-shared-two-genotype-ecology.sqlite
+            ${{ runner.temp }}/study125-original-two-lineage-independent-audit.json
