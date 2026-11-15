@@ -1,0 +1,42 @@
+name: CL-1 Study123 post-outcome invalid-uniqueness original-only diagnostic
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study123_post.py'
+      - 'cl1/analyze_study123_post_strict.py'
+      - '.github/workflows/cl1-study123-readonly.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-source-invalid-genome-gate-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch exact immutable original FAILED Study123 512-world archive, never regenerate seeds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/study123-original"
+          gh run download 43665874045 --repo "$GITHUB_REPOSITORY" --name cl1-study123-prospective-128genome-full-functional-native-ecology --dir "$RUNNER_TEMP/study123-original"
+          test -s "$RUNNER_TEMP/study123-original/study123-original-new128-untargeted-native-genotypes.sqlite"
+      - name: Read-only invalid-uniqueness cohort with real actor-mutated credit transfer and complete 8192 hashes
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study123_post_strict.py "$RUNNER_TEMP/study123-original/study123-original-new128-untargeted-native-genotypes.sqlite" --expected-revision a0bf250940af4843b1f281840c0325ef5af3c9ae --json "$RUNNER_TEMP/study123-original-invalid-uniqueness-post-outcome.json"
+      - name: Preserve complete source-verified post-outcome diagnosis, not confirmatory acceptance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study123-invalid-uniqueness-original-readonly
+          retention-days: 30
+          path: ${{ runner.temp }}/study123-original-invalid-uniqueness-post-outcome.json
