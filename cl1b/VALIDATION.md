@@ -1,6 +1,6 @@
 # CL-1B native verification ledger — experiment code versus evidence
 
-**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B10 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
+**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B11 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
 
 | Study | Declared scope | Present evidence tier | Scientific stage accepted? |
 | --- | --- | --- | --- |
@@ -16,12 +16,13 @@
 | B08 | state-indistinguishable history loss | source integration test and simplified audit | No |
 | B09 | trial output readback and zero/stale ambiguity | source integration test and full 25-path independent audit | No |
 | B10 | CIL-cleared marker and timed spoof control | source integration test and full 25-path independent audit | No |
+| B11 | one-actor repeated CIL candidate generation/trial | source integration test and full 30-path independent audit; native run unverified | No |
 
-**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **11 named Rust integration-test targets** currently cover the above 12 study labels.
+**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **12 named Rust integration-test targets** currently cover the above 12 study labels.
 
 ## Native verification runbook
 
-Use [the dedicated focused Actions workflow](../.github/workflows/cl1b-focused.yml), configured to run only the explicitly named B00–B10 targets. The job records the source commit `GITHUB_SHA`, workflow ID/attempt, Rust/Cargo toolchain versions, per-target exact `cargo test --locked -p cl0-world --test ... -- --nocapture` stdout/stderr and explicit PASS/FAIL lines.
+Use [the dedicated focused Actions workflow](../.github/workflows/cl1b-focused.yml), configured to run only the explicitly named B00–B11 targets. The job records the source commit `GITHUB_SHA`, workflow ID/attempt, Rust/Cargo toolchain versions, per-target exact `cargo test --locked -p cl0-world --test ... -- --nocapture` stdout/stderr and explicit PASS/FAIL lines.
 
 1. Open **Actions → CL-1B focused native experiments** in GitHub and locate the run corresponding to the intended **source SHA** (a run being queued, skipped, cancelled or absent does **not** pass).
 2. Require a completed **success** conclusion for that exact source revision, with all target lines PASS. A failure must remain archived, not silently reclassified. Note that the very first compilation may fail before later experiments are reached: absence of a result for later targets is neither pass nor fail.
