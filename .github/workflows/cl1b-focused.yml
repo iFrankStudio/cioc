@@ -53,3 +53,5 @@ jobs:
         run: cargo test --locked -p cl0-world --test cl1b_b08_indistinguishable_histories
       - name: B09 functional evidence after history loss, stale and zero controls
         run: cargo test --locked -p cl0-world --test cl1b_b09_trial_evidence
+      - name: B10 actor-cleared freshness marker and timed-spoof failure control
+        run: cargo test --locked -p cl0-world --test cl1b_b10_freshness
