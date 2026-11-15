@@ -24,34 +24,59 @@ concurrency:
 jobs:
   native-cl1b:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: cl0
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
         with:
-          components: rustfmt, clippy
-      - name: B00 native self-modification
-        run: cargo test --locked -p cl0-world --test cl1b_b00_single_actor_self_edit
-      - name: B01 functional continuity
-        run: cargo test --locked -p cl0-world --test cl1b_b01_functional_continuity
-      - name: B02 native repair calibration
-        run: cargo test --locked -p cl0-world --test cl1b_b02_native_repair_calibration
-      - name: B03a internally computed variant
-        run: cargo test --locked -p cl0-world --test cl1b_b03a_computed_self_variant
-      - name: B03b trial-feedback selection
-        run: cargo test --locked -p cl0-world --test cl1b_b03b_trial_feedback
-      - name: B04 CIL-owned checkpoint and rollback
-        run: cargo test --locked -p cl0-world --test cl1b_b04_native_checkpoint_rollback
-      - name: B05-B06 mutual monitors and checkpoint-poisoning controls
-        run: cargo test --locked -p cl0-world --test cl1b_b05_reciprocal_monitors
-      - name: B07 double checkpoint agreement and correlated faults
-        run: cargo test --locked -p cl0-world --test cl1b_b07_checkpoint_agreement
-      - name: B08 observationally identical histories information-loss bound
-        run: cargo test --locked -p cl0-world --test cl1b_b08_indistinguishable_histories
-      - name: B09 functional evidence after history loss, stale and zero controls
-        run: cargo test --locked -p cl0-world --test cl1b_b09_trial_evidence
-      - name: B10 actor-cleared freshness marker and timed-spoof failure control
-        run: cargo test --locked -p cl0-world --test cl1b_b10_freshness
+          workspaces: cl0
+      - name: Run active B00-B10 only and archive source-pinned original Rust evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=${GITHUB_SHA}"
+            echo "workflow_run_id=${GITHUB_RUN_ID}"
+            echo "workflow_run_attempt=${GITHUB_RUN_ATTEMPT}"
+            echo "runner_os=${RUNNER_OS}"
+            echo "rustc=$(rustc --version)"
+            echo "cargo=$(cargo --version)"
+          } > cl1b-ci-evidence/provenance.txt
+          targets=(
+            cl1b_b00_single_actor_self_edit
+            cl1b_b01_functional_continuity
+            cl1b_b02_native_repair_calibration
+            cl1b_b03a_computed_self_variant
+            cl1b_b03b_trial_feedback
+            cl1b_b04_native_checkpoint_rollback
+            cl1b_b05_reciprocal_monitors
+            cl1b_b07_checkpoint_agreement
+            cl1b_b08_indistinguishable_histories
+            cl1b_b09_trial_evidence
+            cl1b_b10_freshness
+          )
+          for target in "${targets[@]}"; do
+            echo "RUN ${target}" | tee -a cl1b-ci-evidence/summary.txt
+            # pipefail retains cargo's failure even though stdout is archived.
+            if cargo test --locked -p cl0-world --test "${target}" -- --nocapture \
+              2>&1 | tee "cl1b-ci-evidence/${target}.log"; then
+              echo "PASS ${target}" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL ${target}" | tee -a cl1b-ci-evidence/summary.txt
+              exit 1
+            fi
+          done
+      - name: Upload verifiable native CL-1B logs (including failed runs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-native-${{ github.run_id }}-${{ github.run_attempt }}
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
+          retention-days: 30
