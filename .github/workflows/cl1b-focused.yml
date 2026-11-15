@@ -164,6 +164,7 @@ jobs:
             b19_compute_flux_model
             b20_resource_feedback_barrier
             b21_cooperative_compute_relay
+            b22_native_relay_assembly
           )
           observer_failures=0
           for observer in "${observers[@]}"; do
