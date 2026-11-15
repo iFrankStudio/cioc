@@ -1,0 +1,27 @@
+name: CL-1 Study121 complete 128 native arithmetic operand-generated child genotypes
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study121_full_arithmetic_operand_neighborhood.rs'
+      - 'cl1/studies/121-preregistered-full-operand-neighborhood-native-assembled-child.md'
+      - '.github/workflows/cl1-study121.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  complete-128-operand-child-neighborhood:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify pre-outcome complete operand genotype registration
+        run: test -s ../cl1/studies/121-preregistered-full-operand-neighborhood-native-assembled-child.md
+      - name: Execute complete 256 native assembler and grandchild source-paired actor-worlds
+        run: cargo test --locked -p cl0-world --test study121_full_arithmetic_operand_neighborhood -- --nocapture
