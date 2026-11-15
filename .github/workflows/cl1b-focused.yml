@@ -34,7 +34,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: cl0
-      - name: Run active B00-B10 only and archive source-pinned original Rust evidence
+      - name: Run active B00-B12 and archive source-pinned original Rust evidence
         shell: bash
         run: |
           set -euo pipefail
@@ -82,3 +82,60 @@ jobs:
           path: cl0/cl1b-ci-evidence/
           if-no-files-found: warn
           retention-days: 30
+
+  # Separate least-privilege job: the code-running test job stays read-only.
+  # Publish exact source SHA, run conclusion and raw logs to a non-main branch,
+  # so project researchers can inspect native results through GitHub read access.
+  # This branch is never a CL-1B workflow trigger and cannot cause CI loops.
+  publish-native-evidence:
+    if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: [native-cl1b]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Switch to isolated evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin cl1b-ci-evidence >/dev/null; then
+            git fetch origin cl1b-ci-evidence
+            git switch -C cl1b-ci-evidence FETCH_HEAD
+          else
+            git switch --orphan cl1b-ci-evidence
+            git rm -rf . >/dev/null
+          fi
+      - name: Retrieve native test logs from this exact workflow run
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: cl1b-native-${{ github.run_id }}-${{ github.run_attempt }}
+          path: run-records/${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Commit source-pinned result and logs to evidence branch
+        shell: bash
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          NATIVE_CONCLUSION: ${{ needs.native-cl1b.result }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          dir="run-records/${SOURCE_SHA}-${RUN_ID}-${RUN_ATTEMPT}"
+          mkdir -p "${dir}"
+          {
+            echo "source_sha=${SOURCE_SHA}"
+            echo "native_job_result=${NATIVE_CONCLUSION}"
+            echo "run_id=${RUN_ID}"
+            echo "run_attempt=${RUN_ATTEMPT}"
+            echo "run_url=https://github.com/iFrankStudio/cioc/actions/runs/${RUN_ID}"
+          } > "${dir}/result.txt"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "run-records/${SOURCE_SHA}-${RUN_ID}-${RUN_ATTEMPT}"
+          git commit -m "ci-evidence: ${NATIVE_CONCLUSION} for ${SOURCE_SHA} run ${RUN_ID}"
+          git push origin HEAD:refs/heads/cl1b-ci-evidence
