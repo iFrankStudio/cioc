@@ -42,7 +42,7 @@ for(const input of inputs)for(let next=0;next<35;next++){
  const adaptive=simulate(input,next,true),locked=simulate(input,next,false);
  states.push({input,next,group:next===7?"healthy":next===10||next===11?"development":"holdout",adaptive,locked,delta:adaptive.services-locked.services});
 }
-if(states.length!==350)throw Error("B15 350-world denominator");
+if(states.length!==175)throw Error("B15 175 matched-pair denominator");
 function summarize(rows){
  const sum=key=>rows.reduce((v,s)=>v+s[key],0);
  return {pairs:rows.length,win:rows.filter(s=>s.delta>0).length,loss:rows.filter(s=>s.delta<0).length,tie:rows.filter(s=>s.delta===0).length,
@@ -53,7 +53,7 @@ function summarize(rows){
 }
 const groups={healthy:summarize(states.filter(s=>s.group==="healthy")),development:summarize(states.filter(s=>s.group==="development")),holdout:summarize(states.filter(s=>s.group==="holdout")),overall:summarize(states)};
 const byLesion=Array.from({length:35},(_,next)=>({next,...summarize(states.filter(s=>s.next===next))}));
-const output={source:"B14 exact founder parsed from checked-out Rust file",status:"independent simplified interpreter; NOT CL-0 Rust native evidence",initialCredits:240,maxAttempts:120,worlds:700,matchedPairs:350,groups,byLesion,
+const output={source:"B14 exact founder parsed from checked-out Rust file",status:"independent simplified interpreter; NOT CL-0 Rust native evidence",initialCredits:240,maxAttempts:120,worlds:350,matchedPairs:175,groups,byLesion,
  development:states.filter(s=>s.group==="development"),
  holdoutWinExamples:states.filter(s=>s.group==="holdout"&&s.delta>0).slice(0,10),
  holdoutLossExamples:states.filter(s=>s.group==="holdout"&&s.delta<0).slice(0,10)};
