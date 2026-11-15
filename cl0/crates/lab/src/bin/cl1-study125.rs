@@ -85,7 +85,7 @@ fn initial_world(code_a: Vec<Op>, code_b: Vec<Op>, initial_target: i64, mode: &s
     let (first, second)=if a_first {(code_a,code_b)} else {(code_b,code_a)};
     world.load(Process::new(1, first, 500))?;
     world.load(Process::new(2, second, 500))?;
-    let source = if mode.ends_with("source3") { 3 } else { 8 };
+    let source = if mode.contains("-source3-") { 3 } else { 8 };
     world.intervene(Intervention::SetCell { key: 7, value: source })?;
     world.intervene(Intervention::SetCell { key: 11, value: initial_target })?;
     world.intervene(Intervention::SetComputePool { credits: 800 })?;
