@@ -8,6 +8,8 @@ Can a *single existing CIL actor* observe one of its own executable edges, write
 
 All checkpoint content must originate from CIL `ReadNext`→`Write`, not from a researcher-injected correct edge, host snapshot, or Rust intervention. The actor's check-and-restore policy is nevertheless *researcher authored*. Storage is one ordinary charged shared cell, **not** durable, private or secured against external corruption.
 
+**Preimplementation arithmetic correction:** the initial bootstrap route skips PC13 and consumes 15, not 16, attempts. This correction was made before writing the B04 test and before outcome inspection. No experimental result has been inspected.
+
 ## Frozen source / timeline
 
 One 16-node program; one external `Process::new(1, code, 120)`; strict total capacity64, no pool and no process creation. External initial source input: shared key7. Actor's checkpoint destination: shared key12; output: shared key9.
@@ -31,7 +33,7 @@ One 16-node program; one external `Process::new(1, code, 120)`; strict total cap
 |14|Const r2=7|15|
 |15|Const r3=9|6|
 
-Run 16 CIL attempts (through PC15) and fork from the same complete serialized prefork world: process PC6, one CIL-authored checkpoint cell12=7 and one valid output cell9=input. This prefork state is identical across all arms. External actions are **after** fork only. Native origin must be checked on PC3 checkpoint write and PC13 restoration. Apply specified interventions then run exactly 72 more charged attempts (single-process opportunity matching). Total used attempts88, final credits32.
+Run 15 CIL attempts (through PC15) and fork from the same complete serialized prefork world: process PC6, one CIL-authored checkpoint cell12=7 and one valid output cell9=input. This prefork state is identical across all arms. External actions are **after** fork only. Native origin must be checked on PC3 checkpoint write and PC13 restoration. Apply specified interventions then run exactly 72 more charged attempts (single-process opportunity matching). Total used attempts87, final credits33.
 
 ## Frozen four arms × five inputs
 
@@ -44,7 +46,7 @@ Inputs `[-13,0,7,23,101]`, four arms each, **20 deterministic worlds**. Program 
 
 ## Fixed acceptance / reporting rules
 
-For each arm: natural run remains live after 72 attempted instructions (not terminal); one process, no GraphLaunch, no Trap; actor PC6 after 72, credits32, world compute inventory32, external-event counts2 at prefork (load + source cell) plus arm-specific additions1/1/1/2, exact per-arm outputs and patch/suppression events, no CIL-visible host snapshot. All native writes including the checkpoint are observer-traceable and charged. All 20 conditions, including missing outputs, must remain in denominator.
+For each arm: natural run remains live after 72 attempted instructions (not terminal); one process, no GraphLaunch, no Trap; actor PC6 after 72, credits33, world compute inventory33, external-event counts2 at prefork (load + source cell) plus arm-specific additions1/1/1/2, exact per-arm outputs and patch/suppression events, no CIL-visible host snapshot. All native writes including the checkpoint are observer-traceable and charged. All 20 conditions, including missing outputs, must remain in denominator.
 
 This is **a positive engineering substrate control only**. A hand-built monitor detecting one specific edge and restoring saved data does not establish autonomously *discovered* self-preservation, safe rollback of arbitrary code, cumulative novelty, security of the checkpoint, or organizational individuality.
 
