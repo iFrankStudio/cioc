@@ -1,0 +1,45 @@
+name: CL-1 Study124 prospective 128 complete-state native functional mutant lineage holdout
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study124.rs'
+      - 'cl1/studies/124-preregistered-new-independent-native-mutational-functional-selection.md'
+      - '.github/workflows/cl1-study124.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  complete-state-native-functional-mutant-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify pre-outcome frozen 128-seed complete state-genotype contract
+        run: test -s ../cl1/studies/124-preregistered-new-independent-native-mutational-functional-selection.md
+      - name: Run all512 new native original CIL genotype-control worlds and8192 deterministic exact SHA epochs
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study124 -- "$RUNNER_TEMP/study124-original-new128-native-worlds.sqlite"
+      - name: Independently rehash all8192 original states and verify functional altered-code same-actor multigeneration genealogy
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study124_strict.py "$RUNNER_TEMP/study124-original-new128-native-worlds.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study124-original-complete-state-actor-lineage.json"
+      - name: Archive all original worlds, not only favorable or surviving original genotypes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study124-original-128stategenotype-native-functional-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study124-original-new128-native-worlds.sqlite
+            ${{ runner.temp }}/study124-original-complete-state-actor-lineage.json
