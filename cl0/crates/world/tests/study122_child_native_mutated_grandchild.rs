@@ -164,6 +164,20 @@ fn full_32_tag_grandchild_mutation_by_assembled_child_in_native_cil() {
                 assert!(matches!(event.kind,EventKind::GraphNodeCopied{new_node,..} if new_node==index));
             }
             let last_copy_tick=child_copies.last().unwrap().tick;
+            let produced_graph=w.events().iter().find_map(|e| {
+                if e.origin==Origin::Internal(2)&&e.pc==9 {
+                    if let EventKind::GraphCreated{graph,owner:2,..}=e.kind {
+                        return Some(graph);
+                    }
+                }
+                None
+            }).expect("child2 must create its OWN native descendant graph");
+            for copy in &child_copies {
+                assert!(matches!(copy.kind,EventKind::GraphNodeCopied{
+                    graph,owner:2,source_process:2,..
+                } if graph==produced_graph),
+                    "copied child code must originate in the same owned graph later mutated");
+            }
             let mut native_descriptor_writes=std::collections::BTreeMap::new();
             for e in w.events() {
                 if e.origin==Origin::Internal(2) {
@@ -198,10 +212,14 @@ fn full_32_tag_grandchild_mutation_by_assembled_child_in_native_cil() {
                 assert_eq!(mutation.pc,32);
                 assert!(mutation.tick>last_copy_tick);
                 assert!(matches!(mutation.kind,EventKind::GraphReplaced{
-                    descriptor:[t,0,0,2,5],..
-                } if t==tag));
+                    graph,owner:2,node:4,descriptor:[t,0,0,2,5],..
+                } if graph==produced_graph && t==tag));
                 let launch=grandchild_launch.expect("valid typed descriptor must launch copied grandchild");
                 assert!(launch.tick>mutation.tick);
+                assert!(matches!(launch.kind,EventKind::GraphLaunched{
+                    source_graph,parent_process:2,child_process:3,moved_nodes:GENOME_NODES,..
+                } if source_graph==produced_graph),
+                    "the actually mutated graph must be the graph the grandchild inherits");
                 assert!(w.events().iter().any(|e|e.origin==Origin::Internal(2)
                     &&e.pc==34&&e.tick>mutation.tick&&e.tick<launch.tick
                     &&matches!(e.kind,EventKind::Executed)),
@@ -229,9 +247,17 @@ fn full_32_tag_grandchild_mutation_by_assembled_child_in_native_cil() {
                 assert!(grandchild_launch.is_none());
             }
             let output=if grandchild_launch.is_some() {actor_output(&w,3,source)} else {None};
+            let fourth_generation=w.events().iter().any(|e|e.origin==Origin::Internal(3)
+                &&matches!(e.kind,EventKind::GraphLaunched{parent_process:3,child_process:4,..}));
+            let fourth_output=if fourth_generation {actor_output(&w,4,source)} else {None};
+            if tag==1||tag==2 {
+                let expect=if tag==1 {source+1} else {source-1};
+                assert!(fourth_generation,"functional inherited grandchild must itself reproduce");
+                assert_eq!(fourth_output,Some(expect));
+            }
             assert!(seen.insert((tag,source),(grandchild_launch.is_some(),output,native_replace.is_some())).is_none());
             attempted_worlds+=1;
-            println!("Study122 ORIGINAL source={source} opcode_tag={tag} original_parent_to_child={} child2_unchanged_source_output={} child_native_mutation={} grandchild_launched={} grandchild_native_source_output={output:?} charged_native_attempts={attempts} [HUMAN_WRITTEN_MUTATOR_TAG_UNSELECTED]",parent_launch.pc,source+1,native_replace.is_some(),grandchild_launch.is_some());
+            println!("Study122 ORIGINAL source={source} opcode_tag={tag} original_parent_to_child={} child2_unchanged_source_output={} child_native_graph_replaced={} grandchild_launched={} grandchild_native_source_output={output:?} fourth_generation={} fourth_native_source_output={fourth_output:?} charged_native_attempts={attempts} [HUMAN_WRITTEN_MUTATOR_TAG_UNSELECTED]",parent_launch.pc,source+1,native_replace.is_some(),grandchild_launch.is_some(),fourth_generation);
         }
     }
     assert_eq!(attempted_worlds,66);
@@ -249,5 +275,7 @@ fn full_32_tag_grandchild_mutation_by_assembled_child_in_native_cil() {
         println!("Study122 ORIGINAL descriptor_tag={tag} child_native_mutation_both={} real_grandchildren_both={} source3_out={:?} source8_out={:?}",a.2&&b.2,a.0&&b.0,a.1,b.1);
     }
     assert!(!seen[&(99,3)].0&&!seen[&(99,8)].0);
-    println!("Study122 ORIGINAL COMPLETE: tag_denominator=32 source_controls=2 fixed_native_worlds=66 real_child_generated_code_mutation_tags={code_mutation_tags} native_grandchild_tags={grandchild_birth_tags} source_responsive_grandchild_tags={responsive_tags} [SCRIPTED_BUILDER_NOT_NATURAL_CODE_ORIGIN]");
+    let effective_changed_tags=code_mutation_tags-1; // tag1 replaces Add with identical Add
+    assert_eq!(effective_changed_tags,30);
+    println!("Study122 ORIGINAL COMPLETE: tag_denominator=32 source_controls=2 fixed_native_worlds=66 valid_actor_graphreplace_tags={code_mutation_tags} truly_changed_grandchild_opcode_tags={effective_changed_tags} native_grandchild_tags={grandchild_birth_tags} source_responsive_grandchild_tags={responsive_tags} [SCRIPTED_BUILDER_NOT_NATURAL_CODE_ORIGIN]");
 }
