@@ -1,0 +1,47 @@
+name: CL-1 Study130 prospective same-founder depth-matched allele reproduction rates
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study130.rs'
+      - 'cl1/analyze_study130_world.py'
+      - 'cl1/analyze_study130.py'
+      - 'cl1/studies/130-preregistered-founder-depth-matched-allele-specific-reproductive-rate.md'
+      - '.github/workflows/cl1-study130.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-mutant-same-family-reproduction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original untouched prospective 32-genotype-pair allele reproductive-rate contract
+        run: test -s ../cl1/studies/130-preregistered-founder-depth-matched-allele-specific-reproductive-rate.md
+      - name: Run all new256 native shared-world genomes to true terminal, original12288 full SHA256 states
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study130 -- "$RUNNER_TEMP/study130-256-original-native-mutant-rate-worlds.sqlite"
+      - name: Independently verify actor-native code and same-founder same-depth H versus ancestral actual offspring rate, including all controls
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study130.py "$RUNNER_TEMP/study130-256-original-native-mutant-rate-worlds.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study130-original-all-mutant-ancestral-rate-audit.json"
+      - name: Preserve all256 original CIL worlds and matching functional mutant-vs-ancestral data including empty controls
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study130-prospective-native-mutant-vs-ancestor-reproductive-rate
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study130-256-original-native-mutant-rate-worlds.sqlite
+            ${{ runner.temp }}/study130-original-all-mutant-ancestral-rate-audit.json
