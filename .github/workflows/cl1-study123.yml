@@ -1,0 +1,47 @@
+name: CL-1 Study123 new 128-genotype untargeted native functional mutant lineages
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study123.rs'
+      - 'cl1/analyze_study123.py'
+      - 'cl1/analyze_study123_strict.py'
+      - 'cl1/studies/123-preregistered-independent-untargeted-functional-mutant-lineage-replication.md'
+      - '.github/workflows/cl1-study123.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prospective-native-functional-mutant-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen unselected new128-source actor mutation and descendant protocol
+        run: test -s ../cl1/studies/123-preregistered-independent-untargeted-functional-mutant-lineage-replication.md
+      - name: Run 512 new native CIL world experiments with 8192 exact full-state epoch replays
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study123 -- "$RUNNER_TEMP/study123-original-new128-untargeted-native-genotypes.sqlite"
+      - name: Independently verify all 8192 original SQLite SHA256 plus actual changed-code same-actor functional grandchild and offspring advantage
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study123_strict.py "$RUNNER_TEMP/study123-original-new128-untargeted-native-genotypes.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study123-original-new128-actor-functional-ancestry.json"
+      - name: Preserve complete unselected original ecology and source-specific same-actor functional mutant ancestry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study123-prospective-128genome-full-functional-native-ecology
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study123-original-new128-untargeted-native-genotypes.sqlite
+            ${{ runner.temp }}/study123-original-new128-actor-functional-ancestry.json
