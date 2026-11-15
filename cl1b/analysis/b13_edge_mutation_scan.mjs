@@ -10,16 +10,24 @@ function parseProgram(src) {
 }
 function simulate(ops,input,mutation) {
  const code=ops.map(o=>({...o})),r=[0,0,0,0],cells=new Map([[7,input]]);if(mutation)code[mutation.node].next=mutation.target;
- let pc=0,n=0,trap=null,correct=0,wrong=0,markers=0,accepts=0,rejects=0,fp=0,fn=0,repairs=0,side=0,serviceSinceReset=0;
+ let pc=0,n=0,trap=null,correct=0,wrong=0,markers=0,accepts=0,rejects=0,fp=0,fn=0,repairs=0,side=0,serviceSinceReset=0,pendingMarker=null,decisionFp=0,decisionFn=0,bypassedReads=0;
  const reg=k=>{if(!Number.isInteger(k)||k<0||k>=4)throw Error("register");return r[k];};
  const edge=k=>{if(!Number.isInteger(k)||k<0||k>=20)throw Error("edge");return k;};
  while(n<80){
   if(!Number.isInteger(pc)||pc<0||pc>=20){trap="pc";break;}
   const o=code[pc],at=pc;n++;
+  if(pendingMarker!==null){
+    // A PC11 read is evidence of a DECISION only when PC12 executes next.
+    if(at===12 && o.op==="Branch"){
+      if(pendingMarker.value!==0 && pendingMarker.valid===0)decisionFp++;
+      else if(pendingMarker.value===0 && pendingMarker.valid>0)decisionFn++;
+    } else bypassedReads++;
+    pendingMarker=null;
+  }
   try {switch(o.op){
     case "Const":r[o.dst]=o.value;pc=edge(o.next);break;
     case "Delete":cells.delete(reg(o.address));pc=edge(o.next);if(at===2)serviceSinceReset=0;break;
-    case "Read":{let key=reg(o.address),v=cells.get(key)??0;r[o.dst]=v;pc=edge(o.next);if(at===11&&key===13){if(v!==0){accepts++;if(!serviceSinceReset)fp++;}else{rejects++;if(serviceSinceReset)fn++;}}break;}
+    case "Read":{let key=reg(o.address),v=cells.get(key)??0;r[o.dst]=v;pc=edge(o.next);if(at===11&&key===13){pendingMarker={value:v,valid:serviceSinceReset};if(v!==0){accepts++;if(!serviceSinceReset)fp++;}else{rejects++;if(serviceSinceReset)fn++;}}break;}
     case "Write":{let key=reg(o.address),v=reg(o.value);pc=edge(o.next);if(!cells.has(key)&&(cells.size>=16||cells.size+21>=64))throw Error("storage");cells.set(key,v);if(key===11){if(v===input){correct++;serviceSinceReset++;}else wrong++;}else if(key===13&&v===1)markers++;else if(key!==7)side++;break;}
     case "Branch":pc=edge(reg(o.test)!==0?o.nonzero:o.zero);break;
     case "ReadNext":{let target=edge(reg(o.node));if(code[target].next===undefined)throw Error("no readable edge");r[o.dst]=code[target].next;pc=edge(o.next);break;}
@@ -28,7 +36,7 @@ function simulate(ops,input,mutation) {
     default:throw Error("op");
   }}catch(e){trap=String(e.message);break;}
  }
- return {n,trap,correct,wrong,markers,accepts,rejects,fp,fn,repairs,side};
+ return {n,trap,correct,wrong,markers,accepts,rejects,fp,fn,repairs,side,decisionFp,decisionFn,bypassedReads};
 }
 function scan(ops) {
  const inputs=[-13,0,7,23,101],groups=[],byNode=[];
@@ -42,10 +50,15 @@ function scan(ops) {
    groups.push({input,baseline:simulate(ops,input,null),worlds:outcomes.length,
     trapped:outcomes.filter(x=>x.trap!==null).length,
     falsePositiveWorlds:count("fp"),falseNegativeWorlds:count("fn"),
+    actualDecisionFalsePositiveWorlds:count("decisionFp"),
+    actualDecisionFalseNegativeWorlds:count("decisionFn"),
+    markerReadBypassWorlds:count("bypassedReads"),
     markerWithoutAnyService:outcomes.filter(x=>x.markers>0&&x.correct===0).length,
     serviceWithoutAnyMarker:outcomes.filter(x=>x.correct>0&&x.markers===0).length,
     falsePositiveDecisions:outcomes.reduce((a,x)=>a+x.fp,0),
     falseNegativeDecisions:outcomes.reduce((a,x)=>a+x.fn,0),
+    actualDecisionFalsePositiveEvents:outcomes.reduce((a,x)=>a+x.decisionFp,0),
+    actualDecisionFalseNegativeEvents:outcomes.reduce((a,x)=>a+x.decisionFn,0),
     repairs:count("repairs")});
    if(input===23){for(let node=0;node<20;node++)if(ops[node].next!==undefined){
     const subset=outcomes.filter(x=>x.node===node);
@@ -54,7 +67,7 @@ function scan(ops) {
    }}
  }
  const sum=k=>groups.reduce((a,x)=>a+x[k],0);
- return {name:"B13 bounded single-edge mutation scan",status:"independent simplified interpreter NOT Rust CI",source:"cl0/crates/world/tests/cl1b_b10_freshness.rs",worlds:sum("worlds"),groups,totals:{trapped:sum("trapped"),falsePositiveWorlds:sum("falsePositiveWorlds"),falseNegativeWorlds:sum("falseNegativeWorlds"),markerWithoutAnyService:sum("markerWithoutAnyService"),serviceWithoutAnyMarker:sum("serviceWithoutAnyMarker"),falsePositiveDecisions:sum("falsePositiveDecisions"),falseNegativeDecisions:sum("falseNegativeDecisions"),repairWorlds:sum("repairs")},byNode};
+ return {name:"B13 bounded single-edge mutation scan",status:"independent simplified interpreter NOT Rust CI",source:"cl0/crates/world/tests/cl1b_b10_freshness.rs",worlds:sum("worlds"),groups,totals:{trapped:sum("trapped"),falsePositiveWorlds:sum("falsePositiveWorlds"),falseNegativeWorlds:sum("falseNegativeWorlds"),markerWithoutAnyService:sum("markerWithoutAnyService"),serviceWithoutAnyMarker:sum("serviceWithoutAnyMarker"),falsePositiveDecisions:sum("falsePositiveDecisions"),falseNegativeDecisions:sum("falseNegativeDecisions"),actualDecisionFalsePositiveWorlds:sum("actualDecisionFalsePositiveWorlds"),actualDecisionFalseNegativeWorlds:sum("actualDecisionFalseNegativeWorlds"),actualDecisionFalsePositiveEvents:sum("actualDecisionFalsePositiveEvents"),actualDecisionFalseNegativeEvents:sum("actualDecisionFalseNegativeEvents"),markerReadBypassWorlds:sum("markerReadBypassWorlds"),repairWorlds:sum("repairs")},byNode};
 }
 const src=readFileSync(new URL("../../cl0/crates/world/tests/cl1b_b10_freshness.rs",import.meta.url),"utf8");
 process.stdout.write(JSON.stringify(scan(parseProgram(src)),null,2)+"\n");
