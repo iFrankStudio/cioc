@@ -16,12 +16,7 @@ fn measure_one_charged_attempt(w: &mut World) -> bool {
             matches!(event.origin, Origin::Internal(_)),
             "each native attempt must have internal provenance"
         );
-        assert_eq!(
-            event.pool_paid_attempt as u64
-                + u64::from(!event.pool_paid_attempt),
-            1,
-            "the one instruction charge must originate from either actor or world pool"
-        );
+        assert!(event.process > 0, "one real process must own every attempted instruction");
     } else {
         assert_eq!(before, w.total_compute_inventory().unwrap());
         assert_eq!(previous_events, w.events().len());
@@ -84,7 +79,13 @@ fn b18_native_draw_and_return_rearrange_but_never_create_compute() {
     assert_eq!(w.total_compute_inventory(), Some(9));
 
     let (finished, attempts) = exhaust_without_external_energy(w, 9);
-    assert!(attempts > 0 && attempts <= 9);
+    assert_eq!(attempts, 6, "one pool-paid draw then a charged return trap");
+    assert_eq!(finished.total_compute_inventory(), Some(3), "stranded pool compute remains finite");
+    assert_eq!(
+        finished.events().iter().filter(|e| e.pool_paid_attempt).count(),
+        1,
+        "the opt-in pool-paid Draw is an actual charged native instruction"
+    );
     assert!(
         finished.process(1).unwrap().stopped
             || finished.total_compute_inventory() == Some(0),
