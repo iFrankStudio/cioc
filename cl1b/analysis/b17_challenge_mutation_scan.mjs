@@ -32,8 +32,10 @@ function simulate(input, mutation) {
     if(!op){trap="invalid PC";break;}
     // The normal read→decision pipeline is PC13 Read, PC14 Const,
     // PC15 Sub, then PC16 Branch (not an immediate PC13→PC16 jump).
+    let consumedRead=false;
     if(pendingReadStage!==0){
       if(at===pendingReadStage){
+        if(at===16)consumedRead=true;
         pendingReadStage=pendingReadStage===16?0:pendingReadStage+1;
       }else{
         pc13ReadBypass++;
@@ -72,7 +74,7 @@ function simulate(input, mutation) {
         const nonzero=reg(op.test)!==0, next=edge(nonzero?op.nonzero:op.zero);
         if(at===16){
           checkerReached++;
-          if(at===16 && pendingReadStage!==0)branchNoRead++;
+          if(!consumedRead)branchNoRead++;
           if(next===24){accepts++;if(challengeInEpoch===0)fp++;}
           else if(next===17){rejects++;if(challengeInEpoch>0)fn++;}
         }
