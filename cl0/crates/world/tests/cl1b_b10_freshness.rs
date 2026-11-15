@@ -12,7 +12,7 @@ enum Arm {
     TimedSpoof,
 }
 
-fn founder() -> Vec<Op> {
+pub(crate) fn founder() -> Vec<Op> {
     vec![
         Op::Const { dst: 0, value: 6, next: 1 },
         Op::Const { dst: 2, value: 13, next: 2 },
