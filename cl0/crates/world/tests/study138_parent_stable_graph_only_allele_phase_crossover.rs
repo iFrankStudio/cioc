@@ -215,8 +215,8 @@ fn trial(seed:u64,arm:Arm,source:i64,phase:i64)->Summary{
   r.k320_eligible_fathers+=1;
   r.k320_a_parents+=a_ex.len();
   r.k320_h_parents+=h_ex.len();
-  let child_count=|pids:&[&u64]|births.iter().filter(|(cid,b)|
-      pids.contains(&&b.parent)&&b.full&&canonical.contains(cid)
+  let child_count=|pids:&[u64]|births.iter().filter(|(cid,b)|
+      pids.contains(&b.parent)&&b.full&&canonical.contains(cid)
       &&b.parent_attempt_at_birth<=K
     ).count();
   r.k320_a_children+=child_count(&a_ex);
