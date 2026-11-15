@@ -1,0 +1,43 @@
+name: CL-1 Study127-D immutable original Study126 functional genome-allele multigeneration census
+
+on:
+  push:
+    paths:
+      - 'cl1/analyze_study127d.py'
+      - 'cl1/studies/127D-post-outcome-native-allele-frequency-vs-founder-lineage.md'
+      - '.github/workflows/cl1-study127-d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-native-allele-genealogy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original full native CIL genotype archive only, no new world experiments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s cl1/studies/127D-post-outcome-native-allele-frequency-vs-founder-lineage.md
+          mkdir -p "$RUNNER_TEMP/study126-original"
+          gh run download 43669873669 --repo "$GITHUB_REPOSITORY" --name cl1-study126-original-independent-native-two-lineage-natural-terminal --dir "$RUNNER_TEMP/study126-original"
+          test -s "$RUNNER_TEMP/study126-original/study126-original-128-control-new32-ecologies-native-terminal.sqlite"
+      - name: Rehash original all12288 source-frozen states and map every true native altered-code allele at birth through functional descendants
+        run: |
+          set -euo pipefail
+          python3 cl1/analyze_study127d.py "$RUNNER_TEMP/study126-original/study126-original-128-control-new32-ecologies-native-terminal.sqlite" --json "$RUNNER_TEMP/study127D-original-allele-functional-genealogies.json"
+      - name: Preserve complete original 256 native worlds allele-level ancestry report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study127D-original-full-genotype-function-allele-genealogy
+          retention-days: 30
+          path: ${{ runner.temp }}/study127D-original-allele-functional-genealogies.json
