@@ -41,3 +41,22 @@ Externally poisoned checkpoints are **environmental damage**, not CIL-created no
 Passing native Rust tests would establish only: **human-authored native self-maintenance can be causally misled by corrupted internally stored information**. No individual developed its own monitor or repair policy. It shows why rollback/checkpoint algorithms cannot be treated as an infallible primitive of digital life, and why any attempt at continuous self-evolution needs to account for damage to the mechanism that decides what counts as an improvement.
 
 Future: test CIL-owned provenance/integrity of checks and error-tolerant reference structures, without hardcoding unmodifiable trusted guardians. Any new monitor/checkpoint policy must face held-out corruption patterns and cost-matched controls. Do not count service throughput as adaptation.
+
+
+## Post-registration discrepancy log — independent simplified path computation, NOT native CI
+
+**Recorded after the preregistration above was committed and before any B06 Rust test was written. The original prediction above is intentionally preserved verbatim.** A JavaScript interpreter of the existing B05 CIL instructions produced a **contradiction** to the DOUBLE_POISON preregistered expectation of two harmful internal edits: *only monitor A acts first*, patching node17 from18→23 and bypassing monitor B's check before B can respond to its own poisoned checkpoint12. Thus DOUBLE_POISON produces **one**, not two, effective patches. The strong two-patch hypothesis failed at the simplified-control-flow check; it is **not retroactively accepted**.
+
+Original prospective qualitative hypotheses of self-damage on each single poison remain separate. The following **post hoc verification targets** are for source-compatibility tests, not pre-registered discovery evidence:
+
+| Arm | Simulated service writes / 100 attempts | Simulated native edit sequence | Final edge9,edge17 | Next PC |
+| --- | ---: | --- | --- | ---: |
+| CLEAN | 5 | none | 10,18 | 19 |
+| POISON_A_REFERENCE (cell13=23) | 7 | node17:18→23 | 10,23 | 9 |
+| POISON_B_REFERENCE (cell12=15) | 6 | node9:10→15 | 15,18 | 25 |
+| DOUBLE_POISON | 7 | **only** node17:18→23 | 10,23 | 9 |
+| DOUBLE_POISON_PATCH_DISABLED | 5 | none, 10 suppressed attempts | 10,18 | 8 |
+
+The equality of single-A-reference and double poison outcomes is an **order-dependent masking effect**, not evidence of biological adaptation. All service writes were correct for the tested input23 but no raw-output count indicates maintained monitoring. Full 5-input/25-world native test execution is still unverified.
+
+No output above is a Rust/SQLite experiment result. Keep failed preregistered prediction in the evidence ledger. Future experiments must distinguish feedback timing, monitor order, unobservable latent damage and external intervention order.
