@@ -129,6 +129,18 @@ fn b12_same_actor_can_emit_fresh_success_marker_while_real_service_is_absent() {
             assert!(markers.iter().all(|(pc, value)| *pc == 7 && *value == 1));
             assert!(services.iter().all(|(pc, value)| *pc == 9 && *value == input));
             assert!(marker_reads.iter().all(|(pc, value)| *pc == 11 && (*value == 0 || *value == 1)));
+            let (expected_markers, expected_services, expected_reads, expected_suppression) =
+                match arm {
+                    Arm::Intact => (5, 5, 5, 0),
+                    Arm::MarkerExit => (6, 0, 6, 0),
+                    Arm::OutputExit => (5, 0, 5, 0),
+                    Arm::MarkerSkip => (0, 1, 1, 0),
+                    Arm::MarkerSkipPatchDisabled => (0, 4, 4, 4),
+                };
+            assert_eq!(markers.len(), expected_markers, "{arm:?}");
+            assert_eq!(services.len(), expected_services, "{arm:?}");
+            assert_eq!(marker_reads.len(), expected_reads, "{arm:?}");
+            assert_eq!(suppressed, expected_suppression, "{arm:?}");
 
             match arm {
                 Arm::Intact => {
