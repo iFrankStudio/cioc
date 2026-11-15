@@ -72,6 +72,7 @@ jobs:
             cl1b_b12_marker_function_divergence
             cl1b_b13_native_mutation_differential
             cl1b_b14_search_policy_mutation
+            cl1b_b15_policy_generalization
           )
           failures=0
           for target in "${targets[@]}"; do
@@ -98,6 +99,7 @@ jobs:
           node --version > cl1b-ci-evidence/b13-node-version.txt
           node ../cl1b/analysis/b13_edge_mutation_scan.mjs > cl1b-ci-evidence/b13-observer-scan.json
           node ../cl1b/analysis/b14_search_policy_path_audit.mjs > cl1b-ci-evidence/b14-observer-scan.json
+          node ../cl1b/analysis/b15_policy_generalization.mjs > cl1b-ci-evidence/b15-observer-generalization.json
       - name: Upload verifiable native CL-1B logs (including failed runs)
         if: always()
         uses: actions/upload-artifact@v4
