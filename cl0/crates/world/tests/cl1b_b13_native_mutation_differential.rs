@@ -174,6 +174,11 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
                     }
                 }
 
+                if false_positives > 0 {
+                    eprintln!(
+                        "B13_NATIVE_CASE input={input} node={node} target={target} fp={false_positives} fn={false_negatives} strict_fp={strict_fp} strict_fn={strict_fn}"
+                    );
+                }
                 local.actual_decision_fp_worlds += usize::from(strict_fp > 0);
                 local.actual_decision_fn_worlds += usize::from(strict_fn > 0);
                 local.actual_decision_fp_events += strict_fp;
@@ -221,6 +226,12 @@ fn b13_all_single_next_edge_mutants_match_independent_proxy_failure_classificati
         cumulative.service_without_marker += local.service_without_marker;
     }
 
+    eprintln!(
+        "B13_NATIVE_AGGREGATE worlds={} fp_worlds={} fn_worlds={} fp_events={} fn_events={} strict_fp_events={} strict_fn_events={}",
+        cumulative.worlds,cumulative.false_positive_worlds,cumulative.false_negative_worlds,
+        cumulative.false_positive_decisions,cumulative.false_negative_decisions,
+        cumulative.actual_decision_fp_events,cumulative.actual_decision_fn_events
+    );
     assert_eq!(cumulative.worlds, 1_805);
     assert_eq!(cumulative.false_positive_worlds, 66);
     assert_eq!(cumulative.false_negative_worlds, 52);
