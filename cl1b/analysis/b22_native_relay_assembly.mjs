@@ -3,6 +3,7 @@
 // models native GraphNew/GraphCopyNodeLocal/GraphSetNext/GraphLaunch with charged
 // execution. OBSERVER-ONLY, not a substitute for verified native Rust tests.
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 const source=readFileSync(new URL("../../cl0/crates/world/tests/cl1b_b22_native_relay_assembly.rs",import.meta.url),"utf8");
 const body=source.match(/fn founder\(transfer: bool\) -> Vec<Op> \{[\s\S]*?vec!\[([\s\S]*?)\n    \]/)?.[1];
 if(!body)throw Error("B22 founder source changed");
@@ -13,7 +14,7 @@ if(extracted.length!==36||extracted[24].kind!=="GraphLaunch"||
    extracted[34].kind!=="TransferCompute"||extracted[35].kind!=="Const")
  throw Error("B22 source-shape drift");
 
-function run(arm){
+export function simulateB22(arm, suppliedPackets = [3,5]){
  const transfer=arm!=="NO_TRANSFER";
  const founder=extracted.slice(0,34).concat([transfer?extracted[34]:extracted[35]]);
  if(founder.length!==35)throw Error("B22 expected 35 nodes");
@@ -85,7 +86,7 @@ function run(arm){
  }
  function runToBlocked(){let n=0;while(step()){n++;if(n>100)throw Error("unbounded loop");}return n;}
  const bootstrap=runToBlocked();
- const packets=arm==="NO_SECOND_PACKET"?[3]:[3,5],windows=[];
+ const packets=arm==="NO_SECOND_PACKET"?suppliedPackets.slice(0,1):suppliedPackets,windows=[];
  for(const packet of packets){
   const before=inventory();pool+=packet;externals.push("pool+"+packet);
   if(inventory()!==before+packet)throw Error("nonconserving host packet");
@@ -102,7 +103,7 @@ function run(arm){
    trace:events};
 }
 const outcomes=["BUILD_TRANSFER","NO_TRANSFER","NO_SECOND_PACKET"].map(name=>
- run(name==="BUILD_TRANSFER"?"TRANSFER":name));
+ simulateB22(name==="BUILD_TRANSFER"?"TRANSFER":name));
 const expected=[
  {bootstrap:29,writes:1,transfers:1,steps:37,pool:0,launched:1},
  {bootstrap:29,writes:0,transfers:0,steps:37,pool:0,launched:1},
@@ -115,8 +116,10 @@ for(let i=0;i<outcomes.length;i++){
  if(o.created!==1||o.copied!==5||o.rewired!==4||o.processes.length!==2||
     o.graphObjectsRemaining!==0)throw Error("B22 graph assembly invariant failed");
 }
-process.stdout.write(JSON.stringify({
- evidence:"restricted independent CIL simulator; NOT native Rust",
- source:"cl0/crates/world/tests/cl1b_b22_native_relay_assembly.rs",
- outcomes,
-},null,2)+"\n");
+if(process.argv[1]===fileURLToPath(import.meta.url)) {
+  process.stdout.write(JSON.stringify({
+    evidence:"restricted independent CIL simulator; NOT native Rust",
+    source:"cl0/crates/world/tests/cl1b_b22_native_relay_assembly.rs",
+    outcomes,
+  },null,2)+"\n");
+}
