@@ -142,7 +142,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
             graph_id = created["graph"]
             require(graph_id not in active_graphs,
                     "native graph identifier unexpectedly reused")
-            active_graphs[graph_id] = {"owner": actor, "nodes": []}
+            active_graphs[graph_id] = {"owner": actor, "nodes": [], "source_nodes": []}
         if copied is not None:
             require(pc == 16 and copied["owner"] == actor
                     and copied["source_process"] == actor,
@@ -156,6 +156,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
             require(0 <= copied["source_node"] < len(codes[actor]),
                     "graph code source outside current executable")
             parts.append(copy.deepcopy(codes[actor][copied["source_node"]]))
+            active_graphs[graph_id]["source_nodes"].append(copied["source_node"])
         if pc == 21 and e["kind"] == "Executed":
             native_draws[actor] += 1
         if launched is not None:
@@ -185,7 +186,7 @@ def actual_actor_history(initial, final, site, ablated, source, grant, attempts)
             # Record the route rather than invent a Draw requirement.
             if native_draws[actor] <= actor_launches[actor]:
                 native_launches_using_prior_local_credits += 1
-            if copied[actor] != set(range(28)):
+            if active_graphs[graph]["source_nodes"] != list(range(28)):
                 noncanonical_native_copy_source_launches += 1
             actor_launches[actor] += 1
             code_birth = copy.deepcopy(graph_nodes)
