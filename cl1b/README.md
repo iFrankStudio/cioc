@@ -2,6 +2,8 @@
 
 **Status: ACTIVE — initial causal feasibility phase, not a life discovery (2026-11-15).** Replaces population reproduction as the *default* research emphasis. [CL-1A](../cl1a/README.md) remains an archived, paused research route; original historical material remains under `cl1/`.
 
+**Verified baseline and next research priority:** [Full native 22/22 Rust + 8/8 observer checkpoint](results/CI-2026-11-15-full-native-verification.md) · [Scientific pivot: origin of energy-sharing organization instead of more scripted repairs](RESEARCH-PIVOT-2026-11-15.md). Source-pinned CI verifies implementation and negative controls, **not** endogenous life or B3/B4 acceptance.
+
 ## Thesis and nonrequirements
 
 Study whether **one logically continuous native digital organization** can maintain activity, alter its own executable information, recover from harmful internal changes, and accumulate effective adaptation under bounded compute/storage and environmental perturbations.
