@@ -1,0 +1,27 @@
+name: CL-1 Study122 native assembled child-authored typed grandchild code mutation
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study122_child_native_mutated_grandchild.rs'
+      - 'cl1/studies/122-preregistered-actor-mutated-assembled-grandchild-code.md'
+      - '.github/workflows/cl1-study122.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-child-genome-mutagenesis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify frozen full-genome child-authored mutation protocol
+        run: test -s ../cl1/studies/122-preregistered-actor-mutated-assembled-grandchild-code.md
+      - name: Execute all66 original same-child CIL GraphReplace-to-grandchild opcode inheritance trials
+        run: cargo test --locked -p cl0-world --test study122_child_native_mutated_grandchild -- --nocapture
