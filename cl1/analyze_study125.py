@@ -67,6 +67,7 @@ def trace(initial,final,mode,attempts):
     codes={1:copy.deepcopy(first),2:copy.deepcopy(second)}
     born_code={}
     born_changed={}
+    born_full={}
     lineage=dict(founders)
     depth={1:0,2:0}
     graphs={}
@@ -97,7 +98,8 @@ def trace(initial,final,mode,attempts):
         require(0<=pc<len(codes[actor]),"native PC outside real actor executable")
         # Mark expression from original immutable code image at the exact time
         # of executing the inherited mutant site, not a later rewritten node.
-        if actor in born_changed and pc in born_changed[actor] and (
+        if (actor in born_changed and pc in born_changed[actor]
+            and part(ev,"Trapped") is None and (
             pc<len(born_code[actor]) and codes[actor][pc]==born_code[actor][pc]
         ):
             expressed.add(actor)
@@ -175,6 +177,7 @@ def trace(initial,final,mode,attempts):
             born_code[child]=copy.deepcopy(body)
             born_changed[child]=changed
             full=(len(body)==28 and graphs[gid]["source"]==list(range(28)))
+            born_full[child]=full
             if full:
                 complete_birth_by[lineage[child]]+=1
             else:
@@ -202,10 +205,10 @@ def trace(initial,final,mode,attempts):
         if pid<3:
             continue
         label=lineage[pid]
-        if pid in actor_function:
+        if pid in actor_function and born_full[pid]:
             functional_by[label]+=1
         if (pid in actor_function and pid in expressed and born_changed[pid]
-            and len(born_code[pid])==28):
+            and born_full[pid]):
             functional_mutant_by[label]+=1
             if child_by[pid]:
                 reproduce_functional_mutants_by[label]+=1
