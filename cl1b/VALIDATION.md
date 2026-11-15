@@ -21,6 +21,12 @@
 
 **Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **13 named Rust integration-test targets** currently cover the above 12 study labels.
 
+## New machine-readable verification channel (configured, not yet observed)
+
+The [focused workflow](../.github/workflows/cl1b-focused.yml) now has two separated jobs: the Rust test job remains **read-only** and runs **every** active test target, accumulating failures rather than aborting the campaign on the first one; an independent *push-to-main-only* reporting job has narrowly scoped `contents:write` and writes a source-SHA/run-ID result record plus downloadable raw target logs to a separate **`cl1b-ci-evidence` branch**. This branch is not a trigger for the CL-1B focused workflow. No PR code receives a write-privileged reporting job.
+
+**This is only a configured route until GitHub actually creates a report.** Do not infer that a successful native run occurred merely because the workflow was edited. To retrieve evidence through the GitHub connector, search for branch `cl1b-ci-evidence`, then read `run-records/<main-SHA>-<run-ID>-<attempt>/result.txt` and `summary.txt` using `ref="cl1b-ci-evidence"`. Corroborate with the named per-target logs. If the evidence branch does not exist, it may indicate a queued workflow, a disabled Actions workflow, insufficient repository permissions or a job failure; report **UNVERIFIED** and inspect the Actions UI rather than guessing.
+
 ## Native verification runbook
 
 Use [the dedicated focused Actions workflow](../.github/workflows/cl1b-focused.yml), configured to run only the explicitly named B00–B11 targets. The job records the source commit `GITHUB_SHA`, workflow ID/attempt, Rust/Cargo toolchain versions, per-target exact `cargo test --locked -p cl0-world --test ... -- --nocapture` stdout/stderr and explicit PASS/FAIL lines.
