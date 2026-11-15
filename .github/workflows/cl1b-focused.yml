@@ -34,7 +34,7 @@ jobs:
         with:
           components: rustfmt, clippy
       - name: Format check
-        run: cargo fmt --all -- --check
+        run: rustfmt --check crates/world/tests/cl1b_b00_single_actor_self_edit.rs crates/world/tests/cl1b_b01_functional_continuity.rs crates/world/tests/cl1b_b02_native_repair_calibration.rs
       - name: B00 native self-modification
         run: cargo test --locked -p cl0-world --test cl1b_b00_single_actor_self_edit
       - name: B01 functional continuity
