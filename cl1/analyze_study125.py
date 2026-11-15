@@ -101,7 +101,7 @@ def trace(initial,final,mode,attempts):
         if (actor in born_changed and pc in born_changed[actor]
             and part(ev,"Trapped") is None and (
             pc<len(born_code[actor]) and codes[actor][pc]==born_code[actor][pc]
-        ):
+        )):
             expressed.add(actor)
         read=part(ev,"CellRead")
         wr=part(ev,"CellWritten")
