@@ -50,14 +50,12 @@ fn cl1b_b00_single_process_native_self_edit_vs_charged_suppression() {
         assert!(actor.stopped);
         let expected_next = if suppress_patch { 5 } else { 4 };
         let expected_r2 = if suppress_patch { 99 } else { 42 };
-        assert_eq!(
-            actor.code.nodes[3],
-            (Op::Const {
-                dst: 2,
-                value: 99,
-                next: expected_next
-            })
-        );
+        match &actor.code.nodes[3] {
+            Op::Const { dst, value, next } => {
+                assert_eq!((*dst, *value, *next), (2, 99, expected_next));
+            }
+            _ => panic!("modified node unexpectedly changed instruction type"),
+        }
         assert_eq!(actor.registers[2], expected_r2);
         assert_eq!(attempts, if suppress_patch { 5 } else { 6 });
         assert_eq!(actor.credits, 12 - attempts as u64);
