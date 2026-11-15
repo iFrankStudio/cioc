@@ -47,3 +47,5 @@ jobs:
         run: cargo test --locked -p cl0-world --test cl1b_b04_native_checkpoint_rollback
       - name: B05-B06 mutual monitors and checkpoint-poisoning controls
         run: cargo test --locked -p cl0-world --test cl1b_b05_reciprocal_monitors
+      - name: B07 double checkpoint agreement and correlated faults
+        run: cargo test --locked -p cl0-world --test cl1b_b07_checkpoint_agreement
