@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Study123 POST-OUTCOME actual SAME-CIL-actor functional mutant reproduction.
+"""Study123 PROSPECTIVE NEW-GENOTYPE actual SAME-CIL-actor functional mutant reproduction.
 
-Zero new worlds. Reopens and independently revalidates every original Study123
+512 NEW original worlds. Reopens and independently verifies every prospective Study123
 SHA256 world, then reconstructs source CIL executable at every inherited birth.
 """
 import argparse
@@ -126,10 +126,14 @@ def reconstruct(initial, final, source, ablated):
     if ablated:
         require(edits==0 and not any(b["changed_nodes"] for b in births.values()),
                 "mutation-only ablation produced altered-code child")
+    # Establish every genotype's birth attributes BEFORE walking its later
+    # genealogy; otherwise a parent can inspect a grandchild before that later
+    # dictionary entry has received its own born_full_length flag.
     for info in births.values():
-        actor=info["id"]
         info["born_changed"]=bool(info["changed_nodes"])
         info["born_full_length"]=len(info["born_code"])==len(original)
+    for info in births.values():
+        actor=info["id"]
         info["executed_inherited_changed_code"]=actor in expressed_inherited
         info["canonical_source_function"]=actor in canonical_writers
         info["native_child_count"]=len(child_ids[actor])
@@ -190,7 +194,7 @@ def audit(original_sqlite, revision):
     rows=conn.execute(
         "SELECT condition,initial_json,final_json FROM epoch_runs ORDER BY id"
     ).fetchall()
-    require(len(rows)==512,"original Study123 256 complete worlds not found")
+    require(len(rows)==512,"original Study123 512 complete worlds not found")
     all_rows={}
     for label, initial_json, final_json in rows:
         seed_s,arm=label.removeprefix("seed=").split("/",1)
