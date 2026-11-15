@@ -1,0 +1,27 @@
+name: CL-1 Study132 complete new16 original CIL mutation site target sibling comparisons
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study132_untargeted_native_mutant_ancestral_sibling_census.rs'
+      - 'cl1/studies/132-preregistered-independent-untargeted-native-mutant-ancestral-sibling-census.md'
+      - '.github/workflows/cl1-study132.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  all-random-site-target-native-functional-siblings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Require pre-outcome all16 unselected site target original128-world protocol
+        run: test -s ../cl1/studies/132-preregistered-independent-untargeted-native-mutant-ancestral-sibling-census.md
+      - name: Run only Study132 original 16 site target pairs x dual input x phase x charged edit controls with true CIL graph birth ancestry
+        run: cargo test --locked -p cl0-world --test study132_untargeted_native_mutant_ancestral_sibling_census -- --nocapture
