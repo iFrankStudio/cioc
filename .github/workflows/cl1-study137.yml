@@ -1,0 +1,27 @@
+name: CL-1 Study137 prospectively balanced phase crossover native active vs genuine dormant neutral alleles
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study137_phase_crossover_active_vs_dormant_neutral.rs'
+      - 'cl1/studies/137-preregistered-independent-phase-crossover-native-active-vs-dormant-neutral.md'
+      - '.github/workflows/cl1-study137.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-true-genetic-neutral-active-crossover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Require frozen prospective NEW32 numeric seed active vs dormant true neutral K240 source-phase crossover
+        run: test -s ../cl1/studies/137-preregistered-independent-phase-crossover-native-active-vs-dormant-neutral.md
+      - name: Execute exactly512 native CIL actor whole39-code genuine null allele source phase edit controls, no historical studies
+        run: cargo test --locked -p cl0-world --test study137_phase_crossover_active_vs_dormant_neutral -- --nocapture
