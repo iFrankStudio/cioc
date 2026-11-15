@@ -15,7 +15,7 @@ if(original.length!==35||original[21].op!=="Const"||original[21].value!==1||orig
 function simulate(input,next,policySwitch){
  const code=original.map(o=>({...o})),reg=[0,0,0,0],cells=new Map([[7,input]]);
  code[6].next=next; if(!policySwitch)code[21].value=2;
- let pc=0,n=0,trap=null,stopped=false,service=0,marker=0,side=0,policyEdits=0,edgeEdits=0;
+ let pc=0,n=0,trap=null,stopped=false,service=0,marker=0,side=0,policyEdits=0,policyEffectiveChanges=0,edgeEdits=0;
  const r=i=>{if(!Number.isInteger(i)||i<0||i>=4)throw Error("register");return reg[i]};
  const e=i=>{if(!Number.isInteger(i)||i<0||i>=35)throw Error("edge");return i};
  while(n<120&&!stopped){
@@ -28,14 +28,14 @@ function simulate(input,next,policySwitch){
    case"Write":{let key=r(o.address),value=r(o.value);if(!cells.has(key)&&(cells.size>=16||cells.size+36>128))throw Error("storage");cells.set(key,value);pc=e(o.next);if(key===11&&value===input)service++;if(key===13&&value===1)marker++;if(key===1)side++;break;}
    case"Branch":pc=e(r(o.test)!==0?o.nonzero:o.zero);break;
    case"ReadNext":{let node=e(r(o.node));if(code[node].next===undefined)throw Error("read unpatchable");reg[o.dst]=code[node].next;pc=e(o.next);break;}
-   case"PatchConst":{let node=e(r(o.node));if(code[node].op!=="Const")throw Error("not Const");code[node].value=r(o.value);policyEdits++;pc=e(o.next);break;}
+   case"PatchConst":{let node=e(r(o.node));if(code[node].op!=="Const")throw Error("not Const");if(code[node].value!==r(o.value))policyEffectiveChanges++;code[node].value=r(o.value);policyEdits++;pc=e(o.next);break;}
    case"Sub":reg[o.dst]=r(o.lhs)-r(o.rhs);pc=e(o.next);break;
    case"PatchNext":{let node=e(r(o.node)),val=e(r(o.target));if(code[node].next===undefined)throw Error("unpatchable");if(code[node].next!==val)edgeEdits++;code[node].next=val;pc=e(o.next);break;}
    case"Halt":stopped=true;break;
    default:throw Error("unknown opcode "+o.op);
   }}catch(err){trap=String(err.message);stopped=true;}
  }
- return {input,next,policySwitch,attempts:n,stopped,trap,pc,services:service,markers:marker,side,policyEdits,edgeEdits,finalEdge:code[6].next,finalStep:code[29].value};
+ return {input,next,policySwitch,attempts:n,stopped,trap,pc,services:service,markers:marker,side,policyEdits,policyEffectiveChanges,edgeEdits,finalEdge:code[6].next,finalStep:code[29].value};
 }
 const inputs=[-13,0,7,23,101],states=[];
 for(const input of inputs)for(let next=0;next<35;next++){
@@ -53,7 +53,26 @@ function summarize(rows){
 }
 const groups={healthy:summarize(states.filter(s=>s.group==="healthy")),development:summarize(states.filter(s=>s.group==="development")),holdout:summarize(states.filter(s=>s.group==="holdout")),overall:summarize(states)};
 const byLesion=Array.from({length:35},(_,next)=>({next,...summarize(states.filter(s=>s.next===next))}));
-const output={source:"B14 exact founder parsed from checked-out Rust file",status:"independent simplified interpreter; NOT CL-0 Rust native evidence",initialCredits:240,maxAttempts:120,worlds:350,matchedPairs:175,groups,byLesion,
+const uniqueHoldoutEdges=byLesion.filter(x=>x.next!==7&&x.next!==10&&x.next!==11);
+const policyActiveHoldout=states.filter(s=>s.group==="holdout"&&(s.adaptive.policyEdits>0||s.locked.policyEdits>0));
+const policyInactiveHoldout=states.filter(s=>s.group==="holdout"&&s.adaptive.policyEdits===0&&s.locked.policyEdits===0);
+const postHocUnits={
+  uniqueHoldoutEdgeTypes:uniqueHoldoutEdges.length,
+  distinctHeldoutWins:uniqueHoldoutEdges.filter(s=>s.win>0).length,
+  distinctHeldoutLosses:uniqueHoldoutEdges.filter(s=>s.loss>0).length,
+  distinctHeldoutTies:uniqueHoldoutEdges.filter(s=>s.tie===5).length,
+  policyActiveUniqueEdges:[...new Set(policyActiveHoldout.map(s=>s.next))],
+  policyInactiveUniqueEdges:[...new Set(policyInactiveHoldout.map(s=>s.next))],
+  policyActiveMatchedPairs:summarize(policyActiveHoldout),
+  policyInactiveMatchedPairs:summarize(policyInactiveHoldout),
+  caveat:"Post-hoc B15b stratification: five input labels are repeated deterministic cases, not independent structural lesions."
+};
+if(postHocUnits.uniqueHoldoutEdgeTypes!==32||
+  postHocUnits.policyActiveUniqueEdges.length!==13||
+  postHocUnits.policyInactiveUniqueEdges.length!==19)
+ throw Error("B15b active-policy lesion denominator changed");
+
+const output={source:"B14 exact founder parsed from checked-out Rust file",status:"independent simplified interpreter; NOT CL-0 Rust native evidence",initialCredits:240,maxAttempts:120,worlds:350,matchedPairs:175,groups,byLesion,postHocUnits,
  development:states.filter(s=>s.group==="development"),
  holdoutWinExamples:states.filter(s=>s.group==="holdout"&&s.delta>0).slice(0,10),
  holdoutLossExamples:states.filter(s=>s.group==="holdout"&&s.delta<0).slice(0,10)};
