@@ -45,3 +45,5 @@ jobs:
         run: cargo test --locked -p cl0-world --test cl1b_b03b_trial_feedback
       - name: B04 CIL-owned checkpoint and rollback
         run: cargo test --locked -p cl0-world --test cl1b_b04_native_checkpoint_rollback
+      - name: B05 reciprocal monitors and throughput paradox
+        run: cargo test --locked -p cl0-world --test cl1b_b05_reciprocal_monitors
