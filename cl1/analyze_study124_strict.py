@@ -14,7 +14,7 @@ from pathlib import Path
 from analyze_study124 import audit as original_audit
 
 SOURCE = None  # source SHA provided via required invocation
-SEEDS = range(6_900_000, 6_800_128)
+SEEDS = range(6_900_000, 6_900_128)
 MODES = ("native-edit-source3","patch-disabled-source3",
          "native-edit-source8","patch-disabled-source8")
 
