@@ -196,7 +196,8 @@ jobs:
             git switch -C cl1b-ci-evidence FETCH_HEAD
           else
             git switch --orphan cl1b-ci-evidence
-            git rm -rf . >/dev/null
+            # git switch --orphan already clears tracked files; an empty index
+            # makes git rm -rf . exit 128 and previously killed reporting.
           fi
       - name: Retrieve native test logs from this exact workflow run
         uses: actions/download-artifact@v4
