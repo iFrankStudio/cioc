@@ -1,0 +1,27 @@
+name: CL-1 Study138 parent-stable actor-authored offspring graph alleles active vs true dormant neutral
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study138_parent_stable_graph_only_allele_phase_crossover.rs'
+      - 'cl1/studies/138-preregistered-graph-only-offspring-allele-edit-phase-crossover.md'
+      - '.github/workflows/cl1-study138.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-offspring-only-genetic-allele-crossover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Require prospective source-frozen Study138 parent-unchanged typed graph-only mutation 192-world preregistration
+        run: test -s ../cl1/studies/138-preregistered-graph-only-offspring-allele-edit-phase-crossover.md
+      - name: Run all192 original new native CIL GraphReplace allele active dormant and sham source-phase worlds
+        run: cargo test --locked -p cl0-world --test study138_parent_stable_graph_only_allele_phase_crossover -- --nocapture
