@@ -1,0 +1,27 @@
+name: CL-1 Study120 complete numeric descriptor mutation neighborhood
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study120_complete_descriptor_neighborhood.rs'
+      - 'cl1/studies/120-preregistered-complete-assembled-code-descriptor-neighborhood.md'
+      - '.github/workflows/cl1-study120.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  entire-descriptor-neighborhood:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check original pre-outcome full-descriptor registration
+        run: test -s ../cl1/studies/120-preregistered-complete-assembled-code-descriptor-neighborhood.md
+      - name: Execute all66 original researcher-authored native descriptor to child and grandchild world controls
+        run: cargo test --locked -p cl0-world --test study120_complete_descriptor_neighborhood -- --nocapture
