@@ -1,0 +1,27 @@
+name: CL-1 Study133-D post-outcome original native actor exposure histogram diagnostic
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study133d_postoutcome_actor_native_exposure_distribution.rs'
+      - 'cl1/studies/133D-post-outcome-native-process-attempt-exposure-diagnostic.md'
+      - '.github/workflows/cl1-study133-d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-worlds-readonly-actor-attempts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Mark seed-matched original Study133 exposure K scan explicitly post-outcome
+        run: test -s ../cl1/studies/133D-post-outcome-native-process-attempt-exposure-diagnostic.md
+      - name: Reexecute only exact original 128 CIL worlds and report actor attempts and actual functional copy birth indices
+        run: cargo test --locked -p cl0-world --test study133d_postoutcome_actor_native_exposure_distribution -- --nocapture
