@@ -22,7 +22,7 @@ function simulate(input, mutation) {
   const nodes=program.map(x=>({...x})), r=[0,0,0,0], cells=new Map([[7,input]]);
   if(mutation)nodes[mutation.node].next=mutation.to;
   let pc=0,attempts=0,trap=null,halted=false,repairs=0;
-  let challengeInEpoch=0,previousRead=false,pc13ReadBypass=0;
+  let challengeInEpoch=0,pendingReadStage=0,pc13ReadBypass=0;
   let challengeWrites=0,ordinaryWrites=0,wrongWrites=0,outputDeletions=0;
   let fp=0,fn=0,accepts=0,rejects=0,checkerReached=0,branchNoRead=0;
   const reg=i=>{if(!Number.isInteger(i)||i<0||i>=4)throw Error("invalid register");return r[i];};
@@ -30,8 +30,16 @@ function simulate(input, mutation) {
   while(attempts<120 && !halted) {
     const at=pc, op=nodes[at];
     if(!op){trap="invalid PC";break;}
-    if(previousRead && at!==16)pc13ReadBypass++;
-    if(at!==16)previousRead=false;
+    // The normal read→decision pipeline is PC13 Read, PC14 Const,
+    // PC15 Sub, then PC16 Branch (not an immediate PC13→PC16 jump).
+    if(pendingReadStage!==0){
+      if(at===pendingReadStage){
+        pendingReadStage=pendingReadStage===16?0:pendingReadStage+1;
+      }else{
+        pc13ReadBypass++;
+        pendingReadStage=0;
+      }
+    }
     if(at===0)challengeInEpoch=0;
     attempts++;
     try{switch(op.op){
@@ -40,7 +48,7 @@ function simulate(input, mutation) {
         const key=reg(op.address),value=cells.get(key)??0;
         if(op.dst<0||op.dst>=4)throw Error("invalid dest");
         r[op.dst]=value;pc=edge(op.next);
-        if(at===13)previousRead=true;
+        if(at===13)pendingReadStage=14;
         break;
       }
       case "Write": {
@@ -64,11 +72,11 @@ function simulate(input, mutation) {
         const nonzero=reg(op.test)!==0, next=edge(nonzero?op.nonzero:op.zero);
         if(at===16){
           checkerReached++;
-          if(!previousRead)branchNoRead++;
+          if(at===16 && pendingReadStage!==0)branchNoRead++;
           if(next===24){accepts++;if(challengeInEpoch===0)fp++;}
           else if(next===17){rejects++;if(challengeInEpoch>0)fn++;}
         }
-        pc=next;previousRead=false;break;
+        pc=next;break;
       }
       case "ReadNext": {
         const node=edge(reg(op.node));
