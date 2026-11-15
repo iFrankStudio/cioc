@@ -1,0 +1,27 @@
+name: CL-1 Study139 independent native active versus true dormant code-allele phase reversal holdout
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study139_independent_graph_only_allele_phase_sign_holdout.rs'
+      - 'cl1/studies/139-preregistered-independent-graph-only-phase-sign-reversal-holdout.md'
+      - '.github/workflows/cl1-study139.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase-sign-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check independent frozen new32 target genotype phase crossover sign hypothesis
+        run: test -s ../cl1/studies/139-preregistered-independent-graph-only-phase-sign-reversal-holdout.md
+      - name: Run ONLY original new384 native GraphReplace active dormant and sham true whole-genome source phase crossover worlds
+        run: cargo test --locked -p cl0-world --test study139_independent_graph_only_allele_phase_sign_holdout -- --nocapture
