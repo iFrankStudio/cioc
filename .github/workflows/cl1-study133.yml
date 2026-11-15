@@ -1,0 +1,27 @@
+name: CL-1 Study133 prospectively actor-age exposure-matched mutant versus ancestral reproduction
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study133_terminal_actor_exposure_matched_native_allele_rates.rs'
+      - 'cl1/studies/133-preregistered-native-mutant-ancestral-sibling-equal-exposure-terminal.md'
+      - '.github/workflows/cl1-study133.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-terminal-age-matched-native-alleles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify pre-outcome new16 unselected 38-code mutator and original terminal K240 and K400 native-age windows
+        run: test -s ../cl1/studies/133-preregistered-native-mutant-ancestral-sibling-equal-exposure-terminal.md
+      - name: Run only 128 new CIL worlds to true terminal, audit all native born code and actor instruction-age matched offspring
+        run: cargo test --locked -p cl0-world --test study133_terminal_actor_exposure_matched_native_allele_rates -- --nocapture
