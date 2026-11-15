@@ -83,6 +83,7 @@ jobs:
             cl1b_b19_neutral_compute_flux
             cl1b_b20_resource_feedback_barrier
             cl1b_b21_cooperative_compute_relay
+            cl1b_b22_native_relay_assembly
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
