@@ -114,7 +114,19 @@ jobs:
                   full=1 ;;
                 cl0/crates/world/tests/cl1b_*.rs)
                   name="${changed_path##*/}"
-                  wanted["${name%.rs}"]=1
+                  native_target="${name%.rs}"
+                  registered=0
+                  for declared in "${targets[@]}"; do
+                    if [ "${declared}" = "${native_target}" ]; then
+                      registered=1
+                      break
+                    fi
+                  done
+                  if [ "${registered}" -ne 1 ]; then
+                    echo "CL-1B test file ${name} is absent from the native target manifest; rejecting zero-test green CI" >&2
+                    exit 1
+                  fi
+                  wanted["${native_target}"]=1
                   case "${name}" in
                     cl1b_b10_freshness.rs) wanted[cl1b_b13_native_mutation_differential]=1 ;;
                     cl1b_b14_search_policy_mutation.rs) wanted[cl1b_b15_policy_generalization]=1 ;;
