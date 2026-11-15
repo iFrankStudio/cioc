@@ -316,7 +316,7 @@ fn trial(seed:u64,source:i64,phase:i64,disabled:bool)->Results132{
 fn prospective_all16_random_native_mutation_site_target_sibling_controls(){
     let mut results=BTreeMap::new();
     let mut genotypes=BTreeSet::new();
-    for seed in 7_700_000_u64..7_600_016{
+    for seed in 7_700_000_u64..7_700_016{
         let mut state=seed;
         let site=splitmix64(&mut state)%38;
         let target=splitmix64(&mut state)%38;
@@ -332,7 +332,7 @@ fn prospective_all16_random_native_mutation_site_target_sibling_controls(){
         }
     }
     assert_eq!(results.len(),128);
-    let dual_source_phase0_exposure=(7_700_000_u64..7_600_016).filter(|seed|
+    let dual_source_phase0_exposure=(7_700_000_u64..7_700_016).filter(|seed|
         [3_i64,8_i64].iter().all(|source|
             results[&(*seed,*source,0,false)].same_parent_functional_siblings
         )
