@@ -51,3 +51,5 @@ jobs:
         run: cargo test --locked -p cl0-world --test cl1b_b07_checkpoint_agreement
       - name: B08 observationally identical histories information-loss bound
         run: cargo test --locked -p cl0-world --test cl1b_b08_indistinguishable_histories
+      - name: B09 functional evidence after history loss, stale and zero controls
+        run: cargo test --locked -p cl0-world --test cl1b_b09_trial_evidence
