@@ -1,4 +1,6 @@
-# CL-1 — Endogenous Organization Research
+# CL-1 — Endogenous Organization Research (historical CL-1A)
+
+> **ARCHIVAL NOTICE (2026-11-15):** This is the historical pre-split CL-1 research registry, now designated **CL-1A (population/generational evolution)** and paused. Original Study01–140 links and data remain preserved. See [CL-1A archive](../cl1a/README.md) and [active CL-1B individual-evolution route](../cl1b/README.md). No historical result constitutes accepted cyberlife.
 
 ## New neutral-allele causal measurement obstacle and native graph-only mutator substrate — Study137–140 (2026-11-15)
 
