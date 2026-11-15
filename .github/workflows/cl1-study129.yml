@@ -1,0 +1,47 @@
+name: CL-1 Study129 prospectively observed native functional mutant allele birth frequency dynamics
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/lab/src/bin/cl1-study129.rs'
+      - 'cl1/analyze_study129_world.py'
+      - 'cl1/analyze_study129.py'
+      - 'cl1/studies/129-preregistered-independent-native-allele-frequency-trajectory.md'
+      - '.github/workflows/cl1-study129.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-allele-frequency-competition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen unselected 32 genotype-pair cohort and genuine mutant-allele birth-frequency criteria
+        run: test -s ../cl1/studies/129-preregistered-independent-native-allele-frequency-trajectory.md
+      - name: Execute all 256 brand-new source/order/edit matched CIL competition worlds to resource terminal with 12288 replayed hashes
+        run: |
+          set -euo pipefail
+          CL1_SOURCE_REVISION="$GITHUB_SHA" cargo run --locked --release --quiet -p cl0-lab --bin cl1-study129 -- "$RUNNER_TEMP/study129-native-original32-allele-frequency-worlds.sqlite"
+      - name: Audit every original actor native allele, full 28-node birth code and competing functional birth-cohort frequency
+        run: |
+          set -euo pipefail
+          python3 ../cl1/analyze_study129.py "$RUNNER_TEMP/study129-native-original32-allele-frequency-worlds.sqlite" --expected-revision "$GITHUB_SHA" --json "$RUNNER_TEMP/study129-original-allele-birth-cohort-frequency-audit.json"
+      - name: Archive entire 256 native original world source and all paired functional allele frequency trajectories
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1-study129-original-independent-native-mutant-allele-frequency
+          retention-days: 30
+          path: |
+            ${{ runner.temp }}/study129-native-original32-allele-frequency-worlds.sqlite
+            ${{ runner.temp }}/study129-original-allele-birth-cohort-frequency-audit.json
