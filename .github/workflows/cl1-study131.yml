@@ -1,0 +1,27 @@
+name: CL-1 Study131 native same-founder functional mutant and ancestral sibling topology control
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study131_same_family_native_mutant_and_ancestral_siblings.rs'
+      - 'cl1/studies/131-preregistered-actor-native-same-family-neutral-and-mutant-siblings-calibration.md'
+      - '.github/workflows/cl1-study131.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  engineered-native-allele-sibling-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify preregistered fixed 38-op human CIL copy-then-mutate sibling exposure mechanism
+        run: test -s ../cl1/studies/131-preregistered-actor-native-same-family-neutral-and-mutant-siblings-calibration.md
+      - name: Run only 8 original source counter edit ablation native sibling worlds, no historical study jobs
+        run: cargo test --locked -p cl0-world --test study131_same_family_native_mutant_and_ancestral_siblings -- --nocapture
