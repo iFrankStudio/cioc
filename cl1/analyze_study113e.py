@@ -163,7 +163,8 @@ def reconstruct(initial, final, source, ablated):
             b["born_changed"] and b["canonical_source_function"]
             for b in births.values()),
         "all_native_descendant_births":[
-            {key:value for key,value in info.items() if key!="born_code"}
+            {key:(sorted(value) if isinstance(value,set) else value)
+             for key,value in info.items() if key!="born_code"}
             for info in births.values()
         ],
         "native_traps":traps,
