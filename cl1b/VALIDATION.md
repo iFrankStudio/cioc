@@ -20,7 +20,7 @@
 | B12 | marker/function divergence, false positives and damaging false-negative self-repair | source integration test and independent path audit; native run unverified | No |
 | B13 / B13b | exhaustive single-edge evaluator robustness (1,805 mutants) and post-hoc decision-consumption audit | source-parsed scan, decision-edge correction and dedicated Rust VM differential committed; native run unverified | No |
 | B14 | one actor modifies its own executable candidate-policy literal, with cross-lesion overfitting control | source integration test and 30-world lightweight path audit; native run unverified | No |
-| B15 | exhaustive 350-world, 175-pair generalization of B14 policy over all next edges | independent simplified scan shows **0/160 holdout wins, 10/160 losses**; full native differential committed, CI still unverified | No |
+| B15 / B15b | exhaustive 350-world B14 policy comparison; corrected independent mutation units and actual use of policy | independent scan: **0/32 distinct holdout edge types benefit**, 2 types harmed; **31/160** input×edge cases really change and use policy (0 wins/10 losses/21 ties); Rust per-step causal differential committed, native CI unverified | No |
 
 **Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **16 named Rust integration-test targets** currently cover the above 12 study labels.
 
