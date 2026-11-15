@@ -63,6 +63,7 @@ jobs:
             cl1b_b11_serial_candidate_search
             cl1b_b12_marker_function_divergence
           )
+          failures=0
           for target in "${targets[@]}"; do
             echo "RUN ${target}" | tee -a cl1b-ci-evidence/summary.txt
             # pipefail retains cargo's failure even though stdout is archived.
@@ -71,9 +72,13 @@ jobs:
               echo "PASS ${target}" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL ${target}" | tee -a cl1b-ci-evidence/summary.txt
-              exit 1
+              failures=$((failures + 1))
             fi
           done
+          echo "failed_target_count=${failures}" | tee -a cl1b-ci-evidence/summary.txt
+          if [ "${failures}" -ne 0 ]; then
+            exit 1
+          fi
       - name: Upload verifiable native CL-1B logs (including failed runs)
         if: always()
         uses: actions/upload-artifact@v4
