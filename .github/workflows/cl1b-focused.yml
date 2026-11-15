@@ -82,6 +82,7 @@ jobs:
             cl1b_b18_finite_compute_bound
             cl1b_b19_neutral_compute_flux
             cl1b_b20_resource_feedback_barrier
+            cl1b_b21_cooperative_compute_relay
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
@@ -160,6 +161,7 @@ jobs:
           node ../cl1b/analysis/b17_challenge_mutation_scan.mjs > cl1b-ci-evidence/b17-observer-exhaustive-checker.json
           node ../cl1b/analysis/b19_compute_flux_model.mjs > cl1b-ci-evidence/b19-observer-neutral-resource-flux.json
           node ../cl1b/analysis/b20_resource_feedback_barrier.mjs > cl1b-ci-evidence/b20-observer-resource-barrier.json
+          node ../cl1b/analysis/b21_cooperative_compute_relay.mjs > cl1b-ci-evidence/b21-observer-cooperative-relay.json
       - name: Upload verifiable native CL-1B logs (including failed runs)
         if: always()
         uses: actions/upload-artifact@v4
