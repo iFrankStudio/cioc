@@ -74,7 +74,9 @@ const postHocUnits={
 };
 if(postHocUnits.uniqueHoldoutEdgeTypes!==32||
   postHocUnits.policyActiveUniqueEdges.length!==13||
-  postHocUnits.policyInactiveUniqueEdges.length!==32 ||
+  postHocUnits.policyInactiveUniqueEdges.length!==22 ||
+  new Set([...postHocUnits.policyInactiveUniqueEdges,
+           ...postHocUnits.policyActiveUniqueEdges]).size!==32 ||
   postHocUnits.policyActiveMatchedPairs.pairs!==53 ||
   postHocUnits.policyInactiveMatchedPairs.pairs!==107 ||
   postHocUnits.policyChangedAndUsedUniqueEdges.length!==7 ||
