@@ -81,7 +81,7 @@ def reconstruct(initial, final, source, ablated):
         if created is not None:
             gid=created["graph"]
             require(gid not in graph and created["owner"]==actor,"duplicate host or foreign graph")
-            graph[gid]={"owner":actor,"code":[]}
+            graph[gid]={"owner":actor,"code":[],"sources":[]}
         copied=get(e,"GraphNodeCopied")
         if copied is not None:
             gid=copied["graph"]
@@ -94,6 +94,7 @@ def reconstruct(initial, final, source, ablated):
             require(0<=idx<len(codes[actor]) and copied["new_node"]==len(nodes),
                     "wrong native GraphCopyNode provenance")
             nodes.append(copy.deepcopy(codes[actor][idx]))
+            graph[gid]["sources"].append(idx)
         launched=get(e,"GraphLaunched")
         if launched is not None:
             require(launched["parent_process"]==actor,"native child parent mismatch")
@@ -114,6 +115,8 @@ def reconstruct(initial, final, source, ablated):
                 "born_tick":e["tick"],
                 "changed_nodes":changed,
                 "born_code":birth_code,
+                "whole_source_copied":
+                    graph[gid]["sources"] == list(range(len(original))),
             }
             child_ids[actor].append(child)
             actual_births+=1
@@ -140,6 +143,7 @@ def reconstruct(initial, final, source, ablated):
         info["same_actor_strict_functional_mutant_reproducer"]=(
             info["born_changed"]
             and info["born_full_length"]
+            and info["whole_source_copied"]
             and info["executed_inherited_changed_code"]
             and info["canonical_source_function"]
             and info["native_child_count"]>0
@@ -147,6 +151,7 @@ def reconstruct(initial, final, source, ablated):
         info["changed_canonical_grandchildren"]=sum(
             bool(births[grandchild]["changed_nodes"])
             and births[grandchild]["born_full_length"]
+            and births[grandchild]["whole_source_copied"]
             and grandchild in canonical_writers
             for grandchild in child_ids[actor]
         )
