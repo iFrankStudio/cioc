@@ -1,0 +1,27 @@
+name: CL-1 Study140 complete 18 actual two-locus native CIL offspring mutation alleles and true neutral code controls
+
+on:
+  push:
+    paths:
+      - 'cl0/crates/world/tests/study140_exact18_distinct_active_locus_graph_alleles.rs'
+      - 'cl1/studies/140-preregistered-complete-two-locus-nine-target-native-graph-mutant-neighborhood.md'
+      - '.github/workflows/cl1-study140.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  two-locus-complete-allele-neighborhood:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify pre-outcome complete exact 18 genotype two-active-locus source-neutral protocol
+        run: test -s ../cl1/studies/140-preregistered-complete-two-locus-nine-target-native-graph-mutant-neighborhood.md
+      - name: Execute all216 native actor-owned full49 code graph-only PC4/PC9 genotype controls, no historical CI
+        run: cargo test --locked -p cl0-world --test study140_exact18_distinct_active_locus_graph_alleles -- --nocapture
