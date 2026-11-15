@@ -1,6 +1,6 @@
 # CL-1B native verification ledger — experiment code versus evidence
 
-**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B18 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
+**State as of 2026-11-15.** This ledger prevents source commits, path simulations and prospective protocols from being mistaken for executed native Rust experiments. **No B00–B19 CL-1B native CI success has been independently verified in this research session.** The current GitHub connector exposes commit/legacy-status data but does not list push-triggered Actions workflow runs; an empty combined commit status or PR-only run query is *not* a passing result.
 
 | Study | Declared scope | Present evidence tier | Scientific stage accepted? |
 | --- | --- | --- | --- |
@@ -24,8 +24,9 @@
 | B16 | actor-generated nonzero functional challenge and actual payload check with corruption/forgery negative controls | 30-world source-parsed independent audit and native Rust test committed; native CI unverified | No |
 | B17 | exhaustive B16 direct-payload checker robustness over 899 distinct single-edge mutations ×5 inputs | independent restricted scan: 60 false-accept worlds from 12 distinct mutations; 390 false-reject worlds from 78 mutations; source-matched 4,495-world Rust differential committed, **not run-verified** | No |
 | B18 | finite-inventory theorem: total local credits plus pool declines by one per native attempt unless an external supply intervenes | audited VM Rust source and committed 4 native conservation/positive-control tests, **native CI unverified** | No — source-level necessary condition only |
+| B19 | generic world-pool environmental compute influx and native actor acquisition under pulse controls | source-shaped 5-world observer model and native per-step conservation/source-provenance tests committed, **native CI unverified** | No — authored resource access feasibility only |
 
-**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **19 named Rust integration-test targets** currently cover the above 12 study labels.
+**Counting:** B03 has separate a/b tests; B05+B06 share a single Rust test binary; therefore **20 named Rust integration-test targets** currently cover the above 12 study labels.
 
 ## New machine-readable verification channel (configured, not yet observed)
 
@@ -35,7 +36,7 @@ The [focused workflow](../.github/workflows/cl1b-focused.yml) now has two separa
 
 ## Scope-aware CI note
 
-The native workflow now selects only the modified `cl1b_*.rs` test and known direct imported dependents for routine code changes; a CL-0 VM source/Cargo/workflow change or **manual workflow dispatch** forces the full suite. The `summary.txt` artifact records `scope`, `selected_native_targets` and changed paths. A successful **changed-only** run must never be represented as a passing B00–B18 campaign. Source-pinned reports remain unconfirmed until a real GitHub run/artifact is inspected.
+The native workflow now selects only the modified `cl1b_*.rs` test and known direct imported dependents for routine code changes; a CL-0 VM source/Cargo/workflow change or **manual workflow dispatch** forces the full suite. The `summary.txt` artifact records `scope`, `selected_native_targets` and changed paths. A successful **changed-only** run must never be represented as a passing B00–B19 campaign. Source-pinned reports remain unconfirmed until a real GitHub run/artifact is inspected.
 
 ## Native verification runbook
 
