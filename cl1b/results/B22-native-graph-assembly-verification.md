@@ -7,7 +7,7 @@
 - **Native Rust B22 test:** [GitHub Actions run 43729982922](https://github.com/iFrankStudio/cioc/actions/runs/43729982922), source SHA `d028b7603751502416c7923ead56581db2ae225b`, workflow **success**.
 - [B22 source-pinned test and observer summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/d028b7603751502416c7923ead56581db2ae225b-43729982922-1/summary.txt): **selected_native_targets=1**, B22 native **PASS**, all nine independent observer scans including B22 **PASS**, no failures.
 - [Workflow and source identity](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/d028b7603751502416c7923ead56581db2ae225b-43729982922-1/result.txt).
-- **Scope warning:** This is a targeted native B22 pass, **not** a new all-target 23/23 campaign. The preceding [22/22 full native campaign](CI-2026-11-15-full-native-verification.md) was tested at source SHA `5f4ce96e...`; these two individually verified source states must not be conflated.
+- **Subsequent complete verification:** [run 43730266859](https://github.com/iFrankStudio/cioc/actions/runs/43730266859), SHA `7738dd944352f3f443235061eb8c11cc28fc49c0`: **all 23/23 native Rust targets and 9/9 independent scans PASS**, with [SHA-pinned archived full summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/7738dd944352f3f443235061eb8c11cc28fc49c0-43730266859-1/summary.txt). See [full B22-era checkpoint](CI-2026-11-15-full-B22-native-verification.md). The earlier targeted B22 pass remains a distinct first validation at its own source revision.
 
 ## Frozen experiments and causal comparison
 
