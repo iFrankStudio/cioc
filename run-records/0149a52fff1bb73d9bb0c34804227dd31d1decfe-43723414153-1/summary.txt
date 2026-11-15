@@ -1,0 +1,6 @@
+scope=changed-only
+selected_native_targets=1
+changed_path=cl0/crates/world/tests/cl1b_b13_native_mutation_differential.rs
+RUN cl1b_b13_native_mutation_differential
+PASS cl1b_b13_native_mutation_differential
+failed_target_count=0
