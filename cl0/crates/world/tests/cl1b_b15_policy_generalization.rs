@@ -120,8 +120,9 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     let mut active_holdout = Outcomes::default();
     let mut inactive_holdout = Outcomes::default();
     let mut unique_active_holdout_edges = 0_usize;
+    let mut per_input_policy_active = [0_usize; 5];
 
-    for input in [-13, 0, 7, 23, 101] {
+    for (input_index, input) in [-13, 0, 7, 23, 101].into_iter().enumerate() {
         for next in 0..35_usize {
             let adaptive = trial(input, next, true);
             let locked = trial(input, next, false);
@@ -137,6 +138,7 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
             if next != 7 && next != 10 && next != 11 {
                 if adaptive.policy_exec_count > 0 || locked.policy_exec_count > 0 {
                     add(&mut active_holdout, &adaptive, &locked);
+                    per_input_policy_active[input_index] += 1;
                     if input == 23 {
                         unique_active_holdout_edges += 1;
                     }
@@ -182,16 +184,17 @@ fn b15_all_350_native_worlds_falsify_universal_policy_switch_benefit() {
     // repetitions of the SAME 32 structural holdout edges, not 160
     // independent structural mutations.
     assert_eq!(unique_active_holdout_edges, 13);
+    assert_eq!(per_input_policy_active, [10, 10, 10, 13, 10]);
     assert_eq!(
         (active_holdout.pairs, active_holdout.wins,
          active_holdout.losses, active_holdout.ties),
-        (65, 0, 10, 55),
-        "policy actually reached on 13 unique holdout edge types"
+        (53, 0, 10, 43),
+        "policy reached in 53 input-by-edge cases, covering 13 distinct edge types"
     );
     assert_eq!(
         (inactive_holdout.pairs, inactive_holdout.wins,
          inactive_holdout.losses, inactive_holdout.ties),
-        (95, 0, 0, 95),
+        (107, 0, 0, 107),
         "19 other holdout edge types never execute the policy opcode"
     );
 }
