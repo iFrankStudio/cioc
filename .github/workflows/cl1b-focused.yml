@@ -71,6 +71,7 @@ jobs:
             cl1b_b11_serial_candidate_search
             cl1b_b12_marker_function_divergence
             cl1b_b13_native_mutation_differential
+            cl1b_b14_search_policy_mutation
           )
           failures=0
           for target in "${targets[@]}"; do
