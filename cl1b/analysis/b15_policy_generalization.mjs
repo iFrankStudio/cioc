@@ -65,11 +65,13 @@ const postHocUnits={
   policyInactiveUniqueEdges:[...new Set(policyInactiveHoldout.map(s=>s.next))],
   policyActiveMatchedPairs:summarize(policyActiveHoldout),
   policyInactiveMatchedPairs:summarize(policyInactiveHoldout),
-  caveat:"Post-hoc B15b stratification: five input labels are repeated deterministic cases, not independent structural lesions."
+  caveat:"Post-hoc B15b stratification: five labels are not independent structural lesions; different numeric inputs CAN cause different internal code paths under mutation, even when the service-count win/loss category is repeated."
 };
 if(postHocUnits.uniqueHoldoutEdgeTypes!==32||
   postHocUnits.policyActiveUniqueEdges.length!==13||
-  postHocUnits.policyInactiveUniqueEdges.length!==19)
+  postHocUnits.policyInactiveUniqueEdges.length!==32 ||
+  postHocUnits.policyActiveMatchedPairs.pairs!==53 ||
+  postHocUnits.policyInactiveMatchedPairs.pairs!==107)
  throw Error("B15b active-policy lesion denominator changed");
 
 const output={source:"B14 exact founder parsed from checked-out Rust file",status:"independent simplified interpreter; NOT CL-0 Rust native evidence",initialCredits:240,maxAttempts:120,worlds:350,matchedPairs:175,groups,byLesion,postHocUnits,
