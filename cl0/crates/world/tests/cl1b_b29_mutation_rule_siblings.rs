@@ -198,3 +198,58 @@ fn b29_native_same_parent_produces_distinct_full_genome_siblings_after_paid_muta
     assert_eq!(suppressed.copies,0);
     assert_eq!(suppressed.genotypes,vec![(1,156,1)]);
 }
+
+
+/// B30 prospectively registered held-out x∈{155,156,157,158}.
+/// Same founder, initial credits, first two pool packets and instruction costs.
+/// The B29 "advantage" is not a universal intrinsic fitness benefit:
+/// threshold and deterministic scheduler decide which parent can reproduce.
+#[test]
+fn b30_mutation_rule_sibling_advantage_disappears_at_adjacent_pool_thresholds() {
+    let heldout=[
+        (155_u64,2_usize,2_usize,None),
+        (156_u64,3_usize,2_usize,Some((3_u64,4_u64))),
+        (157_u64,3_usize,3_usize,Some((1_u64,4_u64))),
+        (158_u64,3_usize,3_usize,Some((1_u64,4_u64))),
+    ];
+    for (third,expected_flip,expected_no_flip,third_birth) in heldout {
+        let neutral=[157_u64,157_u64,third];
+        let flipped=trial(Arm::Flip,&neutral);
+        let unchanged=trial(Arm::NoFlip,&neutral);
+        for result in [&flipped,&unchanged] {
+            assert_eq!(result.packet_steps.len(),3);
+            assert_eq!(&result.packet_steps[0..2],&[157,157],
+                "third packet is held out; the first two births must be identically affordable");
+            assert_eq!(&result.births[0..2],&[(1,2),(1,3)],
+                "both children genuinely originate from the same CIL parent");
+            assert_eq!(result.traps,0);
+            assert_eq!(result.energy+result.total_attempts as u64,
+                2+neutral.iter().sum::<u64>(),
+                "native compute conservation must include unspent neutral pool energy");
+        }
+        assert_eq!(flipped.births.len(),expected_flip,
+            "B30 FLIP preregistered birth count for heldout packet {third}");
+        assert_eq!(unchanged.births.len(),expected_no_flip,
+            "B30 NO_FLIP preregistered birth count for heldout packet {third}");
+        assert_eq!(flipped.births.get(2).copied(),third_birth,
+            "native GraphLaunched parent origin, not PID ordering, determines lineage");
+        assert_eq!(unchanged.births.get(2).copied(),
+            if third>=157 {Some((1,4))} else {None});
+        assert_eq!(unchanged.genotypes[1..3],
+            [(2,157,1),(3,157,1)]);
+        assert!(unchanged.source_edits.is_empty());
+        assert_eq!(flipped.genotypes[1].1,157);
+        assert_eq!(flipped.genotypes[2].1,155);
+        if third==155 {
+            assert_eq!((flipped.pool,unchanged.pool),(155,155));
+            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(0,0));
+        } else if third==156 {
+            assert_eq!((flipped.pool,unchanged.pool),(0,156));
+            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(156,0));
+        } else {
+            assert_eq!(flipped.pool,third-157);
+            assert_eq!(unchanged.pool,third-157);
+            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(157,157));
+        }
+    }
+}
