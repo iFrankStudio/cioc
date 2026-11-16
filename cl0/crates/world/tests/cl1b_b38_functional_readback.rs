@@ -4,9 +4,9 @@
 use cl0_world::{EventKind,Intervention,Op,Origin,Process,World};
 
 #[derive(Clone,Copy,Debug,PartialEq,Eq)]
-enum Arm{Readback,AssumeOk,ForceFix,PatchDisabled,StaticCorrect}
+pub(crate) enum Arm{Readback,AssumeOk,ForceFix,PatchDisabled,StaticCorrect}
 
-fn founder(arm:Arm)->Vec<Op>{
+pub(crate) fn founder(arm:Arm)->Vec<Op>{
  if arm==Arm::StaticCorrect{
   return vec![
    Op::Const{dst:2,value:7,next:1},
