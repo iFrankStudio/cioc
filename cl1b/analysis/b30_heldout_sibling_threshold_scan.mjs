@@ -5,8 +5,8 @@ import { simulateB29 } from "./b29_mutation_rule_siblings_scan.mjs";
 const heldout=[
  {third:155,flipBirths:2,noFlipBirths:2,thirdParent:null,remaining:155},
  {third:156,flipBirths:3,noFlipBirths:2,thirdParent:3,remaining:0},
- {third:157,flipBirths:3,noFlipBirths:3,thirdParent:1,remaining:0},
- {third:158,flipBirths:3,noFlipBirths:3,thirdParent:1,remaining:1}
+ {third:157,flipBirths:3,noFlipBirths:3,thirdParent:3,remaining:1},
+ {third:158,flipBirths:3,noFlipBirths:3,thirdParent:2,remaining:0}
 ];
 const cases=[];
 for(const {third,flipBirths,noFlipBirths,thirdParent,remaining} of heldout){
@@ -23,7 +23,7 @@ for(const {third,flipBirths,noFlipBirths,thirdParent,remaining} of heldout){
   throw Error("B30 first two supply windows were not resource matched");
  if((flip.births[2]?.[0]??null)!==thirdParent)
   throw Error(`B30 native scheduler changed actual third parent for packet ${third}`);
- if(flip.pool!==remaining||noFlip.pool!==(third<=156?third:third-157))
+ if(flip.pool!==remaining||noFlip.pool!==(third<=156?third:0))
   throw Error(`B30 neutral-pool inventory prediction changed for ${third}`);
  if(flip.lineageGenotypes[1][1]!==157||flip.lineageGenotypes[2][1]!==155 ||
     noFlip.lineageGenotypes[1][1]!==157||noFlip.lineageGenotypes[2][1]!==157)
