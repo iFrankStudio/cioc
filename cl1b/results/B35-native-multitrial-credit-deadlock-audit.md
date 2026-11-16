@@ -1,0 +1,36 @@
+# CL-1B B35 — repeated paid candidate search learns resource thresholds but strands its own continuation
+
+**Native engineering verdict:** [full GitHub Actions CI run 43817885660](https://github.com/iFrankStudio/cioc/actions/runs/43817885660), exact tested SHA `6c226495a0c0ff1f193450f253a765ebb44a6f5e`; [source-pinned original CI summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/6c226495a0c0ff1f193450f253a765ebb44a6f5e-43817885660-1/summary.txt) confirms **35/35 native Rust integration targets PASS, 22/22 independent source-parsed CIL analyses PASS, zero failures**, plus B31 and B34 mandatory private-codec tests and separate CI evidence publication. [Preregistered B35 protocol](../studies/B35-multitrial-candidate-retention.md), [actual Rust CIL native integration](../../cl0/crates/world/tests/cl1b_b35_multitrial_retention.rs), and [independent Rust-source-parsed CIL simulator](../analysis/b35_multitrial_retention_scan.mjs). The exact expected service counts, final code literal, PC and remaining pool were frozen in native Rust assertions from the independent model **before this first full 35/22 CI**, not reconstructed after the run.
+
+## Objective and genuinely new mechanism
+
+B34 demonstrated one real native `TryDrawCompute` resource outcome and a hardcoded candidate5→fallback3. B35 instead has **one continuous native process** that can perform multiple native paid acquisition attempts, compute a **new candidate using CIL `Sub` of its prior request and an authored step1**, patch its own actual executable initial request literal with `PatchConst`, and retry. That is real native computation and source persistence—**not** a host rewriting its code, a fabricated reward, a self-written fake success marker, or a separate replacement process.
+
+A 12-node program carries the request literal at PC0 (initial5), uses real `TryDrawCompute` at PC3 and charged branch at PC4, computes Q−1 at PC5 on reported failure, patches source PC0 at PC6, and repeats the trial. A genuine PC10 service is `CellWritten(key9,value1)`; PC11 uses the old generic pool-paid `DrawCompute` as a potential next-episode gateway. One externally loaded process starts with **14 local compute credits**. Only explicit packets of neutral world-pool energy are injected; no per-process replenishment, free instruction, specialized life opcode, or graph-launched offspring occurs.
+
+The same-size **FORCED_FAIL** control replaces the live Try at PC3 with a normally charged `Const r2=0`, so it can repeatedly *pretend* to fail, decrement and patch but never actually acquire resources. The **STATIC3** comparator is the previous compact five-op immutable, pool-funded Draw3/service loop, with the exact same initial compute inventory. These are not interchangeable controls: FORCED_FAIL isolates the necessity of true acquisition, STATIC3 measures full-code efficiency.
+
+## Full twelve-world native results
+
+All schedules contain **three separately injected neutral energy packets**, and the native scheduler drains after each packet without host repairs. Real service results are **event-provenance verified**, not inferred from internal source state.
+
+| Neutral packets | ADAPT actual service writes | FORCED_FAIL | STATIC3 | ADAPT retained executable Q | ADAPT final PC / local credits / pool |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `[4,5,5]` development sparse | **1** | 0 | **3** | **4** | **PC4 / 0 / 5** |
+| `[4,12,12]` development richer | **3** | 0 | **7** | **4** | **PC4 / 0 / 1** |
+| `[5,5,5]` held-out equal | **1** | 0 | **4** | **5** | **PC5 / 0 / 4** |
+| `[6,8,12]` held-out shifted | **1** | 0 | **7** | **5** | **PC5 / 0 / 15** |
+
+**True repeated attempts, not a guessed result:** under initial pool4, the continuing CIL individual attempts request5 (fails, reports false), calculates4, performs a real paid edit of its PC0 executable candidate from5 to4, then attempts request4 (succeeds) and completes one genuinely attributable service. Under richer supply `[4,12,12]`, the same actor completes **three** services across later resource episodes, retains Q4, and generates additional real success/failure resource-attempt events with exact before-pool availability. FORCED_FAIL never receives or uses real resource trial evidence and performs **zero real service** in all four worlds.
+
+**Crucial negative finding (non-Draw deadlock):** the same individual eventually runs its local credit balance to zero at **PC4 `Branch` or PC5 `Sub`**, which are not permitted to execute using shared-pool energy under the generic CL-0 scheduler. For sparse `[4,5,5]`, five shared compute units remain unused while the individual is at PC4; for shifted `[6,8,12]`, a striking **15 world-pool compute credits remain** while the actor is trapped at PC5 with zero local credits. These are not native `Trapped` error events (the process remains `stopped=false`), but it is **resource-deadlocked** and cannot execute further despite real environment energy. Honest accounting therefore distinguishes "not stopped by VM" from "capable of acting".
+
+The fixed **STATIC3** baseline completes **3/7/4/7** genuine services, respectively. Thus every tested B35 adaptive result is **strictly worse than the simple immutable program** when all exploration/patch overhead is charged. Real resource-feedback candidate search has been demonstrated, but **sustained beneficial self-adaptation has been falsified across this frozen test set**.
+
+## Scientific interpretation
+
+B35 supports a stronger necessary mechanism than B34: the same native CIL actor can *try multiple candidates*, use actual resource failure feedback, compute a new value by arithmetic, and retain it in executable source. However the algorithmic strategy ("subtract1 after every failed resource attempt"), initial Q5, output target and all external flux schedules were **authored by the researcher**. The true native resource trial flag is about resource transfer, not useful-function quality or mutation success. There is **no internally created higher-level goal, automatically discovered operator, endogenous policy selection, rollback, generalization or actual cyberlife**.
+
+The main obstacle is now sharply localized: the VM's **pool-paid gateway exists only at `DrawCompute`**, but iterative trial/evaluation and mutation can spend its entire local budget at a non-Draw PC *between* resource acquisition opportunities. A larger request may help only under certain energy schedules and may worsen acquisition in others. Merely adding a truthful sensor, TryDraw, more candidate values or a mutable quality marker cannot solve resource-deadlock without a credible, **resource-accounted continuation policy**.
+
+**Next falsifier B36:** pre-register a *single-actor safe-search control* that explicitly preserves an affordably reachable `DrawCompute` checkpoint between candidate trial, computation, source edit and retry. It must account for every continuation instruction, not grant free restart/credits, test whether any repair is still bested by STATIC3 across held-out regimes, and verify actual native PC/credits/affordability rather than a fabricated alive flag. If an authored checkpoint works, that is a **program architecture affordance**, not evidence of autonomous learning. CL-1B B3/B4 acceptance remains **NOT MET**.
