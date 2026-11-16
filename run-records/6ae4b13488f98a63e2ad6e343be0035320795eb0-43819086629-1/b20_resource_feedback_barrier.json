@@ -1,0 +1,320 @@
+{
+  "source": "cl0/crates/world/tests/cl1b_b19_neutral_compute_flux.rs",
+  "evidence": "independent source-shaped resource model, NOT native Rust",
+  "matchedWorlds": 7,
+  "outcomes": [
+    {
+      "request": 2,
+      "packet": 4,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 3,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 1,
+          "pc": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 5,
+          "pc": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 9,
+          "pc": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 13,
+          "pc": 4
+        }
+      ],
+      "attempts": 5,
+      "service": 0,
+      "paidDraws": 1,
+      "deferred": 1,
+      "credits": 0,
+      "pool": 13,
+      "pc": 4
+    },
+    {
+      "request": 3,
+      "packet": 4,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 4,
+          "serviceWrites": 1,
+          "draws": 1,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 4,
+          "serviceWrites": 2,
+          "draws": 2,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 4,
+          "serviceWrites": 3,
+          "draws": 3,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 4,
+          "serviceWrites": 4,
+          "draws": 4,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        }
+      ],
+      "attempts": 18,
+      "service": 4,
+      "paidDraws": 4,
+      "deferred": 1,
+      "credits": 0,
+      "pool": 0,
+      "pc": 1
+    },
+    {
+      "request": 4,
+      "packet": 4,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 0,
+          "credits": 0,
+          "pool": 4,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "serviceWrites": 1,
+          "draws": 1,
+          "credits": 0,
+          "pool": 3,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "serviceWrites": 2,
+          "draws": 2,
+          "credits": 0,
+          "pool": 2,
+          "pc": 1
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "serviceWrites": 3,
+          "draws": 3,
+          "credits": 0,
+          "pool": 1,
+          "pc": 1
+        }
+      ],
+      "attempts": 17,
+      "service": 3,
+      "paidDraws": 3,
+      "deferred": 4,
+      "credits": 0,
+      "pool": 1,
+      "pc": 1
+    },
+    {
+      "request": 2,
+      "packet": 5,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 3,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 2,
+          "pc": 4
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 7,
+          "pc": 4
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 12,
+          "pc": 4
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "serviceWrites": 0,
+          "draws": 1,
+          "credits": 0,
+          "pool": 17,
+          "pc": 4
+        }
+      ],
+      "attempts": 5,
+      "service": 0,
+      "paidDraws": 1,
+      "deferred": 1,
+      "credits": 0,
+      "pool": 17,
+      "pc": 4
+    },
+    {
+      "request": 3,
+      "packet": 5,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 4,
+          "serviceWrites": 1,
+          "draws": 1,
+          "credits": 0,
+          "pool": 1,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 4,
+          "serviceWrites": 2,
+          "draws": 2,
+          "credits": 0,
+          "pool": 2,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 4,
+          "serviceWrites": 3,
+          "draws": 3,
+          "credits": 0,
+          "pool": 3,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 8,
+          "serviceWrites": 5,
+          "draws": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        }
+      ],
+      "attempts": 22,
+      "service": 5,
+      "paidDraws": 5,
+      "deferred": 1,
+      "credits": 0,
+      "pool": 0,
+      "pc": 1
+    },
+    {
+      "request": 4,
+      "packet": 5,
+      "initial": 2,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 5,
+          "serviceWrites": 1,
+          "draws": 1,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 5,
+          "serviceWrites": 2,
+          "draws": 2,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 5,
+          "serviceWrites": 3,
+          "draws": 3,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        },
+        {
+          "packet": 5,
+          "attempts": 5,
+          "serviceWrites": 4,
+          "draws": 4,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1
+        }
+      ],
+      "attempts": 22,
+      "service": 4,
+      "paidDraws": 4,
+      "deferred": 5,
+      "credits": 0,
+      "pool": 0,
+      "pc": 1
+    },
+    {
+      "request": 4,
+      "packet": 0,
+      "initial": 2,
+      "windows": [],
+      "attempts": 2,
+      "service": 0,
+      "paidDraws": 0,
+      "deferred": 1,
+      "credits": 0,
+      "pool": 0,
+      "pc": 1
+    }
+  ]
+}
