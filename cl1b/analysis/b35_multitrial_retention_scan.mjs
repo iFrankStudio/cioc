@@ -1,6 +1,7 @@
 // B35 deterministic independent parser/interpreter of native Rust CIL source.
 // No native Rust execution, no oracle score or discovered fitness.
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 const source=readFileSync(new URL("../../cl0/crates/world/tests/cl1b_b35_multitrial_retention.rs",import.meta.url),"utf8");
 const founderBody=source.match(/fn founder\(arm:Arm\)->Vec<Op> \{([\s\S]*?)\n\}/)?.[1];
 if(!founderBody)throw Error("B35 native founder Rust body missing");
@@ -22,18 +23,20 @@ function make(arm){
  const chosen=arm==="Adaptive"?3:4;
  return [...adaptiveLayout.slice(0,3),adaptiveLayout[chosen],...adaptiveLayout.slice(5)].map(o=>({...o}));
 }
-function run(arm,schedule){
+export function simulateB35(arm,schedule,poolPaidAll=false){
  const code=make(arm),r=[0,0,0,0];
- let pc=0,local=14,pool=0,charged=0,writes=0,edits=0,stopped=false,traps=0;
+ let pc=0,local=14,pool=0,charged=0,writes=0,edits=0,stopped=false,traps=0,poolPaidNonDraw=0;
  const trials=[],perPacketWrites=[],perPacketPaid=[],attempts=[];
  const reg=i=>{if(!Number.isInteger(i)||i<0||i>=4)throw Error("B35 invalid CIL register");return r[i];};
  function step(){
   if(stopped)return false;
   const op=code[pc],zeroLocal=local===0;
-  const poolPaid=zeroLocal&&op.kind==="DrawCompute"&&pool>=reg(op.amount)+1;
+  const isDraw=op.kind==="DrawCompute";
+  const affordableDraw=!isDraw||pool>=reg(op.amount)+1;
+  const poolPaid=zeroLocal&&pool>0&&(poolPaidAll||isDraw)&&affordableDraw;
   if(zeroLocal&&!poolPaid)return false;
   const old=local+pool,at=pc;
-  if(poolPaid)pool--;else local--;
+  if(poolPaid){pool--;if(op.kind!=="DrawCompute")poolPaidNonDraw++;}else local--;
   charged++;
   let kind=op.kind;
   try{
@@ -82,12 +85,14 @@ function run(arm,schedule){
  if(charged+pool+local!==14+schedule.reduce((a,b)=>a+b,0))
   throw Error("B35 total budget incorrect");
  return {arm,schedule,totalWrites:writes,perPacketWrites,perPacketPaid,charged,
-  edits,trials,sourceRequest:code[0].value,finalPC:pc,local,pool,stopped,traps};
+  edits,trials,sourceRequest:code[0].value,finalPC:pc,local,pool,stopped,traps,
+  poolPaidNonDraw,poolPaidAll};
 }
+if(process.argv[1]===fileURLToPath(import.meta.url)) {
 const schedules=[[4,5,5],[4,12,12],[5,5,5],[6,8,12]];
 const cases=[];
 for(const schedule of schedules)for(const arm of ["Adaptive","ForcedFail","StaticThree"])
- cases.push(run(arm,schedule));
+ cases.push(simulateB35(arm,schedule));
 if(cases.length!==12)throw Error("B35 wrong world denominator");
 for(let i=0;i<4;i++){
  const [adaptive,forced,static3]=cases.slice(i*3,i*3+3);
@@ -102,3 +107,5 @@ process.stdout.write(JSON.stringify({
  source:"cl0/crates/world/tests/cl1b_b35_multitrial_retention.rs",
  worlds:cases.length,cases
 },null,2)+"\n");
+
+}
