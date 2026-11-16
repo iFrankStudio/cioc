@@ -137,6 +137,12 @@ pub enum Op {
         amount: usize,
         next: usize,
     },
+    /// Generic paid observation of neutral shared-pool compute.
+    /// Not a reward oracle, compute source, or zero-credit wake-up instruction.
+    SenseComputePool {
+        dst: usize,
+        next: usize,
+    },
     ReturnCompute {
         amount: usize,
         next: usize,
@@ -479,6 +485,13 @@ impl Op {
                 i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
                 i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
             ]),
+            Op::SenseComputePool { dst, next } => Ok([
+                31,
+                i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
+                0,
+                0,
+            ]),
         }
     }
 
@@ -515,6 +528,7 @@ impl Op {
             Op::GraphCopyFrom { .. } => 28,
             Op::GraphTransfer { .. } => 29,
             Op::GraphCopyNodeLocal { .. } => 30,
+            Op::SenseComputePool { .. } => 31,
         }
     }
 
@@ -543,6 +557,7 @@ impl Op {
             | Op::GraphRevokeRead { next, .. }
             | Op::GraphReadTag { next, .. }
             | Op::DrawCompute { next, .. }
+            | Op::SenseComputePool { next, .. }
             | Op::ReturnCompute { next, .. }
             | Op::TransferCompute { next, .. }
             | Op::GraphReadField { next, .. }
@@ -747,6 +762,10 @@ impl Op {
                 dst: slot(3)?,
                 next: slot(4)?,
             }),
+            31 => Ok(Op::SenseComputePool {
+                dst: slot(1)?,
+                next: slot(2)?,
+            }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -816,6 +835,10 @@ pub enum EventKind {
     CellRead {
         key: CellKey,
         value: i64,
+    },
+    /// Observer-only trace of a real charged native pool observation.
+    ComputePoolSensed {
+        available: u64,
     },
     /// Observer-only successful native shared-cell write.
     CellWritten {
@@ -1533,6 +1556,7 @@ impl World {
             return self.execute_graph(id, op);
         }
         let can_add_unit = self.can_allocate(1);
+        let observed_compute_pool = self.compute_pool;
         let (processes, cells) = (&mut self.processes, &mut self.cells);
         let p = processes.get_mut(&id).expect("selected process exists");
         let len = p.code.nodes.len();
@@ -1588,6 +1612,19 @@ impl World {
                 }
                 p.registers[dst] = a.wrapping_sub(b);
                 p.pc = next;
+            }
+            Op::SenseComputePool { dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS {
+                    return Err("invalid register".into());
+                }
+                let value = i64::try_from(observed_compute_pool)
+                    .map_err(|_| "compute pool exceeds i64 register capacity".to_string())?;
+                p.registers[dst] = value;
+                p.pc = next;
+                self.pending_transition = Some(EventKind::ComputePoolSensed {
+                    available: observed_compute_pool,
+                });
             }
             Op::Read { dst, address, next } => {
                 edge(next)?;
@@ -1677,6 +1714,7 @@ impl World {
                     | Op::GraphRevokeRead { next, .. }
                     | Op::GraphReadTag { next, .. }
                     | Op::DrawCompute { next, .. }
+                    | Op::SenseComputePool { next, .. }
                     | Op::ReturnCompute { next, .. }
                     | Op::TransferCompute { next, .. }
                     | Op::GraphReadField { next, .. }
