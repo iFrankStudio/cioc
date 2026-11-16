@@ -11,7 +11,7 @@ const matchOps=part=>[...part.matchAll(/Op::([A-Za-z]+)\s*\{([^}]*)\}/g)].map(m=
  return o;
 });
 const staticPart=body.match(/if arm==Arm::StaticThree\{([\s\S]*?)\n \}/)?.[1];
-const afterStatic=body.slice(body.indexOf(" vec![",body.indexOf(" if arm==Arm::StaticThree")+20));
+const afterStatic=body.slice(body.lastIndexOf("\n vec!["));
 const staticCode=matchOps(staticPart||"").slice(0,5);
 const rest=matchOps(afterStatic);
 if(staticCode.length!==5||rest.length!==11||rest[2].kind!=="TryDrawCompute"||
