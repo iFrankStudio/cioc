@@ -4,9 +4,9 @@
 use cl0_world::{EventKind,Intervention,Op,Origin,Process,World};
 
 #[derive(Debug,Clone,Copy,PartialEq,Eq)]
-enum Arm { Adaptive, ForcedFail, StaticThree }
+pub(crate) enum Arm { Adaptive, ForcedFail, StaticThree }
 
-fn founder(arm:Arm)->Vec<Op> {
+pub(crate) fn founder(arm:Arm)->Vec<Op> {
  if arm==Arm::StaticThree {
   return vec![
    Op::Const{dst:0,value:3,next:1},
