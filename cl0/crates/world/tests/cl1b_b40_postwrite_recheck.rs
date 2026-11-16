@@ -137,6 +137,18 @@ fn b40_postwrite_paid_task_recheck_corrects_b39_false_evidence_at_extra_compute_
    let static_correct=run(Arm::StaticCorrect,old,new,arrival);
    worlds+=3;
    assert_eq!((reference.paid,fresh.paid,static_correct.paid),(96,96,96));
+   // Frozen independent CIL predictions before native CI.
+   let (expected_reference,expected_recheck,expected_static)=match (old,arrival){
+    (0,Arrival::BeforeRead)=>((12_usize,1_usize),(8_usize,1_usize),(24_usize,0_usize)),
+    (0,Arrival::AfterRead)=>((11,2),(8,1),(23,1)),
+    (17,Arrival::BeforeRead)=>((14,0),(10,0),(24,0)),
+    (17,Arrival::AfterRead)=>((13,0),(10,0),(23,1)),
+    _=>unreachable!(),
+   };
+   assert_eq!((reference.correct_writes,reference.wrong_writes),expected_reference);
+   assert_eq!((fresh.correct_writes,fresh.wrong_writes),expected_recheck,
+    "B40 actual native useful work must be charged for each added recheck opcode");
+   assert_eq!((static_correct.correct_writes,static_correct.wrong_writes),expected_static);
    assert_eq!(reference.judgement_correct,Some(early));
    assert_eq!(fresh.judgement_correct,Some(true),
     "post-output re-read must agree with latest task input for registered update timing");
