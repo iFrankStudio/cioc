@@ -31,6 +31,14 @@ pub enum Op {
         address: usize,
         next: usize,
     },
+    /// Generic paid observation of the last writer of an arbitrary data cell.
+    /// 0 = environment, positive = process id, -1 = disabled or absent.
+    /// Source trust is NOT a fitness, truth or repair oracle.
+    ReadLastWriter {
+        dst: usize,
+        address: usize,
+        next: usize,
+    },
     Write {
         address: usize,
         value: usize,
@@ -224,6 +232,13 @@ impl Op {
             ]),
             Op::Read { dst, address, next } => Ok([
                 3,
+                i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
+                0,
+            ]),
+            Op::ReadLastWriter { dst, address, next } => Ok([
+                33,
                 i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
                 i64::try_from(*address).map_err(|_| "operand exceeds i64".to_string())?,
                 i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
@@ -514,6 +529,7 @@ impl Op {
             Op::Add { .. } => 1,
             Op::Sub { .. } => 2,
             Op::Read { .. } => 3,
+            Op::ReadLastWriter { .. } => 33,
             Op::Write { .. } => 4,
             Op::Branch { .. } => 5,
             Op::PatchNext { .. } => 6,
@@ -552,6 +568,7 @@ impl Op {
             | Op::Add { next, .. }
             | Op::Sub { next, .. }
             | Op::Read { next, .. }
+            | Op::ReadLastWriter { next, .. }
             | Op::Write { next, .. }
             | Op::PatchNext { next, .. }
             | Op::ReadNext { next, .. }
@@ -786,6 +803,11 @@ impl Op {
                 dst: slot(2)?,
                 next: slot(3)?,
             }),
+            33 => Ok(Op::ReadLastWriter {
+                dst: slot(1)?,
+                address: slot(2)?,
+                next: slot(3)?,
+            }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -855,6 +877,12 @@ pub enum EventKind {
     CellRead {
         key: CellKey,
         value: i64,
+    },
+    /// Observer-only trace of a paid, generic CIL last-writer observation.
+    /// This is a substrate provenance sensor, not a verdict about correctness.
+    CellWriterSensed {
+        key: CellKey,
+        writer: i64,
     },
     /// Observer-only trace of a real charged native pool observation.
     ComputePoolSensed {
@@ -1015,6 +1043,13 @@ pub struct World {
     /// the original hash-serialized world semantics in older studies.
     #[serde(default, skip_serializing_if = "is_false")]
     trace_native_executable_edits: bool,
+    /// Opt-in identity-neutral finite provenance: one priced storage unit
+    /// for each existing data-cell last-writer slot. Historical event log
+    /// stays lab-only; a guest sees only its latest recorded writer.
+    #[serde(default, skip_serializing_if = "is_false")]
+    cell_write_provenance_enabled: bool,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    cell_last_writer: BTreeMap<CellKey, i64>,
     #[serde(default)]
     graph_objects: BTreeMap<u64, GraphObject>,
     #[serde(default = "default_graph_id")]
@@ -1093,6 +1128,8 @@ impl World {
             native_code_edits_disabled: false,
             native_patchnext_disabled: false,
             trace_native_executable_edits: false,
+            cell_write_provenance_enabled: false,
+            cell_last_writer: BTreeMap::new(),
             graph_objects: BTreeMap::new(),
             next_graph_id: 1,
             next_process_id: 1,
@@ -1116,7 +1153,8 @@ impl World {
     }
 
     pub fn occupied_units(&self) -> usize {
-        let used = self.processes.values().fold(self.cells.len(), |used, p| {
+        let used = self.processes.values().fold(
+            self.cells.len().saturating_add(self.cell_last_writer.len()), |used, p| {
             used.saturating_add(p.code.nodes.len())
         });
         let used = self.graph_objects.values().fold(used, |used, g| {
@@ -1144,6 +1182,26 @@ impl World {
         let mut world = Self::with_total_capacity(storage_limit, max_nodes_per_process, total);
         world.strict_accounting = true;
         world
+    }
+
+    /// Enable finite last-writer provenance physics only on a fresh data space.
+    /// Every data cell then costs TWO shared storage units (value + writer).
+    /// Ordinary Write/SetCell/Delete maintain provenance atomically; no free
+    /// backfill of already existing writer history is permitted.
+    pub fn with_cell_write_provenance(mut self) -> Self {
+        assert!(self.cells.is_empty(), "enable provenance before allocating data cells");
+        self.cell_write_provenance_enabled = true;
+        self
+    }
+
+    pub fn cell_write_provenance_enabled(&self) -> bool {
+        self.cell_write_provenance_enabled
+    }
+
+    /// Observer-only inspection for tests; CIL can learn this only by its
+    /// ordinary, charged ReadLastWriter instruction.
+    pub fn cell_last_writer(&self, key: CellKey) -> Option<i64> {
+        self.cell_last_writer.get(&key).copied()
     }
 
     /// Researcher chooses an opt-in generic environment law before running.
@@ -1375,11 +1433,15 @@ impl World {
             }
             Intervention::SetCell { key, value } => {
                 if !self.cells.contains_key(&key)
-                    && (self.cells.len() >= self.storage_limit || !self.can_allocate(1))
+                    && (self.cells.len() >= self.storage_limit
+                        || !self.can_allocate(if self.cell_write_provenance_enabled { 2 } else { 1 }))
                 {
                     return Err("storage capacity exhausted".into());
                 }
                 self.cells.insert(key, value);
+                if self.cell_write_provenance_enabled {
+                    self.cell_last_writer.insert(key, 0);
+                }
             }
             Intervention::PatchEdge {
                 process,
@@ -1603,8 +1665,11 @@ impl World {
             return self.execute_graph(id, op);
         }
         let can_add_unit = self.can_allocate(1);
+        let can_add_two_units = self.can_allocate(2);
+        let track_provenance = self.cell_write_provenance_enabled;
         let observed_compute_pool = self.compute_pool;
-        let (processes, cells) = (&mut self.processes, &mut self.cells);
+        let (processes, cells, cell_last_writer) =
+            (&mut self.processes, &mut self.cells, &mut self.cell_last_writer);
         let p = processes.get_mut(&id).expect("selected process exists");
         let len = p.code.nodes.len();
         let reg = |i: usize| -> Result<i64, String> {
@@ -1684,6 +1749,17 @@ impl World {
                 p.pc = next;
                 self.pending_transition = Some(EventKind::CellRead { key, value });
             }
+            Op::ReadLastWriter { dst, address, next } => {
+                edge(next)?;
+                let key = reg(address)?;
+                if dst >= REGISTERS {
+                    return Err("invalid register".into());
+                }
+                let writer = cell_last_writer.get(&key).copied().unwrap_or(-1);
+                p.registers[dst] = writer;
+                p.pc = next;
+                self.pending_transition = Some(EventKind::CellWriterSensed { key, writer });
+            }
             Op::Write {
                 address,
                 value,
@@ -1692,11 +1768,17 @@ impl World {
                 edge(next)?;
                 let key = reg(address)?;
                 let value = reg(value)?;
-                if !cells.contains_key(&key) && (cells.len() >= self.storage_limit || !can_add_unit)
+                if !cells.contains_key(&key)
+                    && (cells.len() >= self.storage_limit
+                        || !(if track_provenance { can_add_two_units } else { can_add_unit }))
                 {
                     return Err("storage capacity exhausted".into());
                 }
                 cells.insert(key, value);
+                if track_provenance {
+                    cell_last_writer.insert(key, i64::try_from(id)
+                        .map_err(|_| "process ID exceeds provenance register".to_string())?);
+                }
                 p.pc = next;
                 self.pending_transition = Some(EventKind::CellWritten { key, value });
             }
@@ -1742,6 +1824,7 @@ impl World {
                     | Op::Add { next, .. }
                     | Op::Sub { next, .. }
                     | Op::Read { next, .. }
+                    | Op::ReadLastWriter { next, .. }
                     | Op::Write { next, .. }
                     | Op::PatchNext { next, .. }
                     | Op::ReadNext { next, .. }
@@ -1812,6 +1895,7 @@ impl World {
                 edge(next)?;
                 let key = reg(address)?;
                 cells.remove(&key);
+                cell_last_writer.remove(&key);
                 p.pc = next;
             }
             Op::Halt => return Ok(true),
