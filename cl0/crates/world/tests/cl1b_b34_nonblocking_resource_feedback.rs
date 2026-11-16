@@ -103,8 +103,9 @@ fn trial(arm:Arm,packet:u64)->ResultTrace{
 }
 #[test]
 fn b34_nonblocking_real_resource_outcome_is_visible_to_cil_and_triggers_authored_fallback(){
- assert_eq!(Op::TryDrawCompute{amount:0,dst:2,next:3}.encode_instruction().unwrap(),
-   [32,0,2,3,0]);
+ // Numeric encoding is private to the kernel and tested in its mandatory
+ // B34 library ABI check; integration tests verify its public decoder.
+
  assert_eq!(Op::decode_instruction([32,0,2,3,0]).unwrap(),
    Op::TryDrawCompute{amount:0,dst:2,next:3});
  for packet in [0_u64,4,5,6]{
