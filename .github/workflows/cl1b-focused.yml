@@ -87,6 +87,7 @@ jobs:
             cl1b_b23_assembly_cost_vs_solo
             cl1b_b24_online_request_edit
             cl1b_b25_neutral_compute_competition
+            cl1b_b26_native_variant_lineage
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
@@ -145,8 +146,8 @@ jobs:
           done
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 26 ]; then
-            echo "Expected exactly 26 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 27 ]; then
+            echo "Expected exactly 27 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -190,9 +191,10 @@ jobs:
             b23_assembly_cost_solo_scan
             b24_online_request_edit_scan
             b25_neutral_competition_scan
+            b26_native_variant_lineage_scan
           )
-          if [ "${#observers[@]}" -ne 12 ]; then
-            echo "Expected 12 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 13 ]; then
+            echo "Expected 13 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
