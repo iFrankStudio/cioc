@@ -152,8 +152,10 @@ fn b25_neutral_pool_ecological_filter_must_survive_id_swap_without_claiming_evol
         if i==0 {
             assert_eq!((a.request3_writes,a.request4_writes),(6,0));
             assert_eq!((b.request3_writes,b.request4_writes),(6,0));
-            assert_eq!((solo3.request3_writes,solo4.request4_writes),(6,0),
-                "a lone request4 actor cannot pay its 5-credit minimum from 4-credit pulses");
+            assert_eq!(solo3.request3_writes,6,
+                "lone request3 can convert every packet4 into one native service");
+            assert!(solo4.request4_writes>0,
+                "without request3 competitor, unspent four-credit packets accumulate and eventually enable Draw4; this is why solo vs contested are different ecological conditions");
         }
     }
     assert_eq!(verified,16);
