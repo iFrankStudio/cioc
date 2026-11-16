@@ -98,6 +98,7 @@ jobs:
             cl1b_b35_multitrial_retention
             cl1b_b36_neutral_direct_pool_execution
             cl1b_b37_direct_pool_contention
+            cl1b_b38_functional_readback
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -204,8 +205,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 37 ]; then
-            echo "Expected exactly 37 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 38 ]; then
+            echo "Expected exactly 38 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -278,9 +279,10 @@ jobs:
             b35_multitrial_retention_scan
             b36_direct_pool_execution_scan
             b37_neutral_direct_pool_contention_scan
+            b38_functional_readback_scan
           )
-          if [ "${#observers[@]}" -ne 24 ]; then
-            echo "Expected 24 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 25 ]; then
+            echo "Expected 25 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
