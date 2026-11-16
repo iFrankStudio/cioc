@@ -1,0 +1,166 @@
+{
+  "evidence": "independent Rust-source-parsed CIL native-order model, NOT Rust CI",
+  "worlds": 8,
+  "cases": [
+    {
+      "old": 0,
+      "new": 17,
+      "arrival": "BEFORE_READ",
+      "arm": "Readback",
+      "sampled": 17,
+      "checkpoint": {
+        "pc": 8,
+        "firstWritten": 0,
+        "currentInput": 17,
+        "firstOutputCurrentCorrect": false,
+        "sourceEdge": 4,
+        "firstVerdictCorrect": true
+      },
+      "edits": 1,
+      "finalEdge": 11,
+      "correct": 12,
+      "wrong": 1,
+      "charged": 96
+    },
+    {
+      "old": 0,
+      "new": 17,
+      "arrival": "BEFORE_READ",
+      "arm": "StaticCorrect",
+      "sampled": 17,
+      "checkpoint": {
+        "pc": 0,
+        "firstWritten": 17,
+        "currentInput": 17,
+        "firstOutputCurrentCorrect": true,
+        "sourceEdge": 3,
+        "firstVerdictCorrect": null
+      },
+      "edits": 0,
+      "finalEdge": 3,
+      "correct": 24,
+      "wrong": 0,
+      "charged": 96
+    },
+    {
+      "old": 0,
+      "new": 17,
+      "arrival": "AFTER_READ",
+      "arm": "Readback",
+      "sampled": 0,
+      "checkpoint": {
+        "pc": 1,
+        "firstWritten": 0,
+        "currentInput": 17,
+        "firstOutputCurrentCorrect": false,
+        "sourceEdge": 4,
+        "firstVerdictCorrect": false
+      },
+      "edits": 1,
+      "finalEdge": 11,
+      "correct": 11,
+      "wrong": 2,
+      "charged": 96
+    },
+    {
+      "old": 0,
+      "new": 17,
+      "arrival": "AFTER_READ",
+      "arm": "StaticCorrect",
+      "sampled": 0,
+      "checkpoint": {
+        "pc": 0,
+        "firstWritten": 0,
+        "currentInput": 17,
+        "firstOutputCurrentCorrect": false,
+        "sourceEdge": 3,
+        "firstVerdictCorrect": null
+      },
+      "edits": 0,
+      "finalEdge": 3,
+      "correct": 23,
+      "wrong": 1,
+      "charged": 96
+    },
+    {
+      "old": 17,
+      "new": 0,
+      "arrival": "BEFORE_READ",
+      "arm": "Readback",
+      "sampled": 0,
+      "checkpoint": {
+        "pc": 1,
+        "firstWritten": 0,
+        "currentInput": 0,
+        "firstOutputCurrentCorrect": true,
+        "sourceEdge": 4,
+        "firstVerdictCorrect": true
+      },
+      "edits": 0,
+      "finalEdge": 4,
+      "correct": 14,
+      "wrong": 0,
+      "charged": 96
+    },
+    {
+      "old": 17,
+      "new": 0,
+      "arrival": "BEFORE_READ",
+      "arm": "StaticCorrect",
+      "sampled": 0,
+      "checkpoint": {
+        "pc": 0,
+        "firstWritten": 0,
+        "currentInput": 0,
+        "firstOutputCurrentCorrect": true,
+        "sourceEdge": 3,
+        "firstVerdictCorrect": null
+      },
+      "edits": 0,
+      "finalEdge": 3,
+      "correct": 24,
+      "wrong": 0,
+      "charged": 96
+    },
+    {
+      "old": 17,
+      "new": 0,
+      "arrival": "AFTER_READ",
+      "arm": "Readback",
+      "sampled": 17,
+      "checkpoint": {
+        "pc": 8,
+        "firstWritten": 0,
+        "currentInput": 0,
+        "firstOutputCurrentCorrect": true,
+        "sourceEdge": 4,
+        "firstVerdictCorrect": false
+      },
+      "edits": 1,
+      "finalEdge": 11,
+      "correct": 13,
+      "wrong": 0,
+      "charged": 96
+    },
+    {
+      "old": 17,
+      "new": 0,
+      "arrival": "AFTER_READ",
+      "arm": "StaticCorrect",
+      "sampled": 17,
+      "checkpoint": {
+        "pc": 0,
+        "firstWritten": 17,
+        "currentInput": 0,
+        "firstOutputCurrentCorrect": false,
+        "sourceEdge": 3,
+        "firstVerdictCorrect": null
+      },
+      "edits": 0,
+      "finalEdge": 3,
+      "correct": 23,
+      "wrong": 1,
+      "charged": 96
+    }
+  ]
+}
