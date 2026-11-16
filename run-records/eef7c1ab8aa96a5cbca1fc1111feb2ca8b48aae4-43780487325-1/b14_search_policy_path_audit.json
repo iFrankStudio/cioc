@@ -1,0 +1,807 @@
+{
+  "source": "cl0/crates/world/tests/cl1b_b14_search_policy_mutation.rs",
+  "evidence": "independent JS simplified CIL path audit, NOT Rust native execution",
+  "totalWorlds": 30,
+  "worlds": [
+    {
+      "input": -13,
+      "arm": "SHAM7",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 7,
+      "markers": 8,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [],
+      "suppressed": 0
+    },
+    {
+      "input": -13,
+      "arm": "LESION10",
+      "steps": 120,
+      "pc": 3,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 5,
+      "markers": 4,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": -13,
+      "arm": "LESION10_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 6,
+      "stepLiteral": 2,
+      "services": 1,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          6
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": -13,
+      "arm": "LESION10_PATCHNEXT_DISABLED",
+      "steps": 120,
+      "pc": 22,
+      "edge": 10,
+      "stepLiteral": 1,
+      "services": 0,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [],
+      "suppressed": 4
+    },
+    {
+      "input": -13,
+      "arm": "LESION11",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 3,
+      "markers": 3,
+      "incidentalKey1": 1,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": -13,
+      "arm": "LESION11_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 4,
+      "markers": 4,
+      "incidentalKey1": 1,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 0,
+      "arm": "SHAM7",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 7,
+      "markers": 8,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [],
+      "suppressed": 0
+    },
+    {
+      "input": 0,
+      "arm": "LESION10",
+      "steps": 120,
+      "pc": 3,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 5,
+      "markers": 4,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 0,
+      "arm": "LESION10_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 6,
+      "stepLiteral": 2,
+      "services": 1,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          6
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 0,
+      "arm": "LESION10_PATCHNEXT_DISABLED",
+      "steps": 120,
+      "pc": 22,
+      "edge": 10,
+      "stepLiteral": 1,
+      "services": 0,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [],
+      "suppressed": 4
+    },
+    {
+      "input": 0,
+      "arm": "LESION11",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 3,
+      "markers": 3,
+      "incidentalKey1": 1,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 0,
+      "arm": "LESION11_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 4,
+      "markers": 4,
+      "incidentalKey1": 1,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 7,
+      "arm": "SHAM7",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 7,
+      "markers": 8,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [],
+      "suppressed": 0
+    },
+    {
+      "input": 7,
+      "arm": "LESION10",
+      "steps": 120,
+      "pc": 3,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 5,
+      "markers": 4,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 7,
+      "arm": "LESION10_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 6,
+      "stepLiteral": 2,
+      "services": 1,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          6
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 7,
+      "arm": "LESION10_PATCHNEXT_DISABLED",
+      "steps": 120,
+      "pc": 22,
+      "edge": 10,
+      "stepLiteral": 1,
+      "services": 0,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [],
+      "suppressed": 4
+    },
+    {
+      "input": 7,
+      "arm": "LESION11",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 3,
+      "markers": 3,
+      "incidentalKey1": 1,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 7,
+      "arm": "LESION11_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 4,
+      "markers": 4,
+      "incidentalKey1": 1,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 23,
+      "arm": "SHAM7",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 7,
+      "markers": 8,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [],
+      "suppressed": 0
+    },
+    {
+      "input": 23,
+      "arm": "LESION10",
+      "steps": 120,
+      "pc": 3,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 5,
+      "markers": 4,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 23,
+      "arm": "LESION10_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 6,
+      "stepLiteral": 2,
+      "services": 1,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          6
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 23,
+      "arm": "LESION10_PATCHNEXT_DISABLED",
+      "steps": 120,
+      "pc": 22,
+      "edge": 10,
+      "stepLiteral": 1,
+      "services": 0,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [],
+      "suppressed": 4
+    },
+    {
+      "input": 23,
+      "arm": "LESION11",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 3,
+      "markers": 3,
+      "incidentalKey1": 1,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 23,
+      "arm": "LESION11_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 4,
+      "markers": 4,
+      "incidentalKey1": 1,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 101,
+      "arm": "SHAM7",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 7,
+      "markers": 8,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [],
+      "suppressed": 0
+    },
+    {
+      "input": 101,
+      "arm": "LESION10",
+      "steps": 120,
+      "pc": 3,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 5,
+      "markers": 4,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 101,
+      "arm": "LESION10_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 6,
+      "stepLiteral": 2,
+      "services": 1,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          10,
+          8
+        ],
+        [
+          6,
+          8,
+          6
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 101,
+      "arm": "LESION10_PATCHNEXT_DISABLED",
+      "steps": 120,
+      "pc": 22,
+      "edge": 10,
+      "stepLiteral": 1,
+      "services": 0,
+      "markers": 0,
+      "incidentalKey1": 0,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [],
+      "suppressed": 4
+    },
+    {
+      "input": 101,
+      "arm": "LESION11",
+      "steps": 120,
+      "pc": 8,
+      "edge": 7,
+      "stepLiteral": 1,
+      "services": 3,
+      "markers": 3,
+      "incidentalKey1": 1,
+      "policy": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          8
+        ],
+        [
+          6,
+          8,
+          7
+        ]
+      ],
+      "suppressed": 0
+    },
+    {
+      "input": 101,
+      "arm": "LESION11_POLICY_LOCKED",
+      "steps": 120,
+      "pc": 6,
+      "edge": 7,
+      "stepLiteral": 2,
+      "services": 4,
+      "markers": 4,
+      "incidentalKey1": 1,
+      "policy": [],
+      "edges": [
+        [
+          6,
+          11,
+          9
+        ],
+        [
+          6,
+          9,
+          7
+        ]
+      ],
+      "suppressed": 0
+    }
+  ]
+}
