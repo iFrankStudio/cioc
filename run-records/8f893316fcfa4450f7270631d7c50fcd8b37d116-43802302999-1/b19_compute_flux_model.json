@@ -1,0 +1,269 @@
+{
+  "source": "cl0/crates/world/tests/cl1b_b19_neutral_compute_flux.rs",
+  "evidence": "independent simplified compute model; NOT native Rust CI",
+  "outcomes": [
+    {
+      "arm": "RENEWABLE_ACCESS",
+      "boot": 2,
+      "packets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 1
+        },
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 2
+        },
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 3
+        },
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 4
+        },
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 5
+        },
+        {
+          "packet": 5,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 6
+        }
+      ],
+      "attempts": 32,
+      "writes": 6,
+      "pool": 0,
+      "credits": 0,
+      "pc": 1,
+      "paid": 6,
+      "deferred": 7,
+      "stopped": false,
+      "externalActions": 7
+    },
+    {
+      "arm": "NO_DRAW_OPCODE",
+      "boot": 2,
+      "packets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 5,
+          "pc": 2,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 10,
+          "pc": 2,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 15,
+          "pc": 2,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 20,
+          "pc": 2,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 25,
+          "pc": 2,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 30,
+          "pc": 2,
+          "writes": 0
+        }
+      ],
+      "attempts": 2,
+      "writes": 0,
+      "pool": 30,
+      "credits": 0,
+      "pc": 2,
+      "paid": 0,
+      "deferred": 0,
+      "stopped": false,
+      "externalActions": 7
+    },
+    {
+      "arm": "DRAW_NOT_POOL_PAID",
+      "boot": 2,
+      "packets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 5,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 10,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 15,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 20,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 25,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 5,
+          "work": 0,
+          "credits": 0,
+          "pool": 30,
+          "pc": 1,
+          "writes": 0
+        }
+      ],
+      "attempts": 2,
+      "writes": 0,
+      "pool": 30,
+      "credits": 0,
+      "pc": 1,
+      "paid": 0,
+      "deferred": 1,
+      "stopped": false,
+      "externalActions": 7
+    },
+    {
+      "arm": "SUBTHRESHOLD_THEN_CROSSING",
+      "boot": 2,
+      "packets": [
+        4,
+        1
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "work": 0,
+          "credits": 0,
+          "pool": 4,
+          "pc": 1,
+          "writes": 0
+        },
+        {
+          "packet": 1,
+          "work": 5,
+          "credits": 0,
+          "pool": 0,
+          "pc": 1,
+          "writes": 1
+        }
+      ],
+      "attempts": 7,
+      "writes": 1,
+      "pool": 0,
+      "credits": 0,
+      "pc": 1,
+      "paid": 1,
+      "deferred": 2,
+      "stopped": false,
+      "externalActions": 3
+    },
+    {
+      "arm": "NO_INFLUX",
+      "boot": 2,
+      "packets": [],
+      "windows": [],
+      "attempts": 2,
+      "writes": 0,
+      "pool": 0,
+      "credits": 0,
+      "pc": 1,
+      "paid": 0,
+      "deferred": 1,
+      "stopped": false,
+      "externalActions": 1
+    }
+  ]
+}
