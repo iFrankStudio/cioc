@@ -103,3 +103,134 @@ fn b47_retention_phase_and_unseen_regimes(){
     eprintln!("B47_H47_ALL_BASELINES_BOTH_HOLDOUTS={beats}");
     assert!(!beats,"unexpected B47 positive requires independent event replay before acceptance");
 }
+
+
+// B48 is housed in the already-registered B47 integration target to avoid
+// changing the CI target manifest before a native compilation check.
+// Its separate prospective protocol is cl1b/studies/B48-*.md.
+// This is an experimental assay, NOT a B3/B4 acceptance assertion.
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+enum B48Arm { True, BlindSelf, BlindZero, EditDisabled, Compact }
+#[derive(Debug)]
+struct B48Row {
+    arm:B48Arm, phase_shift:bool, seed:usize, raw_correct:[usize;3],
+    raw_wrong:[usize;3], qualified_correct:[usize;3],
+    qualified_wrong:[usize;3], paid:usize, edits:usize,
+    suppressed:usize, stopped:bool, max_storage:usize,
+}
+fn b48_run(arm:B48Arm,phase_shift:bool,seed:usize,inputs:[i64;3])->B48Row {
+    let mut code=if arm==B48Arm::Compact {
+        b42::founder(b42::Arm::StaticCorrect)
+    } else {
+        b42::founder(b42::Arm::ProbePlus)
+    };
+    if arm==B48Arm::BlindSelf {
+        code[12]=Op::Sub{dst:1,lhs:0,rhs:0,next:13};
+    } else if arm==B48Arm::BlindZero {
+        code[12]=Op::Sub{dst:1,lhs:0,rhs:3,next:13};
+    }
+    // The identical founder graph is retained; an appended ordinary paid
+    // instruction changes the initial phase without renumbering any node.
+    let entry=code.len();
+    if phase_shift {code.push(Op::Const{dst:3,value:0,next:0});}
+    let mut p=Process::new(1,code,144);
+    if phase_shift {p.pc=entry;}
+    let mut w=World::with_strict_capacity(16,80,192).with_native_executable_edit_trace();
+    if arm==B48Arm::EditDisabled {w=w.with_native_patchnext_disabled();}
+    w.load(p).unwrap();
+    let mut row=B48Row{arm,phase_shift,seed,raw_correct:[0;3],
+        raw_wrong:[0;3],qualified_correct:[0;3],qualified_wrong:[0;3],
+        paid:0,edits:0,suppressed:0,stopped:false,max_storage:w.occupied_units()};
+    let mut restored=false;
+    for (window,input) in inputs.into_iter().enumerate() {
+        w.intervene(Intervention::SetCell{key:7,value:input}).unwrap();
+        for _ in 0..48 {
+            if w.process(1).unwrap().stopped {break;}
+            let before=w.total_compute_inventory().unwrap();
+            assert!(w.step());
+            row.paid+=1;
+            assert_eq!(w.total_compute_inventory(),Some(before-1));
+            row.max_storage=row.max_storage.max(w.occupied_units());
+            let e=w.events().last().unwrap();
+            assert_eq!(e.origin,Origin::Internal(1));
+            assert!(!matches!(e.kind,EventKind::Trapped(_)));
+            match &e.kind {
+                EventKind::ExecutableEdgePatched{..}=>row.edits+=1,
+                EventKind::NativeCodeEditSuppressed{..}=>row.suppressed+=1,
+                EventKind::CellWritten{key:7,..} if e.pc==33=>restored=true,
+                EventKind::CellWritten{key:11,value}=>{
+                    // Score against the actual current world input, not merely
+                    // the externally injected value: probe writes alter cell7.
+                    let actual=w.cell(7).expect("input exists at output event");
+                    if *value==actual {row.raw_correct[window]+=1;}
+                    else {row.raw_wrong[window]+=1;}
+                    if arm==B48Arm::Compact || window>0 || restored {
+                        if *value==actual {row.qualified_correct[window]+=1;}
+                        else {row.qualified_wrong[window]+=1;}
+                    }
+                },
+                _=>{}
+            }
+        }
+    }
+    row.stopped=w.process(1).unwrap().stopped;
+    assert!(row.paid<=144 && row.max_storage<=192);
+    eprintln!("B48_NATIVE {:?}",row);
+    row
+}
+#[test]
+fn b48_feedback_semantics_phase_cross_over_prospective_screen() {
+    const OLD:[[i64;3];8]=[
+        [0,17,-9],[-1,23,0],[17,17,-9],[1,0,23],
+        [23,-9,1],[-9,1,17],[0,0,23],[17,-1,0]
+    ];
+    const NEW:[[i64;3];8]=[
+        [23,0,-1],[-9,17,23],[1,-9,0],[0,23,17],
+        [17,-9,-9],[-1,1,23],[23,23,0],[-9,0,1]
+    ];
+    const ARMS48:[B48Arm;5]=[
+        B48Arm::True,B48Arm::BlindSelf,B48Arm::BlindZero,
+        B48Arm::EditDisabled,B48Arm::Compact
+    ];
+    // [block old/new][phase 0/1][arm][holdout window 1/2]
+    // each cell = (raw correct, raw wrong, qualified correct, qualified wrong).
+    let mut totals=[[[[[0usize;4];2];5];2];2];
+    let mut paired=[[[[0usize;3];2];2];2]; // win/loss/tie vs two shams
+    for (block,sequences) in [OLD,NEW].into_iter().enumerate() {
+        for (seed,inputs) in sequences.into_iter().enumerate() {
+            for shift in [false,true] {
+                let ph=usize::from(shift);
+                let rows:Vec<_>=ARMS48.iter().map(|&a|b48_run(a,shift,seed,inputs)).collect();
+                for (a,r) in rows.iter().enumerate() {
+                    assert_eq!(r.arm,ARMS48[a]);
+                    assert_eq!(r.seed,seed);
+                    for h in 0..2 {
+                        let w=h+1;
+                        for (j,value) in [
+                            r.raw_correct[w],r.raw_wrong[w],
+                            r.qualified_correct[w],r.qualified_wrong[w]
+                        ].into_iter().enumerate() {totals[block][ph][a][h][j]+=value;}
+                    }
+                }
+                for sham in 0..2 {
+                    for h in 0..2 {
+                        let w=h+1;
+                        let net=|r:&B48Row|r.raw_correct[w] as i64-r.raw_wrong[w] as i64;
+                        let a=net(&rows[0]);let b=net(&rows[sham+1]);
+                        paired[block][ph][sham][if a>b{0}else if a<b{1}else{2}]+=1;
+                    }
+                }
+            }
+        }
+    }
+    eprintln!("B48_AGGREGATE {:?}",totals);
+    eprintln!("B48_PAIRED {:?}",paired);
+    // The test verifies event accounting and prints a falsifiable outcome;
+    // no expected-positive conclusion is hardcoded into the assertion.
+    for block in 0..2 {for phase in 0..2 {
+        for arm in 0..5 {for h in 0..2 {
+            assert!(totals[block][phase][arm][h][2]<=totals[block][phase][arm][h][0]);
+            assert!(totals[block][phase][arm][h][3]<=totals[block][phase][arm][h][1]);
+        }}
+    }}
+}
