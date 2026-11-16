@@ -1,0 +1,1223 @@
+{
+  "evidence": "independent source-parsed deterministic CL-0-like CIL scheduler; NOT native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b25_neutral_compute_competition.rs",
+  "worlds": 16,
+  "cases": [
+    {
+      "assignment": "ORDER34",
+      "schedule": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "service3": 6,
+      "service4": 0,
+      "attempts": 28,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 4,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER43",
+      "schedule": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "service3": 6,
+      "service4": 0,
+      "attempts": 28,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 3,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO3",
+      "schedule": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "service3": 6,
+      "service4": 0,
+      "attempts": 26,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO4",
+      "schedule": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "service3": 0,
+      "service4": 4,
+      "attempts": 22,
+      "pool": 4,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 3
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER34",
+      "schedule": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 3,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 4,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 3
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 3
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER43",
+      "schedule": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 3,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 3,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 3
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO3",
+      "schedule": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "service3": 7,
+      "service4": 0,
+      "attempts": 30,
+      "pool": 2,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 3
+        },
+        {
+          "packet": 5,
+          "steps": 8,
+          "writes3": 2,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO4",
+      "schedule": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "service3": 0,
+      "service4": 6,
+      "attempts": 32,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER34",
+      "schedule": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 4,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER43",
+      "schedule": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 3,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO3",
+      "schedule": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "service3": 6,
+      "service4": 0,
+      "attempts": 26,
+      "pool": 3,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 3
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO4",
+      "schedule": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "service3": 0,
+      "service4": 6,
+      "attempts": 29,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 5,
+          "steps": 9,
+          "writes3": 0,
+          "writes4": 2,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 5,
+          "steps": 9,
+          "writes3": 0,
+          "writes4": 2,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 5,
+          "steps": 9,
+          "writes3": 0,
+          "writes4": 2,
+          "firstNative": 1,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER34",
+      "schedule": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 4,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 2,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "ORDER43",
+      "schedule": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "service3": 3,
+      "service4": 3,
+      "attempts": 31,
+      "pool": 0,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "request": 3,
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 2,
+          "endingPool": 0
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO3",
+      "schedule": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "service3": 6,
+      "service4": 0,
+      "attempts": 26,
+      "pool": 3,
+      "positions": [
+        {
+          "request": 3,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 1
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 2
+        },
+        {
+          "packet": 5,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 3
+        },
+        {
+          "packet": 4,
+          "steps": 4,
+          "writes3": 1,
+          "writes4": 0,
+          "firstNative": 1,
+          "endingPool": 3
+        }
+      ]
+    },
+    {
+      "assignment": "SOLO4",
+      "schedule": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "service3": 0,
+      "service4": 5,
+      "attempts": 25,
+      "pool": 4,
+      "positions": [
+        {
+          "request": 4,
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "windows": [
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes3": 0,
+          "writes4": 1,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 5,
+          "steps": 9,
+          "writes3": 0,
+          "writes4": 2,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        },
+        {
+          "packet": 5,
+          "steps": 9,
+          "writes3": 0,
+          "writes4": 2,
+          "firstNative": 1,
+          "endingPool": 0
+        },
+        {
+          "packet": 4,
+          "steps": 0,
+          "writes3": 0,
+          "writes4": 0,
+          "firstNative": null,
+          "endingPool": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0624][0m[1m: method `encode_instruction` is private[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b34_nonblocking_resource_feedback.rs:106:55
+    [1m[94m|[0m
+[1m[94m106[0m [1m[94m|[0m  assert_eq!(Op::TryDrawCompute{amount:0,dst:2,next:3}.encode_instruction().unwrap(),
+    [1m[94m|[0m                                                       [1m[91m^^^^^^^^^^^^^^^^^^[0m [1m[91mprivate method[0m
+    [1m[94m|[0m
+   [1m[94m::: [0mcrates/world/src/lib.rs:192:5
+    [1m[94m|[0m
+[1m[94m192[0m [1m[94m|[0m     fn encode_instruction(&self) -> Result<[i64; 5], String> {
+    [1m[94m|[0m     [1m[94m--------------------------------------------------------[0m [1m[94mprivate method defined here[0m
+
+[1mFor more information about this error, try `rustc --explain E0624`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b34_nonblocking_resource_feedback") due to 1 previous error
