@@ -192,6 +192,16 @@ jobs:
               failures=$((failures + 1))
             fi
           done
+          # The new generic instruction uses private numeric codec helpers.
+          # Integration targets cover execution; library tests cover the
+          # on-disk/code-graph ABI and serde compatibility. Never silently omit.
+          if cargo test --locked -p cl0-world --lib b31_pool_sensor -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/b31_pool_sensor_abi.log; then
+            echo "PASS lib=b31_pool_sensor_abi" | tee -a cl1b-ci-evidence/summary.txt
+          else
+            echo "FAIL lib=b31_pool_sensor_abi" | tee -a cl1b-ci-evidence/summary.txt
+            failures=$((failures + 1))
+          fi
           echo "failed_target_count=${failures}" | tee -a cl1b-ci-evidence/summary.txt
           if [ "${failures}" -ne 0 ]; then
             exit 1
