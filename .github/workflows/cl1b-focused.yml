@@ -90,6 +90,7 @@ jobs:
             cl1b_b26_native_variant_lineage
             cl1b_b27_multigeneration_self_copy
             cl1b_b28_cumulative_genome_mutation
+            cl1b_b29_mutation_rule_siblings
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
@@ -168,8 +169,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 29 ]; then
-            echo "Expected exactly 29 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 30 ]; then
+            echo "Expected exactly 30 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -216,9 +217,10 @@ jobs:
             b26_native_variant_lineage_scan
             b27_multigeneration_self_copy_scan
             b28_cumulative_genome_mutation_scan
+            b29_mutation_rule_siblings_scan
           )
-          if [ "${#observers[@]}" -ne 15 ]; then
-            echo "Expected 15 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 16 ]; then
+            echo "Expected 16 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
