@@ -994,6 +994,11 @@ pub struct World {
     /// Not equivalent to an actor-targeted host refill or autonomous energy creation.
     #[serde(default, skip_serializing_if = "is_false")]
     pool_paid_draw: bool,
+    /// Generic opt-in environment physics: any ordinary native instruction
+    /// may spend ONE neutral shared compute unit at zero local credits.
+    /// Does not bypass traps, stop states, or affordability for DrawCompute.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pool_paid_all_instructions: bool,
     /// Generic opt-in world physics: insufficient valid native Draw waits without stopping.
     /// No credits are created; each attempted Draw is still charged.
     #[serde(default, skip_serializing_if = "is_false")]
@@ -1083,6 +1088,7 @@ impl World {
             strict_accounting: false,
             compute_pool: 0,
             pool_paid_draw: false,
+            pool_paid_all_instructions: false,
             recoverable_draw_shortage: false,
             native_code_edits_disabled: false,
             native_patchnext_disabled: false,
@@ -1149,6 +1155,17 @@ impl World {
 
     pub fn pool_paid_draw_enabled(&self) -> bool {
         self.pool_paid_draw
+    }
+
+    /// Neutral compute is global execution energy, not privileged actor credits.
+    /// Default world physics remains unchanged until this is explicitly enabled.
+    pub fn with_pool_paid_all_instructions(mut self) -> Self {
+        self.pool_paid_all_instructions = true;
+        self
+    }
+
+    pub fn pool_paid_all_instructions_enabled(&self) -> bool {
+        self.pool_paid_all_instructions
     }
 
     /// Generic retry physics, not an organism-authored action or code repair.
@@ -1421,24 +1438,28 @@ impl World {
     }
 
     pub fn step(&mut self) -> bool {
-        // The opt-in shared-pool rule never gives a process credits directly.
-        // At zero local credits only an actual pending native DrawCompute may
-        // execute, with its single attempt charge taken from the shared pool.
+        // Native execution pays one credit, either from the process or
+        // from an explicitly enabled, identity-neutral environment pool.
+        // Recoverable Draw shortage is gated by the true transfer + fee.
         let eligible = |p: &Process| {
+            let is_draw = matches!(p.code.nodes.get(p.pc), Some(Op::DrawCompute { .. }));
+            let pool_can_pay = self.pool_paid_all_instructions
+                || (self.pool_paid_draw && is_draw);
+            let draw_is_affordable = !is_draw
+                || !self.recoverable_draw_shortage
+                || matches!(
+                    p.code.nodes.get(p.pc),
+                    Some(Op::DrawCompute { amount, .. })
+                        if p.registers.get(*amount)
+                            .and_then(|raw| u64::try_from(*raw).ok())
+                            .and_then(|requested| requested.checked_add(1))
+                            .is_some_and(|required| self.compute_pool >= required)
+                );
             !p.stopped
                 && (p.credits > 0
-                    || (self.pool_paid_draw
+                    || (pool_can_pay
                         && self.compute_pool > 0
-                        && matches!(p.code.nodes.get(p.pc), Some(Op::DrawCompute { .. }))
-                        && (!self.recoverable_draw_shortage
-                            || matches!(
-                                p.code.nodes.get(p.pc),
-                                Some(Op::DrawCompute { amount, .. })
-                                    if p.registers.get(*amount)
-                                        .and_then(|raw| u64::try_from(*raw).ok())
-                                        .and_then(|requested| requested.checked_add(1))
-                                        .is_some_and(|required| self.compute_pool >= required)
-                            ))))
+                        && draw_is_affordable))
         };
         let next_id = self
             .processes
