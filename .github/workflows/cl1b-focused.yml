@@ -93,6 +93,7 @@ jobs:
             cl1b_b29_mutation_rule_siblings
             cl1b_b31_pool_sensing
             cl1b_b32_prune_metabolic_loop
+            cl1b_b33_sensor_freshness
           )
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
@@ -156,6 +157,7 @@ jobs:
                     cl1b_b14_search_policy_mutation.rs) wanted[cl1b_b15_policy_generalization]=1 ;;
                     cl1b_b16_functional_challenge.rs) wanted[cl1b_b17_native_challenge_mutation]=1 ;;
                     cl1b_b22_native_relay_assembly.rs) wanted[cl1b_b23_assembly_cost_vs_solo]=1 ;;
+                    cl1b_b31_pool_sensing.rs) wanted[cl1b_b33_sensor_freshness]=1 ;;
                   esac ;;
               esac
             done
@@ -171,8 +173,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 32 ]; then
-            echo "Expected exactly 32 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 33 ]; then
+            echo "Expected exactly 33 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -233,9 +235,10 @@ jobs:
             b30_heldout_sibling_threshold_scan
             b31_paid_pool_sensing_scan
             b32_paid_pruning_scan
+            b33_sensor_freshness_scan
           )
-          if [ "${#observers[@]}" -ne 19 ]; then
-            echo "Expected 19 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 20 ]; then
+            echo "Expected 20 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
