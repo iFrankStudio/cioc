@@ -292,8 +292,8 @@ fn b46_actor_identity_and_disconnected_value_read_are_not_functional_attestation
             assert_eq!(echo.first_writer_world_value,Some(train+1));
             assert_eq!(wrong.first_verdict,Some(26));
             assert_eq!(echo.first_verdict,Some(26));
-            assert!(wrong.defective_source_accepted);
-            assert!(echo.defective_source_accepted);
+            assert_eq!(wrong.defective_source_accepted,train!=-1);
+            assert_eq!(echo.defective_source_accepted,train!=-1);
             assert_eq!(wrong.final_router,10);
             assert_eq!(echo.final_router,10);
             assert_eq!(wrong.holdout_true,0);
@@ -309,7 +309,7 @@ fn b46_actor_identity_and_disconnected_value_read_are_not_functional_attestation
             assert_eq!(late.external_after_read,1);
             assert_eq!(nop.external_after_read,0);
             assert_eq!(previous.first_writer,Some(0));
-            assert_eq!(previous.holdout_true>=0,true);
+            assert_eq!((previous.holdout_true,previous.holdout_wrong),(12,1));
             assert_eq!(compact.holdout_true,16);
             assert_eq!(compact.holdout_wrong,0);
             assert_eq!(genuine.forged,0);
