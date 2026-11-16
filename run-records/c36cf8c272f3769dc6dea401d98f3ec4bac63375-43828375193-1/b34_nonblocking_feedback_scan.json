@@ -1,0 +1,175 @@
+{
+  "evidence": "independent CIL source-parsed interpreter (NOT native Rust)",
+  "source": "cl0/crates/world/tests/cl1b_b34_nonblocking_resource_feedback.rs",
+  "worlds": 12,
+  "cases": [
+    {
+      "arm": "Try",
+      "packet": 0,
+      "attempts": 6,
+      "writes": 0,
+      "edits": 1,
+      "trials": [
+        {
+          "request": 5,
+          "available": 0,
+          "success": false
+        }
+      ],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "ForcedFail",
+      "packet": 0,
+      "attempts": 6,
+      "writes": 0,
+      "edits": 1,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "StaticThree",
+      "packet": 0,
+      "attempts": 6,
+      "writes": 0,
+      "edits": 0,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 1,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "Try",
+      "packet": 4,
+      "attempts": 10,
+      "writes": 1,
+      "edits": 1,
+      "trials": [
+        {
+          "request": 5,
+          "available": 4,
+          "success": false
+        }
+      ],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "ForcedFail",
+      "packet": 4,
+      "attempts": 10,
+      "writes": 1,
+      "edits": 1,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "StaticThree",
+      "packet": 4,
+      "attempts": 9,
+      "writes": 1,
+      "edits": 0,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 1,
+      "local": 0,
+      "pool": 1
+    },
+    {
+      "arm": "Try",
+      "packet": 5,
+      "attempts": 11,
+      "writes": 1,
+      "edits": 0,
+      "trials": [
+        {
+          "request": 5,
+          "available": 5,
+          "success": true
+        }
+      ],
+      "sourceRequest": 5,
+      "pc": 6,
+      "local": 0,
+      "pool": 0
+    },
+    {
+      "arm": "ForcedFail",
+      "packet": 5,
+      "attempts": 10,
+      "writes": 1,
+      "edits": 1,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 1
+    },
+    {
+      "arm": "StaticThree",
+      "packet": 5,
+      "attempts": 9,
+      "writes": 1,
+      "edits": 0,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 1,
+      "local": 0,
+      "pool": 2
+    },
+    {
+      "arm": "Try",
+      "packet": 6,
+      "attempts": 11,
+      "writes": 1,
+      "edits": 0,
+      "trials": [
+        {
+          "request": 5,
+          "available": 6,
+          "success": true
+        }
+      ],
+      "sourceRequest": 5,
+      "pc": 6,
+      "local": 0,
+      "pool": 1
+    },
+    {
+      "arm": "ForcedFail",
+      "packet": 6,
+      "attempts": 10,
+      "writes": 1,
+      "edits": 1,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 6,
+      "local": 0,
+      "pool": 2
+    },
+    {
+      "arm": "StaticThree",
+      "packet": 6,
+      "attempts": 12,
+      "writes": 2,
+      "edits": 0,
+      "trials": [],
+      "sourceRequest": 3,
+      "pc": 1,
+      "local": 0,
+      "pool": 0
+    }
+  ]
+}
