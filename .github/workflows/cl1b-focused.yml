@@ -103,6 +103,7 @@ jobs:
             cl1b_b40_postwrite_recheck
             cl1b_b41_candidate_feedback_retention
             cl1b_b42_self_assembled_probe
+            cl1b_b43_feedback_provenance
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -195,6 +196,7 @@ jobs:
                     cl1b_b31_pool_sensing.rs) wanted[cl1b_b33_sensor_freshness]=1 ;;
                     cl1b_b35_multitrial_retention.rs) wanted[cl1b_b36_neutral_direct_pool_execution]=1 ;;
                     cl1b_b38_functional_readback.rs) wanted[cl1b_b39_temporal_task_evidence]=1; wanted[cl1b_b40_postwrite_recheck]=1 ;;
+                    cl1b_b42_self_assembled_probe.rs) wanted[cl1b_b43_feedback_provenance]=1 ;;
                   esac ;;
               esac
             done
@@ -210,8 +212,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 42 ]; then
-            echo "Expected exactly 42 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 43 ]; then
+            echo "Expected exactly 43 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -289,9 +291,10 @@ jobs:
             b40_postwrite_recheck_scan
             b41_candidate_feedback_retention_scan
             b42_self_assembled_probe_scan
+            b43_feedback_provenance_scan
           )
-          if [ "${#observers[@]}" -ne 29 ]; then
-            echo "Expected 29 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 30 ]; then
+            echo "Expected 30 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
