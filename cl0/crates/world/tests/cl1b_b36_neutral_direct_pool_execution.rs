@@ -153,3 +153,19 @@ fn b36_generic_pool_pay_rule_cannot_create_credit_or_revive_stopped_actor(){
  assert!(!trapped.step(),"native trap state remains stopped, even with neutral energy");
  assert_eq!(trapped.events().len(),before);
 }
+
+#[test]
+fn b36_optional_global_energy_physics_serializes_without_legacy_default_drift(){
+ let old=World::new(4,8);
+ let legacy=serde_json::to_value(&old).unwrap();
+ assert!(legacy.get("pool_paid_all_instructions").is_none(),
+  "new alternate world physics must not modify old serialized world hashes");
+ let decoded:World=serde_json::from_value(legacy).unwrap();
+ assert!(!decoded.pool_paid_all_instructions_enabled(),
+  "old worlds must continue to use old local-credit/Draw gate semantics");
+ let enabled=World::new(4,8).with_pool_paid_all_instructions();
+ let encoded=serde_json::to_value(&enabled).unwrap();
+ assert_eq!(encoded["pool_paid_all_instructions"],true);
+ let restored:World=serde_json::from_value(encoded).unwrap();
+ assert!(restored.pool_paid_all_instructions_enabled());
+}
