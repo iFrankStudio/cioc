@@ -2,6 +2,7 @@
 // This reproduces native instruction charges and full-genome origin; NOT Rust CI,
 // automatic discovery, endogenous evolution, or biological fitness.
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 const source=readFileSync(new URL("../../cl0/crates/world/tests/cl1b_b29_mutation_rule_siblings.rs",import.meta.url),"utf8");
 const body=source.match(/fn founder\(initial: i64,delta: i64, flip: bool\) -> Vec<Op> \{[\s\S]*?vec!\[([\s\S]*?)\n    \]/)?.[1];
 if(!body)throw Error("B29 native founder missing");
@@ -20,7 +21,7 @@ const program=(initial,delta,flip)=>all.slice(0,22).concat([all[flip?22:23]]).ma
  return next;
 });
 const sameGenome=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-function run(name,packets) {
+export function simulateB29(name,packets) {
  const flip=name!=="NO_FLIP",disabled=name==="COPY_DISABLED";
  const processes=[{id:1,code:program(156,1,flip),registers:[0,0,0,0],pc:0,credits:2,stopped:false}];
  let pool=0,lastId=null,graphs=new Map(),nextGraph=1,nextId=2,attempts=0;
@@ -116,7 +117,7 @@ function run(name,packets) {
   graphObjects:graphs.size};
 }
 const packets=[157,157,156];
-const cases=[run("FLIP",packets),run("NO_FLIP",packets),run("NO_FLUX",[]),run("COPY_DISABLED",packets)];
+const cases=[simulateB29("FLIP",packets),simulateB29("NO_FLIP",packets),simulateB29("NO_FLUX",[]),simulateB29("COPY_DISABLED",packets)];
 if(JSON.stringify(cases[0].births)!==JSON.stringify([[1,2],[1,3],[3,4]]))
  throw Error("B29 native sibling ancestry prediction falsified");
 if(JSON.stringify(cases[0].edits)!==JSON.stringify([[1,1,-1],[1,-1,1],[3,-1,1]]))
@@ -129,8 +130,11 @@ if(cases[2].births.length||cases[3].births.length||cases[3].traps!==1)
  throw Error("B29 absence-of-compute/edits controls invalid");
 if(!cases.every(c=>c.allFull23))
  throw Error("B29 failed to reproduce whole native executable");
-process.stdout.write(JSON.stringify({
+if(process.argv[1]===fileURLToPath(import.meta.url)) {
+  process.stdout.write(JSON.stringify({
   level:"independent source-parsed restricted deterministic CIL VM, not native Rust verification",
   source:"cl0/crates/world/tests/cl1b_b29_mutation_rule_siblings.rs",
   experimentalWorlds:cases.length,cases
 },null,2)+"\n");
+
+}
