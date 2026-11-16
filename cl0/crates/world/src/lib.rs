@@ -4746,3 +4746,33 @@ mod b31_sensor_abi_tests {
         assert_eq!(sensor, Op::SenseComputePool { dst: 0, next: 0 });
     }
 }
+
+
+// B34: append-only generic CIL opcode ABI, serialization and control-flow
+// relocation verification. Does not define fitness or a special life primitive.
+#[cfg(test)]
+mod b34_trydraw_abi_tests {
+    use super::Op;
+
+    #[test]
+    fn b34_numerical_tag32_and_serde_are_stable() {
+        let native = Op::TryDrawCompute { amount: 0, dst: 2, next: 3 };
+        assert_eq!(native.encode_instruction().unwrap(), [32, 0, 2, 3, 0]);
+        assert_eq!(Op::decode_instruction([32, 0, 2, 3, 0]).unwrap(), native);
+        let json = serde_json::to_string(&native).unwrap();
+        assert_eq!(serde_json::from_str::<Op>(&json).unwrap(), native);
+        // Existing numeric source encodings MUST NOT be renumbered.
+        let old = Op::SenseComputePool { dst: 0, next: 1 };
+        assert_eq!(old.encode_instruction().unwrap(), [31, 0, 1, 0, 0]);
+        assert!(Op::decode_instruction([33, 0, 0, 0, 0]).is_err());
+        assert!(Op::decode_instruction([32, -1, 2, 3, 0]).is_err());
+        assert!(Op::decode_instruction([32, 0, -1, 3, 0]).is_err());
+    }
+
+    #[test]
+    fn b34_trydraw_control_edge_can_be_relocated() {
+        let mut op = Op::TryDrawCompute { amount: 1, dst: 2, next: 7 };
+        op.relocate_edges(6, 2);
+        assert_eq!(op, Op::TryDrawCompute { amount: 1, dst: 2, next: 0 });
+    }
+}
