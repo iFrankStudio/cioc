@@ -4737,7 +4737,7 @@ mod b31_sensor_abi_tests {
         let draw = Op::DrawCompute { amount: 0, next: 4 };
         assert_eq!(draw.encode_instruction().unwrap(), [23, 0, 4, 0, 0]);
         assert_eq!(Op::decode_instruction([23, 0, 4, 0, 0]).unwrap(), draw);
-        assert!(Op::decode_instruction([32, 0, 1, 0, 0]).is_err());
+        assert!(Op::decode_instruction([33, 0, 1, 0, 0]).is_err());
         assert!(Op::decode_instruction([31, -1, 1, 0, 0]).is_err());
     }
 
