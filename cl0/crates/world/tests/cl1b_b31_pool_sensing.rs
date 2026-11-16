@@ -5,9 +5,9 @@
 use cl0_world::{EventKind, Intervention, Op, Origin, Process, World};
 
 #[derive(Clone,Copy,Debug,PartialEq,Eq)]
-enum Arm { Sense, BlindThree, BlindFour }
+pub(crate) enum Arm { Sense, BlindThree, BlindFour }
 
-fn founder(arm:Arm)->Vec<Op>{
+pub(crate) fn founder(arm:Arm)->Vec<Op>{
     let observe=match arm {
         Arm::Sense=>Op::SenseComputePool{dst:0,next:1},
         Arm::BlindThree=>Op::Const{dst:0,value:4,next:1},
