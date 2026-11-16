@@ -116,11 +116,27 @@ fn b32_paid_once_native_edge_prune_prevents_non_draw_energy_deadlock_but_costs_m
     &[9_u64,4,4,4][..],
  ];
  let mut worlds=0;
- for supply in schedules{
+ // Frozen deterministic source-parsed forecast before native CI inspection.
+ // Per schedule: (pruned, suppressed, simple-static) real service writes,
+ // and remaining neutral world pool for each matching arm.
+ let expected=[
+    ([4,2,5],[0,8,2]),
+    ([3,2,4],[1,5,3]),
+    ([4,2,6],[3,11,1]),
+    ([4,2,5],[0,8,1]),
+ ];
+ for (index,supply) in schedules.into_iter().enumerate(){
     let pruned=trial(Arm::Prune,supply);
     let suppressed=trial(Arm::PatchSuppressed,supply);
     let static_three=trial(Arm::StaticThree,supply);
     worlds+=3;
+    let actual_writes=[
+        pruned.service_writes,suppressed.service_writes,static_three.service_writes];
+    let actual_pool=[pruned.pool,suppressed.pool,static_three.pool];
+    assert_eq!(actual_writes,expected[index].0,
+        "B32 exact native genuine service comparison must retain zero-output controls");
+    assert_eq!(actual_pool,expected[index].1,
+        "B32 native residual compute must match verified source-shaped model");
     for x in [&pruned,&suppressed,&static_three]{
         assert_eq!(x.packets,supply);
         assert_eq!(x.local,0);
