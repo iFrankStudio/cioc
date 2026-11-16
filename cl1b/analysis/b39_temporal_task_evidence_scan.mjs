@@ -2,12 +2,22 @@
 // with a real task input change between Read(key7) and output verification.
 // No privileged reward, host code repair or synthetic success marker.
 import {b38Source} from "./b38_functional_readback_scan.mjs";
-function simulate(early,oldValue,newValue,readback){
- const arm=readback?"Readback":"StaticCorrect";
- const code=b38Source(arm);
+import {fileURLToPath} from "node:url";
+export function simulateB39(early,oldValue,newValue,readback,recheck=false){
+ const arm=readback?(recheck?"Recheck":"Readback"):"StaticCorrect";
+ const code=b38Source(readback?"Readback":"StaticCorrect");
+ if(recheck){
+  code[5].next=12;
+  code.push(
+   {kind:"Const",dst:2,value:7,next:13},
+   {kind:"Read",dst:0,address:2,next:14},
+   {kind:"Const",dst:2,value:11,next:6},
+  );
+ }
  const r=[0,0,0,0],cells=new Map([[7,oldValue]]);
  let pc=0,charged=0,credits=96,edits=0,sampled=null,checkpoint=null,updated=false;
  let correct=0,wrong=0;
+ const taskReads=[];
  const reg=n=>{if(!Number.isInteger(n)||n<0||n>3)throw Error("B39 invalid CIL register");return r[n];};
  if(early){cells.set(7,newValue);updated=true;}
  function step(){
@@ -20,6 +30,7 @@ function simulate(early,oldValue,newValue,readback){
    case"Read":{
     const key=reg(op.address),value=cells.get(key)??0;
     r[op.dst]=value;pc=op.next;
+    if(key===7)taskReads.push(value);
     event={pc:at,kind:"CellRead",key,value};
     break;
    }
@@ -69,13 +80,15 @@ function simulate(early,oldValue,newValue,readback){
  if(credits!==0||charged!==96)throw Error("B39 compute conservation");
  return {old:oldValue,new:newValue,arrival:early?"BEFORE_READ":"AFTER_READ",
   arm,sampled,checkpoint,edits,finalEdge:code[readback?3:2].next,
+  readsAtFirstCheck:taskReads.slice(0,readback?(recheck?2:1):1),
   correct,wrong,charged};
 }
+if(process.argv[1]===fileURLToPath(import.meta.url)) {
 const cases=[];
 for(const [old,newValue] of [[0,17],[17,0]])
  for(const early of [true,false])
   for(const readback of [true,false]){
-   const out=simulate(early,old,newValue,readback);
+   const out=simulateB39(early,old,newValue,readback);
    cases.push(out);
    if(readback){
     if(out.checkpoint.firstVerdictCorrect!==early)
@@ -95,3 +108,5 @@ process.stdout.write(JSON.stringify({
  evidence:"independent Rust-source-parsed CIL native-order model, NOT Rust CI",
  worlds:8,cases
 },null,2)+"\n");
+
+}
