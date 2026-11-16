@@ -290,7 +290,7 @@ fn b45_authored_guard_can_use_paid_provenance_but_not_prove_general_correctness(
             assert_eq!(legacy.first_read,Some(train+1));
             assert_eq!(guard.first_writer,Some(0));
             assert_eq!(untracked.first_writer,Some(-1));
-            assert_eq!(fair.first_writer,Some(1).filter(|_|train==-1));
+            assert_eq!(fair.first_writer,Some(1));
             assert_eq!(original.first_writer,None);
             assert_eq!(legacy.first_writer,None);
             assert!(guard.sensor_events>=1);
@@ -307,6 +307,17 @@ fn b45_authored_guard_can_use_paid_provenance_but_not_prove_general_correctness(
     }
     assert_eq!(n,56);
     eprintln!("B45_AGGREGATE {:?}",totals);
-    // Native aggregates are checked against the independent source-parsed
-    // CIL forecast once frozen before the first native CI run.
+    // Frozen BEFORE the first native B45 CI, computed by a standalone
+    // source-parsed CIL interpreter, not by observing Rust results.
+    // Columns: train true/wrong, holdout true/wrong, charged attempts,
+    // clones, halts, paid origin reads, falsified success attestations.
+    assert_eq!(totals, [
+        [24,0,96,8,1024,8,0,16,0],  // charged authenticated guard, spoof
+        [24,14,78,26,1024,6,0,8,0], // provenance guard, honest feedback
+        [30,0,102,2,1024,8,0,10,0], // same-value external write: overreacts
+        [0,0,0,0,344,8,8,16,0],     // no provenance: fail-closed halt
+        [16,48,0,104,1024,0,0,0,6],// provenance available but ignored
+        [16,48,0,104,1024,0,0,0,6],// old untracked world, same code
+        [128,0,128,0,1024,0,0,0,0], // compact correct independent source
+    ], "B45 native event totals must match independent frozen forecast");
 }
