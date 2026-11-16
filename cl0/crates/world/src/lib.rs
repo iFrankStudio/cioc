@@ -4663,3 +4663,35 @@ mod tests {
         assert!(!legacy.recoverable_draw_shortage_enabled());
     }
 }
+
+// B31: generic CIL code ABI/persistence guard. Verify the new environmental
+// sensing primitive is append-only (tag31), charge is handled by the native
+// scheduler, and ordinary source graph code can persist with serde intact.
+#[cfg(test)]
+mod b31_sensor_abi_tests {
+    use super::Op;
+
+    #[test]
+    fn b31_pool_sensor_abi_and_serde_roundtrip() {
+        let sensor = Op::SenseComputePool { dst: 2, next: 7 };
+        let expected = [31, 2, 7, 0, 0];
+        assert_eq!(sensor.encode_instruction().unwrap(), expected);
+        assert_eq!(Op::decode_instruction(expected).unwrap(), sensor);
+        let json = serde_json::to_string(&sensor).unwrap();
+        assert_eq!(serde_json::from_str::<Op>(&json).unwrap(), sensor);
+
+        // Existing on-disk / graph ABI slots cannot be renumbered.
+        let draw = Op::DrawCompute { amount: 0, next: 4 };
+        assert_eq!(draw.encode_instruction().unwrap(), [23, 0, 4, 0, 0]);
+        assert_eq!(Op::decode_instruction([23, 0, 4, 0, 0]).unwrap(), draw);
+        assert!(Op::decode_instruction([32, 0, 1, 0, 0]).is_err());
+        assert!(Op::decode_instruction([31, -1, 1, 0, 0]).is_err());
+    }
+
+    #[test]
+    fn b31_pool_sensor_edge_is_structurally_relocatable() {
+        let mut sensor = Op::SenseComputePool { dst: 0, next: 7 };
+        sensor.relocate_edges(6, 2);
+        assert_eq!(sensor, Op::SenseComputePool { dst: 0, next: 0 });
+    }
+}
