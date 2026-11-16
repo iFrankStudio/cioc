@@ -1,0 +1,20 @@
+{
+  "study": "B47",
+  "kind": "independent source-structure audit, NOT independent dynamic CIL interpreter",
+  "checks": {
+    "six_arms": true,
+    "blind_ablates_feedback": true,
+    "disabled_charges_patch": true,
+    "phase_adds_paid_instruction": false,
+    "immutable_baseline": true,
+    "actual_write_score": true,
+    "three_regimes": true,
+    "finite_budget": true,
+    "event_origin": true
+  },
+  "forecast": {
+    "H47": "FAIL likely",
+    "phase": "some timing differences",
+    "compact": "higher correct writes per charged instruction"
+  }
+}
