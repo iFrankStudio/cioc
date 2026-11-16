@@ -1,0 +1,63 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: fields `old`, `new`, `arrival`, and `readback` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b39_temporal_task_evidence.rs:11:2
+   [1m[94m|[0m
+[1m[94m10[0m [1m[94m|[0m struct ResultTrace{
+   [1m[94m|[0m        [1m[94m-----------[0m [1m[94mfields in this struct[0m
+[1m[94m11[0m [1m[94m|[0m  old:i64,new:i64,arrival:Arrival,readback:bool,
+   [1m[94m|[0m  [1m[33m^^^[0m     [1m[33m^^^[0m     [1m[33m^^^^^^^[0m         [1m[33m^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `ResultTrace` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m[1m: fields `arm`, `history`, and `final_output` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b38_functional_readback.rs:58:2
+   [1m[94m|[0m
+[1m[94m57[0m [1m[94m|[0m struct Trial{
+   [1m[94m|[0m        [1m[94m-----[0m [1m[94mfields in this struct[0m
+[1m[94m58[0m [1m[94m|[0m  arm:Arm,history:(i64,i64),correct:Vec<usize>,incorrect:Vec<usize>,
+   [1m[94m|[0m  [1m[33m^^^[0m     [1m[33m^^^^^^^[0m
+[1m[94m...[0m
+[1m[94m61[0m [1m[94m|[0m  final_input:i64,final_output:Option<i64>,
+   [1m[94m|[0m                  [1m[33m^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `Trial` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b39_temporal_task_evidence") generated 2 warnings
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+[1m[92m     Running[0m tests/cl1b_b39_temporal_task_evidence.rs (target/debug/build/cl0-world/45d8e00b3bf7dc7e/out/cl1b_b39_temporal_task_evidence-45d8e00b3bf7dc7e)
+
+running 2 tests
+B39_NATIVE ResultTrace { old: 0, new: 17, arrival: BeforeRead, readback: true, sampled: 17, first_written: 0, checkpoint_pc: 8, first_output_current_correct: false, first_verdict_correct: Some(true), charged: 96, final_edge: 11, real_patches: 1, outputs_correct_after_update: 12, outputs_wrong_after_update: 1 }
+B38_NATIVE Trial { arm: Readback, history: (0, 17), correct: [7, 5], incorrect: [0, 1], writes: [7, 6], charged: 96, edits: 1, suppressed: 0, edge_after_first: 4, final_edge: 11, stopped: false, traps: 0, final_input: 17, final_output: Some(17) }
+B39_NATIVE ResultTrace { old: 0, new: 17, arrival: BeforeRead, readback: false, sampled: 17, first_written: 17, checkpoint_pc: 0, first_output_current_correct: true, first_verdict_correct: None, charged: 96, final_edge: 3, real_patches: 0, outputs_correct_after_update: 24, outputs_wrong_after_update: 0 }
+B38_NATIVE Trial { arm: AssumeOk, history: (0, 17), correct: [7, 0], incorrect: [0, 7], writes: [7, 7], charged: 96, edits: 0, suppressed: 0, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 17, final_output: Some(0) }
+B39_NATIVE ResultTrace { old: 0, new: 17, arrival: AfterRead, readback: true, sampled: 0, first_written: 0, checkpoint_pc: 1, first_output_current_correct: false, first_verdict_correct: Some(false), charged: 96, final_edge: 11, real_patches: 1, outputs_correct_after_update: 11, outputs_wrong_after_update: 2 }
+B38_NATIVE Trial { arm: ForceFix, history: (0, 17), correct: [5, 5], incorrect: [0, 0], writes: [5, 5], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: 17, final_output: Some(17) }
+B39_NATIVE ResultTrace { old: 0, new: 17, arrival: AfterRead, readback: false, sampled: 0, first_written: 0, checkpoint_pc: 0, first_output_current_correct: false, first_verdict_correct: None, charged: 96, final_edge: 3, real_patches: 0, outputs_correct_after_update: 23, outputs_wrong_after_update: 1 }
+B38_NATIVE Trial { arm: PatchDisabled, history: (0, 17), correct: [7, 0], incorrect: [0, 5], writes: [7, 5], charged: 96, edits: 0, suppressed: 4, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 17, final_output: Some(0) }
+B39_NATIVE ResultTrace { old: 17, new: 0, arrival: BeforeRead, readback: true, sampled: 0, first_written: 0, checkpoint_pc: 1, first_output_current_correct: true, first_verdict_correct: Some(true), charged: 96, final_edge: 4, real_patches: 0, outputs_correct_after_update: 14, outputs_wrong_after_update: 0 }
+B38_NATIVE Trial { arm: StaticCorrect, history: (0, 17), correct: [12, 12], incorrect: [0, 0], writes: [12, 12], charged: 96, edits: 0, suppressed: 0, edge_after_first: 3, final_edge: 3, stopped: false, traps: 0, final_input: 17, final_output: Some(17) }
+B39_NATIVE ResultTrace { old: 17, new: 0, arrival: BeforeRead, readback: false, sampled: 0, first_written: 0, checkpoint_pc: 0, first_output_current_correct: true, first_verdict_correct: None, charged: 96, final_edge: 3, real_patches: 0, outputs_correct_after_update: 24, outputs_wrong_after_update: 0 }
+B38_NATIVE Trial { arm: Readback, history: (17, 0), correct: [5, 6], incorrect: [1, 1], writes: [6, 7], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: 0, final_output: Some(0) }
+B39_NATIVE ResultTrace { old: 17, new: 0, arrival: AfterRead, readback: true, sampled: 17, first_written: 0, checkpoint_pc: 8, first_output_current_correct: true, first_verdict_correct: Some(false), charged: 96, final_edge: 11, real_patches: 1, outputs_correct_after_update: 13, outputs_wrong_after_update: 0 }
+B38_NATIVE Trial { arm: AssumeOk, history: (17, 0), correct: [0, 7], incorrect: [7, 0], writes: [7, 7], charged: 96, edits: 0, suppressed: 0, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 0, final_output: Some(0) }
+B39_NATIVE ResultTrace { old: 17, new: 0, arrival: AfterRead, readback: false, sampled: 17, first_written: 17, checkpoint_pc: 0, first_output_current_correct: false, first_verdict_correct: None, charged: 96, final_edge: 3, real_patches: 0, outputs_correct_after_update: 23, outputs_wrong_after_update: 1 }
+B38_NATIVE Trial { arm: ForceFix, history: (17, 0), correct: [4, 5], incorrect: [1, 0], writes: [5, 5], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11test b39_live_input_change_produces_false_readback_success_and_false_repair_signal ... , final_edge: ok11, 
+stopped: false, traps: 0, final_input: 0, final_output: Some(0) }
+B38_NATIVE Trial { arm: PatchDisabled, history: (17, 0), correct: [0, 6], incorrect: [5, 0], writes: [5, 6], charged: 96, edits: 0, suppressed: 5, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 0, final_output: Some(0) }
+B38_NATIVE Trial { arm: StaticCorrect, history: (17, 0), correct: [12, 12], incorrect: [0, 0], writes: [12, 12], charged: 96, edits: 0, suppressed: 0, edge_after_first: 3, final_edge: 3, stopped: false, traps: 0, final_input: 0, final_output: Some(0) }
+B38_NATIVE Trial { arm: Readback, history: (23, -9), correct: [5, 6], incorrect: [1, 1], writes: [6, 7], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: -9, final_output: Some(-9) }
+B38_NATIVE Trial { arm: AssumeOk, history: (23, -9), correct: [0, 0], incorrect: [7, 7], writes: [7, 7], charged: 96, edits: 0, suppressed: 0, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: -9, final_output: Some(0) }
+B38_NATIVE Trial { arm: ForceFix, history: (23, -9), correct: [4, 5], incorrect: [1, 0], writes: [5, 5], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: -9, final_output: Some(-9) }
+B38_NATIVE Trial { arm: PatchDisabled, history: (23, -9), correct: [0, 0], incorrect: [5, 5], writes: [5, 5], charged: 96, edits: 0, suppressed: 9, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: -9, final_output: Some(0) }
+B38_NATIVE Trial { arm: StaticCorrect, history: (23, -9), correct: [12, 12], incorrect: [0, 0], writes: [12, 12], charged: 96, edits: 0, suppressed: 0, edge_after_first: 3, final_edge: 3, stopped: false, traps: 0, final_input: -9, final_output: Some(-9) }
+B38_NATIVE Trial { arm: Readback, history: (-9, 23), correct: [5, 6], incorrect: [1, 1], writes: [6, 7], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: 23, final_output: Some(23) }
+B38_NATIVE Trial { arm: AssumeOk, history: (-9, 23), correct: [0, 0], incorrect: [7, 7], writes: [7, 7], charged: 96, edits: 0, suppressed: 0, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 23, final_output: Some(0) }
+B38_NATIVE Trial { arm: ForceFix, history: (-9, 23), correct: [4, 5], incorrect: [1, 0], writes: [5, 5], charged: 96, edits: 1, suppressed: 0, edge_after_first: 11, final_edge: 11, stopped: false, traps: 0, final_input: 23, final_output: Some(23) }
+B38_NATIVE Trial { arm: PatchDisabled, history: (-9, 23), correct: [0, 0], incorrect: [5, 5], writes: [5, 5], charged: 96, edits: 0, suppressed: 9, edge_after_first: 4, final_edge: 4, stopped: false, traps: 0, final_input: 23, final_output: Some(0) }
+B38_NATIVE Trial { arm: StaticCorrect, history: (-9, 23), correct: [12, 12], incorrect: [0, 0], writes: [12, 12], charged: 96, edits: 0, suppressed: 0, edge_after_first: 3, final_edge: 3, stopped: false, traps: 0, final_input: 23, final_output: Some(23) }
+test canonical_b38::b38_native_output_readback_can_trigger_a_real_inplace_source_repair ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
