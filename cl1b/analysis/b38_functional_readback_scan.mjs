@@ -2,6 +2,7 @@
 // Performs all 96 charged attempts; changes external task input at step48.
 // No fitness oracle, no host repair, no claim of autonomous goal discovery.
 import {readFileSync} from "node:fs";
+import {fileURLToPath} from "node:url";
 const src=readFileSync(new URL("../../cl0/crates/world/tests/cl1b_b38_functional_readback.rs",import.meta.url),"utf8");
 const body=src.match(/fn founder\(arm:Arm\)->Vec<Op>\{([\s\S]*?)\n\}/)?.[1];
 if(!body)throw Error("B38 Rust native CIL founder missing");
@@ -18,14 +19,14 @@ if(staticCode.length!==4||source.length!==14||
  source[6].kind!=="Sub"||source[7].kind!=="Const"||source[8].kind!=="Sub"||
  source[12].kind!=="PatchNext"||source[13].kind!=="Write")
  throw Error("B38 native Rust CIL founder source layout drift");
-function founder(arm){
+export function b38Source(arm){
  if(arm==="StaticCorrect")return staticCode.map(o=>({...o}));
  const comparatorIndex=arm==="AssumeOk"?6:arm==="ForceFix"?7:8;
  return [...source.slice(0,6),source[comparatorIndex],...source.slice(9)]
   .map(op=>({...op}));
 }
 function trial(arm,history){
- const code=founder(arm),regs=[0,0,0,0],cells=new Map();
+ const code=b38Source(arm),regs=[0,0,0,0],cells=new Map();
  let pc=0,credits=96,charged=0,edits=0,suppressed=0,traps=0,stopped=false;
  let firstEdge=null;
  const accurate=[],inaccurate=[],totalWrites=[],reported=[];
@@ -69,6 +70,7 @@ function trial(arm,history){
   firstEdge,edge:code[arm==="StaticCorrect"?2:3].next,
   pc,credits,charged,stopped,traps,reported};
 }
+if(process.argv[1]===fileURLToPath(import.meta.url)) {
 const histories=[[0,17],[17,0],[23,-9],[-9,23]];
 const arms=["Readback","AssumeOk","ForceFix","PatchDisabled","StaticCorrect"];
 const cases=[];
@@ -95,3 +97,5 @@ process.stdout.write(JSON.stringify({
  origin:"cl0/crates/world/tests/cl1b_b38_functional_readback.rs",
  worlds:20,chargePerWorld:96,phasesPerWorld:2,cases
 },null,2)+"\n");
+
+}
