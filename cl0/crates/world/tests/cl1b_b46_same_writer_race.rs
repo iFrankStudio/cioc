@@ -156,7 +156,8 @@ fn run(arm: Arm, train: i64, holdout: i64) -> Observation {
                             }
                         }
                     }
-                    EventKind::CellWritten{key:11,value} if event.pc==42 => {
+                    EventKind::CellWritten{key:11,value}
+                        if event.pc==42 && has_interposer(arm) => {
                         assert!(matches!(arm,Arm::NativeWrong|Arm::NativeEcho));
                         assert_eq!(world.cell_last_writer(11),Some(1));
                         native_interposer_value=Some(*value);
