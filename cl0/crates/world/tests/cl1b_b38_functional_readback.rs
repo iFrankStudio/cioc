@@ -116,8 +116,22 @@ fn run(arm:Arm,history:(i64,i64))->Trial{
 #[test]
 fn b38_native_output_readback_can_trigger_a_real_inplace_source_repair(){
  let histories=[(0_i64,17_i64),(17,0),(23,-9),(-9,23)];
+ // Frozen source-parsed CIL predictions before first native B38 CI.
+ // Order: READBACK, ASSUME_OK, FORCE_FIX, PATCH_DISABLED, STATIC_CORRECT.
+ let expected_correct=[
+  [[7,5],[7,0],[5,5],[7,0],[12,12]],
+  [[5,6],[0,7],[4,5],[0,6],[12,12]],
+  [[5,6],[0,0],[4,5],[0,0],[12,12]],
+  [[5,6],[0,0],[4,5],[0,0],[12,12]],
+ ];
+ let expected_wrong=[
+  [[0,1],[0,7],[0,0],[0,5],[0,0]],
+  [[1,1],[7,0],[1,0],[5,0],[0,0]],
+  [[1,1],[7,7],[1,0],[5,5],[0,0]],
+  [[1,1],[7,7],[1,0],[5,5],[0,0]],
+ ];
  let mut count=0;
- for history in histories{
+ for (history_index,history) in histories.into_iter().enumerate(){
   let mut cases=Vec::new();
   for arm in [Arm::Readback,Arm::AssumeOk,Arm::ForceFix,
    Arm::PatchDisabled,Arm::StaticCorrect]{
@@ -131,6 +145,12 @@ fn b38_native_output_readback_can_trigger_a_real_inplace_source_repair(){
     assert_eq!(result.final_input,history.1);
     cases.push(result);
     count+=1;
+  }
+  for (arm_index,case) in cases.iter().enumerate(){
+   assert_eq!(case.correct,expected_correct[history_index][arm_index],
+    "real native copied task values must match frozen model, no proxy markers");
+   assert_eq!(case.incorrect,expected_wrong[history_index][arm_index],
+    "retain all wrong writes and the forced-repair counterfactual");
   }
   let [readback,assumed,forced,disabled,static_correct]=
    [&cases[0],&cases[1],&cases[2],&cases[3],&cases[4]];
