@@ -30,7 +30,7 @@ fn step_to_input_read(w:&mut World)->i64{
  for _ in 0..8{
   assert!(charged(w));
   let e=w.events().last().unwrap();
-  if let EventKind::CellRead{key:7,value}=e.kind{return value;}
+  if let EventKind::CellRead{key:7,value}= &e.kind{return *value;}
  }
  panic!("exact B38 source must read the real task input within eight charged instructions")
 }
@@ -117,6 +117,21 @@ fn b39_live_input_change_produces_false_readback_success_and_false_repair_signal
    worlds+=2;
    assert_eq!(sensed.charged,96);
    assert_eq!(static_correct.charged,96);
+   // Independent source-parsed CIL forecasts frozen before native B39 CI:
+   // (READBACK correct,wrong; STATIC_CORRECT correct,wrong), all source-real.
+   let (readback_counts,static_counts)=match (old,arrival){
+    (0,Arrival::BeforeRead)=>((12_usize,1_usize),(24_usize,0_usize)),
+    (0,Arrival::AfterRead)=>((11,2),(23,1)),
+    (17,Arrival::BeforeRead)=>((14,0),(24,0)),
+    (17,Arrival::AfterRead)=>((13,0),(23,1)),
+    _=>unreachable!(),
+   };
+   assert_eq!((sensed.outputs_correct_after_update,
+    sensed.outputs_wrong_after_update),readback_counts,
+    "CIL-native write audit must preserve all false time-stale outcomes");
+   assert_eq!((static_correct.outputs_correct_after_update,
+    static_correct.outputs_wrong_after_update),static_counts,
+    "strong immutable baseline includes one stale Write under late input mutation");
    assert_eq!(static_correct.real_patches,0);
    assert_eq!(static_correct.final_edge,3);
    assert_eq!(sensed.final_edge,
