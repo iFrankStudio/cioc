@@ -12,10 +12,11 @@ fn founder(arm:Arm)->Vec<Op>{
         Arm::Blind=>b42::founder(b42::Arm::IgnoreFeedback),
         Arm::Disabled=>b42::founder(b42::Arm::PatchDisabled),
         Arm::Phase=>{
-            let mut c=b42::founder(b42::Arm::ProbePlus);
-            // One paid phase-shifting instruction; no semantic source repair.
-            c[12]=Op::Sub{dst:1,lhs:0,rhs:0,next:38};
-            c.push(Op::Const{dst:3,value:0,next:13});
+            // Immutable correct copier with a paid phase shift. Unlike the
+            // feedback actor, this arm cannot mutate executable edges.
+            let mut c=b42::founder(b42::Arm::StaticCorrect);
+            c[3]=Op::Write{address:2,value:0,next:4};
+            c.push(Op::Const{dst:3,value:0,next:0});
             c
         },
         Arm::Feedback=>b42::founder(b42::Arm::ProbePlus),
