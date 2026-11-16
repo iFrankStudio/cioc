@@ -112,7 +112,7 @@ fn b31_paid_generic_pool_sensing_can_condition_native_source_mutation_but_not_cr
     assert_eq!(Op::decode_instruction([23,0,1,0,0]).unwrap(),
         Op::DrawCompute{amount:0,next:1});
     assert!(Op::decode_instruction([31,-1,1,0,0]).is_err());
-    assert!(Op::decode_instruction([32,0,1,0,0]).is_err());
+    assert!(Op::decode_instruction([33,0,1,0,0]).is_err());
     let mut worlds=0_usize;
     for packet in [0_u64,4,5,6] {
         let sensor=observe(Arm::Sense,packet);
