@@ -1556,7 +1556,7 @@ impl World {
         }
         if matches!(
             op,
-            Op::DrawCompute { .. } | Op::ReturnCompute { .. } | Op::TransferCompute { .. }
+            Op::TryDrawCompute { .. } | Op::DrawCompute { .. } | Op::ReturnCompute { .. } | Op::TransferCompute { .. }
         ) {
             return self.execute_compute(id, op);
         }
@@ -1741,6 +1741,7 @@ impl World {
                     | Op::GraphReadTag { next, .. }
                     | Op::DrawCompute { next, .. }
                     | Op::SenseComputePool { next, .. }
+                    | Op::TryDrawCompute { next, .. }
                     | Op::ReturnCompute { next, .. }
                     | Op::TransferCompute { next, .. }
                     | Op::GraphReadField { next, .. }
@@ -1805,6 +1806,7 @@ impl World {
             | Op::GraphGrantRead { .. }
             | Op::GraphRevokeRead { .. }
             | Op::GraphReadTag { .. }
+            | Op::TryDrawCompute { .. }
             | Op::DrawCompute { .. }
             | Op::ReturnCompute { .. }
             | Op::TransferCompute { .. }
