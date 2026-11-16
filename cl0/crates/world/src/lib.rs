@@ -4845,7 +4845,7 @@ mod b31_sensor_abi_tests {
         let draw = Op::DrawCompute { amount: 0, next: 4 };
         assert_eq!(draw.encode_instruction().unwrap(), [23, 0, 4, 0, 0]);
         assert_eq!(Op::decode_instruction([23, 0, 4, 0, 0]).unwrap(), draw);
-        assert!(Op::decode_instruction([33, 0, 1, 0, 0]).is_err());
+        assert!(Op::decode_instruction([34, 0, 1, 0, 0]).is_err());
         assert!(Op::decode_instruction([31, -1, 1, 0, 0]).is_err());
     }
 
@@ -4874,7 +4874,7 @@ mod b34_trydraw_abi_tests {
         // Existing numeric source encodings MUST NOT be renumbered.
         let old = Op::SenseComputePool { dst: 0, next: 1 };
         assert_eq!(old.encode_instruction().unwrap(), [31, 0, 1, 0, 0]);
-        assert!(Op::decode_instruction([33, 0, 0, 0, 0]).is_err());
+        assert!(Op::decode_instruction([34, 0, 0, 0, 0]).is_err());
         assert!(Op::decode_instruction([32, -1, 2, 3, 0]).is_err());
         assert!(Op::decode_instruction([32, 0, -1, 3, 0]).is_err());
     }
