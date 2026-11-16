@@ -20,7 +20,7 @@ if(staticCode.length!==4||source.length!==14||
  throw Error("B38 native Rust CIL founder source layout drift");
 function founder(arm){
  if(arm==="StaticCorrect")return staticCode.map(o=>({...o}));
- const comparatorIndex=arm==="AssumeOk"?8:arm==="ForceFix"?7:6;
+ const comparatorIndex=arm==="AssumeOk"?6:arm==="ForceFix"?7:8;
  return [...source.slice(0,6),source[comparatorIndex],...source.slice(9)]
   .map(op=>({...op}));
 }
