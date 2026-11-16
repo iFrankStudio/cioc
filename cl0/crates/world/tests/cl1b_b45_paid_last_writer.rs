@@ -384,9 +384,9 @@ fn b45_b44_equal_value_histories_now_have_paid_native_origin_distinction() {
     assert_eq!(forged.total_compute_inventory(),Some(cb-1));
     assert_eq!(genuine.process(1).unwrap().registers[1],1);
     assert_eq!(forged.process(1).unwrap().registers[1],0);
-    assert!(matches!(genuine.events().last().unwrap().kind,
+    assert!(matches!(&genuine.events().last().unwrap().kind,
         EventKind::CellWriterSensed{key:11,writer:1}));
-    assert!(matches!(forged.events().last().unwrap().kind,
+    assert!(matches!(&forged.events().last().unwrap().kind,
         EventKind::CellWriterSensed{key:11,writer:0}));
     eprintln!("B45_B44_ALIAS original_values_equal=true writer1=1 writer2=0 \
         guest_sensor_cost_each=1 storage_writer_slots=3");
