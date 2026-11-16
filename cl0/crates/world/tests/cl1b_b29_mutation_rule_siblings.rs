@@ -209,8 +209,8 @@ fn b30_mutation_rule_sibling_advantage_disappears_at_adjacent_pool_thresholds() 
     let heldout=[
         (155_u64,2_usize,2_usize,None),
         (156_u64,3_usize,2_usize,Some((3_u64,4_u64))),
-        (157_u64,3_usize,3_usize,Some((1_u64,4_u64))),
-        (158_u64,3_usize,3_usize,Some((1_u64,4_u64))),
+        (157_u64,3_usize,3_usize,Some((3_u64,4_u64))),
+        (158_u64,3_usize,3_usize,Some((2_u64,4_u64))),
     ];
     for (third,expected_flip,expected_no_flip,third_birth) in heldout {
         let neutral=[157_u64,157_u64,third];
@@ -234,7 +234,8 @@ fn b30_mutation_rule_sibling_advantage_disappears_at_adjacent_pool_thresholds() 
         assert_eq!(flipped.births.get(2).copied(),third_birth,
             "native GraphLaunched parent origin, not PID ordering, determines lineage");
         assert_eq!(unchanged.births.get(2).copied(),
-            if third>=157 {Some((1,4))} else {None});
+            match third {157=>Some((1,4)),158=>Some((2,4)),_=>None},
+            "B30b post-hoc: scheduler can also choose first higher-request sibling at 158");
         assert_eq!(unchanged.genotypes[1..3],
             [(2,157,1),(3,157,1)]);
         assert!(unchanged.source_edits.is_empty());
@@ -246,10 +247,14 @@ fn b30_mutation_rule_sibling_advantage_disappears_at_adjacent_pool_thresholds() 
         } else if third==156 {
             assert_eq!((flipped.pool,unchanged.pool),(0,156));
             assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(156,0));
+        } else if third==157 {
+            assert_eq!((flipped.pool,unchanged.pool),(1,0));
+            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(156,157));
         } else {
-            assert_eq!(flipped.pool,third-157);
-            assert_eq!(unchanged.pool,third-157);
-            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(157,157));
+            // B30b post-hoc: packet158 pays exactly for sibling2's Draw157.
+            assert_eq!(third,158);
+            assert_eq!((flipped.pool,unchanged.pool),(0,0));
+            assert_eq!((flipped.packet_steps[2],unchanged.packet_steps[2]),(158,158));
         }
     }
 }
