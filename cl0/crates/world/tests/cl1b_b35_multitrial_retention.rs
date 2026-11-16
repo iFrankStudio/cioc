@@ -132,12 +132,30 @@ fn b35_native_repeated_paid_candidate_trials_and_source_mutations_are_not_free_l
   &[4_u64,5,5][..], &[4_u64,12,12][..],
   &[5_u64,5,5][..], &[6_u64,8,12][..]
  ];
+ let expected_adaptive_outputs=[1_usize,3,1,1];
+ let expected_forced_outputs=[0_usize,0,0,0];
+ let expected_static_outputs=[3_usize,7,4,7];
+ let expected_adaptive_source=[4_i64,4,5,5];
+ let expected_adaptive_pc=[4_usize,4,5,5];
+ let expected_adaptive_pool=[5_u64,1,4,15];
  let mut worlds=0;
- for schedule in schedules{
+ for (index,schedule) in schedules.into_iter().enumerate(){
   let adaptive=run(Arm::Adaptive,schedule);
   let forced=run(Arm::ForcedFail,schedule);
   let static3=run(Arm::StaticThree,schedule);
   worlds+=3;
+  // Source-parsed JS model predictions frozen before native Rust CI.
+  assert_eq!([adaptive.total_writes,forced.total_writes,static3.total_writes],
+   [expected_adaptive_outputs[index],expected_forced_outputs[index],
+    expected_static_outputs[index]],
+   "B35 complete native services must preserve the weak adaptive/strong static comparison");
+  assert_eq!(adaptive.source_request,expected_adaptive_source[index],
+   "the source-encoded retained candidate is the actual genome literal");
+  assert_eq!(adaptive.final_pc,expected_adaptive_pc[index],
+   "failed resource attempts can strand an actor at ordinary non-Draw control flow");
+  assert_eq!(adaptive.pool,expected_adaptive_pool[index],
+   "unusable shared compute must not be silently awarded to the stuck actor");
+  assert_eq!(adaptive.traps,0);
   for result in [&adaptive,&forced,&static3]{
    assert_eq!(result.schedule,schedule);
    assert_eq!(result.charged_steps as u64+result.local+result.pool,
