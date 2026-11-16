@@ -1,0 +1,9 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+[1m[92m     Running[0m tests/cl1b_b03a_computed_self_variant.rs (target/debug/build/cl0-world/92a50de7cc0a279a/out/cl1b_b03a_computed_self_variant-92a50de7cc0a279a)
+
+running 1 test
+test cl1b_b03a_self_computed_candidate_can_skip_instruction_without_function_loss ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
