@@ -1,0 +1,15 @@
+# CL-1B B45 — first full native CI failure: reserved opcode sentinel collided with tag33
+
+**Immutable experimental evidence, 2026-11-16.** First tested code SHA `c8d8bb50fcd3bd15e272dd3391b25edee513526e`, [Actions run 43904608723](https://github.com/iFrankStudio/cioc/actions/runs/43904608723), [archived source-pinned summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/summary.txt).
+
+**Native job FAILED overall**: 41/45 named integration test targets passed; 4 failed (B31, B33, B31 private ABI, B34 private ABI). 32/32 independent source-parsed observer programs passed. The **B45 native Rust target itself passed all four tests**, including the 56 task worlds, compact baseline, strict provenance storage, B44 paired-history witness and cross-PID identity. This is **not full regression success**, so B45 must remain unverified as a complete compatible world-law change pending a fresh full run.
+
+### Root cause — ABI test assumed tag33 would remain unknown
+
+Three independent historical assertions, one imported by B33 from B31, explicitly expected `Op::decode_instruction([33, ...]).is_err()`. B45 legitimately allocated previously unused opcode **tag33** as `ReadLastWriter`. Consequently B31 and B33 integration targets and the B31/B34 ABI library checks panicked on an expectation that is no longer valid under the extended language. The old tags **0–32 were not changed** and each historical scientific test's actual task logic ran consistently; only their future-unknown-tag sentinel assumptions failed.
+
+Archived primary logs: [B31](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/cl1b_b31_pool_sensing.log) · [B33](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/cl1b_b33_sensor_freshness.log) · [B31 private ABI](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/b31_pool_sensor_abi.log) · [B34 private ABI](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/b34_trydraw_abi.log) · [B45 passed native target](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/c8d8bb50fcd3bd15e272dd3391b25edee513526e-43904608723-1/cl1b_b45_paid_last_writer.log).
+
+### Corrective change requiring new verification
+
+Update only these **three unsupported-future-opcode sentinel literals** from `33` to currently unassigned `34` in `cl0/crates/world/src/lib.rs` (two library tests) and `cl0/crates/world/tests/cl1b_b31_pool_sensing.rs` (one integration test, inherited by B33). Keep **all old opcode functionality and expected results unchanged**; do not modify B45's preregistered numerical outcomes or the independent forecast. Run a new source-pinned full native CI due the changed world kernel and ABI contract. This historical failure record is retained even if the corrected run succeeds.
