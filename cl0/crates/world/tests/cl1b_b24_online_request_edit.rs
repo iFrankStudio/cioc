@@ -133,10 +133,20 @@ fn b24_native_runtime_derived_request_edit_can_help_then_deadlock_without_resour
         &[4,4,4], // heldout H2
         &[3,3,3,3], // heldout H3
     ];
-    for schedule in schedules {
+    for (i, schedule) in schedules.iter().enumerate() {
         let enabled = test_case(Arm::Enabled,schedule);
         let disabled = test_case(Arm::Disabled,schedule);
         let static_three = test_case(Arm::StaticThree,schedule);
+        // Frozen exact 12-world observer-side predictions, not merely a
+        // successful code edit. Held-out H1 explicitly harms the adaptive arm.
+        let expected = [(2,2,1,4,3), (2,3,1,6,0), (2,2,1,3,2), (2,2,1,3,2)];
+        let (e, d, baseline, remaining_adaptive_pool, remaining_locked_pool) = expected[i];
+        assert_eq!(enabled.service_writes,e,"enabled schedule={schedule:?}");
+        assert_eq!(disabled.service_writes,d,"edit disabled schedule={schedule:?}");
+        assert_eq!(static_three.service_writes,baseline,"static3 schedule={schedule:?}");
+        assert_eq!(enabled.final_pool,remaining_adaptive_pool,"enabled residual energy");
+        assert_eq!(disabled.final_pool,remaining_locked_pool,"disabled residual energy");
+        assert_eq!(enabled.literal,2,"blindly repeated arithmetic edits 4->3->2");
         assert_eq!(enabled.schedule,disabled.schedule);
         assert_eq!(enabled.schedule,static_three.schedule);
         assert_eq!(enabled.policy_changes.first(),Some(&(4,3)),
