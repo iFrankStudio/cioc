@@ -321,3 +321,73 @@ fn b45_authored_guard_can_use_paid_provenance_but_not_prove_general_correctness(
         [128,0,128,0,1024,0,0,0,0], // compact correct independent source
     ], "B45 native event totals must match independent frozen forecast");
 }
+
+
+#[test]
+fn b45_b44_equal_value_histories_now_have_paid_native_origin_distinction() {
+    let mut source=b42_source::founder(b42_source::Arm::ProbePlus);
+    // The original B44 feedback Read is replaced with a generic CIL origin
+    // sensor in BOTH worlds; no special goal, verdict or analyst data injected.
+    source[11]=Op::ReadLastWriter{dst:1,address:2,next:12};
+    let mut initial=World::with_strict_capacity(16,80,192)
+        .with_cell_write_provenance();
+    initial.load(Process::new(1,source,128)).unwrap();
+    initial.intervene(Intervention::SetCell{key:7,value:17}).unwrap();
+    assert_eq!(initial.run(9),9);
+    assert_eq!(initial.process(1).unwrap().pc,9);
+    let mut genuine=initial.clone();
+    let mut forged=initial;
+    // Fork and external source rewiring are laboratory manipulations ONLY.
+    for (w,route,primitive) in [
+        (&mut genuine,7_usize,11_usize),
+        (&mut forged,10_usize,8_usize),
+    ] {
+        w.intervene(Intervention::PatchEdge{process:1,node:9,next:route}).unwrap();
+        w.intervene(Intervention::PatchEdge{process:1,node:7,next:primitive}).unwrap();
+        assert_eq!(w.run(2),2);
+        assert_eq!(w.process(1).unwrap().pc,11);
+    }
+    assert_eq!(genuine.cell(11),Some(18));
+    assert_eq!(forged.cell(11),Some(0));
+    genuine.intervene(Intervention::SetCell{key:7,value:18}).unwrap();
+    forged.intervene(Intervention::SetCell{key:11,value:18}).unwrap();
+    for w in [&mut genuine,&mut forged] {
+        w.intervene(Intervention::PatchEdge{process:1,node:9,next:10}).unwrap();
+        w.intervene(Intervention::PatchEdge{process:1,node:7,next:8}).unwrap();
+    }
+    assert_eq!(genuine.cell(11),Some(18));
+    assert_eq!(forged.cell(11),Some(18));
+    assert_eq!(genuine.process(1),forged.process(1));
+    assert_eq!(genuine.tick(),forged.tick());
+    assert_eq!(genuine.remaining_credits(),forged.remaining_credits());
+    // Unlike B44, the event-excluded substrate is NOW detectably different
+    // because it holds a separately priced writer record.
+    let mut a=serde_json::to_value(&genuine).unwrap();
+    let mut b=serde_json::to_value(&forged).unwrap();
+    assert_ne!(a,b);
+    for value in [&mut a,&mut b] {
+        value.as_object_mut().unwrap().remove("events").unwrap();
+    }
+    assert_ne!(a,b);
+    for value in [&mut a,&mut b] {
+        value.as_object_mut().unwrap().remove("cell_last_writer").unwrap();
+    }
+    assert_eq!(a,b,"only new provenance state separates complete B44 guest substrates");
+    assert_eq!(genuine.cell_last_writer(11),Some(1));
+    assert_eq!(forged.cell_last_writer(11),Some(0));
+    assert_eq!(genuine.occupied_units(),forged.occupied_units());
+    let ca=genuine.total_compute_inventory().unwrap();
+    let cb=forged.total_compute_inventory().unwrap();
+    assert!(genuine.step());
+    assert!(forged.step());
+    assert_eq!(genuine.total_compute_inventory(),Some(ca-1));
+    assert_eq!(forged.total_compute_inventory(),Some(cb-1));
+    assert_eq!(genuine.process(1).unwrap().registers[1],1);
+    assert_eq!(forged.process(1).unwrap().registers[1],0);
+    assert!(matches!(genuine.events().last().unwrap().kind,
+        EventKind::CellWriterSensed{key:11,writer:1}));
+    assert!(matches!(forged.events().last().unwrap().kind,
+        EventKind::CellWriterSensed{key:11,writer:0}));
+    eprintln!("B45_B44_ALIAS original_values_equal=true writer1=1 writer2=0 \
+        guest_sensor_cost_each=1 storage_writer_slots=3");
+}
