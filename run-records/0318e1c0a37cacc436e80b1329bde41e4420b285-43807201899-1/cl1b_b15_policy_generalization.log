@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+[1m[92m     Running[0m tests/cl1b_b15_policy_generalization.rs (target/debug/build/cl0-world/c337cbc9df93a809/out/cl1b_b15_policy_generalization-c337cbc9df93a809)
+
+running 2 tests
+test canonical_b14::cl1b_b14_actor_changes_its_own_future_candidate_policy_but_can_overfit ... ok
+test b15_all_350_native_worlds_falsify_universal_policy_switch_benefit ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
