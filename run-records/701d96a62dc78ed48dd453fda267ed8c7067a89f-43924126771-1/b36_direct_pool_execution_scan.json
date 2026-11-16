@@ -1,0 +1,710 @@
+{
+  "evidence": "independent Rust-source-parsed CIL model, NOT native Rust confirmation",
+  "source": "cl0/crates/world/tests/cl1b_b35_multitrial_retention.rs",
+  "programVariants": 2,
+  "energyPhysicsVariants": 2,
+  "resourceSchedules": 4,
+  "worlds": 16,
+  "cases": [
+    {
+      "schedule": [
+        4,
+        5,
+        5
+      ],
+      "arm": "Adaptive",
+      "drawOnly": {
+        "arm": "Adaptive",
+        "schedule": [
+          4,
+          5,
+          5
+        ],
+        "totalWrites": 1,
+        "perPacketWrites": [
+          1,
+          1,
+          1
+        ],
+        "perPacketPaid": [
+          18,
+          5,
+          0
+        ],
+        "charged": 23,
+        "edits": 1,
+        "trials": [
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 4,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 0,
+            "success": false
+          }
+        ],
+        "sourceRequest": 4,
+        "finalPC": 4,
+        "local": 0,
+        "pool": 5,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "Adaptive",
+        "schedule": [
+          4,
+          5,
+          5
+        ],
+        "totalWrites": 1,
+        "perPacketWrites": [
+          1,
+          1,
+          1
+        ],
+        "perPacketPaid": [
+          18,
+          5,
+          5
+        ],
+        "charged": 28,
+        "edits": 2,
+        "trials": [
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 4,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 0,
+            "success": false
+          },
+          {
+            "req": 3,
+            "available": 0,
+            "success": false
+          }
+        ],
+        "sourceRequest": 3,
+        "finalPC": 4,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 5,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        4,
+        5,
+        5
+      ],
+      "arm": "StaticThree",
+      "drawOnly": {
+        "arm": "StaticThree",
+        "schedule": [
+          4,
+          5,
+          5
+        ],
+        "totalWrites": 3,
+        "perPacketWrites": [
+          1,
+          2,
+          3
+        ],
+        "perPacketPaid": [
+          17,
+          4,
+          4
+        ],
+        "charged": 25,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 3,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "StaticThree",
+        "schedule": [
+          4,
+          5,
+          5
+        ],
+        "totalWrites": 3,
+        "perPacketWrites": [
+          1,
+          2,
+          3
+        ],
+        "perPacketPaid": [
+          17,
+          4,
+          4
+        ],
+        "charged": 25,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 3,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        4,
+        12,
+        12
+      ],
+      "arm": "Adaptive",
+      "drawOnly": {
+        "arm": "Adaptive",
+        "schedule": [
+          4,
+          12,
+          12
+        ],
+        "totalWrites": 3,
+        "perPacketWrites": [
+          1,
+          2,
+          3
+        ],
+        "perPacketPaid": [
+          18,
+          9,
+          14
+        ],
+        "charged": 41,
+        "edits": 1,
+        "trials": [
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 4,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 7,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 10,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 1,
+            "success": false
+          }
+        ],
+        "sourceRequest": 4,
+        "finalPC": 4,
+        "local": 0,
+        "pool": 1,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "Adaptive",
+        "schedule": [
+          4,
+          12,
+          12
+        ],
+        "totalWrites": 3,
+        "perPacketWrites": [
+          1,
+          2,
+          3
+        ],
+        "perPacketPaid": [
+          18,
+          9,
+          15
+        ],
+        "charged": 42,
+        "edits": 1,
+        "trials": [
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 4,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 7,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 10,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 1,
+            "success": false
+          }
+        ],
+        "sourceRequest": 4,
+        "finalPC": 5,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 1,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        4,
+        12,
+        12
+      ],
+      "arm": "StaticThree",
+      "drawOnly": {
+        "arm": "StaticThree",
+        "schedule": [
+          4,
+          12,
+          12
+        ],
+        "totalWrites": 7,
+        "perPacketWrites": [
+          1,
+          4,
+          7
+        ],
+        "perPacketPaid": [
+          17,
+          12,
+          12
+        ],
+        "charged": 41,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 1,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "StaticThree",
+        "schedule": [
+          4,
+          12,
+          12
+        ],
+        "totalWrites": 7,
+        "perPacketWrites": [
+          1,
+          4,
+          7
+        ],
+        "perPacketPaid": [
+          17,
+          12,
+          12
+        ],
+        "charged": 41,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 1,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        5,
+        5,
+        5
+      ],
+      "arm": "Adaptive",
+      "drawOnly": {
+        "arm": "Adaptive",
+        "schedule": [
+          5,
+          5,
+          5
+        ],
+        "totalWrites": 1,
+        "perPacketWrites": [
+          1,
+          1,
+          1
+        ],
+        "perPacketPaid": [
+          19,
+          0,
+          6
+        ],
+        "charged": 25,
+        "edits": 0,
+        "trials": [
+          {
+            "req": 5,
+            "available": 5,
+            "success": true
+          },
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          }
+        ],
+        "sourceRequest": 5,
+        "finalPC": 5,
+        "local": 0,
+        "pool": 4,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "Adaptive",
+        "schedule": [
+          5,
+          5,
+          5
+        ],
+        "totalWrites": 1,
+        "perPacketWrites": [
+          1,
+          1,
+          1
+        ],
+        "perPacketPaid": [
+          19,
+          0,
+          10
+        ],
+        "charged": 29,
+        "edits": 1,
+        "trials": [
+          {
+            "req": 5,
+            "available": 5,
+            "success": true
+          },
+          {
+            "req": 5,
+            "available": 4,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 0,
+            "success": false
+          }
+        ],
+        "sourceRequest": 4,
+        "finalPC": 4,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 4,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        5,
+        5,
+        5
+      ],
+      "arm": "StaticThree",
+      "drawOnly": {
+        "arm": "StaticThree",
+        "schedule": [
+          5,
+          5,
+          5
+        ],
+        "totalWrites": 4,
+        "perPacketWrites": [
+          1,
+          2,
+          4
+        ],
+        "perPacketPaid": [
+          17,
+          4,
+          8
+        ],
+        "charged": 29,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "StaticThree",
+        "schedule": [
+          5,
+          5,
+          5
+        ],
+        "totalWrites": 4,
+        "perPacketWrites": [
+          1,
+          2,
+          4
+        ],
+        "perPacketPaid": [
+          17,
+          4,
+          8
+        ],
+        "charged": 29,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    },
+    {
+      "schedule": [
+        6,
+        8,
+        12
+      ],
+      "arm": "Adaptive",
+      "drawOnly": {
+        "arm": "Adaptive",
+        "schedule": [
+          6,
+          8,
+          12
+        ],
+        "totalWrites": 1,
+        "perPacketWrites": [
+          1,
+          1,
+          1
+        ],
+        "perPacketPaid": [
+          19,
+          6,
+          0
+        ],
+        "charged": 25,
+        "edits": 0,
+        "trials": [
+          {
+            "req": 5,
+            "available": 6,
+            "success": true
+          },
+          {
+            "req": 5,
+            "available": 3,
+            "success": false
+          }
+        ],
+        "sourceRequest": 5,
+        "finalPC": 5,
+        "local": 0,
+        "pool": 15,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "Adaptive",
+        "schedule": [
+          6,
+          8,
+          12
+        ],
+        "totalWrites": 2,
+        "perPacketWrites": [
+          1,
+          1,
+          2
+        ],
+        "perPacketPaid": [
+          19,
+          9,
+          12
+        ],
+        "charged": 40,
+        "edits": 1,
+        "trials": [
+          {
+            "req": 5,
+            "available": 6,
+            "success": true
+          },
+          {
+            "req": 5,
+            "available": 3,
+            "success": false
+          },
+          {
+            "req": 4,
+            "available": 11,
+            "success": true
+          },
+          {
+            "req": 4,
+            "available": 2,
+            "success": false
+          }
+        ],
+        "sourceRequest": 4,
+        "finalPC": 6,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 6,
+        "poolPaidAll": true
+      },
+      "outputDelta": 1
+    },
+    {
+      "schedule": [
+        6,
+        8,
+        12
+      ],
+      "arm": "StaticThree",
+      "drawOnly": {
+        "arm": "StaticThree",
+        "schedule": [
+          6,
+          8,
+          12
+        ],
+        "totalWrites": 7,
+        "perPacketWrites": [
+          2,
+          4,
+          7
+        ],
+        "perPacketPaid": [
+          20,
+          8,
+          12
+        ],
+        "charged": 40,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": false
+      },
+      "allNative": {
+        "arm": "StaticThree",
+        "schedule": [
+          6,
+          8,
+          12
+        ],
+        "totalWrites": 7,
+        "perPacketWrites": [
+          2,
+          4,
+          7
+        ],
+        "perPacketPaid": [
+          20,
+          8,
+          12
+        ],
+        "charged": 40,
+        "edits": 0,
+        "trials": [],
+        "sourceRequest": 3,
+        "finalPC": 1,
+        "local": 0,
+        "pool": 0,
+        "stopped": false,
+        "traps": 0,
+        "poolPaidNonDraw": 0,
+        "poolPaidAll": true
+      },
+      "outputDelta": 0
+    }
+  ]
+}
