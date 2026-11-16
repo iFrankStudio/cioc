@@ -1774,10 +1774,13 @@ impl World {
                 {
                     return Err("storage capacity exhausted".into());
                 }
+                let writer = if track_provenance {
+                    Some(i64::try_from(id)
+                        .map_err(|_| "process ID exceeds provenance register".to_string())?)
+                } else { None };
                 cells.insert(key, value);
-                if track_provenance {
-                    cell_last_writer.insert(key, i64::try_from(id)
-                        .map_err(|_| "process ID exceeds provenance register".to_string())?);
+                if let Some(writer) = writer {
+                    cell_last_writer.insert(key, writer);
                 }
                 p.pc = next;
                 self.pending_transition = Some(EventKind::CellWritten { key, value });
