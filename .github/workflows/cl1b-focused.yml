@@ -218,9 +218,10 @@ jobs:
             b27_multigeneration_self_copy_scan
             b28_cumulative_genome_mutation_scan
             b29_mutation_rule_siblings_scan
+            b30_heldout_sibling_threshold_scan
           )
-          if [ "${#observers[@]}" -ne 16 ]; then
-            echo "Expected 16 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 17 ]; then
+            echo "Expected 17 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
