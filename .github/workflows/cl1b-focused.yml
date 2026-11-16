@@ -102,6 +102,7 @@ jobs:
             cl1b_b39_temporal_task_evidence
             cl1b_b40_postwrite_recheck
             cl1b_b41_candidate_feedback_retention
+            cl1b_b42_self_assembled_probe
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -209,8 +210,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 41 ]; then
-            echo "Expected exactly 41 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 42 ]; then
+            echo "Expected exactly 42 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -287,9 +288,10 @@ jobs:
             b39_temporal_task_evidence_scan
             b40_postwrite_recheck_scan
             b41_candidate_feedback_retention_scan
+            b42_self_assembled_probe_scan
           )
-          if [ "${#observers[@]}" -ne 28 ]; then
-            echo "Expected 28 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 29 ]; then
+            echo "Expected 29 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
