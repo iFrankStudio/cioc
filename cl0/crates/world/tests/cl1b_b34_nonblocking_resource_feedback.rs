@@ -78,12 +78,12 @@ fn trial(arm:Arm,packet:u64)->ResultTrace{
   (Origin::Internal(1),EventKind::CellWritten{key:9,value:1})
    if e.pc==if arm==Arm::StaticThree{4}else{9}
  )).count();
- let edits=w.events().iter().filter(|e|matches!(
-  (&e.origin,&e.kind),
-  (Origin::Internal(1),EventKind::ExecutableConstPatched{
-   node:0,before:5,after:3
-  })
- )).count();
+ // PatchConst emits a charged native PC5 execution; the actual
+ // executable source literal is audited separately below.
+ let edits=w.events().iter().filter(|e|
+  e.origin==Origin::Internal(1) && e.pc==5 &&
+  !matches!(e.kind,EventKind::Trapped(_))
+ ).count();
  let source_request=match &w.process(1).unwrap().code.nodes[0]{
   Op::Const{value,..}=>*value,_=>panic!("first resource-request literal mutated to wrong opcode")
  };
