@@ -1,0 +1,4 @@
+# B47 implementation checkpoint — evidence pending
+The frozen protocol is in `studies/B47-finite-feedback-retention-phase-controls.md`.
+This commit adds a prospective native Rust six-arm, eight-sequence, three-regime screen and an independent source-structure audit. **It does not add an independent dynamic CIL interpreter**; that preregistered evidence requirement remains outstanding. The Oracle arm is currently an explicit duplicate of the compact immutable source, an engineering calibration, **not** a superior oracle; it cannot support an endogenous claim.
+Predictions remain the preregistered P1–P4, not observed outcomes. The native test deliberately fails on an unexpected positive H47 to force a source-pinned independent investigation; a negative H47 prints evidence and passes engineering invariants. Native CI must be checked at this exact executable SHA. No B3/B4 acceptance is implied.
