@@ -73,7 +73,7 @@ fn run(arm: Arm, train: i64, holdout: i64) -> Observation {
             assert_eq!(w.total_compute_inventory(), Some(inventory_before - 1));
             let e = w.events().last().unwrap().clone();
             assert_eq!(e.origin, Origin::Internal(1));
-            assert!(!matches!(e.kind, EventKind::Trapped(_)), "B43 requires no native trap");
+            assert!(!matches!(&e.kind, EventKind::Trapped(_)), "B43 requires no native trap");
             if phase == 0 && !static_source {
                 match &e.kind {
                     EventKind::CellWritten { key: 7, value } if e.pc == 7 =>
