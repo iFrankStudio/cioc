@@ -1,0 +1,45 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0004][0m[1m: non-exhaustive patterns: `Op::TryDrawCompute { .. }` not covered[0m
+    [1m[94m--> [0mcrates/world/src/lib.rs:1603:15
+     [1m[94m|[0m
+[1m[94m1603[0m [1m[94m|[0m         match op {
+     [1m[94m|[0m               [1m[91m^^[0m [1m[91mpattern `Op::TryDrawCompute { .. }` not covered[0m
+     [1m[94m|[0m
+[1m[92mnote[0m: `Op` defined here
+    [1m[94m--> [0mcrates/world/src/lib.rs:11:10
+     [1m[94m|[0m
+[1m[94m  11[0m [1m[94m|[0m pub enum Op {
+     [1m[94m|[0m          [1m[92m^^[0m
+[1m[94m...[0m
+[1m[94m 147[0m [1m[94m|[0m     TryDrawCompute {
+     [1m[94m|[0m     [1m[94m--------------[0m [1m[94mnot covered[0m
+     [1m[94m= [0m[1mnote[0m: the matched value is of type `Op`
+[1m[96mhelp[0m: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern or an explicit pattern as shown
+     [1m[94m|[0m
+[1m[94m1814[0m [92m~ [0m            | Op::GraphTransfer { .. } => unreachable!("dispatched above")[92m,[0m
+[1m[94m1815[0m [92m~             Op::TryDrawCompute { .. } => todo!()[0m,
+     [1m[94m|[0m
+
+[1m[91merror[E0004][0m[1m: non-exhaustive patterns: `&Op::TryDrawCompute { .. }` not covered[0m
+    [1m[94m--> [0mcrates/world/src/lib.rs:1719:40
+     [1m[94m|[0m
+[1m[94m1719[0m [1m[94m|[0m                 let edge_value = match &p.code.nodes[index] {
+     [1m[94m|[0m                                        [1m[91m^^^^^^^^^^^^^^^^^^^^[0m [1m[91mpattern `&Op::TryDrawCompute { .. }` not covered[0m
+     [1m[94m|[0m
+[1m[92mnote[0m: `Op` defined here
+    [1m[94m--> [0mcrates/world/src/lib.rs:11:10
+     [1m[94m|[0m
+[1m[94m  11[0m [1m[94m|[0m pub enum Op {
+     [1m[94m|[0m          [1m[92m^^[0m
+[1m[94m...[0m
+[1m[94m 147[0m [1m[94m|[0m     TryDrawCompute {
+     [1m[94m|[0m     [1m[94m--------------[0m [1m[94mnot covered[0m
+     [1m[94m= [0m[1mnote[0m: the matched value is of type `&Op`
+[1m[96mhelp[0m: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern or an explicit pattern as shown
+     [1m[94m|[0m
+[1m[94m1752[0m [92m~ [0m                    }[92m,[0m
+[1m[94m1753[0m [92m+                     &Op::TryDrawCompute { .. } => todo!()[0m
+     [1m[94m|[0m
+
+[1mFor more information about this error, try `rustc --explain E0004`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (lib test) due to 2 previous errors
