@@ -13,7 +13,7 @@ fn step(w: &mut World) -> Event {
     assert_eq!(w.total_compute_inventory(), Some(before - 1));
     let e = w.events().last().unwrap().clone();
     assert_eq!(e.origin, Origin::Internal(1));
-    assert!(!matches!(e.kind, EventKind::Trapped(_) | EventKind::Halted));
+    assert!(!matches!(&e.kind, EventKind::Trapped(_) | EventKind::Halted));
     e
 }
 
@@ -145,9 +145,9 @@ fn pair(train: i64, holdout: i64) -> PairOutcome {
             assert_eq!(a, b,
                 "all native post-convergence CIL events, incl PC/read/write/credits/tick, equal");
             assert_eq!(guest_world_state(&native), guest_world_state(&forged));
-            if let EventKind::CellRead { key: 11, value } = a.kind {
+            if let EventKind::CellRead { key: 11, value } = &a.kind {
                 if first_read.is_none() {
-                    first_read = Some(value);
+                    first_read = Some(*value);
                     assert_eq!(a.pc, 11);
                 }
                 observed_reads_equal &= native.cell(11) == forged.cell(11);
@@ -161,11 +161,11 @@ fn pair(train: i64, holdout: i64) -> PairOutcome {
                     restored = [true, true];
                 }
             }
-            if let EventKind::CellWritten { key: 11, value } = a.kind {
+            if let EventKind::CellWritten { key: 11, value } = &a.kind {
                 // The first probe output happened BEFORE convergence; only
                 // current post-restore task service counts here.
                 if phase == 1 || restored[0] {
-                    let bucket = usize::from(value != expected);
+                    let bucket = usize::from(*value != expected);
                     for side in &mut service {
                         side[phase][bucket] += 1;
                     }
@@ -185,7 +185,7 @@ fn pair(train: i64, holdout: i64) -> PairOutcome {
     assert_eq!(first_decision, Some(26),
         "same perceived output succeeds even if an external origin created it");
     let nodes = &native.process(1).unwrap().code.nodes;
-    let route = match nodes[9] { Op::Const { next, .. } => next, _ => panic!("B44 route changed") };
+    let route = match &nodes[9] { Op::Const { next, .. } => *next, _ => panic!("B44 route changed") };
     assert_eq!(route, 10);
     assert_eq!(nodes.len(), 38);
     assert!(guest_continuation_equal && observed_reads_equal);
