@@ -12,12 +12,14 @@ Add one append-only numeric CIL opcode `SenseComputePool {dst,next}` with five-c
 
 ## Prospectively frozen actor source and controls
 
-One externally loaded founder (PID1), **9 initial local compute credits**, zero shared pool. Supply one neutral shared-pool packet **before the first native instruction** so `SenseComputePool` can observe it while still possessing local compute. The packet is externally attributed `Intervention::SetComputePool`; no process-targeted `SetCredits`.
+One externally loaded founder (PID1), **8 initial local compute credits**, zero shared pool. Supply one neutral shared-pool packet **before the first native instruction** so `SenseComputePool` can observe it while still possessing local compute. The packet is externally attributed `Intervention::SetComputePool`; no process-targeted `SetCredits`.
+
+**Arithmetic correction before writing any B31 integration test or observing results:** the listed PC0..8 startup path executes **eight**, not nine, instructions (PC0–3, exactly one of PC4/5, PC6–8). The founder endowment is therefore **eight**; the sensor must finish at pool-payable PC9 with zero local credits. This preregistered-budget correction is visible in version history and must not be described as an observed result.
 
 A **13-node** CIL program (all one-credit native attempts) uses:
 `PC0 SenseComputePool r0 → PC1 Const r2=4 → PC2 Sub r0=r0-r2 → PC3 Branch r0 (nonzero→PC5; zero→PC4) → PC4 Const r0=3 / PC5 Const r0=4 → PC6 Const r1=8 → PC7 PatchConst(node=r1,value=r0) → PC8 Const r0=4 (edited) → PC9 DrawCompute r0 → PC10 Const r2=9 → PC11 Const r3=1 → PC12 Write cell9=1→PC9`.
 
-The source graph **pays nine startup CIL instructions** (PC0,1,2,3, either4/5,6,7,8) and reaches a pending `DrawCompute` with zero local credits. Conditional source mutation at PC7 is a *real native* `PatchConst` of executable PC8. For external pool4, the authored equality comparison chooses request3; for pool5 or6 it chooses request4. This comparison is **not learned**: threshold4, candidates3/4, branch and service target9 are **investigator authored**, and `Branch` supports equality-to-zero rather than general arithmetic comparison.
+The source graph **pays eight startup CIL instructions** (PC0,1,2,3, either4/5,6,7,8) and reaches a pending `DrawCompute` with zero local credits. Conditional source mutation at PC7 is a *real native* `PatchConst` of executable PC8. For external pool4, the authored equality comparison chooses request3; for pool5 or6 it chooses request4. This comparison is **not learned**: threshold4, candidates3/4, branch and service target9 are **investigator authored**, and `Branch` supports equality-to-zero rather than general arithmetic comparison.
 
 Three same-size, same-startup-cost arms:
 - **SENSE:** actual `SenseComputePool` at PC0.
@@ -28,7 +30,7 @@ Four frozen neutral environmental supplies `pool∈{0,4,5,6}` × three arms = **
 
 Additional preregistered negative physics tests:
 1. **Zero-credit sensor block:** load the same CIL source at zero initial credits and neutral pool100. Process PC0 (non-Draw) must not take a step or sense, even with enormous resource available. This distinguishes telemetry visibility *if powered* from miraculous reboot or zero-cost self-rescue.
-2. **Overflow discipline:** with initial 9 credits and world pool `i64::MAX+1`, first `SenseComputePool` must trap with a real paid event; registers and PC must not wrap into an apparent signed number. Do not claim `total_compute_inventory()` exists if the aggregate overflows.
+2. **Overflow discipline:** with initial 8 credits and world pool `i64::MAX+1`, first `SenseComputePool` must trap with a real paid event; registers and PC must not wrap into an apparent signed number. Do not claim `total_compute_inventory()` exists if the aggregate overflows.
 3. **ABI determinism:** `SenseComputePool{dst:0,next:1}` must encode to `[31,0,1,0,0]`, decode to itself and preserve old tag23 Draw encoding; an invalid operand must be rejected without creation of a usable executable.
 
 ## Registered falsifiers and interpretation
