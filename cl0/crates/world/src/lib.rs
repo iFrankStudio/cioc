@@ -143,6 +143,12 @@ pub enum Op {
         dst: usize,
         next: usize,
     },
+    /// Paid nonblocking transfer; success written to a register, never pool-paid.
+    TryDrawCompute {
+        amount: usize,
+        dst: usize,
+        next: usize,
+    },
     ReturnCompute {
         amount: usize,
         next: usize,
@@ -492,6 +498,13 @@ impl Op {
                 0,
                 0,
             ]),
+            Op::TryDrawCompute { amount, dst, next } => Ok([
+                32,
+                i64::try_from(*amount).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
+                0,
+            ]),
         }
     }
 
@@ -529,6 +542,7 @@ impl Op {
             Op::GraphTransfer { .. } => 29,
             Op::GraphCopyNodeLocal { .. } => 30,
             Op::SenseComputePool { .. } => 31,
+            Op::TryDrawCompute { .. } => 32,
         }
     }
 
@@ -558,6 +572,7 @@ impl Op {
             | Op::GraphReadTag { next, .. }
             | Op::DrawCompute { next, .. }
             | Op::SenseComputePool { next, .. }
+            | Op::TryDrawCompute { next, .. }
             | Op::ReturnCompute { next, .. }
             | Op::TransferCompute { next, .. }
             | Op::GraphReadField { next, .. }
@@ -766,6 +781,11 @@ impl Op {
                 dst: slot(1)?,
                 next: slot(2)?,
             }),
+            32 => Ok(Op::TryDrawCompute {
+                amount: slot(1)?,
+                dst: slot(2)?,
+                next: slot(3)?,
+            }),
             _ => Err("unknown opcode tag".into()),
         }
     }
@@ -839,6 +859,12 @@ pub enum EventKind {
     /// Observer-only trace of a real charged native pool observation.
     ComputePoolSensed {
         available: u64,
+    },
+    /// Observer-only exact charged resource result; CIL receives register flag.
+    ComputeDrawTried {
+        requested: u64,
+        available_before: u64,
+        success: bool,
     },
     /// Observer-only successful native shared-cell write.
     CellWritten {
@@ -1808,6 +1834,31 @@ impl World {
             }
         };
         match op {
+            Op::TryDrawCompute { amount, dst, next } => {
+                next_ok(next)?;
+                if dst >= REGISTERS {
+                    return Err("invalid register".into());
+                }
+                let quantity = reg(amount)?;
+                let available_before = self.compute_pool;
+                let success = available_before >= quantity;
+                if success {
+                    p.credits.checked_add(quantity)
+                        .ok_or("process compute balance overflow")?;
+                    self.compute_pool -= quantity;
+                }
+                let actor = self.processes.get_mut(&id).expect("actor exists");
+                if success {
+                    actor.credits += quantity;
+                }
+                actor.registers[dst] = i64::from(success);
+                actor.pc = next;
+                self.pending_transition = Some(EventKind::ComputeDrawTried {
+                    requested: quantity,
+                    available_before,
+                    success,
+                });
+            }
             Op::DrawCompute { amount, next } => {
                 next_ok(next)?;
                 let quantity = reg(amount)?;
