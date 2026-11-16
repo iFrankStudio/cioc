@@ -88,10 +88,19 @@ function simulate(arm,supply){
   const work=drain();windows.push({packet,work,births:events.filter(e=>e.kind==="GraphLaunched").length,pool,energy:inventory()});
  }
  const births=events.filter(e=>e.kind==="GraphLaunched").map((e,i)=>[e.process,i+2]);
+ // This ancestry graph can BRANCH: surplus local credit permits a parent
+ // to reenter Draw after one birth. Do not infer generation depth from PID.
+ const expectedRequest=new Map([[1,127]]);
+ for(const [parent,child] of births){
+   if(!expectedRequest.has(parent)||expectedRequest.has(child))
+     throw Error("B28 broken native source lineage");
+   expectedRequest.set(child,expectedRequest.get(parent)+delta);
+ }
  const errors=[];
- for(let i=0;i<processes.length;i++){
-  const p=processes[i],request=127+delta*i;
-  if(!sameGenome(p.code,genome(request,delta)))errors.push({id:p.id,expect:request,actual:p.code[0]?.value});
+ for(const p of processes){
+   const request=expectedRequest.get(p.id);
+   if(request===undefined||!sameGenome(p.code,genome(request,delta)))
+     errors.push({id:p.id,expect:request,actual:p.code[0]?.value});
  }
  const made=events.filter(e=>e.kind==="GraphCreated").length;
  const copies=events.filter(e=>e.kind==="GraphNodeCopied").length;
@@ -119,8 +128,9 @@ for(const c of cases){
  if(c.genotypeMismatches.length)throw Error("B28 cumulative source genome not inherited");
  if(c.copies%19!==0||c.edits%2!==0)throw Error("B28 partial graph edits");
 }
-if(JSON.stringify(cases[0].genotypes)!==JSON.stringify([127,128,129,130]))
- throw Error("B28 increased native request not inherited cumulatively");
+if(JSON.stringify(cases[0].genotypes)!==JSON.stringify([127,128,129,129]) ||
+   JSON.stringify(cases[0].births)!==JSON.stringify([[1,2],[2,3],[2,4]]))
+ throw Error("B28b: surplus-credit branching lineage not reproduced");
 if(JSON.stringify(cases[1].genotypes)!==JSON.stringify([127,128,129]))
  throw Error("B28 flat supply delay not observed");
 if(JSON.stringify(cases[4].genotypes)!==JSON.stringify([127,127,127,127]))
