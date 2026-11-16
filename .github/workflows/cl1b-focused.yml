@@ -117,6 +117,22 @@ jobs:
               case "${changed_path}" in
                 cl0/crates/world/src/*|cl0/crates/world/Cargo.toml|cl0/Cargo.toml|cl0/Cargo.lock|.github/workflows/cl1b-focused.yml)
                   full=1 ;;
+                cl1b/analysis/*.mjs)
+                  # Observer-only commits MUST exercise corresponding native
+                  # test(s). A zero-test green workflow is not native evidence.
+                  observer_file="${changed_path##*/}"
+                  study_prefix="${observer_file%%_*}"
+                  matching=0
+                  for declared in "${targets[@]}"; do
+                    if [[ "${declared}" == "cl1b_${study_prefix}_"* ]]; then
+                      wanted["${declared}"]=1
+                      matching=$((matching+1))
+                    fi
+                  done
+                  if [ "${matching}" -eq 0 ]; then
+                    echo "No native target matched modified observer ${observer_file}; fall back to FULL Rust suite" >&2
+                    full=1
+                  fi ;;
                 cl0/crates/world/tests/cl1b_*.rs)
                   name="${changed_path##*/}"
                   native_target="${name%.rs}"
@@ -146,6 +162,10 @@ jobs:
               selected+=("${target}")
             fi
           done
+          if [ "${#selected[@]}" -eq 0 ]; then
+            echo "Zero CL-1B native targets selected; fail closed rather than publishing a false-green verification" >&2
+            exit 1
+          fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
           if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 29 ]; then
