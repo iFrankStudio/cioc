@@ -96,6 +96,32 @@ jobs:
             cl1b_b33_sensor_freshness
             cl1b_b34_nonblocking_resource_feedback
           )
+          # Fail closed on any silent native integration test omission,
+          # including full workflows where a new file was not in the manifest.
+          # This is a file/manifest audit, not additional runtime testing.
+          declared_count="${#targets[@]}"
+          actual_count=0
+          for source in crates/world/tests/cl1b_*.rs; do
+            [ -f "${source}" ] || continue
+            actual_count=$((actual_count + 1))
+            basename="${source##*/}"
+            actual_target="${basename%.rs}"
+            registered=0
+            for expected in "${targets[@]}"; do
+              if [ "${expected}" = "${actual_target}" ]; then
+                registered=1
+                break
+              fi
+            done
+            if [ "${registered}" -ne 1 ]; then
+              echo "Unregistered native integration source: ${source}" >&2
+              exit 1
+            fi
+          done
+          if [ "${actual_count}" -ne "${declared_count}" ]; then
+            echo "Native manifest mismatch: declared=${declared_count} actual=${actual_count}" >&2
+            exit 1
+          fi
           # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
           # when kernel semantics, Cargo dependencies or this workflow change.
