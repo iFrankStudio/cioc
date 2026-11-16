@@ -66,6 +66,19 @@ for(const packets of schedules)for(const arm of ["Prune","PatchSuppressed","Stat
  worlds.push(trial(arm,packets));
 }
 if(worlds.length!==12)throw Error("B32 wrong world denominator");
+const expected=[
+ {services:[4,2,5],pools:[0,8,2]},
+ {services:[3,2,4],pools:[1,5,3]},
+ {services:[4,2,6],pools:[3,11,1]},
+ {services:[4,2,5],pools:[0,8,1]},
+];
+for(let i=0;i<4;i++){
+ const group=worlds.slice(i*3,i*3+3);
+ if(JSON.stringify(group.map(x=>x.writes))!==JSON.stringify(expected[i].services))
+  throw Error("B32 frozen 12-world exact service counts drifted");
+ if(JSON.stringify(group.map(x=>x.pool))!==JSON.stringify(expected[i].pools))
+  throw Error("B32 frozen 12-world residual pool resource accounting drifted");
+}
 for(const w of worlds){
  if(w.arm==="Prune"&&w.edits>0&&(w.edge!==1||w.pc!==1))
   throw Error("B32 native-source pruned loop not pool-reachable");
