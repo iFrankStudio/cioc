@@ -65,10 +65,10 @@ fn case(law:Law,adaptive:bool,schedule:&[u64])->ResultTrace{
  let p=w.process(1).unwrap();
  assert_eq!(p.code.nodes.len(),initial_code_len);
  assert!(w.process(2).is_none());
- let source_request=match p.code.nodes[0] {Op::Const{value,..}=>value,_=>panic!("not CIL candidate literal")};
+ let source_request=match &p.code.nodes[0] {Op::Const{value,..}=>*value,_=>panic!("not CIL candidate literal")};
  let non_draw=w.events().iter().filter(|e|
   e.origin==Origin::Internal(1)&&e.pool_paid_attempt&&
-  e.pc!=if adaptive{11}else{1}
+  e.pc!=(if adaptive{11}else{1})
  ).count();
  let traps=w.events().iter().filter(|e|matches!(e.kind,EventKind::Trapped(_))).count();
  let patches=w.events().iter().filter(|e|e.origin==Origin::Internal(1)&&e.pc==6&&!matches!(e.kind,EventKind::Trapped(_))).count();
@@ -93,6 +93,13 @@ fn b36_any_instruction_can_use_neutral_pool_credit_without_free_compute_or_autom
  ];
  let baseline_adaptive=[1_usize,3,1,1];
  let baseline_static=[3_usize,7,4,7];
+ // Independent source-parsed CIL predictions frozen BEFORE any B36 Rust CI.
+ // More executable instructions become affordable, but adaptive work
+ // remains worse than an ultra-compact immutable native actor.
+ let all_native_adaptive=[1_usize,3,1,2];
+ let all_native_static=[3_usize,7,4,7];
+ let all_native_pool=[0_u64,0,0,0];
+ let pool_paid_non_draw_adapt=[5_usize,1,4,6];
  let mut worlds=0;
  let mut direct_charge=0;
  for (i,schedule) in schedules.into_iter().enumerate(){
@@ -104,6 +111,14 @@ fn b36_any_instruction_can_use_neutral_pool_credit_without_free_compute_or_autom
   assert_eq!(draw_adapt.service_writes,baseline_adaptive[i],
    "new optional world law must not alter native B35 draw-only baseline");
   assert_eq!(draw_static.service_writes,baseline_static[i]);
+  assert_eq!(all_adapt.service_writes,all_native_adaptive[i],
+   "B36 paid-any-op source model prediction includes real work and overhead");
+  assert_eq!(all_static.service_writes,all_native_static[i],
+   "compact static native service must not be affected by all-pool semantics");
+  assert_eq!(all_adapt.pool,all_native_pool[i]);
+  assert_eq!(all_adapt.pool_paid_non_draw,pool_paid_non_draw_adapt[i],
+   "must audit each real pool-paid non-Draw attempt, not just new work output");
+  assert_eq!(all_adapt.traps,0);
   assert_eq!(draw_adapt.pool_paid_non_draw,0);
   assert_eq!(draw_static.pool_paid_non_draw,0);
   direct_charge+=all_adapt.pool_paid_non_draw+all_static.pool_paid_non_draw;
