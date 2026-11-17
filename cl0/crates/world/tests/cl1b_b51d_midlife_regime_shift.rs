@@ -299,7 +299,7 @@ fn b51d_midlife_hidden_task_shift_native_falsifier(){
     assert_eq!(cases.len(),16);
     out.flush().unwrap();
     for a in cases.chunks(4){
-        let expected=a[0]["paid"];
+        let expected=a[0]["paid"].clone();
         for row in a{
             assert_eq!(row["paid"],expected,
                 "all four arms must pay equal actual native instructions");
