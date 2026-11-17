@@ -110,6 +110,7 @@ jobs:
             cl1b_b47_retention_phase
             cl1b_b49_dynamic_replay
             cl1b_b50_feedback_vs_forced_clone
+            cl1b_b51b_native_candidate_composition
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -137,7 +138,7 @@ jobs:
             echo "Native manifest mismatch: declared=${declared_count} actual=${actual_count}" >&2
             exit 1
           fi
-          # Only a changed test and its direct imports need routine validation.
+          # The B49 observer requires its same-job native event trace. Every\n          # scoped job therefore selects B49 as a fixture-producing target,\n          # preserving fail-closed independent verification instead of\n          # skipping an observer on a missing native artifact.\n          # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
           # when kernel semantics, Cargo dependencies or this workflow change.
           full=0
@@ -207,7 +208,7 @@ jobs:
               esac
             done
           fi
-          for target in "${targets[@]}"; do
+          if [ "${full}" -eq 0 ]; then\n            wanted[cl1b_b49_dynamic_replay]=1\n          fi\n          for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
               selected+=("${target}")
             fi
@@ -218,8 +219,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 49 ]; then
-            echo "Expected exactly 49 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 50 ]; then
+            echo "Expected exactly 50 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -304,9 +305,10 @@ jobs:
             b47_source_structure
             b49_dynamic_native_trace_replay
             b50_paid_feedback_vs_forced_scan
+            b51b_native_candidate_replay
           )
-          if [ "${#observers[@]}" -ne 36 ]; then
-            echo "Expected 36 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 37 ]; then
+            echo "Expected 37 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
