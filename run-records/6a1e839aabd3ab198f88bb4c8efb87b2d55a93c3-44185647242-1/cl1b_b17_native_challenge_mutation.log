@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+[1m[92m     Running[0m tests/cl1b_b17_native_challenge_mutation.rs (target/debug/build/cl0-world/c1a260e0f65e9275/out/cl1b_b17_native_challenge_mutation-c1a260e0f65e9275)
+
+running 2 tests
+test canonical_b16::b16_actor_issued_challenge_detects_skipped_payload_but_not_corrupted_checker ... ok
+test b17_all_4495_native_mutants_test_actual_challenge_payload_and_branch_integrity ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.45s
+

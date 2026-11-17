@@ -1,0 +1,553 @@
+{
+  "evidence": "independent source-parsed generic CIL world model; NOT native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b37_direct_pool_contention.rs",
+  "worlds": 14,
+  "cases": [
+    {
+      "composition": "SoloWorker",
+      "supply": [
+        3,
+        6,
+        9
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 3,
+          "pool": 0
+        },
+        {
+          "packet": 9,
+          "executed": 9,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "BurnerFirst",
+      "supply": [
+        3,
+        6,
+        9
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 9,
+          "executed": 9,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "WorkerFirst",
+      "supply": [
+        3,
+        6,
+        9
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 9,
+          "executed": 9,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "DualWorker",
+      "supply": [
+        3,
+        6,
+        9
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 9,
+          "executed": 9,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "SoloWorker",
+      "supply": [
+        6,
+        6,
+        6
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 4,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "BurnerFirst",
+      "supply": [
+        6,
+        6,
+        6
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "WorkerFirst",
+      "supply": [
+        6,
+        6,
+        6
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "DualWorker",
+      "supply": [
+        6,
+        6,
+        6
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 4,
+          "pool": 0
+        },
+        {
+          "packet": 6,
+          "executed": 6,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "SoloWorker",
+      "supply": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        3
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 1,
+          "executed": 1,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 2,
+          "executed": 2,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "executed": 4,
+          "productive": 3,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "executed": 5,
+          "productive": 5,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "BurnerFirst",
+      "supply": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        3
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 1,
+          "executed": 1,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 2,
+          "executed": 2,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "executed": 4,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "executed": 5,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "WorkerFirst",
+      "supply": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        3
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 3,
+      "workerSteps": 9,
+      "burnerSteps": 9,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 1,
+          "executed": 1,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 2,
+          "executed": 2,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "executed": 4,
+          "productive": 1,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "executed": 5,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 3,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "DualWorker",
+      "supply": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        3
+      ],
+      "direct": true,
+      "steps": 18,
+      "productive": 6,
+      "workerSteps": 18,
+      "burnerSteps": 0,
+      "poolPaid": 18,
+      "pool": 0,
+      "windowResults": [
+        {
+          "packet": 1,
+          "executed": 1,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 2,
+          "executed": 2,
+          "productive": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "executed": 4,
+          "productive": 2,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "executed": 5,
+          "productive": 4,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "executed": 3,
+          "productive": 6,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "composition": "SoloWorker",
+      "supply": [
+        18
+      ],
+      "direct": false,
+      "steps": 0,
+      "productive": 0,
+      "workerSteps": 0,
+      "burnerSteps": 0,
+      "poolPaid": 0,
+      "pool": 18,
+      "windowResults": [
+        {
+          "packet": 18,
+          "executed": 0,
+          "productive": 0,
+          "pool": 18
+        }
+      ]
+    },
+    {
+      "composition": "BurnerFirst",
+      "supply": [
+        18
+      ],
+      "direct": false,
+      "steps": 0,
+      "productive": 0,
+      "workerSteps": 0,
+      "burnerSteps": 0,
+      "poolPaid": 0,
+      "pool": 18,
+      "windowResults": [
+        {
+          "packet": 18,
+          "executed": 0,
+          "productive": 0,
+          "pool": 18
+        }
+      ]
+    }
+  ]
+}
