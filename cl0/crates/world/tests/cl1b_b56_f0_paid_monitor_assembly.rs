@@ -177,6 +177,7 @@ fn run_case(out:&mut BufWriter<File>,id:usize,seed:i64,arm:Arm)->Value{
     inject(out,&mut w,id,27,if matches!(arm,Arm::NoAssembly){0}else{1},
         "initial_arm_selector");
     inject(out,&mut w,id,7,TRAIN[0],"first_training_probe");
+    let mut paid=0_usize;
     let mut input=TRAIN[0];
     let mut training=true;
     let mut train_count=0_usize;
