@@ -1,6 +1,6 @@
 # B55a — frozen executable trial design (pre-native)
 
-Status: **protocol freeze only; no B55 native result**. Parent scientific criteria: [B55 preregistration](B55-endogenous-monitor-meta-policy-variation-preregistration.md). Frozen on 2026-11-17 before B55a native execution. No claims of B3/B4.
+Status: **original preregistered complete protocol NOT yet executed. A separately labeled 5-arm×2-ecology×4-seed native feasibility pilot now exists and is audited below; the frozen full scientific acceptance conditions remain unchanged**. Parent scientific criteria: [B55 preregistration](B55-endogenous-monitor-meta-policy-variation-preregistration.md). Frozen on 2026-11-17 before B55a native execution. No claims of B3/B4.
 
 ## Falsifiable hypothesis
 
@@ -35,3 +35,7 @@ In E1, an always-monitor policy wastes paid work compared with no monitor if mon
 ## Gate before first native run
 
 Implementation must first commit the complete manifest and Rust+CIL experiment together with independent JS replay; verify no B54 regression or implicit unlimited compute. If the source cannot support one PID1 performing prospective trials without a host-side policy choice, record B55a as blocked rather than substituting a laboratory-selected policy. Keep CL-1A archived.
+
+## Post-registration partial feasibility evidence (NOT the full protocol)
+
+[B55a native limited-pilot audit](../results/B55a-preflight-paid-monitor-choice-ecology-alias-audit.md), exact tested SHA `f442c3ebfb6fe25afea5980b8509ff46fda5b740`, [scoped9/9 native+43/43 observer run44100959934](https://github.com/iFrankStudio/cioc/actions/runs/44100959934): **40 genuine Rust PID1 worlds, 160,000 independently replicated paid CIL events, 35,608 external interventions, 892 executable-edge edits, first divergence null**. Source-origin paid monitor-route edits are mechanically demonstrated; all4 learning-arm worlds choose NEVER from successful pre-change evidence in both stationary and future-shifting ecologies. Under the latter they score **192 correct/96 wrong (U=0)** versus fixed every **280/8 (U=0.0165)**. **No H55a success claim**: only5 arms,2 ecologies,4/8 seeds and a reduced before-selection trial schedule were executed, not the original7×3×8 protocol; current-nonce forged feedback E3, privileged oracle F and disabled mutation G were not executed. The missing trial breadth must not be erased by changing this frozen document. The earlier source commit `e52cd4edf938900a2ee1e084a468f419a2a53151` failed due an initial-trial source reset vs retention classification bug and missing observer manifest URL; failures remain preserved. [B55b separate future online policy-revision protocol](B55b-online-monitor-policy-revision-under-hidden-change-preregistration.md) is NOT executed. B3/B4 remain NOT MET.
