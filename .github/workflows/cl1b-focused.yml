@@ -219,6 +219,9 @@ jobs:
           # B52 adds a paid task-feedback source controller and its source-parsed
           # independent interpreter; explicitly exercise the full 55/42 suite
           # before publishing organism-level interpretation.
+          # B54 proves the same authored B53 nonce-check source can be fooled
+          # by an external bit mutation between verified serial/commit and
+          # the native paid feedback Read. Preserve exact step-level replay.
           # All eight event-backed observers require native artifacts from
           # this exact source revision; B51d additionally imports B51c's
           # unchanged CIL founder. Run all event producers in scoped jobs,
