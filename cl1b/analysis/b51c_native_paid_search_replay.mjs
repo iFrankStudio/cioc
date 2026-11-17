@@ -40,6 +40,7 @@ class CIL{
   constructor(s,k,arm){
     this.s=s;this.k=k;this.arm=arm;
     this.code=founder.map(op=>({...op}));
+    this.maxCodeNodes=120;this.maxStorage=192;this.maxDataCells=16;
     this.pc=3;this.regs=[0,0,0,0];this.credits=BUDGET;
     this.cells=new Map();this.tick=0;this.paid=0;this.stopped=false;
     this.input=TRAIN[0];this.trainingOutputs=0;
@@ -66,10 +67,10 @@ class CIL{
   external(caseId,key,value,reason){
     if(!Number.isSafeInteger(value))throw Error('B51c invalid external integer');
     const isNew=!this.cells.has(key);
-    if(isNew&&this.cells.size>=16)throw Error('B51c data-cell capacity exceeded');
+    if(isNew&&this.cells.size>=this.maxDataCells)throw Error('B51c data-cell capacity exceeded');
     this.cells.set(key,value);
     this.tick++;
-    if(this.storage()>192)throw Error('B51c external storage cap exceeded');
+    if(this.storage()>this.maxStorage)throw Error('B51c external storage cap exceeded');
     return {type:'external',case:caseId,reason,key,value,tick:this.tick,
       credits:this.credits,storage:this.storage(),cells:this.stateCells()};
   }
@@ -97,7 +98,7 @@ class CIL{
       }
       case 'Write':{
         const key=r(op.address),value=r(op.value);
-        if(!this.cells.has(key)&&(this.cells.size>=16||this.storage()+1>192))
+        if(!this.cells.has(key)&&(this.cells.size>=this.maxDataCells||this.storage()+1>this.maxStorage))
           throw Error('B51c CIL Write cell capacity exceeded');
         this.cells.set(key,value);this.pc=go(op.next);
         event={type:'write',key,value};break;
@@ -106,7 +107,7 @@ class CIL{
         this.pc=go(r(op.test)!==0?op.nonzero:op.zero);break;
       case 'CloneNode':{
         const template={...this.node(r(op.source))};
-        if(this.code.length>=120||this.storage()+1>192)
+        if(this.code.length>=this.maxCodeNodes||this.storage()+1>this.maxStorage)
           throw Error('B51c CloneNode exceeds capacity');
         this.regs[op.dst]=this.code.length;
         this.code.push(template);this.pc=go(op.next);
@@ -129,7 +130,7 @@ class CIL{
     this.clones+=grown;
     this.patches+=Number(event.type==='patch');
     this.peak=Math.max(this.peak,this.storage());
-    if(this.peak>192||this.code.length>120)
+    if(this.peak>this.maxStorage||this.code.length>this.maxCodeNodes)
       throw Error('B51c strict native storage bound broken');
     return {
       type:'step',case:caseId,step:this.paid,tick:this.tick,

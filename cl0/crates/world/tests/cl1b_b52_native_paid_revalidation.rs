@@ -28,7 +28,7 @@ impl Arm{
     }
 }
 
-fn founder()->Vec<Op>{
+pub(crate) fn founder()->Vec<Op>{
     // Important: retain all 72 B51c ops exactly; no switchable correct
     // task program exists at initial startup.
     let mut code=b51c::founder();
