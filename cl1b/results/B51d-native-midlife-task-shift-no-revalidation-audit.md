@@ -2,6 +2,8 @@
 
 **B51d no-revalidation negative falsifier CONFIRMED; full cross-regime transfer NOT MET.** This study does not reauthor the B51c founder graph and must not be interpreted as life, autonomous search-policy invention, or B3/B4 success.
 
+**Additional FULL 52-target source-pinned regression (2026-11-17):** [run44040441081](https://github.com/iFrankStudio/cioc/actions/runs/44040441081), tested SHA `544750393a0315c9f088235efada80c02b1244b0`, changed only a workflow explanatory comment from the previously successful B51d source, **scope=full; 52/52 named Rust native integration targets PASS, 39/39 independent observer programs PASS, B31/B34 ABI PASS, both failure counters zero, evidence publication PASS**. [Original complete full CI summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/544750393a0315c9f088235efada80c02b1244b0-44040441081-1/summary.txt) · [exact SHA and conclusion](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/544750393a0315c9f088235efada80c02b1244b0-44040441081-1/result.txt) · [B51d independent 11,728-step parity in full run](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/544750393a0315c9f088235efada80c02b1244b0-44040441081-1/b51d_midlife_regime_replay.json). The original B51d primary [scoped run44039928740](https://github.com/iFrankStudio/cioc/actions/runs/44039928740) remains separately archived; both exact revisions agree in scientific result. **B52 remains preregistered, not executed.**
+
 ## Registered test and exact evidence
 
 - The [prospective B51d protocol](../studies/B51d-midlife-regime-shift-and-revalidation.md) was registered *before* implementation and before all B51d native runs.
