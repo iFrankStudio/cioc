@@ -111,17 +111,17 @@ fn run(case_id:usize,block:usize,seed:usize,shift:bool,arm:Arm,
             assert_eq!(event.pool_paid_attempt,false);
             let p=w.process(1).unwrap();
             assert_eq!(event.credits_after,p.credits);
-            if matches!(event.kind,EventKind::ExecutableEdgePatched{..}){edits+=1;}
+            if matches!(&event.kind,EventKind::ExecutableEdgePatched{..}){edits+=1;}
             let kind=native_kind(&event.kind);
             let storage=w.occupied_units();
             peak=peak.max(storage);
             assert!(storage<=192);
             assert!(p.code.nodes.len()<=80);
-            if let EventKind::CellWritten{key:11,value}=event.kind {
+            if let EventKind::CellWritten{key:11,value}=&event.kind {
                 // B49 raw scoring: actual input as of the actual native
                 // Write event. Never ignore diagnostic writes or stopped worlds.
                 let expected=w.cell(7).expect("input7 must exist");
-                if value==expected {correct[window]+=1;}
+                if *value==expected {correct[window]+=1;}
                 else {wrong[window]+=1;}
             }
             let created=p.code.nodes.len()-initial_code_len;
