@@ -4,9 +4,9 @@ Frozen 2026-11-17, prior to F0 native code. [Parent F0 preregistration](B56-F0-s
 
 ## Founder inventory and fixed operations
 
-Start with **exact 72-node B51c paid affine-search founder**, changing only original node50's continuation `next:30→74` so that *after* native candidate retention the PID1 reaches the assembly controller. Initial PID1 PC3. Node2 `Write` starts with `next:35` for the original trial program; paid retained node50 patches it to30. Initial B51c templates 0 Add,1 Sub and feedback-training logic 35–70 are **researcher authored**, not novel.
+Start with **exact 72-node B51c paid affine-search founder**, changing only original node50's continuation `next:30→72` so that *after* native candidate retention the PID1 reaches the assembly controller. Initial PID1 PC3. Node2 `Write` starts with `next:35` for the original trial program; paid retained node50 patches it to30. Initial B51c templates 0 Add,1 Sub and feedback-training logic 35–70 are **researcher authored**, not novel.
 
-New initial assembly nodes (indexed 72–101 inclusive, 30 ordinary CIL instructions):
+New initial assembly nodes (indexed 72–101 inclusive, 28 ordinary CIL instructions and 2 inert Halt placeholders):
 ```
 72 Const r2=27 →73; 73 Read r3,[r2] →74; 74 Branch r3 nonzero75 else30
 75 Const r2=35 →76; 76 CloneNode r3,[r2] →77; 77 Const r2=40 →78; 78 Write [r2]=r3 →79
@@ -20,7 +20,7 @@ New initial assembly nodes (indexed 72–101 inclusive, 30 ordinary CIL instruct
 98 Branch r3 nonzero30 else99
 99 Const r2=25 →100; 100 Const r3=1 →101; 101 Write [r2]=r3 →30
 ```
-**Index 72–101 contains 26 actual active nodes and 4 inert Halt gaps 96–97?** Exact instruction source may use inert Halt padding. The **controller includes generic templates + a generic response branch**, but the founder has **NO complete reachable task-output→feedback-Read→branch monitoring chain**: node2, on retained source, still goes directly to30. Cloning generic `Const20` and `Read20` into new program indices and modifying both successors **via native-paid instructions** is what creates that chain. If the author-provided node98 branch and node99–101 marker themselves count as a preformed useful complete policy under an independent strict topology audit, classify F0 **negative** even if the paid clone event occurs; do not assert independent invention.
+**Index 72–101 contains 28 actual active nodes and 2 inert Halt gaps at 96–97.** Exact instruction source may use inert Halt padding. The **controller includes generic templates + a generic response branch**, but the founder has **NO complete reachable task-output→feedback-Read→branch monitoring chain**: node2, on retained source, still goes directly to30. Cloning generic `Const20` and `Read20` into new program indices and modifying both successors **via native-paid instructions** is what creates that chain. If the author-provided node98 branch and node99–101 marker themselves count as a preformed useful complete policy under an independent strict topology audit, classify F0 **negative** even if the paid clone event occurs; do not assert independent invention.
 
 B51c original candidate cloning uses two native `CloneNode` steps allocated immediately after initial program. Expected initial graph length 102, original paid arithmetic clones **102,103**. Assembly uses subsequent two native clones **104,105** (new Const20 and Read20), and paid patches Const104.next→105, Read105.next→98, output node2.next→104. This expected index sequence is a **prospective prediction**, not an implementation excuse to let the host allocate/edit it. Independent replay must verify it.
 
@@ -35,7 +35,7 @@ B51c original candidate cloning uses two native `CloneNode` steps allocated imme
 | E_STATIC_EVERY | explicitly **different authored static baseline founder** | n/a | truthful | B51c founder + prewired complete EVERY feedback monitor and source-return edges, same caps/budget |
 | F_STATIC_FOURTH | explicitly **different authored static baseline founder** | n/a | truthful | B51c founder + prewired complete FOURTH counter/control; distinct authorial program and graph size |
 
-E/F must never be counted as source-identical controls for creation provenance; they demonstrate fixed-policy utility only. For the static arms, change retained candidate target constant at B51c node49 from 30 to static monitor node121 or110 respectively, with node50 continuing directly30, and append prebuilt bounded monitoring code, source-authored before process creation. They **cannot** be smuggled into A/B/C/D initial founder.
+E/F must never be counted as source-identical controls for creation provenance; they demonstrate fixed-policy utility only. For the static arms, change retained candidate target constant at B51c node49 from 30 to static monitor node120 or110 respectively, with node50 continuing directly30, and append prebuilt bounded monitoring code, source-authored before process creation. They **cannot** be smuggled into A/B/C/D initial founder.
 
 ## World schedules and exact limits
 
