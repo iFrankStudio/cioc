@@ -1,0 +1,38 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: fields `arm`, `native_attempts`, and `residual_pool` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b26_native_variant_lineage.rs:69:5
+   [1m[94m|[0m
+[1m[94m68[0m [1m[94m|[0m struct Trial {
+   [1m[94m|[0m        [1m[94m-----[0m [1m[94mfields in this struct[0m
+[1m[94m69[0m [1m[94m|[0m     arm: Arm,
+   [1m[94m|[0m     [1m[33m^^^[0m
+[1m[94m...[0m
+[1m[94m74[0m [1m[94m|[0m     native_attempts: usize,
+   [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^^^[0m
+[1m[94m75[0m [1m[94m|[0m     residual_pool: u64,
+   [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `Trial` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b26_native_variant_lineage") generated 1 warning
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+[1m[92m     Running[0m tests/cl1b_b26_native_variant_lineage.rs (target/debug/build/cl0-world/94cd962a6f250dbb/out/cl1b_b26_native_variant_lineage-94cd962a6f250dbb)
+
+running 1 test
+B26_NATIVE Trial { arm: Parent4Child3, supply: [4, 4, 4, 4, 4, 4], service_parent: 0, service_child: 6, service_by_packet: [(0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)], native_attempts: 58, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent3Child4, supply: [4, 4, 4, 4, 4, 4], service_parent: 6, service_child: 0, service_by_packet: [(1, 0), (1, 0), (1, 0), (1, 0), (1, 0), (1, 0)], native_attempts: 58, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child4, supply: [4, 4, 4, 4, 4, 4], service_parent: 2, service_child: 2, service_by_packet: [(0, 0), (0, 1), (1, 0), (0, 1), (1, 0), (0, 0)], native_attempts: 54, residual_pool: 4, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child3, supply: [5, 5, 5, 5, 5, 5], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 61, residual_pool: 3, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent3Child4, supply: [5, 5, 5, 5, 5, 5], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 61, residual_pool: 3, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child4, supply: [5, 5, 5, 5, 5, 5], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 64, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child3, supply: [4, 5, 4, 5, 4, 5], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 61, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent3Child4, supply: [4, 5, 4, 5, 4, 5], service_parent: 3, service_child: 3, service_by_packet: [(1, 0), (0, 1), (1, 0), (0, 1), (1, 0), (0, 1)], native_attempts: 61, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child4, supply: [4, 5, 4, 5, 4, 5], service_parent: 2, service_child: 4, service_by_packet: [(0, 0), (0, 2), (0, 0), (2, 0), (0, 0), (0, 2)], native_attempts: 61, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child3, supply: [5, 4, 5, 4, 5, 4], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 61, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent3Child4, supply: [5, 4, 5, 4, 5, 4], service_parent: 3, service_child: 3, service_by_packet: [(0, 1), (1, 0), (0, 1), (1, 0), (0, 1), (1, 0)], native_attempts: 61, residual_pool: 0, final_positions: [(31, 0), (1, 0)] }
+B26_NATIVE Trial { arm: Parent4Child4, supply: [5, 4, 5, 4, 5, 4], service_parent: 2, service_child: 3, service_by_packet: [(0, 1), (0, 0), (2, 0), (0, 0), (0, 2), (0, 0)], native_attempts: 57, residual_pool: 4, final_positions: [(31, 0), (1, 0)] }
+test b26_native_computed_mutation_is_inherited_by_first_cil_born_child_and_filtered_by_neutral_pool ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
