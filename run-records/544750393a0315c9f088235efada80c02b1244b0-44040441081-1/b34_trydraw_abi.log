@@ -1,0 +1,9 @@
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+[1m[92m     Running[0m unittests src/lib.rs (target/debug/build/cl0-world/b68c771322f9278c/out/cl0_world-b68c771322f9278c)
+
+running 2 tests
+test b34_trydraw_abi_tests::b34_trydraw_control_edge_can_be_relocated ... ok
+test b34_trydraw_abi_tests::b34_numerical_tag32_and_serde_are_stable ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 50 filtered out; finished in 0.00s
+
