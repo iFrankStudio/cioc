@@ -1,0 +1,39 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:202:11
+    [1m[94m|[0m
+[1m[94m202[0m [1m[94m|[0m     while paid<BUDGET&&!w.process(1).unwrap().stopped{
+    [1m[94m|[0m           [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:204:46
+    [1m[94m|[0m
+[1m[94m204[0m [1m[94m|[0m         let e=native_step(out,&mut w,id,&mut paid);
+    [1m[94m|[0m                                              [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:231:66
+    [1m[94m|[0m
+[1m[94m231[0m [1m[94m|[0m                     if service_count==3*WINDOW{first72_paid=Some(paid);}
+    [1m[94m|[0m                                                                  [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:244:42
+    [1m[94m|[0m
+[1m[94m244[0m [1m[94m|[0m                 initial_accept_step=Some(paid);
+    [1m[94m|[0m                                          [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:266:66
+    [1m[94m|[0m
+[1m[94m266[0m [1m[94m|[0m     let row=json!({"case":id,"seed":seed,"arm":arm.name(),"paid":paid,
+    [1m[94m|[0m                                                                  [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1m[91merror[E0425][0m[1m: cannot find value `paid` in this scope[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f0_paid_monitor_assembly.rs:281:75
+    [1m[94m|[0m
+[1m[94m281[0m [1m[94m|[0m         "historical_u":(success as f64-2.0*errors as f64-missing as f64)/(paid.max(1)as f64),
+    [1m[94m|[0m                                                                           [1m[91m^^^^[0m [1m[91mnot found in this scope[0m
+
+[1mFor more information about this error, try `rustc --explain E0425`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b56_f0_paid_monitor_assembly") due to 6 previous errors

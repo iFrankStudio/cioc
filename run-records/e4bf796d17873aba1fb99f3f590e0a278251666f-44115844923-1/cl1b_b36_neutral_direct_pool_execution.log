@@ -1,0 +1,69 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: multiple fields are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b36_neutral_direct_pool_execution.rs:11:2
+   [1m[94m|[0m
+[1m[94m10[0m [1m[94m|[0m struct ResultTrace {
+   [1m[94m|[0m        [1m[94m-----------[0m [1m[94mfields in this struct[0m
+[1m[94m11[0m [1m[94m|[0m  law:Law,adaptive:bool,schedule:Vec<u64>,service_writes:usize,per_packet_writes:Vec<usize>,
+   [1m[94m|[0m  [1m[33m^^^[0m     [1m[33m^^^^^^^^[0m      [1m[33m^^^^^^^^[0m                               [1m[33m^^^^^^^^^^^^^^^^^[0m
+[1m[94m12[0m [1m[94m|[0m  paid:usize,pool_paid_non_draw:usize,source_request:i64,local:u64,pool:u64,
+   [1m[94m|[0m                                      [1m[33m^^^^^^^^^^^^^^[0m
+[1m[94m13[0m [1m[94m|[0m  pc:usize,stopped:bool,traps:usize,patches:usize,
+   [1m[94m|[0m  [1m[33m^^[0m       [1m[33m^^^^^^^[0m                  [1m[33m^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `ResultTrace` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m[1m: fields `arm` and `stopped` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b35_multitrial_retention.rs:41:2
+   [1m[94m|[0m
+[1m[94m40[0m [1m[94m|[0m struct ResultTrace {
+   [1m[94m|[0m        [1m[94m-----------[0m [1m[94mfields in this struct[0m
+[1m[94m41[0m [1m[94m|[0m  arm:Arm,schedule:Vec<u64>,native_trials:Vec<(u64,u64,bool)>,
+   [1m[94m|[0m  [1m[33m^^^[0m
+[1m[94m...[0m
+[1m[94m44[0m [1m[94m|[0m  final_pc:usize,local:u64,pool:u64,stopped:bool,traps:usize,
+   [1m[94m|[0m                                    [1m[33m^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `ResultTrace` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b36_neutral_direct_pool_execution") generated 2 warnings
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.54s
+[1m[92m     Running[0m tests/cl1b_b36_neutral_direct_pool_execution.rs (target/debug/build/cl0-world/14aa80f225288cbf/out/cl1b_b36_neutral_direct_pool_execution-14aa80f225288cbf)
+
+running 4 tests
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: true, schedule: [4, 5, 5], service_writes: 1, per_packet_writes: [1, 1, 1], paid: 23, pool_paid_non_draw: 0, source_request: 4, local: 0, pool: 5, pc: 4, stopped: false, traps: 0, patches: 1 }
+test b36_optional_global_energy_physics_serializes_without_legacy_default_drift ... ok
+test b36_generic_pool_pay_rule_cannot_create_credit_or_revive_stopped_actor ... ok
+B35_NATIVE ResultTrace { arm: Adaptive, schedule: [4, 5, 5], native_trials: [(5, 4, false), (4, 4, true), (4, 0, false)], total_writes: 1, per_packet_writes: [1, 1, 1], per_packet_paid: [18, 5, 0], edits: 1, source_request: 4, charged_steps: 23, final_pc: 4, local: 0, pool: 5, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: true, schedule: [4, 5, 5], service_writes: 1, per_packet_writes: [1, 1, 1], paid: 28, pool_paid_non_draw: 5, source_request: 3, local: 0, pool: 0, pc: 4, stopped: false, traps: 0, patches: 2 }
+B35_NATIVE ResultTrace { arm: ForcedFail, schedule: [4, 5, 5], native_trials: [], total_writes: 0, per_packet_writes: [0, 0, 0], per_packet_paid: [14, 0, 0], edits: 2, source_request: 3, charged_steps: 14, final_pc: 4, local: 0, pool: 14, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: false, schedule: [4, 5, 5], service_writes: 3, per_packet_writes: [1, 2, 3], paid: 25, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 3, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: StaticThree, schedule: [4, 5, 5], native_trials: [], total_writes: 3, per_packet_writes: [1, 2, 3], per_packet_paid: [17, 4, 4], edits: 0, source_request: 3, charged_steps: 25, final_pc: 1, local: 0, pool: 3, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: false, schedule: [4, 5, 5], service_writes: 3, per_packet_writes: [1, 2, 3], paid: 25, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 3, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: Adaptive, schedule: [4, 12, 12], native_trials: [(5, 4, false), (4, 4, true), (4, 7, true), (4, 10, true), (4, 1, false)], total_writes: 3, per_packet_writes: [1, 2, 3], per_packet_paid: [18, 9, 14], edits: 1, source_request: 4, charged_steps: 41, final_pc: 4, local: 0, pool: 1, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: true, schedule: [4, 12, 12], service_writes: 3, per_packet_writes: [1, 2, 3], paid: 41, pool_paid_non_draw: 0, source_request: 4, local: 0, pool: 1, pc: 4, stopped: false, traps: 0, patches: 1 }
+B35_NATIVE ResultTrace { arm: ForcedFail, schedule: [4, 12, 12], native_trials: [], total_writes: 0, per_packet_writes: [0, 0, 0], per_packet_paid: [14, 0, 0], edits: 2, source_request: 3, charged_steps: 14, final_pc: 4, local: 0, pool: 28, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: true, schedule: [4, 12, 12], service_writes: 3, per_packet_writes: [1, 2, 3], paid: 42, pool_paid_non_draw: 1, source_request: 4, local: 0, pool: 0, pc: 5, stopped: false, traps: 0, patches: 1 }
+B35_NATIVE ResultTrace { arm: StaticThree, schedule: [4, 12, 12], native_trials: [], total_writes: 7, per_packet_writes: [1, 4, 7], per_packet_paid: [17, 12, 12], edits: 0, source_request: 3, charged_steps: 41, final_pc: 1, local: 0, pool: 1, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: false, schedule: [4, 12, 12], service_writes: 7, per_packet_writes: [1, 4, 7], paid: 41, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 1, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: Adaptive, schedule: [5, 5, 5], native_trials: [(5, 5, true), (5, 4, false)], total_writes: 1, per_packet_writes: [1, 1, 1], per_packet_paid: [19, 0, 6], edits: 0, source_request: 5, charged_steps: 25, final_pc: 5, local: 0, pool: 4, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: false, schedule: [4, 12, 12], service_writes: 7, per_packet_writes: [1, 4, 7], paid: 41, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 1, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: ForcedFail, schedule: [5, 5, 5], native_trials: [], total_writes: 0, per_packet_writes: [0, 0, 0], per_packet_paid: [14, 0, 0], edits: 2, source_request: 3, charged_steps: 14, final_pc: 4, local: 0, pool: 15, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: true, schedule: [5, 5, 5], service_writes: 1, per_packet_writes: [1, 1, 1], paid: 25, pool_paid_non_draw: 0, source_request: 5, local: 0, pool: 4, pc: 5, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: StaticThree, schedule: [5, 5, 5], native_trials: [], total_writes: 4, per_packet_writes: [1, 2, 4], per_packet_paid: [17, 4, 8], edits: 0, source_request: 3, charged_steps: 29, final_pc: 1, local: 0, pool: 0, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: true, schedule: [5, 5, 5], service_writes: 1, per_packet_writes: [1, 1, 1], paid: 29, pool_paid_non_draw: 4, source_request: 4, local: 0, pool: 0, pc: 4, stopped: false, traps: 0, patches: 1 }
+B35_NATIVE ResultTrace { arm: Adaptive, schedule: [6, 8, 12], native_trials: [(5, 6, true), (5, 3, false)], total_writes: 1, per_packet_writes: [1, 1, 1], per_packet_paid: [19, 6, 0], edits: 0, source_request: 5, charged_steps: 25, final_pc: 5, local: 0, pool: 15, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: false, schedule: [5, 5, 5], service_writes: 4, per_packet_writes: [1, 2, 4], paid: 29, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 0, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE ResultTrace { arm: ForcedFail, schedule: [6, 8, 12], native_trials: [], total_writes: 0, per_packet_writes: [0, 0, 0], per_packet_paid: [14, 0, 0], edits: 2, source_request: 3, charged_steps: 14, final_pc: 4, local: 0, pool: 26, stopped: false, traps: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: false, schedule: [5, 5, 5], service_writes: 4, per_packet_writes: [1, 2, 4], paid: 29, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 0, pc: 1, stopped: false, traps: 0, patches: 0 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: true, schedule: [6, 8, 12], service_writes: 1, per_packet_writes: [1, 1, 1], paid: 25, pool_paid_non_draw: 0, source_request: 5, local: 0, pool: 15, pc: 5, stopped: false, traps: 0, patches: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: true, schedule: [6, 8, 12], service_writes: 2, per_packet_writes: [1, 1, 2], paid: 40, pool_paid_non_draw: 6, source_request: 4, local: 0, pool: 0, pc: 6, stopped: false, traps: 0, patches: 1 }
+B36_NATIVE ResultTrace { law: DrawOnly, adaptive: false, schedule: [6, 8, 12], service_writes: 7, per_packet_writes: [2, 4, 7], paid: 40, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 0, pc: 1, stopped: false, traps: 0, patches: 0 }
+B36_NATIVE ResultTrace { law: AllNative, adaptive: false, schedule: [6, 8, 12], service_writes: 7, per_packet_writes: [2, 4, 7], paid: 40, pool_paid_non_draw: 0, source_request: 3, local: 0, pool: 0, pc: 1, stopped: false, traps: 0, patches: 0 }
+B35_NATIVE test b36_any_instruction_can_use_neutral_pool_credit_without_free_compute_or_automatic_fitness ... ok
+ResultTrace { arm: StaticThree, schedule: [6, 8, 12], native_trials: [], total_writes: 7, per_packet_writes: [2, 4, 7], per_packet_paid: [20, 8, 12], edits: 0, source_request: 3, charged_steps: 40, final_pc: 1, local: 0, pool: 0, stopped: false, traps: 0 }
+test canonical_b35::b35_native_repeated_paid_candidate_trials_and_source_mutations_are_not_free_learning ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
