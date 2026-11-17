@@ -161,6 +161,8 @@ fn b49_independent_dynamic_replay_of_native_code_mutation_and_raw_task_outputs()
     fs::create_dir_all(artifact_dir).unwrap();
     let path=format!("{artifact_dir}/b49_native_steps.jsonl");
     let mut file=BufWriter::new(File::create(&path).unwrap());
+    emit(&mut file,json!({"type":"meta","study":"B49","version":1,
+        "source_sha":std::env::var("GITHUB_SHA").unwrap_or_else(|_|"local".into())}));
 
     let mut case_id=0usize;
     let mut rows=Vec::new();
