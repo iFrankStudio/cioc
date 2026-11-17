@@ -1,0 +1,30 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0277][0m[1m: can't compare `[usize; 2]` with `[{integer}; 4]`[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b49_dynamic_replay.rs:203:5
+    [1m[94m|[0m
+[1m[94m203[0m [1m[94m|[0m [1m[91m/[0m     assert_eq!(sum,[
+[1m[94m204[0m [1m[94m|[0m [1m[91m|[0m         [
+[1m[94m205[0m [1m[94m|[0m [1m[91m|[0m             [[64,15,0,0],[64,16,0,0]],
+[1m[94m206[0m [1m[94m|[0m [1m[91m|[0m             [[18,54,0,0],[20,60,0,0]],
+[1m[94m...[0m   [1m[91m|[0m
+[1m[94m215[0m [1m[94m|[0m [1m[91m|[0m         ],
+[1m[94m216[0m [1m[94m|[0m [1m[91m|[0m     ]);
+    [1m[94m|[0m [1m[91m|______^[0m [1m[91mno implementation for `[usize; 2] == [{integer}; 4]`[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<[{integer}; 4]>` is not implemented for `[usize; 2]`
+    [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+              `&[T]` implements `PartialEq<Cow<'_, [U]>>`
+              `&[T]` implements `PartialEq<Vec<U, A>>`
+              `&[T]` implements `PartialEq<[U; N]>`
+              `&[u8; N]` implements `PartialEq<ByteStr>`
+              `&[u8; N]` implements `PartialEq<ByteString>`
+              `&[u8]` implements `PartialEq<ByteStr>`
+              `&[u8]` implements `PartialEq<ByteString>`
+              `&mut [T]` implements `PartialEq<Cow<'_, [U]>>`
+            and 13 others
+    [1m[94m= [0m[1mnote[0m: required for `[[usize; 2]; 2]` to implement `PartialEq<[[{integer}; 4]; 2]>`
+    [1m[94m= [0m[1mnote[0m: 2 redundant requirements hidden
+    [1m[94m= [0m[1mnote[0m: required for `[[[[usize; 2]; 2]; 4]; 2]` to implement `PartialEq<[[[[{integer}; 4]; 2]; 4]; 2]>`
+
+[1mFor more information about this error, try `rustc --explain E0277`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b49_dynamic_replay") due to 1 previous error
