@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b50_paid_feedback_vs_forced_scan.mjs:9
+if(!fs.existsSync(evidence))throw Error('B50 native evidence missing; fail closed');
+                                  ^
+
+Error: B50 native evidence missing; fail closed
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b50_paid_feedback_vs_forced_scan.mjs:9:35
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.2
