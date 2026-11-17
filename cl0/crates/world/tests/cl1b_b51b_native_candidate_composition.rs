@@ -203,3 +203,48 @@ fn b51c_zero_probe_aliasing_requires_distinguishing_probe(){
     assert_ne!(separated[0],separated[1]);
     eprintln!("B51C_ALIAS_NATIVE x0={aliased:?} x5={separated:?}; no selection or transfer claimed");
 }
+
+/// B51c information-theoretic strong control: the *same* native founder
+/// constructs both candidates before an external task mode is selected.
+/// A zero-valued probe and its feedback are identical under two hidden
+/// modes; two nonzero probes discriminate them. This does not implement
+/// actor-side feedback retention or prove adaptation.
+#[test]
+fn b51c_hidden_mode_two_probe_native_identifiability_control(){
+    fn paid_candidates(x:i64)->(Vec<i64>,usize){
+        let mut p=Process::new(1,founder(),64);
+        p.pc=3;
+        let mut w=World::with_strict_capacity(16,80,192)
+            .with_native_executable_edit_trace();
+        w.load(p).unwrap();
+        w.intervene(Intervention::SetCell{key:7,value:x}).unwrap();
+        let n=w.run(64);
+        let writes=w.events().iter().filter_map(|e|match (&e.origin,&e.kind){
+            (Origin::Internal(1),EventKind::CellWritten{key:11,value})=>Some(*value),
+            _=>None,
+        }).collect();
+        (writes,n)
+    }
+    // Each hidden mode is an externally chosen task, never placed in
+    // actor-readable memory. The laboratory computes feedback only after
+    // the native writes; these bits are NOT actor-observed in this test.
+    let probes=[0_i64,5,-3];
+    let mut records=Vec::new();
+    for x in probes {
+        let (writes,paid)=paid_candidates(x);
+        assert_eq!(paid,28);
+        assert_eq!(writes.len(),2);
+        let targets=[x+2,2-x];
+        let bits:Vec<[bool;2]>=targets.iter().map(|target|
+            [writes[0]==*target,writes[1]==*target]).collect();
+        records.push((x,writes,bits));
+    }
+    assert_eq!(records[0].2,vec![[true,true],[true,true]],
+        "zero probe cannot distinguish hidden modes even with perfect feedback");
+    for (_,_,bits) in &records[1..] {
+        assert_eq!(bits,&vec![[true,false],[false,true]],
+            "nonzero probes must disambiguate both candidate/task pairings");
+    }
+    assert_eq!(records.len()*28,84);
+    eprintln!("B51C_TWO_PROBE_NATIVE {records:?}; 84 paid native CIL steps; feedback evaluated by laboratory only; no actor selection");
+}
