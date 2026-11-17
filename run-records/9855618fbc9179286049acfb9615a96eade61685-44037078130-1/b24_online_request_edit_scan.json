@@ -1,0 +1,625 @@
+{
+  "evidence": "independent source-parsed limited CIL VM; NOT native Rust",
+  "worlds": 12,
+  "source": "cl0/crates/world/tests/cl1b_b24_online_request_edit.rs",
+  "cases": [
+    {
+      "arm": "ENABLED",
+      "schedule": [
+        5,
+        4,
+        4
+      ],
+      "output": 2,
+      "policyChanges": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "attemptedPatches": 2,
+      "suppressed": 0,
+      "pc": 3,
+      "local": 0,
+      "pool": 4,
+      "attempts": 38,
+      "sourceLiteral": 2,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 4,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 2
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 2
+        }
+      ]
+    },
+    {
+      "arm": "DISABLED",
+      "schedule": [
+        5,
+        4,
+        4
+      ],
+      "output": 2,
+      "policyChanges": [],
+      "attemptedPatches": 2,
+      "suppressed": 2,
+      "pc": 4,
+      "local": 0,
+      "pool": 3,
+      "attempts": 39,
+      "sourceLiteral": 4,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "outputs": 2,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 4
+        }
+      ]
+    },
+    {
+      "arm": "STATIC3",
+      "schedule": [
+        5,
+        4,
+        4
+      ],
+      "output": 1,
+      "policyChanges": [],
+      "attemptedPatches": 1,
+      "suppressed": 1,
+      "pc": 3,
+      "local": 0,
+      "pool": 9,
+      "attempts": 33,
+      "sourceLiteral": 3,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 4,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 1,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 5,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 9,
+          "sourceLiteral": 3
+        }
+      ]
+    },
+    {
+      "arm": "ENABLED",
+      "schedule": [
+        5,
+        5,
+        5
+      ],
+      "output": 2,
+      "policyChanges": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "attemptedPatches": 2,
+      "suppressed": 0,
+      "pc": 3,
+      "local": 0,
+      "pool": 6,
+      "attempts": 38,
+      "sourceLiteral": 2,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 5,
+          "attempts": 4,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 1,
+          "sourceLiteral": 2
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 6,
+          "sourceLiteral": 2
+        }
+      ]
+    },
+    {
+      "arm": "DISABLED",
+      "schedule": [
+        5,
+        5,
+        5
+      ],
+      "output": 3,
+      "policyChanges": [],
+      "attemptedPatches": 3,
+      "suppressed": 3,
+      "pc": 4,
+      "local": 0,
+      "pool": 0,
+      "attempts": 44,
+      "sourceLiteral": 4,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 2,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 5,
+          "attempts": 5,
+          "outputs": 3,
+          "pc": 4,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 4
+        }
+      ]
+    },
+    {
+      "arm": "STATIC3",
+      "schedule": [
+        5,
+        5,
+        5
+      ],
+      "output": 1,
+      "policyChanges": [],
+      "attemptedPatches": 1,
+      "suppressed": 1,
+      "pc": 3,
+      "local": 0,
+      "pool": 11,
+      "attempts": 33,
+      "sourceLiteral": 3,
+      "windows": [
+        {
+          "packet": 5,
+          "attempts": 4,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 1,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 6,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 5,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 11,
+          "sourceLiteral": 3
+        }
+      ]
+    },
+    {
+      "arm": "ENABLED",
+      "schedule": [
+        4,
+        4,
+        4
+      ],
+      "output": 2,
+      "policyChanges": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "attemptedPatches": 2,
+      "suppressed": 0,
+      "pc": 3,
+      "local": 0,
+      "pool": 3,
+      "attempts": 38,
+      "sourceLiteral": 2,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 0,
+          "pc": 4,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 4,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 2
+        }
+      ]
+    },
+    {
+      "arm": "DISABLED",
+      "schedule": [
+        4,
+        4,
+        4
+      ],
+      "output": 2,
+      "policyChanges": [],
+      "attemptedPatches": 2,
+      "suppressed": 2,
+      "pc": 4,
+      "local": 0,
+      "pool": 2,
+      "attempts": 39,
+      "sourceLiteral": 4,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 0,
+          "pc": 4,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 4,
+          "attempts": 5,
+          "outputs": 2,
+          "pc": 4,
+          "local": 0,
+          "pool": 2,
+          "sourceLiteral": 4
+        }
+      ]
+    },
+    {
+      "arm": "STATIC3",
+      "schedule": [
+        4,
+        4,
+        4
+      ],
+      "output": 1,
+      "policyChanges": [],
+      "attemptedPatches": 1,
+      "suppressed": 1,
+      "pc": 3,
+      "local": 0,
+      "pool": 8,
+      "attempts": 33,
+      "sourceLiteral": 3,
+      "windows": [
+        {
+          "packet": 4,
+          "attempts": 4,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 4,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 8,
+          "sourceLiteral": 3
+        }
+      ]
+    },
+    {
+      "arm": "ENABLED",
+      "schedule": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "output": 2,
+      "policyChanges": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "attemptedPatches": 2,
+      "suppressed": 0,
+      "pc": 3,
+      "local": 0,
+      "pool": 3,
+      "attempts": 38,
+      "sourceLiteral": 2,
+      "windows": [
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 0,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 3,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 1,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 3,
+          "attempts": 4,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 0,
+          "sourceLiteral": 2
+        },
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 2,
+          "pc": 3,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 2
+        }
+      ]
+    },
+    {
+      "arm": "DISABLED",
+      "schedule": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "output": 2,
+      "policyChanges": [],
+      "attemptedPatches": 2,
+      "suppressed": 2,
+      "pc": 4,
+      "local": 0,
+      "pool": 2,
+      "attempts": 39,
+      "sourceLiteral": 4,
+      "windows": [
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 0,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 3,
+          "attempts": 5,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 1,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 4,
+          "local": 0,
+          "pool": 4,
+          "sourceLiteral": 4
+        },
+        {
+          "packet": 3,
+          "attempts": 5,
+          "outputs": 2,
+          "pc": 4,
+          "local": 0,
+          "pool": 2,
+          "sourceLiteral": 4
+        }
+      ]
+    },
+    {
+      "arm": "STATIC3",
+      "schedule": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "output": 1,
+      "policyChanges": [],
+      "attemptedPatches": 1,
+      "suppressed": 1,
+      "pc": 3,
+      "local": 0,
+      "pool": 8,
+      "attempts": 33,
+      "sourceLiteral": 3,
+      "windows": [
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 0,
+          "pc": 4,
+          "local": 0,
+          "pool": 3,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 3,
+          "attempts": 4,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 2,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 5,
+          "sourceLiteral": 3
+        },
+        {
+          "packet": 3,
+          "attempts": 0,
+          "outputs": 1,
+          "pc": 3,
+          "local": 0,
+          "pool": 8,
+          "sourceLiteral": 3
+        }
+      ]
+    }
+  ]
+}
