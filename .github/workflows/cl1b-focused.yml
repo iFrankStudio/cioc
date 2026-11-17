@@ -117,6 +117,7 @@ jobs:
             cl1b_b53_native_response_correlation
             cl1b_b54_native_interleaving
             cl1b_b55a_paid_monitor_choice_preflight
+            cl1b_b55b_online_monitor_rate_pilot
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -227,7 +228,7 @@ jobs:
           # Run the full 56 native targets and43 source-pinned independent observers.
           # B55a feasibility is a narrowly labeled 5-arm/2-ecology/4-seed pilot;
           # do not promote to preregistered full B55a Tier 1 success.
-          # All nine event-backed observers require native artifacts from
+          # All ten event-backed observers require native artifacts from
           # this exact source revision; B51d additionally imports B51c's
           # unchanged CIL founder. Run all event producers in scoped jobs,
           # failing closed rather than accepting a missing native trace.
@@ -241,6 +242,7 @@ jobs:
             wanted[cl1b_b53_native_response_correlation]=1
             wanted[cl1b_b54_native_interleaving]=1
             wanted[cl1b_b55a_paid_monitor_choice_preflight]=1
+            wanted[cl1b_b55b_online_monitor_rate_pilot]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -253,8 +255,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 56 ]; then
-            echo "Expected exactly 56 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 57 ]; then
+            echo "Expected exactly 57 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -346,9 +348,10 @@ jobs:
             b53_native_response_correlation_replay
             b54_native_interleaving_replay
             b55a_paid_monitor_choice_preflight_replay
+            b55b_online_monitor_rate_pilot_replay
           )
-          if [ "${#observers[@]}" -ne 43 ]; then
-            echo "Expected 43 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 44 ]; then
+            echo "Expected 44 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0

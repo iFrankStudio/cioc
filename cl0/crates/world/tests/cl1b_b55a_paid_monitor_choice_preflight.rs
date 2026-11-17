@@ -13,7 +13,7 @@ const WINDOW:usize=24;
 const BUDGET:usize=4000;
 const HELD:[i64;3]=[11,-7,0];
 const TRAIN:[i64;2]=[5,-3];
-fn founder()->Vec<Op>{
+pub(crate) fn founder()->Vec<Op>{
     let mut code=b52::founder();
     assert_eq!(code.len(),92);
     // Precreated dead padding is a costly researcher-authored structure;
