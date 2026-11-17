@@ -1,0 +1,18 @@
+[1m[92m    Updating[0m crates.io index
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0277][0m[1m: `PathBuf` doesn't implement `std::fmt::Display`[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b49_dynamic_replay.rs:233:78
+    [1m[94m|[0m
+[1m[94m233[0m [1m[94m|[0m     eprintln!("B49_NATIVE cases=96 trace={} NOTE independent replay pending",path);
+    [1m[94m|[0m                                          [1m[94m--[0m                                  [1m[91m^^^^[0m [1m[91m`PathBuf` cannot be formatted with the default formatter; call `.display()` on it[0m
+    [1m[94m|[0m                                          [1m[94m|[0m
+    [1m[94m|[0m                                          [1m[94mrequired by this formatting parameter[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mhelp[0m: the trait `std::fmt::Display` is not implemented for `PathBuf`
+    [1m[94m= [0m[1mnote[0m: call `.display()` or `.to_string_lossy()` to safely print paths, as they may contain non-Unicode data
+    [1m[94m= [0m[1mnote[0m: in format strings you may be able to use `{:?}` (or `{:#?}` for pretty-print) instead
+    [1m[94m= [0m[1mnote[0m: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `eprintln` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+[1mFor more information about this error, try `rustc --explain E0277`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b49_dynamic_replay") due to 1 previous error
+[1m[33mwarning[0m: build failed, waiting for other jobs to finish...
