@@ -1,0 +1,889 @@
+{
+  "evidence": "independent Rust-source-parsed CIL VM, NOT native CI",
+  "origin": "cl0/crates/world/tests/cl1b_b38_functional_readback.rs",
+  "worlds": 20,
+  "chargePerWorld": 96,
+  "phasesPerWorld": 2,
+  "cases": [
+    {
+      "arm": "Readback",
+      "history": [
+        0,
+        17
+      ],
+      "accurate": [
+        7,
+        5
+      ],
+      "inaccurate": [
+        0,
+        1
+      ],
+      "totalWrites": [
+        7,
+        6
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 4,
+      "edge": 11,
+      "pc": 2,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 0,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 17,
+          "pc": 2,
+          "credits": 0,
+          "output": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumeOk",
+      "history": [
+        0,
+        17
+      ],
+      "accurate": [
+        7,
+        0
+      ],
+      "inaccurate": [
+        0,
+        7
+      ],
+      "totalWrites": [
+        7,
+        7
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 5,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 0,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 17,
+          "pc": 5,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "ForceFix",
+      "history": [
+        0,
+        17
+      ],
+      "accurate": [
+        5,
+        5
+      ],
+      "inaccurate": [
+        0,
+        0
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 0,
+          "pc": 8,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 17,
+          "pc": 6,
+          "credits": 0,
+          "output": 17
+        }
+      ]
+    },
+    {
+      "arm": "PatchDisabled",
+      "history": [
+        0,
+        17
+      ],
+      "accurate": [
+        7,
+        0
+      ],
+      "inaccurate": [
+        0,
+        5
+      ],
+      "totalWrites": [
+        7,
+        5
+      ],
+      "edits": 0,
+      "suppressed": 4,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 7,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 0,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 17,
+          "pc": 7,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "history": [
+        0,
+        17
+      ],
+      "accurate": [
+        12,
+        12
+      ],
+      "inaccurate": [
+        0,
+        0
+      ],
+      "totalWrites": [
+        12,
+        12
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 3,
+      "edge": 3,
+      "pc": 0,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 0,
+          "pc": 0,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 17,
+          "pc": 0,
+          "credits": 0,
+          "output": 17
+        }
+      ]
+    },
+    {
+      "arm": "Readback",
+      "history": [
+        17,
+        0
+      ],
+      "accurate": [
+        5,
+        6
+      ],
+      "inaccurate": [
+        1,
+        1
+      ],
+      "totalWrites": [
+        6,
+        7
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 2,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 17,
+          "pc": 3,
+          "credits": 48,
+          "output": 17
+        },
+        {
+          "phase": 1,
+          "input": 0,
+          "pc": 2,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "AssumeOk",
+      "history": [
+        17,
+        0
+      ],
+      "accurate": [
+        0,
+        7
+      ],
+      "inaccurate": [
+        7,
+        0
+      ],
+      "totalWrites": [
+        7,
+        7
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 5,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 17,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 0,
+          "pc": 5,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "ForceFix",
+      "history": [
+        17,
+        0
+      ],
+      "accurate": [
+        4,
+        5
+      ],
+      "inaccurate": [
+        1,
+        0
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 17,
+          "pc": 8,
+          "credits": 48,
+          "output": 17
+        },
+        {
+          "phase": 1,
+          "input": 0,
+          "pc": 6,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "PatchDisabled",
+      "history": [
+        17,
+        0
+      ],
+      "accurate": [
+        0,
+        6
+      ],
+      "inaccurate": [
+        5,
+        0
+      ],
+      "totalWrites": [
+        5,
+        6
+      ],
+      "edits": 0,
+      "suppressed": 5,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 4,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 17,
+          "pc": 8,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 0,
+          "pc": 4,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "history": [
+        17,
+        0
+      ],
+      "accurate": [
+        12,
+        12
+      ],
+      "inaccurate": [
+        0,
+        0
+      ],
+      "totalWrites": [
+        12,
+        12
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 3,
+      "edge": 3,
+      "pc": 0,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 17,
+          "pc": 0,
+          "credits": 48,
+          "output": 17
+        },
+        {
+          "phase": 1,
+          "input": 0,
+          "pc": 0,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "Readback",
+      "history": [
+        23,
+        -9
+      ],
+      "accurate": [
+        5,
+        6
+      ],
+      "inaccurate": [
+        1,
+        1
+      ],
+      "totalWrites": [
+        6,
+        7
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 2,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 23,
+          "pc": 3,
+          "credits": 48,
+          "output": 23
+        },
+        {
+          "phase": 1,
+          "input": -9,
+          "pc": 2,
+          "credits": 0,
+          "output": -9
+        }
+      ]
+    },
+    {
+      "arm": "AssumeOk",
+      "history": [
+        23,
+        -9
+      ],
+      "accurate": [
+        0,
+        0
+      ],
+      "inaccurate": [
+        7,
+        7
+      ],
+      "totalWrites": [
+        7,
+        7
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 5,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 23,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": -9,
+          "pc": 5,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "ForceFix",
+      "history": [
+        23,
+        -9
+      ],
+      "accurate": [
+        4,
+        5
+      ],
+      "inaccurate": [
+        1,
+        0
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 23,
+          "pc": 8,
+          "credits": 48,
+          "output": 23
+        },
+        {
+          "phase": 1,
+          "input": -9,
+          "pc": 6,
+          "credits": 0,
+          "output": -9
+        }
+      ]
+    },
+    {
+      "arm": "PatchDisabled",
+      "history": [
+        23,
+        -9
+      ],
+      "accurate": [
+        0,
+        0
+      ],
+      "inaccurate": [
+        5,
+        5
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 0,
+      "suppressed": 9,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 23,
+          "pc": 8,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": -9,
+          "pc": 6,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "history": [
+        23,
+        -9
+      ],
+      "accurate": [
+        12,
+        12
+      ],
+      "inaccurate": [
+        0,
+        0
+      ],
+      "totalWrites": [
+        12,
+        12
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 3,
+      "edge": 3,
+      "pc": 0,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": 23,
+          "pc": 0,
+          "credits": 48,
+          "output": 23
+        },
+        {
+          "phase": 1,
+          "input": -9,
+          "pc": 0,
+          "credits": 0,
+          "output": -9
+        }
+      ]
+    },
+    {
+      "arm": "Readback",
+      "history": [
+        -9,
+        23
+      ],
+      "accurate": [
+        5,
+        6
+      ],
+      "inaccurate": [
+        1,
+        1
+      ],
+      "totalWrites": [
+        6,
+        7
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 2,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": -9,
+          "pc": 3,
+          "credits": 48,
+          "output": -9
+        },
+        {
+          "phase": 1,
+          "input": 23,
+          "pc": 2,
+          "credits": 0,
+          "output": 23
+        }
+      ]
+    },
+    {
+      "arm": "AssumeOk",
+      "history": [
+        -9,
+        23
+      ],
+      "accurate": [
+        0,
+        0
+      ],
+      "inaccurate": [
+        7,
+        7
+      ],
+      "totalWrites": [
+        7,
+        7
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 5,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": -9,
+          "pc": 6,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 23,
+          "pc": 5,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "ForceFix",
+      "history": [
+        -9,
+        23
+      ],
+      "accurate": [
+        4,
+        5
+      ],
+      "inaccurate": [
+        1,
+        0
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 1,
+      "suppressed": 0,
+      "firstEdge": 11,
+      "edge": 11,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": -9,
+          "pc": 8,
+          "credits": 48,
+          "output": -9
+        },
+        {
+          "phase": 1,
+          "input": 23,
+          "pc": 6,
+          "credits": 0,
+          "output": 23
+        }
+      ]
+    },
+    {
+      "arm": "PatchDisabled",
+      "history": [
+        -9,
+        23
+      ],
+      "accurate": [
+        0,
+        0
+      ],
+      "inaccurate": [
+        5,
+        5
+      ],
+      "totalWrites": [
+        5,
+        5
+      ],
+      "edits": 0,
+      "suppressed": 9,
+      "firstEdge": 4,
+      "edge": 4,
+      "pc": 6,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": -9,
+          "pc": 8,
+          "credits": 48,
+          "output": 0
+        },
+        {
+          "phase": 1,
+          "input": 23,
+          "pc": 6,
+          "credits": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "history": [
+        -9,
+        23
+      ],
+      "accurate": [
+        12,
+        12
+      ],
+      "inaccurate": [
+        0,
+        0
+      ],
+      "totalWrites": [
+        12,
+        12
+      ],
+      "edits": 0,
+      "suppressed": 0,
+      "firstEdge": 3,
+      "edge": 3,
+      "pc": 0,
+      "credits": 0,
+      "charged": 96,
+      "stopped": false,
+      "traps": 0,
+      "reported": [
+        {
+          "phase": 0,
+          "input": -9,
+          "pc": 0,
+          "credits": 48,
+          "output": -9
+        },
+        {
+          "phase": 1,
+          "input": 23,
+          "pc": 0,
+          "credits": 0,
+          "output": 23
+        }
+      ]
+    }
+  ]
+}
