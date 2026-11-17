@@ -179,7 +179,7 @@ fn b49_independent_dynamic_replay_of_native_code_mutation_and_raw_task_outputs()
     }
     file.flush().unwrap();
     assert_eq!(rows.len(),96);
-    let mut sum=[[[[0usize;4];4];2];2]; // block, phase, arm, correct/wrong heldout1/2
+    let mut sum=[[[[0usize;2];2];4];2]; // phase, arm, holdout, correct/wrong
     let mut exposure=[[[0usize;3];4];2]; // block, arm, paid/halts/edits
     for r in &rows {
         assert!(r.paid<=144 && r.peak_storage<=192);
