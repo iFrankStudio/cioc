@@ -1,0 +1,55 @@
+# CL-1B B53 — native-paid response-serial correlation, replay rejection, forged-current-serial failure
+
+**H53a narrow genuine-correlated-response re-adaptation: ACCEPTED within the researcher-authored bounded CIL grammar. H53b old-packet serial mismatch rejection: ACCEPTED for the tested replay, delay and incomplete-commit cases, NOT universal causal freshness. H53c current-nonce forged success: negative control CONFIRMED (not detectable). B3/B4 and cyberlife: NOT MET.**
+
+## Prior registration, exact code and native evidence
+
+The [B53 pre-registration](../studies/B53-paid-response-correlation-and-replay-detection-preregistration.md) was committed prior to B53 code and native tests. Scope: two frozen task switches, two deterministic paid initializer phases, five feedback arms, a single continuous PID1 with **4,000 strictly native-charged CIL instructions**, 16 data cells, <=180 executable graph nodes, <=300 total storage units, no process reset or code/credit injection.
+
+- **Source SHA** `ad360c7a16a62be33dbcf9773bbe4db92dd841f1`; [full CI run 44068903769](https://github.com/iFrankStudio/cioc/actions/runs/44068903769).
+- **scope=full; 54/54 actual Rust integration targets PASS; 41/41 independent observers PASS; mandatory B31/B34 ABI PASS; failed targets 0, observer failures 0; evidence publisher PASS**. [Native summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/ad360c7a16a62be33dbcf9773bbe4db92dd841f1-44068903769-1/summary.txt) · [source/revision/run result](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/ad360c7a16a62be33dbcf9773bbe4db92dd841f1-44068903769-1/result.txt).
+- [Original native B53 JSONL](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/ad360c7a16a62be33dbcf9773bbe4db92dd841f1-44068903769-1/b53_native_steps.jsonl) · [native Rust output log](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/ad360c7a16a62be33dbcf9773bbe4db92dd841f1-44068903769-1/cl1b_b53_native_response_correlation.log) · [fully independent native replay report](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/ad360c7a16a62be33dbcf9773bbe4db92dd841f1-44068903769-1/b53_native_response_correlation_replay.json).
+- [Native Rust experiment](../../cl0/crates/world/tests/cl1b_b53_native_response_correlation.rs) · [independent actual-source-parsed CIL interpreter](../analysis/b53_native_response_correlation_replay.mjs).
+- The first 72 B51c executable CIL nodes and subsequent 20 B52 executable nodes are reused without changing their instructions; B52 `founder()` gained only `pub(crate)` visibility to allow its exact inclusion. B53 appends 32 ordinary CIL nodes. The independent B51c interpreter's strict storage/code ceilings were made configurable **without changing the B51c/B52 original default limits**; all older registered tests/observers passed in the same full run.
+
+## Concrete paid causality path
+
+PID1 starts at B53 node92. It **pays native executable mutations** of node76.next 50→97, node34.next 2→99, plus B52's original bootstrap node49.next 50→76. The B52 candidate search policy remains source-unchanged and task-blind. Before **every** original graph output `Write` to cell11, PID1 reads/increments its own monotonic request serial in cell26 via ordinary paid `Read`, `Const`, `Add`, `Write` instructions; the observer only learns the serial from native actor-origin cell26, never writes that cell. After a genuine service output11, the external lab writes the correctness bit in cell20, echoed serial in cell27 and committed serial in cell28. PID1 pays to `Read` cell26, `Read` cell27, `Sub` compare, `Branch`, `Read` cell28, `Read` cell26, `Sub` compare, `Branch`, and **only if both serial comparisons match** pays to `Read` the feedback bit in cell20. A received unsuccessful bit runs the existing B52 CIL-driven reopen of the old candidate search. Mismatch routes to a separately instrumented **native PID1 output cell29=1 rejection marker**, *not* an arbitrarily injected host repair.
+
+The `nonce` is a **monotonic sequence number**, not a secret, and cannot authenticate a potentially dishonest evaluator. The observer writes bit/echo/commit as external-origin data; if these external fields lie *consistently* under the current nonce, PID1 has no independent functional truth source. The original B52 **training trial's bit20 route still does not check the echo/commit**, although B53 issues serials before training outputs; the verified causal protection is specifically the **retained service writer**. Treating this as complete source-bound provenance for all training stages would be false.
+
+## Full native results (4 worlds per arm, two transitions × two paid input phases)
+
+Regime A: `x-2 → -x+3 → x-2`. Regime B: `-x-3 → x+2 → -x-3`. Service heldout input cycle `[11,-7,0]`; up to 24 scored outputs for each of three stages per world. Every feedback arm expended **16,000 native paid instructions for 4 worlds**, actual source-pinned paired execution.
+
+| Arm | Service correct / wrong | Correct by 24-output stage | Reopened paid search | Native service feedback Reads | Rejected packet events | False success accepted |
+|---|---:|---|---:|---:|---:|---:|
+| FRESH_CORRELATED | **280 /8** | **96,92,92** | 8 | 388 | 0 | 0 |
+| DELAYED_WHOLE_PACKET | 192 /96 | 96,0,96 | 0 | 0 | **638** | 0 |
+| REPLAY_SUCCESS_PACKET | 192 /96 | 96,0,96 | 0 | 0 | **638** | 0 |
+| FORGED_CURRENT_SERIAL | 192 /96 | 96,0,96 | 0 | 508 | 0 | **96** |
+| TORN_PACKET | 192 /96 | 96,0,96 | 0 | 0 | **508** | 0 |
+
+All arms recorded the full **288/288** requested first-three-stage service outputs across four worlds (additional post-window service outputs are not scored). The high **638/508 rejection marker counts exceed the 288 scored outputs** because the actor continues paid execution through the full 4,000-credit budget after completing its 72 scored outputs per world; the rejection counters cover **all native subsequent service attempts**, not only 24×3 stage windows. Do not compare these rejection counts directly to 288.
+
+**FRESH_CORRELATED**: all four PID1s selected and retained three source modes `(+1,-2) → (-1,+3) → (+1,-2)` for A and `(-1,-3) → (+1,+2) → (-1,-3)` for B with **8 genuine paid reopen events total**. The first wrong task output per regime shift provides required true feedback; subsequent 23 of the 24 new-stage heldout service outputs per world are correct. Zero replay rejection/false success. The more expensive packet-checking mechanism needs 4,000 budget, not B52's 3,000, so **no claim of lower cost or direct same-budget superiority**.
+
+**DELAYED_WHOLE_PACKET** and **REPLAY_SUCCESS_PACKET**: externally echoed serial did not match actor's latest output. The actor's native comparisons prevented **any paid feedback-bit Read** from treating these stale successes as the current submission, with zero accepted false successes. But it remained on the old program and delivered **0/96 correct in the shifted-task stage**. Hence **“blocked stale success” is not the same as “recovered task ability.”** Future tests need timeout/retry or alternate corroborated evidence if adaptation must continue when responses never arrive fresh.
+
+**FORGED_CURRENT_SERIAL**: lab wrote the actual current nonce into echo and commit, but lied with success=1. PID1 spent 508 native service feedback Reads and accepted **96 wrong-submission successes**; changed-task correct count remained0/96. This is an **explicit H53c semantic-truth impossibility demonstration**; the protocol does not and must not claim current-serial authenticity alone prevents forgery.
+
+**TORN_PACKET**: lab wrote bit/echo for the current request with a mismatched old commit serial. PID1 rejected that simple partial packet and performed no service feedback-bit Reads. This **does not test a true packet race between separate paid Reads** (e.g. updating the bit/commit after initial nonce equality but before the bit Read). It does not prove atomicity in the face of adversarial mid-instruction interleaving or inconsistent commit-writing hosts. `partial_packet_race_protection_proven=false` in the independent report is scientifically intentional.
+
+A compact static task-aware oracle and full same-budget B52 source-unchanged performance baseline were **not run as additional native arms** in B53; no comparative claim against those privileged or cheaper designs is supported.
+
+## Independent source-parsed reconstruction
+
+A separate JS interpreter reconstructs the actual B51c founder literal, the unchanged B52 20-node append block and B53's 32-node append literal, all from the source revision. It replays **80,000/80,000 genuine native CIL paid instruction rows**, **12,088 same-run external input/bit/nonce/commit interventions**, **40 task-stage observer-only markers**, **466 executable-edge patch events**, every PID1 PC/register/cell/source-route/credit/storage transition and 20 per-world stop summaries. **First divergence = null**. A missing native trace or wrong `GITHUB_SHA` fails closed. The original full CI was green with 54 native integration targets and 41 independent analyses.
+
+## Scientific result, what it does not prove, and next falsifier
+
+**ACCEPTED, within explicit boundaries:** PID1 can pay for a monotonically numbered output/response association, reject concrete stale old packets and incomplete commits, and **retain the B52 task-regime reacquisition capability** when the feedback provider responds with a current, correctly evaluated serial. These source edits and nonce generation are genuine **native CIL actions** in a finite deterministic VM.
+
+**NOT ESTABLISHED:** a nonce does not prove the external truthfulness of a feedback bit or the security/atomicity of multi-cell packet writes; training probes are not nonce-validated; a replay-only environment prevents useful adaptation even though the wrong old bit is rejected. The entire request protocol, arithmetic candidates, retention objectives and learning policy are still researcher-authored. Rejections might be memory-preserving safety behavior, not competence.
+
+**Next B54, separately preregister before implementation:** stress native paid packet/timing interleavings and no-response recovery; seek a general, explicitly trusted or independently cross-checked feedback provenance assumption without injecting target-task answers into PID1. Include an event-sequence atomicity adversary that intervenes between native nonce-echo `Read` and feedback `Read`, and contrast source cost/latency with B52/compact task-informed oracle. An even more fundamental separate study must permit actor-origin revision of *the monitoring policy itself* rather than more pre-authored watchdog layers. **CL-1B B3/B4/CYBERLIFE remain NOT MET.**
