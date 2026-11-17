@@ -1,18 +1,25 @@
 //! B56-F1 causal preflight: cutting inherited B51c feedback without replacing it.
 //! Native paid negative controls; NOT a generated monitor or an F1 success.
-//! Each arm keeps the same original searcher and capacity. Differences are
-//! restricted to a single founder edge. No privileged solver is injected.
+//! All arms keep the original searcher and capacity. Two routing-cut arms
+//! change one founder edge; two new information controls keep all source
+//! edges identical but replace the externally supplied truth bit.
+//! Frozen predictions before native execution: blind-success may prematurely
+//! accept a wrong candidate; inverted truth should impede true retention.
+//! Equal paid steps do NOT imply equal output opportunities or scheduling.
+//! No privileged solver is injected.
 use cl0_world::{EventKind,Intervention,Op,Process,World};
 use serde_json::json;
 #[path="cl1b_b51c_paid_search_retention.rs"]
 mod b51c;
 
 #[derive(Clone,Copy)]
-enum Arm { Intact, CutOutput, CutFeedbackRead }
+enum Arm { Intact, CutOutput, CutFeedbackRead, BlindSuccess, InvertedFeedback }
 impl Arm {
     fn name(self)->&'static str {match self {
         Self::Intact=>"intact",Self::CutOutput=>"cut_output_to_feedback",
-        Self::CutFeedbackRead=>"cut_feedback_read_to_search"
+        Self::CutFeedbackRead=>"cut_feedback_read_to_search",
+        Self::BlindSuccess=>"intact_routing_blind_success",
+        Self::InvertedFeedback=>"intact_routing_inverted_feedback"
     }}
 }
 fn trial(arm:Arm)->serde_json::Value {
@@ -21,7 +28,7 @@ fn trial(arm:Arm)->serde_json::Value {
     assert!(matches!(code[2],Op::Write{address:2,value:0,next:35}));
     assert!(matches!(code[36],Op::Read{dst:3,address:2,next:37}));
     match arm {
-        Arm::Intact=>{},
+        Arm::Intact|Arm::BlindSuccess|Arm::InvertedFeedback=>{},
         Arm::CutOutput=>code[2]=Op::Write{address:2,value:0,next:30},
         Arm::CutFeedbackRead=>code[36]=Op::Read{dst:3,address:2,next:30},
     }
@@ -54,7 +61,14 @@ fn trial(arm:Arm)->serde_json::Value {
                 writes+=1;
                 let good=value==input-2;
                 if good {correct+=1;} else {wrong+=1;}
-                w.intervene(Intervention::SetCell{key:20,value:i64::from(good)}).unwrap();
+                // Source and routing are unchanged in these two controls. Only the
+                // external bit is manipulated, with the same intervention cost.
+                let feedback=match arm {
+                    Arm::BlindSuccess=>1,
+                    Arm::InvertedFeedback=>i64::from(!good),
+                    _=>i64::from(good),
+                };
+                w.intervene(Intervention::SetCell{key:20,value:feedback}).unwrap();
                 input=if writes%2==0{5}else{-3};
                 w.intervene(Intervention::SetCell{key:7,value:input}).unwrap();
             },
@@ -74,8 +88,12 @@ fn trial(arm:Arm)->serde_json::Value {
 }
 #[test]
 fn b56_f1_inherited_training_feedback_cut_native_falsifier() {
-    let rows=[Arm::Intact,Arm::CutOutput,Arm::CutFeedbackRead]
+    let rows=[Arm::Intact,Arm::CutOutput,Arm::CutFeedbackRead,
+        Arm::BlindSuccess,Arm::InvertedFeedback]
         .map(trial);
+    // Frozen prospective prediction: both information-corruption controls keep
+    // the intact feedback path, but should impair true candidate retention.
+    // This is a prediction, NOT an assertion of a favorable result.
     // Assert only physical invariants, never the desired scientific outcome.
     // The recorded counterfactual results decide whether feedback is required.
     for row in &rows {
