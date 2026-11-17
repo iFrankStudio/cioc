@@ -115,6 +115,7 @@ jobs:
             cl1b_b51d_midlife_regime_shift
             cl1b_b52_native_paid_revalidation
             cl1b_b53_native_response_correlation
+            cl1b_b54_native_interleaving
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -216,9 +217,9 @@ jobs:
             done
           fi
           # B52 adds a paid task-feedback source controller and its source-parsed
-          # independent interpreter; explicitly exercise the full 54/41 suite
+          # independent interpreter; explicitly exercise the full 55/42 suite
           # before publishing organism-level interpretation.
-          # All seven event-backed observers require native artifacts from
+          # All eight event-backed observers require native artifacts from
           # this exact source revision; B51d additionally imports B51c's
           # unchanged CIL founder. Run all event producers in scoped jobs,
           # failing closed rather than accepting a missing native trace.
@@ -230,6 +231,7 @@ jobs:
             wanted[cl1b_b51d_midlife_regime_shift]=1
             wanted[cl1b_b52_native_paid_revalidation]=1
             wanted[cl1b_b53_native_response_correlation]=1
+            wanted[cl1b_b54_native_interleaving]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -242,8 +244,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 54 ]; then
-            echo "Expected exactly 54 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 55 ]; then
+            echo "Expected exactly 55 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -333,9 +335,10 @@ jobs:
             b51d_midlife_regime_replay
             b52_native_paid_revalidation_replay
             b53_native_response_correlation_replay
+            b54_native_interleaving_replay
           )
-          if [ "${#observers[@]}" -ne 41 ]; then
-            echo "Expected 41 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 42 ]; then
+            echo "Expected 42 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0

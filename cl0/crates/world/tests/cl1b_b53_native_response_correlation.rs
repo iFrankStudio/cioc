@@ -30,7 +30,7 @@ impl Arm{
         }
     }
 }
-fn founder()->Vec<Op>{
+pub(crate) fn founder()->Vec<Op>{
     let mut code=b52::founder();
     assert_eq!(code.len(),92);
     code.extend([
