@@ -248,3 +248,55 @@ fn b51c_hidden_mode_two_probe_native_identifiability_control(){
     assert_eq!(records.len()*28,84);
     eprintln!("B51C_TWO_PROBE_NATIVE {records:?}; 84 paid native CIL steps; feedback evaluated by laboratory only; no actor selection");
 }
+
+
+/// B51c native negative coverage control for the FROZEN eight-mode B51 task
+/// family. All candidates are constructed by paid CIL; the lab only scores
+/// outputs after execution. This test deliberately cannot show learning.
+#[test]
+fn b51c_eight_mode_native_candidate_coverage_negative_control(){
+    let xs=[0_i64,5,-3];
+    let offsets=[-3_i64,-2,2,3];
+    let mut covered=0_usize;
+    let mut uncovered=0_usize;
+    let mut paid_total=0_usize;
+    let mut native_worlds=0_usize;
+    let mut zero_aliases=0_usize;
+    for sign in [-1_i64,1] {
+        for offset in offsets {
+            let mut exact=[true,true];
+            for x in xs {
+                let mut p=Process::new(1,founder(),64);
+                p.pc=3;
+                let mut w=World::with_strict_capacity(16,80,192)
+                    .with_native_executable_edit_trace();
+                w.load(p).unwrap();
+                w.intervene(Intervention::SetCell{key:7,value:x}).unwrap();
+                let paid=w.run(64);
+                let outputs:Vec<i64>=w.events().iter().filter_map(|e|
+                    match (&e.origin,&e.kind) {
+                        (Origin::Internal(1),EventKind::CellWritten{key:11,value})=>Some(*value),
+                        _=>None
+                    }).collect();
+                assert_eq!(paid,28,"all arms must pay the same CIL compute");
+                assert_eq!(outputs.len(),2,"both paid candidates must execute");
+                let target=sign*x+offset;
+                for i in 0..2 {exact[i] &= outputs[i]==target;}
+                if x==0 && outputs[0]==target && outputs[1]==target {
+                    zero_aliases+=1;
+                }
+                paid_total+=paid;
+                native_worlds+=1;
+            }
+            if exact.iter().any(|&ok|ok){covered+=1;}else{uncovered+=1;}
+            eprintln!("B51C_EIGHT_MODE_NATIVE sign={sign} offset={offset} exact={exact:?}");
+        }
+    }
+    assert_eq!((covered,uncovered),(2,6),
+        "fixed candidate grammar cannot cover six preregistered modes");
+    assert_eq!(zero_aliases,2,
+        "x=0 success is aliased for both signs only when offset=+2");
+    assert_eq!(native_worlds,24);
+    assert_eq!(paid_total,672);
+    eprintln!("B51C_COVERAGE_NATIVE worlds={native_worlds} paid={paid_total} covered={covered} uncovered={uncovered} zero_aliases={zero_aliases}; lab scoring only, no actor-side selection");
+}
