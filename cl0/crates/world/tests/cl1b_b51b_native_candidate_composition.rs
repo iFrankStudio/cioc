@@ -176,3 +176,30 @@ fn b51b_native_composition_paid_two_executable_candidates(){
     )));
     eprintln!("B51B_NATIVE three worlds * 28 paid steps, two new executable graphs per world; mutation-disabled control 64 charges / zero output; separate JS per-step replay pending; trace={}",path.display());
 }
+
+
+/// B51c prerequisite falsification: a single x=0 probe cannot identify
+/// which of two actor-assembled graph candidates should be retained.
+/// This is a negative identifiability test, NOT native feedback selection.
+#[test]
+fn b51c_zero_probe_aliasing_requires_distinguishing_probe(){
+    fn outputs(input:i64)->Vec<i64>{
+        let mut process=Process::new(1,founder(),64);
+        process.pc=3;
+        let mut world=World::with_strict_capacity(16,80,192)
+            .with_native_executable_edit_trace();
+        world.load(process).unwrap();
+        world.intervene(Intervention::SetCell{key:7,value:input}).unwrap();
+        assert_eq!(world.run(64),28);
+        world.events().iter().filter_map(|e|match (&e.origin,&e.kind){
+            (Origin::Internal(1),EventKind::CellWritten{key:11,value})=>Some(*value),
+            _=>None,
+        }).collect()
+    }
+    let aliased=outputs(0);
+    let separated=outputs(5);
+    assert_eq!(aliased,vec![2,2],"x=0 hides Add/Sub candidate identity");
+    assert_eq!(separated,vec![7,-3],"nonzero probe distinguishes candidates");
+    assert_ne!(separated[0],separated[1]);
+    eprintln!("B51C_ALIAS_NATIVE x0={aliased:?} x5={separated:?}; no selection or transfer claimed");
+}
