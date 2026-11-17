@@ -24,3 +24,7 @@ Frozen before any B55a Rust/CIL implementation on 2026-11-17. This manifest inst
 ## Explicit prediction (not measured)
 
 A preauthored monitor-selection menu may fail to fit the B54 code-node/storage cap, and a 4,000-instruction budget may fail to accommodate trials plus 72 scored outputs. Both are engineering falsifiers, not grounds to delete bad worlds. A seeded fixed oracle may outperform actor choice. Current-nonce lies remain indistinguishable without a separate trustworthy signal. **B3/B4 NOT MET; no B55a native evidence yet.**
+
+## Post-registration status annotation — original SHA-256 and frozen constants unchanged
+
+The byte-identity of this original manifest is **`dff516c18ac087e885a8021b33d0a0b798a5b22fafd30ef94c32be4b2049c312`**, as independently verified in [B55a limited native feasibility pilot](../results/B55a-preflight-paid-monitor-choice-ecology-alias-audit.md). **Do not edit or normalize this file further after this annotation** without explicitly breaking that original hash and citing a new manifest version. The pilot uses the stated local credits, cells and nodes but **does not fulfill all seven frozen arms, all three ecologies or all eight seeds**. H55a is **NOT** accepted. This note is historical provenance, not revised resource consent.
