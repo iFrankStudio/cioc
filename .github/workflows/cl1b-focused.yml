@@ -213,9 +213,10 @@ jobs:
               esac
             done
           fi
-          # All five event-backed observers require artifacts from this very
-          # source revision. Always execute their native producers in a
-          # scoped run; never turn a missing native artifact into success.
+          # All five event-backed observers require native artifacts from
+          # this exact source revision; B51d additionally imports B51c's
+          # unchanged CIL founder. Run all event producers in scoped jobs,
+          # failing closed rather than accepting a missing native trace.
           if [ "${full}" -eq 0 ]; then
             wanted[cl1b_b49_dynamic_replay]=1
             wanted[cl1b_b50_feedback_vs_forced_clone]=1
