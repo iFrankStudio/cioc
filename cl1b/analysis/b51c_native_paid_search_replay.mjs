@@ -113,6 +113,12 @@ class CIL{
         this.code.push(template);this.pc=go(op.next);
         break;
       }
+      case 'PatchConst':{
+        const sourceNode=this.node(r(op.node));
+        if(sourceNode.kind!=='Const')throw Error('B55a PatchConst target not Const');
+        sourceNode.value=r(op.value);this.pc=go(op.next);
+        break;
+      }
       case 'PatchNext':{
         const sourceNode=this.node(r(op.node)),target=go(r(op.target));
         if(!Object.hasOwn(sourceNode,'next'))
