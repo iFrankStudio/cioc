@@ -11,7 +11,7 @@ const CAP:usize=192;
 const TRAIN:[i64;2]=[5,-3];
 const HELD:[i64;3]=[11,-7,0];
 
-fn founder()->Vec<Op>{
+pub(crate) fn founder()->Vec<Op>{
     // 0/1 disconnected generic arithmetic templates, 2 generic output;
     // initial executable input node33 loops to itself, not to a candidate.
     // All connecting clones and patches are paid native actor instructions.

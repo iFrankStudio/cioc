@@ -2,12 +2,14 @@
 // reconstructs EVERY actual native paid instruction and external feedback.
 // No trace => no pass; no native outcome used as independent state input.
 import fs from 'node:fs';
+import nodePath from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {isDeepStrictEqual} from 'node:util';
 
 const rustPath=new URL('../../cl0/crates/world/tests/cl1b_b51c_paid_search_retention.rs',import.meta.url);
 const rust=fs.readFileSync(rustPath,'utf8');
 const file='cl1b-ci-evidence/b51c_native_steps.jsonl';
-if(!fs.existsSync(file))throw Error('B51c native JSONL missing; fail closed');
+
 const source=rust.match(/fn founder\(\)->Vec<Op>\{[\s\S]*?\bvec!\[([\s\S]*?)\n    \]/)?.[1];
 if(!source)throw Error('B51c cannot parse native founder instruction literal');
 const parse=raw=>[...raw.matchAll(/Op::([A-Za-z]+)\s*\{([^}]*)\}|Op::Halt\b/g)].map(m=>{
@@ -182,6 +184,10 @@ class CIL{
       edge2:this.edge(2),edge33:this.edge(33)};
   }
 }
+// Expose the actual independent CIL interpreter for B51d's unchanged founder.
+export {CIL,founder};
+if(process.argv[1]&&nodePath.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(!fs.existsSync(file))throw Error('B51c native JSONL missing; fail closed');
 const nativeLines=fs.readFileSync(file,'utf8').trimEnd().split(/\r?\n/);
 let cursor=0,comparedPaid=0,comparedExternal=0,totalPatches=0;
 const native=()=>{
@@ -273,3 +279,5 @@ process.stdout.write(JSON.stringify({
   b51d_transfer_not_tested:true,
   b3_met:false,b4_met:false,cyberlife_established:false
 },null,2)+'\n');
+
+}
