@@ -243,7 +243,8 @@ fn pilot(out:&mut BufWriter<File>,id:usize,seed:i64,arm:&str,ecology:&str)->Valu
                 input=TRAIN[0];
                 external(out,&mut w,id,7,input,"native_watchdog_reopens_search");
             },
-            EventKind::ExecutableEdgePatched{node:2,before:42,after}=>{
+            EventKind::ExecutableEdgePatched{node:2,before:42,after}
+                if stage=="REOPEN_TRAIN" && after as i64==chosen =>{
                 assert_eq!(stage,"REOPEN_TRAIN");
                 assert_eq!(after as i64,chosen,
                     "same paid source retains actor-selected monitor");

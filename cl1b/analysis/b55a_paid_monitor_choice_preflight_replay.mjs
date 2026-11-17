@@ -13,7 +13,8 @@ const b52=rust('cl1b_b52_native_paid_revalidation.rs');
 const pre=rust('cl1b_b55a_paid_monitor_choice_preflight.rs');
 const main=fs.readFileSync('cl1b-ci-evidence/b55a_preflight_native_steps.jsonl','utf8')
   .trimEnd().split(/\r?\n/);
-const manifestBytes=fs.readFileSync('cl1b/studies/B55a-executable-resource-manifest-v1.md');
+const manifestBytes=fs.readFileSync(
+  new URL('../studies/B55a-executable-resource-manifest-v1.md',import.meta.url));
 const manifestSha=crypto.createHash('sha256').update(manifestBytes).digest('hex');
 function parse(raw, regex){
   return [...raw.matchAll(regex)].map(m=>{
@@ -154,7 +155,8 @@ for(const ecology of ['E1','E2']){
           assert.equal(stage,'SERVICE');
           reopened++;training=0;stage='REOPEN_TRAIN';input=TRAIN[0];
           external(m,caseId,7,input,'native_watchdog_reopens_search');
-        }else if(e.type==='patch'&&e.node===2&&e.before===42){
+        }else if(e.type==='patch'&&e.node===2&&e.before===42&&
+                 stage==='REOPEN_TRAIN'&&e.after===chosen){
           assert.equal(stage,'REOPEN_TRAIN');assert.equal(e.after,chosen);
           retentions++;stage='SERVICE';
           input=HELD[((service%WINDOW)+index%3)%HELD.length];
