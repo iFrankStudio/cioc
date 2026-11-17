@@ -157,9 +157,13 @@ fn run(case_id:usize,block:usize,seed:usize,shift:bool,arm:Arm,
 fn b49_independent_dynamic_replay_of_native_code_mutation_and_raw_task_outputs(){
     // The independent observer in .github/workflows/cl1b-focused.yml
     // reads this immutable native trace from its *own* CIL execution model.
-    let artifact_dir="cl1b-ci-evidence";
-    fs::create_dir_all(artifact_dir).unwrap();
-    let path=format!("{artifact_dir}/b49_native_steps.jsonl");
+    // Cargo integration tests execute with the crate manifest directory
+    // as CWD, unlike the CI observer which runs from the cl0 workspace.
+    // Pin the trace to cl0/cl1b-ci-evidence for SAME-JOB reading and upload.
+    let artifact_dir=std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../../cl1b-ci-evidence");
+    fs::create_dir_all(&artifact_dir).unwrap();
+    let path=artifact_dir.join("b49_native_steps.jsonl");
     let mut file=BufWriter::new(File::create(&path).unwrap());
     emit(&mut file,json!({"type":"meta","study":"B49","version":1,
         "source_sha":std::env::var("GITHUB_SHA").unwrap_or_else(|_|"local".into())}));
