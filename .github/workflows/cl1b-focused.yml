@@ -111,6 +111,7 @@ jobs:
             cl1b_b49_dynamic_replay
             cl1b_b50_feedback_vs_forced_clone
             cl1b_b51b_native_candidate_composition
+            cl1b_b51c_paid_search_retention
           )
           # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
@@ -211,13 +212,14 @@ jobs:
               esac
             done
           fi
-          # All three event-backed observers require artifacts from this very
+          # All four event-backed observers require artifacts from this very
           # source revision. Always execute their native producers in a
           # scoped run; never turn a missing native artifact into success.
           if [ "${full}" -eq 0 ]; then
             wanted[cl1b_b49_dynamic_replay]=1
             wanted[cl1b_b50_feedback_vs_forced_clone]=1
             wanted[cl1b_b51b_native_candidate_composition]=1
+            wanted[cl1b_b51c_paid_search_retention]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -230,8 +232,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 50 ]; then
-            echo "Expected exactly 50 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 51 ]; then
+            echo "Expected exactly 51 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -317,9 +319,10 @@ jobs:
             b49_dynamic_native_trace_replay
             b50_paid_feedback_vs_forced_scan
             b51b_native_candidate_replay
+            b51c_native_paid_search_replay
           )
-          if [ "${#observers[@]}" -ne 37 ]; then
-            echo "Expected 37 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 38 ]; then
+            echo "Expected 38 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
