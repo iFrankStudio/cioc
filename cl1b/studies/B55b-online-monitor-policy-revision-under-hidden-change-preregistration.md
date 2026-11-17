@@ -1,0 +1,49 @@
+# CL-1B B55b — endogenous execution of online monitoring-policy revision after hidden task change
+
+**Scientific prospective registration, 2026-11-17, BEFORE any B55b native implementation. NOT A NATIVE RESULT.** The positive *mechanism* and negative *utility* distinction is motivated by [B55a native paid monitor-choice pilot](../results/B55a-preflight-paid-monitor-choice-ecology-alias-audit.md). B55a's frozen complete 7-arm×3-ecology×8-seed protocol remains **incomplete**, not retrospectively rewritten. B3/B4/cyberlife NOT MET.
+
+## Causal obstruction observed in B55a pilot
+
+Before hidden task changes, E1 stationary and E2 shifting worlds expose **identical paid trial input/output/feedback histories** to the same original PID1. In B55a pilot the researcher-authored selector chose NEVER in all four paired seed worlds, which made the actor blind to the future regime change. The native E2 observed heldout score **192 correct/96 wrong** and utility0 across four worlds, vs preselected EVERY **280/8** and utility0.0165, and FOURTH **256/32** and utility0.012. A fixed period of successful trial feedback cannot certify that monitoring will never again be useful. Any improvement relying on a hidden task label or post-hoc future change hint is excluded.
+
+**H55b central question:** Given the same bounded, deterministic and task-blind CIL actor, can it *retain a nonzero, actually paid sensing rate* rather than settle on never monitoring, **detect an unforeseen change**, and then **modify its own executable monitoring-rate policy at least twice** (e.g., less frequent → more frequent after failure → less frequent after evidence of stable success), without PID replacement, host-side graph edits, resource credit top-up or preinformed task-change alarm?
+
+This is expressly **Tier 1 mechanism-level** unless the changed monitor control topology itself arises from actor-generated, non-preassembled source structure and selection method. A fixed authored rule that selects between authored schedules is not endogenous invention of a metapolicy.
+
+## Prospective experiment implementation gate
+
+Before B55b native code is run, commit a precise executable manifest and actual code-nodes with tested capacity feasibility. Prefer inheriting **4,000 credits, 16 data cells, maximum180 executable nodes and 300 storage units**, same original B51c/B52 task model and A/B hidden shifts if it fits. If the required source code and clones cannot fit the frozen bounds, **record feasibility failure** and register a separate version BEFORE relaxing any ceiling. Do not alter B55a's frozen constraints or report a successful B55b against an unregistered larger budget. All actor source edits must execute as ordinary paid `PatchConst`, `PatchNext`, `CloneNode`, etc. Neither the host nor a new `SelfAdapt` opcode may choose monitoring policy.
+
+Frozen causal control principles:
+
+1. **Always monitor**: same PID and compute environment, source-identical or explicitly source-cost-matched, precommitted to EVERY; a strong detection comparator.
+2. **Never monitor**: same producer and resource constraints, source-blind after first retention; demonstrates informational non-identifiability.
+3. **Fixed every fourth**: guaranteed nonzero sampling but no endogenous rate revision; compare to online revision after a task shift.
+4. **Blind/stale monitored feedback**: same actor-paid sampling and editing costs but external response is delayed, stale success, or current-ID forged success; no positive learning claim without fresh evidence.
+5. **Disabled native edits**: one PID, identical resource opportunities, source mutation disabled in the control; distinguish a process merely reading failure from actual monitor policy editing.
+6. **Privileged task-aware oracle**: report upper-bound performance separately, never seed a correct monitor into the learning arm or treat task change as PID-visible.
+
+Fixed heldout test families should include stationary E1, hidden shift-and-return E2 and current-feedback tampering E3. All three use the same native source graph in the primary arms, the frozen task-input probes and a predetermined hidden transition rule; no host task-mode cell. Count fixed mandatory writes, wrong writes, and **all missing opportunities** per world. Use at least two deterministic phase controls and both original tasks; avoid choosing winners from favorable survivors.
+
+## Prospective primary measurements and stop criteria
+
+Maintain the earlier fixed-budget prereg utility **U=(C−2W−M)/max(1,P)** as a reported historical comparator. B55a's E1 pilot demonstrated that all arms had identical U=0.018 when only the *first72 service outputs* were scored but all arms continued to spend P=4,000: this **capped-window denominator masks positive per-output monitor costs**, even though E1 ALWAYS performed 354–380 paid feedback Reads per individual and NEVER performed0. Consequently pre-register an independent resource-oriented primary measurement for B55b: **the total correct service outputs per4,000 native paid instructions, with ALL native service outputs after the first72 included but tagged separately, and the paid instruction count required to complete the first72 mandatory service writes**, including training, source mutation and monitoring. No rescoring B55a outcomes, no survival-only normalization.
+
+H55b mechanism-positive requires all of the following:
+- a genuine paid feedback Read in a future task that was hidden when an earlier sampling rate was selected;
+- real executable monitor-route edits by PID1 **after** the hidden task transition, with at least two substantively different monitor rates executed and observable in source route/code values;
+- recovery of task functional competence via the existing paid candidate-search system after failure, with separately reported wrong submissions/latency;
+- later source-rate revision conditioned on further paid evidence, not a single host-controlled toggle;
+- repeatability across task families/input phase controls and independent event-by-event JS CIL replay with source and manifest SHA hashes.
+
+**H55b utility-positive** additionally requires *paired, actual native measured* better fixed-budget correct-output throughput or lower paid cost per correct output in at least one precommitted ecology than BOTH always-monitor and fixed-fourth controls, without worse matched primary U in hidden-shift E2. Failure is evidence against this particular authored monitor-rate policy, not against future digital life. A successful ability to switch schedules without a utility gain is **mechanism only**, not B3.
+
+For E3, deliberately preserve B54/B55a impossibility: a malicious evaluator that writes a false current-nonce success can defeat even perfectly correlated response identifiers. Do not claim trust if the actor only compares serial equality or reads the same single feedback channel repeatedly. No atomicity claim without a separate native interleaving counterexample.
+
+## Provenance, falsification and scientific boundary
+
+Require native Rust `World::step` evidence with original PID1, process PC, charged credits, source route before/after, caller origin of each source mutation, external input/feedback provenance, actual process stop, storage and source history. Independent JavaScript CIL interpreter must parse **the exact checked-out Rust source**, replay **each native paid instruction and external intervention**, fail closed if source SHA/manifest hash differs or original native trace is absent, and report exact first divergence. Per-world denominators and utility/throughput calculations are mandatory. Retain failures rather than fixing source after viewing heldout outcomes without a new versioned preregistration.
+
+**Interpretation:** This program tests *paid native execution of researcher-authored online monitoring-policy revision*. Distinguish it from genuine self-authored metapolicy variation, adaptive resource self-maintenance, open-ended learning outside the task family, and cyberlife. **B3/B4 NOT MET until independently supported.**
+
+**Status: PROSPECTIVE ONLY; exact executable source/resources/seed manifest and native B55b results pending.**
