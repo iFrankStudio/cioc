@@ -230,5 +230,5 @@ fn b49_independent_dynamic_replay_of_native_code_mutation_and_raw_task_outputs()
         // The blind-zero branch may stop; preserve its actual lost exposure.
         assert!(exposure[block][2][0]<=if block==0{8*2*144}else{4*2*144});
     }
-    eprintln!("B49_NATIVE cases=96 trace={} NOTE independent replay pending",path);
+    eprintln!("B49_NATIVE cases=96 trace={} NOTE independent replay pending",path.display());
 }
