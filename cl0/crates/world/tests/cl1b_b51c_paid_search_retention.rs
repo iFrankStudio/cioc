@@ -310,10 +310,14 @@ fn b51c_paid_search_real_feedback_source_retention_and_native_controls(){
             static_rows.push(static_oracle(s,k));
         }
     }
-    out.flush().unwrap();
     assert_eq!(end_rows.len(),16);
     assert_eq!(static_rows.len(),8);
     let disabled=disabled_control();
+    for row in &static_rows {
+        emit(&mut out,json!({"type":"static","result":row}));
+    }
+    emit(&mut out,json!({"type":"disabled","result":disabled}));
+    out.flush().unwrap();
     eprintln!("B51C_NATIVE_END {}",serde_json::to_string(&end_rows).unwrap());
     eprintln!("B51C_STATIC {}",serde_json::to_string(&static_rows).unwrap());
     eprintln!("B51C_DISABLED {disabled}");
