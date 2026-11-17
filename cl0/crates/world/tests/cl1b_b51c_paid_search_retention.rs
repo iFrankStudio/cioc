@@ -147,7 +147,9 @@ fn run_actor(out:&mut BufWriter<File>,case:usize,s:i64,k:i64,arm:Arm)->Value{
     assert!(matches!(program[33],Op::Read{next:33,..}));
     let mut world=World::with_strict_capacity(16,120,CAP)
         .with_native_executable_edit_trace();
-    world.load(Process::new(1,program,BUDGET as u64)).unwrap();
+    let mut process=Process::new(1,program,BUDGET as u64);
+    process.pc=3; // seed controller; arithmetic templates0/1 are disconnected
+    world.load(process).unwrap();
     emit(out,json!({"type":"case","case":case,"s":s,"k":k,
         "arm":arm.name(),"initial_len":72,"initial_credits":BUDGET,
         "initial_storage":world.occupied_units()}));
@@ -275,7 +277,9 @@ fn static_oracle(s:i64,k:i64)->Value{
 fn disabled_control()->Value{
     let mut w=World::with_strict_capacity(16,120,CAP)
         .with_native_patchnext_disabled();
-    w.load(Process::new(1,founder(),BUDGET as u64)).unwrap();
+    let mut process=Process::new(1,founder(),BUDGET as u64);
+    process.pc=3;
+    w.load(process).unwrap();
     w.intervene(Intervention::SetCell{key:7,value:5}).unwrap();
     let n=w.run(BUDGET);
     let writes=w.events().iter().filter(|e|
