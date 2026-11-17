@@ -214,6 +214,9 @@ jobs:
               esac
             done
           fi
+          # B52 adds a paid task-feedback source controller and its source-parsed
+          # independent interpreter; explicitly exercise the full 53/40 suite
+          # before publishing organism-level interpretation.
           # All six event-backed observers require native artifacts from
           # this exact source revision; B51d additionally imports B51c's
           # unchanged CIL founder. Run all event producers in scoped jobs,
