@@ -1,0 +1,45 @@
+# CL-1B B52 — paid endogenous *execution* of researcher-authored revalidation and reopenable search
+
+**FROZEN PROSPECTIVE DESIGN, 2026-11-17. NO NATIVE B52 RESULTS YET.** The mechanism is explicitly investigator-designed and must NOT be presented as spontaneous invention of feedback monitoring or a self-authored mutation rule. [B51c verified positive selection](../results/B51c-native-paid-multicandidate-feedback-retention-audit.md) and [B51d verified negative persistent source](../results/B51d-native-midlife-task-shift-no-revalidation-audit.md) motivate the experiment. B3/B4, cumulative competence and cyberlife remain NOT MET.
+
+## Core question and falsifiable hypotheses
+
+B51d demonstrates that B51c's retained `Write` jumps into a no-sensor service loop, so **192 externally available correctness bits yielded zero paid feedback Reads, zero code edits, and 0/192 accuracy under shifted tasks**. In B52, a **one-PID, bounded native CIL organization** must actually *pay* to check post-write evidence, recognize failure, modify its own output route to reopen its own candidate search and reacquire competence when a hidden task regime changes.
+
+- **H52a — mechanism:** after retention, native CIL performs an attributable, charged `Read` of an external-origin correctness cell **after its immediately preceding genuine output submission**, and on failure performs an actual charged `PatchNext` that **reopens the same original two-candidate/offset-search controller in the same PID**. Absent one of those paid causal events, H52a fails.
+- **H52b — useful recovery:** both previously frozen task shifts (`x-2 → -x+3` and `-x-3 → x+2`), and both reverse returns to the original task, lead to sustained correct heldout functionality **after** fresh two-nonzero-probe feedback selection. Genuine-feedback arm must outperform constant-success/no-new-feedback and constant-failure controls on a preregistered **correct-minus-wrong** score under equal *realized* CIL instruction budgets. If a change prompts activity but outputs stay wrong, H52b fails.
+- **H52c — information/causal safety:** stale prior success, repeated identical values, x=0 aliases, delayed or mismatched feedback and no-op task changes must not be mistaken for positive evidence of new competence. Exact first divergence against an independent CIL interpreter must remain null. Failure of this causal gate blocks organism-level inference even if H52b holds.
+
+A positive result would demonstrate **researcher-authored generic closed-loop repair and online reacquisition**. It would NOT establish that the actor discovered why it should check results, invented its search grammar, retained a repertoire of prior task solutions, generalized beyond the given affine family, or became a cyberlife organism.
+
+## Frozen minimal source intervention
+
+1. **Exact B51c base graph** plus a *separately documented, reviewer-auditable* appended CIL feedback-watchdog/restart subgraph. Do **not** alter the Rust VM, write a dedicated optimizer primitive, inject correct source nodes, or give the actor the hidden task parameters or expected output.
+2. The retained source must route native output `Write` to an ordinary **charged** sequence `Const(feedback_address)` → `Read(feedback_bit)` → `Branch`. Genuine post-output `Write` first triggers a strictly observer-labeled external feedback `SetCell`; the CIL `Read` is on its next paid steps, so a prior/trapped/stale value cannot be silently scored as new evidence. Use at least **two distinct nonzero probes x=5 and -3** before accepting any repaired candidate.
+3. A failed paid service check must cause **CIL actor-origin executable edge patches** to reopen the existing trial controller, reset *its own* candidate offset/sign search cells, then perform the same native candidate generation/feedback-probe/retention flow. The experimenter may supply the already-frozen probe input series **when the actor requests trial mode through a detectable paid CIL event**; the experimenter must never call `PatchEdge`, change a process's PC, overwrite executable graphs, choose a candidate, or refill credits.
+4. Do not silently count “recovery” just because the task returns to the one still running. Verify the native retained route changed from the old parameter to the new one, and verify the test input is not actor-modifiable after the observer boundary. Source storage and charged instruction costs (including the watchdog overhead) must remain explicit.
+5. The initial organization is **one PID1**, with **3,000 finite paid CIL instruction credits**, strict **16 data cells, 160 code nodes, 256 total storage units**; no compute refill. All B52 arms use the exact same source graph and initial capacity. Do not treat this budget as directly comparable with B51d's 1,300-credit baseline.
+
+## Frozen tasks and matched arms
+
+Use B51d's *same* externally hidden transitions **A `x-2 → -x+3`** and **B `-x-3 → x+2`**, followed by return to the original mode, and the fixed heldout input cycle `[11,-7,0]`. Advance between regimes only after 24 genuine service writes *per stage*, not after arbitrary host timing; no mode marker or task answer is put in a readable cell. Count wrong submissions and missed/early-stopped stage opportunities, and report all world denominators.
+
+Evaluate at least these actual native source-identical arms:
+
+| Arm | Service feedback intervention | Distinguishing causal question |
+|---|---|---|
+| TRUE | Post-output real success/failure bit | Can paid watchdog detect and recover? |
+| STALE_SUCCESS | Hold latest training success bit =1, no new service feedback | Is merely retaining the old bit mistaken for learning? |
+| FORCED_ZERO | Post-output fake failure bit 0 | Does blind re-search waste resource and falsely claim novelty? |
+| STATIONARY_TRUE | No task change, truthful feedback | Watchdog burden and false positives on stable tasks |
+| STALE_DELAYED | Externally delayed previous-output feedback bit | Can temporally misattributed evidence defeat the monitor? |
+
+Run **all arms to the exact same 3,000 paid CIL instruction opportunities** when still executable, even if some fail to produce 24 outputs in a stage; stopped worlds stay in the denominator. Count actual realized paid credits, output correctness and wrong writes separately; never normalize by surviving or “successful” candidate count only. A separate privileged compact per-mode oracle may know the task; always label it as an **upper bound** and disclose its far lower per-write compute cost. Within each arm include two deterministic actor-input-phase controls without host code edits and two task-transition families.
+
+## Evidence and limitations
+
+Record every native paid CIL instruction and external input/feedback intervention: process PC, registers, dynamic graph identity/edges, cloned nodes, actual mutations, credits, storage, origin, task stage, observed submission value and captured input. Include per-candidate two-probe success histories, old-versus-new retained sign/offset, change detection, false alarms and exact paid recheck overhead. Keep laboratory objective and evaluator explicitly external. A **separately authored, source-parsed JavaScript CIL interpreter** must reproduce native instructions and source modifications event by event, including deliberate stale/delayed aliases, fail closed on missing same-source artifact and source SHA mismatch.
+
+**Interpretation boundary:** B52 native success is at most **engineered feedback-driven re-adaptation within an authored affine grammar**. Showing that the individual invents/revises its *own* monitor, search method or resource-maintenance scheme, retains earlier competencies, and adapts outside the predefined test ecology is a further test; B3/B4 remain NOT MET until those independent criteria are satisfied.
+
+**Status: PROTOCOL ONLY. H52a/b/c pending; not a B3 or cyberlife claim.**
