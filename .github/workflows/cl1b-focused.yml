@@ -223,6 +223,8 @@ jobs:
           # B54 proves the same authored B53 nonce-check source can be fooled
           # by an external bit mutation between verified serial/commit and
           # the native paid feedback Read. Preserve exact step-level replay.
+          # B55a limited pilot is not the original full preregistered B55a study.
+          # Run the full 56 native targets and43 source-pinned independent observers.
           # B55a feasibility is a narrowly labeled 5-arm/2-ecology/4-seed pilot;
           # do not promote to preregistered full B55a Tier 1 success.
           # All nine event-backed observers require native artifacts from
