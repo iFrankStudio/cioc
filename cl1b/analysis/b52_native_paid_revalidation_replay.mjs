@@ -12,7 +12,7 @@ const rust=fs.readFileSync(path,'utf8');
 for(const needle of [
   'b51c::founder()', 'const BUDGET:usize=3000;',
   'const WINDOW:usize=24;', 'with_native_executable_edit_trace()',
-  'with_strict_capacity(16,160,256)', 'proc.pc=72;',
+  'with_strict_capacity(16,160,256)', 'p.pc=72;',
   'post_retention_patches','stale_false_successes',
 ]){
   if(!rust.includes(needle))throw Error('B52 native source protocol drift: '+needle);
