@@ -1,0 +1,325 @@
+{
+  "evidence": "source-parsed independent CIL resource model, NOT native Rust",
+  "sources": [
+    "cl0/crates/world/tests/cl1b_b22_native_relay_assembly.rs",
+    "cl0/crates/world/tests/cl1b_b23_assembly_cost_vs_solo.rs"
+  ],
+  "design": "2 neutral pulse schedules × (2 assembled source variants + 7 solo fixed policies)",
+  "comparedWorlds": 18,
+  "comparisons": [
+    {
+      "schedule": [
+        3,
+        5
+      ],
+      "assembled": {
+        "initialNodes": 35,
+        "attempts": 37,
+        "serviceWrites": 1,
+        "postSupplyAttempts": [
+          3,
+          5
+        ],
+        "residualPool": 0
+      },
+      "noTransfer": {
+        "initialNodes": 35,
+        "attempts": 37,
+        "serviceWrites": 0,
+        "residualPool": 0
+      },
+      "solo": [
+        {
+          "type": "SOLO",
+          "request": 1,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            2,
+            0
+          ],
+          "serviceWrites": 0,
+          "remainingPool": 6,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 31,
+          "remainingPC": 3
+        },
+        {
+          "type": "SOLO",
+          "request": 2,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            3,
+            0
+          ],
+          "serviceWrites": 0,
+          "remainingPool": 5,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 32,
+          "remainingPC": 4
+        },
+        {
+          "type": "SOLO",
+          "request": 3,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            8
+          ],
+          "serviceWrites": 2,
+          "remainingPool": 0,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 37,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 4,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            5
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 3,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 34,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 5,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            6
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 2,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 35,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 6,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            7
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 1,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 36,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 7,
+          "schedule": [
+            3,
+            5
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            8
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 0,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 37,
+          "remainingPC": 1
+        }
+      ]
+    },
+    {
+      "schedule": [
+        4,
+        4
+      ],
+      "assembled": {
+        "initialNodes": 35,
+        "attempts": 37,
+        "serviceWrites": 1,
+        "postSupplyAttempts": [
+          3,
+          5
+        ],
+        "residualPool": 0
+      },
+      "noTransfer": {
+        "initialNodes": 35,
+        "attempts": 37,
+        "serviceWrites": 0,
+        "residualPool": 0
+      },
+      "solo": [
+        {
+          "type": "SOLO",
+          "request": 1,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            2,
+            0
+          ],
+          "serviceWrites": 0,
+          "remainingPool": 6,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 31,
+          "remainingPC": 3
+        },
+        {
+          "type": "SOLO",
+          "request": 2,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            3,
+            0
+          ],
+          "serviceWrites": 0,
+          "remainingPool": 5,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 32,
+          "remainingPC": 4
+        },
+        {
+          "type": "SOLO",
+          "request": 3,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            4,
+            4
+          ],
+          "serviceWrites": 2,
+          "remainingPool": 0,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 37,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 4,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            5
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 3,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 34,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 5,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            6
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 2,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 35,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 6,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            7
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 1,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 36,
+          "remainingPC": 1
+        },
+        {
+          "type": "SOLO",
+          "request": 7,
+          "schedule": [
+            4,
+            4
+          ],
+          "codeNodes": 5,
+          "bootstrap": 29,
+          "afterPacketAttempts": [
+            0,
+            8
+          ],
+          "serviceWrites": 1,
+          "remainingPool": 0,
+          "remainingLocalCredits": 0,
+          "totalNativeAttempts": 37,
+          "remainingPC": 1
+        }
+      ]
+    }
+  ]
+}
