@@ -245,6 +245,19 @@ const byArm=Object.fromEntries(arms.map(arm=>{
 }));
 const a=byArm.A_ACTOR_ASSEMBLE,c=byArm.C_EDITS_DISABLED,
   d=byArm.D_NO_ASSEMBLY;
+// STRICT policy-origin audit, separate from "no post-retention service path":
+// Original B51c source ALREADY has a fully reachable training feedback
+// chain Writer2 -> Const35(cell20) -> Read36(cell20) -> Const37 -> ...
+// So it contains a usable complete output feedback-reading circuit. A new
+// PID1-paid link is mechanically real but does not establish de novo origin
+// of feedback monitoring under B56-F0's stronger full-founder exclusion.
+const trainingFeedbackCircuitPreexisted=actorGraph()[2].kind==='Write'&&
+  actorGraph()[2].next===35&&
+  actorGraph()[35].kind==='Const'&&actorGraph()[35].value===20&&
+  actorGraph()[35].next===36&&actorGraph()[36].kind==='Read'&&
+  actorGraph()[36].address===2&&actorGraph()[36].next===37;
+if(!trainingFeedbackCircuitPreexisted)
+  throw Error('B56 F0 strict existing training feedback-circuit inventory changed');
 const noPreseededServiceMonitor=actorGraph()[2].next===35&&
   actorGraph()[50].next===72&&actorGraph()[96].kind==='Halt'&&
   actorGraph().length===102;
@@ -262,6 +275,9 @@ console.log(JSON.stringify({
   complete_service_monitor_absent_in_founder:noPreseededServiceMonitor,
   actor_paid_monitor_assembly_feasible:paidAssembly,
   authored_assembly_not_self_originated_policy:paidAssembly,
+  preexisting_complete_training_feedback_circuit:trainingFeedbackCircuitPreexisted,
+  strict_n56a_de_novo_monitor_origin_gate_passed:false,
+  f0_mechanical_service_path_assembly_without_de_novo_origin:paidAssembly,
   n56b_policy_selection_and_useful_advantage_not_tested:true,
   n56c_generator_second_order_revision_not_tested:true,
   b3_met:false,b4_met:false,cyberlife_established:false,
