@@ -1,6 +1,6 @@
 # CL-1B B51 — native candidate *composition* and cross-task transfer
 
-**Originally preregistered 2026-11-17 before B51 native execution. B51a/B51b engineering stages are NOW NATIVE-VERIFIED; B51c/B51d remain NOT IMPLEMENTED or VERIFIED.** This study must not inherit B50's negative outcome as its own result. The latest full native baseline is [B50, 49/49 Rust +36/36 observers](../results/B50-native-feedback-vs-forced-construction-audit.md); B3/B4 and cyberlife remain NOT MET.
+**Originally preregistered 2026-11-17 before B51 native execution. B51a/B51b engineering stages are NOW NATIVE-VERIFIED; B51c is now narrowly native-verified; B51d remains NOT IMPLEMENTED or VERIFIED.** This study must not inherit B50's negative outcome as its own result. The latest full native baseline is [B50, 49/49 Rust +36/36 observers](../results/B50-native-feedback-vs-forced-construction-audit.md); B3/B4 and cyberlife remain NOT MET.
 
 ## Motivation and obstacle
 
@@ -33,5 +33,7 @@ Even joint H51/H51b/H51c engineering success would demonstrate only a **research
 - **B51b:** native CIL two-graph construction, exact storage/energy/provenance controls and zero-opcode-special-case check. Abort if only a preexisting correct node is selected or an external hook performs assembly.
 - **B51c:** paid multi-probe selection + independent actual CIL replay. Abort if disabled/forced source has unmatched exposure or if a reward-bit/phase alias controls the reported gain.
 - **B51d:** prospective holdout/transfer, matched stronger baselines, and full source-pinned CI. Record both accepting and rejecting outcomes without changing the hypotheses.
+
+**Later B51c strictly bounded engineering evidence (2026-11-17):** [new frozen B51c protocol](B51c-paid-candidate-search-and-retention.md) and [source-pinned full native result](../results/B51c-native-paid-multicandidate-feedback-retention-audit.md) at SHA `06f3e827` demonstrate actor-paid real feedback selection over **8/8 hidden modes** and independent event replay, but only within the investigator-authored arithmetic candidate grammar. This does not retroactively fulfill B51d heldout task-family transfer or endogenous B3/B4. B51d remains NOT IMPLEMENTED.
 
 **Post-registration factual checkpoint (does not alter the frozen hypotheses):** [B51b original source-pinned native audit](../results/B51b-native-two-candidate-composition-audit.md), [full CI run44006194657](https://github.com/iFrankStudio/cioc/actions/runs/44006194657), tested SHA `4b02d7d5dc9ea837f4cc5f13901931800b3fe70d`: **50/50 native +37/37 independent PASS**. B51a verifies only a hidden-label/paid-feedback *interface*; B51b verifies **two distinct native-paid executable graph constructions (84 paid native events, independent per-instruction parity)**, but uses researcher-selected Add/Sub templates, a fixed offset2 and authored assembly order. Therefore this is a **narrow substrate feasibility calibration** and does not satisfy the whole H51/learning test. **B51c feedback-based selection and B51d heldout cross-task transfer remain PENDING; B3/B4 NOT MET; cyberlife NOT ESTABLISHED.**
