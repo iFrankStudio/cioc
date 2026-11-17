@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b51c_native_paid_search_replay.mjs:190
+if(!fs.existsSync(file))throw Error('B51c native JSONL missing; fail closed');
+                              ^
+
+Error: B51c native JSONL missing; fail closed
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b51c_native_paid_search_replay.mjs:190:31
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.2
