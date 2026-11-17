@@ -1,0 +1,12 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+[1m[92m     Running[0m tests/cl1b_b18_finite_compute_bound.rs (target/debug/build/cl0-world/6ce66b146fc4ed1f/out/cl1b_b18_finite_compute_bound-6ce66b146fc4ed1f)
+
+running 4 tests
+test b18_explicit_external_refill_is_not_actor_owned_compute_creation ... ok
+test b18_finite_single_loop_exhausts_all_compute_despite_loop_shaped_code ... ok
+test b18_transfer_between_two_native_processes_does_not_mint_compute ... ok
+test b18_native_draw_and_return_rearrange_but_never_create_compute ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
