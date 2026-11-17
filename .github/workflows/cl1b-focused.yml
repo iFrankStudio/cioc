@@ -138,7 +138,10 @@ jobs:
             echo "Native manifest mismatch: declared=${declared_count} actual=${actual_count}" >&2
             exit 1
           fi
-          # The B49 observer requires its same-job native event trace. Every\n          # scoped job therefore selects B49 as a fixture-producing target,\n          # preserving fail-closed independent verification instead of\n          # skipping an observer on a missing native artifact.\n          # Only a changed test and its direct imports need routine validation.
+          # The B49 observer needs the native trace generated in the same CI job.
+          # Select its native producer on every scoped run, instead of
+          # weakening the fail-closed observer by skipping a missing artifact.
+          # Only a changed test and its direct imports need routine validation.
           # Full suite is available through workflow_dispatch, and required
           # when kernel semantics, Cargo dependencies or this workflow change.
           full=0
