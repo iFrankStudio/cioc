@@ -136,6 +136,8 @@ Use [the dedicated focused Actions workflow](../.github/workflows/cl1b-focused.y
 4. Check scientific content before promotion: human-authored seed programs, externally supplied interventions, resource charges, exact denominators, and no latent host repair oracle. A green Rust test is **engineering consistency**, not evidence of endogenous life.
 5. If no run or artifact is visible, leave status **UNVERIFIED**. Do not infer GitHub execution from a successful commit or an empty commit-status response.
 
+**Next-stage B55 scope (not native-executed):** [B55 scientific evidence tiers and stop/pivot criteria](studies/B55-endogenous-monitor-meta-policy-variation-preregistration.md) require a single paid native actor to modify **its own monitoring/search meta-policy**, not just execute another researcher-authored nonce or watchdog layer. Distinguish seeded monitor-menu engineering (Tier1, NOT B3) from truly source-generated and subsequently revised control topology (Tier2, candidate evidence only). Keep the reported B54 55/42 full regression frozen as historical exact-source evidence; future B55 claims need their own CI and independent replay. **B3/B4 NOT MET.**
+
 ## Policy on future studies
 
 **Do not launch an unbounded series of scripted guards and call it progress toward open-ended evolution.** Native evidence should be recovered before accepting mechanism claims. Subsequent studies must introduce a *scientifically discriminating* change such as agent-constructed competing hypotheses, within-individual policy revision based on paid native evidence, prospective holdouts or substantial falsification. Pre-register assumptions and keep all failures. Maintain CL-1A archive; avoid rerunning its hundreds of studies on each new CL-1B push.
