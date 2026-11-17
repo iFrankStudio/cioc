@@ -158,3 +158,55 @@ fn b50_paid_feedback_versus_nonhalting_blind_forced_construction() {
     }
     eprintln!("B50_NATIVE 48 worlds; 6912 paid CIL instructions; native aggregate replay by independent JS is a separate CI gate: {}",path.display());
 }
+
+
+/// B51a prospective interface gate (B51 preregistration): hidden affine mode
+/// remains exclusively in the laboratory. Only a one-bit post-submission
+/// external event is observable through an ordinary charged CIL Read.
+/// This is a substrate calibration, NOT candidate synthesis or B3 evidence.
+#[test]
+fn b51a_hidden_task_label_does_not_leak_before_paid_feedback_read() {
+    // Two frozen modes from B51's eight-mode family. For x=1, the same
+    // submitted value 1 is correct for (-1,+2), wrong for (+1,-2).
+    let modes=[(-1_i64,2_i64),(1_i64,-2_i64)];
+    let mut observations=Vec::new();
+    for (s,k) in modes {
+        let graph=vec![
+            Op::Const{dst:2,value:7,next:1},
+            Op::Read{dst:0,address:2,next:2},
+            Op::Const{dst:2,value:11,next:3},
+            Op::Write{address:2,value:0,next:4},
+            Op::Const{dst:2,value:20,next:5},
+            Op::Read{dst:1,address:2,next:6},
+            Op::Halt,
+        ];
+        let mut w=World::with_strict_capacity(16,80,192);
+        w.load(Process::new(1,graph,8)).unwrap();
+        w.intervene(Intervention::SetCell{key:7,value:1}).unwrap();
+        for _ in 0..4 {assert!(w.step());}
+        assert_eq!(w.cell(11),Some(1));
+        let before=w.process(1).unwrap();
+        assert_eq!(before.pc,4);
+        assert_eq!(before.credits,4);
+        assert_eq!(w.cell(20),None,"feedback must not exist before output");
+        let prefix=(before.pc,before.registers.clone(),w.cell(7),w.cell(11));
+        // Host-only expected value: never written to any world cell.
+        let success=i64::from(1==s*1+k);
+        w.intervene(Intervention::SetCell{key:20,value:success}).unwrap();
+        assert_eq!(w.events().last().unwrap().origin,Origin::External);
+        for _ in 0..2 {assert!(w.step());}
+        let after=w.process(1).unwrap();
+        assert_eq!(after.registers[1],success);
+        assert_eq!(after.credits,2);
+        assert_eq!(w.cell(7),Some(1));
+        assert_eq!(w.cell(11),Some(1));
+        assert_eq!(w.total_compute_inventory(),Some(2));
+        observations.push((prefix,success,after.registers[1]));
+    }
+    assert_eq!(observations[0].0,observations[1].0,
+        "hidden task mode must be observationally identical before feedback");
+    assert_ne!(observations[0].1,observations[1].1,
+        "chosen modes must produce opposite correctness bits");
+    assert_eq!(observations[0].1,observations[0].2);
+    assert_eq!(observations[1].1,observations[1].2);
+}
