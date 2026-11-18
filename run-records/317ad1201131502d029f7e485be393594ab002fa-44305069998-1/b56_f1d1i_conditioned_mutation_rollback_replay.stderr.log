@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1i_conditioned_mutation_rollback_replay.mjs:52
+if(!fs.existsSync(evidence))throw Error('missing ORIGINAL exact-source native F1d1i JSONL');
+                                  ^
+
+Error: missing ORIGINAL exact-source native F1d1i JSONL
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1i_conditioned_mutation_rollback_replay.mjs:52:35
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.3

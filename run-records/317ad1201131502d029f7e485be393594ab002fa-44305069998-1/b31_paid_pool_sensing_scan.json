@@ -1,0 +1,197 @@
+{
+  "evidence": "independent source-parsed deterministic CIL interpreter, NOT native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b31_pool_sensing.rs",
+  "worlds": 12,
+  "zeroCreditDeadlock": {
+    "arm": "Sense",
+    "packet": 100,
+    "initial": 0,
+    "sensed": [],
+    "paid": 0,
+    "services": 0,
+    "patch": 0,
+    "pc": 0,
+    "credits": 0,
+    "pool": 100,
+    "literal": 4,
+    "eventCount": 0
+  },
+  "cases": [
+    {
+      "arm": "Sense",
+      "packet": 0,
+      "initial": 8,
+      "sensed": [
+        0
+      ],
+      "paid": 8,
+      "services": 0,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 4,
+      "eventCount": 8
+    },
+    {
+      "arm": "BlindThree",
+      "packet": 0,
+      "initial": 8,
+      "sensed": [],
+      "paid": 8,
+      "services": 0,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 3,
+      "eventCount": 8
+    },
+    {
+      "arm": "BlindFour",
+      "packet": 0,
+      "initial": 8,
+      "sensed": [],
+      "paid": 8,
+      "services": 0,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 4,
+      "eventCount": 8
+    },
+    {
+      "arm": "Sense",
+      "packet": 4,
+      "initial": 8,
+      "sensed": [
+        4
+      ],
+      "paid": 12,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 3,
+      "eventCount": 12
+    },
+    {
+      "arm": "BlindThree",
+      "packet": 4,
+      "initial": 8,
+      "sensed": [],
+      "paid": 12,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 3,
+      "eventCount": 12
+    },
+    {
+      "arm": "BlindFour",
+      "packet": 4,
+      "initial": 8,
+      "sensed": [],
+      "paid": 8,
+      "services": 0,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 4,
+      "literal": 4,
+      "eventCount": 8
+    },
+    {
+      "arm": "Sense",
+      "packet": 5,
+      "initial": 8,
+      "sensed": [
+        5
+      ],
+      "paid": 13,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 4,
+      "eventCount": 13
+    },
+    {
+      "arm": "BlindThree",
+      "packet": 5,
+      "initial": 8,
+      "sensed": [],
+      "paid": 12,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 1,
+      "literal": 3,
+      "eventCount": 12
+    },
+    {
+      "arm": "BlindFour",
+      "packet": 5,
+      "initial": 8,
+      "sensed": [],
+      "paid": 13,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 0,
+      "literal": 4,
+      "eventCount": 13
+    },
+    {
+      "arm": "Sense",
+      "packet": 6,
+      "initial": 8,
+      "sensed": [
+        6
+      ],
+      "paid": 13,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 1,
+      "literal": 4,
+      "eventCount": 13
+    },
+    {
+      "arm": "BlindThree",
+      "packet": 6,
+      "initial": 8,
+      "sensed": [],
+      "paid": 12,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 2,
+      "literal": 3,
+      "eventCount": 12
+    },
+    {
+      "arm": "BlindFour",
+      "packet": 6,
+      "initial": 8,
+      "sensed": [],
+      "paid": 13,
+      "services": 1,
+      "patch": 1,
+      "pc": 9,
+      "credits": 0,
+      "pool": 1,
+      "literal": 4,
+      "eventCount": 13
+    }
+  ]
+}

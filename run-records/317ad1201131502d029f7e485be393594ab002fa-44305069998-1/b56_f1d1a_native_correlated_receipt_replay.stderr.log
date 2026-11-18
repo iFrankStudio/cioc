@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1a_native_correlated_receipt_replay.mjs:15
+if(!fs.existsSync(log))throw Error('F1d1a missing same-source native CIL history: cannot certify');
+                             ^
+
+Error: F1d1a missing same-source native CIL history: cannot certify
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1a_native_correlated_receipt_replay.mjs:15:30
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.3
