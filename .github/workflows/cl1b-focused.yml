@@ -267,8 +267,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 59 ]; then
-            echo "Expected exactly 59 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 60 ]; then
+            echo "Expected exactly 60 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
