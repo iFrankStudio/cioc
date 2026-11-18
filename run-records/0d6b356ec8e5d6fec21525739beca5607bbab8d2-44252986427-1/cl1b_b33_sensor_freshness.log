@@ -1,0 +1,73 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: fields `arrival` and `paid_attempts` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b33_sensor_freshness.rs:14:5
+   [1m[94m|[0m
+[1m[94m12[0m [1m[94m|[0m struct Trial {
+   [1m[94m|[0m        [1m[94m-----[0m [1m[94mfields in this struct[0m
+[1m[94m13[0m [1m[94m|[0m     arm: &'static str,
+[1m[94m14[0m [1m[94m|[0m     arrival: Arrival,
+   [1m[94m|[0m     [1m[33m^^^^^^^[0m
+[1m[94m...[0m
+[1m[94m17[0m [1m[94m|[0m     paid_attempts: usize,
+   [1m[94m|[0m     [1m[33m^^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `Trial` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m[1m: fields `arm` and `packet` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b31_pool_sensing.rs:59:5
+   [1m[94m|[0m
+[1m[94m58[0m [1m[94m|[0m struct Trial {
+   [1m[94m|[0m        [1m[94m-----[0m [1m[94mfields in this struct[0m
+[1m[94m59[0m [1m[94m|[0m     arm:Arm,packet:u64,sensed:Vec<u64>,source_literal:i64,
+   [1m[94m|[0m     [1m[33m^^^[0m     [1m[33m^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `Trial` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b33_sensor_freshness") generated 2 warnings
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+[1m[92m     Running[0m tests/cl1b_b33_sensor_freshness.rs (target/debug/build/cl0-world/cc6de963997891d8/out/cl1b_b33_sensor_freshness-cc6de963997891d8)
+
+running 3 tests
+B33_NATIVE Trial { arm: "SENSE", arrival: Early, packet: 0, native_senses: [0], paid_attempts: 8, writes: 0, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 0 }
+B31_NATIVE Trial { arm: Sense, packet: 0, sensed: [0], source_literal: 4, charged: 8, service_writes: 0, test canonical_b31::b31_pool_sensor_is_not_a_free_zero_credit_reboot_and_bounds_signed_readback ... remaining_pool: ok0
+, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: Early, packet: 0, native_senses: [], paid_attempts: 8, writes: 0, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 0 }
+B31_NATIVE Trial { arm: BlindThree, packet: 0, sensed: [], source_literal: 3, charged: 8, service_writes: 0, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterSense, packet: 0, native_senses: [0], paid_attempts: 8, writes: 0, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 0, sensed: [], source_literal: 4, charged: 8, service_writes: 0, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterSense, packet: 0, native_senses: [], paid_attempts: 8, writes: 0, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 1 }
+B31_NATIVE Trial { arm: Sense, packet: 4, sensed: [4], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterCommit, packet: 0, native_senses: [0], paid_attempts: 8, writes: 0, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 8 }
+B31_NATIVE Trial { arm: BlindThree, packet: 4, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterCommit, packet: 0, native_senses: [], paid_attempts: 8, writes: 0, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 8 }
+B31_NATIVE Trial { arm: BlindFour, packet: 4, sensed: [], source_literal: 4, charged: 8, service_writes: 0, remaining_pool: 4, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: Early, packet: 4, native_senses: [4], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 0 }
+B31_NATIVE Trial { arm: Sense, packet: 5, sensed: [5], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: Early, packet: 4, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 0 }
+B31_NATIVE Trial { arm: BlindThree, packet: 5, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterSense, packet: 4, native_senses: [0], paid_attempts: 8, writes: 0, patched_request: 4, remaining_pool: 4, pc: 9, local: 0, executed_before_packet: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 5, sensed: [], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterSense, packet: 4, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 1 }
+B31_NATIVE Trial { arm: Sense, packet: 6, sensed: [6], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterCommit, packet: 4, native_senses: [0], paid_attempts: 8, writes: 0, patched_request: 4, remaining_pool: 4, pc: 9, local: 0, executed_before_packet: 8 }
+B31_NATIVE Trial { arm: BlindThree, packet: 6, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 2, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterCommit, packet: 4, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 8 }
+B31_NATIVE Trial { arm: BlindFour, packet: 6, sensed: [], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: Early, packet: 5, native_senses: test canonical_b31::b31_paid_generic_pool_sensing_can_condition_native_source_mutation_but_not_create_fitness ... [ok5
+], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 0 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: Early, packet: 5, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 0 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterSense, packet: 5, native_senses: [0], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterSense, packet: 5, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterCommit, packet: 5, native_senses: [0], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 0, pc: 9, local: 0, executed_before_packet: 8 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterCommit, packet: 5, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 8 }
+B33_NATIVE Trial { arm: "SENSE", arrival: Early, packet: 6, native_senses: [6], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 0 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: Early, packet: 6, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 2, pc: 9, local: 0, executed_before_packet: 0 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterSense, packet: 6, native_senses: [0], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 1 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterSense, packet: 6, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 2, pc: 9, local: 0, executed_before_packet: 1 }
+B33_NATIVE Trial { arm: "SENSE", arrival: AfterCommit, packet: 6, native_senses: [0], paid_attempts: 13, writes: 1, patched_request: 4, remaining_pool: 1, pc: 9, local: 0, executed_before_packet: 8 }
+B33_NATIVE Trial { arm: "BLIND3", arrival: AfterCommit, packet: 6, native_senses: [], paid_attempts: 12, writes: 1, patched_request: 3, remaining_pool: 2, pc: 9, local: 0, executed_before_packet: 8 }
+test b33_delayed_neutral_energy_invalidates_truthful_earlier_pool_sensing ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
