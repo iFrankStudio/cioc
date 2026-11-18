@@ -122,8 +122,11 @@ jobs:
             cl1b_b56_f1_founder_feedback_cut
             cl1b_b56_f1b_two_native_monitor_routes
             cl1b_b56_f1c_pilot_ordered_trial
+            cl1b_b56_f1d0_monitor_path_calibration
           )
-          # Require FULL 60-native/47-independent regression for the source-pinned
+          # B56-F1d0: 32 original VM monitor price calibration worlds, 16
+          # feedback masks per policy, source-parsed dynamic 1:1 replay.
+          # Do NOT interpret as within-PID invention or full F1d success.
           # B56-F1b completed 80k-instruction mechanical/negative pilot audit.
           # B56-F1c exact-source FULL 61-native +48-observer history regression
           # after native route telemetry correction (do not replace raw failures).
@@ -272,8 +275,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 61 ]; then
-            echo "Expected exactly 61 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 62 ]; then
+            echo "Expected exactly 62 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -370,9 +373,11 @@ jobs:
             b56_f1a_native_feedback_ablation_replay
             b56_f1b_two_native_monitor_routes_replay
             b56_f1c_pilot_ordered_trial_replay
+            b56_f1d_source_monitor_cost_check
+            b56_f1d0_native_monitor_cost_replay
           )
-          if [ "${#observers[@]}" -ne 48 ]; then
-            echo "Expected 48 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 50 ]; then
+            echo "Expected 50 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
