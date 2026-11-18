@@ -125,6 +125,7 @@ jobs:
             cl1b_b56_f1d0_monitor_path_calibration
             cl1b_b56_f1d1d_paid_graph_encode_preflight
             cl1b_b56_f1d1f_same_pid_virtual_bytecode
+            cl1b_b56_f1d1g_same_pid_multi_bytecode
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -272,6 +273,7 @@ jobs:
             wanted[cl1b_b56_f1d0_monitor_path_calibration]=1
             wanted[cl1b_b56_f1d1d_paid_graph_encode_preflight]=1
             wanted[cl1b_b56_f1d1f_same_pid_virtual_bytecode]=1
+            wanted[cl1b_b56_f1d1g_same_pid_multi_bytecode]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -284,8 +286,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 64 ]; then
-            echo "Expected exactly 64 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 65 ]; then
+            echo "Expected exactly 65 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -389,9 +391,10 @@ jobs:
             b56_f1d1c_native_branch_template_closure_audit
             b56_f1d1d_native_graph_encode_paid_replay
             b56_f1d1f_same_pid_virtual_bytecode_replay
+            b56_f1d1g_same_pid_multi_bytecode_replay
           )
-          if [ "${#observers[@]}" -ne 55 ]; then
-            echo "Expected 55 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 56 ]; then
+            echo "Expected 56 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
