@@ -1,3 +1,4 @@
+#![recursion_limit = "512"]
 //! B56-F1c pilot: ONE PID1 assembles and runs both policies in balanced order;
 //! same source-built EVERY and FOURTH under stationary / hidden in-trial shifts.
 //! The constructor and selector are author-scripted; order from cell43,
