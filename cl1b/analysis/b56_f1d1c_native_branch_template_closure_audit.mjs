@@ -206,7 +206,7 @@ const report={
   original_sub_source_pc:60,original_sub_dst_register:3,
   original_branch_condition_register:3,
   B53_branch_condition_register:1,
-  64bit_integer_boundary_cases_matched:arithmeticPairs.length,
+  signed_64bit_integer_boundary_cases_matched:arithmeticPairs.length,
   only_equality_decision_equivalence:true,
   no_complete_correlator_assembly:true
  },
