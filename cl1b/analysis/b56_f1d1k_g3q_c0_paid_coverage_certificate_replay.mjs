@@ -35,7 +35,7 @@ assert.deepEqual([
  L.paidRetainTail,L.paidMiddleRestore,L.paidDescriptorBaseAdvance,
  L.paidDescriptorMiddleAdvance,L.paidDescriptorTailAdvance,
  L.paidDescriptorIDAdvance,L.halt
-],[29,46,59,63,69,72,90,106,113,117,121,125,135,146,156,162,163]);
+],[29,46,59,63,69,72,91,106,113,117,121,125,135,146,156,162,163]);
 const KEYS=[7,11,20,21,32,33,50,51,52,53,56,61,62,63,64,65];
 assert.deepEqual(frozen.allowed_cells,KEYS);
 assert.deepEqual(frozen.strict_world,{
