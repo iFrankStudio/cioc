@@ -121,6 +121,7 @@ jobs:
             cl1b_b56_f0_paid_monitor_assembly
             cl1b_b56_f1_founder_feedback_cut
             cl1b_b56_f1b_two_native_monitor_routes
+            cl1b_b56_f1c_pilot_ordered_trial
           )
           # Require FULL 60-native/47-independent regression for the source-pinned
           # B56-F1b completed 80k-instruction mechanical/negative pilot audit.
@@ -269,8 +270,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 60 ]; then
-            echo "Expected exactly 60 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 61 ]; then
+            echo "Expected exactly 61 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -366,9 +367,10 @@ jobs:
             b56_f0_paid_monitor_assembly_replay
             b56_f1a_native_feedback_ablation_replay
             b56_f1b_two_native_monitor_routes_replay
+            b56_f1c_pilot_ordered_trial_replay
           )
-          if [ "${#observers[@]}" -ne 47 ]; then
-            echo "Expected 47 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 48 ]; then
+            echo "Expected 48 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
