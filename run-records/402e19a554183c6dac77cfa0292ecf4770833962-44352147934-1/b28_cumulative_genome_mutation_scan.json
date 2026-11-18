@@ -1,0 +1,844 @@
+{
+  "evidence": "independent source-parsed restricted CIL VM; NOT native Rust execution",
+  "source": "cl0/crates/world/tests/cl1b_b28_cumulative_genome_mutation.rs",
+  "worlds": 11,
+  "cases": [
+    {
+      "arm": "PLUS_ONE",
+      "delta": 1,
+      "supply": [
+        128,
+        129,
+        130
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 129,
+          "work": 129,
+          "births": 2,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 130,
+          "work": 129,
+          "births": 3,
+          "pool": 1,
+          "energy": 1
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "genotypes": [
+        127,
+        128,
+        129,
+        129
+      ],
+      "genotypeMismatches": [],
+      "attempts": 388,
+      "pool": 1,
+      "inventory": 1,
+      "made": 3,
+      "copies": 57,
+      "edits": 6,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "INCREASING"
+    },
+    {
+      "arm": "PLUS_ONE",
+      "delta": 1,
+      "supply": [
+        128,
+        128,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 128,
+          "work": 0,
+          "births": 1,
+          "pool": 128,
+          "energy": 128
+        },
+        {
+          "packet": 128,
+          "work": 129,
+          "births": 2,
+          "pool": 127,
+          "energy": 127
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "genotypes": [
+        127,
+        128,
+        129
+      ],
+      "genotypeMismatches": [],
+      "attempts": 259,
+      "pool": 127,
+      "inventory": 127,
+      "made": 2,
+      "copies": 38,
+      "edits": 4,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "FLAT"
+    },
+    {
+      "arm": "PLUS_ONE",
+      "delta": 1,
+      "supply": [
+        130,
+        129,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 130,
+          "work": 128,
+          "births": 1,
+          "pool": 2,
+          "energy": 2
+        },
+        {
+          "packet": 129,
+          "work": 129,
+          "births": 2,
+          "pool": 2,
+          "energy": 2
+        },
+        {
+          "packet": 128,
+          "work": 129,
+          "births": 3,
+          "pool": 1,
+          "energy": 1
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "genotypes": [
+        127,
+        128,
+        129,
+        129
+      ],
+      "genotypeMismatches": [],
+      "attempts": 388,
+      "pool": 1,
+      "inventory": 1,
+      "made": 3,
+      "copies": 57,
+      "edits": 6,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "DECREASING"
+    },
+    {
+      "arm": "IDENTICAL",
+      "delta": 0,
+      "supply": [
+        128,
+        129,
+        130
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 129,
+          "work": 128,
+          "births": 2,
+          "pool": 1,
+          "energy": 1
+        },
+        {
+          "packet": 130,
+          "work": 128,
+          "births": 3,
+          "pool": 3,
+          "energy": 3
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "genotypes": [
+        127,
+        127,
+        127,
+        127
+      ],
+      "genotypeMismatches": [],
+      "attempts": 386,
+      "pool": 3,
+      "inventory": 3,
+      "made": 3,
+      "copies": 57,
+      "edits": 6,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "INCREASING"
+    },
+    {
+      "arm": "IDENTICAL",
+      "delta": 0,
+      "supply": [
+        128,
+        128,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 2,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 3,
+          "pool": 0,
+          "energy": 0
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "genotypes": [
+        127,
+        127,
+        127,
+        127
+      ],
+      "genotypeMismatches": [],
+      "attempts": 386,
+      "pool": 0,
+      "inventory": 0,
+      "made": 3,
+      "copies": 57,
+      "edits": 6,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "FLAT"
+    },
+    {
+      "arm": "IDENTICAL",
+      "delta": 0,
+      "supply": [
+        130,
+        129,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 130,
+          "work": 128,
+          "births": 1,
+          "pool": 2,
+          "energy": 2
+        },
+        {
+          "packet": 129,
+          "work": 128,
+          "births": 2,
+          "pool": 3,
+          "energy": 3
+        },
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 3,
+          "pool": 3,
+          "energy": 3
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "genotypes": [
+        127,
+        127,
+        127,
+        127
+      ],
+      "genotypeMismatches": [],
+      "attempts": 386,
+      "pool": 3,
+      "inventory": 3,
+      "made": 3,
+      "copies": 57,
+      "edits": 6,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 3,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0,
+      "scheduleName": "DECREASING"
+    },
+    {
+      "arm": "MINUS_ONE",
+      "delta": -1,
+      "supply": [
+        128,
+        129,
+        130
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 129,
+          "work": 126,
+          "births": 1,
+          "pool": 2,
+          "energy": 3
+        },
+        {
+          "packet": 130,
+          "work": 0,
+          "births": 1,
+          "pool": 132,
+          "energy": 133
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ]
+      ],
+      "genotypes": [
+        127,
+        126
+      ],
+      "genotypeMismatches": [],
+      "attempts": 256,
+      "pool": 132,
+      "inventory": 133,
+      "made": 2,
+      "copies": 38,
+      "edits": 4,
+      "traps": 1,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 18,
+          "credits": 1,
+          "stopped": true,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 1,
+      "scheduleName": "INCREASING"
+    },
+    {
+      "arm": "MINUS_ONE",
+      "delta": -1,
+      "supply": [
+        128,
+        128,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 128,
+          "births": 1,
+          "pool": 0,
+          "energy": 0
+        },
+        {
+          "packet": 128,
+          "work": 126,
+          "births": 1,
+          "pool": 1,
+          "energy": 2
+        },
+        {
+          "packet": 128,
+          "work": 0,
+          "births": 1,
+          "pool": 129,
+          "energy": 130
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ]
+      ],
+      "genotypes": [
+        127,
+        126
+      ],
+      "genotypeMismatches": [],
+      "attempts": 256,
+      "pool": 129,
+      "inventory": 130,
+      "made": 2,
+      "copies": 38,
+      "edits": 4,
+      "traps": 1,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 18,
+          "credits": 1,
+          "stopped": true,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 1,
+      "scheduleName": "FLAT"
+    },
+    {
+      "arm": "MINUS_ONE",
+      "delta": -1,
+      "supply": [
+        130,
+        129,
+        128
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 130,
+          "work": 128,
+          "births": 1,
+          "pool": 2,
+          "energy": 2
+        },
+        {
+          "packet": 129,
+          "work": 126,
+          "births": 1,
+          "pool": 4,
+          "energy": 5
+        },
+        {
+          "packet": 128,
+          "work": 0,
+          "births": 1,
+          "pool": 132,
+          "energy": 133
+        }
+      ],
+      "births": [
+        [
+          1,
+          2
+        ]
+      ],
+      "genotypes": [
+        127,
+        126
+      ],
+      "genotypeMismatches": [],
+      "attempts": 256,
+      "pool": 132,
+      "inventory": 133,
+      "made": 2,
+      "copies": 38,
+      "edits": 4,
+      "traps": 1,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        },
+        {
+          "id": 2,
+          "pc": 18,
+          "credits": 1,
+          "stopped": true,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 1,
+      "scheduleName": "DECREASING"
+    },
+    {
+      "arm": "NO_INFLUX",
+      "delta": 1,
+      "supply": [],
+      "startup": 2,
+      "windows": [],
+      "births": [],
+      "genotypes": [
+        127
+      ],
+      "genotypeMismatches": [],
+      "attempts": 2,
+      "pool": 0,
+      "inventory": 0,
+      "made": 0,
+      "copies": 0,
+      "edits": 0,
+      "traps": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 0
+    },
+    {
+      "arm": "COPY_DISABLED",
+      "delta": 1,
+      "supply": [
+        128,
+        129,
+        130
+      ],
+      "startup": 2,
+      "windows": [
+        {
+          "packet": 128,
+          "work": 122,
+          "births": 0,
+          "pool": 0,
+          "energy": 6
+        },
+        {
+          "packet": 129,
+          "work": 0,
+          "births": 0,
+          "pool": 129,
+          "energy": 135
+        },
+        {
+          "packet": 130,
+          "work": 0,
+          "births": 0,
+          "pool": 259,
+          "energy": 265
+        }
+      ],
+      "births": [],
+      "genotypes": [
+        127
+      ],
+      "genotypeMismatches": [],
+      "attempts": 124,
+      "pool": 259,
+      "inventory": 265,
+      "made": 1,
+      "copies": 0,
+      "edits": 0,
+      "traps": 1,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 14,
+          "credits": 6,
+          "stopped": true,
+          "programSize": 19
+        }
+      ],
+      "graphObjects": 1
+    }
+  ]
+}
