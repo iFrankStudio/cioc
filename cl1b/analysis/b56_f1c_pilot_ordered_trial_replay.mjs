@@ -197,7 +197,7 @@ for(const seed of seeds){
         ext(m,caseId,7,input,'paid_source_retained_service');
       }else if(e.type==='patch'&&e.node===2&&e.before===30&&e.after===164){
         assert.ok(retained&&!aLinked);aLinked=true;assert.equal(newLen,166);
-      }else if(e.type==='patch'&&e.node===2&&e.before===164&&e.after===136){
+      }else if(pc===161&&e.type==='patch'&&e.node===2&&e.before===164&&e.after===136){
         assert.ok(retained&&aLinked&&!bLinked);bLinked=true;assert.equal(newLen,168);
       }else if(e.type==='read'&&e.key===20&&!training){
         if(edge(m,2)===164){aReads++;if(service<=8)trialReadsA++;}
