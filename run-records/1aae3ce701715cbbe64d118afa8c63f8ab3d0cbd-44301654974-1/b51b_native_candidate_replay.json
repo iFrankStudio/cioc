@@ -1,0 +1,128 @@
+{
+  "study": "B51b",
+  "native_source_sha": "1aae3ce701715cbbe64d118afa8c63f8ab3d0cbd",
+  "native_worlds": 3,
+  "independent_paid_events": 84,
+  "native_cloned_nodes": 6,
+  "patched_edges": 15,
+  "first_divergence": null,
+  "cases": [
+    {
+      "input": 5,
+      "paid": 28,
+      "outputs": [
+        7,
+        -3
+      ],
+      "source_mutations": [
+        [
+          26,
+          0,
+          12
+        ],
+        [
+          11,
+          0,
+          26
+        ],
+        [
+          27,
+          1,
+          12
+        ],
+        [
+          2,
+          13,
+          25
+        ],
+        [
+          24,
+          0,
+          27
+        ]
+      ],
+      "new_nodes": 2,
+      "peak_storage": 31
+    },
+    {
+      "input": -3,
+      "paid": 28,
+      "outputs": [
+        -1,
+        5
+      ],
+      "source_mutations": [
+        [
+          26,
+          0,
+          12
+        ],
+        [
+          11,
+          0,
+          26
+        ],
+        [
+          27,
+          1,
+          12
+        ],
+        [
+          2,
+          13,
+          25
+        ],
+        [
+          24,
+          0,
+          27
+        ]
+      ],
+      "new_nodes": 2,
+      "peak_storage": 31
+    },
+    {
+      "input": 0,
+      "paid": 28,
+      "outputs": [
+        2,
+        2
+      ],
+      "source_mutations": [
+        [
+          26,
+          0,
+          12
+        ],
+        [
+          11,
+          0,
+          26
+        ],
+        [
+          27,
+          1,
+          12
+        ],
+        [
+          2,
+          13,
+          25
+        ],
+        [
+          24,
+          0,
+          27
+        ]
+      ],
+      "new_nodes": 2,
+      "peak_storage": 31
+    }
+  ],
+  "candidate_composition_engineering": true,
+  "b51b_selection_utility": false,
+  "b51c_transfer": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false
+}
