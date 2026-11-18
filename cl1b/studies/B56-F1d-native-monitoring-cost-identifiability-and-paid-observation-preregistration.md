@@ -1,0 +1,41 @@
+# CL-1B B56-F1d — is there a real finite-compute monitoring tradeoff to learn?
+
+**PROSPECTIVE scientific and engineering design, 2026-11-18. No F1d implementation or result.** This follows the source-pinned B56-F1c **limited** native order-balanced trial: both constructed monitors were paid/executed, real feedback shifted the preauthored policy branch under an early hidden task change, but full-budget correct-output rate failed against BOTH investigator-authored static policy controls, and original F1/F1c checks remain incomplete. F1d must not retroactively change F1c's frozen experiment.
+
+## Structural contradiction uncovered in F1c
+
+The investigator named the routes EVERY (read every output) and FOURTH (read every fourth), implicitly treating sampling frequency as a surrogate for compute expense. Actual native CIL charges **one credit per instruction**, including conditional branches, counters and source edits, so this naming is not an economic fact.
+
+After the same service `Write2` and before their common service-counting routine `node110`:
+
+- **EVERY successful output:** `Const164→Read165→Branch98`: **3 paid CIL steps**. On genuinely failed sample, the additional `Const99→Const100→Write101` adds3, totaling6.
+- **FOURTH not sampled:** `Const136→Read137→Const138→Add139→Write140→Const141→Add142→Branch144`: **8 paid steps**, despite no feedback Read.
+- **FOURTH fourth sampled:** those 8 instructions, followed by `Const145→Const146→Write147→Const148→Const166→Read167→Branch98`: **15 paid steps** if feedback says success; failure adds3.
+- Therefore per four successful services, **EVERY costs 12 paid monitor-path instructions vs FOURTH costs 39**; including a false/failure marker does not reverse the inequality because even four failures make EVERY≤24, while FOURTH still costs ≥39 and may add3.
+
+This is an exact instruction-graph accounting property of *the existing source*, not a new outcome-motivated change to VM physics. At a budget of4,000, the “sample less, spend less” premise is **falsified for the particular researcher-authored monitor architecture**. The **static EVERY** also outperforms separately preauthored **static FOURTH** on full-budget throughput; and in F1c stationary ecology, an inverted-bit control actually produces **more correct writes** than truthful selection by misleading the PID1 into choosing the computationally shorter EVERY path. Consequently, an observed F1c truthful-vs-blind choice difference is **feedback sensitivity**, NOT evidence of a useful rational resource tradeoff or a superior self-originated policy.
+
+## F1d research goal and initial refusal condition
+
+Before adding yet another authored selector, ask if the digital ecology offers a **genuine actor-visible paid cost tradeoff** between information acquisition and useful external work. If EVERY strictly dominates every periodic construction on both paid compute and truth coverage, there is **nothing resource-rational to learn** about sample rate under these conditions. Do not manufacture a preference by externally awarding wrong/correct “fitness points” or changing the reported denominator.
+
+F1d must first publish a **separate source-extracted instruction-path cost verifier** for the original F1c Rust native source and its effective edited graph (after paid clones). Explicitly count all instruction paths, including the worst-case service errors and no-op `PatchNext`, before changing source code. Charge every observation, trial, rollback and monitoring instruction as ordinary CIL, and compare source-identical alternatives where physically possible.
+
+## Prospective candidate test (not yet executable)
+
+1. **Information value vs real price:** design only from already generic CIL primitives `Read`, `ReadLastWriter`, `Add`, `Sub`, `Branch`, `PatchNext`, `PatchConst`, `CloneNode`. A plausible example is **explicitly paid, multi-instruction response-correlation/provenance checking** inherited from B53/B54, rather than a new privileged “fitness” or “detect correct answer” instruction. It is acceptable if no economically viable cost difference exists within the original world size; mark failure rather than injecting an oracle.
+2. **Break-even frozen in advance:** if an EVERY monitor has incremental check cost `C_read` per service output and FOURTH pays per-output scheduler overhead `C_sched` plus `C_read/4`, FOURTH only saves CIL compute when `C_read > (4/3)*C_sched`. More general unequal shared routine and failure-branch costs must be included and published as symbolic inequalities before native outcomes. Under the current source, the alleged saving does not exist.
+3. **Both candidate policies actor constructed and tried:** one PID1, task retention genuine, both candidate monitor paths built by native-paid `CloneNode/PatchNext`, actual paired four-write trials in both orders A→B and B→A. At least one source-authored data counter must be honestly charged to observe trial cost; no Rust-side precomputed score is written to memory. Explicitly report any assembler costs that can swamp a legitimate monitoring benefit.
+4. **Ecologies**: (S) stationary real truth, (D) early hidden change during candidate trials and later return, and an **unpredictable heldout shift after selection** to test whether a short policy trial actually predicts future demand. The actor must not receive the task label, future shift schedule or privileged correct policy. Source-identical blinding/inversion and forged-current-ID evidence controls must separate evidence reliability from control flow. If no informative cue exists before a heldout shift, not predicting it is the expected information-theoretic boundary.
+5. **Causal edit ablation:** keep original paid task search working, and disable ONLY subsequent monitor-assembly edits under a separately pre-registered, generic native world law. Whole-life edit disable (B56-F0) is confounded and cannot count. A dedicated kernel edit-ablation mechanism must be generic, recorded, transparent and applied to matched worlds before native results—not introduced to salvage a failed treatment.
+6. **Resource boundaries:** initial target strictly 4,000 paid instructions, ≤16 live data cells, ≤180 CIL nodes and≤300 storage units; if cost correlation, two monitor graphs and an actor-observable cost counter cannot fit, publish **capacity infeasibility** under these caps. Any bigger-world alternatives require a separately frozen protocol BEFORE execution and identical enlarged budgets for all arms, never retroactively upgrade existing F1c outcomes.
+7. **Native source-pinned verification:** independently parse the actual Rust founder + all paid mutation operations into a separate JS CIL VM and replay every paid step, service output, feedback Read, code edge, external intervention, account and storage. Include original truthful, blind, inverted, no-monitor, static EVERY/FOURTH and a **task-aware oracle** as a separately labelled upper bound with privileged information and visibly different source assumptions; missed outputs and stopped PIDs count.
+
+## Stop criteria
+
+- **Cost model fails:** periodic monitoring does not actually save compute per useful service. Label *resource-economics negative*; no further policy-learning acceptance under that grammar.
+- **No causal selection:** truthful/blind order-matched native trials select the same policy, or differences arise solely from source index/order/host stage labels. Label *informational causality not met*.
+- **Mechanism but no utility:** real paid counter/mutation selection occurs, but paired full-budget useful throughput fails to exceed **both** strong static baselines or historical `(correct−2 wrong−missing)/paid` is inferior. Label *N56-B not met*.
+- **No authentic trust:** external provider forges current nonce/provenance and actor cannot distinguish a semantically false bit. Mark the trust boundary, not a new cyberlife sensor.
+
+**Status: preimplementation only; F1d has no native source or experimental result. Existing B56-F1c only proved fixed-rule feedback-sensitive route choice. Strict N56-A/N56-B/C, B3/B4 and cyberlife remain NOT MET.**
