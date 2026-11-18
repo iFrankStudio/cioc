@@ -359,7 +359,7 @@ fn case(out:&mut BufWriter<File>,id:usize,seed:i64,ecology:Ecology,arm:Arm)->Val
                 monitor_a_linked=true;
                 assert_eq!(new_code_len,166);
             },
-            EventKind::ExecutableEdgePatched{node:2,before:164,after:136}=>{
+            EventKind::ExecutableEdgePatched{node:2,before:164,after:136} if old_pc==161=>{
                 assert!(retained && monitor_a_linked && !monitor_b_linked);
                 monitor_b_linked=true;
                 assert_eq!(new_code_len,168);
