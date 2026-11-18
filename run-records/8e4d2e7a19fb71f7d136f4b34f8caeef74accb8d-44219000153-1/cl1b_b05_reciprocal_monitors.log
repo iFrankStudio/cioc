@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+[1m[92m     Running[0m tests/cl1b_b05_reciprocal_monitors.rs (target/debug/build/cl0-world/c064aae8d0b65e51/out/cl1b_b05_reciprocal_monitors-c064aae8d0b65e51)
+
+running 2 tests
+test cl1b_b05_reciprocal_monitors_recover_single_lesions_not_double ... ok
+test cl1b_b06_poisoned_checkpoints_cause_self_damage_and_order_masks_double_fault ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

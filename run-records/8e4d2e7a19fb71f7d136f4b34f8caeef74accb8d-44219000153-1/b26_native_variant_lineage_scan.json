@@ -1,0 +1,991 @@
+{
+  "evidence": "restricted source-parsed CIL interpreter, not native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b26_native_variant_lineage.rs",
+  "worlds": 12,
+  "cases": [
+    {
+      "arm": "PARENT4_CHILD3",
+      "base": 4,
+      "delta": -1,
+      "childRequest": 3,
+      "supply": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 0,
+      "childWrites": 6,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        }
+      ],
+      "attempts": 58,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT3_CHILD4",
+      "base": 3,
+      "delta": 1,
+      "childRequest": 4,
+      "supply": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 6,
+      "childWrites": 0,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 58,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD4",
+      "base": 4,
+      "delta": 0,
+      "childRequest": 4,
+      "supply": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 2,
+      "childWrites": 2,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 3
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 2
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        }
+      ],
+      "attempts": 54,
+      "pool": 4,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD3",
+      "base": 4,
+      "delta": -1,
+      "childRequest": 3,
+      "supply": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 1
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 2
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 2
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 3
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 3
+        }
+      ],
+      "attempts": 61,
+      "pool": 3,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT3_CHILD4",
+      "base": 3,
+      "delta": 1,
+      "childRequest": 4,
+      "supply": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 1
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 2
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 2
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 3
+        }
+      ],
+      "attempts": 61,
+      "pool": 3,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD4",
+      "base": 4,
+      "delta": 0,
+      "childRequest": 4,
+      "supply": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 64,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD3",
+      "base": 4,
+      "delta": -1,
+      "childRequest": 3,
+      "supply": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 61,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT3_CHILD4",
+      "base": 3,
+      "delta": 1,
+      "childRequest": 4,
+      "supply": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        }
+      ],
+      "attempts": 61,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD4",
+      "base": 4,
+      "delta": 0,
+      "childRequest": 4,
+      "supply": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "bootstrap": 34,
+      "parentWrites": 2,
+      "childWrites": 4,
+      "byPacket": [
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 5,
+          "attempted": 9,
+          "serviceParent": 0,
+          "serviceChild": 2,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 5,
+          "attempted": 9,
+          "serviceParent": 2,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 5,
+          "attempted": 9,
+          "serviceParent": 0,
+          "serviceChild": 2,
+          "pool": 0
+        }
+      ],
+      "attempts": 61,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD3",
+      "base": 4,
+      "delta": -1,
+      "childRequest": 3,
+      "supply": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 4,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 1
+        },
+        {
+          "quantity": 4,
+          "attempted": 5,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 61,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT3_CHILD4",
+      "base": 3,
+      "delta": 1,
+      "childRequest": 4,
+      "supply": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 3,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 4,
+          "serviceParent": 1,
+          "serviceChild": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 61,
+      "pool": 0,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    },
+    {
+      "arm": "PARENT4_CHILD4",
+      "base": 4,
+      "delta": 0,
+      "childRequest": 4,
+      "supply": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "bootstrap": 34,
+      "parentWrites": 2,
+      "childWrites": 3,
+      "byPacket": [
+        {
+          "quantity": 5,
+          "attempted": 5,
+          "serviceParent": 0,
+          "serviceChild": 1,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 5,
+          "attempted": 9,
+          "serviceParent": 2,
+          "serviceChild": 0,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        },
+        {
+          "quantity": 5,
+          "attempted": 9,
+          "serviceParent": 0,
+          "serviceChild": 2,
+          "pool": 0
+        },
+        {
+          "quantity": 4,
+          "attempted": 0,
+          "serviceParent": 0,
+          "serviceChild": 0,
+          "pool": 4
+        }
+      ],
+      "attempts": 57,
+      "pool": 4,
+      "created": 1,
+      "copies": 5,
+      "edgeEdits": 4,
+      "candidateEdits": 1,
+      "children": 1,
+      "final": [
+        {
+          "id": 1,
+          "pc": 31,
+          "credits": 0,
+          "codeNodes": 35
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeNodes": 5
+        }
+      ]
+    }
+  ]
+}

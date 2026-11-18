@@ -1,0 +1,77 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.21s
+[1m[92m     Running[0m tests/cl1b_b13_native_mutation_differential.rs (target/debug/build/cl0-world/3448b4007d99dbc3/out/cl1b_b13_native_mutation_differential-3448b4007d99dbc3)
+
+running 2 tests
+B13_NATIVE_CASE input=-13 node=0 target=4 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=0 target=5 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=0 target=7 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=1 target=4 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=1 target=5 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=1 target=7 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=2 target=4 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=2 target=5 fp=6 fn=0 strict_fp=5 strict_fn=0
+test canonical_b10::b10_native_freshness_defeats_stale_values_but_timed_spoof_fools_one_trial ... ok
+B13_NATIVE_CASE input=-13 node=2 target=7 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=3 target=5 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=7 target=9 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=7 target=10 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=7 target=11 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=-13 node=8 target=10 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=-13 node=8 target=11 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=0 node=2 target=7 fp=5 fn=1 strict_fp=5 strict_fn=1
+B13_NATIVE_CASE input=0 node=7 target=9 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=0 node=7 target=10 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=0 node=7 target=11 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=0 node=8 target=10 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=0 node=8 target=11 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=0 target=4 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=0 target=5 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=0 target=7 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=1 target=4 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=1 target=5 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=1 target=7 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=2 target=4 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=2 target=5 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=2 target=7 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=3 target=5 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=7 target=9 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=7 target=10 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=7 target=11 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=7 node=8 target=10 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=7 node=8 target=11 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=0 target=4 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=0 target=5 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=0 target=7 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=1 target=4 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=1 target=5 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=1 target=7 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=2 target=4 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=2 target=5 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=2 target=7 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=3 target=5 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=7 target=9 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=7 target=10 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=7 target=11 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=23 node=8 target=10 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=23 node=8 target=11 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=0 target=4 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=0 target=5 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=0 target=7 fp=7 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=1 target=4 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=1 target=5 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=1 target=7 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=2 target=4 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=2 target=5 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=2 target=7 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=3 target=5 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=7 target=9 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=7 target=10 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=7 target=11 fp=6 fn=0 strict_fp=6 strict_fn=0
+B13_NATIVE_CASE input=101 node=8 target=10 fp=5 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_CASE input=101 node=8 target=11 fp=6 fn=0 strict_fp=5 strict_fn=0
+B13_NATIVE_AGGREGATE worlds=1805 fp_worlds=66 fn_worlds=52 fp_events=381 fn_events=82 strict_fp_events=355 strict_fn_events=82
+test b13_all_single_next_edge_mutants_match_independent_proxy_failure_classification ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
