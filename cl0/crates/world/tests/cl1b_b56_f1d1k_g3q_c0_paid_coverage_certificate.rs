@@ -400,7 +400,17 @@
   }
   assert!(world.process(1).unwrap().stopped);
   assert_eq!(world.process(2).is_none(),true);
-  assert_eq!(world.events().iter().filter(|e|matches!(e.origin,Origin::External)).count(),0);
+  // The native kernel records the one initial host-triggered Process::load
+  // as Origin::External / EventKind::Loaded. That is NOT a post-load
+  // intervention and must not be misreported as host-written metadata.
+  let external=world.events().iter()
+    .filter(|e|matches!(e.origin,Origin::External)).collect::<Vec<_>>();
+  assert_eq!(external.len(),1,"only original PID1 process load may be external");
+  assert!(matches!(external[0].kind,EventKind::Loaded));
+  assert_eq!(world.events().iter().filter(|e|
+    matches!(e.origin,Origin::External) &&
+    matches!(e.kind,EventKind::CellWritten{..})).count(),0,
+    "zero external cell writes after initial load");
   assert_eq!(steps,24050);
   assert_eq!(verdicts.len(),64);
   assert_eq!(total_meta_reads,576);
