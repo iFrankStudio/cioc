@@ -160,7 +160,10 @@ for(const seed of seeds){
       if((pc===156||pc===97)&&m.cell(29)===8){
         finalChoice=edge(m,2);selectPaid=m.paid;
       }
-      if(pc===127&&(m.cell(29)??0)===0)firstRoute=edge(m,2);
+      if(['A_TRUTH_TWO','B_BLIND_TWO','C_INVERTED_TWO'].includes(arm)){
+        if(pc===161)firstRoute=edge(m,2);
+        if(pc===127&&(m.cell(29)??0)===0)firstRoute=edge(m,2);
+      }
       if([109,158].includes(pc)&&m.cell(29)===4)
         afterFourRoute=edge(m,2);
       if(e.type==='write'&&e.key===11){
@@ -264,7 +267,7 @@ const blindCanStillAssemble=b.every(r=>r.monitor_a_linked&&r.monitor_b_linked);
 const correctOrderSwitch=a.every(r=>
   (r.order==='A_THEN_B'?
     r.first_route===164&&r.after_four_route===136:
-    r.first_route===null&&r.after_four_route===164));
+    r.first_route===136&&r.after_four_route===164));
 const distinctTruthfulChoiceVsBlindD=a.filter(r=>r.ecology==='D_EARLY_SHIFT_RETURN')
   .every(r=>{
     const counterpart=b.find(x=>x.seed===r.seed&&x.ecology===r.ecology);
