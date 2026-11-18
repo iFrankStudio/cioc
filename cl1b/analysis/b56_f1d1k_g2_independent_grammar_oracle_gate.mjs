@@ -3,7 +3,8 @@ import fs from 'node:fs';
 
 // Independent prospective G2 grammar check; never interprets this as native evidence.
 const file = process.argv[2] ?? 'cl1b/studies/B56-F1d1k-G2-frozen-64-descriptor-three-trial-meta-oracle-v1.json';
-const oracle = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
+assert.ok(fs.existsSync(file), 'frozen oracle missing: ' + file);
+const oracle = JSON.parse(fs.readFileSync(file, 'utf8'));
 function execute(words) {
   let acc = 0;
   for (const op of words) {
