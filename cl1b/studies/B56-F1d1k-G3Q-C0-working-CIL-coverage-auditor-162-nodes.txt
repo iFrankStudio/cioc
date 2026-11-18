@@ -1,4 +1,4 @@
-# WORKING PROTOTYPE, NOT frozen or native verified
+# WORKING PROTOTYPE, NOT frozen or native verified (fixed paid trial/descriptor write addresses)
 # G3Q-C0. Candidate source 162 native CIL nodes; actor enumerates 64 3-meta-op words.
 C 0 0
 C 2 62
@@ -104,6 +104,7 @@ C 2 32
 R 3 2
 C 2 1
 A 3 3 2
+C 2 32
 @paidTrialAdvance
 W 2 3
 C 2 3
@@ -214,6 +215,7 @@ C 2 65
 R 3 2
 C 2 1
 A 3 3 2
+C 2 65
 @paidDescriptorIDAdvance
 W 2 3 beginDescriptor
 @halt
