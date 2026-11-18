@@ -120,8 +120,11 @@ jobs:
             cl1b_b55b_online_monitor_rate_pilot
             cl1b_b56_f0_paid_monitor_assembly
             cl1b_b56_f1_founder_feedback_cut
+            cl1b_b56_f1b_two_native_monitor_routes
           )
-          # Fail closed on any silent native integration test omission,
+          # B56-F1b is a fixed-order TWO paid service monitor assembly pilot,
+          # NOT the complete full-F1 causal selector (no order balance/edit-only ablation).
+                    # Fail closed on any silent native integration test omission,
           # including full workflows where a new file was not in the manifest.
           # This is a file/manifest audit, not additional runtime testing.
           declared_count="${#targets[@]}"
@@ -360,9 +363,10 @@ jobs:
             b55b_online_monitor_rate_pilot_replay
             b56_f0_paid_monitor_assembly_replay
             b56_f1a_native_feedback_ablation_replay
+            b56_f1b_two_native_monitor_routes_replay
           )
-          if [ "${#observers[@]}" -ne 46 ]; then
-            echo "Expected 46 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 47 ]; then
+            echo "Expected 47 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
