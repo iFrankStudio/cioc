@@ -160,7 +160,7 @@ for(const seed of seeds){
       if((pc===156||pc===97)&&m.cell(29)===8){
         finalChoice=edge(m,2);selectPaid=m.paid;
       }
-      if(pc===127&&m.cell(29)===0)firstRoute=edge(m,2);
+      if(pc===127&&(m.cell(29)??0)===0)firstRoute=edge(m,2);
       if([109,158].includes(pc)&&m.cell(29)===4)
         afterFourRoute=edge(m,2);
       if(e.type==='write'&&e.key===11){
