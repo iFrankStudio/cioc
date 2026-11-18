@@ -1,0 +1,36 @@
+# CL-1B B56-F1d1h — **frozen exact paid CIL program**, 36-world original PID1 candidate-search preflight
+
+**COMMITTED BEFORE NATIVE RUST SOURCE, OBSERVER OR RESULTS.** This exact-layout addendum extends the previous F1d1h preregistrations. Frozen machine-readable companion `B56-F1d1h-frozen-exact-CIL-source-v1.json` defines all **166 original native source nodes**, register operands and target edges, and must equal the emitted Rust source *byte for byte in parsed CIL semantics*. Every edit to either file requires a new version and prospective freeze; no silent post-result repair. The complete source is new, researcher-authored, and is not original B51c/F1c.
+
+## Bounded world and actor controller
+
+- Same unchanged Rust world `World::with_strict_capacity(16,180,300)`, **PID1 only**, exactly 1000 initial finite paid compute credits; no pool, GraphLaunch, external code edit, extra processes, free memory mutations or host-selected winning candidates.
+- Registers r0 zero; r1 accumulator/feedback/temp; r2 address/temp; r3 opcode/temp.
+- **Exactly these 16 unique cell keys** may ever exist: `7` input; `11` output; `20` feedback; `21` external generation gate; `31` current candidate, reused to retain the winner index; `32` probe index with value2 reserved for held-out; `50` virtual PC; `51..54` virtual program slots; `55` literal2, safely reused as suppression shadow; `56` accumulator checkpoint; `61..63` candidate score table. Missing feedback key20 defaults0, and the actor **does not know whether this is absent or a legitimate failure bit**.
+- PID1 initializes cells31/32/50/51/61/62/63 to0, slots52/53/54 to3, literal55 to2, all via charged native Writes. Gate21 is supplied externally once before execution and never modified by actor. Every other program, candidate, score and retention mutation is PID1-paid.
+- Virtual ISA: `0 LOAD_INPUT`, `1 NEGATE_ACC`, `2 ADD_LITERAL2`, `3 RETURN`. **Each virtual fetch** reads key50, computes `51+PC` by charged CIL Add, and Read fetches that key dynamically. Non-return writes intermediate accumulator key56 then increments virtual PC key50 using paid CIL, looping back. RETURN alone pays output Write11. After candidate probe, PID1 pays Read20 and may increment its own `score[61+candidate_index]` only when it reads1. Every candidate runs exactly two distinct probes.
+- Candidate generator: initial A source `[0,3,3,3]`. After two probes, PID1 pays to increment candidate index 0→1 then writes opcode1 to `cell[51+1]=52`; after two B probes, index1→2 then writes opcode2 to `cell[51+2]=53`. This derives B=`[0,1,3,3]` and C=`[0,1,2,3]` from previous data via actual paid Writes, **not independently injected complete program snapshots**.
+- `gate21=1`: actual program-slot generation Writes. `gate21=0`: the **same source and same number of charged generation Writes** go to existing literal key55 as shadow; generation is disabled and every candidate index uses A's code. This is a **generation ablation, not three different programs being ranked**. `gate21=2`: frozen-candidate control runs A's two probes then selects heldout winner without executing B/C; do not report it as cost-equivalent.
+- After evaluating three candidates (unless frozen), PID1 checks score2 across A,B,C in lowest-index order, then score1 across A,B,C, else A. Scores are 0,1,2 and ties choose smallest candidate index. Winner selection **must be paid CIL comparisons on stored score cells**, not a host oracle. PID1 pays to restore **both** bytecode slots52/53 to the winning candidate and reuse cell31 as the retained winner index; it sets probe32=2 and PC50=0, then **executes a real held-out virtual service**. All actual intermediate accumulator writes and virtual opcode fetches must be archived.
+- The source-liveness static union is 16 keys, satisfying 16-cell cap even with all present; at most 166 source code nodes and one process overhead implies <300 total units. Report actual occupied maximum and finite credits; reject overflow.
+
+## 36 preregistered matched worlds and environmental interventions
+
+One fixed seed with probe inputs `[-7,5]` and heldout input11, crossed 3 hidden tasks `IDENTITY:x`, `NEGATE:-x`, `COMPOSED:-x+2` × 4 feedback regimes `TRUTH`, `BLIND_SUCCESS`, `INVERTED`, `ABSENT` × 3 generation gates `1 enabled,0 suppressed,2 frozen` = **36 native worlds**. Each uses identical frozen actor CIL source and finite budget.
+
+Host interventions: once `SetCell(21,gate)`, once initial `SetCell(7,-7)`; after each actual *probe* native Write11, for non-ABSENT regimes one `SetCell(20,bit)` based on the true hidden task and actual service output, and one `SetCell(7,next_input)` to give the next probe value or heldout11. For ABSENT, **do not create cell20**; only next input is provided and CIL Read20 returns0, which must be explicitly called out as absent-vs-failure ambiguity. No feedback is supplied for heldout. Standard gates execute **six real probe services and one heldout**, frozen gate two probes and one heldout. The environment is prohibited from editing source, program slots, candidate score, winner or compute supply.
+
+Expected if actor pays and behaves as authored:
+- gate1 TRUTH: winner A/B/C for tasks IDENTITY/NEGATE/COMPOSED, score2 against0, all3 heldout correct.
+- gate1 BLIND_SUCCESS: all scores2, tie-break A; only IDENTITY heldout correct.
+- gate1 INVERTED: true candidate score0, other two2; choose lowest-index wrong program; all3 wrong.
+- gate1 ABSENT: feedback key20 missing; all scores0, tie-break A; only IDENTITY correct.
+- gate0 generation suppressed: all three candidates execute identity, so heldout identity correctness only, though scores are candidate-index-specific and paid; program slots remain A. gate2 frozen: A only; B/C unevaluated and must be flagged.
+- No task/seed alias on probes: candidate A/B/C vectors `[-7,5]`, `[7,-5]`, `[9,-3]`; heldout11/−11/−9.
+- **Order A→B→C is deterministic and not randomized**, because the paid actor's generation grammar is monotonic. Order sensitivity remains untested. Scores are source-serialized, and no parallelism or seasonality effects are claimed.
+
+## Required exact provenance and independent falsifier
+
+The native Rust study must emit original JSONL: [meta, case, each external intervention, each charged PID1 CIL step, end] with sourceSHA, manifest SHA-256, per-step native PC, register vector, PID/credits/identity, exact event kind, full unchanged CIL code graph, live values of all16 potential keys (including absent marker), occupied storage, every program-slot Write, score update, virtual fetch, intermediate accumulator and actual service output. Any trapped/stopped process before expected services fails and remains in evidence. JS must independently reconstruct the precise Rust source CIL graph, compare to this frozen JSON, reexecute **every** charged instruction and external intervention, and reject first divergence, free mutation, source/PID change or omitted native outputs.
+
+The source is an **authored 3-candidate/4-primitive program grammar**; finding its best option under truth feedback would establish only paid source-local candidate evaluation and retention, not de novo semantics, unbounded search, B53 authenticated truth, original F1c continuity, N56-A/B/C, B3/B4 or cyberlife.
