@@ -1,0 +1,1371 @@
+{
+  "study": "B56-F1d1k-G2S",
+  "version": 1,
+  "status": "FROZEN BEFORE ORIGINAL NATIVE EXPERIMENT; 177-CIL-node exact graph; 180 original worlds",
+  "founder_DSL": "cl1b/studies/B56-F1d1k-G2S-original-177-node-founder-readable-DSL-v1.txt",
+  "code": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 4
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 5
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 6
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 8
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 9
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 13,
+      "zero": 10
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 4,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 14
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 15
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 16
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 18
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 19
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 20
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 21
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 23
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 24
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 25,
+      "zero": 28
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 26
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 27
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 29,
+      "zero": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 0,
+      "next": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 32
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 33
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 34
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 36,
+      "zero": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 0,
+      "next": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 37
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 38
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 40,
+      "zero": 39
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 41
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 42
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 43
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 45
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 47
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 48
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 49
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 50
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 17,
+      "zero": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 52
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 54
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 55
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 56
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 57
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 60,
+      "zero": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 66
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 0,
+      "next": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 63
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 64,
+      "zero": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 66
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 66
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 67
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 69
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 70
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 71
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 72
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 73
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 74
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 77,
+      "zero": 75
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 76
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 2,
+      "rhs": 1,
+      "next": 77
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 78
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 79
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 80
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 81
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 82
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 83
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 84
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 85
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 87
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 88
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 89,
+      "zero": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 90
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 91
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 92,
+      "zero": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 93
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 94
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 95
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 1,
+      "next": 96
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 98
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 99
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 100
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 1,
+      "next": 101
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 102
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 103
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 104
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 70,
+      "zero": 105
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 106
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 107
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 108
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 109
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 131,
+      "zero": 110
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 111
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 114
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 124,
+      "zero": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 116
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 117
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 118
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 120
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 122
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 3,
+      "next": 123
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 159
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 125
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 126
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 127
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 128
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 3,
+      "next": 130
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 159
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 132
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 133
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 134
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 1,
+      "next": 135
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 136
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 137
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 139,
+      "zero": 138
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 139
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 140
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 141
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 65,
+      "next": 142
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 143
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 144
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 1,
+      "next": 145
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 146
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 147
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 148
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 149,
+      "zero": 153
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 150
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 152
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 3,
+      "next": 155
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 156
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 157
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 158
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 160
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 161
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 70
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 31,
+      "next": 163
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 1,
+      "next": 166
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 167
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 168
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 169
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 170,
+      "zero": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 171
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 172
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 173
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 174
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 65,
+      "next": 175
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 13
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "labels": {
+    "initBase": 2,
+    "initTail": 4,
+    "checkInvalidGate": 5,
+    "sourceBuildInvalid": 10,
+    "paidMalformedRule": 12,
+    "metaStart": 13,
+    "metaFetch": 17,
+    "metaOpcodeFetch": 21,
+    "checkBadFour": 25,
+    "metaReset": 28,
+    "metaAdd": 29,
+    "wrap3": 35,
+    "checkWrap4": 36,
+    "wrap4": 39,
+    "metaCheckpointPrep": 40,
+    "metaCheckpoint": 41,
+    "metaDone": 51,
+    "metaModeWrite": 54,
+    "taskSetup": 55,
+    "taskA": 58,
+    "taskNonA": 60,
+    "taskB": 64,
+    "taskC": 65,
+    "taskApply": 66,
+    "taskWrite52": 67,
+    "taskWrite53": 69,
+    "taskRun": 70,
+    "taskFirstOpcodeFetch": 73,
+    "taskNeg": 75,
+    "taskAfterNeg": 77,
+    "taskSecondOpcodeFetch": 78,
+    "taskAcc": 81,
+    "serviceWrite": 83,
+    "feedback": 89,
+    "feedbackRead": 90,
+    "score": 92,
+    "scoreWrite": 96,
+    "afterScore": 97,
+    "evaluate": 105,
+    "accept": 110,
+    "learnMeta": 115,
+    "paidBaseWrite": 118,
+    "paidTailWrite": 120,
+    "paidResetOffset": 123,
+    "shadowMeta": 124,
+    "paidShadow1": 127,
+    "paidShadow2": 128,
+    "paidShadow3": 130,
+    "reject": 131,
+    "wrapOffset": 138,
+    "writeOffset": 139,
+    "paidOffsetWrite": 140,
+    "attemptCountWrite": 145,
+    "retry": 149,
+    "fallback": 153,
+    "paidFallbackOffset": 155,
+    "fallbackHeldoutPrep": 156,
+    "fallbackStageWrite": 158,
+    "heldoutPrep": 159,
+    "heldoutStageWrite": 161,
+    "endPhase": 162,
+    "resetPhase": 170,
+    "halt": 176
+  },
+  "resources": {
+    "starting_credits": 4000,
+    "max_data_cells": 16,
+    "max_CIL_nodes": 180,
+    "max_occupied_units": 300,
+    "one_PID_only": true
+  },
+  "allowed_cell_keys": [
+    7,
+    11,
+    20,
+    21,
+    31,
+    32,
+    33,
+    50,
+    52,
+    53,
+    56,
+    61,
+    62,
+    63,
+    64,
+    65
+  ],
+  "ordinary_VM_missing_cell_read_value": 0,
+  "paid_initial_state": [
+    {
+      "key": 62,
+      "value": 1
+    },
+    {
+      "key": 64,
+      "value": 0
+    }
+  ],
+  "uninitialized_but_default_zero": [
+    31,
+    32,
+    33,
+    50,
+    61,
+    63,
+    65
+  ],
+  "author_meta_primitive_semantics": {
+    "0": "ADD0 mod3",
+    "1": "ADD1 mod3",
+    "2": "ADD2 mod3",
+    "3": "RESET accumulator0",
+    "4": "tested exact bad4 HALT",
+    "otherwise": "not generally validated"
+  },
+  "meta_words": [
+    62,
+    63,
+    64
+  ],
+  "meta_PC": 50,
+  "meta_intermediate_checkpoint": 56,
+  "actor_rule_update_after_two_paid_positive_probes": "actor pays Write62(mode), Write64(mode), Write63(3) => learned [mode,RESET,mode]; gate0 instead pays 3 Write56 shadow; rejected candidates increment word63 modulo4 and paid attempt counter65",
+  "data_task_program_cells": [
+    52,
+    53
+  ],
+  "data_task_program_modes": [
+    {
+      "mode": 0,
+      "task_program": [
+        1,
+        0
+      ],
+      "function": "x"
+    },
+    {
+      "mode": 1,
+      "task_program": [
+        0,
+        2
+      ],
+      "function": "-x+2"
+    },
+    {
+      "mode": 2,
+      "task_program": [
+        0,
+        0
+      ],
+      "function": "-x"
+    }
+  ],
+  "task_interpreter": "paid Read52, Read53, arithmetic and one paid Write56 checkpoint after both task operators, followed by real Write11",
+  "only_external_intervention_cells": [
+    21,
+    7,
+    20
+  ],
+  "two_probe_seeds": [
+    {
+      "id": 0,
+      "probes": [
+        -7,
+        5
+      ],
+      "heldout": 11
+    },
+    {
+      "id": 1,
+      "probes": [
+        5,
+        -7
+      ],
+      "heldout": -11
+    }
+  ],
+  "schedules": [
+    [
+      "NEGATE",
+      "NEGATE"
+    ],
+    [
+      "COMPOSED",
+      "NEGATE"
+    ],
+    [
+      "NEGATE",
+      "COMPOSED"
+    ],
+    [
+      "IDENTITY",
+      "UNREACHABLE"
+    ],
+    [
+      "NEGATE",
+      "IDENTITY"
+    ],
+    [
+      "IDENTITY",
+      "COMPOSED"
+    ]
+  ],
+  "feedback_regimes": [
+    "TRUTH",
+    "BLIND_SUCCESS",
+    "INVERTED",
+    "ABSENT",
+    "PHASE0_C_DECOY"
+  ],
+  "experimental_gates": [
+    {
+      "value": 1,
+      "name": "PAID_META_LEARNING",
+      "role": "success-based real 3-field meta edits"
+    },
+    {
+      "value": 0,
+      "name": "PAID_META_SHADOW",
+      "role": "three equal-number paid Write56 shadow operations; failure offset63 still changes"
+    },
+    {
+      "value": 2,
+      "name": "SOURCE_GENERATED_BAD4",
+      "role": "paid PID1 Write64(4) and source-visible fail-closed Halt after third actual meta Read, no service"
+    }
+  ],
+  "total_original_worlds": 180,
+  "task_outcome_worlds": 120,
+  "malformed_only_worlds": 60,
+  "true_enabled_expected_correct_heldout_by_schedule": [
+    2,
+    2,
+    2,
+    1,
+    1,
+    2
+  ],
+  "true_enabled_total_heldout_correct_across_two_seeds": 20,
+  "expected_bad4_real_services": 0,
+  "source_generated_structurally_distinct_rules": [
+    {
+      "descriptor": [
+        0,
+        3,
+        0
+      ],
+      "three_failed_trial_mode_sequence": [
+        0,
+        0,
+        1
+      ],
+      "provenance": "validated IDENTITY mode0"
+    },
+    {
+      "descriptor": [
+        2,
+        3,
+        2
+      ],
+      "three_failed_trial_mode_sequence": [
+        2,
+        1,
+        2
+      ],
+      "provenance": "validated NEGATE mode2"
+    }
+  ],
+  "decisive_negative": "S4 NEGATE→IDENTITY: enabled meta B,C,B misses reachable A and fails; source-identical gate0 shadow C,B,A does find A",
+  "source_not_fully_validated_for_all_malformed_integers": true,
+  "actual_process_private_credit_sensor": false,
+  "full_original_Hk": false,
+  "invented_primitive_ISA": false,
+  "B53_authenticated_feedback": false,
+  "B3": false,
+  "B4": false,
+  "cyberlife": false
+}
