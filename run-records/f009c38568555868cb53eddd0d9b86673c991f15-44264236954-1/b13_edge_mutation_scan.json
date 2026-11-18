@@ -1,0 +1,342 @@
+{
+  "name": "B13 bounded single-edge mutation scan",
+  "status": "independent simplified interpreter NOT Rust CI",
+  "source": "cl0/crates/world/tests/cl1b_b10_freshness.rs",
+  "worlds": 1805,
+  "groups": [
+    {
+      "input": -13,
+      "baseline": {
+        "n": 80,
+        "trap": null,
+        "correct": 5,
+        "wrong": 0,
+        "markers": 5,
+        "accepts": 5,
+        "rejects": 0,
+        "fp": 0,
+        "fn": 0,
+        "repairs": 0,
+        "side": 0,
+        "decisionFp": 0,
+        "decisionFn": 0,
+        "bypassedReads": 0
+      },
+      "worlds": 361,
+      "trapped": 74,
+      "falsePositiveWorlds": 15,
+      "falseNegativeWorlds": 8,
+      "actualDecisionFalsePositiveWorlds": 15,
+      "actualDecisionFalseNegativeWorlds": 8,
+      "markerReadBypassWorlds": 19,
+      "markerWithoutAnyService": 45,
+      "serviceWithoutAnyMarker": 8,
+      "falsePositiveDecisions": 87,
+      "falseNegativeDecisions": 13,
+      "actualDecisionFalsePositiveEvents": 81,
+      "actualDecisionFalseNegativeEvents": 13,
+      "repairs": 60
+    },
+    {
+      "input": 0,
+      "baseline": {
+        "n": 80,
+        "trap": null,
+        "correct": 5,
+        "wrong": 0,
+        "markers": 5,
+        "accepts": 5,
+        "rejects": 0,
+        "fp": 0,
+        "fn": 0,
+        "repairs": 0,
+        "side": 0,
+        "decisionFp": 0,
+        "decisionFn": 0,
+        "bypassedReads": 0
+      },
+      "worlds": 361,
+      "trapped": 66,
+      "falsePositiveWorlds": 6,
+      "falseNegativeWorlds": 20,
+      "actualDecisionFalsePositiveWorlds": 6,
+      "actualDecisionFalseNegativeWorlds": 20,
+      "markerReadBypassWorlds": 19,
+      "markerWithoutAnyService": 38,
+      "serviceWithoutAnyMarker": 20,
+      "falsePositiveDecisions": 33,
+      "falseNegativeDecisions": 30,
+      "actualDecisionFalsePositiveEvents": 31,
+      "actualDecisionFalseNegativeEvents": 30,
+      "repairs": 75
+    },
+    {
+      "input": 7,
+      "baseline": {
+        "n": 80,
+        "trap": null,
+        "correct": 5,
+        "wrong": 0,
+        "markers": 5,
+        "accepts": 5,
+        "rejects": 0,
+        "fp": 0,
+        "fn": 0,
+        "repairs": 0,
+        "side": 0,
+        "decisionFp": 0,
+        "decisionFn": 0,
+        "bypassedReads": 0
+      },
+      "worlds": 361,
+      "trapped": 52,
+      "falsePositiveWorlds": 15,
+      "falseNegativeWorlds": 8,
+      "actualDecisionFalsePositiveWorlds": 15,
+      "actualDecisionFalseNegativeWorlds": 8,
+      "markerReadBypassWorlds": 19,
+      "markerWithoutAnyService": 45,
+      "serviceWithoutAnyMarker": 8,
+      "falsePositiveDecisions": 87,
+      "falseNegativeDecisions": 13,
+      "actualDecisionFalsePositiveEvents": 81,
+      "actualDecisionFalseNegativeEvents": 13,
+      "repairs": 75
+    },
+    {
+      "input": 23,
+      "baseline": {
+        "n": 80,
+        "trap": null,
+        "correct": 5,
+        "wrong": 0,
+        "markers": 5,
+        "accepts": 5,
+        "rejects": 0,
+        "fp": 0,
+        "fn": 0,
+        "repairs": 0,
+        "side": 0,
+        "decisionFp": 0,
+        "decisionFn": 0,
+        "bypassedReads": 0
+      },
+      "worlds": 361,
+      "trapped": 70,
+      "falsePositiveWorlds": 15,
+      "falseNegativeWorlds": 8,
+      "actualDecisionFalsePositiveWorlds": 15,
+      "actualDecisionFalseNegativeWorlds": 8,
+      "markerReadBypassWorlds": 19,
+      "markerWithoutAnyService": 45,
+      "serviceWithoutAnyMarker": 8,
+      "falsePositiveDecisions": 87,
+      "falseNegativeDecisions": 13,
+      "actualDecisionFalsePositiveEvents": 81,
+      "actualDecisionFalseNegativeEvents": 13,
+      "repairs": 67
+    },
+    {
+      "input": 101,
+      "baseline": {
+        "n": 80,
+        "trap": null,
+        "correct": 5,
+        "wrong": 0,
+        "markers": 5,
+        "accepts": 5,
+        "rejects": 0,
+        "fp": 0,
+        "fn": 0,
+        "repairs": 0,
+        "side": 0,
+        "decisionFp": 0,
+        "decisionFn": 0,
+        "bypassedReads": 0
+      },
+      "worlds": 361,
+      "trapped": 74,
+      "falsePositiveWorlds": 15,
+      "falseNegativeWorlds": 8,
+      "actualDecisionFalsePositiveWorlds": 15,
+      "actualDecisionFalseNegativeWorlds": 8,
+      "markerReadBypassWorlds": 19,
+      "markerWithoutAnyService": 45,
+      "serviceWithoutAnyMarker": 8,
+      "falsePositiveDecisions": 87,
+      "falseNegativeDecisions": 13,
+      "actualDecisionFalsePositiveEvents": 81,
+      "actualDecisionFalseNegativeEvents": 13,
+      "repairs": 60
+    }
+  ],
+  "totals": {
+    "trapped": 336,
+    "falsePositiveWorlds": 66,
+    "falseNegativeWorlds": 52,
+    "markerWithoutAnyService": 218,
+    "serviceWithoutAnyMarker": 52,
+    "falsePositiveDecisions": 381,
+    "falseNegativeDecisions": 82,
+    "actualDecisionFalsePositiveWorlds": 66,
+    "actualDecisionFalseNegativeWorlds": 52,
+    "actualDecisionFalsePositiveEvents": 355,
+    "actualDecisionFalseNegativeEvents": 82,
+    "markerReadBypassWorlds": 95,
+    "repairWorlds": 337
+  },
+  "byNode": [
+    {
+      "node": 0,
+      "total": 19,
+      "fp": 3,
+      "fn": 0,
+      "trapped": 7,
+      "sampleFalsePositive": 4
+    },
+    {
+      "node": 1,
+      "total": 19,
+      "fp": 3,
+      "fn": 0,
+      "trapped": 7,
+      "sampleFalsePositive": 4
+    },
+    {
+      "node": 2,
+      "total": 19,
+      "fp": 3,
+      "fn": 0,
+      "trapped": 7,
+      "sampleFalsePositive": 4
+    },
+    {
+      "node": 3,
+      "total": 19,
+      "fp": 1,
+      "fn": 0,
+      "trapped": 7,
+      "sampleFalsePositive": 5
+    },
+    {
+      "node": 4,
+      "total": 19,
+      "fp": 0,
+      "fn": 4,
+      "trapped": 8,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 5,
+      "total": 19,
+      "fp": 0,
+      "fn": 2,
+      "trapped": 8,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 6,
+      "total": 19,
+      "fp": 0,
+      "fn": 2,
+      "trapped": 3,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 7,
+      "total": 19,
+      "fp": 3,
+      "fn": 0,
+      "trapped": 3,
+      "sampleFalsePositive": 9
+    },
+    {
+      "node": 8,
+      "total": 19,
+      "fp": 2,
+      "fn": 0,
+      "trapped": 2,
+      "sampleFalsePositive": 10
+    },
+    {
+      "node": 9,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 2,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 10,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 2,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 11,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 2,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 13,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 0,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 14,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 0,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 15,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 0,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 16,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 0,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 17,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 4,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 18,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 4,
+      "sampleFalsePositive": null
+    },
+    {
+      "node": 19,
+      "total": 19,
+      "fp": 0,
+      "fn": 0,
+      "trapped": 4,
+      "sampleFalsePositive": null
+    }
+  ]
+}
