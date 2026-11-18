@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1d_native_graph_encode_paid_replay.mjs:28
+if(!fs.existsSync(line))throw Error('F1d1d original same-SHA native trace is missing');
+                              ^
+
+Error: F1d1d original same-SHA native trace is missing
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1d_native_graph_encode_paid_replay.mjs:28:31
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.2
