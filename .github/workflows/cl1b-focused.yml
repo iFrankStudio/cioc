@@ -375,8 +375,9 @@ jobs:
             b56_f1c_pilot_ordered_trial_replay
             b56_f1d_source_monitor_cost_check
             b56_f1d0_native_monitor_cost_replay
+            b56_f1d1a_native_correlated_receipt_replay
           )
-          if [ "${#observers[@]}" -ne 50 ]; then
+          if [ "${#observers[@]}" -ne 51 ]; then
             echo "Expected 50 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
