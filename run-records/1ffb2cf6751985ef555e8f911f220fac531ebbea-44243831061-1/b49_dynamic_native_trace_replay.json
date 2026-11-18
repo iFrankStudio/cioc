@@ -1,0 +1,383 @@
+{
+  "study": "B49",
+  "class": "actual independent SOURCE-PARSED dynamic CIL event-by-event parity",
+  "native_source_sha": "1ffb2cf6751985ef555e8f911f220fac531ebbea",
+  "worlds": 96,
+  "input_interventions": 288,
+  "matched_native_paid_events": 11437,
+  "matched_dynamic_code_patches": 138,
+  "stopped_worlds": 22,
+  "first_divergence": null,
+  "b48_unseen_replication": [
+    [
+      [
+        [
+          64,
+          15
+        ],
+        [
+          64,
+          16
+        ]
+      ],
+      [
+        [
+          18,
+          54
+        ],
+        [
+          20,
+          60
+        ]
+      ],
+      [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      [
+        [
+          96,
+          0
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          64,
+          15
+        ],
+        [
+          63,
+          10
+        ]
+      ],
+      [
+        [
+          18,
+          54
+        ],
+        [
+          20,
+          60
+        ]
+      ],
+      [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      [
+        [
+          89,
+          7
+        ],
+        [
+          89,
+          7
+        ]
+      ]
+    ]
+  ],
+  "compared_origin": "real charged CIL native process events, no host output writes scored",
+  "new_prospective_sequences": [
+    [
+      2,
+      0,
+      -7
+    ],
+    [
+      -4,
+      31,
+      0
+    ],
+    [
+      0,
+      7,
+      -4
+    ],
+    [
+      31,
+      2,
+      7
+    ]
+  ],
+  "aggregate": {
+    "0": {
+      "Truebase": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          15,
+          64,
+          64
+        ],
+        "wrong": [
+          12,
+          15,
+          16
+        ],
+        "edits": 22,
+        "stopped": 0
+      },
+      "BlindSelfbase": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          6,
+          18,
+          20
+        ],
+        "wrong": [
+          42,
+          54,
+          60
+        ],
+        "edits": 8,
+        "stopped": 0
+      },
+      "BlindZerobase": {
+        "worlds": 8,
+        "paid": 389,
+        "correct": [
+          8,
+          0,
+          0
+        ],
+        "wrong": [
+          12,
+          9,
+          10
+        ],
+        "edits": 15,
+        "stopped": 7
+      },
+      "Staticbase": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          96,
+          96,
+          96
+        ],
+        "wrong": [
+          0,
+          0,
+          0
+        ],
+        "edits": 0,
+        "stopped": 0
+      },
+      "True+1": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          15,
+          64,
+          63
+        ],
+        "wrong": [
+          12,
+          15,
+          10
+        ],
+        "edits": 22,
+        "stopped": 0
+      },
+      "BlindSelf+1": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          6,
+          18,
+          20
+        ],
+        "wrong": [
+          42,
+          54,
+          60
+        ],
+        "edits": 8,
+        "stopped": 0
+      },
+      "BlindZero+1": {
+        "worlds": 8,
+        "paid": 396,
+        "correct": [
+          8,
+          0,
+          0
+        ],
+        "wrong": [
+          12,
+          9,
+          10
+        ],
+        "edits": 15,
+        "stopped": 7
+      },
+      "Static+1": {
+        "worlds": 8,
+        "paid": 1152,
+        "correct": [
+          88,
+          89,
+          89
+        ],
+        "wrong": [
+          0,
+          7,
+          7
+        ],
+        "edits": 0,
+        "stopped": 0
+      }
+    },
+    "1": {
+      "Truebase": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          8,
+          36,
+          36
+        ],
+        "wrong": [
+          4,
+          4,
+          4
+        ],
+        "edits": 12,
+        "stopped": 0
+      },
+      "BlindSelfbase": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          5,
+          9,
+          10
+        ],
+        "wrong": [
+          19,
+          27,
+          30
+        ],
+        "edits": 4,
+        "stopped": 0
+      },
+      "BlindZerobase": {
+        "worlds": 4,
+        "paid": 140,
+        "correct": [
+          4,
+          0,
+          0
+        ],
+        "wrong": [
+          4,
+          0,
+          0
+        ],
+        "edits": 8,
+        "stopped": 4
+      },
+      "Staticbase": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          48,
+          48,
+          48
+        ],
+        "wrong": [
+          0,
+          0,
+          0
+        ],
+        "edits": 0,
+        "stopped": 0
+      },
+      "True+1": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          8,
+          36,
+          36
+        ],
+        "wrong": [
+          4,
+          4,
+          0
+        ],
+        "edits": 12,
+        "stopped": 0
+      },
+      "BlindSelf+1": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          5,
+          9,
+          10
+        ],
+        "wrong": [
+          19,
+          27,
+          30
+        ],
+        "edits": 4,
+        "stopped": 0
+      },
+      "BlindZero+1": {
+        "worlds": 4,
+        "paid": 144,
+        "correct": [
+          4,
+          0,
+          0
+        ],
+        "wrong": [
+          4,
+          0,
+          0
+        ],
+        "edits": 8,
+        "stopped": 4
+      },
+      "Static+1": {
+        "worlds": 4,
+        "paid": 576,
+        "correct": [
+          44,
+          44,
+          44
+        ],
+        "wrong": [
+          0,
+          4,
+          4
+        ],
+        "edits": 0,
+        "stopped": 0
+      }
+    }
+  },
+  "claim": "validation of native measurement and CIL mechanics only; B48 H48 not rescued; B3/B4 NOT MET"
+}
