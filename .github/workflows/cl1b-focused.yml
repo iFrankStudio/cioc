@@ -381,9 +381,10 @@ jobs:
             b56_f1d_source_monitor_cost_check
             b56_f1d0_native_monitor_cost_replay
             b56_f1d1a_native_correlated_receipt_replay
+            b56_f1d1b_founder_capacity_and_live_cells_audit
           )
-          if [ "${#observers[@]}" -ne 51 ]; then
-            echo "Expected 50 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 52 ]; then
+            echo "Expected 52 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
