@@ -1,0 +1,222 @@
+# EXACT pre-native G3Q-C0 original 164-node CIL founder, frozen BEFORE Rust implementation
+# PID1 enumerates all 64 three-meta-op descriptors, checks coverage and pays safe-bank retention.
+C 0 0
+C 2 62
+@paidInitialBase
+W 2 0
+C 2 63
+@paidInitialMiddle
+W 2 0
+C 2 64
+@paidInitialTail
+W 2 0
+C 2 65
+@paidInitialID
+W 2 0
+@beginDescriptor
+C 2 63
+R 3 2
+C 2 61
+@paidOriginalMiddleCheckpoint
+W 2 3
+C 2 7
+W 2 0
+C 2 20
+W 2 0
+C 2 21
+W 2 0
+C 2 32
+W 2 0
+@beginCandidate
+C 2 50
+W 2 0
+C 2 56
+W 2 0
+@metaFetch
+C 2 50
+R 3 2
+C 2 62
+A 2 2 3
+@paidDynamicMetaRead
+R 3 2
+C 2 3
+S 1 3 2
+B 1 metaAdd metaReset
+@metaReset
+C 1 0 metaCheckpointPrep
+@metaAdd
+C 2 56
+R 1 2
+A 1 1 3
+C 2 3
+S 3 1 2
+B 3 metaCheckFour metaWrapThree
+@metaWrapThree
+C 1 0 metaCheckpointPrep
+@metaCheckFour
+C 2 4
+S 3 1 2
+B 3 metaCheckpointPrep metaWrapFour
+@metaWrapFour
+C 1 1 metaCheckpointPrep
+@metaCheckpointPrep
+C 2 56
+@paidMetaAccumulatorWrite
+W 2 1
+C 2 50
+R 3 2
+C 2 1
+A 3 3 2
+C 2 50
+@paidMetaPCAdvance
+W 2 3
+C 2 3
+S 3 3 2
+B 3 metaFetch metaDone
+@metaDone
+C 2 56
+R 3 2
+C 2 33
+@paidModeWrite
+W 2 3
+B 3 flagNonZero flagA
+@flagA
+C 2 7
+C 3 1
+@paidSeenA
+W 2 3 afterFlag
+@flagNonZero
+C 2 1
+S 3 3 2
+B 3 flagB flagC
+@flagC
+C 2 20
+C 3 1
+@paidSeenC
+W 2 3 afterFlag
+@flagB
+C 2 21
+C 3 1
+@paidSeenB
+W 2 3 afterFlag
+@afterFlag
+C 2 32
+R 3 2
+C 2 1
+A 3 3 2
+C 2 32
+@paidTrialAdvance
+W 2 3
+C 2 3
+S 3 3 2
+B 3 mutateMiddleForNextCandidate classifyDescriptor
+@mutateMiddleForNextCandidate
+C 2 63
+R 3 2
+C 2 1
+A 3 3 2
+C 2 4
+S 1 3 2
+B 1 trialMiddleWrite trialMiddleWrap
+@trialMiddleWrap
+C 3 0 trialMiddleWrite
+@trialMiddleWrite
+C 2 63
+@paidMetaMiddleTrialMutation
+W 2 3 beginCandidate
+@classifyDescriptor
+C 2 7
+R 1 2
+C 2 20
+R 3 2
+A 1 1 3
+C 2 21
+R 3 2
+A 1 1 3
+C 2 3
+S 3 1 2
+B 3 rejectRule acceptRule
+@rejectRule
+C 3 0 emitVerdict
+@acceptRule
+C 3 1 emitVerdict
+@emitVerdict
+C 2 11
+@paidCoverageVerdictService
+W 2 3
+C 2 11
+R 3 2
+B 3 retainSafe restoreMiddle
+@retainSafe
+C 2 62
+R 3 2
+C 2 51
+@paidRetainBase
+W 2 3
+C 2 61
+R 3 2
+C 2 52
+@paidRetainMiddle
+W 2 3
+C 2 64
+R 3 2
+C 2 53
+@paidRetainTail
+W 2 3
+@restoreMiddle
+C 2 61
+R 3 2
+C 2 63
+@paidMiddleRestore
+W 2 3
+C 2 62
+R 3 2
+C 2 1
+A 3 3 2
+C 2 4
+S 1 3 2
+B 1 writeNextBase carryBase
+@carryBase
+C 3 0 writeNextBase
+@writeNextBase
+C 2 62
+@paidDescriptorBaseAdvance
+W 2 3
+B 1 nextID advanceMiddle
+@advanceMiddle
+C 2 63
+R 3 2
+C 2 1
+A 3 3 2
+C 2 4
+S 1 3 2
+B 1 writeNextMiddle carryMiddle
+@carryMiddle
+C 3 0 writeNextMiddle
+@writeNextMiddle
+C 2 63
+@paidDescriptorMiddleAdvance
+W 2 3
+B 1 nextID advanceTail
+@advanceTail
+C 2 64
+R 3 2
+C 2 1
+A 3 3 2
+C 2 4
+S 1 3 2
+B 1 writeNextTail halt
+@writeNextTail
+C 2 64
+@paidDescriptorTailAdvance
+W 2 3
+@nextID
+C 2 65
+R 3 2
+C 2 1
+A 3 3 2
+C 2 65
+@paidDescriptorIDAdvance
+W 2 3 beginDescriptor
+@halt
+H
