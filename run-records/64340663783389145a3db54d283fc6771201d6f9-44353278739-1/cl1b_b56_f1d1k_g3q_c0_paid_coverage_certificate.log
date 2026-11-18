@@ -1,0 +1,21 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate.rs (target/debug/build/cl0-world/301068411dacc92b/out/cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate-301068411dacc92b)
+
+running 1 test
+
+thread 'b56_f1d1k_g3q_c0_native_paid_64_rule_coverage_and_safe_bank' (4638) panicked at crates/world/tests/cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate.rs:403:3:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test b56_f1d1k_g3q_c0_native_paid_64_rule_coverage_and_safe_bank ... FAILED
+
+failures:
+
+failures:
+    b56_f1d1k_g3q_c0_native_paid_64_rule_coverage_and_safe_bank
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+[1m[91merror[0m: test failed, to rerun pass `-p cl0-world --test cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate`
