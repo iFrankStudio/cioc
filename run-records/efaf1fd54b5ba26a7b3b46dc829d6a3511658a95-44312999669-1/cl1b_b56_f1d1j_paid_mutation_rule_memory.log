@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.38s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1j_paid_mutation_rule_memory.rs (target/debug/build/cl0-world/2f0346b13b1a0bc4/out/cl1b_b56_f1d1j_paid_mutation_rule_memory-2f0346b13b1a0bc4)
+
+running 1 test
+B56_F1D1J_NATIVE_RULE_MEMORY {"B3":false,"B4":false,"N56_A_B_C":false,"S2_negative_transfer_cost_regression_preserved":true,"S3_impossible_fallback_still_wrong":true,"authored_rule_grammar":true,"cyberlife":false,"native_source_nodes":177,"native_worlds":60,"open_ended_invention":false,"same_PIDs":1,"simultaneous_data_address_union":16,"targeted_decoy_changes_future_program_mutation_rule":true,"true_S1_mutable_Cfirst_saves_vs_fixed_R1":true,"truth_S0_phase1_rule_learning_saves_paid_compute":true}
+test b56_f1d1j_paid_mutation_rule_memory_and_counterfactual_next_program ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.01s
+
