@@ -1,0 +1,43 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    29,
+    46,
+    59,
+    63,
+    69,
+    72,
++   91,
+-   90,
+    106,
+    113,
+    117,
+    121,
+    125,
+
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b56_f1d1k_g3q_c0_paid_coverage_certificate_replay.mjs:31:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+     29,  46,  59,  63,  69,  72,
+     91, 106, 113, 117, 121, 125,
+    135, 146, 156, 162, 163
+  ],
+  expected: [
+     29,  46,  59,  63,  69,  72,
+     90, 106, 113, 117, 121, 125,
+    135, 146, 156, 162, 163
+  ],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.2
