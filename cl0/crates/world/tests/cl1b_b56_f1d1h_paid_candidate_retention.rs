@@ -339,7 +339,7 @@ fn run_case(out:&mut BufWriter<File>,id:usize,task:Task,signal:Signal,gate:i64)-
     else {assert_eq!(actual_code,vec![0,3,3,3])}
     if gate==2{
         assert_eq!(native_generated_writes,0);
-        assert_eq!(scores,usize::from(score_cells[0]>0));
+        assert_eq!(scores,score_cells[0] as usize);
     }else if gate==1{
         assert_eq!(native_generated_writes,2);
     }else{
