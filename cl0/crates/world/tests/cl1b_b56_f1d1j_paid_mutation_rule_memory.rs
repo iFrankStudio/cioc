@@ -339,7 +339,7 @@ fn case(out:&mut BufWriter<File>,id:usize,schedule_id:usize,
         }
         if e.pc==PROGRAM_WRITE_52_PC||e.pc==PROGRAM_WRITE_53_PC{
             if let EventKind::CellWritten{key,value}=&e.kind{
-                assert!(matches!(key,52|53));
+                assert!(matches!(*key,52|53));
                 program_writes.push(json!([w.cell(31),w.cell(33),key,value,e.tick]));
             }else{panic!("actor code slot not written");}
         }
