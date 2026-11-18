@@ -1,0 +1,1588 @@
+{
+  "source": "cl0/crates/world/tests/cl1b_b16_functional_challenge.rs",
+  "evidence": "independent simplified CIL interpreter; NOT native Rust",
+  "expectedWorlds": 30,
+  "executedWorlds": 30,
+  "worlds": [
+    {
+      "input": -13,
+      "arm": "INTACT",
+      "attempts": 120,
+      "pc": 27,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 5,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 14,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 14,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 39,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 64,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 89,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 114,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 2
+    },
+    {
+      "input": -13,
+      "arm": "SKIP",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": -13,
+      "arm": "STALE",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": -13,
+      "arm": "DISABLED",
+      "attempts": 120,
+      "pc": 4,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 12,
+      "challengeWrites": 0,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 4,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 42,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 71,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 100,
+          "key": 11,
+          "value": 0
+        }
+      ],
+      "patches": [],
+      "suppressed": 4,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": -13,
+      "arm": "CHECKER_BYPASS",
+      "attempts": 120,
+      "pc": 5,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 13,
+      "challengeWrites": 0,
+      "ordinaryWrites": 5,
+      "sourceSaves": 6,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 12,
+        "key": 7,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 12,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 35,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 58,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 81,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 104,
+          "key": 7,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": -13,
+      "arm": "TIMED",
+      "attempts": 120,
+      "pc": 24,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 3,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 37,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 67,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 92,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 117,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 45,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 0,
+      "arm": "INTACT",
+      "attempts": 120,
+      "pc": 27,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 5,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 14,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 14,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 39,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 64,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 89,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 114,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 2
+    },
+    {
+      "input": 0,
+      "arm": "SKIP",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 0,
+      "arm": "STALE",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 0,
+      "arm": "DISABLED",
+      "attempts": 120,
+      "pc": 4,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 12,
+      "challengeWrites": 0,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 4,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 42,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 71,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 100,
+          "key": 11,
+          "value": 0
+        }
+      ],
+      "patches": [],
+      "suppressed": 4,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 0,
+      "arm": "CHECKER_BYPASS",
+      "attempts": 120,
+      "pc": 5,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 13,
+      "challengeWrites": 0,
+      "ordinaryWrites": 5,
+      "sourceSaves": 6,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 12,
+        "key": 7,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 12,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 35,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 58,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 81,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 104,
+          "key": 7,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 0,
+      "arm": "TIMED",
+      "attempts": 120,
+      "pc": 24,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 3,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 37,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 67,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 92,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 117,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 45,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 7,
+      "arm": "INTACT",
+      "attempts": 120,
+      "pc": 27,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 5,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 14,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 14,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 39,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 64,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 89,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 114,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 2
+    },
+    {
+      "input": 7,
+      "arm": "SKIP",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 7,
+      "arm": "STALE",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 7,
+      "arm": "DISABLED",
+      "attempts": 120,
+      "pc": 4,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 12,
+      "challengeWrites": 0,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 4,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 42,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 71,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 100,
+          "key": 11,
+          "value": 0
+        }
+      ],
+      "patches": [],
+      "suppressed": 4,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 7,
+      "arm": "CHECKER_BYPASS",
+      "attempts": 120,
+      "pc": 5,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 13,
+      "challengeWrites": 0,
+      "ordinaryWrites": 5,
+      "sourceSaves": 6,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 12,
+        "key": 7,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 12,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 35,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 58,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 81,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 104,
+          "key": 7,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 7,
+      "arm": "TIMED",
+      "attempts": 120,
+      "pc": 24,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 3,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 37,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 67,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 92,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 117,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 45,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 23,
+      "arm": "INTACT",
+      "attempts": 120,
+      "pc": 27,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 5,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 14,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 14,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 39,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 64,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 89,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 114,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 2
+    },
+    {
+      "input": 23,
+      "arm": "SKIP",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 23,
+      "arm": "STALE",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 23,
+      "arm": "DISABLED",
+      "attempts": 120,
+      "pc": 4,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 12,
+      "challengeWrites": 0,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 4,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 42,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 71,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 100,
+          "key": 11,
+          "value": 0
+        }
+      ],
+      "patches": [],
+      "suppressed": 4,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 23,
+      "arm": "CHECKER_BYPASS",
+      "attempts": 120,
+      "pc": 5,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 13,
+      "challengeWrites": 0,
+      "ordinaryWrites": 5,
+      "sourceSaves": 6,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 12,
+        "key": 7,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 12,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 35,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 58,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 81,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 104,
+          "key": 7,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 23,
+      "arm": "TIMED",
+      "attempts": 120,
+      "pc": 24,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 3,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 37,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 67,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 92,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 117,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 45,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 101,
+      "arm": "INTACT",
+      "attempts": 120,
+      "pc": 27,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 5,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 14,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 14,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 39,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 64,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 89,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 114,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 2
+    },
+    {
+      "input": 101,
+      "arm": "SKIP",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 101,
+      "arm": "STALE",
+      "attempts": 120,
+      "pc": 16,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 4,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 43,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 68,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 93,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 118,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 21,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    },
+    {
+      "input": 101,
+      "arm": "DISABLED",
+      "attempts": 120,
+      "pc": 4,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 12,
+      "challengeWrites": 0,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 4,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 0
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 42,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 71,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 100,
+          "key": 11,
+          "value": 0
+        }
+      ],
+      "patches": [],
+      "suppressed": 4,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 101,
+      "arm": "CHECKER_BYPASS",
+      "attempts": 120,
+      "pc": 5,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 13,
+      "challengeWrites": 0,
+      "ordinaryWrites": 5,
+      "sourceSaves": 6,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 12,
+        "key": 7,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 12,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 35,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 58,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 81,
+          "key": 7,
+          "value": 17
+        },
+        {
+          "attempt": 104,
+          "key": 7,
+          "value": 17
+        }
+      ],
+      "patches": [],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 3
+    },
+    {
+      "input": 101,
+      "arm": "TIMED",
+      "attempts": 120,
+      "pc": 24,
+      "remainingCredits": 120,
+      "trap": null,
+      "edge10": 11,
+      "challengeWrites": 3,
+      "ordinaryWrites": 4,
+      "sourceSaves": 5,
+      "resets": 5,
+      "firstRead": {
+        "attempt": 13,
+        "key": 11,
+        "value": 17
+      },
+      "reads": [
+        {
+          "attempt": 13,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 37,
+          "key": 11,
+          "value": 0
+        },
+        {
+          "attempt": 67,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 92,
+          "key": 11,
+          "value": 17
+        },
+        {
+          "attempt": 117,
+          "key": 11,
+          "value": 17
+        }
+      ],
+      "patches": [
+        {
+          "attempt": 45,
+          "node": 10,
+          "before": 12,
+          "after": 11
+        }
+      ],
+      "suppressed": 0,
+      "allChallengeOutputsCorrect": true,
+      "allOrdinaryOutputsCorrect": true,
+      "externals": 4
+    }
+  ]
+}
