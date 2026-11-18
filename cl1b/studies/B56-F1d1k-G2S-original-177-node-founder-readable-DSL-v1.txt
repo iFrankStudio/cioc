@@ -1,0 +1,240 @@
+C 2 62
+C 3 1
+@initBase
+W 2 3
+C 2 64
+@initTail
+W 2 0
+@checkInvalidGate
+C 2 21
+R 3 2
+C 2 2
+S 3 3 2
+B 3 metaStart sourceBuildInvalid
+@sourceBuildInvalid
+C 2 64
+C 3 4
+@paidMalformedRule
+W 2 3 metaStart
+@metaStart
+C 2 50
+W 2 0
+C 2 56
+W 2 0 metaFetch
+@metaFetch
+C 2 50
+R 3 2
+C 2 62
+A 2 2 3
+@metaOpcodeFetch
+R 3 2
+C 2 3
+S 1 3 2
+B 1 checkBadFour metaReset
+@checkBadFour
+C 2 4
+S 1 3 2
+B 1 metaAdd halt
+@metaReset
+C 1 0 metaCheckpointPrep
+@metaAdd
+C 2 56
+R 1 2
+A 1 1 3
+C 2 3
+S 3 1 2
+B 3 checkWrap4 wrap3
+@wrap3
+C 1 0 metaCheckpointPrep
+@checkWrap4
+C 2 4
+S 3 1 2
+B 3 metaCheckpointPrep wrap4
+@wrap4
+C 1 1 metaCheckpointPrep
+@metaCheckpointPrep
+C 2 56
+@metaCheckpoint
+W 2 1
+C 2 50
+R 3 2
+C 2 1
+A 3 3 2
+C 2 50
+W 2 3
+C 2 3
+S 3 3 2
+B 3 metaFetch metaDone
+@metaDone
+C 2 56
+R 3 2
+C 2 33
+@metaModeWrite
+W 2 3
+@taskSetup
+C 2 33
+R 3 2
+B 3 taskNonA taskA
+@taskA
+C 1 1
+C 3 0 taskApply
+@taskNonA
+C 1 0
+C 2 1
+S 3 3 2
+B 3 taskB taskC
+@taskB
+C 3 0 taskApply
+@taskC
+C 3 2 taskApply
+@taskApply
+C 2 52
+@taskWrite52
+W 2 1
+C 2 53
+@taskWrite53
+W 2 3 taskRun
+@taskRun
+C 2 7
+R 1 2
+C 2 52
+@taskFirstOpcodeFetch
+R 3 2
+B 3 taskAfterNeg taskNeg
+@taskNeg
+C 2 0
+S 1 2 1 taskAfterNeg
+@taskAfterNeg
+C 2 53
+@taskSecondOpcodeFetch
+R 3 2
+A 1 1 3
+C 2 56
+@taskAcc
+W 2 1
+C 2 11
+@serviceWrite
+W 2 1
+C 2 32
+R 3 2
+C 2 2
+S 3 3 2
+B 3 feedback endPhase
+@feedback
+C 2 20
+@feedbackRead
+R 1 2
+B 1 score afterScore
+@score
+C 2 61
+R 3 2
+C 1 1
+A 3 3 1
+@scoreWrite
+W 2 3
+@afterScore
+C 2 32
+R 3 2
+C 1 1
+A 3 3 1
+W 2 3
+C 2 2
+S 3 3 2
+B 3 taskRun evaluate
+@evaluate
+C 2 61
+R 3 2
+C 2 2
+S 3 3 2
+B 3 reject accept
+@accept
+C 2 21
+R 3 2
+C 2 1
+S 3 3 2
+B 3 shadowMeta learnMeta
+@learnMeta
+C 2 33
+R 3 2
+C 2 62
+@paidBaseWrite
+W 2 3
+C 2 64
+@paidTailWrite
+W 2 3
+C 2 63
+C 3 3
+@paidResetOffset
+W 2 3 heldoutPrep
+@shadowMeta
+C 2 33
+R 3 2
+C 2 56
+@paidShadow1
+W 2 3
+@paidShadow2
+W 2 3
+C 3 3
+@paidShadow3
+W 2 3 heldoutPrep
+@reject
+C 2 63
+R 3 2
+C 1 1
+A 3 3 1
+C 2 4
+S 1 3 2
+B 1 writeOffset wrapOffset
+@wrapOffset
+C 3 0 writeOffset
+@writeOffset
+C 2 63
+@paidOffsetWrite
+W 2 3
+C 2 65
+R 3 2
+C 1 1
+A 3 3 1
+@attemptCountWrite
+W 2 3
+C 2 3
+S 3 3 2
+B 3 retry fallback
+@retry
+C 2 32
+W 2 0
+C 2 61
+W 2 0 metaStart
+@fallback
+C 2 63
+C 3 3
+@paidFallbackOffset
+W 2 3
+@fallbackHeldoutPrep
+C 2 32
+C 3 2
+@fallbackStageWrite
+W 2 3 metaStart
+@heldoutPrep
+C 2 32
+C 3 2
+@heldoutStageWrite
+W 2 3 taskRun
+@endPhase
+C 2 31
+R 3 2
+C 1 1
+A 3 3 1
+W 2 3
+C 2 2
+S 3 3 2
+B 3 resetPhase halt
+@resetPhase
+C 2 32
+W 2 0
+C 2 61
+W 2 0
+C 2 65
+W 2 0 metaStart
+@halt
+H
