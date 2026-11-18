@@ -235,7 +235,7 @@ jobs:
           # does NOT establish a wholly novel monitoring capability.
           # B56-F0 source provenance and clone/patch audit: complete full
           # 58-native +45-independent regression after scoped 11-native pass.
-          # All eleven event-backed observers require native artifacts from
+          # All twelve event-backed observers require native artifacts from
           # this exact source revision; B51d additionally imports B51c's
           # unchanged CIL founder. Run all event producers in scoped jobs,
           # failing closed rather than accepting a missing native trace.
@@ -251,6 +251,7 @@ jobs:
             wanted[cl1b_b55a_paid_monitor_choice_preflight]=1
             wanted[cl1b_b55b_online_monitor_rate_pilot]=1
             wanted[cl1b_b56_f0_paid_monitor_assembly]=1
+            wanted[cl1b_b56_f1_founder_feedback_cut]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -358,9 +359,10 @@ jobs:
             b55a_paid_monitor_choice_preflight_replay
             b55b_online_monitor_rate_pilot_replay
             b56_f0_paid_monitor_assembly_replay
+            b56_f1a_native_feedback_ablation_replay
           )
-          if [ "${#observers[@]}" -ne 45 ]; then
-            echo "Expected 45 named independent observers, got ${#observers[@]}" >&2
+          if [ "${#observers[@]}" -ne 46 ]; then
+            echo "Expected 46 named independent observers, got ${#observers[@]}" >&2
             exit 1
           fi
           observer_failures=0
