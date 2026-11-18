@@ -183,7 +183,7 @@ const report={
  conclusions:{
    direct_verbatim_append_feasible:false,
    pinned_b53_PCs_can_replace_F1c_PCs_by_paid_next_and_const_patches:false,
-   17_union_keys_are_all_simultaneously_occupied:'NOT_ESTABLISHED',
+   union_17_keys_all_simultaneously_occupied:'NOT_ESTABLISHED',
    alternate_actor_paid_source_reuse_feasible:'NOT_ESTABLISHED',
    retained_B51c_training_feedback_present:true,
    complete_F1d1_actor_paid_experiment_done:false,
