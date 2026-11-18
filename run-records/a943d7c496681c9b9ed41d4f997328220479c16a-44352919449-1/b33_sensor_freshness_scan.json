@@ -1,0 +1,295 @@
+{
+  "evidence": "independent source-parsed B31 CIL interpreter; NOT native Rust",
+  "worlds": 24,
+  "source": "cl0/crates/world/tests/cl1b_b31_pool_sensing.rs",
+  "cases": [
+    {
+      "arm": "Sense",
+      "arrival": "EARLY",
+      "packet": 0,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 0
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "EARLY",
+      "packet": 0,
+      "sensed": [],
+      "request": 3,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 0
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_SENSE",
+      "packet": 0,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 1
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_SENSE",
+      "packet": 0,
+      "sensed": [],
+      "request": 3,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 1
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_COMMIT",
+      "packet": 0,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 8
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_COMMIT",
+      "packet": 0,
+      "sensed": [],
+      "request": 3,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 0,
+      "prepaid": 8
+    },
+    {
+      "arm": "Sense",
+      "arrival": "EARLY",
+      "packet": 4,
+      "sensed": [
+        4
+      ],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 0,
+      "prepaid": 0
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "EARLY",
+      "packet": 4,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 0,
+      "prepaid": 0
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_SENSE",
+      "packet": 4,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 4,
+      "prepaid": 1
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_SENSE",
+      "packet": 4,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 0,
+      "prepaid": 1
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_COMMIT",
+      "packet": 4,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 0,
+      "attempts": 8,
+      "remainingPool": 4,
+      "prepaid": 8
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_COMMIT",
+      "packet": 4,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 0,
+      "prepaid": 8
+    },
+    {
+      "arm": "Sense",
+      "arrival": "EARLY",
+      "packet": 5,
+      "sensed": [
+        5
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 0,
+      "prepaid": 0
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "EARLY",
+      "packet": 5,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 1,
+      "prepaid": 0
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_SENSE",
+      "packet": 5,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 0,
+      "prepaid": 1
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_SENSE",
+      "packet": 5,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 1,
+      "prepaid": 1
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_COMMIT",
+      "packet": 5,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 0,
+      "prepaid": 8
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_COMMIT",
+      "packet": 5,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 1,
+      "prepaid": 8
+    },
+    {
+      "arm": "Sense",
+      "arrival": "EARLY",
+      "packet": 6,
+      "sensed": [
+        6
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 1,
+      "prepaid": 0
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "EARLY",
+      "packet": 6,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 2,
+      "prepaid": 0
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_SENSE",
+      "packet": 6,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 1,
+      "prepaid": 1
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_SENSE",
+      "packet": 6,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 2,
+      "prepaid": 1
+    },
+    {
+      "arm": "Sense",
+      "arrival": "AFTER_COMMIT",
+      "packet": 6,
+      "sensed": [
+        0
+      ],
+      "request": 4,
+      "services": 1,
+      "attempts": 13,
+      "remainingPool": 1,
+      "prepaid": 8
+    },
+    {
+      "arm": "BlindThree",
+      "arrival": "AFTER_COMMIT",
+      "packet": 6,
+      "sensed": [],
+      "request": 3,
+      "services": 1,
+      "attempts": 12,
+      "remainingPool": 2,
+      "prepaid": 8
+    }
+  ]
+}

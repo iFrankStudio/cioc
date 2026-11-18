@@ -1,0 +1,829 @@
+{
+  "evidence": "restricted independent CIL simulator; NOT native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b22_native_relay_assembly.rs",
+  "outcomes": [
+    {
+      "arm": "TRANSFER",
+      "bootstrap": 29,
+      "windows": [
+        {
+          "packet": 3,
+          "steps": 3,
+          "writes": 0,
+          "transfers": 0,
+          "pool": 0,
+          "pcs": [
+            29,
+            1
+          ]
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes": 1,
+          "transfers": 1,
+          "pool": 0,
+          "pcs": [
+            26,
+            1
+          ]
+        }
+      ],
+      "writes": 1,
+      "transfers": 1,
+      "steps": 37,
+      "pool": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 26,
+          "credits": 0,
+          "codeLength": 35,
+          "lastNode": {
+            "kind": "TransferCompute",
+            "recipient": 2,
+            "amount": 3,
+            "next": 31
+          }
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeLength": 5,
+          "lastNode": {
+            "kind": "TransferCompute",
+            "recipient": 2,
+            "amount": 3,
+            "next": 1
+          }
+        }
+      ],
+      "created": 1,
+      "copied": 5,
+      "rewired": 4,
+      "launched": 1,
+      "externalActions": 3,
+      "graphObjectsRemaining": 0,
+      "trace": [
+        {
+          "process": 1,
+          "pc": 0,
+          "kind": "GraphCreated",
+          "remaining": 28
+        },
+        {
+          "process": 1,
+          "pc": 1,
+          "kind": "Executed",
+          "remaining": 27
+        },
+        {
+          "process": 1,
+          "pc": 2,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 26
+        },
+        {
+          "process": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "remaining": 25
+        },
+        {
+          "process": 1,
+          "pc": 4,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 24
+        },
+        {
+          "process": 1,
+          "pc": 5,
+          "kind": "Executed",
+          "remaining": 23
+        },
+        {
+          "process": 1,
+          "pc": 6,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 22
+        },
+        {
+          "process": 1,
+          "pc": 7,
+          "kind": "Executed",
+          "remaining": 21
+        },
+        {
+          "process": 1,
+          "pc": 8,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 20
+        },
+        {
+          "process": 1,
+          "pc": 9,
+          "kind": "Executed",
+          "remaining": 19
+        },
+        {
+          "process": 1,
+          "pc": 10,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 18
+        },
+        {
+          "process": 1,
+          "pc": 11,
+          "kind": "Executed",
+          "remaining": 17
+        },
+        {
+          "process": 1,
+          "pc": 12,
+          "kind": "Executed",
+          "remaining": 16
+        },
+        {
+          "process": 1,
+          "pc": 13,
+          "kind": "GraphNodeEdited",
+          "remaining": 15
+        },
+        {
+          "process": 1,
+          "pc": 14,
+          "kind": "Executed",
+          "remaining": 14
+        },
+        {
+          "process": 1,
+          "pc": 15,
+          "kind": "Executed",
+          "remaining": 13
+        },
+        {
+          "process": 1,
+          "pc": 16,
+          "kind": "GraphNodeEdited",
+          "remaining": 12
+        },
+        {
+          "process": 1,
+          "pc": 17,
+          "kind": "Executed",
+          "remaining": 11
+        },
+        {
+          "process": 1,
+          "pc": 18,
+          "kind": "Executed",
+          "remaining": 10
+        },
+        {
+          "process": 1,
+          "pc": 19,
+          "kind": "GraphNodeEdited",
+          "remaining": 9
+        },
+        {
+          "process": 1,
+          "pc": 20,
+          "kind": "Executed",
+          "remaining": 8
+        },
+        {
+          "process": 1,
+          "pc": 21,
+          "kind": "Executed",
+          "remaining": 7
+        },
+        {
+          "process": 1,
+          "pc": 22,
+          "kind": "GraphNodeEdited",
+          "remaining": 6
+        },
+        {
+          "process": 1,
+          "pc": 23,
+          "kind": "Executed",
+          "remaining": 5
+        },
+        {
+          "process": 1,
+          "pc": 24,
+          "kind": "GraphLaunched",
+          "remaining": 4
+        },
+        {
+          "process": 2,
+          "pc": 0,
+          "kind": "Executed",
+          "remaining": 3
+        },
+        {
+          "process": 1,
+          "pc": 25,
+          "kind": "Executed",
+          "remaining": 2
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawDeferred",
+          "remaining": 0
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawCompute",
+          "remaining": 2
+        },
+        {
+          "process": 1,
+          "pc": 27,
+          "kind": "Executed",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 28,
+          "kind": "Executed",
+          "remaining": 0
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "remaining": 4
+        },
+        {
+          "process": 2,
+          "pc": 2,
+          "kind": "Executed",
+          "remaining": 3
+        },
+        {
+          "process": 2,
+          "pc": 3,
+          "kind": "Executed",
+          "remaining": 2
+        },
+        {
+          "process": 2,
+          "pc": 4,
+          "kind": "TransferCompute",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 29,
+          "kind": "CellWritten",
+          "remaining": 0
+        }
+      ]
+    },
+    {
+      "arm": "NO_TRANSFER",
+      "bootstrap": 29,
+      "windows": [
+        {
+          "packet": 3,
+          "steps": 3,
+          "writes": 0,
+          "transfers": 0,
+          "pool": 0,
+          "pcs": [
+            29,
+            1
+          ]
+        },
+        {
+          "packet": 5,
+          "steps": 5,
+          "writes": 0,
+          "transfers": 0,
+          "pool": 0,
+          "pcs": [
+            29,
+            1
+          ]
+        }
+      ],
+      "writes": 0,
+      "transfers": 0,
+      "steps": 37,
+      "pool": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 29,
+          "credits": 0,
+          "codeLength": 35,
+          "lastNode": {
+            "kind": "Const",
+            "dst": 1,
+            "value": 0,
+            "next": 31
+          }
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeLength": 5,
+          "lastNode": {
+            "kind": "Const",
+            "dst": 1,
+            "value": 0,
+            "next": 1
+          }
+        }
+      ],
+      "created": 1,
+      "copied": 5,
+      "rewired": 4,
+      "launched": 1,
+      "externalActions": 3,
+      "graphObjectsRemaining": 0,
+      "trace": [
+        {
+          "process": 1,
+          "pc": 0,
+          "kind": "GraphCreated",
+          "remaining": 28
+        },
+        {
+          "process": 1,
+          "pc": 1,
+          "kind": "Executed",
+          "remaining": 27
+        },
+        {
+          "process": 1,
+          "pc": 2,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 26
+        },
+        {
+          "process": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "remaining": 25
+        },
+        {
+          "process": 1,
+          "pc": 4,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 24
+        },
+        {
+          "process": 1,
+          "pc": 5,
+          "kind": "Executed",
+          "remaining": 23
+        },
+        {
+          "process": 1,
+          "pc": 6,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 22
+        },
+        {
+          "process": 1,
+          "pc": 7,
+          "kind": "Executed",
+          "remaining": 21
+        },
+        {
+          "process": 1,
+          "pc": 8,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 20
+        },
+        {
+          "process": 1,
+          "pc": 9,
+          "kind": "Executed",
+          "remaining": 19
+        },
+        {
+          "process": 1,
+          "pc": 10,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 18
+        },
+        {
+          "process": 1,
+          "pc": 11,
+          "kind": "Executed",
+          "remaining": 17
+        },
+        {
+          "process": 1,
+          "pc": 12,
+          "kind": "Executed",
+          "remaining": 16
+        },
+        {
+          "process": 1,
+          "pc": 13,
+          "kind": "GraphNodeEdited",
+          "remaining": 15
+        },
+        {
+          "process": 1,
+          "pc": 14,
+          "kind": "Executed",
+          "remaining": 14
+        },
+        {
+          "process": 1,
+          "pc": 15,
+          "kind": "Executed",
+          "remaining": 13
+        },
+        {
+          "process": 1,
+          "pc": 16,
+          "kind": "GraphNodeEdited",
+          "remaining": 12
+        },
+        {
+          "process": 1,
+          "pc": 17,
+          "kind": "Executed",
+          "remaining": 11
+        },
+        {
+          "process": 1,
+          "pc": 18,
+          "kind": "Executed",
+          "remaining": 10
+        },
+        {
+          "process": 1,
+          "pc": 19,
+          "kind": "GraphNodeEdited",
+          "remaining": 9
+        },
+        {
+          "process": 1,
+          "pc": 20,
+          "kind": "Executed",
+          "remaining": 8
+        },
+        {
+          "process": 1,
+          "pc": 21,
+          "kind": "Executed",
+          "remaining": 7
+        },
+        {
+          "process": 1,
+          "pc": 22,
+          "kind": "GraphNodeEdited",
+          "remaining": 6
+        },
+        {
+          "process": 1,
+          "pc": 23,
+          "kind": "Executed",
+          "remaining": 5
+        },
+        {
+          "process": 1,
+          "pc": 24,
+          "kind": "GraphLaunched",
+          "remaining": 4
+        },
+        {
+          "process": 2,
+          "pc": 0,
+          "kind": "Executed",
+          "remaining": 3
+        },
+        {
+          "process": 1,
+          "pc": 25,
+          "kind": "Executed",
+          "remaining": 2
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawDeferred",
+          "remaining": 0
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawCompute",
+          "remaining": 2
+        },
+        {
+          "process": 1,
+          "pc": 27,
+          "kind": "Executed",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 28,
+          "kind": "Executed",
+          "remaining": 0
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "remaining": 4
+        },
+        {
+          "process": 2,
+          "pc": 2,
+          "kind": "Executed",
+          "remaining": 3
+        },
+        {
+          "process": 2,
+          "pc": 3,
+          "kind": "Executed",
+          "remaining": 2
+        },
+        {
+          "process": 2,
+          "pc": 4,
+          "kind": "Executed",
+          "remaining": 1
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "remaining": 0
+        }
+      ]
+    },
+    {
+      "arm": "NO_SECOND_PACKET",
+      "bootstrap": 29,
+      "windows": [
+        {
+          "packet": 3,
+          "steps": 3,
+          "writes": 0,
+          "transfers": 0,
+          "pool": 0,
+          "pcs": [
+            29,
+            1
+          ]
+        }
+      ],
+      "writes": 0,
+      "transfers": 0,
+      "steps": 32,
+      "pool": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 29,
+          "credits": 0,
+          "codeLength": 35,
+          "lastNode": {
+            "kind": "TransferCompute",
+            "recipient": 2,
+            "amount": 3,
+            "next": 31
+          }
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "codeLength": 5,
+          "lastNode": {
+            "kind": "TransferCompute",
+            "recipient": 2,
+            "amount": 3,
+            "next": 1
+          }
+        }
+      ],
+      "created": 1,
+      "copied": 5,
+      "rewired": 4,
+      "launched": 1,
+      "externalActions": 2,
+      "graphObjectsRemaining": 0,
+      "trace": [
+        {
+          "process": 1,
+          "pc": 0,
+          "kind": "GraphCreated",
+          "remaining": 28
+        },
+        {
+          "process": 1,
+          "pc": 1,
+          "kind": "Executed",
+          "remaining": 27
+        },
+        {
+          "process": 1,
+          "pc": 2,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 26
+        },
+        {
+          "process": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "remaining": 25
+        },
+        {
+          "process": 1,
+          "pc": 4,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 24
+        },
+        {
+          "process": 1,
+          "pc": 5,
+          "kind": "Executed",
+          "remaining": 23
+        },
+        {
+          "process": 1,
+          "pc": 6,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 22
+        },
+        {
+          "process": 1,
+          "pc": 7,
+          "kind": "Executed",
+          "remaining": 21
+        },
+        {
+          "process": 1,
+          "pc": 8,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 20
+        },
+        {
+          "process": 1,
+          "pc": 9,
+          "kind": "Executed",
+          "remaining": 19
+        },
+        {
+          "process": 1,
+          "pc": 10,
+          "kind": "GraphNodeCopiedLocal",
+          "remaining": 18
+        },
+        {
+          "process": 1,
+          "pc": 11,
+          "kind": "Executed",
+          "remaining": 17
+        },
+        {
+          "process": 1,
+          "pc": 12,
+          "kind": "Executed",
+          "remaining": 16
+        },
+        {
+          "process": 1,
+          "pc": 13,
+          "kind": "GraphNodeEdited",
+          "remaining": 15
+        },
+        {
+          "process": 1,
+          "pc": 14,
+          "kind": "Executed",
+          "remaining": 14
+        },
+        {
+          "process": 1,
+          "pc": 15,
+          "kind": "Executed",
+          "remaining": 13
+        },
+        {
+          "process": 1,
+          "pc": 16,
+          "kind": "GraphNodeEdited",
+          "remaining": 12
+        },
+        {
+          "process": 1,
+          "pc": 17,
+          "kind": "Executed",
+          "remaining": 11
+        },
+        {
+          "process": 1,
+          "pc": 18,
+          "kind": "Executed",
+          "remaining": 10
+        },
+        {
+          "process": 1,
+          "pc": 19,
+          "kind": "GraphNodeEdited",
+          "remaining": 9
+        },
+        {
+          "process": 1,
+          "pc": 20,
+          "kind": "Executed",
+          "remaining": 8
+        },
+        {
+          "process": 1,
+          "pc": 21,
+          "kind": "Executed",
+          "remaining": 7
+        },
+        {
+          "process": 1,
+          "pc": 22,
+          "kind": "GraphNodeEdited",
+          "remaining": 6
+        },
+        {
+          "process": 1,
+          "pc": 23,
+          "kind": "Executed",
+          "remaining": 5
+        },
+        {
+          "process": 1,
+          "pc": 24,
+          "kind": "GraphLaunched",
+          "remaining": 4
+        },
+        {
+          "process": 2,
+          "pc": 0,
+          "kind": "Executed",
+          "remaining": 3
+        },
+        {
+          "process": 1,
+          "pc": 25,
+          "kind": "Executed",
+          "remaining": 2
+        },
+        {
+          "process": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawDeferred",
+          "remaining": 0
+        },
+        {
+          "process": 1,
+          "pc": 26,
+          "kind": "DrawCompute",
+          "remaining": 2
+        },
+        {
+          "process": 1,
+          "pc": 27,
+          "kind": "Executed",
+          "remaining": 1
+        },
+        {
+          "process": 1,
+          "pc": 28,
+          "kind": "Executed",
+          "remaining": 0
+        }
+      ]
+    }
+  ]
+}
