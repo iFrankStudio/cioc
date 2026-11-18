@@ -18,7 +18,7 @@ if(!contract||!src.includes('let mut c=vec![Op::GraphNew{dst:0,next:1}];')||
  !src.includes('c[17]=Op::Halt')||
  !src.includes('desc[0][2]=arm.bit()')||
  !kernel.includes('let candidate = Op::decode_instruction(words)?;')||
- !kernel.includes('self.processes.insert(child_id, Process::new(child_id, object.nodes, requested))'))
+ !/self\.processes\s*\.insert\(child_id, Process::new\(child_id, object.nodes, requested\)\)/.test(kernel))
  throw Error('F1d1d source/kernel graph encoder or identity semantics changed');
 const rows=[...contract.matchAll(/\[\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*\]/g)]
  .map(m=>m.slice(1).map(Number));
