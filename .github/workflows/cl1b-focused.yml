@@ -122,6 +122,8 @@ jobs:
             cl1b_b56_f1_founder_feedback_cut
             cl1b_b56_f1b_two_native_monitor_routes
           )
+          # Require FULL 60-native/47-independent regression for the source-pinned
+          # B56-F1b completed 80k-instruction mechanical/negative pilot audit.
           # B56-F1b is a fixed-order TWO paid service monitor assembly pilot,
           # NOT the complete full-F1 causal selector (no order balance/edit-only ablation).
                     # Fail closed on any silent native integration test omission,
