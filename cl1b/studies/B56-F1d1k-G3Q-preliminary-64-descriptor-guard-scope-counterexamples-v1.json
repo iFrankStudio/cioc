@@ -1,0 +1,2159 @@
+{
+  "study": "B56-F1d1k-G3Q-preliminary-ABSTRACT-64",
+  "status": "pure interpreter/abstract original-rule algebra, NOT independently native G3Q world",
+  "grammar": {
+    "opcodes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "length": 3,
+    "meaning": [
+      "ADD0mod3",
+      "ADD1mod3",
+      "ADD2mod3",
+      "RESET0"
+    ],
+    "tested_candidate_trials": 3,
+    "mutation": "increment middle opcode modulo4"
+  },
+  "counts": {
+    "syntactic_descriptors": 64,
+    "unguarded_full_cover": 24,
+    "guarded_full_cover": 16,
+    "previously_covering_broken_by_guard": 12,
+    "previously_incomplete_fixed_by_guard": 4,
+    "guarded_nonterminating_repair_cycle": 4,
+    "guarded_finite_but_incomplete": 44
+  },
+  "source_admitted_G3P_forms": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      3,
+      0
+    ],
+    [
+      1,
+      3,
+      1
+    ],
+    [
+      2,
+      3,
+      2
+    ]
+  ],
+  "arbitrary_out_of_admitted_counterexample": [
+    2,
+    2,
+    2
+  ],
+  "arbitrary_out_of_admitted_cycle": [
+    0,
+    0,
+    3
+  ],
+  "native_G3Q_results_observed": false,
+  "rows": [
+    {
+      "descriptor": [
+        0,
+        0,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        0,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        0,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          1,
+          2
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        0,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0
+        ],
+        "repairs": 5,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          }
+        ],
+        "cycle": true,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        1,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          1
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          },
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 1,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        1,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          1,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        1,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        1,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0
+        ],
+        "repairs": 5,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          }
+        ],
+        "cycle": true,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        2,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          1,
+          2
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        2,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        2,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        2,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0
+        ],
+        "repairs": 5,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 0
+          }
+        ],
+        "cycle": true,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        3,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        3,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        3,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          2,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 2,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        0,
+        3,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0
+        ],
+        "repairs": 5,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 0
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 0
+          }
+        ],
+        "cycle": true,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        0,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        0,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          2
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          },
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 0,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        0,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          2,
+          2
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        0,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        1,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        1,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          2,
+          0
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          },
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        1,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        1,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        2,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          2
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 1,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        2,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        2,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        2,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        3,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          2,
+          0
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        3,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        3,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          2
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 2,
+            "mode": 2
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        1,
+        3,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        0,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        0,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        0,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          0,
+          1
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          },
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 0,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        0,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        1,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        1,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          1,
+          0
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 3,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        1,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 0,
+            "mode": 1
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        1,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        2,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          0,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          0,
+          0
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        2,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          1,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          1,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        2,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          2,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          0
+        ],
+        "repairs": 2,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 0,
+            "mode": 1
+          },
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        2,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        3,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          1
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 1,
+            "middle_after_paid_style_edit": 1,
+            "mode": 0
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        3,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        3,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          1,
+          0
+        ],
+        "repairs": 1,
+        "repairEvents": [
+          {
+            "trial": 2,
+            "middle_after_paid_style_edit": 2,
+            "mode": 0
+          }
+        ],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        2,
+        3,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        0,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        0,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        0,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        0,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        1,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        1,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        1,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": true
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        1,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        2,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        2,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          1,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        2,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          2,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        2,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        3,
+        0
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          1
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        3,
+        1
+      ],
+      "guard_off": {
+        "realModes": [
+          1,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          1,
+          1,
+          2
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        3,
+        2
+      ],
+      "guard_off": {
+        "realModes": [
+          2,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          2,
+          2,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    },
+    {
+      "descriptor": [
+        3,
+        3,
+        3
+      ],
+      "guard_off": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      },
+      "guard_on": {
+        "realModes": [
+          0,
+          0,
+          0
+        ],
+        "repairs": 0,
+        "repairEvents": [],
+        "cycle": false,
+        "all_three_modes": false
+      }
+    }
+  ]
+}
