@@ -1,0 +1,883 @@
+{
+  "study": "B52",
+  "source_sha": "8ad1a4bc5676794468483b2d556f6e4e60714493",
+  "independently_replayed_native_worlds": 20,
+  "independently_replayed_paid_events": 60000,
+  "independently_replayed_external_interventions": 8822,
+  "native_actor_executable_edits": 1118,
+  "first_divergence": null,
+  "authored_watchdog_actually_acts": true,
+  "feedback_recovery_causal_utility": true,
+  "all_shift_and_return_stages_reacquired": false,
+  "stale_replay_causally_indistinguishable_without_freshness": true,
+  "b52_freshness_certified": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false,
+  "by_arm": {
+    "TRUE": {
+      "worlds": 4,
+      "paid": 12000,
+      "retentions": 12,
+      "reopens": 8,
+      "correct": 280,
+      "wrong": 8,
+      "correct_stages": [
+        96,
+        92,
+        92
+      ],
+      "wrong_stages": [
+        0,
+        4,
+        4
+      ],
+      "feedback_reads": 842,
+      "source_edits": 136,
+      "stale_false_successes": 0,
+      "service_writes": 288,
+      "winners": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            23,
+            23
+          ],
+          "wrongByStage": [
+            0,
+            1,
+            1
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            23,
+            23
+          ],
+          "wrongByStage": [
+            0,
+            1,
+            1
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            23,
+            23
+          ],
+          "wrongByStage": [
+            0,
+            1,
+            1
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            23,
+            23
+          ],
+          "wrongByStage": [
+            0,
+            1,
+            1
+          ],
+          "retentions": 3,
+          "reopens": 2
+        }
+      ]
+    },
+    "STALE_SUCCESS": {
+      "worlds": 4,
+      "paid": 12000,
+      "retentions": 4,
+      "reopens": 0,
+      "correct": 192,
+      "wrong": 96,
+      "correct_stages": [
+        96,
+        0,
+        96
+      ],
+      "wrong_stages": [
+        0,
+        96,
+        0
+      ],
+      "feedback_reads": 1104,
+      "source_edits": 0,
+      "stale_false_successes": 96,
+      "service_writes": 288,
+      "winners": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "sequence": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            24,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "sequence": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            24,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "sequence": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            24,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "sequence": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            24,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        }
+      ]
+    },
+    "FORCED_ZERO": {
+      "worlds": 4,
+      "paid": 12000,
+      "retentions": 64,
+      "reopens": 64,
+      "correct": 64,
+      "wrong": 0,
+      "correct_stages": [
+        64,
+        0,
+        0
+      ],
+      "wrong_stages": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads": 64,
+      "source_edits": 556,
+      "stale_false_successes": 0,
+      "service_writes": 64,
+      "winners": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            0
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 24,
+          "reopens": 24
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            0,
+            0
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 24,
+          "reopens": 24
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            8,
+            0,
+            0
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 8,
+          "reopens": 8
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            8,
+            0,
+            0
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 8,
+          "reopens": 8
+        }
+      ]
+    },
+    "STATIONARY_TRUE": {
+      "worlds": 4,
+      "paid": 12000,
+      "retentions": 4,
+      "reopens": 0,
+      "correct": 288,
+      "wrong": 0,
+      "correct_stages": [
+        96,
+        96,
+        96
+      ],
+      "wrong_stages": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads": 1104,
+      "source_edits": 0,
+      "stale_false_successes": 0,
+      "service_writes": 288,
+      "winners": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "sequence": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            24,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "sequence": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            24,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "sequence": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            24,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "sequence": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            24,
+            24
+          ],
+          "wrongByStage": [
+            0,
+            0,
+            0
+          ],
+          "retentions": 1,
+          "reopens": 0
+        }
+      ]
+    },
+    "STALE_DELAYED": {
+      "worlds": 4,
+      "paid": 12000,
+      "retentions": 12,
+      "reopens": 8,
+      "correct": 272,
+      "wrong": 16,
+      "correct_stages": [
+        96,
+        88,
+        88
+      ],
+      "wrong_stages": [
+        0,
+        8,
+        8
+      ],
+      "feedback_reads": 842,
+      "source_edits": 136,
+      "stale_false_successes": 8,
+      "service_writes": 288,
+      "winners": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            22,
+            22
+          ],
+          "wrongByStage": [
+            0,
+            2,
+            2
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "sequence": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            22,
+            22
+          ],
+          "wrongByStage": [
+            0,
+            2,
+            2
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            22,
+            22
+          ],
+          "wrongByStage": [
+            0,
+            2,
+            2
+          ],
+          "retentions": 3,
+          "reopens": 2
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "sequence": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "serviceByStage": [
+            24,
+            22,
+            22
+          ],
+          "wrongByStage": [
+            0,
+            2,
+            2
+          ],
+          "retentions": 3,
+          "reopens": 2
+        }
+      ]
+    }
+  }
+}
