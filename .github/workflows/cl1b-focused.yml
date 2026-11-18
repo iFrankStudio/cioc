@@ -263,6 +263,11 @@ jobs:
             wanted[cl1b_b55b_online_monitor_rate_pilot]=1
             wanted[cl1b_b56_f0_paid_monitor_assembly]=1
             wanted[cl1b_b56_f1_founder_feedback_cut]=1
+            # These always-on observers require SAME-SHA native producer traces,
+            # even on changed-only CI runs. Do not permit false-green/false-red.
+            wanted[cl1b_b56_f1b_two_native_monitor_routes]=1
+            wanted[cl1b_b56_f1c_pilot_ordered_trial]=1
+            wanted[cl1b_b56_f1d0_monitor_path_calibration]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
