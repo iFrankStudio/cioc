@@ -43,7 +43,7 @@ const actorLiteral=parse(maker),fixedLiteral=parse(staticMaker);
 if(!maker.includes('code.resize(162,Op::Halt)')||
    !maker.includes('code[50]=Op::PatchNext{node:2,target:3,next:72}')||
    !staticMaker.includes('code.resize(126,Op::Halt)')||
-   actorLiteral.length!==70 ||fixedLiteral.length!==16)
+   actorLiteral.length!==70 ||fixedLiteral.length!==18)
   throw Error('B56 F1b source compiler grammar inventory changed');
 function actorGraph(){
   const code=b51c.map(op=>({...op}));
