@@ -304,8 +304,11 @@ fn case(out:&mut BufWriter<File>,id:usize,seed:i64,ecology:Ecology,arm:Arm)->Val
             final_choice=edge(&w,2);
             trial_selection_paid=Some(paid);
         }
-        if old_pc==127&&w.cell(29).unwrap_or(0)==0{
-            first_route=edge(&w,2);
+        if matches!(arm,Arm::TruthTwo|Arm::BlindTwo|Arm::InvertedTwo){
+            if old_pc==161 { first_route=edge(&w,2); }
+            if old_pc==127&&w.cell(29).unwrap_or(0)==0{
+                first_route=edge(&w,2);
+            }
         }
         if [109,158].contains(&old_pc)&&w.cell(29)==Some(4){
             after_four_route=edge(&w,2);
