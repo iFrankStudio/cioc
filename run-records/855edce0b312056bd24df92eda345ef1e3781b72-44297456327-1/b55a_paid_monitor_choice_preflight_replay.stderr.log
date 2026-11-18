@@ -1,0 +1,17 @@
+node:fs:483
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open 'cl1b-ci-evidence/b55a_preflight_native_steps.jsonl'
+    at Object.readFileSync (node:fs:483:20)
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b55a_paid_monitor_choice_preflight_replay.mjs:14:15
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'cl1b-ci-evidence/b55a_preflight_native_steps.jsonl'
+}
+
+Node.js v24.22.2
