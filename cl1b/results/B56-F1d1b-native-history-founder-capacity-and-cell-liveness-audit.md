@@ -1,0 +1,35 @@
+# CL-1B B56-F1d1b — F1c founder capacity and observed data-cell liveness under exact native history
+
+**Finding: direct, verbatim installation of the original B53 sensor into the unchanged F1c two-policy founder is demonstrably infeasible under the frozen code limit.** This is a source-capacity and *previous native-history reanalysis*, NOT a new native actor construction, NOT proof that all alternative in-place rewrites are impossible, and NOT an endogenous-learning or cyberlife result.
+
+## Provenance and exact evidence
+
+- The [prospective frozen preregistration](../studies/B56-F1d1b-strict-founder-source-and-cell-liveness-capacity-preregistration.md) was committed on `d571af48d6abd06e2b4be4a68280837c89764241` before the observer existed. Its SHA-256 is `2ea7c617df1d4ad4bccf55ed4c9bd7fedafe3107c98d705036ff532f3bc5ebcc`.
+- [Successful scoped GitHub Actions run44253424000](https://github.com/iFrankStudio/cioc/actions/runs/44253424000) tested **exact SHA `05ea214cfccd1bde3b355e217b363f1999077386`**, with **15/15 selected native integration targets PASS**, **52/52 independent analyses PASS** (including new F1d1b source + native-history scanner), B31/B34 ABI PASS, failed native and observer targets both0; original source-matched evidence published. This was **changed-only**, NOT a new full 62/62 Rust source regression.
+- [Original source-pinned CI summary](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/05ea214cfccd1bde3b355e217b363f1999077386-44253424000-1/summary.txt) · [complete new independent capacity/liveness audit JSON](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/05ea214cfccd1bde3b355e217b363f1999077386-44253424000-1/b56_f1d1b_founder_capacity_and_live_cells_audit.json) · [earlier full-history independent F1c observer for SAME code SHA](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/05ea214cfccd1bde3b355e217b363f1999077386-44253424000-1/b56_f1c_pilot_ordered_trial_replay.json) · [observer source](../analysis/b56_f1d1b_founder_capacity_and_live_cells_audit.mjs).
+- [First full run44252986427](https://github.com/iFrankStudio/cioc/actions/runs/44252986427) failed honestly: the initial observer contained an invalid unquoted JavaScript object key beginning with `17_`. All 62 native Rust targets, mandatory ABI checks and the preceding 51 observers were individually green; the complete job failed correctly. The source syntax was corrected at `05ea214...` and successful scoped source-pin run above resolves it. Preserve both records.
+
+## Literal finite-capacity and executable opcode result
+
+Current F1c initial single PID1 founder: **162** code slots, original B51c task search with source-embedded Write2→Const35(20)→Read36(20), plus the F1c actor-authored construction and two monitor trial scaffold. In eight actual truth-feedback same-SHA F1c worlds, original actor pays for **6 real CloneNode source-appends each**, reaching **168** total process code nodes. Under **180 max code nodes** only **12** further append slots remain.
+
+Exact B53 receipt semantics as defined in its own Rust source require **7 ordinary paid nonce-increment instructions** (PC99..105) plus **18 distinct nonce/echo/commit/bit verification and rejection source nodes** (PC106..123). A **straight verbatim append** needs **168+25=193 nodes**, **13 above the immutable 180 code cap**. The 18-node checker is longer than its **15-step successful native execution path**: do not mistake executed path length for code size.
+
+The F1c initial graph contains `Halt` at PC71 and143, but existing `PatchNext` and `PatchConst` do **not** turn `Halt` into useful opcodes. Overwriting B53's original PC99..123 targets in place is equally invalid: **18 of these 25 pinned positions have different opcode types** in F1c (e.g. **PC110 F1c=Const, B53=Sub**; **PC111 F1c=Read, B53=Branch**). The existing F1c actor has patch/clone instructions, not a free opcode-transmutation primitive. This establishes a rigorous rejection of **two specific shortcuts** (append and same-index patch), **not a theorem that all actor-paid opcode-preserving reuse strategies fail**.
+
+## Native cell and storage observations
+
+F1c Rust instrumentation names the16 distinct cell addresses `[7,11,20,21,22,24,25,27,28,29,30,31,40,41,42,43]`. B53 adds request-nonce key **26**, while packet echo27, commit28, rejection29 and feedback20 overlap existing addresses. Thus the **union is17 distinct keys**, but it is *invalid* to infer 17 are occupied simultaneously.
+
+The new scanner examines the actual F1c JSONL native **48 worlds ×4,000 paid instructions =192,000 genuine instruction events**, plus **26,432 external events**. The existing independently authored complete CIL observer confirms exact same-source VM replay with **first divergence null**. In the **eight F1c truthful two-policy worlds** it measures:
+- **15–16** as the range of each world's observed peak *named occupied data cells* (including after graph reaches168 nodes). Some existing native histories already reach the frozen **16-cell limit**.
+- **184–185/300** as the range of each world's observed peak total storage, with maximum **185** across all 48 worlds. There is combined storage slack even when the stricter per-process code and cell caps constrain the actor.
+- These are observations for **original F1c**, not runtime proof about a newly integrated B53 actor. They do not establish that cell26 always fails, only that adding it without paid lifetime/cell reclamation is unsafe in at least some original observed full states.
+
+Concrete alias hazards: **key27** F1c constructor gate vs B53 echo; **key28** F1c FOURTH sample counter vs B53 commit; **key29** F1c policy-selection counter vs B53 rejection marker; **key40** F1c cloned monitor source pointer vs proposed replacement FOURTH counter. Each reuse requires a verifiable nonoverlap and charged source-level handling, not mere renaming in test source.
+
+## Scientific decision and next constructive gate
+
+**F1d1b DIRECT VERBATIM INSTALLATION: REJECTED with exact source-size and opcode-type certificates.** No silent increase of 16/180/300, external code replacement, free graph edit, reset, unpriced nonce, or unchecked read. Full F1d1 actor construction and two-route useful selection **NOT TESTED**; strict N56-A (preexisting B51c feedback circuit), N56-B/C, B3/B4/cyberlife **NOT MET**.
+
+Only a materially different construction is now scientifically worth exploring: an actor-paid, **opcode-type-preserving** late-phase reuse/liveness solution, preserving genuine task-search feedback for post-shift reopening and counterbalanced monitor trials. Before launching expensive native cohorts, freeze an exact reuse graph with every remapped node, source instruction cost, PC/cell lifetime, and a separate check that original search remains callable after retention. If this cannot fit a genuine complete B53 sensor, explicitly record failure and consider a smaller paid sensor primitive or a revised founder as a **different design**, never as fulfillment of the original strict F1d1b null.
