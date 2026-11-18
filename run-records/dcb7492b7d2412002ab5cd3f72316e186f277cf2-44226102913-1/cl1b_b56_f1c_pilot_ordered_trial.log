@@ -1,0 +1,18 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[0m[1m: recursion limit reached while expanding `$crate::json_internal!`[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1c_pilot_ordered_trial.rs:386:13
+    [1m[94m|[0m
+[1m[94m386[0m [1m[94m|[0m       let row=json!({"id":id,"seed":seed,"ecology":ecology.name(),
+    [1m[94m|[0m [1m[91m _____________^[0m
+[1m[94m387[0m [1m[94m|[0m [1m[91m|[0m         "order":if order_a_first{"A_THEN_B"}else{"B_THEN_A"},"arm":arm.name(),
+[1m[94m388[0m [1m[94m|[0m [1m[91m|[0m         "paid":paid,"retained":retained,"training_writes":training_writes,
+[1m[94m389[0m [1m[94m|[0m [1m[91m|[0m         "service_writes":service_writes,
+[1m[94m...[0m   [1m[91m|[0m
+[1m[94m408[0m [1m[94m|[0m [1m[91m|[0m         "final_cells":cells(&w),"stopped":p.stopped,
+[1m[94m409[0m [1m[94m|[0m [1m[91m|[0m         "historical_u":(scored as f64-2.0*wrong_n as f64-missing as f64)/(paid.max(1) as f64)});
+    [1m[94m|[0m [1m[91m|_______________________________________________________________________________________________^[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mhelp[0m: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`cl1b_b56_f1c_pilot_ordered_trial`)
+    [1m[94m= [0m[1mnote[0m: this error originates in the macro `$crate::json_internal` which comes from the expansion of the macro `json` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b56_f1c_pilot_ordered_trial") due to 1 previous error
