@@ -81,7 +81,7 @@ fn g3q_c1_p1_l2_m2_original_pid_paid_certified_meta_and_self_halt(){
    // The PatchNext state mutation has already happened when its charged
    // native event is observed; count it before validating the new graph.
    let source_changed = patches > 0 || event.pc == 177;
-   assert_eq!(p.code.nodes,if source_changed {&edited} else {&founder},
+   assert_eq!(&p.code.nodes,if source_changed {&edited} else {&founder},
      "any executable change besides the one source-paid meta edge is forbidden");
    assert_eq!(world.total_compute_inventory(),Some(CREDITS-steps as u64));
    assert!(world.process(2).is_none());
