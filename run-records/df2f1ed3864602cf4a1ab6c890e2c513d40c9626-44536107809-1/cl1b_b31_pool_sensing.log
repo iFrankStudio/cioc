@@ -1,0 +1,34 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: fields `arm` and `packet` are never read[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b31_pool_sensing.rs:59:5
+   [1m[94m|[0m
+[1m[94m58[0m [1m[94m|[0m struct Trial {
+   [1m[94m|[0m        [1m[94m-----[0m [1m[94mfields in this struct[0m
+[1m[94m59[0m [1m[94m|[0m     arm:Arm,packet:u64,sensed:Vec<u64>,source_literal:i64,
+   [1m[94m|[0m     [1m[33m^^^[0m     [1m[33m^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `Trial` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b31_pool_sensing") generated 1 warning
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+[1m[92m     Running[0m tests/cl1b_b31_pool_sensing.rs (target/debug/build/cl0-world/5ee37613c4f7afe4/out/cl1b_b31_pool_sensing-5ee37613c4f7afe4)
+
+running 2 tests
+B31_NATIVE Trial { arm: Sense, packet: 0, sensed: [0], source_literal: 4, charged: 8, service_writes: 0, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }test b31_pool_sensor_is_not_a_free_zero_credit_reboot_and_bounds_signed_readback ... 
+ok
+B31_NATIVE Trial { arm: BlindThree, packet: 0, sensed: [], source_literal: 3, charged: 8, service_writes: 0, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 0, sensed: [], source_literal: 4, charged: 8, service_writes: 0, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: Sense, packet: 4, sensed: [4], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindThree, packet: 4, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 4, sensed: [], source_literal: 4, charged: 8, service_writes: 0, remaining_pool: 4, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: Sense, packet: 5, sensed: [5], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindThree, packet: 5, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 5, sensed: [], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 0, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: Sense, packet: 6, sensed: [6], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindThree, packet: 6, sensed: [], source_literal: 3, charged: 12, service_writes: 1, remaining_pool: 2, pc: 9, credits: 0, charged_patch: 1 }
+B31_NATIVE Trial { arm: BlindFour, packet: 6, sensed: [], source_literal: 4, charged: 13, service_writes: 1, remaining_pool: 1, pc: 9, credits: 0, charged_patch: 1 }
+test b31_paid_generic_pool_sensing_can_condition_native_source_mutation_but_not_create_fitness ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
