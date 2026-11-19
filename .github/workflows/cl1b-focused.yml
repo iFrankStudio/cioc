@@ -137,6 +137,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic
             cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor
             cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution
+            cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -296,6 +297,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -308,8 +310,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 76 ]; then
-            echo "Expected exactly 76 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 77 ]; then
+            echo "Expected exactly 77 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -416,6 +418,25 @@ jobs:
               echo "PASS independent-native-step-replay=g3q_c1_p1_l2_m1" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL independent-native-step-replay=g3q_c1_p1_l2_m1" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # P1-L2-M2: a single original PID1 must causally PatchNext itself,
+          # interpret its own retained complete meta-rule, and then naturally Halt.
+          # Independently replay all 48,298 charged native steps and the edited
+          # executable edge; reject any missing original evidence or divergence.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle'; then
+            m2_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m2_native_self_terminal_meta_cycle.json
+            m2_base=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m2_original_paid_steps_original.jsonl
+            m2_mutant=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m2_original_paid_steps_preload_tail_bank_address_mutant.jsonl
+            if [ -f "${m2_summary}" ] && [ -f "${m2_base}" ] && [ -f "${m2_mutant}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l2_m2_independent_native_terminal_replay.py \
+                "${m2_summary}" "${m2_base}" "${m2_mutant" \
+              > cl1b-ci-evidence/g3q_c1_p1_l2_m2_independent_native_terminal_replay.json \
+              2> cl1b-ci-evidence/g3q_c1_p1_l2_m2_independent_native_terminal_replay.stderr.log; then
+              echo "PASS native-independent-every-step=g3q_c1_p1_l2_m2" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-independent-every-step=g3q_c1_p1_l2_m2" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
