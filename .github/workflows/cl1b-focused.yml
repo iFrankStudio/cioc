@@ -142,6 +142,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f2_feedback_truth_alias
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i0_certified_feedback_integrated
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_i1_native_self_repair
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -306,6 +307,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f2_feedback_truth_alias]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i0_certified_feedback_integrated]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i1_native_self_repair]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -318,8 +320,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 81 ]; then
-            echo "Expected exactly 81 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 82 ]; then
+            echo "Expected exactly 82 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -513,6 +515,24 @@ jobs:
               echo "PASS native-integrated-cert-feedback=i0" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-integrated-cert-feedback=i0" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # I1 original PID1 pays to change executable Const6 only AFTER
+          # its own unsafe rule certificate, then re-certs and adapts to a
+          # hidden task. Falsifier: disabled native source editing prevents
+          # this progress. Independently replay all 12,317 original paid
+          # instructions, code literal changes and interleaved feedback.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i1_native_self_repair'; then
+            i1_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i1_native_source_self_repair.json
+            if [ -f "${i1_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i1_independent_native_self_repair_replay.py \
+                "${i1_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i1_independent_native_self_repair_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i1_independent_native_self_repair_replay.stderr.log; then
+              echo "PASS native-source-self-repair=i1" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-source-self-repair=i1" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
