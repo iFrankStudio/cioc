@@ -2,7 +2,8 @@
 //! Sample a paid, causally linked prefix; the process remains alive, NOT halted.
 use cl0_world::{EventKind,Op,Origin,Process,World};
 use serde_json::{json,Value};
-use std::fs;
+use std::fs::{self,File};
+use std::io::{BufWriter,Write};
 const FROZEN:&str="../../../cl1b/studies/B56-F1d1k-G3Q-C1-P1-L2-M1-frozen-180-node-paid-certified-bank-reexecution-v1.json";
 const ANCESTOR:&str="../../../cl1b/studies/B56-F1d1k-G3Q-C0-frozen-exact-164-node-original-CIL-founder-v1.json";
 const CREDITS:u64=32_000;
@@ -30,6 +31,8 @@ fn g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_exe
  assert_eq!(frozen["strict_world"]["source_nodes"],180);
  assert_eq!(frozen["strict_world"]["occupied_units"],300);
  assert_eq!(frozen["matched_preload_controls"].as_array().unwrap().len(),2);
+ let folder=root.join("../../cl1b-ci-evidence");
+ fs::create_dir_all(&folder).unwrap();
  let mut summary=Vec::<Value>::new();
  for arm in frozen["matched_preload_controls"].as_array().unwrap() {
   let name=arm["name"].as_str().unwrap();
@@ -54,6 +57,9 @@ fn g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_exe
   let mut meta_fetches:Vec<(i64,i64)>=Vec::new();
   let mut checkpoints:Vec<i64>=Vec::new();
   let mut output:Option<i64>=None;
+  let mut trace=BufWriter::new(File::create(folder.join(format!(
+   "b56_f1d1k_g3q_c1_p1_l2_m1_paid_prefix_{name}.jsonl"))).unwrap());
+  let exact_keys:[i64;16]=[7,11,20,21,32,33,50,51,52,53,56,61,62,63,64,65];
   loop {
    assert!(world.step(),"original PID stopped before post-deployment meta result");
    steps+=1;
@@ -67,6 +73,13 @@ fn g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_exe
    assert!(world.used_cells()<=16);
    assert!(world.occupied_units()<=300);
    peak=peak.max(world.occupied_units());
+   // Evidence is written for EVERY paid original CIL instruction in the
+   // sampled prefix, not just the last bank or interpreter events.
+   let original=world.process(1).unwrap();
+   let native_step=json!([steps,event.pc,original.pc,original.registers,
+     original.credits,exact_keys.map(|k|world.cell(k)),world.occupied_units()]);
+   serde_json::to_writer(&mut trace,&native_step).unwrap();
+   trace.write_all(b"\n").unwrap();
    if event.pc==106{certificates+=1;}
    if [113,117,121].contains(&event.pc){safe_retention+=1;}
    if [164,168,172].contains(&event.pc){
@@ -101,6 +114,7 @@ fn g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_exe
     break;
    }
   }
+  trace.flush().unwrap();
   let e=&arm["expected"];
   assert_eq!(steps,e["steps"].as_u64().unwrap() as usize);
   assert_eq!(certificates,e["cert"].as_u64().unwrap() as usize);
@@ -134,8 +148,6 @@ fn g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_exe
    "postdeployment_pid_still_alive":true
   }));
  }
- let folder=root.join("../../cl1b-ci-evidence");
- fs::create_dir_all(&folder).unwrap();
  fs::write(folder.join("b56_f1d1k_g3q_c1_p1_l2_m1_paid_certified_bank_reexecution.json"),
   serde_json::to_vec_pretty(&json!({
    "study":"B56-F1d1k-G3Q-C1-P1-L2-M1",
