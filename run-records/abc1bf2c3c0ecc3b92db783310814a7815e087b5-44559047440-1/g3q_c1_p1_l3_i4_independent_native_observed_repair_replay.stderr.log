@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/g3q_c1_p1_l3_i4_independent_native_observed_repair_replay.py", line 336, in <module>
+    main()
+    ~~~~^^
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/g3q_c1_p1_l3_i4_independent_native_observed_repair_replay.py", line 247, in main
+    r=paid_original_pid_replay(source,seed,"truth",False,case["expected"],trace)
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/g3q_c1_p1_l3_i4_independent_native_observed_repair_replay.py", line 147, in paid_original_pid_replay
+    assert here in (94,109,175)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError
