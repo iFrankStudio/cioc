@@ -1,0 +1,88 @@
+{
+  "study": "B56-F1a",
+  "source_sha": "c60f70aa37330fa50ddeb10f8b4399afdea17823",
+  "genuine_native_worlds_replayed": 5,
+  "genuine_paid_native_instructions_replayed": 6500,
+  "external_interventions_replayed": 1717,
+  "changed_native_executable_edges_replayed": 23,
+  "first_divergence": null,
+  "intact_source_feedback_routes": {
+    "arm": "intact",
+    "paid": 1300,
+    "writes": 175,
+    "feedback_reads": 4,
+    "accepted": 1,
+    "correct": 173,
+    "wrong": 2,
+    "other_patches": 6,
+    "final_pc": 2,
+    "final_nodes": 74,
+    "peak_storage_at_end": 83,
+    "native_trace_sample_len": 16
+  },
+  "feedback_route_cut_controls": [
+    {
+      "arm": "cut_output_to_feedback",
+      "paid": 1300,
+      "writes": 182,
+      "feedback_reads": 0,
+      "accepted": 0,
+      "correct": 0,
+      "wrong": 182,
+      "other_patches": 3,
+      "final_pc": 31,
+      "final_nodes": 74,
+      "peak_storage_at_end": 82,
+      "native_trace_sample_len": 16
+    },
+    {
+      "arm": "cut_feedback_read_to_search",
+      "paid": 1300,
+      "writes": 141,
+      "feedback_reads": 141,
+      "accepted": 0,
+      "correct": 0,
+      "wrong": 141,
+      "other_patches": 3,
+      "final_pc": 2,
+      "final_nodes": 74,
+      "peak_storage_at_end": 82,
+      "native_trace_sample_len": 16
+    }
+  ],
+  "source_identical_feedback_corruption": [
+    {
+      "arm": "intact_routing_blind_success",
+      "paid": 1300,
+      "writes": 179,
+      "feedback_reads": 2,
+      "accepted": 1,
+      "correct": 0,
+      "wrong": 179,
+      "other_patches": 4,
+      "final_pc": 2,
+      "final_nodes": 74,
+      "peak_storage_at_end": 83,
+      "native_trace_sample_len": 16
+    },
+    {
+      "arm": "intact_routing_inverted_feedback",
+      "paid": 1300,
+      "writes": 179,
+      "feedback_reads": 2,
+      "accepted": 1,
+      "correct": 0,
+      "wrong": 179,
+      "other_patches": 4,
+      "final_pc": 2,
+      "final_nodes": 74,
+      "peak_storage_at_end": 83,
+      "native_trace_sample_len": 16
+    }
+  ],
+  "strict_b56_n56a_de_novo_monitor_origin": false,
+  "two_generated_service_policies_tested": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false
+}
