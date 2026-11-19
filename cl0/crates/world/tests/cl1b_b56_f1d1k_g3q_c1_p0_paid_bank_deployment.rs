@@ -98,3 +98,68 @@ fn g3q_c1_p0_original_pid_paid_bank_to_active_three_word_deployment(){
     "limitations":"No hidden task, true service, task feedback, task shift, or independent replay. No full C1 achievement."
   })).unwrap()).unwrap();
 }
+
+
+/// Pre-load source mutation is an explicit researcher control, never a PID1
+/// self-edit. It tests whether the native paid Read path causally determines
+/// the first deployed word, rather than merely agreeing with a fixed summary.
+/// Prediction frozen in the independent source replay: redirect PC163's
+/// address constant 51 -> 52; first active write must change 1 -> 3,
+/// while the other two words and instruction count stay unchanged.
+#[test]
+fn g3q_c1_p0_native_bank_read_address_causal_mutation_control(){
+ let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+ let frozen:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+ let baseline=frozen["exact_native_founder_code"].as_array().unwrap().clone();
+ assert_eq!(baseline.len(),180);
+ assert_eq!(baseline[163],json!({"kind":"Const","dst":2,"value":51,"next":164}));
+ let mut results=Vec::new();
+ for (label,source_address) in [("baseline",51),("preload_address_mutant",52)]{
+  let mut records=baseline.clone();
+  records[163]["value"]=json!(source_address);
+  let founder:Vec<Op>=records.iter().map(decode).collect();
+  let mut world=World::with_strict_capacity(16,180,300);
+  world.load(Process::new(1,founder.clone(),CREDITS)).unwrap();
+  let mut steps=0_usize;
+  let mut reads=Vec::new();
+  let mut writes=Vec::new();
+  let mut peak=world.occupied_units();
+  while world.step(){
+   steps+=1;
+   assert!(steps<=CREDITS as usize);
+   let event=world.events().last().unwrap();
+   assert!(matches!(event.origin,Origin::Internal(1)));
+   assert_eq!(world.process(1).unwrap().code.nodes,founder);
+   assert_eq!(world.total_compute_inventory(),Some(CREDITS-steps as u64));
+   assert!(world.used_cells()<=16);
+   peak=peak.max(world.occupied_units());
+   assert!(peak<=300);
+   if [164,168,172].contains(&event.pc){
+    match &event.kind{
+     EventKind::CellRead{key,value}=>reads.push((*key,*value)),
+     other=>panic!("expected paid read: {other:?}")
+    }
+   }
+   if [166,170,174].contains(&event.pc){
+    match &event.kind{
+     EventKind::CellWritten{key,value,..}=>writes.push((*key,*value)),
+     other=>panic!("expected paid write: {other:?}")
+    }
+   }
+  }
+  assert_eq!(steps,24_066,"{label}: paid instruction budget");
+  assert_eq!(reads.len(),3);
+  assert_eq!(writes.len(),3);
+  assert_eq!(world.cell(51),Some(1));
+  assert_eq!(world.cell(52),Some(3));
+  assert_eq!(world.cell(53),Some(2));
+  assert!(world.process(1).unwrap().stopped);
+  results.push((label,reads,writes));
+ }
+ assert_eq!(results[0].1,vec![(51,1),(52,3),(53,2)]);
+ assert_eq!(results[1].1,vec![(52,3),(52,3),(53,2)]);
+ assert_eq!(results[0].2,vec![(62,1),(63,3),(64,2)]);
+ assert_eq!(results[1].2,vec![(62,3),(63,3),(64,2)]);
+ assert_ne!(results[0].2,results[1].2,
+            "source-address intervention must affect native active deployment");
+}
