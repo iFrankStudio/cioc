@@ -68,11 +68,11 @@ fn g3q_c1_p1_l2_m0_three_meta_words_paid_native_execution() {
   }
   assert!(w.process(1).unwrap().stopped);
   assert_eq!(steps,arm["steps"].as_u64().unwrap() as usize);
-  assert_eq!(bank_reads,arm["bankReads"]);
-  assert_eq!(active_writes,arm["activeWrites"]);
-  assert_eq!(meta_fetches,arm["fetch"]);
-  assert_eq!(meta_accumulators,arm["accWrites"]);
-  assert_eq!(service,arm["out"]);
+  assert_eq!(json!(bank_reads),arm["bankReads"]);
+  assert_eq!(json!(active_writes),arm["activeWrites"]);
+  assert_eq!(json!(meta_fetches),arm["fetch"]);
+  assert_eq!(json!(meta_accumulators),arm["accWrites"]);
+  assert_eq!(json!(service),arm["out"]);
   assert_eq!(service.len(),1);
   assert_eq!(meta_fetches.len(),3);
   assert_eq!(meta_accumulators.len(),3);
