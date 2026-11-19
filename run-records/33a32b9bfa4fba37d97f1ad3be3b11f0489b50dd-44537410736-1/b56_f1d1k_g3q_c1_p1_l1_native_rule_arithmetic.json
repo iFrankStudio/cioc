@@ -1,0 +1,82 @@
+{
+  "level": "NATIVE_BOUNDED_RULE_DEPENDENT_ARITHMETIC_NO_HIDDEN_TASK",
+  "limits": "No task shift, heldout goal, feedback-driven adaptation, or novel primitive.",
+  "observations": [
+    {
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "arithmetic_output": 65,
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "credits_remaining": 8061,
+      "endogenous_input": 63,
+      "label": "frozen_original",
+      "peak": 196,
+      "source_nodes": 179,
+      "steps": 23939
+    },
+    {
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "arithmetic_output": 64,
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          51,
+          1
+        ]
+      ],
+      "credits_remaining": 8061,
+      "endogenous_input": 63,
+      "label": "preload_address_mutant",
+      "peak": 196,
+      "source_nodes": 179,
+      "steps": 23939
+    }
+  ],
+  "source_sha": "33a32b9bfa4fba37d97f1ad3be3b11f0489b50dd",
+  "study": "B56-F1d1k-G3Q-C1-P1-L1"
+}
