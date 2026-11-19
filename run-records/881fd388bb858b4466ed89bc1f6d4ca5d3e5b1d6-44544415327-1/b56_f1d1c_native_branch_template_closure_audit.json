@@ -1,0 +1,142 @@
+{
+  "study": "B56-F1d1c",
+  "evidence_class": "EXACT_SOURCE_OPCODE_CLOSURE_AND_EXISTING_NATIVE_HISTORY",
+  "exact_source_sha": "881fd388bb858b4466ed89bc1f6d4ca5d3e5b1d6",
+  "frozen_manifest_sha256": "5430a7015c6dcd9d693881c7f39e330e0969ecfc955e39afd2b4160ace43fe74",
+  "source_hashes_sha256": {
+    "b51c": "e454ac845ff6c88ce9dc30ea0b2944526849ae2d7c0f4aad56f80cdc1d1f7965",
+    "f1c": "dbfeac4efb39fa10091a233b09b6fe31a3931a03dc12471e8d90b257f652af3a",
+    "b53": "f9c817227210156c669a9c8c1e0f8607b10857237d85a0eea44aebf5faab0275",
+    "kernel": "4a1025dff73f12e47cb86949460d65de650a014fefb8082936f404a0726e59d6"
+  },
+  "original_F1c_branch_nodes": [
+    {
+      "pc": 23,
+      "test": 3,
+      "nonzero": 26,
+      "zero": 24
+    },
+    {
+      "pc": 44,
+      "test": 3,
+      "nonzero": 45,
+      "zero": 51
+    },
+    {
+      "pc": 47,
+      "test": 3,
+      "nonzero": 48,
+      "zero": 51
+    },
+    {
+      "pc": 61,
+      "test": 3,
+      "nonzero": 21,
+      "zero": 62
+    },
+    {
+      "pc": 64,
+      "test": 3,
+      "nonzero": 71,
+      "zero": 65
+    },
+    {
+      "pc": 74,
+      "test": 3,
+      "nonzero": 75,
+      "zero": 30
+    },
+    {
+      "pc": 98,
+      "test": 3,
+      "nonzero": 110,
+      "zero": 99
+    },
+    {
+      "pc": 106,
+      "test": 3,
+      "nonzero": 107,
+      "zero": 128
+    },
+    {
+      "pc": 117,
+      "test": 3,
+      "nonzero": 118,
+      "zero": 104
+    },
+    {
+      "pc": 120,
+      "test": 3,
+      "nonzero": 30,
+      "zero": 150
+    },
+    {
+      "pc": 123,
+      "test": 3,
+      "nonzero": 124,
+      "zero": 30
+    },
+    {
+      "pc": 144,
+      "test": 3,
+      "nonzero": 110,
+      "zero": 145
+    },
+    {
+      "pc": 152,
+      "test": 3,
+      "nonzero": 153,
+      "zero": 149
+    }
+  ],
+  "original_F1c_distinct_branch_registers": [
+    3
+  ],
+  "original_F1c_branch_count": 13,
+  "B53_requires_branch_test_register1_at": [
+    111,
+    117
+  ],
+  "kernel_mutation_facts": {
+    "clone_node_copies_whole_op": true,
+    "patch_const_mutates_only_const_literal": true,
+    "patch_next_cannot_change_Branch_test_or_branch_exits": true,
+    "F1c_initial_mutation_vocabulary": [
+      "CloneNode",
+      "PatchNext",
+      "PatchConst"
+    ],
+    "original_F1c_has_full_op_replacement": false
+  },
+  "historical_exact_source_native": {
+    "original_worlds_scanned": 48,
+    "paid_steps_scanned": 192000,
+    "external_interventions_scanned": 26432,
+    "existing_independent_VM_replay_first_divergence": null,
+    "entire_source_node_changes_scanned": 1106,
+    "branch_structure_changes": 0,
+    "branch_clones_observed": 0,
+    "final_process_lengths_range": [
+      128,
+      168
+    ]
+  },
+  "register3_semantic_equality_adapter": {
+    "original_sub_source_pc": 60,
+    "original_sub_dst_register": 3,
+    "original_branch_condition_register": 3,
+    "B53_branch_condition_register": 1,
+    "signed_64bit_integer_boundary_cases_matched": 10,
+    "only_equality_decision_equivalence": true,
+    "no_complete_correlator_assembly": true
+  },
+  "strict_falsifier": {
+    "literal_B53_Branch_test1_generated_from_unchanged_F1c": false,
+    "cannot_conclude_all_semantically_equivalent_correlators_impossible": true,
+    "still_requires_source_node_cell_and_branch_exit_rewiring": true
+  },
+  "N56_A_B_C": false,
+  "B3": false,
+  "B4": false,
+  "cyberlife": false
+}
