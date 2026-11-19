@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1f_same_pid_virtual_bytecode.rs (target/debug/build/cl0-world/da28399631b8cac4/out/cl1b_b56_f1d1f_same_pid_virtual_bytecode-da28399631b8cac4)
+
+running 1 test
+B56_F1D1F_PAID_SAME_PID_DATA_INTERPRETER {"B3":false,"B4":false,"N56_A_B_C":false,"PID2_existed":false,"blind_heldout_correct":2,"cyberlife":false,"generic_algorithm_invention":false,"inverted_heldout_correct":0,"isolated_worlds":12,"native_source_modifications":0,"true_heldout_correct":4}
+test b56_f1d1f_single_pid_paid_virtual_program_feedback_revision ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

@@ -1,0 +1,174 @@
+{
+  "study": "B50",
+  "source_sha": "3373ff75a123f1e8370e80b5f2545fc4c89344cc",
+  "native_worlds": 48,
+  "independent_replay_worlds": 48,
+  "paid_steps": 6912,
+  "first_divergence": null,
+  "cohorts": [
+    {
+      "shift": false,
+      "arm": "True",
+      "charged": 864,
+      "correct": [
+        11,
+        46,
+        45
+      ],
+      "wrong": [
+        10,
+        13,
+        15
+      ],
+      "edits": 16,
+      "clones": 5,
+      "stops": 0,
+      "holdout_correct": 91,
+      "holdout_wrong": 28
+    },
+    {
+      "shift": false,
+      "arm": "BlindNever",
+      "charged": 864,
+      "correct": [
+        6,
+        9,
+        10
+      ],
+      "wrong": [
+        30,
+        45,
+        50
+      ],
+      "edits": 6,
+      "clones": 0,
+      "stops": 0,
+      "holdout_correct": 19,
+      "holdout_wrong": 95
+    },
+    {
+      "shift": false,
+      "arm": "ForcedClone",
+      "charged": 864,
+      "correct": [
+        13,
+        54,
+        54
+      ],
+      "wrong": [
+        5,
+        0,
+        6
+      ],
+      "edits": 18,
+      "clones": 6,
+      "stops": 0,
+      "holdout_correct": 108,
+      "holdout_wrong": 6
+    },
+    {
+      "shift": false,
+      "arm": "Static",
+      "charged": 864,
+      "correct": [
+        72,
+        72,
+        72
+      ],
+      "wrong": [
+        0,
+        0,
+        0
+      ],
+      "edits": 0,
+      "clones": 0,
+      "stops": 0,
+      "holdout_correct": 144,
+      "holdout_wrong": 0
+    },
+    {
+      "shift": true,
+      "arm": "True",
+      "charged": 864,
+      "correct": [
+        11,
+        46,
+        45
+      ],
+      "wrong": [
+        10,
+        13,
+        10
+      ],
+      "edits": 16,
+      "clones": 5,
+      "stops": 0,
+      "holdout_correct": 91,
+      "holdout_wrong": 23
+    },
+    {
+      "shift": true,
+      "arm": "BlindNever",
+      "charged": 864,
+      "correct": [
+        6,
+        9,
+        10
+      ],
+      "wrong": [
+        30,
+        45,
+        50
+      ],
+      "edits": 6,
+      "clones": 0,
+      "stops": 0,
+      "holdout_correct": 19,
+      "holdout_wrong": 95
+    },
+    {
+      "shift": true,
+      "arm": "ForcedClone",
+      "charged": 864,
+      "correct": [
+        13,
+        54,
+        54
+      ],
+      "wrong": [
+        5,
+        0,
+        6
+      ],
+      "edits": 18,
+      "clones": 6,
+      "stops": 0,
+      "holdout_correct": 108,
+      "holdout_wrong": 6
+    },
+    {
+      "shift": true,
+      "arm": "Static",
+      "charged": 864,
+      "correct": [
+        66,
+        68,
+        66
+      ],
+      "wrong": [
+        0,
+        4,
+        6
+      ],
+      "edits": 0,
+      "clones": 0,
+      "stops": 0,
+      "holdout_correct": 134,
+      "holdout_wrong": 10
+    }
+  ],
+  "h50_accepted": false,
+  "b3_accepted": false,
+  "b4_accepted": false,
+  "cyberlife_established": false
+}
