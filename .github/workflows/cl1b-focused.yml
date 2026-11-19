@@ -400,6 +400,25 @@ jobs:
               failures=$((failures + 1))
             fi
           fi
+          # P1-L2-M1 stronger original native verification: source-parse
+          # frozen CIL and reexecute EVERY paid original native PID instruction
+          # against PC, all four registers, private credits, cell presence
+          # and exact storage. Two independent source-preload arms, no oracle.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution'; then
+            m1_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m1_paid_certified_bank_reexecution.json
+            m1_original=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m1_paid_prefix_original.jsonl
+            m1_control=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m1_paid_prefix_bank_tail_address_mutant.jsonl
+            if [ -f "${m1_summary}" ] && [ -f "${m1_original}" ] && [ -f "${m1_control}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l2_m1_independent_native_step_replay.py \
+                "${m1_summary}" "${m1_original}" "${m1_control}" \
+              > cl1b-ci-evidence/g3q_c1_p1_l2_m1_independent_native_step_replay.json \
+              2> cl1b-ci-evidence/g3q_c1_p1_l2_m1_independent_native_step_replay.stderr.log; then
+              echo "PASS independent-native-step-replay=g3q_c1_p1_l2_m1" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL independent-native-step-replay=g3q_c1_p1_l2_m1" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
           echo "failed_target_count=${failures}" | tee -a cl1b-ci-evidence/summary.txt
           if [ "${failures}" -ne 0 ]; then
             exit 1
