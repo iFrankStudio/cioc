@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.28s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment.rs (target/debug/build/cl0-world/89c8b8abaec3ad92/out/cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment-89c8b8abaec3ad92)
+
+running 2 tests
+test g3q_c1_p0_original_pid_paid_bank_to_active_three_word_deployment ... ok
+test g3q_c1_p0_native_bank_read_address_causal_mutation_control ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+

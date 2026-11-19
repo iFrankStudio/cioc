@@ -1,0 +1,47 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I1",
+  "evidence_level": "NATIVE_EVERY_CIL_STEP_SOURCE_MUTATION_AND_ENV_FEEDBACK_REPLAY",
+  "source_sha": "5f0dd9e6de02fad273226bae126d72fdb832e880",
+  "original_paid_steps_checked": 12317,
+  "original_arms": [
+    {
+      "arm": "already_safe",
+      "paid_original_steps": 1357,
+      "self_patch_count": 0,
+      "postrepair_certification_count": 1,
+      "real_task_services": 8,
+      "true_task_matches": 4,
+      "actor_claimed_success": 1,
+      "first_divergence": null
+    },
+    {
+      "arm": "unsafe_seed_repaired_truthful",
+      "paid_original_steps": 1724,
+      "self_patch_count": 1,
+      "postrepair_certification_count": 1,
+      "real_task_services": 8,
+      "true_task_matches": 4,
+      "actor_claimed_success": 1,
+      "first_divergence": null
+    },
+    {
+      "arm": "unsafe_seed_repaired_inverted",
+      "paid_original_steps": 1236,
+      "self_patch_count": 1,
+      "postrepair_certification_count": 1,
+      "real_task_services": 4,
+      "true_task_matches": 0,
+      "actor_claimed_success": 1,
+      "first_divergence": null
+    }
+  ],
+  "code_edit_suppressed_control": {
+    "charged_steps": 8000,
+    "attempted_patchconst_count": 21,
+    "source_const6_remains": 3,
+    "natural_halt": false,
+    "no_task_services": true
+  },
+  "first_divergence": null,
+  "limits": "One fixed author-designed repair from known unsafe3 to safe2, not general rule-invention, not verified semantic fitness under deceptive feedback."
+}
