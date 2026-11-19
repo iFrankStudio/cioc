@@ -1,0 +1,4834 @@
+{
+  "study": "B56-F1d1j",
+  "native_source_SHA": "0481921ba8f7e2627ef313c9c1da4021ba6ae924",
+  "frozen_source_manifest_sha256": "b075b6f43cfd4dd3abe15dd11433b5ee0d07802c6d836e9013d0c6a8802ccc2e",
+  "frozen_exact_opcodes_sha256": "ab96ffbd1464f26015365a949e4da303ac735bf68544ef483a315cdf639e7227",
+  "native_Rust_file_sha256": "9224a9d8de3db8e53855403dc3e0f38d029127c8607706923e18a5f52e107ae1",
+  "source_reconstructed_original_CIL_nodes": 177,
+  "original_worlds_independently_reexecuted": 60,
+  "actual_paid_native_CIL_instructions_replayed": 47705,
+  "independent_external_interventions": 1108,
+  "paid_feedback_reads": 476,
+  "paid_source_score_writes": 180,
+  "paid_failed_candidate_cost_surrogate_updates": 148,
+  "actor_paid_true_mutation_rule_updates": 14,
+  "actor_paid_suppressed_rule_shadow_writes": 28,
+  "actual_program_bytecode_slot_edits": 296,
+  "paid_rule_reads_for_future_mutations": 72,
+  "source_paid_fallback_rule_reads": 30,
+  "dynamic_virtual_opcode_fetches": 1669,
+  "paid_accumulator_checkpoint_writes": 1073,
+  "real_PID1_service_outputs": 596,
+  "source_actor_paid_initial_R1_control_writes": 20,
+  "original_charged_step_range": [
+    360,
+    1244
+  ],
+  "peak_total_storage": 194,
+  "first_divergence": null,
+  "original_PID1_unchanged": true,
+  "original_native_executable_code_unchanged": true,
+  "genuine_persistent_data_encoded_rule_changes": true,
+  "corrupted_training_feedback_changes_later_program_slot_edit": true,
+  "original_two_probe_candidate_cost_surrogate_not_process_credit_sensor": true,
+  "truth_repeated_negate_learned_rule_phase1_cost": 371,
+  "truth_repeated_negate_frozen_R0_phase1_cost": 586,
+  "truth_repeated_negate_oracle_frozen_R1_total_cost": 761,
+  "truth_composed_phase1_mutable_cost": 434,
+  "truth_composed_phase1_frozen_R1_cost": 607,
+  "truth_shift_negative_transfer_mutable_phase1_cost": 607,
+  "truth_shift_negative_transfer_frozen_R0_phase1_cost": 434,
+  "truth_successful_heldout_per_8": 7,
+  "truth_impossible_task_fallback_wrong": true,
+  "learned_rule_semantics_and_primitive_ops_researcher_authored": true,
+  "authentic_B53_truth_provenance": false,
+  "original_F1c_founder_continuity": false,
+  "strict_N56_A_B_C": false,
+  "B3": false,
+  "B4": false,
+  "cyberlife": false,
+  "by_case": [
+    {
+      "id": 0,
+      "schedule_id": 0,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 34,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        588,
+        371
+      ],
+      "charged_steps": 973,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3027,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ],
+        [
+          1,
+          2,
+          1,
+          930
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          1,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 1,
+      "schedule_id": 0,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        588,
+        586
+      ],
+      "charged_steps": 1188,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2812,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ],
+        [
+          1,
+          2,
+          1,
+          1149
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 2,
+      "schedule_id": 0,
+      "signal": "TRUTH",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 26,
+      "paid_accumulator_writes": 16,
+      "phase_costs_at_heldout_services": [
+        376,
+        371
+      ],
+      "charged_steps": 761,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3239,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ],
+        [
+          1,
+          2,
+          1,
+          714
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 3,
+      "schedule_id": 0,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 4,
+      "schedule_id": 0,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 5,
+      "schedule_id": 0,
+      "signal": "BLIND_SUCCESS",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 6,
+      "schedule_id": 0,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 7,
+      "schedule_id": 0,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 8,
+      "schedule_id": 0,
+      "signal": "INVERTED",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 9,
+      "schedule_id": 0,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "schedule_id": 0,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "schedule_id": 0,
+      "signal": "ABSENT",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        598,
+        593
+      ],
+      "charged_steps": 1205,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 1,
+      "remaining_credits": 2795,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          147
+        ],
+        [
+          1,
+          0,
+          1,
+          748
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          1,
+          1,
+          535
+        ],
+        [
+          1,
+          1,
+          1,
+          1136
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "schedule_id": 0,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 37,
+      "paid_accumulator_writes": 25,
+      "phase_costs_at_heldout_services": [
+        436,
+        586
+      ],
+      "charged_steps": 1036,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 2964,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          2,
+          1,
+          993
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 13,
+      "schedule_id": 0,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 37,
+      "paid_accumulator_writes": 25,
+      "phase_costs_at_heldout_services": [
+        436,
+        586
+      ],
+      "charged_steps": 1036,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2964,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          2,
+          1,
+          993
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 14,
+      "schedule_id": 0,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 26,
+      "paid_accumulator_writes": 16,
+      "phase_costs_at_heldout_services": [
+        376,
+        371
+      ],
+      "charged_steps": 761,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3239,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ],
+        [
+          1,
+          2,
+          1,
+          714
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 15,
+      "schedule_id": 1,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 16,
+      "schedule_id": 1,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 17,
+      "schedule_id": 1,
+      "signal": "TRUTH",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        612,
+        607
+      ],
+      "charged_steps": 1233,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 2767,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          552
+        ],
+        [
+          1,
+          1,
+          0,
+          1173
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          770
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 18,
+      "schedule_id": 1,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 19,
+      "schedule_id": 1,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 20,
+      "schedule_id": 1,
+      "signal": "BLIND_SUCCESS",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 21,
+      "schedule_id": 1,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 22,
+      "schedule_id": 1,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 23,
+      "schedule_id": 1,
+      "signal": "INVERTED",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 24,
+      "schedule_id": 1,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "schedule_id": 1,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "schedule_id": 1,
+      "signal": "ABSENT",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        598,
+        593
+      ],
+      "charged_steps": 1205,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 1,
+      "remaining_credits": 2795,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          147
+        ],
+        [
+          1,
+          0,
+          1,
+          748
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          1,
+          1,
+          535
+        ],
+        [
+          1,
+          1,
+          1,
+          1136
+        ]
+      ]
+    },
+    {
+      "id": 27,
+      "schedule_id": 1,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 28,
+      "schedule_id": 1,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 29,
+      "schedule_id": 1,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        612,
+        607
+      ],
+      "charged_steps": 1233,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 2767,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          552
+        ],
+        [
+          1,
+          1,
+          0,
+          1173
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          770
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 30,
+      "schedule_id": 2,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 43,
+      "paid_accumulator_writes": 29,
+      "phase_costs_at_heldout_services": [
+        588,
+        607
+      ],
+      "charged_steps": 1209,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2791,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ],
+        [
+          1,
+          1,
+          0,
+          1149
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          1,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 31,
+      "schedule_id": 2,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 37,
+      "paid_accumulator_writes": 25,
+      "phase_costs_at_heldout_services": [
+        588,
+        434
+      ],
+      "charged_steps": 1036,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2964,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ],
+        [
+          1,
+          1,
+          0,
+          972
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 32,
+      "schedule_id": 2,
+      "signal": "TRUTH",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 35,
+      "paid_accumulator_writes": 23,
+      "phase_costs_at_heldout_services": [
+        376,
+        607
+      ],
+      "charged_steps": 997,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3003,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ],
+        [
+          1,
+          1,
+          0,
+          933
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 33,
+      "schedule_id": 2,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 34,
+      "schedule_id": 2,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 35,
+      "schedule_id": 2,
+      "signal": "BLIND_SUCCESS",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 36,
+      "schedule_id": 2,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 37,
+      "schedule_id": 2,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 38,
+      "schedule_id": 2,
+      "signal": "INVERTED",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 39,
+      "schedule_id": 2,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 40,
+      "schedule_id": 2,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 41,
+      "schedule_id": 2,
+      "signal": "ABSENT",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -9,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        598,
+        593
+      ],
+      "charged_steps": 1205,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 1,
+      "remaining_credits": 2795,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          147
+        ],
+        [
+          1,
+          0,
+          1,
+          748
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          1,
+          1,
+          535
+        ],
+        [
+          1,
+          1,
+          1,
+          1136
+        ]
+      ]
+    },
+    {
+      "id": 42,
+      "schedule_id": 2,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 43,
+      "schedule_id": 2,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 8,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 2,
+      "dynamic_opcode_fetches": 32,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        436,
+        434
+      ],
+      "charged_steps": 884,
+      "external_interventions": 21,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3116,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ],
+        [
+          1,
+          1,
+          0,
+          816
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 44,
+      "schedule_id": 2,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "COMPOSED",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -9,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 2,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 3,
+      "dynamic_opcode_fetches": 35,
+      "paid_accumulator_writes": 23,
+      "phase_costs_at_heldout_services": [
+        376,
+        607
+      ],
+      "charged_steps": 997,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3003,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ],
+        [
+          1,
+          1,
+          0,
+          933
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 45,
+      "schedule_id": 3,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 5,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        588,
+        593
+      ],
+      "charged_steps": 1195,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 2805,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          1,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          1,
+          1,
+          1138
+        ]
+      ]
+    },
+    {
+      "id": 46,
+      "schedule_id": 3,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 5,
+      "dynamic_opcode_fetches": 43,
+      "paid_accumulator_writes": 29,
+      "phase_costs_at_heldout_services": [
+        588,
+        614
+      ],
+      "charged_steps": 1216,
+      "external_interventions": 29,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2784,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          549
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          746
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          2,
+          0,
+          1138
+        ]
+      ]
+    },
+    {
+      "id": 47,
+      "schedule_id": 3,
+      "signal": "TRUTH",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 34,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        376,
+        593
+      ],
+      "charged_steps": 983,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3017,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          1,
+          1,
+          922
+        ]
+      ]
+    },
+    {
+      "id": 48,
+      "schedule_id": 3,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 49,
+      "schedule_id": 3,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 50,
+      "schedule_id": 3,
+      "signal": "BLIND_SUCCESS",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 51,
+      "schedule_id": 3,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 52,
+      "schedule_id": 3,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        174,
+        172
+      ],
+      "charged_steps": 360,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 3640,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 53,
+      "schedule_id": 3,
+      "signal": "INVERTED",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 0,
+          "output": 11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 4,
+      "paid_score_writes": 4,
+      "paid_failed_candidate_writes": 0,
+      "dynamic_opcode_fetches": 12,
+      "paid_accumulator_writes": 6,
+      "phase_costs_at_heldout_services": [
+        177,
+        172
+      ],
+      "charged_steps": 363,
+      "external_interventions": 13,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3637,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [],
+      "original_paid_fallback_rule_reads": []
+    },
+    {
+      "id": 54,
+      "schedule_id": 3,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 55,
+      "schedule_id": 3,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 44,
+      "paid_accumulator_writes": 30,
+      "phase_costs_at_heldout_services": [
+        616,
+        614
+      ],
+      "charged_steps": 1244,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 0,
+      "remaining_credits": 2756,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          144
+        ],
+        [
+          1,
+          0,
+          0,
+          766
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          2,
+          0,
+          532
+        ],
+        [
+          1,
+          2,
+          0,
+          1154
+        ]
+      ]
+    },
+    {
+      "id": 56,
+      "schedule_id": 3,
+      "signal": "ABSENT",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 12,
+      "paid_score_writes": 0,
+      "paid_failed_candidate_writes": 6,
+      "dynamic_opcode_fetches": 42,
+      "paid_accumulator_writes": 28,
+      "phase_costs_at_heldout_services": [
+        598,
+        593
+      ],
+      "charged_steps": 1205,
+      "external_interventions": 17,
+      "max_total_storage": 193,
+      "final_rule": 1,
+      "remaining_credits": 2795,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          147
+        ],
+        [
+          1,
+          0,
+          1,
+          748
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          0,
+          1,
+          1,
+          535
+        ],
+        [
+          1,
+          1,
+          1,
+          1136
+        ]
+      ]
+    },
+    {
+      "id": 57,
+      "schedule_id": 3,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 1,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 38,
+      "paid_accumulator_writes": 26,
+      "phase_costs_at_heldout_services": [
+        436,
+        614
+      ],
+      "charged_steps": 1064,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2936,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ]
+      ],
+      "rule_shadow_events": [],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          2,
+          0,
+          982
+        ]
+      ]
+    },
+    {
+      "id": 58,
+      "schedule_id": 3,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 0,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": -11,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 1,
+          "output": -9,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "learned_rule": 0
+        }
+      ],
+      "heldout_correct_count": 0,
+      "paid_initial_rule1_writes": 0,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 38,
+      "paid_accumulator_writes": 26,
+      "phase_costs_at_heldout_services": [
+        436,
+        614
+      ],
+      "charged_steps": 1064,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 0,
+      "remaining_credits": 2936,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          1,
+          0,
+          372
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          0,
+          146
+        ],
+        [
+          1,
+          0,
+          0,
+          590
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          2,
+          0,
+          982
+        ]
+      ]
+    },
+    {
+      "id": 59,
+      "schedule_id": 3,
+      "signal": "PHASE0_C_DECOY",
+      "gate": 2,
+      "heldout_phase_results": [
+        {
+          "phase": 0,
+          "task": "NEGATE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": -11,
+          "correct": true,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        },
+        {
+          "phase": 1,
+          "task": "UNREACHABLE",
+          "retained_mode": 2,
+          "output": -11,
+          "oracle_value": 15,
+          "correct": false,
+          "bytecode": [
+            0,
+            1,
+            3,
+            3
+          ],
+          "learned_rule": 1
+        }
+      ],
+      "heldout_correct_count": 1,
+      "paid_initial_rule1_writes": 1,
+      "paid_feedback_reads": 10,
+      "paid_score_writes": 2,
+      "paid_failed_candidate_writes": 4,
+      "dynamic_opcode_fetches": 34,
+      "paid_accumulator_writes": 22,
+      "phase_costs_at_heldout_services": [
+        376,
+        593
+      ],
+      "charged_steps": 983,
+      "external_interventions": 25,
+      "max_total_storage": 194,
+      "final_rule": 1,
+      "remaining_credits": 3017,
+      "same_PID1": true,
+      "original_code_graph_unchanged": true,
+      "invented_new_mutation_grammar": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "rule_write_events": [],
+      "rule_shadow_events": [
+        [
+          0,
+          2,
+          1,
+          333
+        ]
+      ],
+      "original_paid_rule_proposal_reads": [
+        [
+          0,
+          0,
+          1,
+          149
+        ],
+        [
+          1,
+          0,
+          1,
+          530
+        ]
+      ],
+      "original_paid_fallback_rule_reads": [
+        [
+          1,
+          1,
+          1,
+          922
+        ]
+      ]
+    }
+  ]
+}
