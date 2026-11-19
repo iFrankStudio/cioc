@@ -4,6 +4,7 @@
 This checks the native Rust summary only. It is NOT event-by-event native replay.
 """
 import json
+import os
 import sys
 from pathlib import Path
 from g3q_c1_p0_independent_source_replay import ROOT, SOURCE, ANCESTOR, replay
@@ -17,6 +18,11 @@ def main():
     old = json.loads(ANCESTOR.read_text())["exact_native_founder_code"]
     assert len(src) == 180 and src[:163] == old[:163]
     expected = replay(src)
+    # Prevent a valid summary from another run/SHA being relabelled as this CI run.
+    # GITHUB_SHA is supplied by GitHub Actions; absence is a verification failure.
+    expected_sha = os.environ["GITHUB_SHA"]
+    assert len(expected_sha) == 40 and all(c in "0123456789abcdef" for c in expected_sha)
+    assert native["github_sha"] == expected_sha, ("source SHA mismatch", native["github_sha"], expected_sha)
     assert native["study"] == "B56-F1d1k-G3Q-C1-P0"
     assert native["level"] == "NATIVE_NARROW_DEPLOYMENT_BRIDGE_NOT_TASK_SERVICE"
     assert native["source_nodes"] == 180
