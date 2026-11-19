@@ -1,0 +1,93 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0277][0m[1m: can't compare `Vec<Value>` with `Value`[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor.rs:71:3
+   [1m[94m|[0m
+[1m[94m71[0m [1m[94m|[0m   assert_eq!(bank_reads,arm["bankReads"]);
+   [1m[94m|[0m   [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[91mno implementation for `Vec<Value> == Value`[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<Value>` is not implemented for `Vec<Value>`
+   [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+             `Vec<T, A1>` implements `PartialEq<Vec<U, A2>>`
+             `Vec<T, A>` implements `PartialEq<&[U; N]>`
+             `Vec<T, A>` implements `PartialEq<&[U]>`
+             `Vec<T, A>` implements `PartialEq<&mut [U]>`
+             `Vec<T, A>` implements `PartialEq<Cow<'_, [U]>>`
+             `Vec<T, A>` implements `PartialEq<[U; N]>`
+             `Vec<T, A>` implements `PartialEq<[U]>`
+             `Vec<u8>` implements `PartialEq<ByteStr>`
+             `Vec<u8>` implements `PartialEq<ByteString>`
+
+[1m[91merror[E0277][0m[1m: can't compare `Vec<Value>` with `Value`[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor.rs:72:3
+   [1m[94m|[0m
+[1m[94m72[0m [1m[94m|[0m   assert_eq!(active_writes,arm["activeWrites"]);
+   [1m[94m|[0m   [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[91mno implementation for `Vec<Value> == Value`[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<Value>` is not implemented for `Vec<Value>`
+   [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+             `Vec<T, A1>` implements `PartialEq<Vec<U, A2>>`
+             `Vec<T, A>` implements `PartialEq<&[U; N]>`
+             `Vec<T, A>` implements `PartialEq<&[U]>`
+             `Vec<T, A>` implements `PartialEq<&mut [U]>`
+             `Vec<T, A>` implements `PartialEq<Cow<'_, [U]>>`
+             `Vec<T, A>` implements `PartialEq<[U; N]>`
+             `Vec<T, A>` implements `PartialEq<[U]>`
+             `Vec<u8>` implements `PartialEq<ByteStr>`
+             `Vec<u8>` implements `PartialEq<ByteString>`
+
+[1m[91merror[E0277][0m[1m: can't compare `Vec<Value>` with `Value`[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor.rs:73:3
+   [1m[94m|[0m
+[1m[94m73[0m [1m[94m|[0m   assert_eq!(meta_fetches,arm["fetch"]);
+   [1m[94m|[0m   [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[91mno implementation for `Vec<Value> == Value`[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<Value>` is not implemented for `Vec<Value>`
+   [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+             `Vec<T, A1>` implements `PartialEq<Vec<U, A2>>`
+             `Vec<T, A>` implements `PartialEq<&[U; N]>`
+             `Vec<T, A>` implements `PartialEq<&[U]>`
+             `Vec<T, A>` implements `PartialEq<&mut [U]>`
+             `Vec<T, A>` implements `PartialEq<Cow<'_, [U]>>`
+             `Vec<T, A>` implements `PartialEq<[U; N]>`
+             `Vec<T, A>` implements `PartialEq<[U]>`
+             `Vec<u8>` implements `PartialEq<ByteStr>`
+             `Vec<u8>` implements `PartialEq<ByteString>`
+
+[1m[91merror[E0277][0m[1m: can't compare `Vec<Value>` with `Value`[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor.rs:74:3
+   [1m[94m|[0m
+[1m[94m74[0m [1m[94m|[0m   assert_eq!(meta_accumulators,arm["accWrites"]);
+   [1m[94m|[0m   [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[91mno implementation for `Vec<Value> == Value`[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<Value>` is not implemented for `Vec<Value>`
+   [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+             `Vec<T, A1>` implements `PartialEq<Vec<U, A2>>`
+             `Vec<T, A>` implements `PartialEq<&[U; N]>`
+             `Vec<T, A>` implements `PartialEq<&[U]>`
+             `Vec<T, A>` implements `PartialEq<&mut [U]>`
+             `Vec<T, A>` implements `PartialEq<Cow<'_, [U]>>`
+             `Vec<T, A>` implements `PartialEq<[U; N]>`
+             `Vec<T, A>` implements `PartialEq<[U]>`
+             `Vec<u8>` implements `PartialEq<ByteStr>`
+             `Vec<u8>` implements `PartialEq<ByteString>`
+
+[1m[91merror[E0277][0m[1m: can't compare `Vec<Value>` with `Value`[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor.rs:75:3
+   [1m[94m|[0m
+[1m[94m75[0m [1m[94m|[0m   assert_eq!(service,arm["out"]);
+   [1m[94m|[0m   [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m [1m[91mno implementation for `Vec<Value> == Value`[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mhelp[0m: the trait `PartialEq<Value>` is not implemented for `Vec<Value>`
+   [1m[94m= [0m[1mhelp[0m: the following other types implement trait `PartialEq<Rhs>`:
+             `Vec<T, A1>` implements `PartialEq<Vec<U, A2>>`
+             `Vec<T, A>` implements `PartialEq<&[U; N]>`
+             `Vec<T, A>` implements `PartialEq<&[U]>`
+             `Vec<T, A>` implements `PartialEq<&mut [U]>`
+             `Vec<T, A>` implements `PartialEq<Cow<'_, [U]>>`
+             `Vec<T, A>` implements `PartialEq<[U; N]>`
+             `Vec<T, A>` implements `PartialEq<[U]>`
+             `Vec<u8>` implements `PartialEq<ByteStr>`
+             `Vec<u8>` implements `PartialEq<ByteString>`
+
+[1mFor more information about this error, try `rustc --explain E0277`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor") due to 5 previous errors

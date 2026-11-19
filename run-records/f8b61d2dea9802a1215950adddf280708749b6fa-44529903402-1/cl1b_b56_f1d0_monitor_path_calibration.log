@@ -1,0 +1,12 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+[1m[92m     Running[0m tests/cl1b_b56_f1d0_monitor_path_calibration.rs (target/debug/build/cl0-world/6f30ebba258ae258/out/cl1b_b56_f1d0_monitor_path_calibration-6f30ebba258ae258)
+
+running 2 tests
+B56_F1D0_NATIVE_MONITOR_PRICE {"all16_feedback_masks_every_cheaper":true,"b3_met":false,"b4_met":false,"paid_monitor_instructions_every":288,"paid_monitor_instructions_fourth":648,"source_assembly_experiment":false,"worlds":32}
+test b56_f1d0_exhaustive_native_paid_source_monitor_costs ... ok
+B56_F1D1A_NATIVE_PRICE_GATE {"b3_met":false,"b4_met":false,"correlation_checks_native_paid":true,"four_genuine_service_writes_per_world":true,"learner_selected_policy":false,"source_assembly_experiment":false,"strict_resources_respected":true,"worlds":128}
+test b56_f1d1a_correlated_receipts_native_price_gate ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
