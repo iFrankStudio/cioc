@@ -1,0 +1,391 @@
+{
+  "source": "cl0/crates/world/tests/cl1b_b21_cooperative_compute_relay.rs",
+  "evidence": "independent simplified deterministic scheduler; NOT native Rust CI",
+  "worlds": 3,
+  "outcomes": [
+    {
+      "arm": "RELAY",
+      "startup": 4,
+      "afterFirst": 3,
+      "afterSecond": 5,
+      "nativeAttempts": 12,
+      "serviceWrites": 1,
+      "relayTransfers": 1,
+      "pool": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 1,
+          "credits": 0
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "externalActions": 4,
+      "trace": [
+        {
+          "id": 1,
+          "pc": 0,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            2
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0,
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "pool": 0,
+          "credits": [
+            2,
+            0
+          ],
+          "poolPaid": true
+        },
+        {
+          "id": 1,
+          "pc": 2,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "pool": 0,
+          "credits": [
+            0,
+            4
+          ],
+          "poolPaid": true
+        },
+        {
+          "id": 2,
+          "pc": 2,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            3
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 3,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            2
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 4,
+          "kind": "TransferCompute",
+          "pool": 0,
+          "credits": [
+            1,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 4,
+          "kind": "CellWritten",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        }
+      ]
+    },
+    {
+      "arm": "NO_TRANSFER",
+      "startup": 4,
+      "afterFirst": 3,
+      "afterSecond": 5,
+      "nativeAttempts": 12,
+      "serviceWrites": 0,
+      "relayTransfers": 0,
+      "pool": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 4,
+          "credits": 0
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0
+        }
+      ],
+      "externalActions": 4,
+      "trace": [
+        {
+          "id": 1,
+          "pc": 0,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            2
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0,
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "pool": 0,
+          "credits": [
+            2,
+            0
+          ],
+          "poolPaid": true
+        },
+        {
+          "id": 1,
+          "pc": 2,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "pool": 0,
+          "credits": [
+            0,
+            4
+          ],
+          "poolPaid": true
+        },
+        {
+          "id": 2,
+          "pc": 2,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            3
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 3,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            2
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 4,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0,
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0,
+            0
+          ],
+          "poolPaid": false
+        }
+      ]
+    },
+    {
+      "arm": "NO_RELAY",
+      "startup": 2,
+      "afterFirst": 3,
+      "afterSecond": 0,
+      "nativeAttempts": 5,
+      "serviceWrites": 0,
+      "relayTransfers": 0,
+      "pool": 5,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 4,
+          "credits": 0
+        }
+      ],
+      "externalActions": 3,
+      "trace": [
+        {
+          "id": 1,
+          "pc": 0,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawDeferred",
+          "pool": 0,
+          "credits": [
+            0
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 1,
+          "kind": "DrawCompute",
+          "pool": 0,
+          "credits": [
+            2
+          ],
+          "poolPaid": true
+        },
+        {
+          "id": 1,
+          "pc": 2,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            1
+          ],
+          "poolPaid": false
+        },
+        {
+          "id": 1,
+          "pc": 3,
+          "kind": "Executed",
+          "pool": 0,
+          "credits": [
+            0
+          ],
+          "poolPaid": false
+        }
+      ]
+    }
+  ]
+}

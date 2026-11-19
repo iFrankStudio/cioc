@@ -1,0 +1,10 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L1",
+  "level": "NATIVE_AGGREGATE_VS_INDEPENDENT_SOURCE_REPLAY",
+  "native_sha": "a7e2d5327d0e8332d0c15c5874cc89eebf5c874a",
+  "steps": 23939,
+  "original_output": 65,
+  "preload_control_output": 64,
+  "first_field_divergence": null,
+  "limits": "Not native event-by-event replay; no hidden task, regime shift or feedback."
+}
