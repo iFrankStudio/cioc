@@ -1,0 +1,146 @@
+{
+  "study": "B56-F1d1d",
+  "source_sha": "737c101b721f0d8d9480e574bc23dcc32ffe54f7",
+  "frozen_manifest_sha256": "db966ca77a0d9b29258e213a4c0421f5351e07d2e88ec60096a8a768326bac61",
+  "rust_source_sha256": "bac764bdc750fe7da2d3549e07e7859ff061b6860fb58f793b39fa3c3636790c",
+  "real_native_worlds_reexecuted": 3,
+  "real_paid_CIL_instructions_reexecuted": 276,
+  "real_actor_paid_GraphEncode_events_reexecuted": 14,
+  "native_cil_descriptor_writes_reexecuted": 75,
+  "first_divergence": null,
+  "generated_Branch_test1_not_present_in_parent_source": true,
+  "registered_no_encode_negative_control": true,
+  "strict_finite_resources": true,
+  "actor_generated_semantic_intent": false,
+  "new_pid_instead_of_same_pid": true,
+  "strict_N56_A_B_C": false,
+  "B3": false,
+  "B4": false,
+  "cyberlife": false,
+  "by_case": [
+    {
+      "id": 0,
+      "arm": "BRANCH_ZERO",
+      "initial_parent_contains_Branch": false,
+      "graph_created_by_pid1": 1,
+      "descriptor_cell_writes_paid_by_pid1": 35,
+      "graph_encoded_nodes_paid_by_pid1": 7,
+      "graph_launches_by_pid1": 1,
+      "novel_Branch_test1_executed_by_pid2": 1,
+      "actual_pid2_service_writes": 1,
+      "service_output11": 0,
+      "paid_steps": 129,
+      "parent_paid": 123,
+      "child_paid": 6,
+      "peak_total_storage": 138,
+      "final_total_credits": 871,
+      "PID1": [
+        122,
+        [
+          1,
+          100,
+          2,
+          0
+        ],
+        777,
+        true,
+        123
+      ],
+      "PID2": [
+        6,
+        [
+          0,
+          0,
+          11,
+          0
+        ],
+        94,
+        true,
+        7
+      ],
+      "same_pid_continuous_individual": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false
+    },
+    {
+      "id": 1,
+      "arm": "BRANCH_ONE",
+      "initial_parent_contains_Branch": false,
+      "graph_created_by_pid1": 1,
+      "descriptor_cell_writes_paid_by_pid1": 35,
+      "graph_encoded_nodes_paid_by_pid1": 7,
+      "graph_launches_by_pid1": 1,
+      "novel_Branch_test1_executed_by_pid2": 1,
+      "actual_pid2_service_writes": 1,
+      "service_output11": 1,
+      "paid_steps": 129,
+      "parent_paid": 123,
+      "child_paid": 6,
+      "peak_total_storage": 138,
+      "final_total_credits": 871,
+      "PID1": [
+        122,
+        [
+          1,
+          100,
+          2,
+          0
+        ],
+        777,
+        true,
+        123
+      ],
+      "PID2": [
+        6,
+        [
+          0,
+          1,
+          11,
+          1
+        ],
+        94,
+        true,
+        7
+      ],
+      "same_pid_continuous_individual": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false
+    },
+    {
+      "id": 2,
+      "arm": "NO_ENCODE",
+      "initial_parent_contains_Branch": false,
+      "graph_created_by_pid1": 1,
+      "descriptor_cell_writes_paid_by_pid1": 5,
+      "graph_encoded_nodes_paid_by_pid1": 0,
+      "graph_launches_by_pid1": 0,
+      "novel_Branch_test1_executed_by_pid2": 0,
+      "actual_pid2_service_writes": 0,
+      "service_output11": null,
+      "paid_steps": 18,
+      "parent_paid": 18,
+      "child_paid": 0,
+      "peak_total_storage": 130,
+      "final_total_credits": 982,
+      "PID1": [
+        17,
+        [
+          1,
+          40,
+          44,
+          0
+        ],
+        982,
+        true,
+        123
+      ],
+      "PID2": null,
+      "same_pid_continuous_individual": false,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false
+    }
+  ]
+}
