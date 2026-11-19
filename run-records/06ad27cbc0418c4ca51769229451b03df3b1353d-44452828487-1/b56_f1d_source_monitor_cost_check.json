@@ -1,0 +1,80 @@
+{
+  "status": "static_source_path_check_only",
+  "native_experiment": false,
+  "paths": {
+    "every_success": [
+      164,
+      165,
+      98
+    ],
+    "every_failure": [
+      164,
+      165,
+      98,
+      99,
+      100,
+      101
+    ],
+    "fourth_skip": [
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      144
+    ],
+    "fourth_sample_success": [
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      144,
+      145,
+      146,
+      147,
+      148,
+      166,
+      167,
+      98
+    ],
+    "fourth_sample_failure": [
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      144,
+      145,
+      146,
+      147,
+      148,
+      166,
+      167,
+      98,
+      99,
+      100,
+      101
+    ]
+  },
+  "costs": {
+    "every_success": 3,
+    "every_failure": 6,
+    "fourth_skip": 8,
+    "fourth_sample_success": 15,
+    "fourth_sample_failure": 18
+  },
+  "four_successful": {
+    "every": 12,
+    "fourth": 39
+  },
+  "worst_every_four_failures": 24,
+  "minimum_fourth_four_successes": 39,
+  "dominance": "EVERY is cheaper for all feedback patterns over four services; this does not account for later shared control or differential benefit"
+}
