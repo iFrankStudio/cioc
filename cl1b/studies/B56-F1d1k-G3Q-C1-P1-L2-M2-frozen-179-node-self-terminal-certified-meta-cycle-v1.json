@@ -1,0 +1,1307 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M2",
+  "version": 1,
+  "status": "PROSPECTIVE FROZEN CIL SOURCE BEFORE NATIVE TEST",
+  "meaning": "One original PID1 pays to certify64 rules, retain safe bank, deploy it, self-edit source PC59.next to Halt and fully interpret its own bank's three-word meta-rule, then itself Halt. This is a restricted programmed self-edge edit, not learned self-edit or feedback adaptation.",
+  "ancestor": "cl1b/studies/B56-F1d1k-G3Q-C0-frozen-exact-164-node-original-CIL-founder-v1.json",
+  "original_C0_first_163_nodes_unchanged": true,
+  "strict_world": {
+    "data_cell_capacity": 16,
+    "source_node_capacity": 180,
+    "total_occupied_capacity": 300,
+    "private_initial_credits": 32000,
+    "original_single_pid": 1,
+    "postload_host_write_count": 0
+  },
+  "exact_source_nodes": 179,
+  "exact_native_founder_code": [
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 4
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 5
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 6
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 65,
+      "next": 8
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 10
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 14
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 15
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 16
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 18
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 19
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 20
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 22
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 23
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 24
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 26
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 27
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 28
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 29
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 30
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 31
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 32
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 34,
+      "zero": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 0,
+      "next": 45
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 35
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 36
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 37
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 38
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 39
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 41,
+      "zero": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 0,
+      "next": 45
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 42
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 45,
+      "zero": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 45
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 46
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 47
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 48
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 49
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 50
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 52
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 25,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 57
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 59
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 60
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 64,
+      "zero": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 63
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 73
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 65
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 66
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 70,
+      "zero": 67
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 69
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 73
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 71
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 72
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 73
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 74
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 75
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 76
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 78
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 79
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 80
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 81
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 82,
+      "zero": 92
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 83
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 84
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 85
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 87
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 88
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 90,
+      "zero": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 90
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 91
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 93
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 94
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 95
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 96
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 98
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 99
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 100
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 101
+    },
+    {
+      "kind": "Sub",
+      "dst": 3,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 102
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 103,
+      "zero": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 105
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 106
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 107
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 108
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 109
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 110,
+      "zero": 122
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 111
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 113
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 114
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 115
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 116
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 117
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 118
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 119
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 120
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 121
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 122
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 61,
+      "next": 123
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 124
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 125
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 126
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 127
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 128
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 129
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 130
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 131
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 132
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 134,
+      "zero": 133
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 134
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 135
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 136
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 157,
+      "zero": 137
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 138
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 139
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 140
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 141
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 142
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 143
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 145,
+      "zero": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 145
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 146
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 147
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 157,
+      "zero": 148
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 149
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 150
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 151
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 152
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 153
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 154
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 155,
+      "zero": 163
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 156
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 157
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 65,
+      "next": 158
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 159
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 160
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 161
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 65,
+      "next": 162
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 164
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 165
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 166
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 167
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 168
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 169
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 170
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 171
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 172
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 173
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 174
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 175
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 59,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 178,
+      "next": 177
+    },
+    {
+      "kind": "PatchNext",
+      "node": 2,
+      "target": 3,
+      "next": 21
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "original_verdict_pc": 106,
+  "original_safe_bank_writes": [
+    113,
+    117,
+    121
+  ],
+  "new_bank_read_pcs": [
+    164,
+    168,
+    172
+  ],
+  "new_active_write_pcs": [
+    166,
+    170,
+    174
+  ],
+  "new_actor_code_patch_pc": 177,
+  "patched_instruction_pc": 59,
+  "original_dynamic_meta_fetch_pc": 29,
+  "original_meta_accumulator_write_pc": 46,
+  "original_meta_output_pc": 59,
+  "expected_frozen_arms": [
+    {
+      "name": "original",
+      "preload_source_mutation": null,
+      "expected": {
+        "paid_steps": 24149,
+        "credits_remaining": 7851,
+        "coverage_certificates": 64,
+        "paid_safe_bank_retention": 72,
+        "bank": [
+          1,
+          3,
+          2
+        ],
+        "original_meta_pc59_next": 60,
+        "paid_patch": {
+          "pc": 177,
+          "ordinal": 24064,
+          "node": 59,
+          "from": 60,
+          "to": 178
+        },
+        "final_halt_pc": 178,
+        "occupied": 196,
+        "used_cells": 16,
+        "retained_bank_reads": [
+          [
+            51,
+            1
+          ],
+          [
+            52,
+            3
+          ],
+          [
+            53,
+            2
+          ]
+        ],
+        "active_writes": [
+          [
+            62,
+            1
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            64,
+            2
+          ]
+        ],
+        "dynamic_meta_reads": [
+          [
+            62,
+            1
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            64,
+            2
+          ]
+        ],
+        "accumulator_checkpoints": [
+          1,
+          0,
+          2
+        ],
+        "meta_mode_output": 2
+      }
+    },
+    {
+      "name": "preload_tail_bank_address_mutant",
+      "preload_source_mutation": {
+        "pc": 171,
+        "field": "value",
+        "from": 53,
+        "to": 51
+      },
+      "expected": {
+        "paid_steps": 24149,
+        "credits_remaining": 7851,
+        "coverage_certificates": 64,
+        "paid_safe_bank_retention": 72,
+        "bank": [
+          1,
+          3,
+          2
+        ],
+        "original_meta_pc59_next": 60,
+        "paid_patch": {
+          "pc": 177,
+          "ordinal": 24064,
+          "node": 59,
+          "from": 60,
+          "to": 178
+        },
+        "final_halt_pc": 178,
+        "occupied": 196,
+        "used_cells": 16,
+        "retained_bank_reads": [
+          [
+            51,
+            1
+          ],
+          [
+            52,
+            3
+          ],
+          [
+            51,
+            1
+          ]
+        ],
+        "active_writes": [
+          [
+            62,
+            1
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            64,
+            1
+          ]
+        ],
+        "dynamic_meta_reads": [
+          [
+            62,
+            1
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            64,
+            1
+          ]
+        ],
+        "accumulator_checkpoints": [
+          1,
+          0,
+          1
+        ],
+        "meta_mode_output": 1
+      }
+    }
+  ],
+  "ablation": {
+    "name": "patchnext_disabled_world_law_negative_control",
+    "same_CIL_source": true,
+    "same_original_physics": false,
+    "requires_explicit_native_patchnext_disabled": true,
+    "expected_first_postdeployment_write33_pc": 59,
+    "expected_next_pc": 60,
+    "expected_first_result": 2,
+    "expected_original_edge_remains": 60,
+    "expected_not_halted_at_first_result": true,
+    "interpretation": "negative causal control, not evidence of adaptation under original physics"
+  },
+  "nonclaims": [
+    "new researcher-authored founder, not self-edited ancestry from frozen C0 PID",
+    "actor source edit opcode deliberately programmed; not evolved mutation rule",
+    "no authentic hidden task Write11 in second phase",
+    "no feedback-conditioned selection or task regime switch",
+    "no autonomous adaptation / open-ended cyberlife"
+  ]
+}
