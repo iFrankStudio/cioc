@@ -92,6 +92,12 @@ def interpret(code, trace_path=None):
                                   "native_row":row,"expected":expected})
         if halted:break
     if not halted:raise AssertionError("original PID did not naturally Halt")
+    # The source terminates naturally. A native trace with extra records or
+    # truncated initial rows must fail, even if the visible prefix agreed.
+    if trace_path is not None:
+        with Path(trace_path).open() as stream:
+            exact_rows=sum(1 for line in stream if line.strip())
+        assert exact_rows==ordinal,("unexpected native trace length",exact_rows,ordinal)
     return {
         "paid_steps":ordinal,"credits_remaining":32000-ordinal,
         "certificate_writes":verdicts,"bank_retention_writes":retained,
