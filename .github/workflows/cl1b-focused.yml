@@ -135,6 +135,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate
             cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment
             cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic
+            cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -292,6 +293,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -304,8 +306,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 74 ]; then
-            echo "Expected exactly 74 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 75 ]; then
+            echo "Expected exactly 75 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -366,6 +368,19 @@ jobs:
               echo "PASS source-model/native-aggregate=g3q_c1_p1_l1" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL source-model/native-aggregate=g3q_c1_p1_l1" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # P1-L2-M0: independently interpret the frozen CIL meta bytecode and
+          # reject native Rust aggregate results that contradict source physics.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l2_m0_three_meta_word_executor'; then
+            native_l2=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m0_native_three_word_executor.json
+            if [ -f "${native_l2}" ] && python3 ../cl1b/analysis/g3q_c1_p1_l2_m0_source_replay.py "${native_l2}" \
+              > cl1b-ci-evidence/g3q_c1_p1_l2_m0_source_crosscheck.json \
+              2> cl1b-ci-evidence/g3q_c1_p1_l2_m0_source_crosscheck.stderr.log; then
+              echo "PASS native/source-aggregate=g3q_c1_p1_l2_m0" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native/source-aggregate=g3q_c1_p1_l2_m0" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
