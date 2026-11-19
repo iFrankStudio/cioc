@@ -139,6 +139,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution
             cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f0_feedback_relearning
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -300,6 +301,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f0_feedback_relearning]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -312,8 +314,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 78 ]; then
-            echo "Expected exactly 78 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 79 ]; then
+            echo "Expected exactly 79 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -457,6 +459,22 @@ jobs:
               echo "PASS native-independent-feedback-replay=g3q_c1_p1_l3_f0" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-independent-feedback-replay=g3q_c1_p1_l3_f0" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # L3-F1 matched 122-node retention ON/OFF control (two researcher
+          # pre-load opcode differences); independently replay all eight native
+          # original CIL+external-feedback streams and preserve worse-case.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation'; then
+            f1_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_f1_native_retention_ablation.json
+            if [ -f "${f1_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_f1_independent_native_retention_ablation_replay.py \
+                "${f1_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_f1_independent_native_retention_ablation_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_f1_independent_native_retention_ablation_replay.stderr.log; then
+              echo "PASS native-source-retention=f1" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-source-retention=f1" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
