@@ -1,0 +1,906 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F1",
+  "status": "FROZEN_PRE_NATIVE_MATCHED_ON_OFF_RETENTION_CAUSAL_COMPARISON",
+  "baseline_source": "cl1b/studies/B56-F1d1k-G3Q-C1-P1-L3-F0-frozen-122-node-feedback-relearning-founder-v1.json",
+  "paired_world": "World::with_strict_capacity(16,180,300)",
+  "original_PID_per_arm": 1,
+  "source_nodes_per_policy": 122,
+  "resource_initial_private_credits": 8000,
+  "only_modified_opcodes": [
+    {
+      "pc": 93,
+      "original": {
+        "kind": "Const",
+        "dst": 1,
+        "value": 1,
+        "next": 94
+      },
+      "control": {
+        "kind": "Const",
+        "dst": 2,
+        "value": 63,
+        "next": 94
+      }
+    },
+    {
+      "pc": 94,
+      "original": {
+        "kind": "Branch",
+        "test": 1,
+        "nonzero": 28,
+        "zero": 28
+      },
+      "control": {
+        "kind": "Write",
+        "address": 2,
+        "value": 3,
+        "next": 28
+      }
+    }
+  ],
+  "ON_meaning": "after true feedback1, retain current active middle word for next task; after feedback0 advance mod3",
+  "OFF_meaning": "after true feedback1, reset active middle word63 to0 for next task, while preserving same next trial and feedback procedure",
+  "same_source_node_count_same_one_credit_per_opcode": true,
+  "external_feedback_protocol": "Only intervened SetCell20 after original actor-paid task Write11, hidden goals never written into CIL",
+  "goal_tasks_and_source_model_predictions": [
+    {
+      "name": "shift0_to2",
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "on": {
+        "steps": 971,
+        "probes": [
+          3,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "off": {
+        "steps": 1205,
+        "probes": [
+          3,
+          3,
+          2,
+          2
+        ],
+        "true_successes": 4
+      }
+    },
+    {
+      "name": "shift1_to0",
+      "goals": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "on": {
+        "steps": 732,
+        "probes": [
+          1,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "off": {
+        "steps": 969,
+        "probes": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "true_successes": 4
+      }
+    },
+    {
+      "name": "shift2_to1",
+      "goals": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "on": {
+        "steps": 852,
+        "probes": [
+          2,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "off": {
+        "steps": 731,
+        "probes": [
+          2,
+          2,
+          1,
+          1
+        ],
+        "true_successes": 4
+      }
+    },
+    {
+      "name": "unreachable",
+      "goals": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "on": {
+        "steps": 377,
+        "probes": [
+          3
+        ],
+        "true_successes": 0
+      },
+      "off": {
+        "steps": 377,
+        "probes": [
+          3
+        ],
+        "true_successes": 0
+      }
+    }
+  ],
+  "exact_preload_control_source": [
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 5
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 6
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 8
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 10
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 14
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 15
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 16
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 18
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 19
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 20
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 25
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 27
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 28
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 29
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 30
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 32
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 34
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 36
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 37
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 39
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 40
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 44,
+      "zero": 41
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 42
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 57,
+      "zero": 57
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 45
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 46
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 3,
+      "next": 47
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 48
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 49
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 53,
+      "zero": 50
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 52
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 57,
+      "zero": 57
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 57,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 57
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 58
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 60
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 63
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 64
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 66
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 67
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 33,
+      "zero": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 71
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 72
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 73
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 75
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 76
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 77
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 78
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 79
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 80
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 81,
+      "zero": 99
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 82
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 84
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 86
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 88
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 89
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 90,
+      "zero": 95
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 94
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 28
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 96
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 97
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 98
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 100
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 101
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 102
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 103
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 104,
+      "zero": 118
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 105
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 106
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 107
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 108
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 109
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 110
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 114,
+      "zero": 111
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 114,
+      "zero": 114
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 115
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 116
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 117
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 28,
+      "zero": 28
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 120
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 121
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "nonclaims": [
+    "source variant is researcher-authored before PID1 load, not autonomously evolved by the original actor",
+    "retention ON is not uniformly better: shift2_to1 ON uses 7 probes versus OFF 6",
+    "feedback is honest environment-provided binary fitness, not proven source-internal truth sensor",
+    "safe base bank [2,0,2] researcher-authored; no C0 earned certificate in F1",
+    "no open-ended learning or cyberlife"
+  ],
+  "conclusion": "Matched source equal size/cost controls show conditional benefits and a counterexample, not universal improvement."
+}
