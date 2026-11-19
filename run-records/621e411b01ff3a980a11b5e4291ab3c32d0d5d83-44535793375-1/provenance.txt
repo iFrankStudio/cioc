@@ -1,0 +1,7 @@
+repository=iFrankStudio/cioc
+source_sha=621e411b01ff3a980a11b5e4291ab3c32d0d5d83
+workflow_run_id=44535793375
+workflow_run_attempt=1
+runner_os=Linux
+rustc=rustc 1.100.0 (0ef1bc386 2026-11-09)
+cargo=cargo 1.100.0 (3acc79c0c 2026-11-05)
