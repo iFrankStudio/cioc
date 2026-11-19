@@ -1,0 +1,36 @@
+# CL-1B G3Q-C1-P1-L2-M1 — one PID1's own coverage-certified rule actually reinterpreted in-world
+
+**Current evidence level (2026-11-19): FROZEN EXACT SOURCE, ORIGINAL RUST TEST AND STEPWISE REPLAYER COMMITTED; no confirmed new original native GitHub Actions PASS.** The independent finite-source simulation predicted the figures below. Never promote these predictions to verified Rust-native result until a precise GitHub Actions run passes and publishes its *original source-pinned* traces.
+
+## Material advance beyond separate P0 and M0 founders
+
+This is the first C1 candidate to combine, **in one unchanged original PID1**:
+
+1. Paid original C0 all64 three-meta-word descriptor generation and 3-trial coverage checks. The original verified 164-node CIL founder's **first 163 opcodes** are kept exactly unchanged. It pays 64 structural certificate `Write11` events, accepts24/64, rejects40/64 and performs72 rule bank writes to51/52/53.
+2. The final source Halt at PC163 is replaced with actor-paid Read51/52/53 and Write62/63/64 to **deploy the last saved accepted rule** `[1,3,2]`. The program pays to clear meta-PC50 and accumulator56, then the **last source-paid Write jumps back to the *original* meta interpreter at PC21**.
+3. Original C0 dynamic interpreter once again fetches all three now-bank-derived active bytes at **PC29**, pays to write each accumulator checkpoint56 at **PC46**, and produces a new postdeployment computed meta mode in cell33 at **PC59**.
+4. The exact native protocol deliberately stops observing **immediately after the first completed postdeployment 3-word interpreter result**. At that time the same PID1 is **still alive and not halted**; source has no demonstrated clean termination after phase2. Sampling is done by Rust test observation, not by injecting any metadata or forcibly halting the original actor.
+
+This is **not** task-service `Write11` from a hidden workload. The only new postdeployment service-like output is the original source `Write33` meta-mode checkpoint. It is evidence for an internally functional rule reuse primitive, not hidden task adaptation.
+
+## Exact frozen source, physics and prospective controls
+
+- Frozen prospectively before native implementation at `7e19eb30df027033262dd5326f1f0ef8216369ab`: [180-node original PID1 CIL source + two exact controls](../studies/B56-F1d1k-G3Q-C1-P1-L2-M1-frozen-180-node-paid-certified-bank-reexecution-v1.json). Source includes all original C0 opcodes0..162, post-coverage paid bank-transfer code at163..178, and a **currently unreachable Halt at179**. This deliberate nonterminal source is a limitation, not a success to hide.
+- The **original full 64-descriptor scan still runs**; no host prefilters or changes the 24/40 coverage decision. World physics remain `World::with_strict_capacity(16,180,300)`, **180/180** source nodes, **16/16** occupied cell keys and **197/300** maximal occupied units, with 32,000 initial private compute credits. Original complete C0 used 30,000 credits; additional credits here cover the newly paid deployment and interpretation and do not change compute resource physics.
+- **Frozen original arm** expects **24,149** paid instructions through first source-paid postdeployment PC59, 64 original certificates,72 original safe-bank writes, charged bank reads `(51,1),(52,3),(53,2)`, charged active writes `(62,1),(63,3),(64,2)`, charged interpreted bytes `(62,1),(63,3),(64,2)`, paid intermediate accumulator writes `[1,0,2]`, postdeployment mode **2**, private credits left **7,851**.
+- **Frozen causal source-preload control** alters **only the appendix bank-tail source-address literal at PC171**, from53 to51. It does **not** modify original certified bank or earlier certificate path and is **explicitly researcher-authored, not a PID1 self-edit**. Its expected original paid instruction count is also24,149; deployed/interpreted triple becomes `[1,3,1]`, checkpoints `[1,0,1]`, output **1**, credits7,851. This falsifies a hardcoded constant or host-supplied postdeployment result.
+- Predictions are from a separate finite JS source interpreter calculation performed **before** Rust integration; they are not measurements from original Rust native CI.
+
+## New Rust and independent verification
+
+- Original [Rust native single-PID test](../../cl0/crates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution.rs) created after source freeze; verifies every source-paid structural certificate, actor-owned safe bank retention, actual paid bank Read/active Write/dynamic meta opcode Read/intermediate accumulator Write, unchanged source within each arm, original PID1 charge conservation, no PID2, source and storage caps, and exactly one initial external PID load with **zero post-load external writes**.
+- At *every single paid original PID step*, Rust emits a same-source snapshot `[ordinal,original_PC,next_PC,registers,credits,present_or_missing_16_cells,occupied_units]` into distinct original and mutated JSONL traces. These capture **2 × 24,149 = 48,298 original native paid instruction-state records** if the native tests succeed.
+- [Independent frozen-source CIL prefix interpreter](../analysis/g3q_c1_p1_l2_m1_independent_prefix_replay.py) computes both arms' expected paid state and checks original native **aggregates** if available. This layer alone is not native step-by-step replay.
+- [Independent native step replayer](../analysis/g3q_c1_p1_l2_m1_independent_native_step_replay.py) accepts actual Rust original JSONL for both arms, source-parses frozen source, recomputes branch choice, **each of four registers**, all16 cell presences and values, next PC, credits, and storage occupancy **for every original step**, rejects first divergence, verifies live PID terminal *sample* and matched source controls. This is stronger than aggregate snapshot equivalence.
+- The [focused CI workflow](../../.github/workflows/cl1b-focused.yml) now registers **76 native integration targets** and **fails closed** on this new exact-source independent original-step replay, over and above existing 63 named independent replay observers; P1-L2-M1's new direct checker is additional and not silently counted as one of the legacy63. The evidence publication branch remains separate.
+
+## Honest negative results and next gate
+
+**Not achieved here:** natural phase-2 self-termination, full task-program interpreter, real hidden task service, two probes/third heldout, task regime shift, honest/adversarial/absent feedback comparison, a source-identical certificate gate ON/OFF control, autonomous post-certificate rule choice conditioned on task feedback, self-generated new opcode ISA, original C0 executable ancestry by *self-edit* (M1 is a newly researcher-authored source lineage), or open-ended cyberlife.
+
+**Next P1-L2-M2:** make this integrated original PID1 stop/continue safely under its own control after bank-derived meta execution rather than having the Rust test choose the observation endpoint. Then use genuine externally supplied task input and post-service feedback to discriminate adaptation from a static privileged safe rule. If 180 CIL nodes block the required control-flow exit, record the exact capacity impossibility **for the specified source refactor**, not a general proof that no source program can fit.
