@@ -135,8 +135,8 @@ fn g3q_c1_p1_l3_i0_native_one_pid_certification_gated_feedback_relearning(){
   trace.flush().unwrap();
   assert_eq!(steps,expected["paid_steps"].as_u64().unwrap() as usize);
   assert_eq!(CREDIT-steps as u64,expected["credits_remaining"].as_u64().unwrap());
-  assert_eq!(marks,expected["certificate_witness_events"]);
-  assert_eq!(services,expected["service_events"]);
+  assert_eq!(json!(marks),expected["certificate_witness_events"]);
+  assert_eq!(json!(services),expected["service_events"]);
   assert_eq!(cert_pass_count,usize::from(services.len()>0));
   assert_eq!(world.cell(21),expected["success_claim"].as_i64());
   assert_eq!(world.cell(32),expected["episodes_completed"].as_i64());
