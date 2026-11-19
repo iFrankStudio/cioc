@@ -1,0 +1,1156 @@
+{
+  "study": "B56-F1d1i",
+  "tested_native_SHA": "ecf7eddb1d3221d7c90f0678312a6e679d644812",
+  "preregistered_exact_manifest_sha256": "3d247cc0ddc06db40018965d038ea4d9ff78127019f6d462ded1ac31ab96f1e2",
+  "preregistered_157_node_graph_sha256": "d31cadec1a2db794235c0c4fff5ff5c7ea6ba1a9606b191183d1a49ef5986d1d",
+  "rust_source_sha256": "16fd43ae3b980371da0e621f3f1aca309dcba4b76b8ff444ce612cd5f3209a28",
+  "source_node_count": 157,
+  "original_strict_native_worlds_independently_replayed": 16,
+  "actual_original_paid_CIL_instructions_reexecuted": 16510,
+  "actual_external_environment_interventions_replayed": 412,
+  "actual_paid_feedback_reads": 186,
+  "actual_paid_candidate_score_writes": 58,
+  "real_actor_paid_virtual_bytecode_edits": 56,
+  "paid_generation_suppression_shadow_edits": 72,
+  "prior_best_fallback_enter_events": 19,
+  "original_dynamic_virtual_instruction_fetches": 552,
+  "real_native_accumulator_writes": 318,
+  "actual_paid_service_outputs": 234,
+  "charged_instruction_range": [
+    517,
+    1756
+  ],
+  "peak_storage": 174,
+  "first_divergence": null,
+  "unchanged_same_original_PID1": true,
+  "original_native_CIL_source_unchanged": true,
+  "same_source_truth_vs_inverted_next_mutation_diverges": true,
+  "truth_s1_identity_composed_identity_heldout_correct": 3,
+  "truth_s2_composed_negate_unreachable_heldout_correct": 2,
+  "no_available_program_solves_unreachable_task": true,
+  "fallback_was_source_paid_not_environment_written": true,
+  "absence_vs_negative_feedback_indistinguishable": true,
+  "interpreter_and_mutation_cycle_authored_by_researcher": true,
+  "source_F1c_continuity": false,
+  "strict_N56_A_B_C": false,
+  "B3": false,
+  "B4": false,
+  "cyberlife": false,
+  "summary_by_case": [
+    {
+      "id": 0,
+      "schedule_id": 0,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_correct_count": 3,
+      "charged_feedback_reads": 12,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 6,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 42,
+      "charged_accumulator_checkpoint_writes": 27,
+      "max_storage": 174,
+      "paid_instructions": 1173,
+      "remaining_credits": 2827,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 1,
+          "output": -9,
+          "expected": -9,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "schedule_id": 0,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 10,
+      "actor_paid_score_writes": 4,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 6,
+      "prior_best_rollback_entry_count": 1,
+      "prior_best_rollback_read_values": [
+        0
+      ],
+      "virtual_opcode_fetches": 26,
+      "charged_accumulator_checkpoint_writes": 13,
+      "max_storage": 174,
+      "paid_instructions": 812,
+      "remaining_credits": 3188,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "schedule_id": 0,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "schedule_id": 0,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "schedule_id": 0,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 10,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 4,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 42,
+      "charged_accumulator_checkpoint_writes": 29,
+      "max_storage": 174,
+      "paid_instructions": 1111,
+      "remaining_credits": 2889,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 1,
+          "output": -9,
+          "expected": 11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 2,
+          "output": -11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            1,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 2,
+          "output": -11,
+          "expected": 11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            1,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "schedule_id": 0,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 14,
+      "actor_paid_score_writes": 2,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 12,
+      "prior_best_rollback_entry_count": 2,
+      "prior_best_rollback_read_values": [
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 34,
+      "charged_accumulator_checkpoint_writes": 17,
+      "max_storage": 174,
+      "paid_instructions": 1107,
+      "remaining_credits": 2893,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "schedule_id": 0,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 18,
+      "actor_paid_score_writes": 0,
+      "actor_paid_real_opcode_slot_writes": 18,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 3,
+      "prior_best_rollback_read_values": [
+        0,
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 60,
+      "charged_accumulator_checkpoint_writes": 39,
+      "max_storage": 173,
+      "paid_instructions": 1756,
+      "remaining_credits": 2244,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "schedule_id": 0,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 18,
+      "actor_paid_score_writes": 0,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 18,
+      "prior_best_rollback_entry_count": 3,
+      "prior_best_rollback_read_values": [
+        0,
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 42,
+      "charged_accumulator_checkpoint_writes": 21,
+      "max_storage": 173,
+      "paid_instructions": 1402,
+      "remaining_credits": 2598,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "IDENTITY",
+          "mode": 0,
+          "output": 11,
+          "expected": 11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "schedule_id": 1,
+      "signal": "TRUTH",
+      "gate": 1,
+      "heldout_correct_count": 2,
+      "charged_feedback_reads": 14,
+      "actor_paid_score_writes": 4,
+      "actor_paid_real_opcode_slot_writes": 10,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 1,
+      "prior_best_rollback_read_values": [
+        2
+      ],
+      "virtual_opcode_fetches": 54,
+      "charged_accumulator_checkpoint_writes": 37,
+      "max_storage": 174,
+      "paid_instructions": 1487,
+      "remaining_credits": 2513,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 1,
+          "output": -9,
+          "expected": -9,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 2,
+          "output": -11,
+          "expected": -11,
+          "correct": true,
+          "actual_bytecode": [
+            0,
+            1,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 2,
+          "output": -11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            1,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "schedule_id": 1,
+      "signal": "TRUTH",
+      "gate": 0,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 18,
+      "actor_paid_score_writes": 0,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 18,
+      "prior_best_rollback_entry_count": 3,
+      "prior_best_rollback_read_values": [
+        0,
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 42,
+      "charged_accumulator_checkpoint_writes": 21,
+      "max_storage": 174,
+      "paid_instructions": 1402,
+      "remaining_credits": 2598,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "schedule_id": 1,
+      "signal": "BLIND_SUCCESS",
+      "gate": 1,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "schedule_id": 1,
+      "signal": "BLIND_SUCCESS",
+      "gate": 0,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "schedule_id": 1,
+      "signal": "INVERTED",
+      "gate": 1,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "schedule_id": 1,
+      "signal": "INVERTED",
+      "gate": 0,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 6,
+      "actor_paid_score_writes": 6,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 0,
+      "prior_best_rollback_read_values": [],
+      "virtual_opcode_fetches": 18,
+      "charged_accumulator_checkpoint_writes": 9,
+      "max_storage": 174,
+      "paid_instructions": 517,
+      "remaining_credits": 3483,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "schedule_id": 1,
+      "signal": "ABSENT",
+      "gate": 1,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 18,
+      "actor_paid_score_writes": 0,
+      "actor_paid_real_opcode_slot_writes": 18,
+      "actor_paid_suppressed_shadow_writes": 0,
+      "prior_best_rollback_entry_count": 3,
+      "prior_best_rollback_read_values": [
+        0,
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 60,
+      "charged_accumulator_checkpoint_writes": 39,
+      "max_storage": 173,
+      "paid_instructions": 1756,
+      "remaining_credits": 2244,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "schedule_id": 1,
+      "signal": "ABSENT",
+      "gate": 0,
+      "heldout_correct_count": 0,
+      "charged_feedback_reads": 18,
+      "actor_paid_score_writes": 0,
+      "actor_paid_real_opcode_slot_writes": 0,
+      "actor_paid_suppressed_shadow_writes": 18,
+      "prior_best_rollback_entry_count": 3,
+      "prior_best_rollback_read_values": [
+        0,
+        0,
+        0
+      ],
+      "virtual_opcode_fetches": 42,
+      "charged_accumulator_checkpoint_writes": 21,
+      "max_storage": 173,
+      "paid_instructions": 1402,
+      "remaining_credits": 2598,
+      "same_PID1": true,
+      "native_source_unchanged": true,
+      "author_primitive_ISA": true,
+      "b3_met": false,
+      "b4_met": false,
+      "cyberlife": false,
+      "heldout_by_phase": [
+        {
+          "epoch": 0,
+          "task": "COMPOSED",
+          "mode": 0,
+          "output": 11,
+          "expected": -9,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 1,
+          "task": "NEGATE",
+          "mode": 0,
+          "output": 11,
+          "expected": -11,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        },
+        {
+          "epoch": 2,
+          "task": "UNREACHABLE",
+          "mode": 0,
+          "output": 11,
+          "expected": 15,
+          "correct": false,
+          "actual_bytecode": [
+            0,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}
