@@ -134,6 +134,7 @@ jobs:
             cl1b_b56_f1d1k_g3p_paid_duplicate_repair
             cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate
             cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment
+            cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -290,6 +291,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3p_paid_duplicate_repair]=1
             wanted[cl1b_b56_f1d1k_g3q_c0_paid_coverage_certificate]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -302,8 +304,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 73 ]; then
-            echo "Expected exactly 73 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 74 ]; then
+            echo "Expected exactly 74 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -351,6 +353,19 @@ jobs:
               echo "PASS source-model/native-summary=g3q_c1_p0" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL source-model/native-summary=g3q_c1_p0" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # P1-L1 independent frozen-source replay vs same-source Rust aggregate.
+          # The observer is aggregate-only, never claimed as per-event replay.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l1_rule_arithmetic'; then
+            native_p1=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l1_native_rule_arithmetic.json
+            if [ -f "${native_p1}" ] && python3 ../cl1b/analysis/g3q_c1_p1_l1_native_aggregate_replay.py "${native_p1}" \
+              > cl1b-ci-evidence/g3q_c1_p1_l1_native_aggregate_replay.json \
+              2> cl1b-ci-evidence/g3q_c1_p1_l1_native_aggregate_replay.stderr.log; then
+              echo "PASS source-model/native-aggregate=g3q_c1_p1_l1" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL source-model/native-aggregate=g3q_c1_p1_l1" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
