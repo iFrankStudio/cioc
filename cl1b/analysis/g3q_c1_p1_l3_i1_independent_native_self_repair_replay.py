@@ -80,7 +80,7 @@ def replay(frozen_code, arm, trace=None, suppress=False):
             cells[key]=val
             if here==130:
                 assert key in (7,8,9) and val==1
-                witness.append([paid,key,val])
+                witness.append({"step":paid,"key":key,"value":val})
             if here==170:
                 assert key==21 and val==1
                 assert [cells.get(k) for k in (7,8,9)]==[1,1,1]
@@ -100,7 +100,7 @@ def replay(frozen_code, arm, trace=None, suppress=False):
             patch_attempts+=1
             if not suppress:
                 code[index]["value"]=value
-                patch.append({"step":paid,"node":index,"prior":prior,"value":value})
+                patch.append({"step":paid,"pc":here,"node":index,"before":prior,"after":value,"suppressed":False})
             pc=op["next"]
         elif kind=="Halt":
             stopped=True
@@ -148,14 +148,14 @@ def replay(frozen_code, arm, trace=None, suppress=False):
         assert len(cells)==e["used_cells"] and len(code)+1+len(cells)==e["occupied"]
     else:
         e=arm["expected"]
-        assert stopped and paid==e["steps"] and pc==e["halt"]
-        assert code[6]["value"]==e["sourcePC6value"]
-        assert patch==e["patches"]
-        assert cert_pass==e["certPass"]
+        assert stopped and paid==e["steps"] and pc==e["halt_pc"]
+        assert code[6]["value"]==e["original_Pc6"]
+        assert patch==e["source_edits"]
+        assert cert_pass==e["cert_pass_steps"]
         assert witness==e["cert_witnesses"]
-        assert service==e["services"]
-        assert meta_reads==e["meta"]
-        assert len(cells)==e["maxCells"] and peak==len(code)+1+len(cells)
+        assert service==e["source_task_service_events"]
+        assert meta_reads==e["paid_metacode_reads"]
+        assert len(cells)==e["used_cells"] and peak==len(code)+1+len(cells)
     return result
 
 def main():
@@ -190,7 +190,7 @@ def main():
             assert n["original_pid1_halted"] is True
             assert n["source_edits"]==result["source_edits"]
             assert n["structural_certificate_success_count"]==len(result["certPass"])
-            assert n["paid_witnesses"]==[{"step":x[0],"key":x[1],"value":x[2]} for x in result["cert_witnesses"]]
+            assert n["paid_witnesses"]==result["cert_witnesses"]
             assert n["paid_task_services"]==result["services"]
             assert n["paid_metacode_fetches"]==result["meta"]
             assert n["paid_feedback_reads"]==result["paid_feedback_reads"]
