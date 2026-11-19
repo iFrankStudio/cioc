@@ -6,7 +6,7 @@ Status: **PRE_NATIVE_GRAPH_ONLY**. Parent: I5 exact-native verified at source `c
 
 In each of I5's eight one-edit-impossible original genotypes, a **single continuously executing original PID1**, without a host edit or restart, can pay for a first executable-word edit, clear all three coverage witnesses, pay to recertify, observe failure, select and pay for a **second** distinct executable-word edit, clear all three witnesses again, and pay to recertify before task service. Both edits must be causally conditioned on fresh actor-observed evidence, not a host-supplied two-edit script or final safe genotype.
 
-The I5 frozen finite semantic table predicts a shortest graph distance of two for each of the eight cases. That is a **reachability prediction**, not a source-size or execution-feasibility result. The graph enumerator is `cl1b/analysis/g3q_c1_p1_l3_i6_finite_two_edit_graph.py`; its oracle is I5's frozen 64-case semantic output and is **not** an independent implementation of CIL semantics.
+The I5 frozen finite semantic table predicts a shortest graph distance of two for each of the eight cases. That is a **reachability prediction**, not a source-size or execution-feasibility result. The graph enumerator is `cl1b/analysis/g3q_c1_p1_l3_i6_finite_two_edit_graph.py`; its oracle is I5's frozen 64-case *initial_safe* classification (not post-repair outputs) and is **not** an independent implementation of CIL semantics.
 
 ## Required native arms and rejection criteria
 

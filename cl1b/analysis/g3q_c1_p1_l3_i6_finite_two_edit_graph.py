@@ -29,7 +29,7 @@ def main():
     assert len(entries) == 64
     table = {tuple(e["seed"]): e for e in entries}
     assert set(table) == set(GENES)
-    safe = {g for g, e in table.items() if len(set(e["expected"]["semantic_three_modes"])) == 3}
+    safe = {g for g, e in table.items() if e["initial_safe"]}
     assert len(safe) == 24
     assert all(table[g]["initial_safe"] == (g in safe) for g in GENES)
     distances = {}
