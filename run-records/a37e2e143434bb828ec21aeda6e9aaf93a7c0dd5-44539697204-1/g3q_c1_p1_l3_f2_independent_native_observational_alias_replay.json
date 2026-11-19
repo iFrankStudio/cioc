@@ -1,0 +1,28 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F2",
+  "level": "ORIGINAL_NATIVE_EVERY_STEP_AND_FEEDBACK_ALIAS_INDEPENDENTLY_REPLAYED",
+  "source_sha": "a37e2e143434bb828ec21aeda6e9aaf93a7c0dd5",
+  "paid_native_steps_each": 495,
+  "full_actor_visible_records_each": 499,
+  "fully_equal_actor_visible_sha256": "ef4ebb289cdae7e2fa87caa2139e85b89395df76d4d62e8f5c1cf59a954aa383",
+  "independent_native_first_divergence": null,
+  "same_visible_feedback": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "same_visible_task_output": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "actual_goal_matches": [
+    4,
+    0
+  ],
+  "world_with_all_original_events_equal": true,
+  "conclusion": "A single feedback bit cannot determine semantic fitness: identical original native World and actor history can correspond to incompatible external hidden objectives.",
+  "limits": "Experimenter goals outside the World, not native PID's own truth sensor; no general threat resistance."
+}
