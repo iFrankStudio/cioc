@@ -75,7 +75,8 @@ fn g3q_c1_i1_original_single_pid_paid_patchconst_recertification_and_hidden_task
     assert_eq!(executable_six(&world),2);
     assert!(matches!(&ev.kind,EventKind::Executed));
     current_source_mutated=true;
-    edit_records.push(json!({"step":paid,"node":6,"prior":3,"value":2}));
+    edit_records.push(json!({"step":paid,"pc":176,"node":6,
+                             "before":3,"after":2,"suppressed":false}));
    }
    let p=world.process(1).unwrap();
    assert_eq!(&p.code.nodes,if current_source_mutated{&after_repair}else{&founder},
@@ -142,18 +143,17 @@ fn g3q_c1_i1_original_single_pid_paid_patchconst_recertification_and_hidden_task
   trace.flush().unwrap();
   let expect=&arm["expected"];
   assert_eq!(paid,expect["steps"].as_u64().unwrap() as usize);
-  assert_eq!(world.process(1).unwrap().pc,expect["halt"].as_u64().unwrap() as usize);
+  assert_eq!(world.process(1).unwrap().pc,expect["halt_pc"].as_u64().unwrap() as usize);
   assert!(world.process(1).unwrap().stopped);
-  assert_eq!(json!(edit_records),expect["patches"]);
-  assert_eq!(json!(witnesses.iter().map(|v|json!([
-     v["step"],v["key"],v["value"]])).collect::<Vec<_>>()),expect["cert_witnesses"]);
-  assert_eq!(json!(services),expect["services"]);
-  assert_eq!(executable_six(&world),expect["sourcePC6value"].as_i64().unwrap());
-  assert_eq!(successes,expect["certPass"].as_array().unwrap().len());
+  assert_eq!(json!(edit_records),expect["source_edits"]);
+  assert_eq!(json!(witnesses),expect["cert_witnesses"]);
+  assert_eq!(json!(services),expect["source_task_service_events"]);
+  assert_eq!(executable_six(&world),expect["original_Pc6"].as_i64().unwrap());
+  assert_eq!(successes,expect["cert_pass_steps"].as_array().unwrap().len());
   assert_eq!(reset_witness_events,edit_records.len());
-  assert_eq!(real_meta_fetches,expect["meta"].as_u64().unwrap() as usize);
+  assert_eq!(real_meta_fetches,expect["paid_metacode_reads"].as_u64().unwrap() as usize);
   assert_eq!(feedback_read,emitted_feedback);
-  assert_eq!(world.used_cells(),expect["maxCells"].as_u64().unwrap() as usize);
+  assert_eq!(world.used_cells(),expect["used_cells"].as_u64().unwrap() as usize);
   assert_eq!(peak,founder.len()+1+world.used_cells());
   assert_eq!(world.total_compute_inventory(),Some(CREDITS-paid as u64));
   assert_eq!(world.cell(21),Some(1));
