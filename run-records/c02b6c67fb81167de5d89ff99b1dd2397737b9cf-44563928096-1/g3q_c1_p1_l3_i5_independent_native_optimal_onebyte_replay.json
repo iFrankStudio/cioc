@@ -1,0 +1,253 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I5",
+  "evidence_level": "NATIVE_68_ORIGINAL_WORLD_ALL_PAID_CIL_STEPS_AND_FEEDBACK_REPLAY",
+  "source_sha": "c02b6c67fb81167de5d89ff99b1dd2397737b9cf",
+  "native_paid_original_steps_independently_checked": 84735,
+  "all_genotypes": 64,
+  "initially_unsafe": 40,
+  "semantically_one_edit_repairable": 32,
+  "original_actor_successful_repairs": 32,
+  "reached_proven_finite_one_edit_upper_bound": true,
+  "initially_unrepairable_by_any_one_byte_edit": 8,
+  "original_actor_paid_edit_count": 40,
+  "original_actor_chosen_targets": {
+    "middle_PC3": 24,
+    "tail_PC6": 16
+  },
+  "false_certificates": 0,
+  "false_rejections": 0,
+  "first_divergence": null,
+  "counterexamples": [
+    {
+      "seed": [
+        0,
+        2,
+        0
+      ],
+      "original_paid_steps": 1459,
+      "observed_native_patch": [
+        {
+          "step": 376,
+          "pc": 172,
+          "node": 3,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        0,
+        0,
+        0
+      ],
+      "true_structural_coverage": true,
+      "actor_certified": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        0,
+        2,
+        3
+      ],
+      "original_paid_steps": 720,
+      "observed_native_patch": [
+        {
+          "step": 357,
+          "pc": 170,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        0,
+        2,
+        0
+      ],
+      "true_structural_coverage": false,
+      "actor_certified": false,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        1,
+        1,
+        3
+      ],
+      "original_paid_steps": 712,
+      "observed_native_patch": [
+        {
+          "step": 354,
+          "pc": 170,
+          "node": 6,
+          "before": 3,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        1,
+        1,
+        1
+      ],
+      "true_structural_coverage": false,
+      "actor_certified": false,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        0,
+        3
+      ],
+      "original_paid_steps": 1351,
+      "observed_native_patch": [
+        {
+          "step": 340,
+          "pc": 172,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        3,
+        0,
+        0
+      ],
+      "true_structural_coverage": true,
+      "actor_certified": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        1,
+        3
+      ],
+      "original_paid_steps": 1558,
+      "observed_native_patch": [
+        {
+          "step": 332,
+          "pc": 172,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        3,
+        1,
+        0
+      ],
+      "true_structural_coverage": true,
+      "actor_certified": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        2,
+        3
+      ],
+      "original_paid_steps": 672,
+      "observed_native_patch": [
+        {
+          "step": 333,
+          "pc": 172,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "final_rule": [
+        3,
+        2,
+        0
+      ],
+      "true_structural_coverage": false,
+      "actor_certified": false,
+      "first_divergence": null
+    }
+  ],
+  "causal_controls": [
+    {
+      "name": "disable_original_tail_patch",
+      "paid_steps": 708,
+      "source_patch": [
+        {
+          "step": 363,
+          "pc": 170,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        }
+      ],
+      "certified": false,
+      "true_task_matches": 0,
+      "actor_claimed_success": null,
+      "first_divergence": null
+    },
+    {
+      "name": "disable_original_middle_patch",
+      "paid_steps": 735,
+      "source_patch": [
+        {
+          "step": 374,
+          "pc": 172,
+          "node": 3,
+          "before": 2,
+          "after": 2,
+          "edit_suppressed": true
+        }
+      ],
+      "certified": false,
+      "true_task_matches": 0,
+      "actor_claimed_success": null,
+      "first_divergence": null
+    },
+    {
+      "name": "disable_original_RESET3_normalized_tail",
+      "paid_steps": 662,
+      "source_patch": [
+        {
+          "step": 340,
+          "pc": 172,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        }
+      ],
+      "certified": false,
+      "true_task_matches": 0,
+      "actor_claimed_success": null,
+      "first_divergence": null
+    },
+    {
+      "name": "inverted_feedback_after_RESET3_normalized_tail",
+      "paid_steps": 1240,
+      "source_patch": [
+        {
+          "step": 340,
+          "pc": 172,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "certified": true,
+      "true_task_matches": 1,
+      "actor_claimed_success": 1,
+      "first_divergence": null
+    }
+  ],
+  "limits": "Author-written one-repair target selection and candidate normalization, not a learned repair grammar or open-ended evolution."
+}
