@@ -75,8 +75,7 @@ fn g3q_c1_i1_original_single_pid_paid_patchconst_recertification_and_hidden_task
     assert_eq!(executable_six(&world),2);
     assert!(matches!(&ev.kind,EventKind::Executed));
     current_source_mutated=true;
-    edit_records.push(json!({"step":paid,"pc":176,"node":6,
-                             "before":3,"after":2,"suppressed":false}));
+    edit_records.push(json!({"step":paid,"node":6,"prior":3,"value":2}));
    }
    let p=world.process(1).unwrap();
    assert_eq!(&p.code.nodes,if current_source_mutated{&after_repair}else{&founder},
