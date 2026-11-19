@@ -1,0 +1,88 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F2",
+  "status": "PREREGISTERED_BEFORE_NATIVE_F2_TEST",
+  "founder": "cl1b/studies/B56-F1d1k-G3Q-C1-P1-L3-F0-frozen-122-node-feedback-relearning-founder-v1.json",
+  "original_frozen_source_nodes": 122,
+  "world": "World::with_strict_capacity(16,180,300)",
+  "initial_private_credits": 8000,
+  "actor_count": 1,
+  "postload_external_intervention": "after each source-paid Write11 at PC71, host sets only cell20 with a single binary feedback bit; goal truth remains hidden outside the world",
+  "pairs": [
+    {
+      "name": "truthful_goal1",
+      "hidden_goals": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback_regime": "truth",
+      "native_expected": {
+        "paid_steps": 495,
+        "task_service_outputs": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "feedback_bits": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "actual_goal_matches": 4,
+        "actor_claim_success": 1,
+        "final_episode": 4,
+        "final_trial_middle": 0,
+        "occupied_units": 136,
+        "initial_source_code_nodes": 122
+      }
+    },
+    {
+      "name": "deceptive_goal0_0_2_2",
+      "hidden_goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "feedback_regime": "inverted",
+      "native_expected": {
+        "paid_steps": 495,
+        "task_service_outputs": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "feedback_bits": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "actual_goal_matches": 0,
+        "actor_claim_success": 1,
+        "final_episode": 4,
+        "final_trial_middle": 0,
+        "occupied_units": 136,
+        "initial_source_code_nodes": 122
+      }
+    }
+  ],
+  "native_necessary_claims": [
+    "The same original 122 CIL source is loaded in two independent original one-PID worlds",
+    "All 495 charged original source PC/register/credit/cell traces are equal after projecting away experimenter-hidden goal and truth annotations",
+    "All four generic external SetCell20 interventions are identical in both worlds, including event origin and order",
+    "Final fully serialized native World including its original event history is byte-identical in both worlds",
+    "The external true target matches are respectively 4 and 0, despite identical source-visible feedback and actor claim1",
+    "An independent second CIL interpreter must reexecute both original native traces, including all environment feedback rows"
+  ],
+  "nonclaims": [
+    "This does not establish semantic truth without an independent sensor; it proves an observational nonidentifiability counterexample",
+    "Not a new adaptive policy, no self-authored new opcode/grammar",
+    "Not full G3Q-C1, open-ended cyberlife or general adversarial robustness",
+    "World serialization equality excludes the experimenter's hidden goal schedule, which exists outside CL0 World by construction"
+  ]
+}
