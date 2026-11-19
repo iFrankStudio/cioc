@@ -170,7 +170,8 @@ fn execute_original(
    };
    let episode=native.cell(32).unwrap_or(0) as usize;
    assert!(episode<4);
-   let truth=i64::from(output==[0_i64,0,2,2][episode]);
+   let goal=[0_i64,0,2,2][episode];
+   let truth=i64::from(output==goal);
    let delivered=match feedback{
     "truth"=>truth,"inverted"=>1-truth,
     other=>panic!("unregistered feedback regime {other}")
@@ -183,7 +184,7 @@ fn execute_original(
    let outside=native.events().last().unwrap();
    assert!(matches!(outside.origin,Origin::External));
    assert!(matches!(&outside.kind,EventKind::Intervened(_)));
-   let env=json!(["feedback",steps,episode,[0_i64,0,2,2][episode],
+   let env=json!(["feedback",steps,episode,goal,
     middle,output,truth,delivered,KEYS.map(|key|native.cell(key)),
     native.occupied_units(),gene(&native,3),gene(&native,6)]);
    serde_json::to_writer(&mut trace,&env).unwrap();
