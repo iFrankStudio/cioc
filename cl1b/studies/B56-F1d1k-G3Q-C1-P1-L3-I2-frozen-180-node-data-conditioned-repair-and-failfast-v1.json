@@ -1,0 +1,2033 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I2",
+  "status": "PROSPECTIVELY_FROZEN_BEFORE_ORIGINAL_NATIVE_RUST_VALIDATION",
+  "purpose": "Actor-paid data-conditioned executable repair with bounded 1-attempt post-repair guard, authentic paid structural certificate and hidden task feedback in same original uninterrupted PID1",
+  "ancestor": "cl1b/studies/B56-F1d1k-G3Q-C1-P1-L3-I1-frozen-178-node-certificate-driven-native-self-repair-v1.json",
+  "model_change": "Remove original bootstrap redundant pretask Write32(0) and Write21(0) (absent reads as0, both cells are later authored); correctly rebase native CIL graph edges. Repair branch uses persistent actor-authored Write11(1) as single retry guard, clears prior flag7, and reads repair candidate FROM its preexisting original first-word cell51 (not from source-tail fixed literal). Actor pays original native PatchConst node6 and reboots its own PC without new PID. If recertification remains incomplete, next failure uses persistent guard to HALT without further code edit or wasting remaining credit.",
+  "strict_physics": {
+    "data_capacity": 16,
+    "max_original_source_nodes": 180,
+    "max_occupied_units": 300,
+    "one_pid1_per_arm": true,
+    "initial_private_credits": 8000,
+    "max_repair_attempts_per_lifetime": 1,
+    "host_feedback": "after original paid Write11 only, generic external SetCell20; no host repair/rule patch"
+  },
+  "source_nodes": 180,
+  "complete_original_CIL_source": [
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 5
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 6
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 8
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 10
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 14
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 15
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 16
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 18
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 19
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 20
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 26
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 27
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 28
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 29
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 32
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 33
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 34
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 35
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 36
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 40,
+      "zero": 37
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 39
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 53,
+      "zero": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 41
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 42
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 3,
+      "next": 43
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 44
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 45
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 49,
+      "zero": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 47
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 48
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 53,
+      "zero": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 50
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 51
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 53,
+      "zero": 52
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 54
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 55
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 56
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 57
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 58
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 60
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 63
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 29,
+      "zero": 118
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 65
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 66
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 67
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 71
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 72
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 73
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 75
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 76
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 77,
+      "zero": 95
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 78
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 79
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 80
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 82
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 84
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 86,
+      "zero": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 88
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 90
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 24,
+      "zero": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 92
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 93
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 94
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 96
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 98
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 99
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 100,
+      "zero": 114
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 101
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 102
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 103
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 105
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 106
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 110,
+      "zero": 107
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 108
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 109
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 110,
+      "zero": 110
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 111
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 24,
+      "zero": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 116
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 117
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 119
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 120
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 64,
+      "zero": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 122
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 124
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 125
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 126
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 127
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 128
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 130
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 131
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 132
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 133
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 134
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 135
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 136,
+      "zero": 146
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 137
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 138
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 139
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 141
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 142
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 144,
+      "zero": 143
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 145
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 147
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 148
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 8,
+      "next": 149
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 150
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 9,
+      "next": 152
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 153
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 155
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 156
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 167,
+      "zero": 157
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 158
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 159
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 160
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 161
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 163
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 166
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 168
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 169
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 179,
+      "zero": 170
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 171
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 172
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 173
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 7,
+      "next": 174
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 175
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 6,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 177
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 178
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 3,
+      "next": 0
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "critical_PCs": {
+    "certification_paid_witness_write": 126,
+    "certification_success_phase_write": 166,
+    "task_service_write11": 67,
+    "paid_feedback_read20": 75,
+    "paid_meta_fetch": 33,
+    "repair_retry_guard_branch": 169,
+    "persistent_repair_attempt_write11": 171,
+    "repair_witness_reset_write7": 174,
+    "repair_candidate_read_bank51": 177,
+    "original_paid_self_patch_const6": 178,
+    "second_certificate_failure_halt": 179
+  },
+  "pre_registered_arms": [
+    {
+      "name": "safe_unrepaired_reference",
+      "first": 2,
+      "middle": 0,
+      "tail": 2,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 1353,
+        "halt_pc": 94,
+        "credits_remaining": 6647,
+        "certificate_witnesses": [
+          {
+            "step": 123,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 239,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 356,
+            "key": 7,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          386
+        ],
+        "paid_meta_fetches": 33,
+        "paid_feedback_reads": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "services": [
+          {
+            "step": 483,
+            "episode": 0,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 604,
+            "episode": 0,
+            "middle": 1,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 726,
+            "episode": 0,
+            "middle": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 846,
+            "episode": 1,
+            "middle": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 966,
+            "episode": 2,
+            "middle": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1091,
+            "episode": 2,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1212,
+            "episode": 2,
+            "middle": 1,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1331,
+            "episode": 3,
+            "middle": 1,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "source_edits": [],
+        "source_tail_final": 2,
+        "episode_final": 4,
+        "task_success_claim": 1,
+        "used_cells": 16,
+        "peak_occupied": 197
+      }
+    },
+    {
+      "name": "repair_zero_from_genome",
+      "first": 0,
+      "middle": 0,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 1469,
+        "halt_pc": 94,
+        "credits_remaining": 6531,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 226,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 336,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 490,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 606,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 722,
+            "key": 9,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          752
+        ],
+        "paid_meta_fetches": 36,
+        "paid_feedback_reads": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "services": [
+          {
+            "step": 848,
+            "episode": 0,
+            "middle": 0,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 967,
+            "episode": 1,
+            "middle": 0,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1086,
+            "episode": 2,
+            "middle": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1207,
+            "episode": 2,
+            "middle": 1,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1328,
+            "episode": 2,
+            "middle": 2,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1447,
+            "episode": 3,
+            "middle": 2,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "source_edits": [
+          {
+            "step": 368,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 0,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 0,
+        "episode_final": 4,
+        "task_success_claim": 1,
+        "used_cells": 16,
+        "peak_occupied": 197
+      }
+    },
+    {
+      "name": "repair_one_from_genome",
+      "first": 1,
+      "middle": 0,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 1593,
+        "halt_pc": 94,
+        "credits_remaining": 6407,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 226,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 336,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 490,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 606,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 722,
+            "key": 8,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          752
+        ],
+        "paid_meta_fetches": 39,
+        "paid_feedback_reads": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "services": [
+          {
+            "step": 848,
+            "episode": 0,
+            "middle": 0,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 969,
+            "episode": 0,
+            "middle": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1088,
+            "episode": 1,
+            "middle": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1207,
+            "episode": 2,
+            "middle": 1,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1328,
+            "episode": 2,
+            "middle": 2,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1452,
+            "episode": 2,
+            "middle": 0,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1571,
+            "episode": 3,
+            "middle": 0,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "source_edits": [
+          {
+            "step": 368,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 1,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 1,
+        "episode_final": 4,
+        "task_success_claim": 1,
+        "used_cells": 16,
+        "peak_occupied": 197
+      }
+    },
+    {
+      "name": "repair_two_from_genome",
+      "first": 2,
+      "middle": 0,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 1722,
+        "halt_pc": 94,
+        "credits_remaining": 6278,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 226,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 337,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 492,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 608,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 725,
+            "key": 7,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          755
+        ],
+        "paid_meta_fetches": 42,
+        "paid_feedback_reads": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        "services": [
+          {
+            "step": 852,
+            "episode": 0,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 973,
+            "episode": 0,
+            "middle": 1,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1095,
+            "episode": 0,
+            "middle": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1215,
+            "episode": 1,
+            "middle": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1335,
+            "episode": 2,
+            "middle": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1460,
+            "episode": 2,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1581,
+            "episode": 2,
+            "middle": 1,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 1700,
+            "episode": 3,
+            "middle": 1,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "source_edits": [
+          {
+            "step": 369,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 2,
+        "episode_final": 4,
+        "task_success_claim": 1,
+        "used_cells": 16,
+        "peak_occupied": 197
+      }
+    },
+    {
+      "name": "repair_alternate_middle_reset",
+      "first": 1,
+      "middle": 3,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 1092,
+        "halt_pc": 117,
+        "credits_remaining": 6908,
+        "certificate_witnesses": [
+          {
+            "step": 110,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 221,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 331,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 479,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 596,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 712,
+            "key": 7,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          742
+        ],
+        "paid_meta_fetches": 27,
+        "paid_feedback_reads": [
+          0,
+          0,
+          0
+        ],
+        "services": [
+          {
+            "step": 832,
+            "episode": 0,
+            "middle": 3,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 953,
+            "episode": 0,
+            "middle": 4,
+            "output": 6,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 1074,
+            "episode": 0,
+            "middle": 5,
+            "output": 7,
+            "truth": 0,
+            "feedback": 0
+          }
+        ],
+        "source_edits": [
+          {
+            "step": 363,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 1,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 1,
+        "episode_final": null,
+        "task_success_claim": 0,
+        "used_cells": 15,
+        "peak_occupied": 196
+      }
+    },
+    {
+      "name": "unrepairable_middle_one",
+      "first": 1,
+      "middle": 1,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 734,
+        "halt_pc": 179,
+        "credits_remaining": 7266,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 226,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 330,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 484,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 600,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 710,
+            "key": 8,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [],
+        "paid_meta_fetches": 18,
+        "paid_feedback_reads": [],
+        "services": [],
+        "source_edits": [
+          {
+            "step": 362,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 1,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 1,
+        "episode_final": null,
+        "task_success_claim": null,
+        "used_cells": 12,
+        "peak_occupied": 193
+      }
+    },
+    {
+      "name": "unrepairable_middle_two",
+      "first": 0,
+      "middle": 2,
+      "tail": 3,
+      "feedback": "truth",
+      "expected": {
+        "halted": true,
+        "steps": 736,
+        "halt_pc": 179,
+        "credits_remaining": 7264,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 220,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 331,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 485,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 595,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 712,
+            "key": 7,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [],
+        "paid_meta_fetches": 18,
+        "paid_feedback_reads": [],
+        "services": [],
+        "source_edits": [
+          {
+            "step": 363,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 0,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 0,
+        "episode_final": null,
+        "task_success_claim": null,
+        "used_cells": 12,
+        "peak_occupied": 193
+      }
+    },
+    {
+      "name": "repaired_deceptive_feedback",
+      "first": 2,
+      "middle": 0,
+      "tail": 3,
+      "feedback": "inverted",
+      "expected": {
+        "halted": true,
+        "steps": 1234,
+        "halt_pc": 94,
+        "credits_remaining": 6766,
+        "certificate_witnesses": [
+          {
+            "step": 116,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 226,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 337,
+            "key": 7,
+            "value": 1
+          },
+          {
+            "step": 492,
+            "key": 8,
+            "value": 1
+          },
+          {
+            "step": 608,
+            "key": 9,
+            "value": 1
+          },
+          {
+            "step": 725,
+            "key": 7,
+            "value": 1
+          }
+        ],
+        "cert_pass_steps": [
+          755
+        ],
+        "paid_meta_fetches": 30,
+        "paid_feedback_reads": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "services": [
+          {
+            "step": 852,
+            "episode": 0,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 972,
+            "episode": 1,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 1092,
+            "episode": 2,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 1212,
+            "episode": 3,
+            "middle": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          }
+        ],
+        "source_edits": [
+          {
+            "step": 369,
+            "pc": 178,
+            "node": 6,
+            "before": 3,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "source_tail_final": 2,
+        "episode_final": 4,
+        "task_success_claim": 1,
+        "used_cells": 16,
+        "peak_occupied": 197
+      }
+    }
+  ],
+  "pre_registered_control": {
+    "name": "source_edit_suppressed_counterfactual",
+    "first": 2,
+    "middle": 0,
+    "tail": 3,
+    "feedback": "truth",
+    "expected": {
+      "halted": true,
+      "steps": 730,
+      "halt_pc": 179,
+      "credits_remaining": 7270,
+      "certificate_witnesses": [
+        {
+          "step": 116,
+          "key": 7,
+          "value": 1
+        },
+        {
+          "step": 226,
+          "key": 7,
+          "value": 1
+        },
+        {
+          "step": 337,
+          "key": 7,
+          "value": 1
+        },
+        {
+          "step": 485,
+          "key": 7,
+          "value": 1
+        },
+        {
+          "step": 595,
+          "key": 7,
+          "value": 1
+        },
+        {
+          "step": 706,
+          "key": 7,
+          "value": 1
+        }
+      ],
+      "cert_pass_steps": [],
+      "paid_meta_fetches": 18,
+      "paid_feedback_reads": [],
+      "services": [],
+      "source_edits": [
+        {
+          "step": 369,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        }
+      ],
+      "source_tail_final": 3,
+      "episode_final": null,
+      "task_success_claim": null,
+      "used_cells": 11,
+      "peak_occupied": 192
+    }
+  },
+  "strict_limitations": [
+    "Only a single data-derived candidate from researcher-authored first word; no open-ended mutation rule discovery or multiple-candidate search",
+    "One repair attempt, explicitly fail-closed on subsequent incomplete certificate; a successful structural cert still cannot establish truth under adversarial feedback",
+    "Preload variation of three founder Const literals is researcher-chosen, not in-world mutation from external service",
+    "Source strict 180/180, data 16/16 on successful task arm; none of these test worlds extend C0 or M2 original PID lineage",
+    "The newly persistent cell11 retry guard occupies the same service output slot that future paid Write11 task service overwrites, but postcert there are no later certificate retries"
+  ]
+}
