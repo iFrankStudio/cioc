@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle.rs (target/debug/build/cl0-world/86f44f2c9c843321/out/cl1b_b56_f1d1k_g3q_c1_p1_l2_m2_self_terminal_rule_cycle-86f44f2c9c843321)
+
+running 2 tests
+test g3q_c1_p1_l2_m2_patchnext_disabled_causal_ablation ... ok
+test g3q_c1_p1_l2_m2_original_pid_paid_certified_meta_and_self_halt ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.55s
+
