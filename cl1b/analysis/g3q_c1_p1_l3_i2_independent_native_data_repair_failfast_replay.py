@@ -107,13 +107,16 @@ def replay_source(template,arm,trace=None,disable_edit=False):
                 "edit_suppressed":disable_edit})
             pc=op["next"]
         elif kind=="Halt":
-            break
+            assert at in (94,117,179)
+            pc=at
         else:
             raise AssertionError(("unknown CIL instruction",at,kind))
         peak=max(peak,181+len(cell))
         assert len(cell)<=16 and peak<=300
         audit(["cil",paid,at,pc,list(r),CREDITS-paid,
             [cell.get(k) for k in KEYS],181+len(cell),code[6]["value"]])
+        if kind=="Halt":
+            break
         if at==67:
             assert kind=="Write" and addr==11 and len(certified)==1
             episode=cell.get(32,0)
@@ -140,7 +143,7 @@ def replay_source(template,arm,trace=None,disable_edit=False):
     assert guard_checks==len(repairs)
     assert len(certified)<=1
     assert feedback_reads==[x["feedback"] for x in services]
-    assert meta_fetches==3*(len(witnesses)//3+len(services))
+    assert meta_fetches==3*(len(witnesses)+len(services))
     result={
       "steps":paid,"halt_pc":at,"credits_remaining":CREDITS-paid,
       "certificate_witnesses":witnesses,
