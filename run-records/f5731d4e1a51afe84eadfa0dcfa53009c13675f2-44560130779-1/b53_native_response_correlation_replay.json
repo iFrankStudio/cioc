@@ -1,0 +1,687 @@
+{
+  "study": "B53",
+  "source_sha": "f5731d4e1a51afe84eadfa0dcfa53009c13675f2",
+  "independently_replayed_worlds": 20,
+  "independently_replayed_paid_native_instructions": 80000,
+  "independently_replayed_external_interventions": 12088,
+  "verified_lab_only_task_transitions": 40,
+  "verified_native_executable_patches": 466,
+  "first_divergence": null,
+  "fresh_response_binding_works": true,
+  "old_complete_packet_replay_rejected": true,
+  "present_nonce_forged_content_detected": false,
+  "partial_packet_race_protection_proven": false,
+  "source_blind_endogenous_policy_formation": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false,
+  "by_arm": {
+    "FRESH_CORRELATED": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        92,
+        92
+      ],
+      "wrong_by_stage": [
+        0,
+        4,
+        4
+      ],
+      "retentions": 12,
+      "reopens": 8,
+      "rejected_packets": 0,
+      "accepted_false_successes": 0,
+      "feedback_reads": 388,
+      "nonce_writes": 548,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        }
+      ]
+    },
+    "DELAYED_WHOLE_PACKET": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 638,
+      "accepted_false_successes": 0,
+      "feedback_reads": 0,
+      "nonce_writes": 682,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    },
+    "REPLAY_SUCCESS_PACKET": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 638,
+      "accepted_false_successes": 0,
+      "feedback_reads": 0,
+      "nonce_writes": 682,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    },
+    "FORGED_CURRENT_SERIAL": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 0,
+      "accepted_false_successes": 96,
+      "feedback_reads": 508,
+      "nonce_writes": 548,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    },
+    "TORN_PACKET": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 508,
+      "accepted_false_successes": 0,
+      "feedback_reads": 0,
+      "nonce_writes": 548,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 133,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 133,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 121,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 121,
+          "false_success": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    }
+  }
+}

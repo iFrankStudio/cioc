@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 1.33s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1h_paid_candidate_retention.rs (target/debug/build/cl0-world/bc72cef31d991cb1/out/cl1b_b56_f1d1h_paid_candidate_retention-bc72cef31d991cb1)
+
+running 1 test
+B56_F1D1H_PAID_CANDIDATE_SEARCH_RETENTION {"B3":false,"B4":false,"author_primitive_semantics":true,"cyberlife":false,"full_three_candidate_inverted_correct":0,"full_three_candidate_true_correct":3,"native_worlds":36,"new_primitive_invented":false,"single_PID":true,"source_nodes":166,"strict_N56_A_B_C":false}
+test b56_f1d1h_paid_candidate_scoring_and_single_pid_retention ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+

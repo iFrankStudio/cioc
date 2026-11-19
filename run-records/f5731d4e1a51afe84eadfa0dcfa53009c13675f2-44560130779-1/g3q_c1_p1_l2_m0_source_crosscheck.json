@@ -1,0 +1,104 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M0",
+  "level": "NATIVE_AGGREGATE_CROSSCHECK_NOT_NATIVE_EVENT_REPLAY",
+  "arms": [
+    {
+      "arm": "original",
+      "steps": 116,
+      "output": 0,
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accumulators": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "arm": "first_to_one",
+      "steps": 115,
+      "output": 2,
+      "fetch": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accumulators": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "arm": "middle_to_reset",
+      "steps": 109,
+      "output": 2,
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accumulators": [
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "arm": "tail_to_one",
+      "steps": 116,
+      "output": 2,
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "accumulators": [
+        2,
+        1,
+        2
+      ]
+    }
+  ],
+  "first_field_divergence": null,
+  "limitations": "Researcher-preloaded bytecode grammar; no same-PID certification, hidden tasks, or learning."
+}
