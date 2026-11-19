@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.40s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g2s_noncommuting_meta_rule.rs (target/debug/build/cl0-world/fbc320063d950795/out/cl1b_b56_f1d1k_g2s_noncommuting_meta_rule-fbc320063d950795)
+
+running 1 test
+B56_F1D1K_G2S_NATIVE_NONCOMMUTING_AND_BAD4 {"B3":false,"B4":false,"authored_meta_ISA":true,"cyberlife":false,"full_Hk":false,"learned_A_RESET_A_repeats_A_before_C":true,"learned_B_RESET_B_excludes_reachable_A":true,"loss_of_search_completeness":true,"max_shared_data_cells":16,"native_CIL_nodes":177,"normal_task_cases":120,"original_PID1_worlds":180,"source_generated_invalid4_fails_before_any_service":true,"source_identical_malformed4_cases":60,"three_dynamic_meta_opcode_reads_per_program":true}
+test b56_f1d1k_g2s_noncommuting_rule_structure_and_paid_bad4 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.26s
+
