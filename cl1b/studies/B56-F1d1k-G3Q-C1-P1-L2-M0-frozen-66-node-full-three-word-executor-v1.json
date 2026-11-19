@@ -1,0 +1,699 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M0",
+  "status": "PROSPECTIVE NATIVE MICROFOUNDATION FROZEN; NOT INTEGRATED C1; NOT SELF-CERTIFIED",
+  "scope": "single PID pays to write three source-authored bytes, retain in bank, read into active slots, interpret all three under 0/1/2 modular add and 3 reset, paid intermediate checkpoints, and derive service; preload mutated byte controls",
+  "strict_world": {
+    "allowed_cells": 16,
+    "max_code_nodes": 180,
+    "max_occupied": 300,
+    "credits": 1000
+  },
+  "source_node_count": 66,
+  "labels": {
+    "fetch": 26,
+    "reset": 34,
+    "add": 37,
+    "zero": 43,
+    "checkfour": 46,
+    "one": 49,
+    "checkpoint": 50,
+    "service": 61
+  },
+  "exact_native_founder_code": [
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 5
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 6
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 2,
+      "next": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 8
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 51,
+      "next": 10
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 52,
+      "next": 14
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 15
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 63,
+      "next": 16
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 53,
+      "next": 18
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 19
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 64,
+      "next": 20
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 25
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 27
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 28
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 62,
+      "next": 29
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 2,
+      "rhs": 3,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 32
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 33
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 37,
+      "zero": 34
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 36
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 50,
+      "zero": 50
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 38
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 39
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 3,
+      "next": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 41
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 42
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 46,
+      "zero": 43
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 45
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 50,
+      "zero": 50
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 47
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 48
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 50,
+      "zero": 49
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 50
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 51
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 53
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 54
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 55
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 57
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 59
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 60
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 26,
+      "zero": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 56,
+      "next": 62
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 63
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 64
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 65
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "pre_registered_arms": [
+    {
+      "name": "original",
+      "mutated_pc": null,
+      "mutated_value": 2,
+      "steps": 116,
+      "output": 0,
+      "bank": [
+        2,
+        2,
+        2
+      ],
+      "active": [
+        2,
+        2,
+        2
+      ],
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bankReads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "activeWrites": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accWrites": [
+        2,
+        1,
+        0
+      ],
+      "out": [
+        0
+      ],
+      "cellCount": 9
+    },
+    {
+      "name": "first_to_one",
+      "mutated_pc": 0,
+      "mutated_value": 1,
+      "steps": 115,
+      "output": 2,
+      "bank": [
+        1,
+        2,
+        2
+      ],
+      "active": [
+        1,
+        2,
+        2
+      ],
+      "fetch": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bankReads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "activeWrites": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accWrites": [
+        1,
+        0,
+        2
+      ],
+      "out": [
+        2
+      ],
+      "cellCount": 9
+    },
+    {
+      "name": "middle_to_reset",
+      "mutated_pc": 3,
+      "mutated_value": 3,
+      "steps": 109,
+      "output": 2,
+      "bank": [
+        2,
+        3,
+        2
+      ],
+      "active": [
+        2,
+        3,
+        2
+      ],
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bankReads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "activeWrites": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accWrites": [
+        2,
+        0,
+        2
+      ],
+      "out": [
+        2
+      ],
+      "cellCount": 9
+    },
+    {
+      "name": "tail_to_one",
+      "mutated_pc": 6,
+      "mutated_value": 1,
+      "steps": 116,
+      "output": 2,
+      "bank": [
+        2,
+        2,
+        1
+      ],
+      "active": [
+        2,
+        2,
+        1
+      ],
+      "fetch": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "bankReads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          1
+        ]
+      ],
+      "activeWrites": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "accWrites": [
+        2,
+        1,
+        2
+      ],
+      "out": [
+        2
+      ],
+      "cellCount": 9
+    }
+  ],
+  "limitations": "This standalone 66-node founder is researcher-authored and uses an initially authored [2,2,2] bank; does not derive bank from C0 in the same lifecycle, does not run hidden tasks/feedback or prove self-evolution."
+}
