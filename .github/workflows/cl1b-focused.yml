@@ -340,6 +340,20 @@ jobs:
             echo "FAIL lib=b34_trydraw_abi" | tee -a cl1b-ci-evidence/summary.txt
             failures=$((failures + 1))
           fi
+          # G3Q-C1-P0: an independently implemented source interpreter must
+          # agree with the Rust original's published aggregate evidence.
+          # This is NOT an event-by-event native observer.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p0_paid_bank_deployment'; then
+            native_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p0_paid_bank_deployment_summary.json
+            if [ -f "${native_summary}" ] && python3 ../cl1b/analysis/g3q_c1_p0_native_summary_crosscheck.py "${native_summary}" \
+              > cl1b-ci-evidence/g3q_c1_p0_native_summary_crosscheck.json \
+              2> cl1b-ci-evidence/g3q_c1_p0_native_summary_crosscheck.stderr.log; then
+              echo "PASS source-model/native-summary=g3q_c1_p0" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL source-model/native-summary=g3q_c1_p0" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
           echo "failed_target_count=${failures}" | tee -a cl1b-ci-evidence/summary.txt
           if [ "${failures}" -ne 0 ]; then
             exit 1
