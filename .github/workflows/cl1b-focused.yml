@@ -431,7 +431,7 @@ jobs:
             m2_mutant=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l2_m2_original_paid_steps_preload_tail_bank_address_mutant.jsonl
             if [ -f "${m2_summary}" ] && [ -f "${m2_base}" ] && [ -f "${m2_mutant}" ] && \
               python3 ../cl1b/analysis/g3q_c1_p1_l2_m2_independent_native_terminal_replay.py \
-                "${m2_summary}" "${m2_base}" "${m2_mutant" \
+                "${m2_summary}" "${m2_base}" "${m2_mutant}" \
               > cl1b-ci-evidence/g3q_c1_p1_l2_m2_independent_native_terminal_replay.json \
               2> cl1b-ci-evidence/g3q_c1_p1_l2_m2_independent_native_terminal_replay.stderr.log; then
               echo "PASS native-independent-every-step=g3q_c1_p1_l2_m2" | tee -a cl1b-ci-evidence/summary.txt
