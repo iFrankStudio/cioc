@@ -144,7 +144,7 @@ def paid_original_pid_replay(template,seed,feedback_regime,suppressed,expected,t
                 "edit_suppressed":suppressed})
             pc=op["next"]
         elif kind=="Halt":
-            assert here in (94,109,117)
+            assert code[here]["kind"]=="Halt"
             pc=here
         else:
             raise AssertionError(("source has unsupported CIL opcode",here,kind))
