@@ -1,0 +1,202 @@
+{
+  "study": "B56-F1d1b",
+  "classification": "same_source_native_history_plus_source_capacity_rejection",
+  "exact_source_sha": "5622598f762e0253acbf8f7b7f3f82b21d9c7e82",
+  "preregistration_sha256": "2ea7c617df1d4ad4bccf55ed4c9bd7fedafe3107c98d705036ff532f3bc5ebcc",
+  "source_hashes_sha256": {
+    "f1c": "dbfeac4efb39fa10091a233b09b6fe31a3931a03dc12471e8d90b257f652af3a",
+    "b53": "f9c817227210156c669a9c8c1e0f8607b10857237d85a0eea44aebf5faab0275",
+    "b51c": "e454ac845ff6c88ce9dc30ea0b2944526849ae2d7c0f4aad56f80cdc1d1f7965"
+  },
+  "existing_f1c_initial_nodes": 162,
+  "original_actor_paid_clones_per_truth_world": 6,
+  "native_observed_max_source_nodes_truth": 168,
+  "strict_code_node_cap": 180,
+  "remaining_append_nodes_after_original_clones": 12,
+  "exact_b53_nonce_generator_nodes": 7,
+  "exact_b53_checker_nodes": 18,
+  "full_verbatim_b53_additional_nodes": 25,
+  "direct_append_nodes_required": 193,
+  "direct_append_deficit_nodes": 13,
+  "exact_pc_opcode_kind_conflicts_count": 18,
+  "opcode_conflicts": [
+    {
+      "pc": 100,
+      "f1c": "Const",
+      "b53": "Read"
+    },
+    {
+      "pc": 101,
+      "f1c": "Write",
+      "b53": "Const"
+    },
+    {
+      "pc": 102,
+      "f1c": "Const",
+      "b53": "Add"
+    },
+    {
+      "pc": 103,
+      "f1c": "Write",
+      "b53": "Const"
+    },
+    {
+      "pc": 104,
+      "f1c": "Const",
+      "b53": "Write"
+    },
+    {
+      "pc": 105,
+      "f1c": "Read",
+      "b53": "Const"
+    },
+    {
+      "pc": 106,
+      "f1c": "Branch",
+      "b53": "Const"
+    },
+    {
+      "pc": 107,
+      "f1c": "Const",
+      "b53": "Read"
+    },
+    {
+      "pc": 109,
+      "f1c": "PatchNext",
+      "b53": "Read"
+    },
+    {
+      "pc": 110,
+      "f1c": "Const",
+      "b53": "Sub"
+    },
+    {
+      "pc": 111,
+      "f1c": "Read",
+      "b53": "Branch"
+    },
+    {
+      "pc": 113,
+      "f1c": "Add",
+      "b53": "Read"
+    },
+    {
+      "pc": 114,
+      "f1c": "Write",
+      "b53": "Const"
+    },
+    {
+      "pc": 115,
+      "f1c": "Const",
+      "b53": "Read"
+    },
+    {
+      "pc": 116,
+      "f1c": "Add",
+      "b53": "Sub"
+    },
+    {
+      "pc": 119,
+      "f1c": "Add",
+      "b53": "Read"
+    },
+    {
+      "pc": 122,
+      "f1c": "Read",
+      "b53": "Const"
+    },
+    {
+      "pc": 123,
+      "f1c": "Branch",
+      "b53": "Write"
+    }
+  ],
+  "original_f1c_halt_pc_slots": [
+    71,
+    143
+  ],
+  "halt_slots_cannot_be_retyped_by_existing_F1c_PatchNext_PatchConst": true,
+  "key_inventory_instrumented_original_f1c": [
+    7,
+    11,
+    20,
+    21,
+    22,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    31,
+    40,
+    41,
+    42,
+    43
+  ],
+  "b53_concurrent_key_requirements": [
+    20,
+    26,
+    27,
+    28,
+    29
+  ],
+  "union_address_keys": [
+    7,
+    11,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    40,
+    41,
+    42,
+    43
+  ],
+  "union_count": 17,
+  "explicit_key_and_pc_conflicts": {
+    "27": "F1c paid constructor route guard / B53 packet echo",
+    "28": "F1c paid FOURTH counter / B53 response commit",
+    "29": "F1c paid choice counter / B53 reject marker",
+    "40": "F1c monitor clone address / proposed relocated FOURTH counter",
+    "110": "F1c executable Const source node / B53 executable Sub source node"
+  },
+  "native_f1c_source_pinned_history": {
+    "worlds": 48,
+    "paid_instructions": 192000,
+    "external_interventions": 26432,
+    "first_divergence_in_upstream_observer": null,
+    "truthful_8_worlds_peak_named_live_cells_range": [
+      15,
+      16
+    ],
+    "truthful_8_worlds_peak_named_cells_at_or_after_168_nodes": [
+      15,
+      16
+    ],
+    "truthful_8_worlds_peak_total_storage_range": [
+      184,
+      185
+    ],
+    "entire_48_worlds_peak_total_storage": 185
+  },
+  "conclusions": {
+    "direct_verbatim_append_feasible": false,
+    "pinned_b53_PCs_can_replace_F1c_PCs_by_paid_next_and_const_patches": false,
+    "union_17_keys_all_simultaneously_occupied": "NOT_ESTABLISHED",
+    "alternate_actor_paid_source_reuse_feasible": "NOT_ESTABLISHED",
+    "retained_B51c_training_feedback_present": true,
+    "complete_F1d1_actor_paid_experiment_done": false,
+    "strict_N56A_B_C": false,
+    "b3_met": false,
+    "b4_met": false,
+    "cyberlife": false
+  }
+}

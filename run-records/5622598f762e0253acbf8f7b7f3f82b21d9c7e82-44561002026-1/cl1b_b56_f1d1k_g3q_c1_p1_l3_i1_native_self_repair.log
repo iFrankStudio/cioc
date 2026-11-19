@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.39s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c1_p1_l3_i1_native_self_repair.rs (target/debug/build/cl0-world/e399b1b07ec315c5/out/cl1b_b56_f1d1k_g3q_c1_p1_l3_i1_native_self_repair-e399b1b07ec315c5)
+
+running 2 tests
+test g3q_c1_i1_original_single_pid_paid_patchconst_recertification_and_hidden_task ... ok
+test g3q_c1_i1_patchconst_disabled_world_ablation_no_certification_progress ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
