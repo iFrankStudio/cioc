@@ -141,6 +141,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f0_feedback_relearning
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation
             cl1b_b56_f1d1k_g3q_c1_p1_l3_f2_feedback_truth_alias
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_i0_certified_feedback_integrated
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -304,6 +305,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f0_feedback_relearning]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f1_matched_retention_ablation]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_f2_feedback_truth_alias]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i0_certified_feedback_integrated]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -316,8 +318,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 80 ]; then
-            echo "Expected exactly 80 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 81 ]; then
+            echo "Expected exactly 81 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -494,6 +496,23 @@ jobs:
               echo "PASS native-full-world-alias=f2" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-full-world-alias=f2" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # I0: first original PID1 integrating source-paid three-mode coverage
+          # certificate, reject-only unsafe gate, authentic hidden task service,
+          # feedback Read20, task shift and learned finite-policy retention.
+          # Reexecute EVERY original charged CIL step and external feedback event.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i0_certified_feedback_integrated'; then
+            i0_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i0_native_certified_feedback.json
+            if [ -f "${i0_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i0_independent_native_certified_feedback_replay.py \
+                "${i0_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i0_independent_native_certified_feedback_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i0_independent_native_certified_feedback_replay.stderr.log; then
+              echo "PASS native-integrated-cert-feedback=i0" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-integrated-cert-feedback=i0" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
