@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-MANIFEST=ROOT/"studies/CL1B-POLICY-P4F1-frozen-event-gated-24-stage-110-world-v1.json"
+MANIFEST=ROOT/"studies/CL1B-POLICY-P4F1-frozen-recoverable-source-policy-with-new-heldout-v1.json"
 KEYS=(11,20,21,30,32,33,34,35,36)
 CREDITS=6000
 
