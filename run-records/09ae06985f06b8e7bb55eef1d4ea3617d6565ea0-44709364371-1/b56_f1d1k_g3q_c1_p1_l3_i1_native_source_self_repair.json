@@ -1,0 +1,335 @@
+{
+  "arms": [
+    {
+      "arm": "already_safe",
+      "credits_remaining": 6643,
+      "final_executable_pc6": 2,
+      "original_paid_steps": 1357,
+      "original_pid1_halted": true,
+      "paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_metacode_fetches": 33,
+      "paid_task_services": [
+        {
+          "epoch": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 487,
+          "truth": 0
+        },
+        {
+          "epoch": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 608,
+          "truth": 0
+        },
+        {
+          "epoch": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 730,
+          "truth": 1
+        },
+        {
+          "epoch": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 850,
+          "truth": 1
+        },
+        {
+          "epoch": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 970,
+          "truth": 0
+        },
+        {
+          "epoch": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1095,
+          "truth": 0
+        },
+        {
+          "epoch": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1216,
+          "truth": 1
+        },
+        {
+          "epoch": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1335,
+          "truth": 1
+        }
+      ],
+      "paid_witnesses": [
+        {
+          "key": 8,
+          "step": 127,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 243,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 360,
+          "value": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_external_source_or_rule_writes": 0,
+      "source_edits": [],
+      "structural_certificate_success_count": 1
+    },
+    {
+      "arm": "unsafe_seed_repaired_truthful",
+      "credits_remaining": 6276,
+      "final_executable_pc6": 2,
+      "original_paid_steps": 1724,
+      "original_pid1_halted": true,
+      "paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_metacode_fetches": 42,
+      "paid_task_services": [
+        {
+          "epoch": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 854,
+          "truth": 0
+        },
+        {
+          "epoch": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 975,
+          "truth": 0
+        },
+        {
+          "epoch": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1097,
+          "truth": 1
+        },
+        {
+          "epoch": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1217,
+          "truth": 1
+        },
+        {
+          "epoch": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1337,
+          "truth": 0
+        },
+        {
+          "epoch": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1462,
+          "truth": 0
+        },
+        {
+          "epoch": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1583,
+          "truth": 1
+        },
+        {
+          "epoch": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1702,
+          "truth": 1
+        }
+      ],
+      "paid_witnesses": [
+        {
+          "key": 7,
+          "step": 120,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 230,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 341,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 494,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 610,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 727,
+          "value": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_external_source_or_rule_writes": 0,
+      "source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "node": 6,
+          "pc": 176,
+          "step": 367,
+          "suppressed": false
+        }
+      ],
+      "structural_certificate_success_count": 1
+    },
+    {
+      "arm": "unsafe_seed_repaired_inverted",
+      "credits_remaining": 6764,
+      "final_executable_pc6": 2,
+      "original_paid_steps": 1236,
+      "original_pid1_halted": true,
+      "paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "paid_metacode_fetches": 30,
+      "paid_task_services": [
+        {
+          "epoch": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 854,
+          "truth": 0
+        },
+        {
+          "epoch": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 974,
+          "truth": 0
+        },
+        {
+          "epoch": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1094,
+          "truth": 0
+        },
+        {
+          "epoch": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1214,
+          "truth": 0
+        }
+      ],
+      "paid_witnesses": [
+        {
+          "key": 7,
+          "step": 120,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 230,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 341,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 494,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 610,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 727,
+          "value": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_external_source_or_rule_writes": 0,
+      "source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "node": 6,
+          "pc": 176,
+          "step": 367,
+          "suppressed": false
+        }
+      ],
+      "structural_certificate_success_count": 1
+    }
+  ],
+  "level": "NATIVE_ONE_PID_PROGRAMMED_CERTIFICATE_DRIVEN_SOURCE_REPAIR_AND_TASK_RELEARNING",
+  "limits": "Narrow preprogrammed literal repair only; not self-discovered generic rule replacement or general cyberlife.",
+  "source_sha": "09ae06985f06b8e7bb55eef1d4ea3617d6565ea0",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I1"
+}
