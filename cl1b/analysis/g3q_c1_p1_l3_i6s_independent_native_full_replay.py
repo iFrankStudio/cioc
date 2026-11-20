@@ -224,7 +224,7 @@ def replay_once(source,arm,logfile=None):
 def main():
     frozen=json.loads(FREEZE.read_text())
     source=frozen["original_native_CIL_source"]
-    cases=frozen["all64_original_world_cases"]
+    cases=frozen["pre_registered_all64"]
     controls=frozen["controls"]
     assert len(source)==180 and len(cases)==64 and len(controls)==3
     assert source[150]["nonzero"]==172
