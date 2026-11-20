@@ -1,0 +1,21 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: value assigned to `output` is never read[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution.rs:59:30
+    [1m[94m|[0m
+[1m[94m 59[0m [1m[94m|[0m   let mut output:Option<i64>=None;
+    [1m[94m|[0m                              [1m[33m^^^^[0m [1m[33mthis value is reassigned later and never used[0m
+[1m[94m...[0m
+[1m[94m111[0m [1m[94m|[0m      EventKind::CellWritten{key:33,value}=>output=Some(*value),
+    [1m[94m|[0m                                            [1m[94m-------------------[0m [1m[94m`output` is overwritten here before the previous value is read[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution") generated 1 warning
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.25s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution.rs (target/debug/build/cl0-world/6ea8832e789a8433/out/cl1b_b56_f1d1k_g3q_c1_p1_l2_m1_certified_bank_reexecution-6ea8832e789a8433)
+
+running 1 test
+test g3q_c1_p1_l2_m1_original_pid_paid_coverage_bank_redeployment_three_opcode_execution ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.40s
+
