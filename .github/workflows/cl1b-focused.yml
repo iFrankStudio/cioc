@@ -230,6 +230,14 @@ jobs:
                     full=1
                   fi ;;
                 cl0/crates/world/tests/cl1b_*.rs)
+                  # git diff --name-only includes deletions. A deleted/archived
+                  # historical test is no longer an executable native target.
+                  # The preceding exhaustive current-directory manifest audit
+                  # still fails closed for unregistered ACTIVE test files.
+                  if [ ! -f "../${changed_path}" ]; then
+                    echo "Archived or deleted native test: ${changed_path}; active manifest already audited"
+                    continue
+                  fi
                   name="${changed_path##*/}"
                   native_target="${name%.rs}"
                   registered=0
