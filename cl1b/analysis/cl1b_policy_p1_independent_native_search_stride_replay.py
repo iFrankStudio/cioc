@@ -91,8 +91,8 @@ def replay(original,case,native_trace=None):
                 assert addr==33 and value==0
                 resets.append({"step":paid,"value":value})
             if addr==21:
-                assert at in (28,60)
-                assert value==(0 if at==28 else 1)
+                assert at in (27,60)
+                assert value==(0 if at==27 else 1)
                 claims.append({"step":paid,"value":value})
             pc=op["next"]
         elif kind=="Branch":
@@ -110,7 +110,7 @@ def replay(original,case,native_trace=None):
                 "after":code[46]["value"],"edit_suppressed":suppressed})
             pc=op["next"]
         elif kind=="Halt":
-            assert at in (29,61)
+            assert at in (28,61)
             pc=at
         else:
             raise AssertionError(("unsupported source opcode",at,kind))
@@ -145,8 +145,7 @@ def replay(original,case,native_trace=None):
     assert [x["value"] for x in reads]==[x["feedback"] for x in services]
     assert len(successes)==len(resets)
     assert len(claims)==1
-    assert code[1]=={"kind":"Const","dst":3,"value":11,"next":2} or (
-        code[1]==original[1])
+    assert code[1]==original[1], "no source change at fixed original Read3 PC1"
     expected=case["expected"]
     result={
         "paid_steps":paid,"halt_pc":pc,
