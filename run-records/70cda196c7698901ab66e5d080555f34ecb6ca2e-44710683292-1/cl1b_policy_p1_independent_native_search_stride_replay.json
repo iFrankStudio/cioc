@@ -1,0 +1,16 @@
+{
+  "study": "CL1B-POLICY-P1",
+  "evidence_level": "NATIVE_6_WORLD_SOURCE_INDEPENDENT_EVERY_PAID_CIL_AND_FEEDBACK_REPLAY",
+  "source_sha": "70cda196c7698901ab66e5d080555f34ecb6ca2e",
+  "native_paid_instructions_replayed": 856,
+  "source_policy_stride_PC46_mutated_by_original_PID": true,
+  "stride2_paid_instructions_with_actor_policy_edit": 149,
+  "stride2_paid_instructions_when_same_native_patch_is_suppressed": 196,
+  "charged_instruction_savings": 47,
+  "genuine_task_service_attempts_saved": 2,
+  "stride1_noop_edit_negative_control_charged_savings": 0,
+  "deceptive_inverted_reward_causes_false_success": true,
+  "all_zero_sham_causes_failfast": true,
+  "first_divergence": null,
+  "limits": "The researcher designed candidate stride update and feedback logic; not learned algorithm invention. Cyclic task regimes are preselected, no universal task generalization."
+}

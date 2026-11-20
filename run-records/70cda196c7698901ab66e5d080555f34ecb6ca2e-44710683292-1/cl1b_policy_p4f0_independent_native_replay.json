@@ -1,0 +1,59 @@
+{
+  "study": "CL1B-POLICY-P4F0",
+  "source_sha": "70cda196c7698901ab66e5d080555f34ecb6ca2e",
+  "evidence_level": "110_ORIGINAL_NATIVE_WORLDS_EVERY_CHARGED_CIL_INSTRUCTION_REPLAY",
+  "native_worlds": 110,
+  "paid_original_instructions_replayed": 136805,
+  "regimes": {
+    "stable": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 0,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 0,
+      "neutral": 9
+    },
+    "switch": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -432,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 9,
+      "neutral": 0
+    },
+    "alternate": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 945,
+      "net_task_probe_saving": 63,
+      "beneficial": 6,
+      "harmful": 3,
+      "neutral": 0
+    },
+    "scrambled": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 1065,
+      "net_task_probe_saving": 81,
+      "beneficial": 3,
+      "harmful": 6,
+      "neutral": 0
+    },
+    "holdout_revert": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -216,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 9,
+      "neutral": 0
+    },
+    "holdout_rare_shock": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -1532,
+      "net_task_probe_saving": -48,
+      "beneficial": 0,
+      "harmful": 6,
+      "neutral": 3
+    }
+  },
+  "first_native_divergence": null,
+  "limits": "Author-selected threshold2 and fallback stride1; no self-invented policy, no open-ended organism."
+}
