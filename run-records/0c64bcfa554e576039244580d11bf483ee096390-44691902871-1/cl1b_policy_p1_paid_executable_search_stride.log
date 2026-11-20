@@ -1,0 +1,24 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[0m[1m: missing type for `const` item[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p1_paid_executable_search_stride.rs:244:12
+    [1m[94m|[0m
+[1m[94m244[0m [1m[94m|[0m  const root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+    [1m[94m|[0m            [1m[91m^[0m [1m[91mhelp: provide a type for the constant: `: &Path`[0m
+
+[1m[91merror[E0658][0m[1m: cannot call conditionally-const associated function `Path::new::<str>` in constants[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p1_paid_executable_search_stride.rs:244:13
+    [1m[94m|[0m
+[1m[94m244[0m [1m[94m|[0m  const root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+    [1m[94m|[0m             [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: calls in constants are limited to constant functions, tuple structs and tuple variants
+    [1m[94m= [0m[1mnote[0m: see issue #143874 <https://github.com/rust-lang/rust/issues/143874> for more information
+
+[1m[91merror[0m[1m: `Path::new` is not yet stable as a const fn[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p1_paid_executable_search_stride.rs:244:13
+    [1m[94m|[0m
+[1m[94m244[0m [1m[94m|[0m  const root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+    [1m[94m|[0m             [1m[91m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+
+[1mFor more information about this error, try `rustc --explain E0658`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_policy_p1_paid_executable_search_stride") due to 3 previous errors
