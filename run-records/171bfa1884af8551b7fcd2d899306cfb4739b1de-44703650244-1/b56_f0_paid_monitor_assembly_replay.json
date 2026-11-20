@@ -1,0 +1,624 @@
+{
+  "study": "B56-F0",
+  "source_sha": "171bfa1884af8551b7fcd2d899306cfb4739b1de",
+  "manifest_sha256": "bf4bf5e3d772e341216b6b4ec8f38c4765b84ac15b95725e5b886cd17e6c7365",
+  "native_worlds_replayed": 24,
+  "native_paid_steps_replayed": 96000,
+  "native_external_interventions_replayed": 15592,
+  "native_changed_source_edges_replayed": 260,
+  "native_full_graph_node_mutations_replayed": 316,
+  "first_divergence": null,
+  "complete_service_monitor_absent_in_founder": true,
+  "actor_paid_monitor_assembly_feasible": true,
+  "authored_assembly_not_self_originated_policy": true,
+  "preexisting_complete_training_feedback_circuit": true,
+  "strict_n56a_de_novo_monitor_origin_gate_passed": false,
+  "f0_mechanical_service_path_assembly_without_de_novo_origin": true,
+  "n56b_policy_selection_and_useful_advantage_not_tested": true,
+  "n56c_generator_second_order_revision_not_tested": true,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false,
+  "by_arm": {
+    "A_ACTOR_ASSEMBLE": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 192,
+      "wrong": 96,
+      "missing": 0,
+      "all_correct": 1374,
+      "service": 1470,
+      "paid_feedback_reads": 1468,
+      "actor_source_monitor_links": 4,
+      "detected_failure_markers": 96,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 380
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 354
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 380
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 354
+        }
+      ]
+    },
+    "B_BLIND_ASSEMBLE": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 32,
+      "wrong": 256,
+      "missing": 0,
+      "all_correct": 245,
+      "service": 1568,
+      "paid_feedback_reads": 1568,
+      "actor_source_monitor_links": 4,
+      "detected_failure_markers": 0,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            24,
+            24,
+            24
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 392
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            8,
+            0,
+            8
+          ],
+          "wrong": [
+            16,
+            24,
+            16
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 392
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            24,
+            24,
+            24
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 392
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            8,
+            0,
+            8
+          ],
+          "wrong": [
+            16,
+            24,
+            16
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -3
+          ],
+          "source_links": 1,
+          "clones": 4,
+          "service_feedback_reads": 392
+        }
+      ]
+    },
+    "C_EDITS_DISABLED": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 0,
+      "wrong": 0,
+      "missing": 288,
+      "all_correct": 0,
+      "service": 0,
+      "paid_feedback_reads": 0,
+      "actor_source_monitor_links": 0,
+      "detected_failure_markers": 0,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            0,
+            0,
+            0
+          ],
+          "missing": 72,
+          "chosen": null,
+          "source_links": 0,
+          "clones": 0,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            0,
+            0,
+            0
+          ],
+          "missing": 72,
+          "chosen": null,
+          "source_links": 0,
+          "clones": 0,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            0,
+            0,
+            0
+          ],
+          "missing": 72,
+          "chosen": null,
+          "source_links": 0,
+          "clones": 0,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            0,
+            0,
+            0
+          ],
+          "wrong": [
+            0,
+            0,
+            0
+          ],
+          "missing": 72,
+          "chosen": null,
+          "source_links": 0,
+          "clones": 0,
+          "service_feedback_reads": 0
+        }
+      ]
+    },
+    "D_NO_ASSEMBLY": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 192,
+      "wrong": 96,
+      "missing": 0,
+      "all_correct": 2056,
+      "service": 2152,
+      "paid_feedback_reads": 0,
+      "actor_source_monitor_links": 0,
+      "detected_failure_markers": 0,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 0
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 0
+        }
+      ]
+    },
+    "E_STATIC_EVERY": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 192,
+      "wrong": 96,
+      "missing": 0,
+      "all_correct": 1384,
+      "service": 1480,
+      "paid_feedback_reads": 1478,
+      "actor_source_monitor_links": 0,
+      "detected_failure_markers": 96,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 383
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 356
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 383
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 356
+        }
+      ]
+    },
+    "F_STATIC_FOURTH": {
+      "worlds": 4,
+      "paid": 16000,
+      "correct": 192,
+      "wrong": 96,
+      "missing": 0,
+      "all_correct": 828,
+      "service": 924,
+      "paid_feedback_reads": 228,
+      "actor_source_monitor_links": 0,
+      "detected_failure_markers": 24,
+      "per_seed": [
+        {
+          "seed": 101,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 59
+        },
+        {
+          "seed": 211,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 55
+        },
+        {
+          "seed": 307,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            0,
+            -2
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 59
+        },
+        {
+          "seed": 401,
+          "paid": 4000,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "missing": 0,
+          "chosen": [
+            1,
+            -3
+          ],
+          "source_links": 0,
+          "clones": 2,
+          "service_feedback_reads": 55
+        }
+      ]
+    }
+  }
+}
