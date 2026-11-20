@@ -152,6 +152,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6u_task_policy_shift
             cl1b_policy_p0_task_feedback_paid_code_edit
             cl1b_policy_p1_paid_executable_search_stride
+            cl1b_policy_p2_relative_delta_original_native
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -334,6 +335,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6u_task_policy_shift]=1
             wanted[cl1b_policy_p0_task_feedback_paid_code_edit]=1
             wanted[cl1b_policy_p1_paid_executable_search_stride]=1
+            wanted[cl1b_policy_p2_relative_delta_original_native]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -346,8 +348,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 91 ]; then
-            echo "Expected exactly 91 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 92 ]; then
+            echo "Expected exactly 92 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -744,6 +746,25 @@ jobs:
               echo "PASS native-complete-81-goal-policy-positive-negative-transfer=p1-h81" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-complete-81-goal-policy-positive-negative-transfer=p1-h81" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # POLICY-P2: actor-paid success goal34 history + relative signed
+          # delta calibration drives original executable search stride PC46.
+          # Native all81 pairs and six controls must match independent
+          # source re-execution of 168 separate original one-PID1 worlds,
+          # every register/PC/private credit/cell and actual task feedback.
+          # Includes the aggregate adverse-transfer result, not only cycles.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p2_relative_delta_original_native'; then
+            p2_summary=cl1b-ci-evidence/cl1b_policy_p2_native_relative_policy_complete_cube.json
+            if [ -f "${p2_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p2_independent_native_relative_delta_replay.py \
+                "${p2_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p2_independent_native_relative_delta_replay.json \
+                2> cl1b-ci-evidence/cl1b_policy_p2_independent_native_relative_delta_replay.stderr.log; then
+              echo "PASS native-complete-81-goal-relative-delta-policy-transfer=p2" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-complete-81-goal-relative-delta-policy-transfer=p2" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
