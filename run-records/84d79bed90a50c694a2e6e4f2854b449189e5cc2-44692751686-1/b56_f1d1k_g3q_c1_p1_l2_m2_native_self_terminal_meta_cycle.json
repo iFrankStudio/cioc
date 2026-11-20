@@ -1,0 +1,144 @@
+{
+  "arms": [
+    {
+      "accumulator_checkpoints": [
+        1,
+        0,
+        2
+      ],
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "arm": "original",
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "computed_modes": [
+        2
+      ],
+      "credits_remaining": 7851,
+      "edited_edge_from": 60,
+      "edited_edge_to": 178,
+      "edited_original_node": 59,
+      "halt_pc": 178,
+      "meta_fetches": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "native_paid_steps": 24149,
+      "original_certificates": 64,
+      "original_pid_self_halted": true,
+      "original_single_pid": 1,
+      "paid_bank_retention": 72,
+      "peak_storage": 196,
+      "postload_external_writes": 0,
+      "source_patch_count": 1,
+      "source_patch_opcode_pc": 177,
+      "source_patch_step": 24064
+    },
+    {
+      "accumulator_checkpoints": [
+        1,
+        0,
+        1
+      ],
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "arm": "preload_tail_bank_address_mutant",
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          51,
+          1
+        ]
+      ],
+      "computed_modes": [
+        1
+      ],
+      "credits_remaining": 7851,
+      "edited_edge_from": 60,
+      "edited_edge_to": 178,
+      "edited_original_node": 59,
+      "halt_pc": 178,
+      "meta_fetches": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "native_paid_steps": 24149,
+      "original_certificates": 64,
+      "original_pid_self_halted": true,
+      "original_single_pid": 1,
+      "paid_bank_retention": 72,
+      "peak_storage": 196,
+      "postload_external_writes": 0,
+      "source_patch_count": 1,
+      "source_patch_opcode_pc": 177,
+      "source_patch_step": 24064
+    }
+  ],
+  "level": "NATIVE_SINGLE_PID_PROGRAMMED_SELF_PATCHED_TERMINAL_META_CYCLE",
+  "limits": "Researcher-authored programmed PatchNext, no hidden task or feedback-driven learned self-edit.",
+  "source_sha": "84d79bed90a50c694a2e6e4f2854b449189e5cc2",
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M2"
+}

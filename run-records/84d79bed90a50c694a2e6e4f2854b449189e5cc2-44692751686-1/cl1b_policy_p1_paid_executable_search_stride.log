@@ -1,0 +1,33 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0435][0m[1m: attempt to use a non-constant value in a constant[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p1_paid_executable_search_stride.rs:245:53
+    [1m[94m|[0m
+[1m[94m245[0m [1m[94m|[0m  const small:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+    [1m[94m|[0m                                                     [1m[91m^^^^[0m [1m[91mnon-constant value[0m
+    [1m[94m|[0m
+[1m[96mhelp[0m: consider using `let` instead of `const`
+    [1m[94m|[0m
+[1m[94m245[0m [91m- [0m [91mconst [0msmall:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+[1m[94m245[0m [92m+ [0m [92mlet [0msmall:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+    [1m[94m|[0m
+
+[1m[91merror[E0716][0m[1m: temporary value dropped while borrowed[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p1_paid_executable_search_stride.rs:246:13
+    [1m[94m|[0m
+[1m[94m246[0m [1m[94m|[0m  let source=small["original_native_CIL_source"].as_array().unwrap();
+    [1m[94m|[0m             [1m[91m^^^^^[0m                                                  [1m[94m-[0m [1m[94mtemporary value is freed at the end of this statement[0m
+    [1m[94m|[0m             [1m[91m|[0m
+    [1m[94m|[0m             [1m[91mcreates a temporary value which is freed while still in use[0m
+[1m[94m...[0m
+[1m[94m270[0m [1m[94m|[0m   let on_native=execute(source,on,&directory);
+    [1m[94m|[0m                         [1m[94m------[0m [1m[94mborrow later used here[0m
+    [1m[94m|[0m
+[1m[96mhelp[0m: consider using a `let` binding to create a longer lived value
+    [1m[94m|[0m
+[1m[94m246[0m [92m~ [0m [92mlet binding = small;[0m
+[1m[94m247[0m [92m~  [0mlet source=[92mbinding[0m["original_native_CIL_source"].as_array().unwrap();
+    [1m[94m|[0m
+
+[1mSome errors have detailed explanations: E0435, E0716.[0m
+[1mFor more information about an error, try `rustc --explain E0435`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_policy_p1_paid_executable_search_stride") due to 2 previous errors
