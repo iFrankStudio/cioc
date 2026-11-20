@@ -773,12 +773,12 @@ jobs:
           # P3: preregistered eight-stage lifetime transfer across three
           # regimes; all 56 native original-PID worlds must match independent
           # every-paid-opcode CIL source interpretation (not just aggregate).
-          if printf '%s\\n' "${selected[@]}" | grep -qx 'cl1b_policy_p3_eight_stage_native'; then
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p3_eight_stage_native'; then
             p3_summary=cl1b-ci-evidence/cl1b_policy_p3_native_eight_stage_regime_transfer.json
-            if [ -f "${p3_summary}" ] && \\
-              python3 ../cl1b/analysis/cl1b_policy_p3_independent_native_eight_stage_replay.py \\
-                "${p3_summary}" cl1b-ci-evidence \\
-                > cl1b-ci-evidence/cl1b_policy_p3_independent_native_eight_stage_replay.json \\
+            if [ -f "${p3_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p3_independent_native_eight_stage_replay.py \
+                "${p3_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p3_independent_native_eight_stage_replay.json \
                 2> cl1b-ci-evidence/cl1b_policy_p3_independent_native_eight_stage_replay.stderr.log; then
               echo "PASS native-eight-stage-regime-transfer=p3" | tee -a cl1b-ci-evidence/summary.txt
             else
