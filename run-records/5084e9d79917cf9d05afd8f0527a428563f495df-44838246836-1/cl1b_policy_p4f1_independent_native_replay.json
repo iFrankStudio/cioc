@@ -1,0 +1,87 @@
+{
+  "study": "CL1B-POLICY-P4F1",
+  "evidence_level": "182_ORIGINAL_NATIVE_WORLDS_INDEPENDENT_EXACT_CIL_REPLAY",
+  "source_sha": "5084e9d79917cf9d05afd8f0527a428563f495df",
+  "native_worlds": 182,
+  "original_paid_instructions_replayed": 223579,
+  "f1_same_source_regimes": {
+    "stable": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 0,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 0,
+      "neutral": 9
+    },
+    "switch": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -432,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 9,
+      "neutral": 0
+    },
+    "alternate": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 753,
+      "net_task_probe_saving": 63,
+      "beneficial": 6,
+      "harmful": 3,
+      "neutral": 0
+    },
+    "scrambled": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 1648,
+      "net_task_probe_saving": 114,
+      "beneficial": 3,
+      "harmful": 6,
+      "neutral": 0
+    },
+    "holdout_revert": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -216,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 9,
+      "neutral": 0
+    },
+    "holdout_rare_shock": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -147,
+      "net_task_probe_saving": 0,
+      "beneficial": 0,
+      "harmful": 6,
+      "neutral": 3
+    },
+    "holdout_late_switch": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 969,
+      "net_task_probe_saving": 63,
+      "beneficial": 6,
+      "harmful": 3,
+      "neutral": 0
+    },
+    "holdout_two_shocks": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -672,
+      "net_task_probe_saving": -9,
+      "beneficial": 0,
+      "harmful": 9,
+      "neutral": 0
+    }
+  },
+  "fresh_heldout_f1_vs_f0_cross_source": {
+    "holdout_late_switch": {
+      "pairs": 9,
+      "absolute_f1_vs_f0_paid_instruction_saving": -210,
+      "absolute_f1_vs_f0_task_probe_saving": 0
+    },
+    "holdout_two_shocks": {
+      "pairs": 9,
+      "absolute_f1_vs_f0_paid_instruction_saving": 936,
+      "absolute_f1_vs_f0_task_probe_saving": 36
+    }
+  },
+  "first_native_divergence": null,
+  "limitations": "Author-authored remembered policy, mode flag and thresholds; source-distinct F1/F0 comparisons are not same-source causal controls."
+}

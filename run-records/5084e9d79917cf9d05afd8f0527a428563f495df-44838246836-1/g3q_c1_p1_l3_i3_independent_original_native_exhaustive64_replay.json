@@ -1,0 +1,131 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I3",
+  "evidence_level": "NATIVE_66_WORLDS_EXACT_CHARGED_CIL_STEP_AND_FEEDBACK_REPLAY",
+  "source_sha": "5084e9d79917cf9d05afd8f0527a428563f495df",
+  "fully_replayed_original_paid_instructions": 62993,
+  "all64_source_rules_scanned": 64,
+  "all64_actor_certified_count": 30,
+  "all64_actor_paid_edit_count": 40,
+  "false_certificates": 0,
+  "false_rejections": 0,
+  "first_divergence": null,
+  "high_value_counterexamples": [
+    {
+      "seed": [
+        0,
+        2,
+        1
+      ],
+      "paid_steps": 742,
+      "true_rule_safe": false,
+      "actor_approved": false,
+      "repaired_rule": [
+        0,
+        2,
+        0
+      ],
+      "patches": [
+        {
+          "step": 377,
+          "pc": 174,
+          "node": 6,
+          "before": 1,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ]
+    },
+    {
+      "seed": [
+        1,
+        1,
+        2
+      ],
+      "paid_steps": 741,
+      "true_rule_safe": false,
+      "actor_approved": false,
+      "repaired_rule": [
+        1,
+        1,
+        1
+      ],
+      "patches": [
+        {
+          "step": 377,
+          "pc": 174,
+          "node": 6,
+          "before": 2,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ]
+    },
+    {
+      "seed": [
+        2,
+        0,
+        3
+      ],
+      "paid_steps": 1710,
+      "true_rule_safe": true,
+      "actor_approved": true,
+      "repaired_rule": [
+        2,
+        0,
+        2
+      ],
+      "patches": [
+        {
+          "step": 365,
+          "pc": 174,
+          "node": 6,
+          "before": 3,
+          "after": 2,
+          "edit_suppressed": false
+        }
+      ]
+    },
+    {
+      "seed": [
+        3,
+        3,
+        3
+      ],
+      "paid_steps": 670,
+      "true_rule_safe": false,
+      "actor_approved": false,
+      "repaired_rule": [
+        3,
+        3,
+        3
+      ],
+      "patches": [
+        {
+          "step": 341,
+          "pc": 174,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": false
+        }
+      ]
+    }
+  ],
+  "adversarial_controls": [
+    {
+      "name": "inverted_feedback_with_structurally_safe_repair",
+      "paid_steps": 1222,
+      "certified": true,
+      "true_task_matches": 0,
+      "actor_success_claim": 1
+    },
+    {
+      "name": "paid_patchconst_suppressed_then_failfast",
+      "paid_steps": 718,
+      "certified": false,
+      "true_task_matches": 0,
+      "actor_success_claim": null
+    }
+  ],
+  "limitations": "One actor per original world, researcher authored candidate and bank-copy repair; no general rule invention or semantic-truth oracle."
+}
