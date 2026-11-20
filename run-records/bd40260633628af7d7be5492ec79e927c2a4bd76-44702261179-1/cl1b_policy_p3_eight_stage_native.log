@@ -1,0 +1,9 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.39s
+[1m[92m     Running[0m tests/cl1b_policy_p3_eight_stage_native.rs (target/debug/build/cl0-world/b51981cbf7d3e769/out/cl1b_policy_p3_eight_stage_native-b51981cbf7d3e769)
+
+running 1 test
+test policy_p3_eight_stage_native_regime_transfer_and_controls ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
