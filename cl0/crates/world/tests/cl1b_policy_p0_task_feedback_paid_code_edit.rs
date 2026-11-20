@@ -230,12 +230,14 @@ fn policy_p0_original_task_feedback_mutates_paid_executable_const(){
   let mode=ctrl["feedback"].as_str().unwrap();
   let disabled=ctrl["suppressed"].as_bool().unwrap();
   let observed=run(source,name,goals,mode,disabled,&ctrl["expected"],&directory);
-  if disabled{
-   assert_ne!(observed["actor_claimed_success"],1);
-  }else{
+  if disabled || mode=="forced0"{
+   assert_ne!(observed["actor_claimed_success"],1,
+      "disabled source edits or sham all-zero rewards must not claim task success");
+  }else if mode=="inverted"{
    assert_eq!(observed["actor_claimed_success"],1);
    assert!(observed["original_paid_task_services"].as_array().unwrap()
-      .iter().filter(|v|v["truth"]==1).count()<4);
+      .iter().filter(|v|v["truth"]==1).count()<4,
+      "inverted feedback must reveal an actor-versus-truth discrepancy");
   }
   native_controls.push(observed);
  }
