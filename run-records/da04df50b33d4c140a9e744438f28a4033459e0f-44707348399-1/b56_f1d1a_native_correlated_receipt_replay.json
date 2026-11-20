@@ -1,0 +1,22 @@
+{
+  "study": "B56-F1d1a",
+  "kind": "preassembled_native_vm_resource_and_semantic_gate",
+  "source_sha": "da04df50b33d4c140a9e744438f28a4033459e0f",
+  "preregistered_manifest_sha256": "cc68abc29e3e6bb3ef543e1b203df204793ef38ce36f3372f54f35e71e43c66b",
+  "original_native_worlds_entirely_reexecuted": 128,
+  "native_paid_CIL_steps_independently_reexecuted": 10840,
+  "external_receipt_interventions_independently_reexecuted": 1536,
+  "original_native_feedback_bit_reads_reexecuted": 160,
+  "native_rejection_marker_writes_reexecuted": 160,
+  "four_service_output_segments": 512,
+  "source_extracted_from_current_Rust_and_B53_F1c": true,
+  "exact_first_divergence": null,
+  "conditional_cost_tradeoff": 64,
+  "old_replay_price_reverses": 16,
+  "signal_semantic_forgery_not_authenticatable": true,
+  "useful_actor_policy_selection": false,
+  "strict_n56a_b_c": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife": false
+}
