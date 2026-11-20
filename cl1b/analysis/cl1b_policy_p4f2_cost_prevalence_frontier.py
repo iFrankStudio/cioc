@@ -2,9 +2,10 @@
 """P4F2 synthetic cost frontier with explicit third-task probe charge.
 
 This is a finite counterfactual model, NOT original Rust/CIL evidence.
-The previous model omitted the mismatch cost of the third task needed
-to obtain the informative feedback. Both variants are retained to make
-the sensitivity and the correction auditable.
+The previous revision incorrectly double-counted the third task mismatch:
+the sum over t>=2 already includes the probe task. This version separates
+ordinary service (shared) from a genuinely extra diagnostic task (optional).
+This is a synthetic model, not native CIL evidence.
 """
 import itertools
 import json
@@ -19,7 +20,8 @@ FAMILIES = {
 def loss(seq, patch, mismatch, observe, restore_at, charge_probe):
     # Decisions start after the common first two failed tasks.
     # Observation at t=2 must actually run the OLD policy to yield its bit.
-    # The probe's mismatch is an additional charge, not a free oracle.
+    # The normal t=2 task is ALREADY included in the sum below.
+    # charge_probe models a distinct EXTRA diagnostic attempt, not that task.
     return (
         observe
         + (patch if restore_at is not None else 0)
@@ -80,16 +82,16 @@ def audit():
     assert len(grid) == 648 and strict == 0
     return {
         "status": "SYNTHETIC_NOT_NATIVE",
-        "correction": "Earlier observation arm omitted the mismatch charge of the actual third task probe; the favorable prevalence counterexample disappears when this charge is included.",
-        "original_optimistic_weighted": {"immediate": 7, "never": 9, "best_observe": 6},
-        "probe_charged_weighted": {"immediate": 7, "never": 9, "best_observe": 9},
-        "original_optimistic_equal_costs": {"immediate": 37, "never": 20, "best_observe": 26},
-        "probe_charged_equal_costs": {"immediate": 37, "never": 20, "best_observe": 34},
-        "probe_charged_equal_weight_grid": {"cases": len(grid), "observe_strictly_better": strict},
+        "correction": "The ordinary third task is already counted in every arm; the former extra charge is valid only if a separate diagnostic task is performed. The favorable counterexample survives with shared service and disappears under the stipulated extra diagnostic charge.",
+        "shared_service_weighted": {"immediate": 7, "never": 9, "best_observe": 6},
+        "extra_diagnostic_weighted": {"immediate": 7, "never": 9, "best_observe": 9},
+        "shared_service_equal_costs": {"immediate": 37, "never": 20, "best_observe": 26},
+        "extra_diagnostic_equal_costs": {"immediate": 37, "never": 20, "best_observe": 34},
+        "extra_diagnostic_equal_weight_grid": {"cases": len(grid), "observe_strictly_better": strict},
         "limitations": [
             "Synthetic bit sequences and assumed costs, not native CIL traces",
-            "Observation probe and ordinary service cost may overlap in a real world; native accounting must avoid double counting",
-            "The fixed third-stage probe is charged only on observation arms, assuming it is incremental to their ordinary service",
+            "The t=2 normal task mismatch is already included in all arms; adding its cost again double-counts unless a distinct extra attempt actually occurs",
+            "The extra diagnostic case is a hypothetical distinct attempt with the same bit; native implementation must demonstrate that this attempt exists",
             "No B3/B4 or open-ended evolution claim",
         ],
         "native_falsification": "Run same-source original Rust/CIL matched shock worlds and account for incremental probe attempts, information access, patches, and all resource debits. Compare immediate, never, masked, inverted and patch-suppressed arms.",
