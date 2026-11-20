@@ -239,7 +239,7 @@ fn g3q_c1_i6s_exact_original_pid_pays_two_source_patches_and_three_certification
  let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
  let manifest:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
  let source=manifest["original_native_CIL_source"].as_array().unwrap();
- let arms=manifest["all64_original_world_cases"].as_array().unwrap();
+ let arms=manifest["pre_registered_all64"].as_array().unwrap();
  let controls=manifest["controls"].as_array().unwrap();
  assert_eq!(source.len(),180);
  assert_eq!(arms.len(),64);
