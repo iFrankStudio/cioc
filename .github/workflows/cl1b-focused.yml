@@ -147,6 +147,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i3_exhaustive64_isolation
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -316,6 +317,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i3_exhaustive64_isolation]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -328,8 +330,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 86 ]; then
-            echo "Expected exactly 86 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 87 ]; then
+            echo "Expected exactly 87 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -618,6 +620,24 @@ jobs:
               echo "PASS native-finite-one-edit-optimal=i5" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-finite-one-edit-optimal=i5" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # I6N native original PID1 fixed second edit baseline. 179 nodes,
+          # 64 genotypes and three causal worlds, up to 2 charged executable
+          # edits and 3 fully separated certificate passes before task service.
+          # Every internal CIL step and host feedback is independently
+          # source-reexecuted; no evidence-based second repair selection claim.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs'; then
+            i6n_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i6n_native_bounded_two_edit.json
+            if [ -f "${i6n_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.py \
+                "${i6n_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.stderr.log; then
+              echo "PASS native-two-paid-source-repairs=i6n" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-two-paid-source-repairs=i6n" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
