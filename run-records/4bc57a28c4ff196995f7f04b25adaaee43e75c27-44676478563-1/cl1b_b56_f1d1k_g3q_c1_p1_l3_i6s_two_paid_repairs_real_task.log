@@ -1,0 +1,19 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task.rs (target/debug/build/cl0-world/77b17c7f596e6a45/out/cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task-77b17c7f596e6a45)
+
+running 1 test
+
+thread 'g3q_c1_i6s_exact_original_pid_pays_two_source_patches_and_three_certification_rounds' (5205) panicked at crates/world/tests/cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task.rs:242:61:
+called `Option::unwrap()` on a `None` value
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test g3q_c1_i6s_exact_original_pid_pays_two_source_patches_and_three_certification_rounds ... FAILED
+
+failures:
+
+failures:
+    g3q_c1_i6s_exact_original_pid_pays_two_source_patches_and_three_certification_rounds
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+[1m[91merror[0m: test failed, to rerun pass `-p cl0-world --test cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task`
