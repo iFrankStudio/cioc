@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.35s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g3p_paid_duplicate_repair.rs (target/debug/build/cl0-world/27c6a6241d6de589/out/cl1b_b56_f1d1k_g3p_paid_duplicate_repair-27c6a6241d6de589)
+
+running 1 test
+B56_F1D1K_G3P_NATIVE_PAID_DUPLICATE_GUARD {"B3":false,"B4":false,"CIL_source_nodes":180,"S3_unreachable_task_still_unsolved":true,"actor_paid_Write63_repairs_meta_program":true,"authored_meta_opcode_ISA":true,"cyberlife":false,"data_keys":16,"full_64_descriptor_coverage":false,"full_G3":false,"full_Hk":false,"native_malformed_opcode_checks":false,"original_PID1_worlds":120,"source_identical_bypass_S4_fails":true,"source_paid_repeat_detection":true,"source_unchanged":true,"truth_S4_reachable_A_recovered":true,"truth_S5_duplicate_A_probe_avoided":true}
+test b56_f1d1k_g3p_paid_first_candidate_duplicate_guard ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.66s
+
