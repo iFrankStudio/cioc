@@ -84,7 +84,7 @@ fn run(frozen:&[Value],name:&str,seed:[i64;3],
     Op::Branch{nonzero,zero,..}=>if on!=0{*nonzero}else{*zero},
     _=>unreachable!()
    };
-   decisions.push(json!({"step":paid,"pc":ev.pc,"test":on,"target":target}));
+   decisions.push(json!({"step":paid,"pc":ev.pc,"condition":on,"target":target}));
   }
   if ev.pc==149{
    assert!(matches!(&ev.kind,EventKind::CellRead{key:11,..}));
