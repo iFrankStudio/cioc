@@ -108,10 +108,10 @@ fn execute(source:&[Value],case:&Value,folder:&std::path::Path)->Value{
     other=>panic!("missing paid attempt reset: {other:?}")
    }
   }
-  if [28,60].contains(&pc){
+  if [27,60].contains(&pc){
    match &event.kind{
     EventKind::CellWritten{key:21,value}=>{
-     assert_eq!(*value,if pc==28{0}else{1});
+     assert_eq!(*value,if pc==27{0}else{1});
      terminal_claims.push(json!({"step":charged,"value":value}));
     },
     other=>panic!("missing original PID paid terminal claim write: {other:?}")
