@@ -1,0 +1,5 @@
+source_sha=7d43da01ba58e83ef03934ebcbe035c247d9ff35
+native_job_result=failure
+run_id=44838041442
+run_attempt=1
+run_url=https://github.com/iFrankStudio/cioc/actions/runs/44838041442
