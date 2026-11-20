@@ -238,3 +238,84 @@ fn policy_p1_actor_feedback_pays_to_edit_executable_candidate_search_stride(){
    "limits":"Researcher designed source adaptation of transition stride, not invention of an algorithm; fixed finite cyclic tasks and a one-step paid causal source-edit mechanism."
   })).unwrap()).unwrap();
 }
+
+#[test]
+fn policy_p1_h81_full_native_goal_cube_detects_harmful_policy_transfer(){
+ const root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+ const small:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+ let source=small["original_native_CIL_source"].as_array().unwrap();
+ let exhaustive_path="../../../cl1b/studies/CL1B-POLICY-P1-H81-frozen-162-original-world-complete-transfer-audit-v1.json";
+ let h81:Value=serde_json::from_slice(&fs::read(root.join(exhaustive_path)).unwrap()).unwrap();
+ assert_eq!(h81["study"],"CL1B-POLICY-P1-H81");
+ assert_eq!(h81["original_source_nodes"],62);
+ let cases=h81["all162_pre_registered_native_cases"].as_array().unwrap();
+ assert_eq!(cases.len(),162);
+ let directory=root.join("../../cl1b-ci-evidence");
+ fs::create_dir_all(&directory).unwrap();
+ let mut all=Vec::<Value>::new();
+ let mut benefits=0_usize;
+ let mut harms=0_usize;
+ let mut ties=0_usize;
+ let mut aggregate_saved=0_i64;
+ let mut probe_savings=0_i64;
+ let mut charged=0_u64;
+ for i in 0..81_usize{
+  let on=&cases[2*i];
+  let off=&cases[2*i+1];
+  assert_eq!(on["goals"],off["goals"]);
+  assert_eq!(on["feedback"],"truth");
+  assert_eq!(off["feedback"],"truth");
+  assert_eq!(on["suppressed"],false);
+  assert_eq!(off["suppressed"],true);
+  let on_native=execute(source,on,&directory);
+  let off_native=execute(source,off,&directory);
+  assert_eq!(on_native["actor_claimed_success"],1);
+  assert_eq!(off_native["actor_claimed_success"],1);
+  assert_eq!(on_native["actor_completed_stages"],4);
+  assert_eq!(off_native["actor_completed_stages"],4);
+  let on_services=on_native["original_paid_task_services"].as_array().unwrap();
+  let off_services=off_native["original_paid_task_services"].as_array().unwrap();
+  assert_eq!(on_services.iter().filter(|event|event["truth"]==1).count(),4);
+  assert_eq!(off_services.iter().filter(|event|event["truth"]==1).count(),4);
+  let on_steps=on_native["paid_original_steps"].as_u64().unwrap();
+  let off_steps=off_native["paid_original_steps"].as_u64().unwrap();
+  let saving=off_steps as i64-on_steps as i64;
+  match saving.cmp(&0){
+   std::cmp::Ordering::Greater=>benefits+=1,
+   std::cmp::Ordering::Less=>harms+=1,
+   std::cmp::Ordering::Equal=>ties+=1,
+  }
+  aggregate_saved+=saving;
+  probe_savings+=off_services.len() as i64-on_services.len() as i64;
+  charged+=on_steps+off_steps;
+  all.push(json!({"goal_sequence":on["goals"],
+      "policy_on":on_native,"policy_off":off_native,
+      "source_patch_charged_step_savings":saving,
+      "source_patch_paid_task_probe_savings":off_services.len() as i64-on_services.len() as i64}));
+ }
+ assert_eq!((benefits,harms,ties),(27,27,27));
+ assert_eq!(aggregate_saved,-108);
+ assert_eq!(probe_savings,0);
+ assert_eq!(charged,35748);
+ assert_eq!(h81["pre_registered_source_projection"]["positive_policy_transfer"],benefits);
+ assert_eq!(h81["pre_registered_source_projection"]["negative_policy_transfer"],harms);
+ assert_eq!(h81["pre_registered_source_projection"]["neutral_policy_transfer"],ties);
+ assert_eq!(h81["pre_registered_source_projection"]["net_paid_instruction_savings"],aggregate_saved);
+ fs::write(directory.join("cl1b_policy_p1_h81_native_full_cube.json"),
+   serde_json::to_vec_pretty(&json!({
+    "study":"CL1B-POLICY-P1-H81",
+    "level":"NATIVE_ORIGINAL_PID_162_WORLD_COMPLETE_FINITE_POLICY_TRANSFER_CUBE",
+    "source_sha":std::env::var("GITHUB_SHA").unwrap_or_else(|_|"local".into()),
+    "frozen_program_nodes":62,
+    "all81_paired_native_worlds":all,
+    "counts":{"task_goal_sequences":81,"native_original_worlds":162,
+       "positive_policy_transfer":benefits,
+       "negative_policy_transfer":harms,
+       "neutral_policy_transfer":ties,
+       "net_paid_instruction_savings":aggregate_saved,
+       "net_paid_task_probe_savings":probe_savings,
+       "total_paid_original_CIL_instructions":charged,
+       "actor_true_four_task_completions":162},
+    "limits":"Entire source-62 task alphabet cube, not arbitrary real-world programs. Actor source policy code supplied by researchers; net negative transfer rather than unconditional adaptive advantage."
+   })).unwrap()).unwrap();
+}
