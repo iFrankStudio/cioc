@@ -150,6 +150,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6u_task_policy_shift
+            cl1b_policy_p0_task_feedback_paid_code_edit
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -330,6 +331,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6u_task_policy_shift]=1
+            wanted[cl1b_policy_p0_task_feedback_paid_code_edit]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -342,8 +344,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 89 ]; then
-            echo "Expected exactly 89 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 90 ]; then
+            echo "Expected exactly 90 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -686,6 +688,24 @@ jobs:
               echo "PASS native-task-policy-three-regimes=i6u" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-task-policy-three-regimes=i6u" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # POLICY-P0 orthogonal mechanism study: one uninterrupted original
+          # PID1 pays original executable task-Const edits PC1 in response
+          # to actual paid Write11 -> external SetCell20 -> paid Read20.
+          # Replay all eight native worlds, including edits-disabled,
+          # inverted-feedback and forced-zero-reward causal controls.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p0_task_feedback_paid_code_edit'; then
+            p0_summary=cl1b-ci-evidence/cl1b_policy_p0_native_task_source_policy.json
+            if [ -f "${p0_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p0_independent_native_paid_task_source_replay.py \
+                "${p0_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p0_independent_native_paid_task_source_replay.json \
+                2> cl1b-ci-evidence/cl1b_policy_p0_independent_native_paid_task_source_replay.stderr.log; then
+              echo "PASS native-feedback-conditioned-task-code-edit=p0" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-feedback-conditioned-task-code-edit=p0" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
