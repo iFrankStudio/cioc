@@ -1,0 +1,78 @@
+{
+  "arms": [
+    {
+      "actor_declared_success": 1,
+      "arm": "truthful_goal1",
+      "feedback_regime": "truth",
+      "hidden_goals": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "original_paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "original_paid_instructions": 495,
+      "original_process_halted": true,
+      "task_outputs": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "true_task_matches": 4,
+      "visible_feedback": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "world_occupied_units": 136
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "deceptive_goal0_0_2_2",
+      "feedback_regime": "inverted",
+      "hidden_goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "original_paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "original_paid_instructions": 495,
+      "original_process_halted": true,
+      "task_outputs": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "true_task_matches": 0,
+      "visible_feedback": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "world_occupied_units": 136
+    }
+  ],
+  "complete_serialized_world_bytes_equal": true,
+  "level": "NATIVE_FULL_WORLD_AND_EVENT_HISTORY_OBSERVATIONAL_ALIAS",
+  "limits": "Hidden goal exists only in external harness. This is a semantic identifiability counterexample, not a sensor for truth.",
+  "original_paid_actor_visible_trace_equal": true,
+  "original_world_structurally_equal": true,
+  "paid_steps_each": 495,
+  "source_sha": "0b6865eab61944f15d829a8787b16c618b6b2321",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F2"
+}
