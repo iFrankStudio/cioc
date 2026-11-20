@@ -1,0 +1,5884 @@
+{
+  "comparison": "I3 exact-native 6/40 rescued; I4 exact-native 30/40 expected, subject to independent exact-source CI replay",
+  "counts": {
+    "chosen_middle": 24,
+    "chosen_tail": 16,
+    "false_certificates": 0,
+    "false_rejections": 0,
+    "final_safe": 54,
+    "initial_safe": 24,
+    "initial_unsafe": 40,
+    "repaired_to_safe": 30,
+    "self_edits": 40
+  },
+  "level": "NATIVE_ORIGINAL_PID_EVIDENCE_CONDITIONED_EDIT_TARGET_EXHAUSTIVE64",
+  "limits": "Two-way preauthored structural-evidence repair policy; actor does not autonomously invent or generalize meta-rule grammar.",
+  "matched_native_controls": [
+    {
+      "actor_declared_success": null,
+      "arm": "edit_suppressed_tail_failure",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 364
+      },
+      "initial_rule": [
+        2,
+        0,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": true,
+          "node": 6,
+          "pc": 177,
+          "step": 368
+        }
+      ],
+      "original_paid_steps": 721,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 357,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 359,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 361,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "edit_suppressed_middle_failure",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        2,
+        1
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 2,
+          "before": 2,
+          "edit_suppressed": true,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 743,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        1
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "inverted_feedback_after_middle_repair",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        2,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1350,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 850,
+          "truth": 1
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 1,
+          "step": 971,
+          "truth": 0
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 1,
+          "step": 1090,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 1,
+          "step": 1209,
+          "truth": 0
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 1,
+          "step": 1328,
+          "truth": 0
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 1
+    }
+  ],
+  "original64_native_arms": [
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        0,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1093,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 472,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 591,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 710,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 952,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1071,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        0,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1338,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1076,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        0,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1219,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 473,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 594,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 713,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 954,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1078,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 363
+      },
+      "initial_rule": [
+        0,
+        0,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 367
+        }
+      ],
+      "original_paid_steps": 1460,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 356,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 358,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 360,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 839,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 958,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1077,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1198,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1319,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1438,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        1,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1332,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 466,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 587,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 830,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 949,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1070,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1191,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1310,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        1,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1211,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 466,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 587,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 706,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 825,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 949,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1070,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1189,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        0,
+        1,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1092,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 467,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 586,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 705,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 827,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 951,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1070,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 357
+      },
+      "initial_rule": [
+        0,
+        1,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 361
+        }
+      ],
+      "original_paid_steps": 1693,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 350,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 354,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 827,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 948,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 1072,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 1191,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1310,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1431,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1552,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1671,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b2_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        2,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1471,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 850,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 969,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1088,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1209,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1330,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1449,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b2_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        2,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1716,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 850,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 971,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1092,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1211,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1330,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1454,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1694,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b2_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 377
+      },
+      "initial_rule": [
+        0,
+        2,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 379
+        }
+      ],
+      "original_paid_steps": 1598,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 372,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 374,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 852,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 973,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1092,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1211,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1333,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1457,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1576,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b2_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        0,
+        2,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 727,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b3_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        3,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1471,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 850,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 969,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1088,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1209,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1330,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1449,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b3_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        3,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1716,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 850,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 971,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1092,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1211,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1330,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1454,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1694,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b3_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        0,
+        3,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1597,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 851,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 972,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1091,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1210,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1332,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1456,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b3_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        0,
+        3,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 727,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        1
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        0,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1338,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1076,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        0,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1217,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 593,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 712,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1076,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1195,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        0,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1095,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 473,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 592,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 833,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 954,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1073,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 363
+      },
+      "initial_rule": [
+        1,
+        0,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 367
+        }
+      ],
+      "original_paid_steps": 1584,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 356,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 358,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 360,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 839,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 960,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1079,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1198,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1319,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1443,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1562,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b1_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 375
+      },
+      "initial_rule": [
+        1,
+        1,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 377
+        }
+      ],
+      "original_paid_steps": 1715,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 368,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 372,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 849,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 970,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1091,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1210,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1329,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1453,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1574,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1693,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b1_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 375
+      },
+      "initial_rule": [
+        1,
+        1,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 377
+        }
+      ],
+      "original_paid_steps": 1594,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 368,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 372,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 849,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 970,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1089,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1208,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1329,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1453,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1572,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b1_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        1,
+        1,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1473,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 851,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 970,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1089,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1211,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1332,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1451,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b1_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 357
+      },
+      "initial_rule": [
+        1,
+        1,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 361
+        }
+      ],
+      "original_paid_steps": 725,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 350,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 354,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        1
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b2_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        1,
+        2,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1716,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 850,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 971,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1092,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1211,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1330,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1454,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1694,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b2_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        1,
+        2,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1595,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 850,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 971,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1090,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1209,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1330,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1454,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1573,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b2_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        1,
+        2,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1473,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 851,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 970,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1089,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1211,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1332,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1451,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b2_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        1,
+        2,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 727,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        1,
+        2
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        3,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 947,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 3,
+          "output": 0,
+          "step": 461,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 3,
+          "output": 0,
+          "step": 574,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 3,
+          "output": 0,
+          "step": 687,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 4,
+          "output": 5,
+          "step": 808,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 5,
+          "output": 6,
+          "step": 929,
+          "truth": 0
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 2
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        3,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 721,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 1,
+          "step": 461,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 6,
+          "step": 582,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 7,
+          "step": 703,
+          "truth": 0
+        }
+      ],
+      "peak_occupied": 194,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        1,
+        3,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 722,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 2,
+          "step": 462,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 7,
+          "step": 583,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 8,
+          "step": 704,
+          "truth": 0
+        }
+      ],
+      "peak_occupied": 194,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        1,
+        3,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 1083,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 1,
+          "step": 823,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 6,
+          "step": 944,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 7,
+          "step": 1065,
+          "truth": 0
+        }
+      ],
+      "peak_occupied": 194,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        0,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1219,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 473,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 594,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 713,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 954,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1078,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        0,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1096,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 473,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 592,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 954,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1074,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        0,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1345,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 475,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 596,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 718,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 838,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 958,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1083,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1204,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1323,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 364
+      },
+      "initial_rule": [
+        2,
+        0,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 368
+        }
+      ],
+      "original_paid_steps": 1713,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 357,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 359,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 361,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 843,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 964,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1086,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1206,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1326,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1451,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1572,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1691,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b1_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        2,
+        1,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1597,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 851,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 972,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1091,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1210,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1332,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1456,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b1_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        2,
+        1,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1474,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 851,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 970,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1089,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1210,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1332,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1452,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b1_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        2,
+        1,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1723,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 853,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 974,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1096,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1216,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1336,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1461,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1582,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1701,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b1_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        2,
+        1,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 727,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        2
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        2,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1339,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 469,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1074,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1198,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1317,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        0,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        2,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1216,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 469,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 593,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 712,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1074,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1194,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        1,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        2,
+        2,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1097,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 470,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 590,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 710,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 835,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 956,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1075,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        2,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 359
+      },
+      "initial_rule": [
+        2,
+        2,
+        3
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 363
+        }
+      ],
+      "original_paid_steps": 1460,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 354,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 356,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 953,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1073,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1198,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1319,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1438,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        2,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b3_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        2,
+        3,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1597,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 851,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 972,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1091,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1210,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1332,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1456,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1575,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b3_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 376
+      },
+      "initial_rule": [
+        2,
+        3,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 378
+        }
+      ],
+      "original_paid_steps": 1474,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 851,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 970,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1089,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1210,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1332,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1452,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b3_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 377
+      },
+      "initial_rule": [
+        2,
+        3,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 379
+        }
+      ],
+      "original_paid_steps": 1724,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 372,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 374,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 854,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 975,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1097,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1217,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1337,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1462,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1583,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1702,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b3_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 358
+      },
+      "initial_rule": [
+        2,
+        3,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 362
+        }
+      ],
+      "original_paid_steps": 728,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        1,
+        2
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        0,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1039,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 448,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 561,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 674,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 789,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 904,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1017,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        0,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1272,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 448,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 563,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 678,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 791,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 904,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1022,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1137,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1250,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        0,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1159,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 449,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 564,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 677,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 790,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 906,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1024,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1137,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b0_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 345
+      },
+      "initial_rule": [
+        3,
+        0,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 349
+        }
+      ],
+      "original_paid_steps": 683,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 338,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 340,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 342,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c0",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        1,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1266,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 442,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 557,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 675,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 788,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 901,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1016,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1131,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1244,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c1",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        1,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1151,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 442,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 557,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 670,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 783,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 901,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1016,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1129,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c2",
+      "choice_provenance": null,
+      "initial_rule": [
+        3,
+        1,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [],
+      "original_paid_steps": 1038,
+      "original_paid_witness_resets": [],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 443,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 556,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 669,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 785,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 903,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1016,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b1_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 339
+      },
+      "initial_rule": [
+        3,
+        1,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 343
+        }
+      ],
+      "original_paid_steps": 671,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 332,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 334,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 336,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b2_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 358
+      },
+      "initial_rule": [
+        3,
+        2,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 360
+        }
+      ],
+      "original_paid_steps": 1399,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 808,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 921,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1034,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1149,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1264,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1377,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b2_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 358
+      },
+      "initial_rule": [
+        3,
+        2,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 360
+        }
+      ],
+      "original_paid_steps": 1632,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 808,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 923,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1038,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1151,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1264,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1382,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1497,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1610,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b2_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 359
+      },
+      "initial_rule": [
+        3,
+        2,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 361
+        }
+      ],
+      "original_paid_steps": 1520,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 354,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 356,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 810,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 925,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1038,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1151,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1267,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1385,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1498,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b2_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 340
+      },
+      "initial_rule": [
+        3,
+        2,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 344
+        }
+      ],
+      "original_paid_steps": 673,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 333,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 335,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 337,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b3_c0",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 358
+      },
+      "initial_rule": [
+        3,
+        3,
+        0
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 360
+        }
+      ],
+      "original_paid_steps": 1399,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 808,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 921,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1034,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1149,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1264,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1377,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        1,
+        2
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b3_c1",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 358
+      },
+      "initial_rule": [
+        3,
+        3,
+        1
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 360
+        }
+      ],
+      "original_paid_steps": 1632,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 808,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 923,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1038,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1151,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1264,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1382,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1497,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1610,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        1,
+        2,
+        0
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b3_c2",
+      "choice_provenance": {
+        "chosen_node": 3,
+        "register1": 1,
+        "step": 358
+      },
+      "initial_rule": [
+        3,
+        3,
+        2
+      ],
+      "native_certified": true,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 3,
+          "pc": 179,
+          "step": 360
+        }
+      ],
+      "original_paid_steps": 1519,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "original_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 809,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 924,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1037,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1150,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1266,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1384,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1497,
+          "truth": 1
+        }
+      ],
+      "peak_occupied": 195,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        2,
+        0,
+        1
+      ],
+      "true_task_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b3_c3",
+      "choice_provenance": {
+        "chosen_node": 6,
+        "register1": 0,
+        "step": 340
+      },
+      "initial_rule": [
+        3,
+        3,
+        3
+      ],
+      "native_certified": false,
+      "native_original_PID1_Halted": true,
+      "original_paid_source_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 177,
+          "step": 344
+        }
+      ],
+      "original_paid_steps": 673,
+      "original_paid_witness_resets": [
+        {
+          "key": 7,
+          "step": 333,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 335,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 337,
+          "value": 0
+        }
+      ],
+      "original_task_services": [],
+      "peak_occupied": 192,
+      "postload_host_source_edits": 0,
+      "semantic_rule_modes": [
+        0,
+        0,
+        0
+      ],
+      "true_task_matches": 0
+    }
+  ],
+  "source_sha": "ad477ba839a44a12675369b6f8650e34f6ca28fe",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I4"
+}

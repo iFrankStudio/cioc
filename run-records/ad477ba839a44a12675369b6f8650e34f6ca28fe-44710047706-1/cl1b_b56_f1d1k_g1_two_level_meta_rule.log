@@ -1,0 +1,25 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: constant `INITIAL_B_PC` is never used[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g1_two_level_meta_rule.rs:32:7
+   [1m[94m|[0m
+[1m[94m32[0m [1m[94m|[0m const INITIAL_B_PC:usize=20;
+   [1m[94m|[0m       [1m[33m^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+[1m[33mwarning[0m[1m: constant `INITIAL_A_PC` is never used[0m
+  [1m[94m--> [0mcrates/world/tests/cl1b_b56_f1d1k_g1_two_level_meta_rule.rs:33:7
+   [1m[94m|[0m
+[1m[94m33[0m [1m[94m|[0m const INITIAL_A_PC:usize=26;
+   [1m[94m|[0m       [1m[33m^^^^^^^^^^^^[0m
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_b56_f1d1k_g1_two_level_meta_rule") generated 2 warnings
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.28s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1k_g1_two_level_meta_rule.rs (target/debug/build/cl0-world/61b8c99d15680d23/out/cl1b_b56_f1d1k_g1_two_level_meta_rule-61b8c99d15680d23)
+
+running 1 test
+B56_F1D1K_G1_TWO_LEVEL_NATIVE {"B3":false,"B4":false,"allowed_data_keys":14,"cyberlife":false,"full_Hk_met":false,"new_meta_semantics_self_invented":false,"original_CIL_nodes":178,"shift_negative_transfer":true,"source_unchanged":true,"strict_native_PID1_worlds":160,"targeted_false_feedback_changes_future_rule_executions":true,"three_composed_rule_programs_in_one_PID":true,"truth_repeated_task_phase1_benefit":true,"two_meta_opcodes_dynamically_fetched":true,"unsolved_task_remains_wrong":true}
+test b56_f1d1k_g1_two_level_fetched_actor_paid_meta_rule_composition ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.35s
+
