@@ -1,0 +1,1623 @@
+{
+  "study": "CL1B-POLICY-P0",
+  "status": "PRE_NATIVE_MINIMAL_ORIGINAL_PID_FEEDBACK_CONDITIONED_EXECUTABLE_TASK_POLICY_PATCH",
+  "background": "Orthogonal mechanism isolation after source-pinned I6U. This is NOT a 3-word G3Q structural coverage certificate and cannot be claimed as an I6U functional improvement. It asks whether one uninterrupted original PID can pay for changes to its executable task output policy itself, conditioned on actual external task success feedback.",
+  "strict_world": {
+    "data_cells": 16,
+    "max_source_nodes": 180,
+    "max_total_occupied": 300,
+    "original_private_compute_credits": 800,
+    "one_uninterrupted_original_PID1_per_world": true,
+    "host_only_after_actual_native_Write11": "SetCell20",
+    "native_kernel_unmodified": true
+  },
+  "task_policy_design": "Exact43 CIL nodes. Original source PC1 is Const r3 guessed output initially0, PC2 is actor-paid real Write11 output. Host supplies honest/inverted/forced-zero bit20 only after PC2. PID1 pays Read20 and Branch: reward1 increments persistent cell32 task success; reward0 increases paid failure count cell33 and, unless capped3, cycles source guess 0→1→2→0 using actor-paid PatchConst targeting executable Const PC1. After 4 authentic successful stages it pays Write21=1 and Halt; after3 failed responses in a single stage it pays Write21=0 and Halt. Same PID and source across all task switches; no external source edits.",
+  "original_native_CIL": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 4
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 5
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 27,
+      "zero": 6
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 7
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 8
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 9
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 10
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 11
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 12
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 13
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 14
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 15,
+      "zero": 23
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 16
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 17
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 18
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 19
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 21,
+      "zero": 20
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 22
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 3,
+      "next": 0
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 24
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 25
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 26
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 28
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 29
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 30
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 32
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 34
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 35
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 36
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 37
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 38
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 0,
+      "zero": 39
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 40
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 41
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 42
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "source_nodes": 43,
+  "original_native_task_cases": [
+    {
+      "name": "training_0022",
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 120,
+        "halt_pc": 42,
+        "credits_remaining": 680,
+        "final_executable_guess": 2,
+        "actor_claimed_success": 1,
+        "actor_completed_episode": 4,
+        "original_paid_source_patches": [
+          {
+            "step": 58,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 80,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 21,
+            "episode": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 39,
+            "episode": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 61,
+            "episode": 2,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 83,
+            "episode": 2,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 101,
+            "episode": 3,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 1
+          },
+          {
+            "step": 23,
+            "value": 1
+          },
+          {
+            "step": 41,
+            "value": 0
+          },
+          {
+            "step": 63,
+            "value": 0
+          },
+          {
+            "step": 85,
+            "value": 1
+          },
+          {
+            "step": 103,
+            "value": 1
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 30,
+            "value": 2
+          },
+          {
+            "step": 92,
+            "value": 3
+          },
+          {
+            "step": 110,
+            "value": 4
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 48,
+            "value": 1
+          },
+          {
+            "step": 70,
+            "value": 2
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 119,
+            "value": 1
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    },
+    {
+      "name": "reversed_2200",
+      "goals": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 143,
+        "halt_pc": 42,
+        "credits_remaining": 657,
+        "final_executable_guess": 0,
+        "actor_claimed_success": 1,
+        "actor_completed_episode": 4,
+        "original_paid_source_patches": [
+          {
+            "step": 22,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 44,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          },
+          {
+            "step": 103,
+            "pc": 22,
+            "node": 1,
+            "before": 2,
+            "after": 0,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 25,
+            "episode": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 47,
+            "episode": 0,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 65,
+            "episode": 1,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 83,
+            "episode": 2,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 106,
+            "episode": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 124,
+            "episode": 3,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 0
+          },
+          {
+            "step": 27,
+            "value": 0
+          },
+          {
+            "step": 49,
+            "value": 1
+          },
+          {
+            "step": 67,
+            "value": 1
+          },
+          {
+            "step": 85,
+            "value": 0
+          },
+          {
+            "step": 108,
+            "value": 1
+          },
+          {
+            "step": 126,
+            "value": 1
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 56,
+            "value": 1
+          },
+          {
+            "step": 74,
+            "value": 2
+          },
+          {
+            "step": 115,
+            "value": 3
+          },
+          {
+            "step": 133,
+            "value": 4
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 34,
+            "value": 2
+          },
+          {
+            "step": 92,
+            "value": 1
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 142,
+            "value": 1
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    },
+    {
+      "name": "alternating_1021",
+      "goals": [
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 232,
+        "halt_pc": 42,
+        "credits_remaining": 568,
+        "final_executable_guess": 1,
+        "actor_claimed_success": 1,
+        "actor_completed_episode": 4,
+        "original_paid_source_patches": [
+          {
+            "step": 22,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 62,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          },
+          {
+            "step": 85,
+            "pc": 22,
+            "node": 1,
+            "before": 2,
+            "after": 0,
+            "edit_suppressed": false
+          },
+          {
+            "step": 125,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 147,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          },
+          {
+            "step": 188,
+            "pc": 22,
+            "node": 1,
+            "before": 2,
+            "after": 0,
+            "edit_suppressed": false
+          },
+          {
+            "step": 210,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 25,
+            "episode": 0,
+            "output": 1,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 43,
+            "episode": 1,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 65,
+            "episode": 1,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 88,
+            "episode": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 106,
+            "episode": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 128,
+            "episode": 2,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 150,
+            "episode": 2,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 168,
+            "episode": 3,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 191,
+            "episode": 3,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 213,
+            "episode": 3,
+            "output": 1,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 0
+          },
+          {
+            "step": 27,
+            "value": 1
+          },
+          {
+            "step": 45,
+            "value": 0
+          },
+          {
+            "step": 67,
+            "value": 0
+          },
+          {
+            "step": 90,
+            "value": 1
+          },
+          {
+            "step": 108,
+            "value": 0
+          },
+          {
+            "step": 130,
+            "value": 0
+          },
+          {
+            "step": 152,
+            "value": 1
+          },
+          {
+            "step": 170,
+            "value": 0
+          },
+          {
+            "step": 193,
+            "value": 0
+          },
+          {
+            "step": 215,
+            "value": 1
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 34,
+            "value": 1
+          },
+          {
+            "step": 97,
+            "value": 2
+          },
+          {
+            "step": 159,
+            "value": 3
+          },
+          {
+            "step": 222,
+            "value": 4
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 52,
+            "value": 1
+          },
+          {
+            "step": 74,
+            "value": 2
+          },
+          {
+            "step": 115,
+            "value": 1
+          },
+          {
+            "step": 137,
+            "value": 2
+          },
+          {
+            "step": 177,
+            "value": 1
+          },
+          {
+            "step": 200,
+            "value": 2
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 231,
+            "value": 1
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    },
+    {
+      "name": "mixed_2102",
+      "goals": [
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 254,
+        "halt_pc": 42,
+        "credits_remaining": 546,
+        "final_executable_guess": 2,
+        "actor_claimed_success": 1,
+        "actor_completed_episode": 4,
+        "original_paid_source_patches": [
+          {
+            "step": 22,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 44,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          },
+          {
+            "step": 85,
+            "pc": 22,
+            "node": 1,
+            "before": 2,
+            "after": 0,
+            "edit_suppressed": false
+          },
+          {
+            "step": 107,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 147,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          },
+          {
+            "step": 170,
+            "pc": 22,
+            "node": 1,
+            "before": 2,
+            "after": 0,
+            "edit_suppressed": false
+          },
+          {
+            "step": 210,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 232,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 25,
+            "episode": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 47,
+            "episode": 0,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 65,
+            "episode": 1,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 88,
+            "episode": 1,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 110,
+            "episode": 1,
+            "output": 1,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 128,
+            "episode": 2,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 150,
+            "episode": 2,
+            "output": 2,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 173,
+            "episode": 2,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 191,
+            "episode": 3,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 213,
+            "episode": 3,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 235,
+            "episode": 3,
+            "output": 2,
+            "truth": 1,
+            "feedback": 1
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 0
+          },
+          {
+            "step": 27,
+            "value": 0
+          },
+          {
+            "step": 49,
+            "value": 1
+          },
+          {
+            "step": 67,
+            "value": 0
+          },
+          {
+            "step": 90,
+            "value": 0
+          },
+          {
+            "step": 112,
+            "value": 1
+          },
+          {
+            "step": 130,
+            "value": 0
+          },
+          {
+            "step": 152,
+            "value": 0
+          },
+          {
+            "step": 175,
+            "value": 1
+          },
+          {
+            "step": 193,
+            "value": 0
+          },
+          {
+            "step": 215,
+            "value": 0
+          },
+          {
+            "step": 237,
+            "value": 1
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 56,
+            "value": 1
+          },
+          {
+            "step": 119,
+            "value": 2
+          },
+          {
+            "step": 182,
+            "value": 3
+          },
+          {
+            "step": 244,
+            "value": 4
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 34,
+            "value": 2
+          },
+          {
+            "step": 74,
+            "value": 1
+          },
+          {
+            "step": 97,
+            "value": 2
+          },
+          {
+            "step": 137,
+            "value": 1
+          },
+          {
+            "step": 159,
+            "value": 2
+          },
+          {
+            "step": 200,
+            "value": 1
+          },
+          {
+            "step": 222,
+            "value": 2
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 253,
+            "value": 1
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    }
+  ],
+  "causal_controls": [
+    {
+      "name": "disable_patches_training",
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "suppressed": true,
+      "expected": {
+        "paid_steps": 99,
+        "halt_pc": 26,
+        "credits_remaining": 701,
+        "final_executable_guess": 0,
+        "actor_claimed_success": 0,
+        "actor_completed_episode": 2,
+        "original_paid_source_patches": [
+          {
+            "step": 58,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 0,
+            "edit_suppressed": true
+          },
+          {
+            "step": 80,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 0,
+            "edit_suppressed": true
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 21,
+            "episode": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 1
+          },
+          {
+            "step": 39,
+            "episode": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 61,
+            "episode": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 83,
+            "episode": 2,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 1
+          },
+          {
+            "step": 23,
+            "value": 1
+          },
+          {
+            "step": 41,
+            "value": 0
+          },
+          {
+            "step": 63,
+            "value": 0
+          },
+          {
+            "step": 85,
+            "value": 0
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 30,
+            "value": 2
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 48,
+            "value": 1
+          },
+          {
+            "step": 70,
+            "value": 2
+          },
+          {
+            "step": 92,
+            "value": 3
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 98,
+            "value": 0
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    },
+    {
+      "name": "disable_patches_reversed",
+      "goals": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "suppressed": true,
+      "expected": {
+        "paid_steps": 63,
+        "halt_pc": 26,
+        "credits_remaining": 737,
+        "final_executable_guess": 0,
+        "actor_claimed_success": 0,
+        "actor_completed_episode": null,
+        "original_paid_source_patches": [
+          {
+            "step": 22,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 0,
+            "edit_suppressed": true
+          },
+          {
+            "step": 44,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 0,
+            "edit_suppressed": true
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 25,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 47,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 0
+          },
+          {
+            "step": 27,
+            "value": 0
+          },
+          {
+            "step": 49,
+            "value": 0
+          }
+        ],
+        "original_paid_success_writes": [],
+        "original_paid_attempt_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 34,
+            "value": 2
+          },
+          {
+            "step": 56,
+            "value": 3
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 62,
+            "value": 0
+          }
+        ],
+        "occupied_data_cells": 4,
+        "peak_occupied": 48
+      }
+    },
+    {
+      "name": "inverted_feedback_alternating",
+      "goals": [
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "inverted",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 120,
+        "halt_pc": 42,
+        "credits_remaining": 680,
+        "final_executable_guess": 2,
+        "actor_claimed_success": 1,
+        "actor_completed_episode": 4,
+        "original_paid_source_patches": [
+          {
+            "step": 40,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 98,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 21,
+            "episode": 1,
+            "output": 0,
+            "truth": 1,
+            "feedback": 0
+          },
+          {
+            "step": 43,
+            "episode": 1,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 61,
+            "episode": 2,
+            "output": 1,
+            "truth": 0,
+            "feedback": 1
+          },
+          {
+            "step": 79,
+            "episode": 3,
+            "output": 1,
+            "truth": 1,
+            "feedback": 0
+          },
+          {
+            "step": 101,
+            "episode": 3,
+            "output": 2,
+            "truth": 0,
+            "feedback": 1
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 1
+          },
+          {
+            "step": 23,
+            "value": 0
+          },
+          {
+            "step": 45,
+            "value": 1
+          },
+          {
+            "step": 63,
+            "value": 1
+          },
+          {
+            "step": 81,
+            "value": 0
+          },
+          {
+            "step": 103,
+            "value": 1
+          }
+        ],
+        "original_paid_success_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 52,
+            "value": 2
+          },
+          {
+            "step": 70,
+            "value": 3
+          },
+          {
+            "step": 110,
+            "value": 4
+          }
+        ],
+        "original_paid_attempt_writes": [
+          {
+            "step": 30,
+            "value": 1
+          },
+          {
+            "step": 88,
+            "value": 1
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 119,
+            "value": 1
+          }
+        ],
+        "occupied_data_cells": 5,
+        "peak_occupied": 49
+      }
+    },
+    {
+      "name": "forced_zero_feedback_mixed",
+      "goals": [
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "forced0",
+      "suppressed": false,
+      "expected": {
+        "paid_steps": 63,
+        "halt_pc": 26,
+        "credits_remaining": 737,
+        "final_executable_guess": 2,
+        "actor_claimed_success": 0,
+        "actor_completed_episode": null,
+        "original_paid_source_patches": [
+          {
+            "step": 22,
+            "pc": 22,
+            "node": 1,
+            "before": 0,
+            "after": 1,
+            "edit_suppressed": false
+          },
+          {
+            "step": 44,
+            "pc": 22,
+            "node": 1,
+            "before": 1,
+            "after": 2,
+            "edit_suppressed": false
+          }
+        ],
+        "original_paid_task_services": [
+          {
+            "step": 3,
+            "episode": 0,
+            "output": 0,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 25,
+            "episode": 0,
+            "output": 1,
+            "truth": 0,
+            "feedback": 0
+          },
+          {
+            "step": 47,
+            "episode": 0,
+            "output": 2,
+            "truth": 1,
+            "feedback": 0
+          }
+        ],
+        "original_paid_feedback_reads": [
+          {
+            "step": 5,
+            "value": 0
+          },
+          {
+            "step": 27,
+            "value": 0
+          },
+          {
+            "step": 49,
+            "value": 0
+          }
+        ],
+        "original_paid_success_writes": [],
+        "original_paid_attempt_writes": [
+          {
+            "step": 12,
+            "value": 1
+          },
+          {
+            "step": 34,
+            "value": 2
+          },
+          {
+            "step": 56,
+            "value": 3
+          }
+        ],
+        "terminal_claim_writes": [
+          {
+            "step": 62,
+            "value": 0
+          }
+        ],
+        "occupied_data_cells": 4,
+        "peak_occupied": 48
+      }
+    }
+  ],
+  "expected_counts": {
+    "native_regimes": 4,
+    "native_controls": 4,
+    "full_task_completions": 4,
+    "genuine_source_patch_events": 20,
+    "source_nodes": 43,
+    "peak": 49,
+    "max_private_paid": 254,
+    "total_paid": 1094,
+    "all81_source_only_complete": 81
+  },
+  "finite_goal_alphabet_projection": {
+    "level": "SOURCE_ONLY_NON_NATIVE",
+    "goal_sequences": 81,
+    "hidden_goals_alphabet": [
+      0,
+      1,
+      2
+    ],
+    "stages": 4,
+    "source_interpreter_full_task_completions": 81,
+    "max_paid_in_all81": 254
+  },
+  "nonclaims": [
+    "Policy candidate cycling, success counter, third-failure cap and source patch mechanism are researcher-authored. The individual did NOT invent any of these procedures.",
+    "Source-level changed value is a task-output candidate, not a newly synthesized algorithm opcode or open-ended repair grammar.",
+    "The fixed four-task goal sequences and finite [0,1,2] alphabet do not model open-ended software internet utility or random real API tasks.",
+    "Causal controls establish paid feedback-mediated mutation, not reward authenticity, abstract consciousness, self-originated new algorithm discovery or long-lived lineage.",
+    "Native Rust results pending; 81 goal combinations are source-only predictions not native measurements."
+  ]
+}
