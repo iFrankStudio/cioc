@@ -92,7 +92,7 @@ def run_source(source,arm,trace=None):
                 assert address==33 and value in (1,2,3)
                 failures.append({"step":paid,"value":value})
             if at==34:
-                assert address==32 and value in (1,2,3,4)
+                assert address==32 and 1<=value<=8
                 successes.append({"step":paid,"value":value})
             if at==37:
                 assert address==33 and value==0

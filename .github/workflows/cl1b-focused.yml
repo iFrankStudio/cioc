@@ -218,6 +218,8 @@ jobs:
               case "${changed_path}" in
                 cl0/crates/world/src/*|cl0/crates/world/Cargo.toml|cl0/Cargo.toml|cl0/Cargo.lock|.github/workflows/cl1b-focused.yml)
                   full=1 ;;
+                cl1b/analysis/cl1b_policy_p3_independent_native_eight_stage_replay.py)
+                  wanted[cl1b_policy_p3_eight_stage_native]=1 ;;
                 cl1b/analysis/*.mjs)
                   # Observer-only commits MUST exercise corresponding native
                   # test(s). A zero-test green workflow is not native evidence.
