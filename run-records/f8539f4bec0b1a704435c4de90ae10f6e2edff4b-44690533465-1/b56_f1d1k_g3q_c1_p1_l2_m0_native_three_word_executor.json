@@ -1,0 +1,238 @@
+{
+  "founder_nodes": 66,
+  "level": "NATIVE_SINGLE_PID_THREE_WORD_BOUNDED_INTERPRETER_NOT_CERTIFIED_LEARNING",
+  "limits": "Preloaded source-authored rule bank, no earned within-PID C0 certification, no hidden feedback, no adaptation, no self-edit.",
+  "observations": [
+    {
+      "active_writes": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bank_reads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "credits_remaining": 884,
+      "meta_accumulators": [
+        2,
+        1,
+        0
+      ],
+      "meta_fetches": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "name": "original",
+      "peak": 76,
+      "service": [
+        0
+      ],
+      "steps": 116
+    },
+    {
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "credits_remaining": 885,
+      "meta_accumulators": [
+        1,
+        0,
+        2
+      ],
+      "meta_fetches": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "name": "first_to_one",
+      "peak": 76,
+      "service": [
+        2
+      ],
+      "steps": 115
+    },
+    {
+      "active_writes": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "bank_reads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "credits_remaining": 891,
+      "meta_accumulators": [
+        2,
+        0,
+        2
+      ],
+      "meta_fetches": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "name": "middle_to_reset",
+      "peak": 76,
+      "service": [
+        2
+      ],
+      "steps": 109
+    },
+    {
+      "active_writes": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "bank_reads": [
+        [
+          51,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          53,
+          1
+        ]
+      ],
+      "credits_remaining": 884,
+      "meta_accumulators": [
+        2,
+        1,
+        2
+      ],
+      "meta_fetches": [
+        [
+          62,
+          2
+        ],
+        [
+          63,
+          2
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "name": "tail_to_one",
+      "peak": 76,
+      "service": [
+        2
+      ],
+      "steps": 116
+    }
+  ],
+  "source_sha": "f8539f4bec0b1a704435c4de90ae10f6e2edff4b",
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M0",
+  "world_caps": [
+    16,
+    180,
+    300
+  ]
+}
