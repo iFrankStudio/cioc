@@ -155,6 +155,7 @@ jobs:
             cl1b_policy_p2_relative_delta_original_native
             cl1b_policy_p3_eight_stage_native
             cl1b_policy_p4f0_event_triggered_native
+            cl1b_policy_p4f1_recoverable_native
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -219,6 +220,8 @@ jobs:
               case "${changed_path}" in
                 cl0/crates/world/src/*|cl0/crates/world/Cargo.toml|cl0/Cargo.toml|cl0/Cargo.lock|.github/workflows/cl1b-focused.yml)
                   full=1 ;;
+                cl1b/analysis/cl1b_policy_p4f1_independent_native_replay.py)
+                  wanted[cl1b_policy_p4f1_recoverable_native]=1 ;;
                 cl1b/analysis/cl1b_policy_p4f0_independent_native_replay.py)
                   wanted[cl1b_policy_p4f0_event_triggered_native]=1 ;;
                 cl1b/analysis/cl1b_policy_p3_independent_native_eight_stage_replay.py)
@@ -344,6 +347,7 @@ jobs:
             wanted[cl1b_policy_p2_relative_delta_original_native]=1
             wanted[cl1b_policy_p3_eight_stage_native]=1
             wanted[cl1b_policy_p4f0_event_triggered_native]=1
+            wanted[cl1b_policy_p4f1_recoverable_native]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -356,8 +360,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 94 ]; then
-            echo "Expected exactly 94 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 95 ]; then
+            echo "Expected exactly 95 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -805,6 +809,23 @@ jobs:
               echo "PASS native-event-armed-110-worlds=p4f0" | tee -a cl1b-ci-evidence/summary.txt
             else
               echo "FAIL native-event-armed-110-worlds=p4f0" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # P4F1: original PID pays to retain its learned stride, toggle
+          # fallback mode and restore earlier executable source after failures.
+          # All 182 original native worlds require independently reconstructed
+          # exact paid opcodes, source PC12/PC46 and data cells 35/36.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p4f1_recoverable_native'; then
+            p4f1_summary=cl1b-ci-evidence/cl1b_policy_p4f1_native_recoverable_182_worlds.json
+            if [ -f "${p4f1_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p4f1_independent_native_replay.py \
+                "${p4f1_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p4f1_independent_native_replay.json \
+                2> cl1b-ci-evidence/cl1b_policy_p4f1_independent_native_replay.stderr.log; then
+              echo "PASS native-remembered-rollback-182-worlds=p4f1" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-remembered-rollback-182-worlds=p4f1" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
