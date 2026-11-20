@@ -1,0 +1,647 @@
+{
+  "evidence": "source-parsed independent CIL simulator; NOT native Rust",
+  "source": "cl0/crates/world/tests/cl1b_b32_prune_metabolic_loop.rs",
+  "worlds": 12,
+  "controls": {
+    "noFlux": {
+      "arm": "Prune",
+      "packets": [],
+      "bootstrap": 2,
+      "writes": 0,
+      "steps": 2,
+      "local": 0,
+      "pool": 0,
+      "pc": 1,
+      "edge": 5,
+      "edits": 0,
+      "suppressed": 0,
+      "windows": []
+    }
+  },
+  "cases": [
+    {
+      "arm": "Prune",
+      "packets": [
+        10,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 4,
+      "steps": 24,
+      "local": 0,
+      "pool": 0,
+      "pc": 1,
+      "edge": 1,
+      "edits": 1,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "arm": "PatchSuppressed",
+      "packets": [
+        10,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 2,
+      "steps": 16,
+      "local": 0,
+      "pool": 8,
+      "pc": 5,
+      "edge": 5,
+      "edits": 0,
+      "suppressed": 1,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 4
+        },
+        {
+          "packet": 4,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 8
+        }
+      ]
+    },
+    {
+      "arm": "StaticThree",
+      "packets": [
+        10,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 5,
+      "steps": 22,
+      "local": 0,
+      "pool": 2,
+      "pc": 1,
+      "edge": 1,
+      "edits": 0,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 8,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 5,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        }
+      ]
+    },
+    {
+      "arm": "Prune",
+      "packets": [
+        10,
+        3,
+        3,
+        3
+      ],
+      "bootstrap": 2,
+      "writes": 3,
+      "steps": 20,
+      "local": 0,
+      "pool": 1,
+      "pc": 1,
+      "edge": 1,
+      "edits": 1,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "paid": 0,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 3
+        },
+        {
+          "packet": 3,
+          "paid": 4,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 3,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        }
+      ]
+    },
+    {
+      "arm": "PatchSuppressed",
+      "packets": [
+        10,
+        3,
+        3,
+        3
+      ],
+      "bootstrap": 2,
+      "writes": 2,
+      "steps": 16,
+      "local": 0,
+      "pool": 5,
+      "pc": 5,
+      "edge": 5,
+      "edits": 0,
+      "suppressed": 1,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "paid": 0,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 3
+        },
+        {
+          "packet": 3,
+          "paid": 4,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 3,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 5
+        }
+      ]
+    },
+    {
+      "arm": "StaticThree",
+      "packets": [
+        10,
+        3,
+        3,
+        3
+      ],
+      "bootstrap": 2,
+      "writes": 4,
+      "steps": 18,
+      "local": 0,
+      "pool": 3,
+      "pc": 1,
+      "edge": 1,
+      "edits": 0,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 8,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 3,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 3,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 3,
+          "paid": 0,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 3
+        }
+      ]
+    },
+    {
+      "arm": "Prune",
+      "packets": [
+        10,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 2,
+      "writes": 4,
+      "steps": 24,
+      "local": 0,
+      "pool": 3,
+      "pc": 1,
+      "edge": 1,
+      "edits": 1,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 3
+        }
+      ]
+    },
+    {
+      "arm": "PatchSuppressed",
+      "packets": [
+        10,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 2,
+      "writes": 2,
+      "steps": 16,
+      "local": 0,
+      "pool": 11,
+      "pc": 5,
+      "edge": 5,
+      "edits": 0,
+      "suppressed": 1,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 10,
+          "services": 1,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 5,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 6
+        },
+        {
+          "packet": 5,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 11
+        }
+      ]
+    },
+    {
+      "arm": "StaticThree",
+      "packets": [
+        10,
+        5,
+        5,
+        5
+      ],
+      "bootstrap": 2,
+      "writes": 6,
+      "steps": 26,
+      "local": 0,
+      "pool": 1,
+      "pc": 1,
+      "edge": 1,
+      "edits": 0,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 10,
+          "paid": 8,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 2
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 3
+        },
+        {
+          "packet": 5,
+          "paid": 8,
+          "services": 5,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 5,
+          "paid": 4,
+          "services": 6,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        }
+      ]
+    },
+    {
+      "arm": "Prune",
+      "packets": [
+        9,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 4,
+      "steps": 23,
+      "local": 0,
+      "pool": 0,
+      "pc": 1,
+      "edge": 1,
+      "edits": 1,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 9,
+          "paid": 0,
+          "services": 0,
+          "pc": 1,
+          "local": 0,
+          "pool": 9
+        },
+        {
+          "packet": 4,
+          "paid": 13,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 0
+        }
+      ]
+    },
+    {
+      "arm": "PatchSuppressed",
+      "packets": [
+        9,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 2,
+      "steps": 15,
+      "local": 0,
+      "pool": 8,
+      "pc": 5,
+      "edge": 5,
+      "edits": 0,
+      "suppressed": 1,
+      "windows": [
+        {
+          "packet": 9,
+          "paid": 0,
+          "services": 0,
+          "pc": 1,
+          "local": 0,
+          "pool": 9
+        },
+        {
+          "packet": 4,
+          "paid": 13,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 0
+        },
+        {
+          "packet": 4,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 4
+        },
+        {
+          "packet": 4,
+          "paid": 0,
+          "services": 2,
+          "pc": 5,
+          "local": 0,
+          "pool": 8
+        }
+      ]
+    },
+    {
+      "arm": "StaticThree",
+      "packets": [
+        9,
+        4,
+        4,
+        4
+      ],
+      "bootstrap": 2,
+      "writes": 5,
+      "steps": 22,
+      "local": 0,
+      "pool": 1,
+      "pc": 1,
+      "edge": 1,
+      "edits": 0,
+      "suppressed": 0,
+      "windows": [
+        {
+          "packet": 9,
+          "paid": 8,
+          "services": 2,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 3,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 4,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        },
+        {
+          "packet": 4,
+          "paid": 4,
+          "services": 5,
+          "pc": 1,
+          "local": 0,
+          "pool": 1
+        }
+      ]
+    }
+  ]
+}
