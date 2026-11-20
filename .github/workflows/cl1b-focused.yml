@@ -148,7 +148,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs
-            cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -319,7 +319,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs]=1
-            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -642,20 +642,21 @@ jobs:
               failures=$((failures + 1))
             fi
           fi
-          # I6R preregistered corrected original PID1: 180/180 CIL source,
+          # I6S corrected original PID1: 180/180 CIL source, actual paid Write11,
+          # after native I6R negative Write56 task-address falsification,
           # <=2 paid executable patches, all 3 flag keys paid-reset BEFORE
           # EACH patch and all64 genotypes structurally pass with 3 trials.
           # Independently replay every original native CIL step and feedback.
-          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated'; then
-            i6r_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i6r_native_bounded_two_edit.json
-            if [ -f "${i6r_summary}" ] && \
-              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.py \
-                "${i6r_summary}" cl1b-ci-evidence \
-                > cl1b-ci-evidence/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.json \
-                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.stderr.log; then
-              echo "PASS native-two-fully-isolated-self-repairs=i6r" | tee -a cl1b-ci-evidence/summary.txt
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i6s_two_paid_repairs_real_task'; then
+            i6s_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i6s_native_bounded_two_edit.json
+            if [ -f "${i6s_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6s_independent_native_full_replay.py \
+                "${i6s_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i6s_independent_native_full_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6s_independent_native_full_replay.stderr.log; then
+              echo "PASS native-two-fully-isolated-and-real-task=i6s" | tee -a cl1b-ci-evidence/summary.txt
             else
-              echo "FAIL native-two-fully-isolated-self-repairs=i6r" | tee -a cl1b-ci-evidence/summary.txt
+              echo "FAIL native-two-fully-isolated-and-real-task=i6s" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
