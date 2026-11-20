@@ -1,0 +1,634 @@
+{
+  "study": "B55a-preflight",
+  "source_sha": "f98cf49d883acdc76217b3e467d798a410d08e70",
+  "manifest_sha256": "dff516c18ac087e885a8021b33d0a0b798a5b22fafd30ef94c32be4b2049c312",
+  "native_worlds_replayed": 40,
+  "native_paid_steps_replayed": 160000,
+  "native_external_interventions_replayed": 35608,
+  "native_source_edge_patches_replayed": 892,
+  "first_divergence": null,
+  "stage_policy_recommendation_same_before_hidden_shift": true,
+  "preflight_conditional_E2_outperforms_B_and_C": false,
+  "full_B55a_frozen_7arm_3ecology_8seed_protocol_completed": false,
+  "H55a_accepted": false,
+  "tier2_endogenous_policy_formation": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false,
+  "by_ecology": {
+    "E1": {
+      "A": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 288,
+        "wrong": 0,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0.018,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "B": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 288,
+        "wrong": 0,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          77,
+          77,
+          77,
+          77
+        ],
+        "mean_utility": 0.018,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 77,
+            "source_edits": 9,
+            "reads": 380
+          },
+          {
+            "seed": 211,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 77,
+            "source_edits": 22,
+            "reads": 354
+          },
+          {
+            "seed": 307,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 77,
+            "source_edits": 9,
+            "reads": 380
+          },
+          {
+            "seed": 401,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 77,
+            "source_edits": 22,
+            "reads": 354
+          }
+        ]
+      },
+      "C": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 288,
+        "wrong": 0,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0.018,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "D": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 288,
+        "wrong": 0,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0.018,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "E": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 288,
+        "wrong": 0,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          160,
+          160,
+          160,
+          160
+        ],
+        "mean_utility": 0.018,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 160,
+            "source_edits": 9,
+            "reads": 58
+          },
+          {
+            "seed": 211,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 160,
+            "source_edits": 22,
+            "reads": 54
+          },
+          {
+            "seed": 307,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 160,
+            "source_edits": 9,
+            "reads": 58
+          },
+          {
+            "seed": 401,
+            "C": 72,
+            "W": 0,
+            "M": 0,
+            "P": 4000,
+            "U": 0.018,
+            "chosen": 160,
+            "source_edits": 22,
+            "reads": 54
+          }
+        ]
+      }
+    },
+    "E2": {
+      "A": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 192,
+        "wrong": 96,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "B": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 280,
+        "wrong": 8,
+        "missing": 0,
+        "reopens": 8,
+        "choices": [
+          77,
+          77,
+          77,
+          77
+        ],
+        "mean_utility": 0.0165,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 70,
+            "W": 2,
+            "M": 0,
+            "P": 4000,
+            "U": 0.0165,
+            "chosen": 77,
+            "source_edits": 45,
+            "reads": 311
+          },
+          {
+            "seed": 211,
+            "C": 70,
+            "W": 2,
+            "M": 0,
+            "P": 4000,
+            "U": 0.0165,
+            "chosen": 77,
+            "source_edits": 54,
+            "reads": 292
+          },
+          {
+            "seed": 307,
+            "C": 70,
+            "W": 2,
+            "M": 0,
+            "P": 4000,
+            "U": 0.0165,
+            "chosen": 77,
+            "source_edits": 45,
+            "reads": 311
+          },
+          {
+            "seed": 401,
+            "C": 70,
+            "W": 2,
+            "M": 0,
+            "P": 4000,
+            "U": 0.0165,
+            "chosen": 77,
+            "source_edits": 54,
+            "reads": 292
+          }
+        ]
+      },
+      "C": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 192,
+        "wrong": 96,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "D": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 192,
+        "wrong": 96,
+        "missing": 0,
+        "reopens": 0,
+        "choices": [
+          30,
+          30,
+          30,
+          30
+        ],
+        "mean_utility": 0,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 211,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          },
+          {
+            "seed": 307,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 9,
+            "reads": 0
+          },
+          {
+            "seed": 401,
+            "C": 48,
+            "W": 24,
+            "M": 0,
+            "P": 4000,
+            "U": 0,
+            "chosen": 30,
+            "source_edits": 22,
+            "reads": 0
+          }
+        ]
+      },
+      "E": {
+        "worlds": 4,
+        "paid": 16000,
+        "correct": 256,
+        "wrong": 32,
+        "missing": 0,
+        "reopens": 8,
+        "choices": [
+          160,
+          160,
+          160,
+          160
+        ],
+        "mean_utility": 0.012,
+        "per_seed": [
+          {
+            "seed": 101,
+            "C": 64,
+            "W": 8,
+            "M": 0,
+            "P": 4000,
+            "U": 0.012,
+            "chosen": 160,
+            "source_edits": 45,
+            "reads": 47
+          },
+          {
+            "seed": 211,
+            "C": 64,
+            "W": 8,
+            "M": 0,
+            "P": 4000,
+            "U": 0.012,
+            "chosen": 160,
+            "source_edits": 54,
+            "reads": 45
+          },
+          {
+            "seed": 307,
+            "C": 64,
+            "W": 8,
+            "M": 0,
+            "P": 4000,
+            "U": 0.012,
+            "chosen": 160,
+            "source_edits": 45,
+            "reads": 47
+          },
+          {
+            "seed": 401,
+            "C": 64,
+            "W": 8,
+            "M": 0,
+            "P": 4000,
+            "U": 0.012,
+            "chosen": 160,
+            "source_edits": 54,
+            "reads": 45
+          }
+        ]
+      }
+    }
+  }
+}
