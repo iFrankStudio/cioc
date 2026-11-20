@@ -1,0 +1,51 @@
+# CL1B-POLICY-P4F3: exact-source original-native online success-delta self-edit audit
+
+**Evidence status (2026-11-20 UTC):** This report was written **after actual original CL0 native Rust execution AND its separately written exact-CIL replayer completed successfully**; not a source-model-only claim. [GitHub Actions run #44838246836](https://github.com/iFrankStudio/cioc/actions/runs/44838246836) at exactly tested main source **`5084e9d79917cf9d05afd8f0527a428563f495df`**; native job **SUCCESS**, 96/96 registered original-native Rust test targets PASS, 63/63 independent named observers PASS, failed_target_count=0, failed_observer_count=0. The exact-SHA [native evidence artifact](https://github.com/iFrankStudio/cioc/actions/runs/44838246836/artifacts/14678459694) (30-day retention) was downloaded and checked, including its `provenance.txt`, native `cl1b_policy_p4f3_native_218_worlds.json`, Python `cl1b_policy_p4f3_independent_native_replay.json`, all 218 original `cl1b_policy_p4f3_original_*.jsonl` step traces, and `summary.txt`. The independent replayer reported **267,284 / 267,284 original paid native CIL instructions exactly matching, first_divergence null** in **218 / 218 original single-PID1 worlds**. The evidence-branch publisher is a separate workflow job; CI artifact and native job are the already verified source record, independent of publisher completion. A source-pinned mirror on `cl1b-ci-evidence` may be linked *only after* its branch publication has been verified.
+
+## Preregistration and fixed experimental contract
+
+- **Before any native P4F3 results:** [frozen study commit b86eb4a](https://github.com/iFrankStudio/cioc/commit/b86eb4a315e9ec302fcc110cf350c6a395843e43), `cl1b/studies/CL1B-POLICY-P4F3-frozen-online-success-delta-native-v1.json` and its Markdown preregistration. Implementation [7d43da0](https://github.com/iFrankStudio/cioc/commit/7d43da01ba58e83ef03934ebcbe035c247d9ff35); exact-tested CI count fix [5084e9d](https://github.com/iFrankStudio/cioc/commit/5084e9d79917cf9d05afd8f0527a428563f495df).
+- Exact original Rust `World::with_strict_capacity(16,180,300)`, original unchanged CL0 physics, 6,000 privately actor-paid CIL instructions budget per world; **132-source-node F3** and **106-node P4F1 F1** sources; no host postload source edits; one uninterrupted original PID1 per world and no PID2, 24 actual hidden service tasks, actor-paid `Write11` before each external feedback delivery, original PID-paid `Read20`.
+- 72 frozen 24-stage task goal sequences: **36 reused P4F1-known cases** in stable, switch, holdout_revert and holdout_rare_shock; **36 genuinely new-to-P4F3-frozen heldouts** in early_switch, late_flip, two_pulse and oscillating_step, 9 sequences per family.
+- Three arms per goal sequence: **F3-on** (both original actor-paid `PatchNext` effects live), source-identical **F3-off** (all `PatchNext` edit *effects* suppressed, though opcode execution is paid), **F1-on** (previous source, on). 72×3=216 truthful native worlds, plus 2 F3 inverted/forced-zero feedback controls = **218**.
+- The **same-source F3-off − F3-on** contrast isolates the bundled causal effect of the two source edges; it does **not** separately identify PC82 and PC131. The **cross-source F1-on − F3-on** contrast is a net *different-program* performance comparison, and **cannot** be called the causal effect of one source edit.
+
+## Verified actor-owned mechanism
+
+An original PID1 first learns a relative executable search stride from real previous task-success observations in the inherited F1 source, pays to store original stride in cell35, and pays `PatchNext PC82` to edit failure-path executable `Write PC12.next` from 13 to 83. The P4F3 source adds a second real actor-paid event gate: after task stage2 it pays `Write37` to retain the genuinely successful service value and pays `PatchNext PC131` to edit executable `Write PC34.next` from 62 to 106. Every subsequent successful task passes through the paid success handler; if an original task service had earlier failed in that stage, the original PID pays `Read37`, computes `(latest_success−last_success) mod3` using CIL arithmetic, pays `PatchConst PC122` on executable stride `PC46`, then pays `Write37` and `Read32` to preserve original stage/continuity. This is reconfiguration of executable *policy*, not task-answer literal injection; source, registers, data cells, compute inventory and both edited control edges were reconstructed per charged original CIL instruction.
+
+The program logic/thresholds were **authored and frozen by researchers**; only the actual measurements, register arithmetic and live executable mutations occur under the original actor's paid instructions. It does not autonomously invent new instructions or a search method.
+
+## Exact original-native measured paired outcomes
+
+Signed metric: **positive means fewer original paid instructions (or fewer actual task probes) for detector-on F3**. Nine frozen goal sequences per regime.
+
+| Regime | Prospective status | F3-off − F3-on instructions, same-source edit bundle | F3-off − F3-on true probes | F1-on − F3-on instructions, cross-source | F1-on − F3-on true probes | Original actor paid new online `PatchConst PC122` |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| stable | reused | −1,386 | 0 | −1,431 | 0 | 0 |
+| switch | reused | +1,770 | +135 | +2,157 | +135 | 9 |
+| holdout_revert | reused | −675 | +45 | −504 | +45 | 18 |
+| holdout_rare_shock | reused | −1,428 | +9 | −1,326 | +9 | 12 |
+| **early_switch** | **new heldout** | **+2,646** | **+171** | **+3,141** | **+171** | 9 |
+| **late_flip** | **new heldout** | **+549** | **+90** | **−144** | **+45** | 9 |
+| **two_pulse** | **new heldout** | **−4,254** | **−54** | **−2,542** | **−6** | 72 |
+| **oscillating_step** | **new heldout** | **+1,794** | **+189** | **+981** | **+108** | 72 |
+
+**All 72 selected goal sequences:** same-source bundled original paid savings **−984**, actual probes saved **+585**; cross-source F1-on-to-F3-on total original paid savings **+332**, probes saved **+507**; **201 additional actor-paid online policy edits** in F3-on; net cross-source instruction outcomes **27 beneficial / 45 harmful / 0 tied** goal sequences. The near-zero +332 cross-source aggregate is *not* a uniform-task or population result.
+
+**Only 36 P4F3 new heldouts:** same-source original paid savings **+735**, probes saved **+396**; cross-source original paid savings **+1,436**, probes saved **+318**, with **18 beneficial / 18 harmful / 0 tied** cross-source goal sequences, **162** paid online edits. Delayed reversal and dual-pulse shocks remain counterexamples. These four regime families were prospectively frozen before native execution but are **purposefully selected**, not sampled from an unknown world's task distribution. F3's old-corpus cross-source savings are **−1,104** over 36 known cases.
+
+**All 216 truthful native actor worlds** actually achieved **24/24 true goals** and halted with success claims. The adversarial **inverted feedback** F3 PID claims 24 stages, but only **2 original service outputs actually matched hidden goals** (1,099 paid instructions). The **forced0** control halts with failure claim (68 paid instructions; 1 incidental actual goal match). Actor's claims are not an authenticated fitness oracle.
+
+## Source-pinned trace evidence and falsifiability
+
+- GitHub exact-source CI [#44838246836](https://github.com/iFrankStudio/cioc/actions/runs/44838246836); uploaded [original native log artifact #14678459694](https://github.com/iFrankStudio/cioc/actions/runs/44838246836/artifacts/14678459694); `provenance.txt`: source_sha `5084e9d79917cf9d05afd8f0527a428563f495df`, run_id `44838246836`, rustc 1.100.0, original Linux native runner.
+- The separately written `cl1b/analysis/cl1b_policy_p4f3_independent_native_replay.py` reconstructs each original CIL PC, all four registers, per-PID compute credits, actual observed data cells, current PC12.next, PC34.next, PC46.value, all external feedback and the exact 267,284 paid instructions. It fails at the first mismatched native step or summary field. Exact output from native artifact: `original_native_worlds_exactly_replayed=218`, `original_charged_CIL_instruction_count_exactly_replayed=267284`, `first_divergence=null`.
+- Full CI independent observer suite reports **96 native test PASS lines**, **63 independent observer PASS lines**, `failed_target_count=0`, `failed_observer_count=0` under the exact `5084e9d79917cf9d05afd8f0527a428563f495df` source.
+- Fail-closed causal controls must preserve actor charges when suppressing source edits. External feedback may be inverted and is not a trustworthy goal oracle. No source edit or task answer is injected after native load.
+
+## Interpretation, failure mode and next experiment
+
+P4F3 offers a **new source-pinned original-native example of one uninterrupted individual paying to arm its own success control-flow edge, remembering its most recent earned task success and repeatedly deriving and editing its executable search policy within one lifespan**. It is **not** generally profitable: the same-source bundled edits are net **984 paid instructions worse** across the selected 72 cases despite reducing true service probes by 585, while the F3/F1 net program performance difference is just 332 instructions. In the **two-pulse** fresh-heldout family the paid policy changes occur 72 times and the original F3-on actor spends 4,254 more paid instructions *than its same-source edit-suppressed control*, with 54 **additional** task probes. In stable families the success handler spends compute even without any source learning. These are falsifiers to “more online learning always improves fitness.”
+
+The next defensible step is **actor-paid resource-aware *gating* of source revalidation**, with explicit fitness-vs-evidence costs, persistence versus transient-shock ambiguity, pre-registered unseen shock durations, identical-source masked feedback controls, and a hard limit on active re-edits. This requires new original native experiments; modeling alone is insufficient. No claim of algorithm invention, open-ended evolution, genuine externally certified truth, or cross-world continuous individual is established.
