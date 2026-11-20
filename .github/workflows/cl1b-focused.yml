@@ -729,6 +729,24 @@ jobs:
               failures=$((failures + 1))
             fi
           fi
+          # P1-H81 exhaustive finite holdout: all 3^4 four-stage goals
+          # run TWICE in the same frozen original source and charged CL0 VM,
+          # with only native code-edit effect suppressed in matched controls.
+          # All 162 native worlds must be independently replayed at every
+          # original CIL step, task service and external feedback event.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p1_paid_executable_search_stride'; then
+            h81_summary=cl1b-ci-evidence/cl1b_policy_p1_h81_native_full_cube.json
+            if [ -f "${h81_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p1_h81_independent_native_complete_cube_replay.py \
+                "${h81_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p1_h81_independent_native_complete_cube_replay.json \
+                2> cl1b-ci-evidence/cl1b_policy_p1_h81_independent_native_complete_cube_replay.stderr.log; then
+              echo "PASS native-complete-81-goal-policy-positive-negative-transfer=p1-h81" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-complete-81-goal-policy-positive-negative-transfer=p1-h81" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
           echo "failed_target_count=${failures}" | tee -a cl1b-ci-evidence/summary.txt
           if [ "${failures}" -ne 0 ]; then
             exit 1
