@@ -234,7 +234,11 @@ fn run(frozen:&[Value],name:&str,seed:[i64;3],
     "final_source_rule":final_rule,"postload_host_source_writes":0,
     "actor_claimed_success":native.cell(21)})
 }
+// Original native test intentionally preserved to reproduce FAILED I6R
+// preregistration: expected Write11 task service actually targets key56.
+// Keep historical failed Actions evidence. I6S replaces the native claim.
 #[test]
+#[ignore = "known I6R negative: deleted task address Const caused Write56; see original failed CI; I6S is corrected"]
 fn g3q_c1_i6r_exact_original_pid_pays_two_source_patches_and_three_certification_rounds(){
  let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
  let manifest:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
