@@ -242,7 +242,7 @@ fn policy_p1_actor_feedback_pays_to_edit_executable_candidate_search_stride(){
 #[test]
 fn policy_p1_h81_full_native_goal_cube_detects_harmful_policy_transfer(){
  let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
- const small:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
+ let small:Value=serde_json::from_slice(&fs::read(root.join(FROZEN)).unwrap()).unwrap();
  let source=small["original_native_CIL_source"].as_array().unwrap();
  let exhaustive_path="../../../cl1b/studies/CL1B-POLICY-P1-H81-frozen-162-original-world-complete-transfer-audit-v1.json";
  let h81:Value=serde_json::from_slice(&fs::read(root.join(exhaustive_path)).unwrap()).unwrap();
