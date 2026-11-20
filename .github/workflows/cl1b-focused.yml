@@ -148,6 +148,7 @@ jobs:
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair
             cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs
+            cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -318,6 +319,7 @@ jobs:
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i4_observed_repair_choice]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i5_optimal_onebyte_repair]=1
             wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs]=1
+            wanted[cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -330,8 +332,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 87 ]; then
-            echo "Expected exactly 87 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 88 ]; then
+            echo "Expected exactly 88 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -623,21 +625,37 @@ jobs:
               failures=$((failures + 1))
             fi
           fi
-          # I6N native original PID1 fixed second edit baseline. 179 nodes,
-          # 64 genotypes and three causal worlds, up to 2 charged executable
-          # edits and 3 fully separated certificate passes before task service.
-          # Every internal CIL step and host feedback is independently
-          # source-reexecuted; no evidence-based second repair selection claim.
+          # I6N is an IMPORTANT EXPECTED-NEGATIVE original-native case.
+          # Its PID1 really performs two paid code edits, but the second
+          # edit is missing a full flag7/8/9 isolation sweep. Preserve all
+          # native traces and PASS only when independently proven negative.
           if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i6n_two_paid_repairs'; then
             i6n_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i6n_native_bounded_two_edit.json
             if [ -f "${i6n_summary}" ] && \
-              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.py \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6n_expected_negative_witness_isolation_audit.py \
                 "${i6n_summary}" cl1b-ci-evidence \
-                > cl1b-ci-evidence/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.json \
-                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6n_independent_native_two_edit_replay.stderr.log; then
-              echo "PASS native-two-paid-source-repairs=i6n" | tee -a cl1b-ci-evidence/summary.txt
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i6n_expected_negative_witness_isolation_audit.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6n_expected_negative_witness_isolation_audit.stderr.log; then
+              echo "PASS native-detected-stale-witness-falsifier=i6n" | tee -a cl1b-ci-evidence/summary.txt
             else
-              echo "FAIL native-two-paid-source-repairs=i6n" | tee -a cl1b-ci-evidence/summary.txt
+              echo "FAIL native-detected-stale-witness-falsifier=i6n" | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # I6R preregistered corrected original PID1: 180/180 CIL source,
+          # <=2 paid executable patches, all 3 flag keys paid-reset BEFORE
+          # EACH patch and all64 genotypes structurally pass with 3 trials.
+          # Independently replay every original native CIL step and feedback.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_b56_f1d1k_g3q_c1_p1_l3_i6r_two_paid_repairs_isolated'; then
+            i6r_summary=cl1b-ci-evidence/b56_f1d1k_g3q_c1_p1_l3_i6r_native_bounded_two_edit.json
+            if [ -f "${i6r_summary}" ] && \
+              python3 ../cl1b/analysis/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.py \
+                "${i6r_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.json \
+                2> cl1b-ci-evidence/g3q_c1_p1_l3_i6r_independent_native_full_isolation_replay.stderr.log; then
+              echo "PASS native-two-fully-isolated-self-repairs=i6r" | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo "FAIL native-two-fully-isolated-self-repairs=i6r" | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
