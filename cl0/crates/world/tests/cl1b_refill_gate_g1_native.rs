@@ -80,7 +80,7 @@ fn run(m: &Value, arm: &Value, output: &std::path::Path) -> Value {
         assert!(w.process(2).is_none());
         peak=peak.max(w.occupied_units());
         if source.starts_with("G1_") && pc==173 {
-            assert!(matches!(ev.kind,EventKind::Executed));
+            assert!(matches!(&ev.kind,EventKind::Executed));
             let guess=pid.registers[3];
             let jump=pid.pc;
             let expected=match source {
@@ -93,7 +93,7 @@ fn run(m: &Value, arm: &Value, output: &std::path::Path) -> Value {
             decisions.push(json!({"step":paid,"guess":guess,"next":jump}));
         }
         if (source=="F6_parent" && pc==174) || (source.starts_with("G1_") && pc==175) {
-            assert!(matches!(ev.kind,EventKind::CellWritten{key:38,value:0}));
+            assert!(matches!(&ev.kind,EventKind::CellWritten{key:38,value:0}));
             assert_eq!(w.cell(38),Some(0));
             refills.push(json!({"step":paid,"pc":pc}));
         }
