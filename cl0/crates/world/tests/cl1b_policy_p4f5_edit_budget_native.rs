@@ -240,7 +240,7 @@ fn p4f5_original_native_434_worlds_paid_edit_budget(){
  assert_eq!(f5[152],json!({"kind":"Write","address":2,"value":0,"next":134}));
  assert_eq!(f5[81]["value"],137);
  assert_eq!(f5[130]["value"],132);
- assert_eq!(f5[122]["next"],134);
+ assert_eq!(f4[122]["next"],134);
  assert_eq!(f5[136],json!({"kind":"PatchNext","node":1,"target":0,"next":123}));
  assert_eq!(f5[139],json!({"kind":"PatchNext","node":1,"target":0,"next":140}));
  assert_eq!(f5[131],json!({"kind":"PatchNext","node":1,"target":0,"next":46}));
