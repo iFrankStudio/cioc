@@ -1,0 +1,52 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P0",
+  "level": "NATIVE_SUMMARY_CROSSCHECK_NOT_INDEPENDENT_EVENT_REPLAY",
+  "source_frozen_nodes": 180,
+  "native_source_sha": "3b141ca7811445ce3a3bdb4e78bf785bd8df07fc",
+  "native_charged_steps": 24066,
+  "source_replay_charged_steps": 24066,
+  "native_bank_reads": [
+    [
+      51,
+      1
+    ],
+    [
+      52,
+      3
+    ],
+    [
+      53,
+      2
+    ]
+  ],
+  "native_active_writes": [
+    [
+      62,
+      1
+    ],
+    [
+      63,
+      3
+    ],
+    [
+      64,
+      2
+    ]
+  ],
+  "source_mutant_active_writes": [
+    [
+      62,
+      3
+    ],
+    [
+      63,
+      3
+    ],
+    [
+      64,
+      2
+    ]
+  ],
+  "first_checked_field_mismatch": null,
+  "limits": "Tests native Rust aggregate summary, not individual native events or hidden task success."
+}

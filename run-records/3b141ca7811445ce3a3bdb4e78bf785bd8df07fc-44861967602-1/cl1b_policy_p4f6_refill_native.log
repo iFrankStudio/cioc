@@ -1,0 +1,21 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+[1m[92m     Running[0m tests/cl1b_policy_p4f6_refill_native.rs (target/debug/build/cl0-world/3d781a17047120de/out/cl1b_policy_p4f6_refill_native-3d781a17047120de)
+
+running 1 test
+
+thread 'p4f6_original_native_542_worlds_replenishable_paid_edit_budget' (5856) panicked at crates/world/tests/cl1b_policy_p4f6_refill_native.rs:308:2:
+assertion `left == right` failed
+  left: Number(147)
+ right: 134
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test p4f6_original_native_542_worlds_replenishable_paid_edit_budget ... FAILED
+
+failures:
+
+failures:
+    p4f6_original_native_542_worlds_replenishable_paid_edit_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+[1m[91merror[0m: test failed, to rerun pass `-p cl0-world --test cl1b_policy_p4f6_refill_native`

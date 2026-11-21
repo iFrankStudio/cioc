@@ -1,0 +1,9 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+[1m[92m     Running[0m tests/cl1b_b09_trial_evidence.rs (target/debug/build/cl0-world/631abb1585ee4457/out/cl1b_b09_trial_evidence-631abb1585ee4457)
+
+running 1 test
+test cl1b_b09_native_trial_readback_can_recover_but_zero_and_stale_outputs_hide_failure ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
