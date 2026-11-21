@@ -1,0 +1,20 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+[1m[92m     Running[0m tests/cl1b_b28_cumulative_genome_mutation.rs (target/debug/build/cl0-world/51691e1fcde6433c/out/cl1b_b28_cumulative_genome_mutation-51691e1fcde6433c)
+
+running 1 test
+B28_NATIVE ResultTrace { arm: PlusOne, supply: [128, 129, 130], births: [(1, 2), (2, 3), (2, 4)], genome_requests: [127, 128, 129, 129], charged_attempts: 388, final_pool: 1, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: PlusOne, supply: [128, 128, 128], births: [(1, 2), (2, 3)], genome_requests: [127, 128, 129], charged_attempts: 259, final_pool: 127, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: PlusOne, supply: [130, 129, 128], births: [(1, 2), (2, 3), (2, 4)], genome_requests: [127, 128, 129, 129], charged_attempts: 388, final_pool: 1, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: Identical, supply: [128, 129, 130], births: [(1, 2), (2, 3), (3, 4)], genome_requests: [127, 127, 127, 127], charged_attempts: 386, final_pool: 3, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: Identical, supply: [128, 128, 128], births: [(1, 2), (2, 3), (3, 4)], genome_requests: [127, 127, 127, 127], charged_attempts: 386, final_pool: 0, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: Identical, supply: [130, 129, 128], births: [(1, 2), (2, 3), (3, 4)], genome_requests: [127, 127, 127, 127], charged_attempts: 386, final_pool: 3, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: MinusOne, supply: [128, 129, 130], births: [(1, 2)], genome_requests: [127, 126], charged_attempts: 256, final_pool: 132, stopped: [2], trapped_count: 1 }
+B28_NATIVE ResultTrace { arm: MinusOne, supply: [128, 128, 128], births: [(1, 2)], genome_requests: [127, 126], charged_attempts: 256, final_pool: 129, stopped: [2], trapped_count: 1 }
+B28_NATIVE ResultTrace { arm: MinusOne, supply: [130, 129, 128], births: [(1, 2)], genome_requests: [127, 126], charged_attempts: 256, final_pool: 132, stopped: [2], trapped_count: 1 }
+B28_NATIVE ResultTrace { arm: NoInflux, supply: [], births: [], genome_requests: [127], charged_attempts: 2, final_pool: 0, stopped: [], trapped_count: 0 }
+B28_NATIVE ResultTrace { arm: CopyDisabled, supply: [128, 129, 130], births: [], genome_requests: [127], charged_attempts: 124, final_pool: 259, stopped: [1], trapped_count: 1 }
+test b28_two_heritable_source_literals_accumulate_across_native_cil_generations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+[1m[92m     Running[0m tests/cl1b_policy_p1_paid_executable_search_stride.rs (target/debug/build/cl0-world/15c4cef8e6c22021/out/cl1b_policy_p1_paid_executable_search_stride-15c4cef8e6c22021)
+
+running 2 tests
+test policy_p1_actor_feedback_pays_to_edit_executable_candidate_search_stride ... ok
+test policy_p1_h81_full_native_goal_cube_detects_harmful_policy_transfer ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+

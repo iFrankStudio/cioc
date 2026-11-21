@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+[1m[92m     Running[0m tests/cl1b_b56_f1d1i_conditioned_mutation_rollback.rs (target/debug/build/cl0-world/6da276c45f6f88cc/out/cl1b_b56_f1d1i_conditioned_mutation_rollback-6da276c45f6f88cc)
+
+running 1 test
+B56_F1D1I_NATIVE_CONDITIONED_MUTATION_AND_ROLLBACK {"B3":false,"B4":false,"cyberlife":false,"data_address_union":16,"isolated_native_worlds":16,"native_source_CIL_nodes":157,"new_opcode_semantics_invented":false,"same_PID1":true,"true_schedule1_heldout_correct":3,"true_schedule2_heldout_correct":2,"unlearnable_task_fallback_not_success":true}
+test b56_f1d1i_single_pid_feedback_conditioned_mutation_and_source_rollback ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

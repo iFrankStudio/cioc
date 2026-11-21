@@ -1,0 +1,3954 @@
+{
+  "adversarial_controls": [
+    {
+      "actor_declared_success": 1,
+      "arm": "inverted_feedback_with_structurally_safe_repair",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1222,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 357,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 359,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 361,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 365
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 840,
+          "truth": 0
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 960,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1080,
+          "truth": 0
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1200,
+          "truth": 0
+        }
+      ],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "paid_patchconst_suppressed_then_failfast",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 718,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 357,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 359,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 361,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": true,
+          "node": 6,
+          "pc": 174,
+          "step": 365
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    }
+  ],
+  "all64_native_original_worlds": [
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1093,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        0,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 472,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 591,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 710,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 952,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1071,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1338,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        0,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1076,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1219,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        0,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 473,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 594,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 713,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 954,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1078,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b0_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1457,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 356,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 358,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 360,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 364
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 836,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 955,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1074,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1195,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1435,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1332,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        1,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 466,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 587,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 830,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 949,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1070,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1191,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1310,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1211,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        1,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 466,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 587,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 706,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 825,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 949,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1070,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1189,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1092,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        1,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 467,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 586,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 705,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 827,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 951,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1070,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a0_b1_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1690,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 350,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 354,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        0,
+        1,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 358
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 824,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 945,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 1069,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 1188,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1307,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1428,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1549,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1668,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b2_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        2,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b2_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        2,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b2_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 743,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 372,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 374,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        2,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 378
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b2_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 724,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        2,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b3_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        3,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b3_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        3,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b3_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        3,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a0_b3_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 724,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        0,
+        3,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1338,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        1,
+        0,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1076,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1217,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        1,
+        0,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 472,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 593,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 712,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1076,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1195,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1095,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        1,
+        0,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 473,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 592,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 833,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 954,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1073,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a1_b0_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1581,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 356,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 358,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 360,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        1,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 364
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 836,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 957,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1076,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1195,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1316,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1440,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1559,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b1_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 740,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 368,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 372,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        1,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 376
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b1_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 740,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 368,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 372,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        1,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 376
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b1_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 741,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        1,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b1_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 722,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 350,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 354,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        1,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 358
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b2_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        2,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b2_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        2,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b2_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        2,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a1_b2_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 724,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        1,
+        2,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 947,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        1,
+        3,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 3,
+          "output": 0,
+          "step": 461,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 3,
+          "output": 0,
+          "step": 574,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 3,
+          "output": 0,
+          "step": 687,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 4,
+          "output": 5,
+          "step": 808,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 5,
+          "output": 6,
+          "step": 929,
+          "truth": 0
+        }
+      ],
+      "true_goal_matches": 2
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 721,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 190,
+      "seed": [
+        1,
+        3,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 1,
+          "step": 461,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 6,
+          "step": 582,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 7,
+          "step": 703,
+          "truth": 0
+        }
+      ],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 722,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 190,
+      "seed": [
+        1,
+        3,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 2,
+          "step": 462,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 7,
+          "step": 583,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 8,
+          "step": 704,
+          "truth": 0
+        }
+      ],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 0,
+      "arm": "a1_b3_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1080,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 190,
+      "seed": [
+        1,
+        3,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 1,
+          "step": 820,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 6,
+          "step": 941,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 7,
+          "step": 1062,
+          "truth": 0
+        }
+      ],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1219,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        0,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 473,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 594,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 713,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 954,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1078,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1197,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1096,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        0,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 473,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 592,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 711,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 954,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1074,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1345,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        0,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 475,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 596,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 718,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 838,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 958,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1083,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1204,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1323,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b0_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1710,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 357,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 359,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 361,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 365
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 840,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 961,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1083,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1203,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1323,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1448,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1569,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1688,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b1_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        1,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b1_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        1,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b1_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 742,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        1,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b1_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 724,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        1,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1339,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        2,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 469,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 593,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 714,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 833,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1074,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1198,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1317,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1216,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        2,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 469,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 593,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 712,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 831,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 952,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1074,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1194,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1097,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        2,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 470,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 590,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 710,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 835,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 956,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1075,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a2_b2_c3",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1457,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 354,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 356,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 191,
+      "seed": [
+        2,
+        2,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 360
+        }
+      ],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 830,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 950,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1070,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1195,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1316,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1435,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b3_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 743,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        3,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b3_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 743,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 369,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 371,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 373,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        3,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 377
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b3_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 744,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 370,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 372,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 374,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        3,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 378
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a2_b3_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 725,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        2,
+        3,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1039,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        0,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 448,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 561,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 674,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 789,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 904,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1017,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1272,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        0,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 448,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 563,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 678,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 791,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 904,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1022,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1137,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1250,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b0_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1159,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        0,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 449,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 564,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 677,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 790,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 906,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1024,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1137,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b0_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 680,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 338,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 340,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 342,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        0,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 346
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c0",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1266,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        1,
+        0
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 442,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 2,
+          "output": 2,
+          "step": 557,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 675,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 788,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 901,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1016,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1131,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1244,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c1",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1151,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        1,
+        1
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 442,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 557,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 670,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 783,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 901,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1016,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1129,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": 1,
+      "arm": "a3_b1_c2",
+      "certified": true,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": true,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 1038,
+      "paid_witness_reset_events": [],
+      "peak_occupied": 191,
+      "seed": [
+        3,
+        1,
+        2
+      ],
+      "source_patches": [],
+      "task_service_events": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 443,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 556,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 669,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 785,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 903,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1016,
+          "truth": 1
+        }
+      ],
+      "true_goal_matches": 4
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b1_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 668,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 332,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 334,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 336,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        1,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 340
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b2_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 688,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        2,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b2_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 688,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        2,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b2_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 689,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 352,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 354,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 356,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        2,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 360
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b2_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 670,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 333,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 335,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 337,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        2,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 341
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b3_c0",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 688,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        3,
+        0
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 0,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b3_c1",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 688,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        3,
+        1
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 1,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b3_c2",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 688,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 351,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 353,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 355,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        3,
+        2
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 2,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 359
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    },
+    {
+      "actor_declared_success": null,
+      "arm": "a3_b3_c3",
+      "certified": false,
+      "host_rule_source_edits": 0,
+      "independent_semantic_structural_safe": false,
+      "original_PID1_halted": true,
+      "paid_original_instructions": 670,
+      "paid_witness_reset_events": [
+        {
+          "key": 7,
+          "step": 333,
+          "value": 0
+        },
+        {
+          "key": 8,
+          "step": 335,
+          "value": 0
+        },
+        {
+          "key": 9,
+          "step": 337,
+          "value": 0
+        }
+      ],
+      "peak_occupied": 188,
+      "seed": [
+        3,
+        3,
+        3
+      ],
+      "source_patches": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 174,
+          "step": 341
+        }
+      ],
+      "task_service_events": [],
+      "true_goal_matches": 0
+    }
+  ],
+  "counts": {
+    "false_certificates": 0,
+    "false_rejections": 0,
+    "genotypes": 64,
+    "initial_safe": 24,
+    "initially_unsafe": 40,
+    "source_patches": 40,
+    "verified_structurally_safe_after_repair": 30
+  },
+  "level": "NATIVE_EXHAUSTIVE_ALL64_ORIGINAL_PID_PAID_WITNESS_ISOLATION",
+  "limits": "Finite authored grammar and one bank-derived rule patch, not autonomously evolved algorithm. Different original PID1 instance per arm.",
+  "source_sha": "26d94bb8720f57d0593f2b0618e07e1db977759c",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I3"
+}
