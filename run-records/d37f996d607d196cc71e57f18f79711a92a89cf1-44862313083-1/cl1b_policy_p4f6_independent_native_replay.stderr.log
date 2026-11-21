@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/cl1b_policy_p4f6_independent_native_replay.py", line 255, in <module>
+    main()
+    ~~~~^^
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/cl1b_policy_p4f6_independent_native_replay.py", line 225, in main
+    on=check(a,record["f6_on"])
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/cl1b_policy_p4f6_independent_native_replay.py", line 215, in check
+    independently=replay(source,arm,path)
+  File "/home/runner/work/cioc/cioc/cl0/../cl1b/analysis/cl1b_policy_p4f6_independent_native_replay.py", line 171, in replay
+    assert observed==len(services)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
