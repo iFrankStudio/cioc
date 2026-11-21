@@ -1,0 +1,19 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.30s
+[1m[92m     Running[0m tests/cl1b_policy_p4f5_edit_budget_native.rs (target/debug/build/cl0-world/a4c26081ad6177f6/out/cl1b_policy_p4f5_edit_budget_native-a4c26081ad6177f6)
+
+running 1 test
+
+thread 'p4f5_original_native_434_worlds_paid_edit_budget' (5523) panicked at crates/world/tests/cl1b_policy_p4f5_edit_budget_native.rs:117:4:
+assertion failed: pc != 133 || source == "F5"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test p4f5_original_native_434_worlds_paid_edit_budget ... FAILED
+
+failures:
+
+failures:
+    p4f5_original_native_434_worlds_paid_edit_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+[1m[91merror[0m: test failed, to rerun pass `-p cl0-world --test cl1b_policy_p4f5_edit_budget_native`
