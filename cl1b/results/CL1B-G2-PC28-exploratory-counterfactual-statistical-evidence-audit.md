@@ -1,0 +1,21 @@
+# CL-1B G2 PC28 exploratory counterfactual: statistical and evidence-level audit
+
+**2026-11-21 UTC — retrospective methodological audit, NOT a new native experiment.**
+
+Source at audit: [main 84956f14](https://github.com/iFrankStudio/cioc/commit/84956f14c303fa71f3812fcec361b9633e3d172e). Original G2 native evidence: [Actions #44917352841](https://github.com/iFrankStudio/cioc/actions/runs/44917352841), source `9cdbeb5f43b897f3f1ddd19fa0d8fc6c8d31404b`, 184 original native worlds / 283,918 independently replayed paid CIL instructions. The **PC28-suppressed worlds are not among those original native worlds**. Their costs come solely from the later [exploratory source-level simulator](../analysis/cl1b_g2_pc28_effect_source_level_exploration.py) and its [CI workflow](../../.github/workflows/cl1b-g2-pc28-source-crosscheck.yml). This audit does not establish whether that workflow ran successfully.
+
+## What the exploratory result can support
+
+The simulator asserts 45 truth-feedback pairs, five original-native *aggregate* baseline costs summing to **70,281**, and suppressed-minus-active total **+156** paid instructions, or **0.222%** of the active aggregate. The reported pair directions are **4 active wins, 2 active losses, 39 ties**. These are assertions embedded in code; absent a verified execution artifact, they remain *reported exploratory calculations*, not a fresh reproduced measurement. Both branches pay for PC28; the counterfactual suppresses its effect on PC173, not its execution charge.
+
+Only **6/45** pairs have nonzero cost differences. A descriptive exact two-sided sign test conditional on those six nonzero pairs gives **p = 2 × (C(6,4)+C(6,5)+C(6,6))/2^6 = 0.6875** under an equal-sign null. This is **not** a preregistered significance test, does not establish independence of the 45 structured task vectors, and cannot be used to claim a population effect. The positive aggregate +156 may be driven by magnitudes of a few pairs, while the 39 ties dominate exposure. Without the actual per-pair output and native intervention, there is no justified confidence interval for generalization.
+
+## Fail-closed interpretation and verification gaps
+
+1. **The original G2 preregistration did not freeze a PC28-suppression arm.** These 45 already-observed G2 vectors are retrospective exploration, *not fresh holdouts*. Do not relabel them as prospective validation.
+2. The simulator checks published native **five-family sums**, not original-native PC/register/cell/credit/source transitions per world. Agreement on sums cannot exclude compensating per-world errors. It also does not independently implement or compare original Rust native traces.
+3. The script records `effective` before suppressing the write, counting would-be value changes in the suppressed arm; that counter is an *attempted-change diagnostic*, not evidence that the suppressed executable actually changed.
+4. The exploratory difference is a **same-source intervention in a separate source-level model**, not a native causal estimate. No new Rust native holdout, native placebo, independent instruction replay, or CI-pinned intervention artifact is claimed.
+5. Even a future positive native same-source effect would validate the **researcher-authored parameter-update rule**, not autonomous invention, reliable adaptation under deceptive feedback, long-lived lineage, or open-ended evolution.
+
+**Scientific decision:** Treat +156 as a weak hypothesis-generating signal. Do not tune or select environments on it. A worthwhile future test must first freeze genuinely new non-overlapping vectors, primary signed total cost and completion criteria, same-source PC28 effect suppression with full instruction charge, no-op placebo, exposed/unexposed accounting, and independent original-native state replay. Negative or zero results are equally informative. This review itself authorizes no experiment and changes no CIL program.
