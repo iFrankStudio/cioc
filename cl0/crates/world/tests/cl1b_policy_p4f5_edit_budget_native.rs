@@ -114,7 +114,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
   }
   if pc==128||pc==124||pc==133{
    assert!(source=="F5"||source=="F4");
-   assert!(pc!=133||source=="F5");
+   // PC133 cheap Write37 is inherited unchanged from F4: both sources execute it.
    match &ev.kind{
     EventKind::CellWritten{key:37,value}=>{
      assert_eq!(w.cell(30),Some(*value));

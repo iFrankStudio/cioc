@@ -871,6 +871,7 @@ jobs:
             fi
           fi
           # P4F5 434-world original CIL independent replay of actor-paid one-online-edit budget.
+          # Full 98-target regression after correcting the inherited F4 PC133 observer assertion.
           if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p4f5_edit_budget_native'; then
             p4f5_summary=cl1b-ci-evidence/cl1b_policy_p4f5_native_434_worlds.json
             if [ -f "${p4f5_summary}" ] && \
