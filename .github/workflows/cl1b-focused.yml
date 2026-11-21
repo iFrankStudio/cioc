@@ -1,4 +1,4 @@
-# CL1B-POLICY-P4F4: fail-closed 97 native targets, source-pinned P4F3 and P4F4 exact CIL replay.
+# CL1B-POLICY-P4F5: fail-closed 98 original Rust native targets, source-pinned P4F3/P4F4/P4F5 exact CIL replays and full-rerun validation.
 name: CL-1B focused native experiments
 
 on:
