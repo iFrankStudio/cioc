@@ -1,4 +1,4 @@
-# CL1B-POLICY-P4F3: fail-closed 96 native targets, source-pinned P4F3 exact CIL replay.
+# CL1B-POLICY-P4F4: fail-closed 97 native targets, source-pinned P4F3 and P4F4 exact CIL replay.
 name: CL-1B focused native experiments
 
 on:
@@ -158,6 +158,7 @@ jobs:
             cl1b_policy_p4f0_event_triggered_native
             cl1b_policy_p4f1_recoverable_native
             cl1b_policy_p4f3_online_native
+            cl1b_policy_p4f4_event_gate_native
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -222,6 +223,8 @@ jobs:
               case "${changed_path}" in
                 cl0/crates/world/src/*|cl0/crates/world/Cargo.toml|cl0/Cargo.toml|cl0/Cargo.lock|.github/workflows/cl1b-focused.yml)
                   full=1 ;;
+                cl1b/analysis/cl1b_policy_p4f4_independent_native_replay.py)
+                  wanted[cl1b_policy_p4f4_event_gate_native]=1 ;;
                 cl1b/analysis/cl1b_policy_p4f3_independent_native_replay.py)
                   wanted[cl1b_policy_p4f3_online_native]=1 ;;
                 cl1b/analysis/cl1b_policy_p4f1_independent_native_replay.py)
@@ -353,6 +356,7 @@ jobs:
             wanted[cl1b_policy_p4f0_event_triggered_native]=1
             wanted[cl1b_policy_p4f1_recoverable_native]=1
             wanted[cl1b_policy_p4f3_online_native]=1
+            wanted[cl1b_policy_p4f4_event_gate_native]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -365,8 +369,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 96 ]; then
-            echo "Expected exactly 96 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 97 ]; then
+            echo "Expected exactly 97 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -845,6 +849,20 @@ jobs:
               echo 'PASS native-original-218-worlds=p4f3' | tee -a cl1b-ci-evidence/summary.txt
             else
               echo 'FAIL native-original-218-worlds=p4f3' | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # P4F4 original 326-world independent CIL replay, never green without exact traces.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p4f4_event_gate_native'; then
+            p4f4_summary=cl1b-ci-evidence/cl1b_policy_p4f4_native_326_worlds.json
+            if [ -f "${p4f4_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_policy_p4f4_independent_native_replay.py \
+                "${p4f4_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_policy_p4f4_independent_native_replay.json \
+                2> cl1b-ci-evidence/cl1b_policy_p4f4_independent_native_replay.stderr.log; then
+              echo 'PASS native-original-326-worlds=p4f4' | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo 'FAIL native-original-326-worlds=p4f4' | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
