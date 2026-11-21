@@ -1,0 +1,49 @@
+# Exploratory source-level G2 counterfactual only; not native causal evidence.
+name: CL-1B G2 PC28 source-level cross-check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/analysis/cl1b_g2_pc28_effect_source_level_exploration.py'
+      - 'cl1b/studies/CL1B-REFILL-RULE-G2-frozen-180-node-self-modifying-184-world-v1.json'
+      - '.github/workflows/cl1b-g2-pc28-source-crosscheck.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-level-counterfactual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run frozen source-level counterfactual
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 cl1b/analysis/cl1b_g2_pc28_effect_source_level_exploration.py > "$RUNNER_TEMP/g2-pc28-source-level.json"
+          python3 - "$RUNNER_TEMP/g2-pc28-source-level.json" <<'PY'
+          import json, sys
+          x = json.load(open(sys.argv[1], encoding="utf-8"))
+          assert x["evidence_level"] == "EXPLORATORY_SOURCE_LEVEL_SIMULATION_NOT_NATIVE"
+          assert len(x["paired_worlds"]) == 45
+          families = x["families"]
+          assert len(families) == 5
+          assert sum(v["suppressed"] - v["on"] for v in families.values()) == 156
+          assert sum(v["wins"] for v in families.values()) == 4
+          assert sum(v["losses"] for v in families.values()) == 2
+          assert sum(v["ties"] for v in families.values()) == 39
+          print("Source-level only: 45 pairs, 4/2/39, +156 suppression cost; NOT native")
+          PY
+      - name: Preserve exploratory output even on failed assertions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-g2-pc28-source-level-not-native
+          path: ${{ runner.temp }}/g2-pc28-source-level.json
+          if-no-files-found: warn
