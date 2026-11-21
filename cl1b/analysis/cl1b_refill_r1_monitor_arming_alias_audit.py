@@ -53,6 +53,7 @@ def audit(native: dict, trace_dir: Path) -> dict:
     assert native["counts"]["total_original_paid_instructions"] == 677122
 
     groups = defaultdict(list)
+    refill_groups = defaultdict(list)
     eligible = 0
     for item in native["fresh_records"] + native["exploratory_records"]:
         if not item["actual_suppressed_pc174_exposures"]:
@@ -72,6 +73,10 @@ def audit(native: dict, trace_dir: Path) -> dict:
         observations = tuple((e["step"], e["stage"], e["guess"], e["feedback"])
                              for e in actor["services"] if e["step"] < arming)
         key = (arming, observations)
+        later_observations = tuple((e["step"], e["stage"], e["guess"], e["feedback"])
+                                   for e in actor["services"] if e["step"] < first_refill)
+        refill_groups[(first_refill, later_observations)].append(
+            item["same_source_refill_causal_paid_saving"])
         groups[key].append({
             "name": actor["name"],
             "regime": item["regime"],
@@ -81,6 +86,12 @@ def audit(native: dict, trace_dir: Path) -> dict:
             "first_refill_step": first_refill,
         })
     assert eligible == 99
+    # This dataset does NOT show an opposing-sign history collision if the
+    # decision is postponed until the first actual PC174 refill exposure.
+    # No collisions in a finite sample does not establish learnability.
+    assert len(refill_groups) == 81
+    assert not any(any(v > 0 for v in group) and any(v < 0 for v in group)
+                   for group in refill_groups.values())
 
     witness_groups = []
     for (arming, observations), items in groups.items():
@@ -134,6 +145,8 @@ def audit(native: dict, trace_dir: Path) -> dict:
         "original_paid_cil_replayed_in_parent_evidence": 677122,
         "truthful_first_pc174_exposed_cases": eligible,
         "distinct_pc155_service_history_classes": len(groups),
+        "distinct_first_pc174_service_history_classes": len(refill_groups),
+        "opposite_sign_first_pc174_service_history_classes": 0,
         "opposite_sign_alias_classes": len(witness_groups),
         "matched_original_native_trace_witnesses": len(witness_groups),
         "minimum_regret_on_14_selected_cases_for_early_irrevocable_binary_choice":
