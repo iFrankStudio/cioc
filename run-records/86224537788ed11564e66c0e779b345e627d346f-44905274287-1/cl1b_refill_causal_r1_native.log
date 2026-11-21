@@ -1,0 +1,17 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[91merror[E0369][0m[1m: binary operation `<` cannot be applied to type `Value`[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_refill_causal_r1_native.rs:401:40
+    [1m[94m|[0m
+[1m[94m401[0m [1m[94m|[0m  assert!(adverse[0]["truthful_matches"]<24);
+    [1m[94m|[0m          [1m[94m------------------------------[0m[1m[91m^[0m[1m[94m--[0m [1m[94m{integer}[0m
+    [1m[94m|[0m          [1m[94m|[0m
+    [1m[94m|[0m          [1m[94mValue[0m
+    [1m[94m|[0m
+[1m[92mnote[0m: `Value` does not implement `PartialOrd<{integer}>`
+   [1m[94m--> [0m/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/value/mod.rs:116:1
+    [1m[94m|[0m
+[1m[94m116[0m [1m[94m|[0m pub enum Value {
+    [1m[94m|[0m [1m[92m^^^^^^^^^^^^^^[0m [1m[92m`Value` is defined in another crate[0m
+
+[1mFor more information about this error, try `rustc --explain E0369`.[0m
+[1m[91merror[0m: could not compile `cl0-world` (test "cl1b_refill_causal_r1_native") due to 1 previous error

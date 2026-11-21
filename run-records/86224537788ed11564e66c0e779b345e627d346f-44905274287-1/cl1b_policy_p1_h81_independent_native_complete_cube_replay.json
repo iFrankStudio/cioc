@@ -1,0 +1,66 @@
+{
+  "study": "CL1B-POLICY-P1-H81",
+  "evidence_level": "NATIVE_162_WORLD_ALL_CHARGED_CIL_STEPS_AND_FEEDBACK_REPLAY",
+  "source_sha": "86224537788ed11564e66c0e779b345e627d346f",
+  "native_original_paid_instructions_replayed": 35748,
+  "native_worlds": 162,
+  "goals_exhaustive": 81,
+  "policy_patch_helped": 27,
+  "policy_patch_harmed": 27,
+  "policy_patch_tied": 27,
+  "all_worlds_truthfully_completed_four_tasks": true,
+  "total_net_paid_instruction_savings": -108,
+  "total_net_paid_task_probe_savings": 0,
+  "first_divergence": null,
+  "causal_examples": [
+    {
+      "goals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_native_charged_source_policy_on": 173,
+      "charged_patch_disabled": 271,
+      "source_policy_savings": 98,
+      "first_trace_divergence": null
+    },
+    {
+      "goals": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "original_native_charged_source_policy_on": 123,
+      "charged_patch_disabled": 123,
+      "source_policy_savings": 0,
+      "first_trace_divergence": null
+    },
+    {
+      "goals": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "original_native_charged_source_policy_on": 248,
+      "charged_patch_disabled": 147,
+      "source_policy_savings": -101,
+      "first_trace_divergence": null
+    },
+    {
+      "goals": [
+        0,
+        2,
+        1,
+        0
+      ],
+      "original_native_charged_source_policy_on": 149,
+      "charged_patch_disabled": 196,
+      "source_policy_savings": 47,
+      "first_trace_divergence": null
+    }
+  ],
+  "limits": "Complete finite 81-goal alphabet cube only. Researcher-authored policy mutation can negatively transfer; this does not establish self-invented mutation rules or open-ended adaptive benefit."
+}
