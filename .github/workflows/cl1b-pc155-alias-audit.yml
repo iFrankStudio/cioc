@@ -1,0 +1,58 @@
+# Independent verification of a retrospective claim against immutable original-native traces.
+# No new native experiment or holdout; do not confuse this with full Rust CI.
+name: CL-1B original-native PC155 alias audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/analysis/cl1b_refill_r1_monitor_arming_alias_audit.py'
+      - '.github/workflows/cl1b-pc155-alias-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-trace-alias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact current audit code
+        uses: actions/checkout@v4
+        with:
+          path: source
+          persist-credentials: false
+      - name: Checkout archived original-native evidence
+        uses: actions/checkout@v4
+        with:
+          ref: cl1b-ci-evidence
+          path: evidence
+          persist-credentials: false
+          sparse-checkout: |
+            run-records/10bb882f92644c975ab9d61115ba476dccf73154-44906052116-1
+      - name: Verify source-pinned original-native alias witnesses
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir="evidence/run-records/10bb882f92644c975ab9d61115ba476dccf73154-44906052116-1"
+          test -s "$dir/cl1b_refill_causal_r1_native_472_worlds.json"
+          python3 source/cl1b/analysis/cl1b_refill_r1_monitor_arming_alias_audit.py \
+            --native-json "$dir/cl1b_refill_causal_r1_native_472_worlds.json" \
+            --trace-dir "$dir" \
+            --output "$RUNNER_TEMP/cl1b-pc155-alias-audit.json"
+          python3 - "$RUNNER_TEMP/cl1b-pc155-alias-audit.json" <<'PY'
+          import json, sys
+          data = json.load(open(sys.argv[1]))
+          assert data["status"] == "VERIFIED_ORIGINAL_NATIVE_TRACE_PREFIX"
+          assert data["matched_original_native_trace_witnesses"] == 7
+          assert data["minimum_regret_on_14_selected_cases_for_early_irrevocable_binary_choice"] == 889
+          print("Original-native PC155 alias evidence verified: 7 witness pairs; 889 restricted regret")
+          PY
+      - name: Archive exact audit output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-original-native-pc155-alias-audit
+          path: ${{ runner.temp }}/cl1b-pc155-alias-audit.json
+          if-no-files-found: warn
