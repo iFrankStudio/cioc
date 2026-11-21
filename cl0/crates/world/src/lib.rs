@@ -899,6 +899,13 @@ pub enum EventKind {
         key: CellKey,
         value: i64,
     },
+    /// Researcher-only matched causal control: a valid native Write consumed
+    /// its original instruction fee and advanced PC, but its single specified
+    /// shared-cell state effect was suppressed. Not visible to guest CIL.
+    NativeCellWriteSuppressed {
+        key: CellKey,
+        value: i64,
+    },
     /// Observer-only exact result of a successful native graph opcode-tag read.
     GraphTagRead {
         graph: u64,
@@ -1039,6 +1046,11 @@ pub struct World {
     /// and native reproduction operational. Disabled by default for old worlds.
     #[serde(default, skip_serializing_if = "is_false")]
     native_patchnext_disabled: bool,
+    /// Opt-in, narrowly scoped researcher counterfactual for a specific
+    /// process/PC/write-key/write-value. Default None preserves original physics.
+    /// The native Write still validates and consumes its ordinary compute fee.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    native_write_suppression: Option<(ProcessId, usize, CellKey, i64)>,
     /// Observer-only event detail for native PatchNext; default off to preserve
     /// the original hash-serialized world semantics in older studies.
     #[serde(default, skip_serializing_if = "is_false")]
@@ -1127,6 +1139,7 @@ impl World {
             recoverable_draw_shortage: false,
             native_code_edits_disabled: false,
             native_patchnext_disabled: false,
+            native_write_suppression: None,
             trace_native_executable_edits: false,
             cell_write_provenance_enabled: false,
             cell_last_writer: BTreeMap::new(),
@@ -1256,6 +1269,26 @@ impl World {
 
     pub fn native_patchnext_disabled(&self) -> bool {
         self.native_patchnext_disabled
+    }
+
+    /// Researcher-only PC-local, operand-local causal-control law.
+    /// Suppress exactly one matching Write state effect without suppressing
+    /// its private actor compute charge or altering any other CIL instruction.
+    /// Mismatched actual opcode/target/value at the configured process+PC traps.
+    /// A deliberately unreachable PC is a placebo/no-exposure configuration.
+    pub fn with_native_write_suppression(
+        mut self,
+        process: ProcessId,
+        pc: usize,
+        key: CellKey,
+        value: i64,
+    ) -> Self {
+        self.native_write_suppression = Some((process, pc, key, value));
+        self
+    }
+
+    pub fn native_write_suppression(&self) -> Option<(ProcessId, usize, CellKey, i64)> {
+        self.native_write_suppression
     }
 
     /// Instrument only real native PatchNext edge changes, never a virtual goal
@@ -1664,6 +1697,18 @@ impl World {
         ) {
             return self.execute_graph(id, op);
         }
+        // Check the opcode shape at a scoped intervention PC before entering
+        // normal native execution; a wrong instruction must fail closed, not
+        // broaden the study control to unrelated operations.
+        let native_write_suppression = self.native_write_suppression;
+        if let Some((target_pid, target_pc, _, _)) = native_write_suppression {
+            if target_pid == id
+                && self.processes.get(&id).is_some_and(|p| p.pc == target_pc)
+                && !matches!(&op, Op::Write { .. })
+            {
+                return Err("native write suppression target is not Write".into());
+            }
+        }
         let can_add_unit = self.can_allocate(1);
         let can_add_two_units = self.can_allocate(2);
         let track_provenance = self.cell_write_provenance_enabled;
@@ -1774,16 +1819,35 @@ impl World {
                 {
                     return Err("storage capacity exhausted".into());
                 }
-                let writer = if track_provenance {
-                    Some(i64::try_from(id)
-                        .map_err(|_| "process ID exceeds provenance register".to_string())?)
-                } else { None };
-                cells.insert(key, value);
-                if let Some(writer) = writer {
-                    cell_last_writer.insert(key, writer);
+                let suppressed = match native_write_suppression {
+                    Some((target_pid, target_pc, target_key, target_value))
+                        if id == target_pid && p.pc == target_pc =>
+                    {
+                        if key != target_key || value != target_value {
+                            return Err("native write suppression operand mismatch".into());
+                        }
+                        true
+                    }
+                    _ => false,
+                };
+                // Keep original next/operand/capacity checks above. A suppressed
+                // write must not allocate a data cell or provenance slot.
+                if !suppressed {
+                    let writer = if track_provenance {
+                        Some(i64::try_from(id)
+                            .map_err(|_| "process ID exceeds provenance register".to_string())?)
+                    } else { None };
+                    cells.insert(key, value);
+                    if let Some(writer) = writer {
+                        cell_last_writer.insert(key, writer);
+                    }
                 }
                 p.pc = next;
-                self.pending_transition = Some(EventKind::CellWritten { key, value });
+                self.pending_transition = Some(if suppressed {
+                    EventKind::NativeCellWriteSuppressed { key, value }
+                } else {
+                    EventKind::CellWritten { key, value }
+                });
             }
             Op::Branch {
                 test,
