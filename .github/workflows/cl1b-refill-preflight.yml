@@ -1,0 +1,38 @@
+# Static integrity gate only: no native experiment and no new holdout evidence.
+name: CL-1B refill preflight integrity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/analysis/cl1b_policy_f6_refill_intervention_preflight.py'
+      - 'cl1b/studies/CL1B-POLICY-P4F6-frozen-actor-paid-clean-success-refill-542-world-v1.json'
+      - '.github/workflows/cl1b-refill-preflight.yml'
+  pull_request:
+    paths:
+      - 'cl1b/analysis/cl1b_policy_f6_refill_intervention_preflight.py'
+      - 'cl1b/studies/CL1B-POLICY-P4F6-frozen-actor-paid-clean-success-refill-542-world-v1.json'
+      - '.github/workflows/cl1b-refill-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check frozen original-source structure and reject mutated controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 cl1b/analysis/cl1b_policy_f6_refill_intervention_preflight.py --self-test | tee "$RUNNER_TEMP/cl1b-refill-preflight.json"
+      - name: Preserve preflight output for audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-refill-static-preflight
+          path: ${{ runner.temp }}/cl1b-refill-preflight.json
+          if-no-files-found: warn
