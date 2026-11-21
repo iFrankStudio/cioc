@@ -1,0 +1,560 @@
+{
+  "study": "B51d",
+  "native_source_sha": "10bb882f92644c975ab9d61115ba476dccf73154",
+  "matched_continuous_actor_worlds": 16,
+  "independent_native_paid_steps": 11728,
+  "independent_external_cell_interventions": 1680,
+  "independent_lab_only_transition_records": 32,
+  "independent_privileged_static_native_segments": 12,
+  "first_divergence": null,
+  "hidden_regime_shift_revalidated": false,
+  "no_revalidation_falsifier_confirmed": true,
+  "grouped": {
+    "STATIONARY": {
+      "worlds": 4,
+      "paid": 2932,
+      "correct_by_stage": [
+        96,
+        96,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        0,
+        0
+      ],
+      "post_shift_feedback_writes": 0,
+      "post_retention_feedback_reads": 0,
+      "post_retention_edge_edits": 0,
+      "retained_source_sign_k": [
+        {
+          "case": 0,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 4,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 8,
+          "chosen": [
+            1,
+            -3
+          ]
+        },
+        {
+          "case": 12,
+          "chosen": [
+            1,
+            -3
+          ]
+        }
+      ]
+    },
+    "SHIFT_NO_FEEDBACK": {
+      "worlds": 4,
+      "paid": 2932,
+      "correct_by_stage": [
+        96,
+        0,
+        0
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        96
+      ],
+      "post_shift_feedback_writes": 0,
+      "post_retention_feedback_reads": 0,
+      "post_retention_edge_edits": 0,
+      "retained_source_sign_k": [
+        {
+          "case": 1,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 5,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 9,
+          "chosen": [
+            1,
+            -3
+          ]
+        },
+        {
+          "case": 13,
+          "chosen": [
+            1,
+            -3
+          ]
+        }
+      ]
+    },
+    "SHIFT_WITH_FEEDBACK": {
+      "worlds": 4,
+      "paid": 2932,
+      "correct_by_stage": [
+        96,
+        0,
+        0
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        96
+      ],
+      "post_shift_feedback_writes": 192,
+      "post_retention_feedback_reads": 0,
+      "post_retention_edge_edits": 0,
+      "retained_source_sign_k": [
+        {
+          "case": 2,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 6,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 10,
+          "chosen": [
+            1,
+            -3
+          ]
+        },
+        {
+          "case": 14,
+          "chosen": [
+            1,
+            -3
+          ]
+        }
+      ]
+    },
+    "SHIFT_RETURN": {
+      "worlds": 4,
+      "paid": 2932,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "post_shift_feedback_writes": 0,
+      "post_retention_feedback_reads": 0,
+      "post_retention_edge_edits": 0,
+      "retained_source_sign_k": [
+        {
+          "case": 3,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 7,
+          "chosen": [
+            0,
+            -2
+          ]
+        },
+        {
+          "case": 11,
+          "chosen": [
+            1,
+            -3
+          ]
+        },
+        {
+          "case": 15,
+          "chosen": [
+            1,
+            -3
+          ]
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "transition": "A",
+      "arm": "STATIONARY",
+      "phase": 0,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        24,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_NO_FEEDBACK",
+      "phase": 0,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_WITH_FEEDBACK",
+      "phase": 0,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_RETURN",
+      "phase": 0,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "STATIONARY",
+      "phase": 1,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        24,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_NO_FEEDBACK",
+      "phase": 1,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_WITH_FEEDBACK",
+      "phase": 1,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "A",
+      "arm": "SHIFT_RETURN",
+      "phase": 1,
+      "chosen": [
+        0,
+        -2
+      ],
+      "paid": 601,
+      "windows_correct": [
+        24,
+        0,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "STATIONARY",
+      "phase": 0,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        24,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_NO_FEEDBACK",
+      "phase": 0,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_WITH_FEEDBACK",
+      "phase": 0,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_RETURN",
+      "phase": 0,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "STATIONARY",
+      "phase": 1,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        24,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        0,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_NO_FEEDBACK",
+      "phase": 1,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_WITH_FEEDBACK",
+      "phase": 1,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        0
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        24
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    },
+    {
+      "transition": "B",
+      "arm": "SHIFT_RETURN",
+      "phase": 1,
+      "chosen": [
+        1,
+        -3
+      ],
+      "paid": 865,
+      "windows_correct": [
+        24,
+        0,
+        24
+      ],
+      "windows_wrong": [
+        0,
+        24,
+        0
+      ],
+      "feedback_reads_after_retention": 0,
+      "edits_after_retention": 0
+    }
+  ],
+  "b51d_full_transfer_accepted": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false
+}
