@@ -33,7 +33,7 @@ def check(frozen):
 
     # This is a structural PC-local proof, not an execution-path proof.
     expected = {
-        133: {"kind": "Const", "next": 134},  # checked separately below: editable success edge
+        133: {"kind": "Write", "address": 2, "value": 3, "next": 62},  # checked separately below: editable success edge
         152: {"kind": "Write", "address": 2, "value": 0, "next": 153},
         153: {"kind": "Const", "dst": 1, "value": 133, "next": 154},
         154: {"kind": "Const", "dst": 0, "value": 156, "next": 155},
