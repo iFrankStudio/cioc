@@ -398,7 +398,7 @@ fn frozen_472_original_worlds_selective_paid_refill_causality(){
   total+=out["steps"].as_u64().unwrap();
   adverse.push(out);
  }
- assert!(adverse[0]["truthful_matches"]<24);
+ assert!(adverse[0]["truthful_matches"].as_u64().unwrap()<24);
  assert_eq!(adverse[2]["claim"],0);
  let group_report=groups.into_iter().map(|(k,(n,c,p,source,exposure,win))|
   (k,json!({"cases":n,"same_source_refill_causal_paid_saving":c,
