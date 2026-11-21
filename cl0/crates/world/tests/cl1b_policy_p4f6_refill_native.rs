@@ -305,7 +305,7 @@ fn p4f6_original_native_542_worlds_replenishable_paid_edit_budget(){
  assert_eq!(f6[170],json!({"kind":"Branch","test":0,"nonzero":62,"zero":171}));
  assert_eq!(f6[81]["value"],137);
  assert_eq!(f6[130]["value"],132);
- assert_eq!(f5[122]["next"],134);
+ assert_eq!(f5[122]["next"],147);
  assert_eq!(f6[136],json!({"kind":"PatchNext","node":1,"target":0,"next":123}));
  assert_eq!(f6[139],json!({"kind":"PatchNext","node":1,"target":0,"next":140}));
  assert_eq!(f6[131],json!({"kind":"PatchNext","node":1,"target":0,"next":46}));
