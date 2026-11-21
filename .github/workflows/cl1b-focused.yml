@@ -1,3 +1,4 @@
+# CL-1B causal R1 full-denominator verification after successful changed-only 472-world native/replayer run 44905611765; require 101/101 actual native targets before claiming full regression.
 # CL1B-POLICY-P4F6: fail-closed 99 original Rust native targets, source-pinned P4F3/P4F4/P4F5/P4F6 exact CIL replays.
 name: CL-1B focused native experiments
 
