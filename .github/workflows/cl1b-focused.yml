@@ -889,6 +889,7 @@ jobs:
               failures=$((failures + 1))
             fi
           fi
+          # P4F6 full 99-target source-pinned replay rerun after correcting independent Python counter shadowing.
           # P4F6 fail-closed exact original 542-world paid CIL replay of bounded source budget replenishment.
           if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_policy_p4f6_refill_native'; then
             p4f6_summary=cl1b-ci-evidence/cl1b_policy_p4f6_native_542_worlds.json

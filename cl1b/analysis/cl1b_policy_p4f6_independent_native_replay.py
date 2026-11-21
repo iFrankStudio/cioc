@@ -106,10 +106,10 @@ def replay(source,arm,trace):
                 budget_gates.append({"step":paid,"meter":meter,"next":pc})
             if at in (158,170):
                 assert arm["source"]=="F6"
-                observed=cells.get(33,0) if at==158 else cells.get(39,0)
-                expected_jump=(159 if observed!=0 else 162) if at==158 else (171 if observed==4 else 62)
+                branch_value=cells.get(33,0) if at==158 else cells.get(39,0)
+                expected_jump=(159 if branch_value!=0 else 162) if at==158 else (171 if branch_value==4 else 62)
                 assert pc==expected_jump
-                clean_streak_gates.append({"step":paid,"pc":at,"value":observed,"next":pc})
+                clean_streak_gates.append({"step":paid,"pc":at,"value":branch_value,"next":pc})
         elif kind=="PatchConst":
             assert at in (45,88,102,122)
             target=reg[op["node"]]
