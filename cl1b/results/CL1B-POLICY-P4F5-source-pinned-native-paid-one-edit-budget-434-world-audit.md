@@ -7,7 +7,7 @@ Permanent, *confirmed-to-exist* source-pinned evidence:
 - [Original 434-world Rust summary, all 144 paired records plus 2 false-feedback controls](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/4657bc31bf3f3c9dd44e9b71fe5c7ad553f561d5-44860926121-1/cl1b_policy_p4f5_native_434_worlds.json)
 - [Exact native job/publisher run SUCCESS pin](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/4657bc31bf3f3c9dd44e9b71fe5c7ad553f561d5-44860926121-1/result.txt) and [runner/source provenance](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/4657bc31bf3f3c9dd44e9b71fe5c7ad553f561d5-44860926121-1/provenance.txt)
 - [Native trace artifact #14690355033](https://github.com/iFrankStudio/cioc/actions/runs/44860926121/artifacts/14690355033) includes all **434** original per-instruction JSONL trace files, native summary, independently replayed summary and all logs.
-- [Frozen P4F5 study + full original CIL sources before P4F5 native] (../studies/CL1B-POLICY-P4F5-frozen-actor-paid-one-edit-budget-434-world-v1.json) at [preregistration commit a97c8b1](https://github.com/iFrankStudio/cioc/commit/a97c8b1be5ff610c3b77a4791a9afaeac8b78c33).
+- [Frozen P4F5 study + full original CIL sources before P4F5 native](../studies/CL1B-POLICY-P4F5-frozen-actor-paid-one-edit-budget-434-world-v1.json) at [preregistration commit a97c8b1](https://github.com/iFrankStudio/cioc/commit/a97c8b1be5ff610c3b77a4791a9afaeac8b78c33).
 
 ## Exact experiment design and original CL0 physics
 
