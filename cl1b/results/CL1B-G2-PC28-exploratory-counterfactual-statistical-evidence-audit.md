@@ -19,3 +19,22 @@ Only **6/45** pairs have nonzero cost differences. A descriptive exact two-sided
 5. Even a future positive native same-source effect would validate the **researcher-authored parameter-update rule**, not autonomous invention, reliable adaptation under deceptive feedback, long-lived lineage, or open-ended evolution.
 
 **Scientific decision:** Treat +156 as a weak hypothesis-generating signal. Do not tune or select environments on it. A worthwhile future test must first freeze genuinely new non-overlapping vectors, primary signed total cost and completion criteria, same-source PC28 effect suppression with full instruction charge, no-op placebo, exposed/unexposed accounting, and independent original-native state replay. Negative or zero results are equally informative. This review itself authorizes no experiment and changes no CIL program.
+
+## Independent connector-side reproduction and concentration audit (2026-11-21 UTC)
+
+A separate JavaScript instruction interpreter was executed directly against the current GitHub-fetched, preregistered G2 manifest blob `017d56c65c879f89fef1325dd323f2b54ef0e21f` (45 `G2_changed_allow` truth-feedback arms). It implemented Const/Read/Write/Add/Sub/Branch/PatchConst/PatchNext/Halt, charged every executed instruction including suppressed PC28, delivered feedback after PC3, and checked the 180-PC/16-cell/6,000-instruction bounds. This is an **independent source-level implementation**, NOT original Rust execution, original-native trace replay, or verified GitHub Actions output. All 45 pairs completed 24 stages in both source-level arms. The active five-family costs reproduced the published native aggregate baseline (9,432 / 13,791 / 15,635 / 13,425 / 17,998); this aggregate match is not per-world native validation.
+
+The six nonzero suppressed-minus-active costs were:
+
+| Frozen world (G2_changed_allow) | Suppressed − active paid CIL |
+|---|---:|
+| persistent_drift_two_shifts_a0_d1 | +3 |
+| persistent_drift_two_shifts_a1_d0 | −3 |
+| persistent_drift_two_shifts_a2_d1 | +3 |
+| rapid_reversal_pulses_a1_d0 | +122 |
+| rapid_reversal_pulses_a1_d1 | −89 |
+| rapid_reversal_pulses_a2_d0 | +120 |
+
+The other **39/45** pairs were exactly tied in source-level instruction cost. Family-level suppression-minus-active differences: stationary **0**, persistent drift **+3**, rapid reversal **+153**, late flip **0**, noise **0**, totaling **+156**. Thus **153/156 (98.08%) of the signed aggregate** comes from one nine-world regime, with large opposing pair effects inside that regime. This is a concentration diagnostic, not a probability statement or a prospective win. It makes the aggregate +0.222% especially unsuitable as a claim of general adaptive benefit. No environment was added or selected post hoc, and no new holdout was consumed.
+
+**Reproduction limits:** This audit used the GitHub connector's frozen manifest bytes and a separate in-memory JavaScript interpreter. It did not run the repository Python script or the Rust-native intervention; no CI run ID, independent native state-transition comparison, or new experimental source SHA is attributed to this reproduction. The proper next decision must still follow the then-current main/CI state rather than treating these six retrospective cases as a new experiment.
