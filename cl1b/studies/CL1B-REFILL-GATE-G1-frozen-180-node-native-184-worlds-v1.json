@@ -1,0 +1,11830 @@
+{
+  "study": "CL1B-REFILL-GATE-G1",
+  "status": "PRE_NATIVE_FROZEN",
+  "frozen_at_utc": "2026-11-21",
+  "parent_verified_original_native_source_sha": "10bb882f92644c975ab9d61115ba476dccf73154",
+  "parent_original_native_run_id": 44906052116,
+  "preregistration": "cl1b/studies/CL1B-REFILL-GATE-G1-preregistration.md",
+  "strict_limits": {
+    "data_cells": 16,
+    "source_nodes": 180,
+    "occupied_units": 300,
+    "private_compute_credits": 6000,
+    "stages": 24
+  },
+  "generation": {
+    "algorithm": "xorshift32 over family-start-stride case seed; per-case xorshift for deterministic sparse impulse only",
+    "initial_seed_hex": "0xC11B6A7E",
+    "families": [
+      "stable_rotation_terminal_probe",
+      "wide_double_shift_mid_jitter",
+      "brief_double_pulse_terminal",
+      "late_inverse_drift",
+      "deterministic_sparse_impulses"
+    ],
+    "each_family_cases": 9,
+    "order": "family-start-stride",
+    "all_distinct_from_parent_R1_189_goal_vectors": true
+  },
+  "source_edits": {
+    "parent_original_unchanged": true,
+    "G1_171_through_179_only": true,
+    "G1_arms_differ_only_pc173": true,
+    "actor_pays_patches": true,
+    "no_native_interception": true
+  },
+  "source_f6_original": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 1
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 2
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 3
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 5
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 6
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 29,
+      "zero": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 8
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 10
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 14
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 15
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 16,
+      "zero": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 17
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 18
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 19
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 20
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 0,
+      "zero": 0
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 27
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 28
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 32
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 34
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 36
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 37
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 24,
+      "next": 39
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 40
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 41,
+      "zero": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 42
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 46,
+      "zero": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 45
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 47
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 48
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 49
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 50
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 53,
+      "zero": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 57
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 60
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 61
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 63
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 64
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 66
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 67
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 71
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 72
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 73
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 75,
+      "zero": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 76
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 79,
+      "zero": 78
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 44
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 44,
+      "zero": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 12,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 137,
+      "next": 82
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 127
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 84
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 13,
+      "zero": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 88
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 96
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 90
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 80
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 94
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 95
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 99,
+      "zero": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 98
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 100
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 101
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 102
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 103
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 107
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 108
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 109,
+      "zero": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 110
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 111
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 114
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 116,
+      "zero": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 117
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 118
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 120,
+      "zero": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 121
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 121,
+      "zero": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 122
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 147
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 124
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 125
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 128
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 130
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 131
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 133
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 135
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 136
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 142
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 106,
+      "next": 139
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 141
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 143
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 145
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 146
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 138,
+      "zero": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 148
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 149
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 152
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 153
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 156,
+      "next": 155
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 134
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 157
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 158
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 159,
+      "zero": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 160
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 161
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 163
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 166
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 167
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 168
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 169
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 170
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 62,
+      "zero": 171
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 172
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 173
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 174
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 175
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 62,
+      "next": 177
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 178
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 179
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 62
+    }
+  ],
+  "source_g1_conditional": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 1
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 2
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 3
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 5
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 6
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 29,
+      "zero": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 8
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 10
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 14
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 15
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 16,
+      "zero": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 17
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 18
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 19
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 20
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 0,
+      "zero": 0
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 27
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 28
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 32
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 34
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 36
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 37
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 24,
+      "next": 39
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 40
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 41,
+      "zero": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 42
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 46,
+      "zero": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 45
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 47
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 48
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 49
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 50
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 53,
+      "zero": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 57
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 60
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 61
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 63
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 64
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 66
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 67
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 71
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 72
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 73
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 75,
+      "zero": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 76
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 79,
+      "zero": 78
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 44
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 44,
+      "zero": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 12,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 137,
+      "next": 82
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 127
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 84
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 13,
+      "zero": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 88
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 96
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 90
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 80
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 94
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 95
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 99,
+      "zero": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 98
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 100
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 101
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 102
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 103
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 107
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 108
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 109,
+      "zero": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 110
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 111
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 114
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 116,
+      "zero": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 117
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 118
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 120,
+      "zero": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 121
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 121,
+      "zero": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 122
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 147
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 124
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 125
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 128
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 130
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 131
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 133
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 135
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 136
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 142
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 106,
+      "next": 139
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 141
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 143
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 145
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 146
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 138,
+      "zero": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 148
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 149
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 152
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 153
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 156,
+      "next": 155
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 134
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 157
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 158
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 159,
+      "zero": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 160
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 161
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 163
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 166
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 167
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 168
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 169
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 170
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 62,
+      "zero": 171
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 172
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 173
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 174,
+      "zero": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 175
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 177
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 62,
+      "next": 178
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 179
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    }
+  ],
+  "source_g1_always": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 1
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 2
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 3
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 5
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 6
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 29,
+      "zero": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 8
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 10
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 14
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 15
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 16,
+      "zero": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 17
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 18
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 19
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 20
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 0,
+      "zero": 0
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 27
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 28
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 32
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 34
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 36
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 37
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 24,
+      "next": 39
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 40
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 41,
+      "zero": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 42
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 46,
+      "zero": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 45
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 47
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 48
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 49
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 50
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 53,
+      "zero": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 57
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 60
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 61
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 63
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 64
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 66
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 67
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 71
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 72
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 73
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 75,
+      "zero": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 76
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 79,
+      "zero": 78
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 44
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 44,
+      "zero": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 12,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 137,
+      "next": 82
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 127
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 84
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 13,
+      "zero": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 88
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 96
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 90
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 80
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 94
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 95
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 99,
+      "zero": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 98
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 100
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 101
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 102
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 103
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 107
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 108
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 109,
+      "zero": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 110
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 111
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 114
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 116,
+      "zero": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 117
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 118
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 120,
+      "zero": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 121
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 121,
+      "zero": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 122
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 147
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 124
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 125
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 128
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 130
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 131
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 133
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 135
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 136
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 142
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 106,
+      "next": 139
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 141
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 143
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 145
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 146
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 138,
+      "zero": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 148
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 149
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 152
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 153
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 156,
+      "next": 155
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 134
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 157
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 158
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 159,
+      "zero": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 160
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 161
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 163
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 166
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 167
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 168
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 169
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 170
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 62,
+      "zero": 171
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 172
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 173
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 174,
+      "zero": 174
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 175
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 177
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 62,
+      "next": 178
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 179
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    }
+  ],
+  "source_g1_never": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 1
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 2
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 3
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 4
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 20,
+      "next": 5
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 6
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 29,
+      "zero": 7
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 8
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 9
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 10
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 14
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 15
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 16,
+      "zero": 25
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 17
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 18
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 19
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 20
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 30,
+      "next": 23
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 24
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 0,
+      "zero": 0
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 26
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 27
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 28
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 30
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 32
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 34
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 62
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 0,
+      "next": 36
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 37
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 38
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 24,
+      "next": 39
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 40
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 41,
+      "zero": 58
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 42
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 43
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 46,
+      "zero": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 45
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 47
+    },
+    {
+      "kind": "Add",
+      "dst": 3,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 48
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 3,
+      "next": 49
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 50
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 53,
+      "zero": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 54
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 2,
+      "next": 55
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 22,
+      "zero": 56
+    },
+    {
+      "kind": "Const",
+      "dst": 3,
+      "value": 1,
+      "next": 57
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 22,
+      "zero": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 59
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 21,
+      "next": 60
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 61
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 63
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 64
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 66
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 67
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 35,
+      "zero": 35
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 34,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 71
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 72
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 73
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 75,
+      "zero": 74
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 76
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 79,
+      "zero": 78
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 44
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 44,
+      "zero": 44
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 12,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 137,
+      "next": 82
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 127
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 84
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 85
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 13,
+      "zero": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 87
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 88
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 96
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 90
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 13
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 80
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 94
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 95
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 99,
+      "zero": 86
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 97
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 98
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 35,
+      "next": 100
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 101
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 102
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 103
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 36,
+      "next": 104
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 89
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 107
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 108
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 109,
+      "zero": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 110
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 111
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 3,
+      "rhs": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 113
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 114
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 116,
+      "zero": 115
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 2,
+      "next": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 2,
+      "next": 117
+    },
+    {
+      "kind": "Add",
+      "dst": 2,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 118
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 120,
+      "zero": 119
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 121
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 121,
+      "zero": 121
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 46,
+      "next": 122
+    },
+    {
+      "kind": "PatchConst",
+      "node": 1,
+      "value": 0,
+      "next": 147
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 124
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 125
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 128
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 129
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 130
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 131
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 46
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 37,
+      "next": 133
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 3,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 135
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 132,
+      "next": 136
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 123
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 34,
+      "next": 142
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 106,
+      "next": 139
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 141
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 83
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 143
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 144
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 145
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 146
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 138,
+      "zero": 140
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 148
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 149
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 151
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 152
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 153
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 156,
+      "next": 155
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 134
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 33,
+      "next": 157
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 158
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 159,
+      "zero": 162
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 160
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 161
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 62
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 163
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 164
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 165
+    },
+    {
+      "kind": "Add",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 166
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 167
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 168
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 4,
+      "next": 169
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 170
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 62,
+      "zero": 171
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 39,
+      "next": 172
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 173
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 176,
+      "zero": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 38,
+      "next": 175
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 176
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 133,
+      "next": 177
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 62,
+      "next": 178
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 179
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 32,
+      "next": 126
+    }
+  ],
+  "fresh_cases": [
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d0",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 0,
+      "stride": 0,
+      "case_seed32": 650868436,
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d1",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 0,
+      "stride": 1,
+      "case_seed32": 1244367196,
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d2",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 0,
+      "stride": 2,
+      "case_seed32": 1526894428,
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d0",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 1,
+      "stride": 0,
+      "case_seed32": 1472745256,
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d1",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 1,
+      "stride": 1,
+      "case_seed32": 2608949246,
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d2",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 1,
+      "stride": 2,
+      "case_seed32": 1486976097,
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d0",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 2,
+      "stride": 0,
+      "case_seed32": 3011543447,
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d1",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 2,
+      "stride": 1,
+      "case_seed32": 3589552526,
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d2",
+      "regime": "stable_rotation_terminal_probe",
+      "start": 2,
+      "stride": 2,
+      "case_seed32": 176147820,
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d0",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 0,
+      "stride": 0,
+      "case_seed32": 2308219941,
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d1",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 0,
+      "stride": 1,
+      "case_seed32": 3205586701,
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d2",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 0,
+      "stride": 2,
+      "case_seed32": 182852565,
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d0",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 1,
+      "stride": 0,
+      "case_seed32": 4194778235,
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d1",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 1,
+      "stride": 1,
+      "case_seed32": 2894202207,
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d2",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 1,
+      "stride": 2,
+      "case_seed32": 1763441195,
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d0",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 2,
+      "stride": 0,
+      "case_seed32": 3716985220,
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d1",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 2,
+      "stride": 1,
+      "case_seed32": 1010736922,
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d2",
+      "regime": "wide_double_shift_mid_jitter",
+      "start": 2,
+      "stride": 2,
+      "case_seed32": 342406772,
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d0",
+      "regime": "brief_double_pulse_terminal",
+      "start": 0,
+      "stride": 0,
+      "case_seed32": 1449186247,
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d1",
+      "regime": "brief_double_pulse_terminal",
+      "start": 0,
+      "stride": 1,
+      "case_seed32": 3474631851,
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d2",
+      "regime": "brief_double_pulse_terminal",
+      "start": 0,
+      "stride": 2,
+      "case_seed32": 3414146156,
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d0",
+      "regime": "brief_double_pulse_terminal",
+      "start": 1,
+      "stride": 0,
+      "case_seed32": 2729861301,
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d1",
+      "regime": "brief_double_pulse_terminal",
+      "start": 1,
+      "stride": 1,
+      "case_seed32": 3133016901,
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d2",
+      "regime": "brief_double_pulse_terminal",
+      "start": 1,
+      "stride": 2,
+      "case_seed32": 17056622,
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d0",
+      "regime": "brief_double_pulse_terminal",
+      "start": 2,
+      "stride": 0,
+      "case_seed32": 2756787354,
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d1",
+      "regime": "brief_double_pulse_terminal",
+      "start": 2,
+      "stride": 1,
+      "case_seed32": 4219834907,
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d2",
+      "regime": "brief_double_pulse_terminal",
+      "start": 2,
+      "stride": 2,
+      "case_seed32": 1897662968,
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d0",
+      "regime": "late_inverse_drift",
+      "start": 0,
+      "stride": 0,
+      "case_seed32": 4098706633,
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d1",
+      "regime": "late_inverse_drift",
+      "start": 0,
+      "stride": 1,
+      "case_seed32": 3881567811,
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d2",
+      "regime": "late_inverse_drift",
+      "start": 0,
+      "stride": 2,
+      "case_seed32": 2501829801,
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d0",
+      "regime": "late_inverse_drift",
+      "start": 1,
+      "stride": 0,
+      "case_seed32": 2029514220,
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d1",
+      "regime": "late_inverse_drift",
+      "start": 1,
+      "stride": 1,
+      "case_seed32": 739231337,
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d2",
+      "regime": "late_inverse_drift",
+      "start": 1,
+      "stride": 2,
+      "case_seed32": 1284705544,
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d0",
+      "regime": "late_inverse_drift",
+      "start": 2,
+      "stride": 0,
+      "case_seed32": 2339465649,
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d1",
+      "regime": "late_inverse_drift",
+      "start": 2,
+      "stride": 1,
+      "case_seed32": 1856260306,
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d2",
+      "regime": "late_inverse_drift",
+      "start": 2,
+      "stride": 2,
+      "case_seed32": 275847853,
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d0",
+      "regime": "deterministic_sparse_impulses",
+      "start": 0,
+      "stride": 0,
+      "case_seed32": 1471202527,
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d1",
+      "regime": "deterministic_sparse_impulses",
+      "start": 0,
+      "stride": 1,
+      "case_seed32": 2857069066,
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d2",
+      "regime": "deterministic_sparse_impulses",
+      "start": 0,
+      "stride": 2,
+      "case_seed32": 641955951,
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d0",
+      "regime": "deterministic_sparse_impulses",
+      "start": 1,
+      "stride": 0,
+      "case_seed32": 1620649416,
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d1",
+      "regime": "deterministic_sparse_impulses",
+      "start": 1,
+      "stride": 1,
+      "case_seed32": 3223387352,
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d2",
+      "regime": "deterministic_sparse_impulses",
+      "start": 1,
+      "stride": 2,
+      "case_seed32": 684323749,
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d0",
+      "regime": "deterministic_sparse_impulses",
+      "start": 2,
+      "stride": 0,
+      "case_seed32": 3239462811,
+      "goals": [
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d1",
+      "regime": "deterministic_sparse_impulses",
+      "start": 2,
+      "stride": 1,
+      "case_seed32": 893472329,
+      "goals": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d2",
+      "regime": "deterministic_sparse_impulses",
+      "start": 2,
+      "stride": 2,
+      "case_seed32": 2374263213,
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ]
+    }
+  ],
+  "arms": [
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a0_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a1_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_stable_rotation_terminal_probe_a2_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "stable_rotation_terminal_probe"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a0_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a1_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_wide_double_shift_mid_jitter_a2_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "wide_double_shift_mid_jitter"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a0_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a1_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_brief_double_pulse_terminal_a2_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "brief_double_pulse_terminal"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a0_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a1_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_late_inverse_drift_a2_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "late_inverse_drift"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a0_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a1_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        1,
+        0,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d0_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d0_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        2,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d1_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d1_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d1_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d1_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d2_F6_parent",
+      "source": "F6_parent",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d2_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d2_G1_always",
+      "source": "G1_always",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    },
+    {
+      "name": "g1_deterministic_sparse_impulses_a2_d2_G1_never",
+      "source": "G1_never",
+      "goals": [
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "feedback": "truth",
+      "regime": "deterministic_sparse_impulses"
+    }
+  ],
+  "controls": [
+    {
+      "name": "g1_adversarial_inverted_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "inverted",
+      "regime": "adversarial"
+    },
+    {
+      "name": "g1_adversarial_inverted_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "inverted",
+      "regime": "adversarial"
+    },
+    {
+      "name": "g1_adversarial_forced0_G1_conditional",
+      "source": "G1_conditional",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "forced0",
+      "regime": "adversarial"
+    },
+    {
+      "name": "g1_adversarial_forced0_G1_always",
+      "source": "G1_always",
+      "goals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedback": "forced0",
+      "regime": "adversarial"
+    }
+  ],
+  "counts": {
+    "new_prospective_cases": 45,
+    "truthful_native_worlds": 180,
+    "adversarial_worlds": 4,
+    "total_native_worlds": 184
+  },
+  "hypotheses": {
+    "primary": "All truthful arms complete 24 real hidden goals; compare same-G1-structure conditional versus always/never in total paid original CIL",
+    "secondary": "Track zero/nonzero actor-paid PC173 paths, cell38 refills, actor-paid patches, service probes, source and strict credits"
+  },
+  "nonclaims": [
+    "Researcher-authored initial rules, not autonomous invention",
+    "A positive conditional outcome alone is not CL1B B3/B4",
+    "Historical R1 vectors were excluded from prospective new cohort"
+  ]
+}
