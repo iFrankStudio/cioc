@@ -1,0 +1,115 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F1",
+  "evidence_level": "ALL_ORIGINAL_NATIVE_STEP_REPLAY_WITH_TASK_FEEDBACK",
+  "source_sha": "972e99c6caa708fb5bcfa75ea58d53fa1dbc60f8",
+  "paid_native_steps_checked": 6214,
+  "source_researcher_mutated_pcs": [
+    93,
+    94
+  ],
+  "same_world_costs": true,
+  "cases": [
+    {
+      "case": "shift0_to2",
+      "ON": {
+        "paid_steps": 971,
+        "probes": [
+          3,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "OFF": {
+        "paid_steps": 1205,
+        "probes": [
+          3,
+          3,
+          2,
+          2
+        ],
+        "true_successes": 4
+      },
+      "OFF_minus_ON_charged_steps": 234,
+      "OFF_minus_ON_probes": 2
+    },
+    {
+      "case": "shift1_to0",
+      "ON": {
+        "paid_steps": 732,
+        "probes": [
+          1,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "OFF": {
+        "paid_steps": 969,
+        "probes": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "true_successes": 4
+      },
+      "OFF_minus_ON_charged_steps": 237,
+      "OFF_minus_ON_probes": 2
+    },
+    {
+      "case": "shift2_to1",
+      "ON": {
+        "paid_steps": 852,
+        "probes": [
+          2,
+          1,
+          3,
+          1
+        ],
+        "true_successes": 4
+      },
+      "OFF": {
+        "paid_steps": 731,
+        "probes": [
+          2,
+          2,
+          1,
+          1
+        ],
+        "true_successes": 4
+      },
+      "OFF_minus_ON_charged_steps": -121,
+      "OFF_minus_ON_probes": -1
+    },
+    {
+      "case": "unreachable",
+      "ON": {
+        "paid_steps": 377,
+        "probes": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_successes": 0
+      },
+      "OFF": {
+        "paid_steps": 377,
+        "probes": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_successes": 0
+      },
+      "OFF_minus_ON_charged_steps": 0,
+      "OFF_minus_ON_probes": 0
+    }
+  ],
+  "first_divergence": null,
+  "conclusion": "Retaining the last successful candidate gives benefits in two schedules but a counterexample in the third."
+}

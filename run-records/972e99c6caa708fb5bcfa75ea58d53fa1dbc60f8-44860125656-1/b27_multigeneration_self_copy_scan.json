@@ -1,0 +1,318 @@
+{
+  "evidence": "source-parsed restricted CIL world model, NOT native Rust execution",
+  "source": "cl0/crates/world/tests/cl1b_b27_multigeneration_self_copy.rs",
+  "worlds": 5,
+  "cases": [
+    {
+      "arm": "THREE_GENERATIONS",
+      "packets": [
+        79,
+        79,
+        79
+      ],
+      "bootstrap": 2,
+      "windows": [
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 1,
+          "energy": 0,
+          "pool": 0
+        },
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 2,
+          "energy": 0,
+          "pool": 0
+        },
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 3,
+          "energy": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 239,
+      "births": 3,
+      "lineage": [
+        {
+          "parent": 1,
+          "child": 2
+        },
+        {
+          "parent": 2,
+          "child": 3
+        },
+        {
+          "parent": 3,
+          "child": 4
+        }
+      ],
+      "copies": 36,
+      "created": 3,
+      "suppressed": 0,
+      "traps": 0,
+      "genomeMismatches": 0,
+      "pool": 0,
+      "inventory": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 3,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        }
+      ],
+      "graphCount": 0,
+      "externalEvents": 4
+    },
+    {
+      "arm": "SPLIT_THRESHOLD",
+      "packets": [
+        78,
+        1,
+        79,
+        79
+      ],
+      "bootstrap": 2,
+      "windows": [
+        {
+          "packet": 78,
+          "paid": 0,
+          "births": 0,
+          "energy": 78,
+          "pool": 78
+        },
+        {
+          "packet": 1,
+          "paid": 79,
+          "births": 1,
+          "energy": 0,
+          "pool": 0
+        },
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 2,
+          "energy": 0,
+          "pool": 0
+        },
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 3,
+          "energy": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 239,
+      "births": 3,
+      "lineage": [
+        {
+          "parent": 1,
+          "child": 2
+        },
+        {
+          "parent": 2,
+          "child": 3
+        },
+        {
+          "parent": 3,
+          "child": 4
+        }
+      ],
+      "copies": 36,
+      "created": 3,
+      "suppressed": 0,
+      "traps": 0,
+      "genomeMismatches": 0,
+      "pool": 0,
+      "inventory": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 2,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 3,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 4,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        }
+      ],
+      "graphCount": 0,
+      "externalEvents": 5
+    },
+    {
+      "arm": "SINGLE_PACKET",
+      "packets": [
+        79
+      ],
+      "bootstrap": 2,
+      "windows": [
+        {
+          "packet": 79,
+          "paid": 79,
+          "births": 1,
+          "energy": 0,
+          "pool": 0
+        }
+      ],
+      "attempts": 81,
+      "births": 1,
+      "lineage": [
+        {
+          "parent": 1,
+          "child": 2
+        }
+      ],
+      "copies": 12,
+      "created": 1,
+      "suppressed": 0,
+      "traps": 0,
+      "genomeMismatches": 0,
+      "pool": 0,
+      "inventory": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 0,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        },
+        {
+          "id": 2,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        }
+      ],
+      "graphCount": 0,
+      "externalEvents": 2
+    },
+    {
+      "arm": "NO_INFLUX",
+      "packets": [],
+      "bootstrap": 2,
+      "windows": [],
+      "attempts": 2,
+      "births": 0,
+      "lineage": [],
+      "copies": 0,
+      "created": 0,
+      "suppressed": 0,
+      "traps": 0,
+      "genomeMismatches": 0,
+      "pool": 0,
+      "inventory": 0,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 1,
+          "credits": 0,
+          "stopped": false,
+          "codeNodes": 12
+        }
+      ],
+      "graphCount": 0,
+      "externalEvents": 1
+    },
+    {
+      "arm": "NATIVE_COPY_DISABLED",
+      "packets": [
+        79,
+        79,
+        79
+      ],
+      "bootstrap": 2,
+      "windows": [
+        {
+          "packet": 79,
+          "paid": 77,
+          "births": 0,
+          "energy": 2,
+          "pool": 0
+        },
+        {
+          "packet": 79,
+          "paid": 0,
+          "births": 0,
+          "energy": 81,
+          "pool": 79
+        },
+        {
+          "packet": 79,
+          "paid": 0,
+          "births": 0,
+          "energy": 160,
+          "pool": 158
+        }
+      ],
+      "attempts": 79,
+      "births": 0,
+      "lineage": [],
+      "copies": 0,
+      "created": 1,
+      "suppressed": 12,
+      "traps": 1,
+      "genomeMismatches": 0,
+      "pool": 158,
+      "inventory": 160,
+      "processes": [
+        {
+          "id": 1,
+          "pc": 11,
+          "credits": 2,
+          "stopped": true,
+          "codeNodes": 12
+        }
+      ],
+      "graphCount": 1,
+      "externalEvents": 4
+    }
+  ]
+}

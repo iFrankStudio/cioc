@@ -1,0 +1,172 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I2",
+  "evidence_level": "NATIVE_EVERY_ORIGINAL_PAID_STEP_PLUS_FEEDBACK_AND_SOURCE_EDIT_REPLAY",
+  "source_sha": "972e99c6caa708fb5bcfa75ea58d53fa1dbc60f8",
+  "original_paid_instructions_checked": 10663,
+  "first_divergence": null,
+  "arms": [
+    {
+      "arm": "safe_unrepaired_reference",
+      "paid_original_instructions": 1353,
+      "certified": true,
+      "original_actor_self_edit": [],
+      "task_probes": 8,
+      "true_goal_matches": 4,
+      "actor_success_claim": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "repair_zero_from_genome",
+      "paid_original_instructions": 1469,
+      "certified": true,
+      "original_actor_self_edit": [
+        {
+          "step": 368,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 6,
+      "true_goal_matches": 4,
+      "actor_success_claim": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "repair_one_from_genome",
+      "paid_original_instructions": 1593,
+      "certified": true,
+      "original_actor_self_edit": [
+        {
+          "step": 368,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 7,
+      "true_goal_matches": 4,
+      "actor_success_claim": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "repair_two_from_genome",
+      "paid_original_instructions": 1722,
+      "certified": true,
+      "original_actor_self_edit": [
+        {
+          "step": 369,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 2,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 8,
+      "true_goal_matches": 4,
+      "actor_success_claim": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "repair_alternate_middle_reset",
+      "paid_original_instructions": 1092,
+      "certified": true,
+      "original_actor_self_edit": [
+        {
+          "step": 363,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 3,
+      "true_goal_matches": 0,
+      "actor_success_claim": 0,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "unrepairable_middle_one",
+      "paid_original_instructions": 734,
+      "certified": false,
+      "original_actor_self_edit": [
+        {
+          "step": 362,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 0,
+      "true_goal_matches": 0,
+      "actor_success_claim": null,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "unrepairable_middle_two",
+      "paid_original_instructions": 736,
+      "certified": false,
+      "original_actor_self_edit": [
+        {
+          "step": 363,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 0,
+      "true_goal_matches": 0,
+      "actor_success_claim": null,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "repaired_deceptive_feedback",
+      "paid_original_instructions": 1234,
+      "certified": true,
+      "original_actor_self_edit": [
+        {
+          "step": 369,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 2,
+          "edit_suppressed": false
+        }
+      ],
+      "task_probes": 4,
+      "true_goal_matches": 0,
+      "actor_success_claim": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "source_edit_suppressed_counterfactual",
+      "paid_original_instructions": 730,
+      "certified": false,
+      "original_actor_self_edit": [
+        {
+          "step": 369,
+          "pc": 178,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        }
+      ],
+      "task_probes": 0,
+      "true_goal_matches": 0,
+      "actor_success_claim": null,
+      "native_first_divergence": null
+    }
+  ],
+  "conclusion": "An actor can copy different bank-derived patch literals and stop quickly when one bounded repair fails; this is not a discovered general repair grammar."
+}
