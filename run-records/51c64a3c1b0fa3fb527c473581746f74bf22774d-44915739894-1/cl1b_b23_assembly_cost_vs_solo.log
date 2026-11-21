@@ -1,0 +1,28 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.22s
+[1m[92m     Running[0m tests/cl1b_b23_assembly_cost_vs_solo.rs (target/debug/build/cl0-world/667940580e72730d/out/cl1b_b23_assembly_cost_vs_solo-667940580e72730d)
+
+running 2 tests
+test canonical_b22::b22_single_native_founder_builds_and_launches_a_working_energy_relay ... ok
+B23_NATIVE schedule=[3, 5] arm=AssembledTransfer nodes=35 after_packets=[3, 5] writes=1 pool=0 credits=0 storage=43
+B23_NATIVE schedule=[3, 5] arm=AssembledNoTransfer nodes=35 after_packets=[3, 5] writes=0 pool=0 credits=0 storage=42
+B23_NATIVE schedule=[3, 5] arm=Solo(1) nodes=5 after_packets=[2, 0] writes=0 pool=6 credits=0 storage=6
+B23_NATIVE schedule=[3, 5] arm=Solo(2) nodes=5 after_packets=[3, 0] writes=0 pool=5 credits=0 storage=6
+B23_NATIVE schedule=[3, 5] arm=Solo(3) nodes=5 after_packets=[0, 8] writes=2 pool=0 credits=0 storage=7
+B23_NATIVE schedule=[3, 5] arm=Solo(4) nodes=5 after_packets=[0, 5] writes=1 pool=3 credits=0 storage=7
+B23_NATIVE schedule=[3, 5] arm=Solo(5) nodes=5 after_packets=[0, 6] writes=1 pool=2 credits=0 storage=7
+B23_NATIVE schedule=[3, 5] arm=Solo(6) nodes=5 after_packets=[0, 7] writes=1 pool=1 credits=0 storage=7
+B23_NATIVE schedule=[3, 5] arm=Solo(7) nodes=5 after_packets=[0, 8] writes=1 pool=0 credits=0 storage=7
+B23_NATIVE schedule=[4, 4] arm=AssembledTransfer nodes=35 after_packets=[3, 5] writes=1 pool=0 credits=0 storage=43
+B23_NATIVE schedule=[4, 4] arm=AssembledNoTransfer nodes=35 after_packets=[3, 5] writes=0 pool=0 credits=0 storage=42
+B23_NATIVE schedule=[4, 4] arm=Solo(1) nodes=5 after_packets=[2, 0] writes=0 pool=6 credits=0 storage=6
+B23_NATIVE schedule=[4, 4] arm=Solo(2) nodes=5 after_packets=[3, 0] writes=0 pool=5 credits=0 storage=6
+B23_NATIVE schedule=[4, 4] arm=Solo(3) nodes=5 after_packets=[4, 4] writes=2 pool=0 credits=0 storage=7
+B23_NATIVE schedule=[4, 4] arm=Solo(4) nodes=5 after_packets=[0, 5] writes=1 pool=3 credits=0 storage=7
+B23_NATIVE schedule=[4, 4] arm=Solo(5) nodes=5 after_packets=[0, 6] writes=1 pool=2 credits=0 storage=7
+B23_NATIVE schedule=[4, 4] arm=Solo(6) nodes=5 after_packets=[0, 7] writes=1 pool=1 credits=0 storage=7
+B23_NATIVE schedule=[4, 4] arm=Solo(7) nodes=5 after_packets=[0, 8] writes=1 pool=0 credits=0 storage=7
+test b23_solo_resource_policy_is_a_nonadaptive_cost_efficiency_falsifier ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
