@@ -90,9 +90,10 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
   if [82,131,136,139].contains(&pc){
    let p=w.process(1).unwrap();
    let (target,desired)=match (source,pc){
-    ("F5",82)=>(12,137),("F4",82)=>(12,83),
-    ("F5",131)=>(34,132),("F4",131)=>(34,106),
-    ("F5",136)=>(34,132),("F5",139)=>(34,106),
+    ("F5"|"F4",82)=>(12,137),
+    ("F5"|"F4",131)=>(34,132),
+    ("F5"|"F4",136)=>(34,132),
+    ("F5"|"F4",139)=>(34,106),
     _=>unreachable!()
    };
    assert_eq!(p.registers[1],target as i64);
