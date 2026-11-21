@@ -1009,7 +1009,11 @@ jobs:
         run: |
           set -euo pipefail
           if git ls-remote --exit-code --heads origin cl1b-ci-evidence >/dev/null; then
-            git fetch origin cl1b-ci-evidence
+            # Evidence has thousands of historical traces: fetch only its current
+            # tree without old blobs and checkout only this run's new directory.
+            git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+            git sparse-checkout init --cone
+            git sparse-checkout set "run-records/${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             git switch -C cl1b-ci-evidence FETCH_HEAD
           else
             git switch --orphan cl1b-ci-evidence
