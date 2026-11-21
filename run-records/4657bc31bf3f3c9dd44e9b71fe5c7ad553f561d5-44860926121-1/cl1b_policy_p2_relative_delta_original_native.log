@@ -1,0 +1,18 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[33mwarning[0m[1m: variable `relative_vs_P1` should have a snake case name[0m
+   [1m[94m--> [0mcrates/world/tests/cl1b_policy_p2_relative_delta_original_native.rs:248:36
+    [1m[94m|[0m
+[1m[94m248[0m [1m[94m|[0m  let mut total_steps=0_u64;let mut relative_vs_P1=0_i64;
+    [1m[94m|[0m                                    [1m[33m^^^^^^^^^^^^^^[0m [1m[33mhelp: convert the identifier to snake case: `relative_vs_p1`[0m
+    [1m[94m|[0m
+    [1m[94m= [0m[1mnote[0m: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+[1m[33mwarning[0m: `cl0-world` (test "cl1b_policy_p2_relative_delta_original_native") generated 1 warning
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.48s
+[1m[92m     Running[0m tests/cl1b_policy_p2_relative_delta_original_native.rs (target/debug/build/cl0-world/a70120cec15ea4c5/out/cl1b_policy_p2_relative_delta_original_native-a70120cec15ea4c5)
+
+running 1 test
+test policy_p2_full_81_goal_cube_original_native_relative_policy_calibration ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
