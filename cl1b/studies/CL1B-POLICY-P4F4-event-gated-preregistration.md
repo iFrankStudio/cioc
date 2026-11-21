@@ -1,0 +1,11 @@
+# CL1B-POLICY-P4F4 — Pre-native frozen event-gated self-relearning
+
+**Protocol frozen before P4F4 original-native Rust execution.** Inherits exact original CL0 physics and [P4F3 independently verified 218-world original-native result](https://github.com/iFrankStudio/cioc/actions/runs/44838246836), not its claim of general fitness.
+
+A single original PID1 pays to modify executable control-flow. In F3, every task success ran an expensive feedback check. In F4, after learning the original stride it pays `PatchNext PC131` to use a **two-instruction ordinary success-memory handler**, retaining real goal cell37. On actual paid task failure, **PC139 paid PatchNext** arms the expensive handler. Following a genuine success, `PC122 PatchConst` may revise stride, and **PC136 paid PatchNext** disarms the expensive handler. F4 is a **researcher-authored event-gating heuristic**, not a newly invented algorithm or an optimal cost calculator.
+
+Freeze **72 previously observed P4F3 goal cases** plus **36 new heldout cases** formed by four fixed regimes × three starting goals × three strides; 24 stages each. For each 108 cases use an F4-on, same-original-source F4-patchnext-suppressed, and F3-on original PID1 in its **own** Rust world, plus 2 false-feedback controls: **326 original native worlds**. Fresh regimes are *sparse pulses*, *dense short pulses*, *delayed recovery*, and *multiple shifts* exactly defined by manifest goal vectors.
+
+Must report **source-identical edit-effect** vs **cross-source performance** distinctly; only exact independent original CIL opcode replay of all charged instructions validates native evidence. Include all negative outcomes, cost of repeated failure triggers and disarming, under strict 16 data / 180 source / 300 occupied and 6000 private credits. An F4 advantage in stable worlds alone cannot imply population fitness or open-ended evolution. The phase is complete only with pinned full CI and replay.
+
+**Falsifier:** Additional actor-paid arming on multiple failures may dominate 2-instruction stable savings in high-pulse environments; adaptation can remain harmful despite fewer service attempts. This experiment does not solve whether PID autonomously *predicts* the future value of a source edit.
