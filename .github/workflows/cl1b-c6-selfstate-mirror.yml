@@ -9,6 +9,7 @@ on:
       - 'cl1b/studies/CL1B-G2-ACTOR-SELFSTATE-MIRROR-C6-frozen-274-worlds-v1.json'
       - 'cl0/crates/world/tests/cl1b_g2_selfstate_mirror_c6.rs'
       - 'cl1b/audits/cl1b_g2_selfstate_mirror_c6_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_selfstate_mirror_c6_exact_noop_audit.py'
       - '.github/workflows/cl1b-c6-selfstate-mirror.yml'
   workflow_dispatch:
 
@@ -61,6 +62,25 @@ jobs:
           print("C6 pre-frozen main aggregate economic benefit gate ACCEPT =",d["main_efficiency_accepted"])
           for name,row in d["family_arm_costs"].items():
               print("C6 family",name,"costs",row)
+          PY
+      - name: Prove every C6 saved instruction is a paid redundant source write, not task learning
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_selfstate_mirror_c6_exact_noop_audit.py \
+            cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_native_274_worlds.json \
+            > cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_exact_noop_audit.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_exact_noop_audit.json"))
+          assert d["all_45_new_cases_verified"]==45
+          assert d["skipped_semantically_redundant_paid_code_edits"]==13
+          assert d["total_4x_charge_saved"]==52
+          print("C6 independent source-value no-op fee identity: 13 x 4 = 52 paid CIL")
+          print("C6 original native 45/45 task/feedback sequences preserved exactly")
+          print("C6 same final theta and mutable source edges for 45/45 worlds")
+          print("C6 physical peak occupancy differences are tracked separately =",d["original_native_actor_peak_occupied_differences"])
+          print("C6 total cost above paid permanent abstention =",d["mirror_more_costly_than_best_paired_never_by"])
           PY
       - name: Preserve exact source and original-run provenance
         if: always()
