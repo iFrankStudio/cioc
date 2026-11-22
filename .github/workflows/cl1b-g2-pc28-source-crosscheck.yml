@@ -1,3 +1,6 @@
+# Historical source-only pair fingerprint failure #44978397051 was caused by
+# frozen case-name prefix/suffix mismatch, repaired at bcf647e; rerun this
+# targeted workflow to validate that fix (not a new native causal study).
 # Exploratory source-level G2 counterfactual only; not native causal evidence.
 name: CL-1B G2 PC28 source-level cross-check
 
