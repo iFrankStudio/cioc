@@ -1,0 +1,84 @@
+# C7 single-PID original 180-node CL0 CIL: value inferred from actually
+# executing PC173 Const, not an unavailable direct ReadConst sensor.
+name: CL-1B C7 actor-paid executed-source readback
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_executed_readback_c7.rs'
+      - 'cl1b/audits/cl1b_g2_executed_readback_c7_independent_native_replay.py'
+      - '.github/workflows/cl1b-c7-executed-readback.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c7-executed-source-readback
+  cancel-in-progress: true
+
+jobs:
+  original-native-c7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run all 274 original-native PID1 real-charge C7 worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_executed_readback_c7 -- --nocapture \
+             2>&1 | tee cl1b-ci-evidence/cl1b-c7-executed-readback-original-native.log
+      - name: Independently reconstruct entire C7 original-CIL and external-feedback history
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_executed_readback_c7_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_executed_readback_c7_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_executed_readback_c7_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_executed_readback_c7_independent_replay.json"))
+          assert d["verified_original_native_worlds"]==274
+          assert d["first_divergence"] is None
+          assert d["verified_gate_fresh_physical_theta"]>0
+          assert d["physical_source_attestations_after_suppressed_write"]>0
+          assert d["physical_theta_mismatches_at_all_same-source_gates"]==0
+          print("C7 original native 274 worlds, exact paid CIL =",d["verified_charged_original_cil_instructions"])
+          print("C7 paid executed PC173 -> Write41 evidence instances =",d["actor_paid_readback_writes"])
+          print("C7 same-source attempted edit suppressed, later true scalar readbacks =",d["suppressed_PatchConst_attempts_paid"],d["physical_source_attestations_after_suppressed_write"])
+          print("C7 real physical code mismatches at paid gates =",d["physical_theta_mismatches_at_all_same-source_gates"])
+          print("C7 source-pinned native charge totals =",d["arm_costs"])
+          print("C7 full-net cost savings vs always/abstain =",d["net_attested_cost_saving_vs_always"],d["net_attested_cost_saving_vs_abstain"])
+          print("C7 prereg main efficiency accepted =",d["main_efficiency_accepted"])
+          for name,c in d["family_costs"].items():print("C7 9-case family",name,c)
+          PY
+      - name: Record exact tested original source and research-run provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=one_C7_Rust_native_test_274_worlds_and_independent_Python_full_original_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c7-original-provenance.txt
+      - name: Archive every original CIL, external feedback, and independent replay
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c7-original-native-true-code-readback-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
