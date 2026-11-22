@@ -1,0 +1,90 @@
+# C2: original CL0 paid 48-stage mutation reuse after prereg and immutable
+# goal/source freeze. The 6000-CIL limit is unchanged. Scoped native job, not
+# a misleading 104-target full-regression result.
+name: CL-1B C2 48-stage native mutation reuse
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-PC28-LIFECYCLE-C2-frozen-184-worlds-v1.json'
+      - 'cl0/crates/world/tests/support/cl1b_g2_pc28_c2_native.rs'
+      - 'cl1b/audits/cl1b_g2_pc28_c2_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_pc28_c2_native_reuse_audit.py'
+      - '.github/workflows/cl1b-c2-lifecycle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c2-lifecycle-main
+  cancel-in-progress: true
+
+jobs:
+  native-c2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run original-native C1 and frozen C2 in one registered integration target
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_pc28_native_c1 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/c2-native-test.log
+      - name: Independently reconstruct every original C2 paid CIL and feedback transition
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_pc28_c2_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c2_native_184_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_pc28_c2_independent_native_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_pc28_c2_independent_native_replay.json"))
+          assert d["verified_original_native_worlds"]==184 and d["first_divergence"] is None
+          assert d["verified_charged_original_cil_instructions"]>0
+          print("C2 full original-native 184-world paid CIL replay PASS")
+          PY
+      - name: Measure exact-source causal cost and real source-edit reuse
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_pc28_c2_native_reuse_audit.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c2_native_184_worlds.json \
+            > cl1b-ci-evidence/cl1b_g2_pc28_c2_reuse.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_pc28_c2_reuse.json"))
+          assert len(d["cases"])==45 and d["total_truthful_worlds"]==180
+          print("C2 observed native 48-stage off-minus-on =",d["primary_off_minus_on"])
+          print("C2 source-edit reuse worlds =",d["worlds_with_later_mutated_read"])
+          PY
+      - name: Publish source, workflow and run provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=targeted_C1_plus_C2_native_and_C2_independent_replay_not_full_104"
+          } > cl1b-ci-evidence/c2-provenance.txt
+      - name: Keep all original-native evidence even if C2 fails the frozen completion gate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c2-original-native-48-stage-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
