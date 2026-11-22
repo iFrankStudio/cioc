@@ -24,10 +24,10 @@ fn decoded(v:&Value)->Op{
 }
 fn source<'a>(m:&'a Value,name:&str)->&'a Vec<Value>{
  m[match name{
-  "G2_readback_attest"|"G2_readback_pc28_suppressed"|"G2_readback_placebo180"=>"frozen_source_g2_readback_attest",
-  "G2_readback_always"=>"frozen_source_g2_readback_always",
-  "G2_readback_abstain"=>"frozen_source_g2_readback_abstain",
-  "G2_intent_mirror_C6"=>"frozen_source_g2_intent_mirror_C6",
+  "G2_checkpoint"|"G2_checkpoint_pc28_suppressed"|"G2_checkpoint_placebo180"=>"frozen_source_g2_checkpoint",
+  "G2_checkpoint_bypass"=>"frozen_source_g2_checkpoint_bypass",
+  "G2_checkpoint_always"=>"frozen_source_g2_checkpoint_always",
+  "G2_checkpoint_abstain"=>"frozen_source_g2_checkpoint_abstain",
   _=>panic!("unknown G2 source: {name}"),
  }].as_array().unwrap()
 }
@@ -62,8 +62,8 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  assert_eq!(initial.len(),180);
  let mut expected=initial.clone();
  let mut w=World::with_strict_capacity(16,180,300);
- if source_name=="G2_readback_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
- if source_name=="G2_readback_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
+ if source_name=="G2_checkpoint_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
+ if source_name=="G2_checkpoint_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
  w.load(Process::new(1,initial,CREDIT)).unwrap();
  assert_eq!(w.occupied_units(),181);
  let file=File::create(dir.join(format!("cl1b_g2_true_parent_checkpoint_c9_original_{name}.jsonl"))).unwrap();
@@ -82,6 +82,9 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  let mut last_attested_step:Option<u64>=None;
  let mut last_suppressed_step:Option<u64>=None;
  let mut actor_readback_records=Vec::<Value>::new();
+ let mut checkpoint_records=Vec::<Value>::new();
+ let mut checkpoint_writes=0_u64;
+ let mut most_recent_checkpoint:Option<(u64,i64)>=None;
  let mut decisions=Vec::<Value>::new();
  let mut refills=Vec::<Value>::new();
  let mut parameter_patches=Vec::<Value>::new();
@@ -103,7 +106,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
   assert!(w.used_cells()<=16&&w.occupied_units()<=300);
   assert_eq!(pid.code.nodes.len(),180);
   if [45,88,102,122,28].contains(&pc){
-   let suppressed=pc==28&&source_name=="G2_readback_pc28_suppressed";
+   let suppressed=pc==28&&source_name=="G2_checkpoint_pc28_suppressed";
    if suppressed{assert!(matches!(&event.kind,EventKind::NativeCodeEditSuppressed{opcode_tag:9}));}
    else{assert!(matches!(&event.kind,EventKind::Executed));}
    let target=pid.registers[1] as usize;
@@ -118,6 +121,13 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    }
    if pc==28{
     assert!((0..=2).contains(&value));
+    if source_name!="G2_checkpoint_bypass"{
+     let (checkpoint_step,parent_theta)=most_recent_checkpoint.expect("paid PC28 lacks preceding actor checkpoint");
+     assert!(checkpoint_step<paid&&paid-checkpoint_step==2,
+        "PC97 checkpoint must precede paid PC27→PC28 by exactly two");
+     assert_eq!(parent_theta,previous);
+     assert_eq!(w.cell(42),Some(previous));
+    }
     parameter_patches.push(json!({"step":paid,"pc":28,"target":173,
       "before":previous,"attempted":value,"after":if suppressed{previous}else{value},
       "changed":!suppressed&&previous!=value,"suppressed":suppressed}));
@@ -149,7 +159,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
      "before":before,"after":value,"kind":"PatchNext"}));
   }
   assert_eq!(pid.code.nodes,expected,"unpaid or unaccounted native source mutation");
-  if pc==52 && source_name!="G2_intent_mirror_C6"{
+  if pc==52{
     assert!(matches!(&event.kind,EventKind::CellWritten{key:41,value}
       if *value==pid.registers[2]));
     let last173=last_executed_const_step.expect("paid C7 Write41 before actual PC173 execution");
@@ -159,7 +169,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
     assert_eq!(w.cell(41),Some(theta(&expected)));
     last_attested_step=Some(paid);
     actor_readback_writes+=1;
-    if source_name=="G2_readback_pc28_suppressed"{
+    if source_name=="G2_checkpoint_pc28_suppressed"{
       if let Some(first_suppression)=last_suppressed_step{
        if last173>first_suppression{attested_after_suppressed_patch+=1;}
       }
@@ -170,38 +180,44 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    if pc==67{
     assert!(matches!(&event.kind,EventKind::Executed));
     let route=pid.pc;
-    assert!(route==27||route==125,"C7 native paid gate invalid target");
-    let legacy=source_name=="G2_intent_mirror_C6";
-    let key=if legacy{40}else{41};
-    let witnessed=w.cell(key).unwrap_or(0);
+    assert!(route==1||route==27||route==125,"native C9 checkpoint gate forbidden route");
     let physical=theta(&expected);
-    if !legacy{
-      attested_gate_checks+=1;
-      let prev173=last_executed_const_step.expect("no actual PC173 execution before gate");
-      let prev52=last_attested_step.expect("no actor paid source-value readback before gate");
-      assert!(prev173<prev52&&prev52<paid,"readback is stale or missing at paid gate");
-      assert_eq!(witnessed,physical,
-          "actor paid readback cell41 was false at original native gate");
-    }
-    assert_eq!(pid.registers[0],pid.registers[3]-witnessed,
-      "actor's own native CIL Read and Sub did not use witness");
-    if witnessed!=physical{attested_gate_mismatches+=1;}
-    let expected_route=match source_name{
-      "G2_readback_attest"|"G2_readback_pc28_suppressed"|"G2_readback_placebo180"|
-      "G2_intent_mirror_C6"=>if pid.registers[0]!=0{27}else{125},
-      "G2_readback_always"=>27,
-      "G2_readback_abstain"=>125,
+    let witnessed=w.cell(41).unwrap_or(0);
+    attested_gate_checks+=1;
+    let last173=last_executed_const_step.expect("no paid PC173 before C9 gate");
+    let last52=last_attested_step.expect("no paid Write41 before C9 gate");
+    assert!(last173<last52&&last52<paid);
+    assert_eq!(witnessed,physical,"paid physical source readback failed");
+    assert_eq!(pid.registers[0],pid.registers[3]-witnessed);
+    let route_expected=match source_name{
+      "G2_checkpoint"|"G2_checkpoint_pc28_suppressed"|"G2_checkpoint_placebo180"=>
+        if pid.registers[0]!=0{1}else{125},
+      "G2_checkpoint_bypass"=>if pid.registers[0]!=0{27}else{125},
+      "G2_checkpoint_always"=>1,
+      "G2_checkpoint_abstain"=>125,
       _=>unreachable!()
     };
-    assert_eq!(route,expected_route,"original CIL PC67 route differs from charged program");
-    if route==27{gate_allow+=1;}else{gate_abstain+=1;}
+    assert_eq!(route,route_expected,"native C9 paid CIL gate differs from initial source");
+    if route==125{gate_abstain+=1;}else{gate_allow+=1;}
     paid_gate_records.push(json!({"step":paid,"r3":pid.registers[3],
-      "r0":pid.registers[0],"route":route,"witness":witnessed,
-      "actual_theta":physical,"evidence_key":key,
-      "last_pc173":last_executed_const_step,"last_write":last_attested_step,
-      "decision":if route==27{"EDIT"}else{"ABSTAIN"}}));
+       "r0":pid.registers[0],"route":route,"witness":witnessed,
+       "actual_theta":physical,"evidence_key":41,
+       "last_pc173":last_executed_const_step,"last_write":last_attested_step,
+       "decision":if route==125{"ABSTAIN"}else{"EDIT"}}));
    }
-   if pc==173{
+   if pc==97{
+     assert!(matches!(&event.kind,EventKind::CellWritten{key:42,value}
+       if *value==pid.registers[0]));
+     assert_eq!(pid.pc,27);
+     assert_eq!(w.cell(42),Some(theta(&expected)));
+     assert_eq!(pid.registers[0],theta(&expected));
+     assert_eq!(w.cell(41),Some(theta(&expected)));
+     checkpoint_writes+=1;
+     most_recent_checkpoint=Some((paid,theta(&expected)));
+     checkpoint_records.push(json!({"step":paid,"previous_physical_theta":theta(&expected),
+        "cell42":w.cell(42).unwrap(),"last_verified_readback":last_attested_step}));
+   }
+      if pc==173{
    last_executed_const_step=Some(paid);
    assert!(matches!(&event.kind,EventKind::Executed));
    assert_eq!(pid.registers[2],theta(&expected));
@@ -230,7 +246,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    failed_third_probe_halt=true;
   }
   peak=peak.max(w.occupied_units());
-  let label=if pc==28&&source_name=="G2_readback_pc28_suppressed"{ "suppressed_pc28" }
+  let label=if pc==28&&source_name=="G2_checkpoint_pc28_suppressed"{ "suppressed_pc28" }
     else if pc==28{"paid_parameter_patch"}else{"normal"};
   serde_json::to_writer(&mut trace,&json!(["cil",paid,pc,pid.pc,pid.registers,
    pid.credits,CELLS.map(|k|w.cell(k)),w.occupied_units(),edges(&w),
@@ -294,5 +310,8 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    "attested_gate_mismatches":attested_gate_mismatches,
    "attested_after_suppressed_patch":attested_after_suppressed_patch,
    "actor_readback_records":actor_readback_records,
-   "final_attested_theta":w.cell(41).unwrap_or(0)})
+   "final_attested_theta":w.cell(41).unwrap_or(0),
+   "checkpoint_records":checkpoint_records,
+   "actor_paid_checkpoint_writes":checkpoint_writes,
+   "final_parent_checkpoint":w.cell(42).unwrap_or(0)})
 }
