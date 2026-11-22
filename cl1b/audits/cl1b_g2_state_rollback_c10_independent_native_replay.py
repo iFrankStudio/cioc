@@ -109,12 +109,14 @@ def replay(m,arm,folder):
             if at in (45,88,102,122,28):
                 target=regs[1]
                 value=regs[3] if at==28 else regs[0]
-                assert target==(173 if at==28 else 46)
-                suppressed=at==28 and arm["source"]=="G2_rollback_pc28_suppressed"
+                actor_rollback=at==102 and arm["source"].startswith("G2_rollback")
+                assert target==(173 if at==28 or actor_rollback else 46)
+                suppressed=(at==28 and arm["source"]=="G2_rollback_pc28_suppressed") or (
+                    actor_rollback and arm["source"]=="G2_rollback_pc102_suppressed")
                 assert code[target]["value"]==(pre_value if suppressed else value)
                 if at==28:
                     assert value in (0,1,2)
-                    if arm["source"]!="G2_checkpoint_bypass":
+                    if True: # C10 all PC28 pathways are actor-paid checkpointed
                         assert most_recent_checkpoint is not None
                         assert paid-most_recent_checkpoint[0]==2
                         assert most_recent_checkpoint[1]==pre_value==memory.get(42)
@@ -130,6 +132,31 @@ def replay(m,arm,folder):
                             "attempted":value,"before":pre_value,"after":pre_value})
                     elif pre_value!=value:
                         last_changed=value
+                        last_rollback=None
+                if actor_rollback:
+                    assert last_positive_cell36_trigger is not None
+                    assert paid-last_positive_cell36_trigger==4
+                    assert memory.get(36,0)!=0
+                    assert value==memory.get(42,0)
+                    if checkpoint_count:
+                        assert most_recent_checkpoint is not None
+                        assert value==most_recent_checkpoint[1]
+                    if suppressed:suppressed_pc102_count+=1
+                    physical=checkpoint_count>0 and not suppressed and pre_value!=value
+                    if physical:
+                        genuine_restores+=1
+                        last_changed=value
+                        last_rollback=(paid,value)
+                    rollback_attempt_records.append({
+                        "step":paid,"pc":102,
+                        "paid_history_trigger_step":last_positive_cell36_trigger,
+                        "checkpoint_exists":checkpoint_count>0,
+                        "parent_from_actor_cell42":value,
+                        "before":pre_value,
+                        "after":pre_value if suppressed else value,
+                        "suppressed":bool(suppressed),
+                        "actual_physical_parent_restoration":bool(physical)
+                    })
                 edits.append({"step":paid,"pc":at,"target":target,
                     "before":pre_value,"attempted":value,
                     "after":pre_value if suppressed else value,
@@ -165,12 +192,12 @@ def replay(m,arm,folder):
                 assert regs[0]==regs[3]-witnessed
                 if witnessed!=actual_theta:attested_mismatches+=1
                 expected_route={
-                    "G2_checkpoint":1 if regs[0]!=0 else 125,
-                    "G2_checkpoint_bypass":27 if regs[0]!=0 else 125,
-                    "G2_checkpoint_always":1,
-                    "G2_checkpoint_abstain":125,
+                    "G2_rollback":1 if regs[0]!=0 else 125,
+                    "G2_rollback_pc102_suppressed":1 if regs[0]!=0 else 125,
                     "G2_rollback_pc28_suppressed":1 if regs[0]!=0 else 125,
-                    "G2_checkpoint_placebo180":1 if regs[0]!=0 else 125
+                    "G2_rollback_placebo180":1 if regs[0]!=0 else 125,
+                    "G2_C9_checkpoint_no_rollback":1 if regs[0]!=0 else 125,
+                    "G2_C9_checkpoint_abstain":125
                 }[arm["source"]]
                 assert pc==expected_route,("C9 paid checkpoint gate unexpectedly routed",arm["name"],pc,expected_route)
                 if pc==125:gate_abstain+=1
@@ -181,6 +208,9 @@ def replay(m,arm,folder):
                     "evidence_key":41,"last_pc173":last173,"last_write":last52,
                     "decision":"ABSTAIN" if pc==125 else "EDIT"
                 })
+            if at==95 and arm["source"].startswith("G2_rollback") and pc==99:
+                assert memory.get(36,0)!=0
+                last_positive_cell36_trigger=paid
             if at==97:
                 assert kind=="Write" and pc==27
                 assert memory[42]==regs[0]==theta()==memory[41]
@@ -191,6 +221,13 @@ def replay(m,arm,folder):
             if at==173:
                 last173=paid
                 assert regs[2]==theta()
+                if last_rollback is not None:
+                    rp,rtheta=last_rollback
+                    assert paid>rp and regs[2]==rtheta
+                    rollback_readback_records.append({
+                        "step":paid,"rollback_step":rp,"actual_readback_theta":rtheta
+                    })
+                    last_rollback=None
                 if last_changed is not None:
                     assert last_changed==regs[2]
                     later_reads.append({"step":paid,"theta":last_changed})
@@ -213,6 +250,7 @@ def replay(m,arm,folder):
             check(["cil",paid,at,pc,list(regs),CREDIT-paid,
                 [memory.get(k) for k in CELLS],occupied,edges(),theta(),
                 "suppressed_pc28" if at==28 and arm["source"]=="G2_rollback_pc28_suppressed"
+                else "suppressed_pc102" if at==102 and arm["source"]=="G2_rollback_pc102_suppressed"
                 else "paid_parameter_patch" if at==28 else "normal"])
             if at==3:
                 assert kind=="Write" and memory[11]==regs[op["value"]]
@@ -257,6 +295,10 @@ def replay(m,arm,folder):
         "final_attested_theta":memory.get(41,0),
         "checkpoint_records":checkpoints,
         "actor_paid_checkpoint_writes":checkpoint_count,
-        "final_parent_checkpoint":memory.get(42,0)}
+        "final_parent_checkpoint":memory.get(42,0),
+        "rollback_attempt_records":rollback_attempt_records,
+        "genuine_paid_physical_parent_restores":genuine_restores,
+        "later_actual_rollback_readbacks":rollback_readback_records,
+        "suppressed_pc102_count":suppressed_pc102_count}
 
 
