@@ -24,10 +24,10 @@ fn decoded(v:&Value)->Op{
 }
 fn source<'a>(m:&'a Value,name:&str)->&'a Vec<Value>{
  m[match name{
-  "G2_actor_gate"|"G2_gate_pc28_suppressed"|"G2_gate_placebo180"=>"frozen_source_g2_actor_gate",
-  "G2_gate_always_edit"=>"frozen_source_g2_gate_always_edit",
-  "G2_gate_always_abstain"=>"frozen_source_g2_gate_always_abstain",
-  "G2_source_never"=>"frozen_source_g2_never",
+  "G2_mirror"|"G2_mirror_pc28_suppressed"|"G2_mirror_placebo180"=>"frozen_source_g2_mirror",
+  "G2_mirror_always"=>"frozen_source_g2_mirror_always",
+  "G2_mirror_abstain"=>"frozen_source_g2_mirror_abstain",
+  "G2_legacy_label_gate"=>"frozen_source_g2_legacy_label_gate",
   _=>panic!("unknown G2 source: {name}"),
  }].as_array().unwrap()
 }
@@ -62,8 +62,8 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  assert_eq!(initial.len(),180);
  let mut expected=initial.clone();
  let mut w=World::with_strict_capacity(16,180,300);
- if source_name=="G2_gate_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
- if source_name=="G2_gate_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
+ if source_name=="G2_mirror_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
+ if source_name=="G2_mirror_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
  w.load(Process::new(1,initial,CREDIT)).unwrap();
  assert_eq!(w.occupied_units(),181);
  let file=File::create(dir.join(format!("cl1b_g2_selfstate_mirror_c6_original_{name}.jsonl"))).unwrap();
@@ -74,6 +74,10 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  let mut gate_allow=0_u64;
  let mut gate_abstain=0_u64;
  let mut paid_gate_records=Vec::<Value>::new();
+ let mut paid_mirror_writes=0_u64;
+ let mut mirror_gate_checks=0_u64;
+ let mut mirror_gate_mismatches=0_u64;
+ let mut mirror_noop_skips=0_u64;
  let mut decisions=Vec::<Value>::new();
  let mut refills=Vec::<Value>::new();
  let mut parameter_patches=Vec::<Value>::new();
@@ -95,7 +99,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
   assert!(w.used_cells()<=16&&w.occupied_units()<=300);
   assert_eq!(pid.code.nodes.len(),180);
   if [45,88,102,122,28].contains(&pc){
-   let suppressed=pc==28&&source_name=="G2_gate_pc28_suppressed";
+   let suppressed=pc==28&&source_name=="G2_mirror_pc28_suppressed";
    if suppressed{assert!(matches!(&event.kind,EventKind::NativeCodeEditSuppressed{opcode_tag:9}));}
    else{assert!(matches!(&event.kind,EventKind::Executed));}
    let target=pid.registers[1] as usize;
@@ -140,20 +144,46 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
      "before":before,"after":value,"kind":"PatchNext"}));
   }
   assert_eq!(pid.code.nodes,expected,"unpaid or unaccounted native source mutation");
-  if pc==67 && source_name!="G2_source_never"{
+  if pc==52 && source_name!="G2_legacy_label_gate"{
+    assert!(matches!(&event.kind,
+       EventKind::CellWritten{key:40,value} if *value==pid.registers[3]));
+    assert_eq!(w.cell(40),Some(pid.registers[3]));
+    paid_mirror_writes+=1;
+   }
+   if pc==67{
     assert!(matches!(&event.kind,EventKind::Executed));
     let route=pid.pc;
-    assert!(route==27||route==125, "native PC67 chose invalid gate route");
-    let expected=match source_name{
-     "G2_actor_gate"|"G2_gate_pc28_suppressed"|"G2_gate_placebo180"=>if pid.registers[3]!=0{27}else{125},
-     "G2_gate_always_edit"=>27,
-     "G2_gate_always_abstain"=>125,
+    assert!(route==27||route==125, "native paid mirror gate took unauthorized route");
+    let shadow=w.cell(40).unwrap_or(0);
+    let actual_theta=theta(&expected);
+    if source_name!="G2_legacy_label_gate"{
+     mirror_gate_checks+=1;
+     assert_eq!(pid.registers[0],pid.registers[3]-shadow,
+         "paid PC120/57 failed to read and compare the actor-owned shadow cell40");
+     if shadow!=actual_theta{
+      mirror_gate_mismatches+=1;
+      assert_eq!(source_name,"G2_mirror_pc28_suppressed",
+         "non-poisoned actor mirror diverged from real native source parameter");
+     }
+    }
+    let expected_route=match source_name{
+     "G2_mirror"|"G2_mirror_pc28_suppressed"|"G2_mirror_placebo180"=>
+        if pid.registers[0]!=0{27}else{125},
+     "G2_mirror_always"=>27,
+     "G2_mirror_abstain"=>125,
+     "G2_legacy_label_gate"=>if pid.registers[3]!=0{27}else{125},
      _=>unreachable!()
     };
-    assert_eq!(route,expected,"native PID1 gate PC67 violates code");
+    assert_eq!(route,expected_route,"native original CIL mirror gate route mismatch");
     if route==27{gate_allow+=1;}else{gate_abstain+=1;}
-    paid_gate_records.push(json!({"step":paid,"r3":pid.registers[3],"route":route,
-       "decision":if route==27{"EDIT"}else{"ABSTAIN"}}));
+    if source_name=="G2_mirror"&&shadow==pid.registers[3]{
+      assert_eq!(route,125);
+      mirror_noop_skips+=1;
+    }
+    paid_gate_records.push(json!({"step":paid,"r3":pid.registers[3],
+      "r0":pid.registers[0],"route":route,"shadow":shadow,
+      "actual_theta":actual_theta,"shadow_mismatch":shadow!=actual_theta,
+      "decision":if route==27{"EDIT"}else{"ABSTAIN"}}));
    }
    if pc==173{
    assert!(matches!(&event.kind,EventKind::Executed));
@@ -168,11 +198,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    assert!(matches!(&event.kind,EventKind::Executed));
    let difference=pid.registers[0];
    let next=pid.pc;
-   let expected_jump=match source_name{
-    "G2_actor_gate"|"G2_gate_always_edit"|"G2_gate_always_abstain"|"G2_gate_pc28_suppressed"|"G2_gate_placebo180"=>if difference!=0{176}else{179},
-    "G2_source_never"=>179,
-    _=>unreachable!()
-   };
+   let expected_jump=if difference!=0{176}else{179};
    assert_eq!(next,expected_jump);
    decisions.push(json!({"step":paid,"difference":difference,"next":next,
      "theta":theta(&expected),"last_guess":pid.registers[3]}));
@@ -187,7 +213,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    failed_third_probe_halt=true;
   }
   peak=peak.max(w.occupied_units());
-  let label=if pc==28&&source_name=="G2_gate_pc28_suppressed"{ "suppressed_pc28" }
+  let label=if pc==28&&source_name=="G2_mirror_pc28_suppressed"{ "suppressed_pc28" }
     else if pc==28{"paid_parameter_patch"}else{"normal"};
   serde_json::to_writer(&mut trace,&json!(["cil",paid,pc,pid.pc,pid.registers,
    pid.credits,CELLS.map(|k|w.cell(k)),w.occupied_units(),edges(&w),
@@ -245,7 +271,12 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
   "peak_occupied":peak,"failed_third_probe_halt":failed_third_probe_halt,
   "host_source_edits":0,"budget_exhausted":budget_exhausted,
    "paid_gate_allow":gate_allow,"paid_gate_abstain":gate_abstain,
-   "paid_gate_records":paid_gate_records})
+   "paid_gate_records":paid_gate_records,
+   "paid_mirror_writes":paid_mirror_writes,
+   "mirror_gate_checks":mirror_gate_checks,
+   "mirror_gate_mismatches":mirror_gate_mismatches,
+   "mirror_noop_skips":mirror_noop_skips,
+   "final_shadow":w.cell(40).unwrap_or(0)})
 }
 #[test]
 fn c4_frozen_274_original_native_actor_paid_pc67_gate_and_patchconst(){
