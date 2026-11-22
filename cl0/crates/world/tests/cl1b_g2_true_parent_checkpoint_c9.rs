@@ -315,3 +315,160 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    "actor_paid_checkpoint_writes":checkpoint_writes,
    "final_parent_checkpoint":w.cell(42).unwrap_or(0)})
 }
+
+#[test]
+fn c9_274_native_paid_true_parent_checkpoint_before_every_pc28(){
+ let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+ let m:Value=serde_json::from_slice(&fs::read(root.join(MANIFEST)).unwrap()).unwrap();
+ let parent:Value=serde_json::from_slice(&fs::read(root.join(G2)).unwrap()).unwrap();
+ assert_eq!(m["study"],"CL1B-G2-ACTOR-PAID-TRUE-PARENT-CHECKPOINT-C9");
+ assert_eq!(m["status"],"PRE_NATIVE_FROZEN");
+ assert_eq!(m["counts"]["native_worlds"],274);
+ let mut exact=parent["frozen_source_g2_readback_attest"].clone();
+ assert_eq!(exact.as_array().unwrap().len(),180);
+ assert_eq!(exact[0],json!({"kind":"Const","dst":2,"value":30,"next":1}));
+ assert_eq!(exact[1],json!({"kind":"Read","dst":3,"address":2,"next":2}));
+ assert_eq!(exact[2],json!({"kind":"Const","dst":2,"value":11,"next":3}));
+ assert_eq!(exact[88]["next"],96);
+ assert_eq!(exact[96],json!({"kind":"Const","dst":2,"value":36,"next":97}));
+ assert_eq!(exact[97],json!({"kind":"Const","dst":0,"value":1,"next":98}));
+ assert_eq!(exact[67]["nonzero"],27);
+ exact[0]=json!({"kind":"Const","dst":2,"value":11,"next":3});
+ exact[1]=json!({"kind":"Const","dst":2,"value":41,"next":2});
+ exact[2]=json!({"kind":"Read","dst":0,"address":2,"next":96});
+ exact[88]["next"]=json!(98);
+ exact[96]=json!({"kind":"Const","dst":2,"value":42,"next":97});
+ exact[97]=json!({"kind":"Write","address":2,"value":0,"next":27});
+ exact[67]["nonzero"]=json!(1);
+ assert_eq!(m["frozen_source_g2_checkpoint"],exact,
+    "C9 founder differs from the seven-node protocol frozen before native runs");
+ let mut var=exact.clone();var[67]["nonzero"]=json!(27);
+ assert_eq!(m["frozen_source_g2_checkpoint_bypass"],var);
+ var=exact.clone();var[67]["zero"]=json!(1);
+ assert_eq!(m["frozen_source_g2_checkpoint_always"],var);
+ var=exact.clone();var[67]["nonzero"]=json!(125);
+ assert_eq!(m["frozen_source_g2_checkpoint_abstain"],var);
+ for n in ["G2_checkpoint","G2_checkpoint_bypass","G2_checkpoint_always",
+           "G2_checkpoint_abstain"]{assert_eq!(source(&m,n).len(),180);}
+ let arms=m["arms"].as_array().unwrap();let cases=m["cases"].as_array().unwrap();
+ let controls=m["controls"].as_array().unwrap();
+ assert_eq!((arms.len(),cases.len(),controls.len()),(270,45,4));
+ let dir=root.join("../../cl1b-ci-evidence");fs::create_dir_all(&dir).unwrap();
+ let mut truthful=Vec::<Value>::new();let mut adversarial=Vec::<Value>::new();
+ let mut paid_total=0_u64;let mut costs=[0_u64;6];let mut incomplete=Vec::<String>::new();
+ let mut checkpoint_writes=0_u64;let mut attempt_count=0_u64;
+ let mut bypass_extra_cost=0_i64;let mut strict_prefixes=0_u64;
+ let mut suppressions=0_u64;let mut no_suppression=0_u64;let mut attested_after_suppression=0_u64;
+ let mut gate_edits=0_u64;let mut gate_abstains=0_u64;let mut flat_deltas=Vec::<Value>::new();
+ let raw=|r:&Value|->Vec<Value>{
+   let name=r["name"].as_str().unwrap();
+   fs::read_to_string(dir.join(format!("cl1b_g2_true_parent_checkpoint_c9_original_{name}.jsonl"))).unwrap()
+    .lines().map(|line|serde_json::from_str(line).unwrap()).collect()
+ };
+ let service_semantics=|r:&Value|->Vec<Value>{
+   r["services"].as_array().unwrap().iter()
+    .map(|x|json!([x["stage"],x["guess"],x["truth"],x["feedback"]])).collect()
+ };
+ for (i,cas) in cases.iter().enumerate(){
+  let group=&arms[6*i..6*i+6];
+  assert_eq!(group.iter().map(|a|a["source"].as_str().unwrap()).collect::<Vec<_>>(),
+    vec!["G2_checkpoint","G2_checkpoint_bypass","G2_checkpoint_always",
+         "G2_checkpoint_abstain","G2_checkpoint_pc28_suppressed","G2_checkpoint_placebo180"]);
+  for a in group{assert_eq!(a["goals"],cas["goals"]);}
+  let cp=run(&m,&group[0],&dir);let bypass=run(&m,&group[1],&dir);
+  let always=run(&m,&group[2],&dir);let never=run(&m,&group[3],&dir);
+  let suppressed=run(&m,&group[4],&dir);let placebo=run(&m,&group[5],&dir);
+  for (j,r) in [&cp,&bypass,&always,&never,&suppressed,&placebo].iter().enumerate(){
+   if r["completed_stages"]!=48||r["truthful_matches"]!=48||
+      r["claim"]!=1||r["budget_exhausted"]==true{
+     incomplete.push(r["name"].as_str().unwrap().to_string());
+   }
+   costs[j]+=r["steps"].as_u64().unwrap();
+   paid_total+=r["steps"].as_u64().unwrap();
+   assert_eq!(r["attested_gate_mismatches"],0);
+  }
+  assert_eq!(bypass["actor_paid_checkpoint_writes"],0);
+  assert_eq!(never["actor_paid_checkpoint_writes"],0);
+  assert_eq!(cp["actor_paid_checkpoint_writes"],cp["parameter_patches"].as_array().unwrap().len());
+  assert_eq!(cp["actor_paid_checkpoint_writes"],cp["paid_gate_allow"]);
+  assert_eq!(always["actor_paid_checkpoint_writes"],always["paid_gate_allow"]);
+  assert_eq!(never["paid_gate_allow"],0);
+  assert_eq!(always["paid_gate_abstain"],0);
+  let attempts=cp["parameter_patches"].as_array().unwrap().len() as i64;
+  let delta=cp["steps"].as_i64().unwrap()-bypass["steps"].as_i64().unwrap();
+  assert_eq!(delta,4*attempts,
+     "C9 actor-owned parent record costs must be EXACTLY four paid CIL per edit");
+  assert_eq!(cp["final_theta"],bypass["final_theta"]);
+  assert_eq!(cp["final_edges"],bypass["final_edges"]);
+  assert_eq!(service_semantics(&cp),service_semantics(&bypass),
+     "C9 checkpoint must not alter any true task guess, service or feedback");
+  assert_eq!(raw(&cp),raw(&placebo),
+     "C9 paid CIL full-history placebo must be identical including 42");
+  assert_eq!(cp["steps"],placebo["steps"]);
+  assert_eq!(cp["checkpoint_records"],placebo["checkpoint_records"]);
+  let sup= suppressed["suppressed_pc28"].as_array().unwrap();
+  suppressions+=sup.len() as u64;
+  attested_after_suppression+=suppressed["attested_after_suppressed_patch"].as_u64().unwrap();
+  if sup.is_empty(){
+    no_suppression+=1;
+    assert_eq!(raw(&cp),raw(&suppressed));
+  }else{
+    let tsup=raw(&suppressed);let tbase=raw(&cp);
+    let first=sup[0]["step"].as_u64().unwrap();
+    let k=tsup.iter().position(|x|x[0]=="cil"&&x[1]==first&&x[2]==28).unwrap();
+    assert_eq!(tbase[..k],tsup[..k]);
+    assert_eq!(tsup[k][10],"suppressed_pc28");
+    strict_prefixes+=1;
+  }
+  checkpoint_writes+=cp["actor_paid_checkpoint_writes"].as_u64().unwrap();
+  attempt_count+=attempts as u64;
+  bypass_extra_cost+=delta;
+  gate_edits+=cp["paid_gate_allow"].as_u64().unwrap();
+  gate_abstains+=cp["paid_gate_abstain"].as_u64().unwrap();
+  flat_deltas.push(json!({"case":cas["name"],
+    "checkpointed_true_paid_edits":attempts,
+    "all_charge_checkpoint":cp["steps"],"all_charge_bypass":bypass["steps"],
+    "exact_additional_paid_CIL":delta,
+    "same_guesses_feedback_and_final_executable_source":true}));
+  truthful.extend([cp,bypass,always,never,suppressed,placebo]);
+ }
+ for a in controls{
+  let r=run(&m,a,&dir);
+  paid_total+=r["steps"].as_u64().unwrap();
+  adversarial.push(r);
+ }
+ assert!(attempt_count>0&&checkpoint_writes>0);
+ assert_eq!(checkpoint_writes,attempt_count);
+ assert!(suppressions>0&&attested_after_suppression>0&&strict_prefixes>0);
+ let output=json!({
+  "study":"CL1B-G2-ACTOR-PAID-TRUE-PARENT-CHECKPOINT-C9",
+  "status":"ORIGINAL_NATIVE_ACTOR_PAID_PREPATCH_PHYSICAL_PARENT_CHECKPOINT",
+  "frozen_manifest":"cl1b/studies/CL1B-G2-ACTOR-PAID-TRUE-PARENT-CHECKPOINT-C9-frozen-274-worlds-v1.json",
+  "native_worlds":274,"total_paid_private_cil":paid_total,
+  "incomplete_truthful":incomplete,
+  "actual_actor_checkpoint_writes":checkpoint_writes,
+  "actual_paid_pc28_attempts_in_checkpoint_arm":attempt_count,
+  "checkpoint_gate_allow":gate_edits,"checkpoint_gate_abstain":gate_abstains,
+  "exact_additional_private_paid_CIL_vs_same_rewired_bypass":bypass_extra_cost,
+  "checkpoint_fee_per_attempt":4,
+  "source_identical_suppressed_patch_attempts":suppressions,
+  "source_identical_suppressed_later_physical_readbacks":attested_after_suppression,
+  "suppression_original_native_strict_prefixes":strict_prefixes,
+  "unexposed_suppression_pairs":no_suppression,
+  "costs":{
+    "G2_checkpoint":costs[0],
+    "G2_checkpoint_bypass":costs[1],
+    "G2_checkpoint_always":costs[2],
+    "G2_checkpoint_abstain":costs[3],
+    "G2_checkpoint_pc28_suppressed":costs[4],
+    "G2_checkpoint_placebo180":costs[5]
+  },
+  "per_case":flat_deltas,"truthful_records":truthful,"adversarial_records":adversarial
+ });
+ fs::write(dir.join("cl1b_g2_true_parent_checkpoint_c9_native_274_worlds.json"),
+   serde_json::to_vec_pretty(&output).unwrap()).unwrap();
+ println!("C9 ORIGINAL NATIVE: 274 worlds, private paid={}, actually paid physical-parent checkpoints={}, actual PC28 edits={}, measured CIL overhead={} exactly 4/edit, source suppress={} and readback after suppression={}, incomplete={}",
+  paid_total,checkpoint_writes,attempt_count,bypass_extra_cost,
+  suppressions,attested_after_suppression,incomplete.len());
+ assert!(incomplete.is_empty(),"C9 complete true-stage gate FAIL; original source and negative proof already saved");
+}
