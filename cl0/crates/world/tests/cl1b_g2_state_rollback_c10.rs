@@ -365,3 +365,162 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    "suppressed_pc102_count":suppressed_pc102_count})
 }
 
+
+#[test]
+fn c10_274_native_paid_actor_pc102_restores_real_prior_theta_from_cell42(){
+ let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+ let m:Value=serde_json::from_slice(&fs::read(root.join(MANIFEST)).unwrap()).unwrap();
+ let p:Value=serde_json::from_slice(&fs::read(root.join(G2)).unwrap()).unwrap();
+ assert_eq!(m["study"],"CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10");
+ assert_eq!(m["status"],"PRE_NATIVE_FROZEN");
+ assert_eq!(m["counts"]["original_native_worlds"],274);
+ let mut exact=p["frozen_source_g2_checkpoint"].clone();
+ assert_eq!(exact.as_array().unwrap().len(),180);
+ assert_eq!(exact[99],json!({"kind":"Const","dst":2,"value":35,"next":100}));
+ assert_eq!(exact[101],json!({"kind":"Const","dst":1,"value":46,"next":102}));
+ assert_eq!(exact[102],json!({"kind":"PatchConst","node":1,"value":0,"next":103}));
+ assert_eq!(exact[95],json!({"kind":"Branch","test":0,"nonzero":99,"zero":86}));
+ exact[99]["value"]=json!(42);
+ exact[101]["value"]=json!(173);
+ assert_eq!(m["frozen_source_g2_rollback"],exact,
+    "C10 exact two-node physical source rollback program differs from freeze");
+ assert_eq!(m["frozen_source_g2_C9_checkpoint_no_rollback"],p["frozen_source_g2_checkpoint"]);
+ assert_eq!(m["frozen_source_g2_C9_checkpoint_abstain"],p["frozen_source_g2_checkpoint_abstain"]);
+ let cases=m["cases"].as_array().unwrap();
+ let arms=m["arms"].as_array().unwrap();
+ let controls=m["controls"].as_array().unwrap();
+ assert_eq!((cases.len(),arms.len(),controls.len()),(45,270,4));
+ let dir=root.join("../../cl1b-ci-evidence");
+ fs::create_dir_all(&dir).unwrap();
+ let mut truthful=Vec::<Value>::new();let mut adversarial=Vec::<Value>::new();
+ let mut cost=[0_u64;6];let mut total_fee=0_u64;
+ let mut incomplete=Vec::<String>::new();
+ let mut parent_saves=0_u64;
+ let mut charged_rollback_attempts=0_u64;
+ let mut actual_source_reverts=0_u64;
+ let mut actor_readback_after_restore=0_u64;
+ let mut host_suppressed_pc102=0_u64;
+ let mut host_suppressed_pc28=0_u64;
+ let mut prefixes_pc102=0_u64;
+ let mut no_pc102_exposures=0_u64;
+ let mut per_case=Vec::<Value>::new();
+ let raw=|r:&Value|->Vec<Value>{
+  let name=r["name"].as_str().unwrap();
+  fs::read_to_string(dir.join(format!("cl1b_g2_state_rollback_c10_original_{name}.jsonl"))).unwrap()
+   .lines().map(|line|serde_json::from_str(line).unwrap()).collect()
+ };
+ for (i,case) in cases.iter().enumerate(){
+  let group=&arms[6*i..6*i+6];
+  assert_eq!(group.iter().map(|a|a["source"].as_str().unwrap()).collect::<Vec<_>>(),
+    vec!["G2_rollback","G2_rollback_pc102_suppressed",
+         "G2_rollback_pc28_suppressed","G2_rollback_placebo180",
+         "G2_C9_checkpoint_no_rollback","G2_C9_checkpoint_abstain"]);
+  for arm in group{assert_eq!(arm["goals"],case["goals"]);}
+  let live=run(&m,&group[0],&dir);
+  let sup_rollback=run(&m,&group[1],&dir);
+  let sup_edit=run(&m,&group[2],&dir);
+  let placebo=run(&m,&group[3],&dir);
+  let old=run(&m,&group[4],&dir);
+  let fixed_never=run(&m,&group[5],&dir);
+  for (j,v) in [&live,&sup_rollback,&sup_edit,&placebo,&old,&fixed_never].iter().enumerate(){
+   total_fee+=v["steps"].as_u64().unwrap();
+   cost[j]+=v["steps"].as_u64().unwrap();
+   if v["completed_stages"]!=48||v["truthful_matches"]!=48||
+       v["claim"]!=1||v["budget_exhausted"]==true{
+      incomplete.push(v["name"].as_str().unwrap().to_owned());
+   }
+   assert_eq!(v["attested_gate_mismatches"],0);
+   assert_eq!(v["actor_paid_checkpoint_writes"],
+       v["parameter_patches"].as_array().unwrap().len());
+  }
+  assert_eq!(raw(&live),raw(&placebo),
+    "C10 unreachable PC180 researcher control altered original native paid CIL");
+  assert_eq!(live["steps"],placebo["steps"]);
+  assert_eq!(live["rollback_attempt_records"],placebo["rollback_attempt_records"]);
+  assert_eq!(live["genuine_paid_physical_parent_restores"],
+    placebo["genuine_paid_physical_parent_restores"]);
+  for v in [&live,&sup_rollback,&sup_edit,&placebo]{
+   let attempts=v["rollback_attempt_records"].as_array().unwrap();
+   assert_eq!(attempts.len(),v["paid_code_edits"].as_array().unwrap().iter()
+        .filter(|x|x["pc"]==102).count());
+   assert!(attempts.iter().all(|x|x["parent_from_actor_cell42"]==x["after"]
+        || x["suppressed"]==true),"paid PID1 must use self-owned previous code value");
+  }
+  assert_eq!(sup_rollback["genuine_paid_physical_parent_restores"],0,
+     "strict host suppression PC102 must really eliminate physical source restoration");
+  let first_supp=sup_rollback["rollback_attempt_records"].as_array().unwrap()
+      .iter().find(|x|x["suppressed"]==true);
+  if let Some(first)=first_supp{
+   let ts=raw(&sup_rollback);let tl=raw(&live);
+   let first_paid=first["step"].as_u64().unwrap();
+   let k=ts.iter().position(|x|x[0]=="cil"&&x[1]==first_paid&&x[2]==102).unwrap();
+   assert_eq!(tl[..k],ts[..k],
+       "same-initial-CIL C10 original charged history must match before first PC102 effect suppression");
+   assert_eq!(ts[k][10],"suppressed_pc102");
+   prefixes_pc102+=1;
+  }else{
+   no_pc102_exposures+=1;
+   assert_eq!(raw(&live),raw(&sup_rollback),
+      "no native suppressed PC102 observed, source-identical worlds must match");
+  }
+  parent_saves+=live["actor_paid_checkpoint_writes"].as_u64().unwrap();
+  charged_rollback_attempts+=live["rollback_attempt_records"].as_array().unwrap().len() as u64;
+  actual_source_reverts+=live["genuine_paid_physical_parent_restores"].as_u64().unwrap();
+  actor_readback_after_restore+=live["later_actual_rollback_readbacks"].as_array().unwrap().len() as u64;
+  host_suppressed_pc102+=sup_rollback["suppressed_pc102_count"].as_u64().unwrap();
+  host_suppressed_pc28+=sup_edit["suppressed_pc28"].as_array().unwrap().len() as u64;
+  per_case.push(json!({"case":case["name"],"regime":case["regime"],
+     "paid_parent_saves":live["actor_paid_checkpoint_writes"],
+     "attempted_paid_pc102_restore":live["rollback_attempt_records"].as_array().unwrap().len(),
+     "actual_physical_parent_restores":live["genuine_paid_physical_parent_restores"],
+     "later_paid_source_confirmation":live["later_actual_rollback_readbacks"].as_array().unwrap().len(),
+     "live_cost":live["steps"],"same_source_suppress_PC102_cost":sup_rollback["steps"],
+     "different_source_C9_no_rollback_cost":old["steps"],
+     "different_source_C9_never_edit_cost":fixed_never["steps"]}));
+  truthful.extend([live,sup_rollback,sup_edit,placebo,old,fixed_never]);
+ }
+ for arm in controls{
+  let v=run(&m,arm,&dir);
+  total_fee+=v["steps"].as_u64().unwrap();
+  adversarial.push(v);
+ }
+ let output=json!({
+  "study":"CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10",
+  "status":"ORIGINAL_NATIVE_PID1_STATE_TRIGGERED_REAL_PARENT_SOURCE_ROLLBACK",
+  "frozen_manifest":"cl1b/studies/CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10-frozen-274-worlds-v1.json",
+  "native_worlds":274,"total_private_paid_cil":total_fee,
+  "failed_truthful_worlds":incomplete,
+  "actor_paid_physical_parent_checkpoints":parent_saves,
+  "actor_paid_PC102_restore_attempts":charged_rollback_attempts,
+  "actual_native_physical_parent_restorations":actual_source_reverts,
+  "later_paid_true_PC173_readbacks_of_restored_parent":actor_readback_after_restore,
+  "host_research_suppressed_pc102_effects":host_suppressed_pc102,
+  "host_research_suppressed_pc28_effects":host_suppressed_pc28,
+  "strict_same_source_first_pc102_suppression_prefixes":prefixes_pc102,
+  "unexposed_rollback_suppressor_pairs":no_pc102_exposures,
+  "costs":{
+    "G2_rollback":cost[0],
+    "G2_rollback_pc102_suppressed":cost[1],
+    "G2_rollback_pc28_suppressed":cost[2],
+    "G2_rollback_placebo180":cost[3],
+    "G2_C9_checkpoint_no_rollback":cost[4],
+    "G2_C9_checkpoint_abstain":cost[5]
+  },
+  "same_initial_source_rollback_effect_net_saving":
+      cost[1] as i64-cost[0] as i64,
+  "paid_rollback_cheaper_than_C9_no_rollback_different_source":cost[0]<cost[4],
+  "paid_rollback_cheaper_than_C9_never_edit_different_source":cost[0]<cost[5],
+  "per_case":per_case,
+  "truthful_records":truthful,"adversarial_records":adversarial
+ });
+ fs::write(dir.join("cl1b_g2_state_rollback_c10_native_274_worlds.json"),
+   serde_json::to_vec_pretty(&output).unwrap()).unwrap();
+ println!("C10 ORIGINAL NATIVE: 274 worlds paid={} state-triggered_PC102={} true_parent_restore={} later_physically_readback={} host_no_effect_PC102={} native_costs_rollback/suppress102/C9/never={}/{}/{}/{} failed_truthful={}",
+    total_fee,charged_rollback_attempts,actual_source_reverts,actor_readback_after_restore,
+    host_suppressed_pc102,cost[0],cost[1],cost[4],cost[5],incomplete.len());
+ assert!(incomplete.is_empty(),"C10 failed hidden true-stage completion; retain entire original source charged trace");
+ assert!(actual_source_reverts>0&&actor_readback_after_restore>0,
+  "C10 physical rollback actor not exposed or never truly read back; no false achievement claim");
+ assert!(host_suppressed_pc102>0&&prefixes_pc102>0,
+  "C10 source-identical rollback suppression not exposed");
+}
