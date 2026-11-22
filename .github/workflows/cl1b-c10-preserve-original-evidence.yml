@@ -1,0 +1,71 @@
+name: CL-1B preserve C10 original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c10-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c10-preserve-original-evidence
+  cancel-in-progress: false
+
+jobs:
+  archive-original-zip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Download and verify source-pinned original C10 evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c10-archive
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14761872568/zip" \
+            -o /tmp/cl1b-c10-archive/original.zip
+          echo '9b468cd8ce3c9ddc8c07ebe092decf297a7a9e77e65c7ebfe62d0f53e4f0d276  /tmp/cl1b-c10-archive/original.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import zipfile
+          p='/tmp/cl1b-c10-archive/original.zip'
+          with zipfile.ZipFile(p) as z:
+              bad=z.testzip()
+              assert bad is None, bad
+              names=z.namelist()
+              assert len(names)==278, len(names)
+              jsonl=[n for n in names if n.endswith('.jsonl')]
+              assert len(jsonl)==274, len(jsonl)
+              assert len(names)==len(set(names)), 'duplicate archive names'
+              print('Original C10 ZIP integrity verified: 278 entries, 274 JSONL traces')
+          PY
+      - name: Permanently preserve verified original ZIP on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e-45041352673-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c10-archive/original.zip "$dest/original-native-artifact.zip"
+          echo '9b468cd8ce3c9ddc8c07ebe092decf297a7a9e77e65c7ebfe62d0f53e4f0d276  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if git diff --cached --quiet; then
+            echo 'Verified archive already preserved; no commit needed'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'evidence(cl1b): preserve C10 original 274-world native trace ZIP'
+          git push origin HEAD:cl1b-ci-evidence
