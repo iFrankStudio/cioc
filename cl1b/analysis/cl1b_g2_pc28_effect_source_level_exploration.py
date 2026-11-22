@@ -101,6 +101,31 @@ def main():
         rows.append({"name": arm["name"], "delta_suppressed_minus_on": delta,
                      "on": on, "suppressed": off})
     assert len(rows) == 45
+    # Retrospective regression fingerprints from the already-published G2 audit.
+    # These are NOT prospective predictions or native per-world trace checks.
+    expected_nonzero = {
+        "persistent_drift_two_shifts_a0_d1": 3,
+        "persistent_drift_two_shifts_a1_d0": -3,
+        "persistent_drift_two_shifts_a2_d1": 3,
+        "rapid_reversal_pulses_a1_d0": 122,
+        "rapid_reversal_pulses_a1_d1": -89,
+        "rapid_reversal_pulses_a2_d0": 120,
+    }
+    observed = {r["name"]: r["delta_suppressed_minus_on"] for r in rows}
+    assert len(observed) == len(rows), "duplicate frozen world names"
+    assert {name: delta for name, delta in observed.items() if delta != 0} == expected_nonzero, (
+        "pair-level exploratory fingerprint changed; aggregate agreement is insufficient"
+    )
+    assert {k: v["suppressed"] - v["on"] for k, v in totals.items()} == {
+        "stationary_terminal_switch": 0,
+        "persistent_drift_two_shifts": 3,
+        "rapid_reversal_pulses": 153,
+        "late_phase_flip": 0,
+        "seeded_noise_impulses": 0,
+    }, "family-level exploratory fingerprint changed"
+    assert (sum(v["wins"] for v in totals.values()),
+            sum(v["losses"] for v in totals.values()),
+            sum(v["ties"] for v in totals.values())) == (4, 2, 39)
     assert {k: v["on"] for k, v in totals.items()} == BASELINE, (
         "source-level baseline disagrees with published original-native family totals")
     assert sum(t["suppressed"] - t["on"] for t in totals.values()) == 156
