@@ -1,0 +1,220 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I6N",
+  "evidence_level": "NATIVE_SOURCE_PINNED_EXPECTED_NEGATIVE_PROTOCOL_FALSIFIER",
+  "source_sha": "2e0d42cbc517913ae9f9f8dae2ff361e0537b68f",
+  "original_native_hard_genotypes_with_proven_missing_reset": 8,
+  "missing_three_witness_reset_events": 24,
+  "false_promotion_allowed": false,
+  "hard_cases": [
+    {
+      "seed": [
+        0,
+        2,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 357
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 2,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 727
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        0,
+        3,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 357
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 727
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        1,
+        1,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 1,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 354
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 1,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 719
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        1,
+        2,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 1,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 355
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 2,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 723
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        2,
+        1,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 2,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 355
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 1,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 721
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        2,
+        3,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 2,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 170,
+        "step": 355
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 724
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        3,
+        2,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 172,
+        "step": 333
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 2,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 679
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    },
+    {
+      "seed": [
+        3,
+        3,
+        3
+      ],
+      "first_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 6,
+        "pc": 172,
+        "step": 333
+      },
+      "second_original_paid_patch": {
+        "after": 0,
+        "before": 3,
+        "edit_suppressed": false,
+        "node": 3,
+        "pc": 172,
+        "step": 679
+      },
+      "paid_resets_observed": 3,
+      "paid_resets_required": 6,
+      "missing_second_witness_isolation": true
+    }
+  ],
+  "conclusion": "I6N native PID pays two edits but never resets flags after first patch before second. This violates preregistered per-edit evidence isolation; I6N is a negative, not a successful I6.",
+  "corrected_variant": "I6R source 180 under same 16/180/300 limits"
+}

@@ -1,0 +1,851 @@
+{
+  "arms": [
+    {
+      "actor_success_claim": 1,
+      "arm": "safe_unrepaired_reference",
+      "certificate_witnesses": [
+        {
+          "key": 8,
+          "step": 123,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 239,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 356,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 2,
+      "final_halt_pc": 94,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1353,
+      "paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 33,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 483,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 604,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 726,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 846,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 966,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1091,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1212,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1331,
+          "truth": 1
+        }
+      ],
+      "peak_occupied_units": 197,
+      "private_credits_remaining": 6647,
+      "self_edits": [],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": 1,
+      "arm": "repair_zero_from_genome",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 336,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 490,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 606,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 722,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 0,
+      "final_halt_pc": 94,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1469,
+      "paid_feedback_reads": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 36,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 848,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 0,
+          "step": 967,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 0,
+          "step": 1086,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 1,
+          "step": 1207,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1328,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 2,
+          "output": 2,
+          "step": 1447,
+          "truth": 1
+        }
+      ],
+      "peak_occupied_units": 197,
+      "private_credits_remaining": 6531,
+      "self_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 368
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": 1,
+      "arm": "repair_one_from_genome",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 336,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 490,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 606,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 722,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 1,
+      "final_halt_pc": 94,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1593,
+      "paid_feedback_reads": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 39,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 2,
+          "step": 848,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 969,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 1,
+          "output": 0,
+          "step": 1088,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 1,
+          "output": 0,
+          "step": 1207,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 1,
+          "step": 1328,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1452,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 2,
+          "step": 1571,
+          "truth": 1
+        }
+      ],
+      "peak_occupied_units": 197,
+      "private_credits_remaining": 6407,
+      "self_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 368
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": 1,
+      "arm": "repair_two_from_genome",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 337,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 492,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 608,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 725,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 2,
+      "final_halt_pc": 94,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1722,
+      "paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 42,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 852,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 973,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1095,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 1215,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 1335,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1460,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1581,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1700,
+          "truth": 1
+        }
+      ],
+      "peak_occupied_units": 197,
+      "private_credits_remaining": 6278,
+      "self_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 369
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": 0,
+      "arm": "repair_alternate_middle_reset",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 110,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 221,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 331,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 479,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 596,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 712,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 1,
+      "final_halt_pc": 117,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1092,
+      "paid_feedback_reads": [
+        0,
+        0,
+        0
+      ],
+      "paid_meta_fetches": 27,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 3,
+          "output": 1,
+          "step": 832,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 4,
+          "output": 6,
+          "step": 953,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 5,
+          "output": 7,
+          "step": 1074,
+          "truth": 0
+        }
+      ],
+      "peak_occupied_units": 196,
+      "private_credits_remaining": 6908,
+      "self_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 363
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": null,
+      "arm": "unrepairable_middle_one",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 330,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 484,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 600,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 710,
+          "value": 1
+        }
+      ],
+      "certified": false,
+      "final_executable_tail": 1,
+      "final_halt_pc": 179,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 734,
+      "paid_feedback_reads": [],
+      "paid_meta_fetches": 18,
+      "paid_task_services": [],
+      "peak_occupied_units": 193,
+      "private_credits_remaining": 7266,
+      "self_edits": [
+        {
+          "after": 1,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 362
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": null,
+      "arm": "unrepairable_middle_two",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 220,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 331,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 485,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 595,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 712,
+          "value": 1
+        }
+      ],
+      "certified": false,
+      "final_executable_tail": 0,
+      "final_halt_pc": 179,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 736,
+      "paid_feedback_reads": [],
+      "paid_meta_fetches": 18,
+      "paid_task_services": [],
+      "peak_occupied_units": 193,
+      "private_credits_remaining": 7264,
+      "self_edits": [
+        {
+          "after": 0,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 363
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": 1,
+      "arm": "repaired_deceptive_feedback",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 337,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 492,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 608,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 725,
+          "value": 1
+        }
+      ],
+      "certified": true,
+      "final_executable_tail": 2,
+      "final_halt_pc": 94,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 1234,
+      "paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 30,
+      "paid_task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 852,
+          "truth": 0
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 972,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1092,
+          "truth": 0
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 1212,
+          "truth": 0
+        }
+      ],
+      "peak_occupied_units": 197,
+      "private_credits_remaining": 6766,
+      "self_edits": [
+        {
+          "after": 2,
+          "before": 3,
+          "edit_suppressed": false,
+          "node": 6,
+          "pc": 178,
+          "step": 369
+        }
+      ],
+      "single_original_pid1": true
+    },
+    {
+      "actor_success_claim": null,
+      "arm": "source_edit_suppressed_counterfactual",
+      "certificate_witnesses": [
+        {
+          "key": 7,
+          "step": 116,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 226,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 337,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 485,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 595,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 706,
+          "value": 1
+        }
+      ],
+      "certified": false,
+      "final_executable_tail": 3,
+      "final_halt_pc": 179,
+      "host_source_edits_after_load": 0,
+      "native_halted": true,
+      "original_executable_source_nodes": 180,
+      "original_paid_steps": 730,
+      "paid_feedback_reads": [],
+      "paid_meta_fetches": 18,
+      "paid_task_services": [],
+      "peak_occupied_units": 192,
+      "private_credits_remaining": 7270,
+      "self_edits": [
+        {
+          "after": 3,
+          "before": 3,
+          "edit_suppressed": true,
+          "node": 6,
+          "pc": 178,
+          "step": 369
+        }
+      ],
+      "single_original_pid1": true
+    }
+  ],
+  "level": "NATIVE_180_NODE_ORIGINAL_PID_DATA_CONDITIONED_EXECUTABLE_REPAIR_AND_BOUND_FAILFAST",
+  "limits": "Data-conditioned copying one researcher-authored genome word, not self-invented grammar or open-ended life. Feedback semantic truth remains unverified from inside the actor.",
+  "source_sha": "2e0d42cbc517913ae9f9f8dae2ff361e0537b68f",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I2"
+}
