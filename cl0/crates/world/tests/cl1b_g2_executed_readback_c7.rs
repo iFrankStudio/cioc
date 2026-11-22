@@ -297,160 +297,160 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    "final_attested_theta":w.cell(41).unwrap_or(0)})
 }
 #[test]
-fn c6_frozen_274_original_native_actor_paid_selfstate_mirror(){
+fn c7_frozen_274_native_paid_executed_const_readback_and_suppression(){
  let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
  let m:Value=serde_json::from_slice(&fs::read(root.join(MANIFEST)).unwrap()).unwrap();
  let parent:Value=serde_json::from_slice(&fs::read(root.join(G2)).unwrap()).unwrap();
  assert_eq!(m["study"],"CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7");
  assert_eq!(m["status"],"PRE_NATIVE_FROZEN");
  assert_eq!(m["counts"]["native_worlds"],274);
- let mut expected_mirror=parent["frozen_source_g2_actor_gate"].clone();
- assert_eq!(expected_mirror.as_array().unwrap().len(),180);
- assert_eq!(expected_mirror[24],json!({"kind":"Branch","test":3,"nonzero":0,"zero":0}));
- assert_eq!(expected_mirror[52],json!({"kind":"Branch","test":3,"nonzero":22,"zero":22}));
- assert_eq!(expected_mirror[57],json!({"kind":"Branch","test":3,"nonzero":22,"zero":22}));
- assert_eq!(expected_mirror[79],json!({"kind":"Branch","test":0,"nonzero":44,"zero":44}));
- assert_eq!(expected_mirror[120],json!({"kind":"Branch","test":0,"nonzero":121,"zero":121}));
- expected_mirror[23]["next"]=json!(0);
- expected_mirror[51]["next"]=json!(22);
- expected_mirror[56]["next"]=json!(22);
- expected_mirror[77]["nonzero"]=json!(44);
- expected_mirror[118]["nonzero"]=json!(121);
- expected_mirror[24]=json!({"kind":"Const","dst":2,"value":40,"next":52});
- expected_mirror[52]=json!({"kind":"Write","address":2,"value":3,"next":125});
- expected_mirror[57]=json!({"kind":"Sub","dst":0,"lhs":3,"rhs":0,"next":67});
- expected_mirror[79]=json!({"kind":"Const","dst":2,"value":40,"next":120});
- expected_mirror[120]=json!({"kind":"Read","dst":0,"address":2,"next":57});
- expected_mirror[26]["next"]=json!(79);
- expected_mirror[28]["next"]=json!(24);
- expected_mirror[67]=json!({"kind":"Branch","test":0,"nonzero":27,"zero":125});
- assert_eq!(m["frozen_source_g2_mirror"],expected_mirror,
-    "C6 mirror program differs from the frozen thirteen-node surgery");
- let mut expected_always=expected_mirror.clone();expected_always[67]["zero"]=json!(27);
- assert_eq!(m["frozen_source_g2_mirror_always"],expected_always);
- let mut expected_abstain=expected_mirror.clone();expected_abstain[67]["nonzero"]=json!(125);
- assert_eq!(m["frozen_source_g2_mirror_abstain"],expected_abstain);
- assert_eq!(m["frozen_source_g2_legacy_label_gate"],parent["frozen_source_g2_actor_gate"]);
- for source_name in ["G2_mirror","G2_mirror_always","G2_mirror_abstain",
-    "G2_legacy_label_gate"]{assert_eq!(source(&m,source_name).len(),180);}
+ let mut expected=parent["frozen_source_g2_mirror"].clone();
+ assert_eq!(expected.as_array().unwrap().len(),180);
+ assert_eq!(expected[173],json!({"kind":"Const","dst":2,"value":0,"next":174}));
+ assert_eq!(expected[24],json!({"kind":"Const","dst":2,"value":40,"next":52}));
+ assert_eq!(expected[52],json!({"kind":"Write","address":2,"value":3,"next":125}));
+ assert_eq!(expected[79],json!({"kind":"Const","dst":2,"value":40,"next":120}));
+ assert_eq!(expected[28]["next"],125_i64-101_i64);
+ expected[173]["next"]=json!(24);
+ expected[24]=json!({"kind":"Const","dst":1,"value":41,"next":52});
+ expected[52]=json!({"kind":"Write","address":1,"value":2,"next":174});
+ expected[79]["value"]=json!(41);
+ expected[28]["next"]=json!(125);
+ assert_eq!(m["frozen_source_g2_readback_attest"],expected,
+   "frozen C7 source not exact five-node original-C6 rewire");
+ let mut baseline=expected.clone();
+ baseline[67]["zero"]=json!(27);
+ assert_eq!(m["frozen_source_g2_readback_always"],baseline);
+ baseline=expected.clone();baseline[67]["nonzero"]=json!(125);
+ assert_eq!(m["frozen_source_g2_readback_abstain"],baseline);
+ assert_eq!(m["frozen_source_g2_intent_mirror_C6"],parent["frozen_source_g2_mirror"]);
+ for name in ["G2_readback_attest","G2_readback_always",
+              "G2_readback_abstain","G2_intent_mirror_C6"]{
+   assert_eq!(source(&m,name).len(),180);
+ }
  let arms=m["arms"].as_array().unwrap();
  let controls=m["controls"].as_array().unwrap();
  let cases=m["cases"].as_array().unwrap();
- assert_eq!((arms.len(),controls.len(),cases.len()),(270,4,45));
+ assert_eq!((cases.len(),arms.len(),controls.len()),(45,270,4));
  let dir=root.join("../../cl1b-ci-evidence");
  fs::create_dir_all(&dir).unwrap();
- let mut truthful=Vec::<Value>::new();
- let mut adversarial=Vec::<Value>::new();
+ let mut truthful=Vec::<Value>::new();let mut adversarial=Vec::<Value>::new();
  let mut total_paid=0_u64;
- let mut failed_truth=Vec::<String>::new();
+ let mut incomplete=Vec::<String>::new();
  let mut costs=[0_u64;6];
- let mut mirror_allowed=0_u64;let mut mirror_skipped=0_u64;
- let mut mirror_writes=0_u64;let mut mirror_noops=0_u64;
- let mut poison_mismatch=0_u64;let mut poison_effects=0_u64;
- let mut first_prefixes=0_u64;let mut never_exposed=0_u64;
+ let mut readback_writes=0_u64;let mut attested_checks=0_u64;
+ let mut attested_mismatches=0_u64;let mut suppressed_attested=0_u64;
+ let mut suppressions=0_u64;let mut first_prefixes=0_u64;
+ let mut no_suppression=0_u64;
+ let mut allow=0_u64;let mut abstain=0_u64;
  for (i,c) in cases.iter().enumerate(){
   let group=&arms[6*i..6*i+6];
   assert_eq!(group.iter().map(|a|a["source"].as_str().unwrap()).collect::<Vec<_>>(),
-    vec!["G2_mirror","G2_mirror_always","G2_mirror_abstain",
-         "G2_mirror_pc28_suppressed","G2_mirror_placebo180","G2_legacy_label_gate"]);
+    vec!["G2_readback_attest","G2_readback_always","G2_readback_abstain",
+         "G2_readback_pc28_suppressed","G2_readback_placebo180","G2_intent_mirror_C6"]);
   for arm in group{assert_eq!(arm["goals"],c["goals"]);}
   let gate=run(&m,&group[0],&dir);
   let always=run(&m,&group[1],&dir);
-  let abstain=run(&m,&group[2],&dir);
-  let poison=run(&m,&group[3],&dir);
+  let never=run(&m,&group[2],&dir);
+  let suppressed=run(&m,&group[3],&dir);
   let placebo=run(&m,&group[4],&dir);
-  let legacy=run(&m,&group[5],&dir);
-  for (j,x) in [&gate,&always,&abstain,&poison,&placebo,&legacy].iter().enumerate(){
-   if x["completed_stages"]!=48 || x["truthful_matches"]!=48 ||
-      x["claim"]!=1 || x["budget_exhausted"]==true {
-      failed_truth.push(x["name"].as_str().unwrap().to_owned());
+  let old=run(&m,&group[5],&dir);
+  for (j,x) in [&gate,&always,&never,&suppressed,&placebo,&old].iter().enumerate(){
+   if x["completed_stages"]!=48||x["truthful_matches"]!=48||
+      x["claim"]!=1||x["budget_exhausted"]==true{
+     incomplete.push(x["name"].as_str().unwrap().to_owned());
    }
-   costs[j]+=x["steps"].as_u64().unwrap();
    total_paid+=x["steps"].as_u64().unwrap();
+   costs[j]+=x["steps"].as_u64().unwrap();
   }
-  mirror_allowed+=gate["paid_gate_allow"].as_u64().unwrap();
-  mirror_skipped+=gate["paid_gate_abstain"].as_u64().unwrap();
-  mirror_writes+=gate["paid_mirror_writes"].as_u64().unwrap();
-  mirror_noops+=gate["mirror_noop_skips"].as_u64().unwrap();
-  poison_mismatch+=poison["mirror_gate_mismatches"].as_u64().unwrap();
-  let suppressed=poison["suppressed_pc28"].as_array().unwrap();
-  poison_effects+=suppressed.len() as u64;
-  assert_eq!(gate["paid_gate_allow"],gate["paid_mirror_writes"]);
-  assert_eq!(always["paid_gate_allow"],always["paid_mirror_writes"]);
-  assert_eq!(abstain["paid_gate_allow"],0);
-  assert_eq!(abstain["paid_mirror_writes"],0);
+  allow+=gate["paid_gate_allow"].as_u64().unwrap();
+  abstain+=gate["paid_gate_abstain"].as_u64().unwrap();
+  readback_writes+=gate["actor_readback_writes"].as_u64().unwrap();
+  attested_checks+=gate["attested_gate_checks"].as_u64().unwrap();
+  for x in [&gate,&always,&never,&suppressed,&placebo]{
+   attested_mismatches+=x["attested_gate_mismatches"].as_u64().unwrap();
+   assert_eq!(x["attested_gate_mismatches"],0,
+     "readback must represent true executed physical theta, including suppressed-edit arm");
+   assert_eq!(x["attested_gate_checks"],
+     x["paid_gate_allow"].as_u64().unwrap()+x["paid_gate_abstain"].as_u64().unwrap());
+   assert_eq!(x["actor_readback_writes"],x["attested_gate_checks"],
+     "C7 native paid PC173 and PC52 readback must precede each PC67 gate exactly once");
+  }
+  suppressed_attested+=suppressed["attested_after_suppressed_patch"].as_u64().unwrap();
+  suppressions+=suppressed["suppressed_pc28"].as_array().unwrap().len() as u64;
   assert_eq!(always["paid_gate_abstain"],0);
-  for x in [&gate,&always,&abstain,&placebo]{
-    assert_eq!(x["mirror_gate_mismatches"],0,
-       "live mirror must track actual PC173 parameter with all CIL fees charged");
-  }
+  assert_eq!(never["paid_gate_allow"],0);
   assert_eq!(gate["steps"],placebo["steps"]);
   assert_eq!(gate["services"],placebo["services"]);
+  assert_eq!(gate["actor_readback_records"],placebo["actor_readback_records"]);
   assert_eq!(gate["paid_gate_records"],placebo["paid_gate_records"]);
   assert_eq!(gate["parameter_patches"],placebo["parameter_patches"]);
-  assert_eq!(gate["final_edges"],placebo["final_edges"]);
-  let raw=|r:&Value| -> Vec<Value> {
-   let name=r["name"].as_str().unwrap();
-   fs::read_to_string(dir.join(format!("cl1b_g2_executed_readback_c7_original_{name}.jsonl"))).unwrap()
-     .lines().map(|line|serde_json::from_str(line).unwrap()).collect()
+  let raw=|x:&Value| -> Vec<Value>{
+    let name=x["name"].as_str().unwrap();
+    fs::read_to_string(dir.join(format!("cl1b_g2_executed_readback_c7_original_{name}.jsonl"))).unwrap()
+       .lines().map(|row|serde_json::from_str(row).unwrap()).collect()
   };
-  let tgate=raw(&gate);let tplacebo=raw(&placebo);let tpoison=raw(&poison);
-  assert_eq!(tgate,tplacebo,"unreachable native PC180 must not affect exact event history");
-  if suppressed.is_empty(){
-    never_exposed+=1;
-    assert_eq!(tgate,tpoison,"unexposed poisoned comparison must be trace-identical");
-  } else{
-    let first_step=suppressed[0]["step"].as_u64().unwrap();
-    let first_index=tpoison.iter().position(|x|
-       x[0]=="cil"&&x[1]==first_step&&x[2]==28).unwrap();
-    assert_eq!(tgate[..first_index],tpoison[..first_index],
-       "identical original code must share all paid CIL/feedback before first suppressed patch");
-    assert_eq!(tpoison[first_index][10],"suppressed_pc28");
+  let tgate=raw(&gate);let tplacebo=raw(&placebo);let tsuppressed=raw(&suppressed);
+  assert_eq!(tgate,tplacebo,"inaccessible PC180 placebo changed native paid original CIL events");
+  let sf=suppressed["suppressed_pc28"].as_array().unwrap();
+  if sf.is_empty(){
+    no_suppression+=1;
+    assert_eq!(tgate,tsuppressed,"identical-source unexposed native worlds must match");
+  }else{
+    let paid=sf[0]["step"].as_u64().unwrap();
+    let j=tsuppressed.iter().position(|x|
+       x[0]=="cil"&&x[1]==paid&&x[2]==28).expect("suppressed paid PC28 row not found");
+    assert_eq!(tgate[..j],tsuppressed[..j],
+      "source-identical paid native history must match until first effect suppression");
+    assert_eq!(tsuppressed[j][10],"suppressed_pc28");
     first_prefixes+=1;
   }
-  truthful.extend([gate,always,abstain,poison,placebo,legacy]);
+  truthful.extend([gate,always,never,suppressed,placebo,old]);
  }
- for arm in controls{
-   let x=run(&m,arm,&dir);
+ for c in controls{
+   let x=run(&m,c,&dir);
    total_paid+=x["steps"].as_u64().unwrap();
    adversarial.push(x);
  }
- assert!(mirror_allowed>0&&mirror_skipped>0,"no real mirror edit/skip branch coverage");
- assert_eq!(mirror_allowed,mirror_writes);
- assert_eq!(mirror_skipped,mirror_noops,"normal mirror should only skip matching parameters");
- assert!(poison_effects>0&&first_prefixes>0,
-   "no exposure of paid researcher suppression; poisoned mirror control invalid");
+ assert!(allow>0&&abstain>0,"genuine native paid actor branches not both exercised");
+ assert!(readback_writes>0&&attested_checks>0);
+ assert_eq!(attested_mismatches,0);
+ assert!(suppressions>0&&first_prefixes>0&&suppressed_attested>0,
+   "no original-native same-source suppressed PatchConst with later true self-code readback");
  let output=json!({
   "study":"CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7",
-  "status":"ORIGINAL_NATIVE_ACTOR_PAID_STATE_MIRROR",
-  "frozen_manifest":"cl1b/studies/CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7-frozen-274-worlds-v1.json",
+  "status":"ORIGINAL_NATIVE_ACTOR_PAID_EXECUTED_CONST_SELF_READBACK",
   "total_original_native_worlds":274,
-  "incomplete_truthful_world_names":failed_truth,
+  "frozen_manifest":"cl1b/studies/CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7-frozen-274-worlds-v1.json",
   "total_private_paid_cil":total_paid,
-  "actor_mirror_gate_allow":mirror_allowed,
-  "actor_mirror_gate_abstain":mirror_skipped,
-  "actual_mirror_parameter_writes":mirror_writes,
-  "skipped_paid_same_parameter_edits":mirror_noops,
-  "poisoned_shadow_mismatch_gate_events":poison_mismatch,
-  "poisoned_suppressed_pc28_attempts":poison_effects,
-  "first_native_suppression_prefix_witnesses":first_prefixes,
-  "unexposed_poison_pairs":never_exposed,
+  "incomplete_truthful_world_names":incomplete,
+  "actor_paid_readback_writes":readback_writes,
+  "actor_attested_paid_gate_checks":attested_checks,
+  "actor_attested_gate_mismatches_all_matching_arms":attested_mismatches,
+  "actor_normal_gate_edits":allow,"actor_normal_gate_abstains":abstain,
+  "actual_paid_pc28_effect_suppressions":suppressions,
+  "true_physical_attestations_after_effect_suppression":suppressed_attested,
+  "first_paid_suppression_prefix_witnesses":first_prefixes,
+  "no_suppression_pairs":no_suppression,
   "costs":{
-    "G2_mirror":costs[0],"G2_mirror_always":costs[1],
-    "G2_mirror_abstain":costs[2],"G2_mirror_pc28_suppressed":costs[3],
-    "G2_mirror_placebo180":costs[4],"G2_legacy_label_gate":costs[5]
+    "G2_readback_attest":costs[0],
+    "G2_readback_always":costs[1],
+    "G2_readback_abstain":costs[2],
+    "G2_readback_pc28_suppressed":costs[3],
+    "G2_readback_placebo180":costs[4],
+    "G2_intent_mirror_C6":costs[5]
   },
-  "mirror_net_saving_vs_always":costs[1] as i64-costs[0] as i64,
-  "mirror_net_saving_vs_abstain":costs[2] as i64-costs[0] as i64,
+  "readback_net_saving_vs_always":costs[1] as i64-costs[0] as i64,
+  "readback_net_saving_vs_abstain":costs[2] as i64-costs[0] as i64,
+  "causal_suppressed_minus_readback_cost":costs[3] as i64-costs[0] as i64,
   "main_efficiency_accepted":costs[0]<costs[1]&&costs[0]<costs[2],
   "truthful_records":truthful,"adversarial_records":adversarial
  });
  fs::write(dir.join("cl1b_g2_executed_readback_c7_native_274_worlds.json"),
    serde_json::to_vec_pretty(&output).unwrap()).unwrap();
- println!("C6 ORIGINAL native 274 worlds, paid={}, mirror allow/skip={}/{}, mirror writes={}, noop skips={}, shadow poison mismatches={}, costs mirror/always/abstain={}/{}/{}, beats both={}",
-   total_paid,mirror_allowed,mirror_skipped,mirror_writes,mirror_noops,
-   poison_mismatch,costs[0],costs[1],costs[2],
+ println!("C7 ORIGINAL native 274 worlds; paid={}; live execution readbacks={}; native gates={}/{}; suppressed readback-after-edit={}; all-armed attested mismatches={}; cost gate/always/never={}/{}/{}; accepted={}",
+   total_paid,readback_writes,allow,abstain,suppressed_attested,
+   attested_mismatches,costs[0],costs[1],costs[2],
    costs[0]<costs[1]&&costs[0]<costs[2]);
- assert!(failed_truth.is_empty(),
-   "C6 original-native true-stage feasibility FAILED; preserve full trace evidence");
+ assert!(incomplete.is_empty(),"C7 truthful completion feasibility failure; preserve original native evidence");
 }
