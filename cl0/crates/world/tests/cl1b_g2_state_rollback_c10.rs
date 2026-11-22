@@ -150,6 +150,27 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
      last_actual_parent_restore=None;
     }
    }
+   if actor_rollback{
+    let trig=last_positive_cell36_trigger.expect("paid C10 PC102 has no recent positive original PC95");
+    assert_eq!(paid-trig,4,"C10 native paid PC95→99→100→101→102 path discontinuous");
+    assert!(w.cell(36).unwrap_or(0)!=0);
+    assert_eq!(value,w.cell(42).unwrap_or(0),"C10 parent restore must use actor-owned memory42");
+    if checkpoint_writes>0{
+     assert_eq!(value,most_recent_checkpoint.unwrap().1,
+       "C10 restore did not use latest actual physical pre-patch parent");
+    }
+    if suppressed{suppressed_pc102_count+=1;}
+    let physical_restore=checkpoint_writes>0&&!suppressed&&previous!=value;
+    if physical_restore{
+      actual_parent_restores+=1;
+      last_changed=Some(value);
+      last_actual_parent_restore=Some((paid,value));
+    }
+    history_restore_records.push(json!({"step":paid,"pc":102,"paid_history_trigger_step":trig,
+      "checkpoint_exists":checkpoint_writes>0,"parent_from_actor_cell42":value,
+      "before":previous,"after":if suppressed{previous}else{value},
+      "suppressed":suppressed,"actual_physical_parent_restoration":physical_restore}));
+   }
    paid_code_edits.push(json!({"step":paid,"pc":pc,
      "target":target,"before":previous,"attempted":value,
      "after":if suppressed{previous}else{value},
@@ -202,11 +223,10 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
     assert_eq!(witnessed,physical,"paid physical source readback failed");
     assert_eq!(pid.registers[0],pid.registers[3]-witnessed);
     let route_expected=match source_name{
-      "G2_checkpoint"|"G2_checkpoint_pc28_suppressed"|"G2_checkpoint_placebo180"=>
-        if pid.registers[0]!=0{1}else{125},
-      "G2_checkpoint_bypass"=>if pid.registers[0]!=0{27}else{125},
-      "G2_checkpoint_always"=>1,
-      "G2_checkpoint_abstain"=>125,
+      "G2_rollback"|"G2_rollback_pc102_suppressed"|"G2_rollback_pc28_suppressed"|
+      "G2_rollback_placebo180"|"G2_C9_checkpoint_no_rollback"=>
+         if pid.registers[0]!=0{1}else{125},
+      "G2_C9_checkpoint_abstain"=>125,
       _=>unreachable!()
     };
     assert_eq!(route,route_expected,"native C9 paid CIL gate differs from initial source");
@@ -216,6 +236,11 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
        "actual_theta":physical,"evidence_key":41,
        "last_pc173":last_executed_const_step,"last_write":last_attested_step,
        "decision":if route==125{"ABSTAIN"}else{"EDIT"}}));
+   }
+   if pc==95 && source_name.starts_with("G2_rollback") && pid.pc==99{
+     assert!(matches!(&event.kind,EventKind::Executed));
+     assert!(w.cell(36).unwrap_or(0)!=0);
+     last_positive_cell36_trigger=Some(paid);
    }
    if pc==97{
      assert!(matches!(&event.kind,EventKind::CellWritten{key:42,value}
@@ -233,6 +258,13 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    last_executed_const_step=Some(paid);
    assert!(matches!(&event.kind,EventKind::Executed));
    assert_eq!(pid.registers[2],theta(&expected));
+   if let Some((restep,retheta))=last_actual_parent_restore{
+     assert!(paid>restep&&pid.registers[2]==retheta,
+        "C10 paid source readback after real restore is wrong");
+     restoration_readback_records.push(json!({"step":paid,
+         "rollback_step":restep,"actual_readback_theta":retheta}));
+     last_actual_parent_restore=None;
+   }
    if let Some(v)=last_changed{
     assert_eq!(v,pid.registers[2]);
     later_mutated_reads.push(json!({"step":paid,"theta":v}));
@@ -258,7 +290,8 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    failed_third_probe_halt=true;
   }
   peak=peak.max(w.occupied_units());
-  let label=if pc==28&&source_name=="G2_checkpoint_pc28_suppressed"{ "suppressed_pc28" }
+  let label=if pc==28&&source_name=="G2_rollback_pc28_suppressed"{ "suppressed_pc28" }
+    else if pc==102&&source_name=="G2_rollback_pc102_suppressed"{"suppressed_pc102"}
     else if pc==28{"paid_parameter_patch"}else{"normal"};
   serde_json::to_writer(&mut trace,&json!(["cil",paid,pc,pid.pc,pid.registers,
    pid.credits,CELLS.map(|k|w.cell(k)),w.occupied_units(),edges(&w),
@@ -325,6 +358,10 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    "final_attested_theta":w.cell(41).unwrap_or(0),
    "checkpoint_records":checkpoint_records,
    "actor_paid_checkpoint_writes":checkpoint_writes,
-   "final_parent_checkpoint":w.cell(42).unwrap_or(0)})
+   "final_parent_checkpoint":w.cell(42).unwrap_or(0),
+   "rollback_attempt_records":history_restore_records,
+   "genuine_paid_physical_parent_restores":actual_parent_restores,
+   "later_actual_rollback_readbacks":restoration_readback_records,
+   "suppressed_pc102_count":suppressed_pc102_count})
 }
 
