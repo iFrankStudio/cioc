@@ -1,0 +1,83 @@
+name: CL-1B C10 paid source parent restoration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_state_rollback_c10.rs'
+      - 'cl1b/audits/cl1b_g2_state_rollback_c10_independent_native_replay.py'
+      - '.github/workflows/cl1b-c10-native-paid-state-rollback.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c10-paid-native-rollback
+  cancel-in-progress: true
+
+jobs:
+  c10-original-native-state-rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run frozen 274 CL0 single PID1 actual paid source-restoration worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_state_rollback_c10 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c10-original-native-rollback.log
+      - name: Independently replay original-native CIL and every real parent restoration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_state_rollback_c10_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_state_rollback_c10_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_state_rollback_c10_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_state_rollback_c10_independent_replay.json"))
+          assert d["native_original_worlds"]==274
+          assert d["first_divergence"] is None
+          assert d["source_effective_prior_theta_restorations"]>0
+          assert d["subsequent_original_PID1_PC173_true_source_readbacks"]>0
+          assert d["paid_PC102_effect_suppressions"]>0
+          print("C10 original worlds 274, original paid private CIL",d["original_native_private_paid_CIL_replayed"])
+          print("C10 actor-paid physical parent checkpoints",d["actual_pid1_previous_physical_theta_checkpoints"])
+          print("C10 actor-paid PC102 restore attempts",d["original_pid1_paid_PC102_restore_attempts"])
+          print("C10 actual source-effective PC173 physical reversions",d["source_effective_prior_theta_restorations"])
+          print("C10 later original-native physical PC173 readbacks of reverted value",d["subsequent_original_PID1_PC173_true_source_readbacks"])
+          print("C10 paid host suppressions of restore effect",d["paid_PC102_effect_suppressions"])
+          print("C10 actual full paid CIL by arm",d["fees"])
+          print("C10 strict same-initial-source restored-vs-suppressed net saving",d["same_source_rollback_effect_net_CIL_saving"])
+          for k,v in d["family_fees"].items():print("C10 9-case family",k,v)
+          PY
+      - name: Preserve exact commit/run scope and original failure evidence
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=one_C10_original_Rust_native_test_274_worlds_and_Python_complete_original_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c10-original-provenance.txt
+      - name: Archive every original physical-source edit and CIL feedback record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c10-native-paid-actual-parent-restoration
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
