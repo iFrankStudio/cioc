@@ -9,6 +9,7 @@ on:
       - 'cl1b/studies/CL1B-G2-ACTOR-EXECUTED-CODE-READBACK-C7-frozen-274-worlds-v1.json'
       - 'cl0/crates/world/tests/cl1b_g2_executed_readback_c7.rs'
       - 'cl1b/audits/cl1b_g2_executed_readback_c7_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_executed_readback_c7_failed_write_witness_audit.py'
       - '.github/workflows/cl1b-c7-executed-readback.yml'
   workflow_dispatch:
 
@@ -62,6 +63,26 @@ jobs:
           print("C7 full-net cost savings vs always/abstain =",d["net_attested_cost_saving_vs_always"],d["net_attested_cost_saving_vs_abstain"])
           print("C7 prereg main efficiency accepted =",d["main_efficiency_accepted"])
           for name,c in d["family_costs"].items():print("C7 9-case family",name,c)
+          PY
+      - name: Audit that later paid code execution contradicts each false intended source write
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_executed_readback_c7_failed_write_witness_audit.py \
+             cl1b-ci-evidence/cl1b_g2_executed_readback_c7_native_274_worlds.json \
+             > cl1b-ci-evidence/cl1b_g2_executed_readback_c7_failed_write_witnesses.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_executed_readback_c7_failed_write_witnesses.json"))
+          assert d["truthful_frozen_new_cases"]==45
+          assert d["actor_paid_PC173_to_Write41_readbacks_after_suppression"]>0
+          assert d["actor_paid_PC173_to_Write41_readbacks_after_suppression"]==d["actual_scalar_disagrees_with_last_failed_write_intent"]
+          print("C7 attempted paid edits with only effect suppressed =",d["paid_suppressed_pc28_attempts"])
+          print("C7 actual CIL readbacks of unfulfilled previous write =",d["actual_scalar_disagrees_with_last_failed_write_intent"])
+          print("C7 paid evidence delay since latest failed patch =",d["readback_lag_in_paid_CIL"])
+          print("C7 readback-vs-old-C6 descriptive overhead =",d["C7_overhead_vs_old_C6_different_source"])
+          print("C7 readback cost above same-skeleton permanent no-edit =",d["C7_overhead_vs_same_skeleton_abstain"])
+          for regime,row in d["families"].items():print("C7 family paid source-write contradictions",regime,row)
           PY
       - name: Record exact tested original source and research-run provenance
         if: always()
