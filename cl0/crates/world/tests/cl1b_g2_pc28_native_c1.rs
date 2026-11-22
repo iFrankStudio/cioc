@@ -348,3 +348,9 @@ fn c1_frozen_184_original_native_same_source_patchconst_causality(){
   on wins/losses/ties={}/{}/{}, suppressed-minus-on={}",
   total_paid,actual_suppressions,wins,losses,ties,paired_savings);
 }
+
+// C2 shares this registered integration target: the original C1 test remains
+// frozen, while a separate source-pinned 48-stage cohort is independently
+// audited by its own targeted workflow (not a new 105th native target).
+#[path = "support/cl1b_g2_pc28_c2_native.rs"]
+mod cl1b_c2_lifecycle;
