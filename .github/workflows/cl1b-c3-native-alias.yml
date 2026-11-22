@@ -1,0 +1,97 @@
+# C3: prospectively frozen matched-prefix futures using unchanged original
+# CL0 physics and same paid PC28 effect-suppression control as C2.
+# Includes existing C1/C2 native tests in one registered integration target.
+name: CL-1B C3 same-prefix native future identifiability
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-PC28-DECISION-ALIAS-C3-frozen-292-worlds-v1.json'
+      - 'cl0/crates/world/tests/support/cl1b_g2_pc28_c3_native.rs'
+      - 'cl0/crates/world/tests/cl1b_g2_pc28_native_c1.rs'
+      - 'cl1b/audits/cl1b_g2_pc28_c3_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_pc28_c3_native_alias_audit.py'
+      - '.github/workflows/cl1b-c3-native-alias.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c3-alias-main
+  cancel-in-progress: true
+
+jobs:
+  original-native-c3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run original-native C1 C2 and C3 with the original 6000-credit PID1 limit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_pc28_native_c1 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/c3-native-test.log
+      - name: Independently replay all 292 C3 worlds and every paid CIL feedback row
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_pc28_c3_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c3_native_292_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_pc28_c3_independent_native_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_pc28_c3_independent_native_replay.json"))
+          assert d["verified_original_native_worlds"]==292
+          assert d["first_divergence"] is None
+          print("C3 all 292 original-native paid CIL worlds independently replayed",d["verified_charged_original_cil_instructions"])
+          PY
+      - name: Prove identical first-PC28 original-native histories for each of 9 eight-future anchors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_pc28_c3_native_alias_audit.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c3_native_292_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_pc28_c3_native_alias_audit.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_pc28_c3_native_alias_audit.json"))
+          assert d["n_original_native_worlds"]==292 and d["n_future_tails"]==72
+          assert d["shared_prefix_anchors"]==9 and d["tails_per_anchor"]==8
+          print("C3 exact paid native history prefixes PASS",d["shared_prefix_anchors"])
+          print("C3 anchors with opposite-sign future costs:",d["anchors_with_opposite_sign_future_effects"])
+          print("C3 minimum irreversible early decision regret (study cases):",d["minimum_irreversible_fixed_prefix_regret_across_eight_tails"])
+          print("C3 full true-stage on/off causal delta:",d["causal_delta_off_minus_on"])
+          print("C3 truthful native arm costs:",d["paid_costs"])
+          for x in d["anchors"]:
+              print("C3 anchor",x["anchor"],"earliest paid PC28",x["shared_first_pc28_step"],"beneficial",x["positive"],"harmful",x["negative"],"tie",x["tie"],"irreversible_regret",x["minimum_irreversible_prefix_choice_regret"])
+          PY
+      - name: Record full source and CI provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=targeted_native_C1_C2_C3_plus_292_world_independent_original_CIL_replay_not_full_104"
+          } > cl1b-ci-evidence/c3-provenance.txt
+      - name: Preserve all full original-native traces and negative results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c3-original-native-shared-prefix-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
