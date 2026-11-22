@@ -1,0 +1,88 @@
+name: CL-1B C8 attested-code future-value alias
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ATTESTED-VALUE-FUTURE-ALIAS-C8-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_attested_future_alias_c8.rs'
+      - 'cl1b/audits/cl1b_g2_attested_future_alias_c8_independent_native_replay.py'
+      - '.github/workflows/cl1b-c8-attested-value-alias.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c8-actor-attested-future-alias
+  cancel-in-progress: true
+
+jobs:
+  c8-original-native-alias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 274 genuine CL0 original PID1 worlds on frozen C8 future aliases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_attested_future_alias_c8 -- --nocapture \
+             2>&1 | tee cl1b-ci-evidence/cl1b-c8-274-world-original-native.log
+      - name: Independently replay every actual paid CIL and all 90 full-history future aliases
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_attested_future_alias_c8_independent_native_replay.py \
+             cl1b-ci-evidence/cl1b_g2_attested_future_alias_c8_native_274_worlds.json cl1b-ci-evidence \
+             > cl1b-ci-evidence/cl1b_g2_attested_future_alias_c8_independent_replay.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open("cl1b-ci-evidence/cl1b_g2_attested_future_alias_c8_independent_replay.json"))
+          assert r["verified_original_native_worlds"]==274
+          assert r["first_divergence"] is None
+          assert r["verified_identical_original_native_history_prefix_pairs"]==90
+          assert r["verified_frozen_same_prefix_anchor_histories"]==15
+          assert (r["same_source_PC28_effect_full_run_positive"]+
+                  r["same_source_PC28_effect_full_run_negative"]+
+                  r["same_source_PC28_effect_full_run_tied"])==45
+          print("C8 original CL0 PID1 worlds 274 / 274, actual paid CIL",r["verified_charged_original_cil_instructions"])
+          print("C8 fully identical source-attested CIL+feedback histories =",r["verified_identical_original_native_history_prefix_pairs"],"pairs")
+          print("C8 pre-future paid code-readback anchors =",r["source_attested_before_new_future_anchors"],"of 15")
+          print("C8 paid code mutation before fork anchors =",r["paid_self_code_modification_before_new_future_anchors"],"of 15")
+          print("C8 entire-lifecycle signed true-code mutation effect positive/negative/tied =",r["same_source_PC28_effect_full_run_positive"],r["same_source_PC28_effect_full_run_negative"],r["same_source_PC28_effect_full_run_tied"])
+          print("C8 future sign-flip anchors all/real-paid exposed =",r["anchors_both_future_profit_signs"],r["attested_exposed_anchors_both_future_profit_signs"])
+          print("C8 total original paid CIL per arm =",r["arm_costs"])
+          print("C8 honest net actor choice economic acceptance =",r["main_efficiency_accepted"])
+          for anchor in r["future_alias_records"]:
+            print("C8 prefix",anchor["anchor"],"actual_patch",anchor["paid_pc28_patch_before_fork"],
+                  "future_signed_effect",anchor["signed_same_source_pc28_effect_full_lifecycle"],
+                  "flipped",anchor["strict_positive_and_negative_future_sign_flip"])
+          PY
+      - name: Pin frozen C8 source, workflow and experiment scope
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C8_only_one_Rust_274_original_CL0_worlds_90_full_prefixes_and_one_Python_full_independent_original_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c8-original-native-provenance.txt
+      - name: Preserve original Rust CIL and independent complete negative evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c8-274-original-native-attested-future-alias
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
