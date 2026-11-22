@@ -346,7 +346,7 @@ fn c3_frozen_292_original_native_same_source_patchconst_causality(){
   "wins_on":wins,"losses_on":losses,"ties":ties,
   "truthful_records":results,"adversarial_records":deceptive
  });
- fs::write(dir.join("cl1b_g2_pc28_c3_native_184_worlds.json"),
+ fs::write(dir.join("cl1b_g2_pc28_c3_native_292_worlds.json"),
   serde_json::to_vec_pretty(&output).unwrap()).unwrap();
  println!("C3 ORIGINAL native 292 worlds, charged={}, PC28-suppressed={}, \
   on wins/losses/ties={}/{}/{}, suppressed-minus-on={}",
