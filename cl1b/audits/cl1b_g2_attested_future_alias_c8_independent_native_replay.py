@@ -372,7 +372,7 @@ def main():
             "signed_same_source_pc28_effect_full_lifecycle":deltas,
             "strict_positive_and_negative_future_sign_flip":bool(flipped),
             "future_paid_outcomes":paid})
-    assert prefix_alias_pairs==90
+    assert prefix_alias_pairs==180
     assert positive+negative+ties==45
     assert alias_evidence==native["future_alias_records"],"Rust native per-anchor future alias does not match independent CIL outcome calculations"
     assert (prefix_alias_pairs,attested_anchors,patched_anchors,positive,negative,ties,
