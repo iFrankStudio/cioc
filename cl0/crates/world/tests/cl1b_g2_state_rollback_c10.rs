@@ -24,10 +24,10 @@ fn decoded(v:&Value)->Op{
 }
 fn source<'a>(m:&'a Value,name:&str)->&'a Vec<Value>{
  m[match name{
-  "G2_checkpoint"|"G2_checkpoint_pc28_suppressed"|"G2_checkpoint_placebo180"=>"frozen_source_g2_checkpoint",
-  "G2_checkpoint_bypass"=>"frozen_source_g2_checkpoint_bypass",
-  "G2_checkpoint_always"=>"frozen_source_g2_checkpoint_always",
-  "G2_checkpoint_abstain"=>"frozen_source_g2_checkpoint_abstain",
+  "G2_rollback"|"G2_rollback_pc102_suppressed"|"G2_rollback_pc28_suppressed"|
+  "G2_rollback_placebo180"=>"frozen_source_g2_rollback",
+  "G2_C9_checkpoint_no_rollback"=>"frozen_source_g2_C9_checkpoint_no_rollback",
+  "G2_C9_checkpoint_abstain"=>"frozen_source_g2_C9_checkpoint_abstain",
   _=>panic!("unknown G2 source: {name}"),
  }].as_array().unwrap()
 }
@@ -62,8 +62,9 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  assert_eq!(initial.len(),180);
  let mut expected=initial.clone();
  let mut w=World::with_strict_capacity(16,180,300);
- if source_name=="G2_checkpoint_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
- if source_name=="G2_checkpoint_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
+ if source_name=="G2_rollback_pc28_suppressed"{w=w.with_native_patchconst_suppression(1,28,173);}
+ if source_name=="G2_rollback_pc102_suppressed"{w=w.with_native_patchconst_suppression(1,102,173);}
+ if source_name=="G2_rollback_placebo180"{w=w.with_native_patchconst_suppression(1,180,173);}
  w.load(Process::new(1,initial,CREDIT)).unwrap();
  assert_eq!(w.occupied_units(),181);
  let file=File::create(dir.join(format!("cl1b_g2_state_rollback_c10_original_{name}.jsonl"))).unwrap();
@@ -85,6 +86,12 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
  let mut checkpoint_records=Vec::<Value>::new();
  let mut checkpoint_writes=0_u64;
  let mut most_recent_checkpoint:Option<(u64,i64)>=None;
+ let mut history_restore_records=Vec::<Value>::new();
+ let mut actual_parent_restores=0_u64;
+ let mut restoration_readback_records=Vec::<Value>::new();
+ let mut last_actual_parent_restore:Option<(u64,i64)>=None;
+ let mut last_positive_cell36_trigger:Option<u64>=None;
+ let mut suppressed_pc102_count=0_u64;
  let mut decisions=Vec::<Value>::new();
  let mut refills=Vec::<Value>::new();
  let mut parameter_patches=Vec::<Value>::new();
@@ -106,12 +113,14 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
   assert!(w.used_cells()<=16&&w.occupied_units()<=300);
   assert_eq!(pid.code.nodes.len(),180);
   if [45,88,102,122,28].contains(&pc){
-   let suppressed=pc==28&&source_name=="G2_checkpoint_pc28_suppressed";
+   let actor_rollback=pc==102&&source_name.starts_with("G2_rollback");
+   let suppressed=(pc==28&&source_name=="G2_rollback_pc28_suppressed")||
+      (actor_rollback&&source_name=="G2_rollback_pc102_suppressed");
    if suppressed{assert!(matches!(&event.kind,EventKind::NativeCodeEditSuppressed{opcode_tag:9}));}
    else{assert!(matches!(&event.kind,EventKind::Executed));}
    let target=pid.registers[1] as usize;
    let value=if pc==28{pid.registers[3]}else{pid.registers[0]};
-   assert_eq!(target,if pc==28{173}else{46});
+   assert_eq!(target,if pc==28||actor_rollback{173}else{46});
    let previous=match &expected[target]{
      Op::Const{value,..}=>*value,
      x=>panic!("invalid paid PatchConst destination: {x:?}"),
@@ -121,7 +130,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
    }
    if pc==28{
     assert!((0..=2).contains(&value));
-    if source_name!="G2_checkpoint_bypass"{
+    { // all C10 arms that execute PC28 must have a genuine paid C9 parent checkpoint
      let (checkpoint_step,parent_theta)=most_recent_checkpoint.expect("paid PC28 lacks preceding actor checkpoint");
      assert!(checkpoint_step<paid&&paid-checkpoint_step==2,
         "PC97 checkpoint must precede paid PC27→PC28 by exactly two");
@@ -136,7 +145,10 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
      assert_eq!(theta(&expected),previous);
      suppressed_pc28.push(json!({"step":paid,"pc":28,"target":173,"attempted":value,
        "before":previous,"after":previous}));
-    }else if previous!=value{last_changed=Some(value);}
+    }else if previous!=value{
+     last_changed=Some(value);
+     last_actual_parent_restore=None;
+    }
    }
    paid_code_edits.push(json!({"step":paid,"pc":pc,
      "target":target,"before":previous,"attempted":value,
