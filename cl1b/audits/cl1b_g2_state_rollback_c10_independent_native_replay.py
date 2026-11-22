@@ -302,3 +302,118 @@ def replay(m,arm,folder):
         "suppressed_pc102_count":suppressed_pc102_count}
 
 
+
+def main():
+    if len(sys.argv)!=3:
+        raise SystemExit("usage: cl1b_g2_state_rollback_c10_independent_native_replay.py native.json original_jsonl_dir")
+    m=json.loads(MANIFEST.read_text(encoding="utf-8"))
+    n=json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    assert m["status"]=="PRE_NATIVE_FROZEN"
+    assert m["study"]==n["study"]=="CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10"
+    assert n["status"]=="ORIGINAL_NATIVE_PID1_STATE_TRIGGERED_REAL_PARENT_SOURCE_ROLLBACK"
+    all_arms=m["arms"]+m["controls"]
+    actual=n["truthful_records"]+n["adversarial_records"]
+    assert len(all_arms)==len(actual)==274
+    original_total=0
+    costs={key:0 for key in SOURCES}
+    families={}
+    for arm,summary in zip(all_arms,actual):
+        assert arm["name"]==summary["name"]
+        predicted=replay(m,arm,sys.argv[2])
+        assert summary==predicted,("full Rust original CIL/feedback state differs from independent Python interpreter",arm["name"])
+        original_total+=predicted["steps"]
+        if arm["feedback"]=="truth":
+            costs[arm["source"]]+=predicted["steps"]
+            families.setdefault(arm["regime"],{}).setdefault(arm["source"],0)
+            families[arm["regime"]][arm["source"]]+=predicted["steps"]
+    assert n["native_worlds"]==274
+    assert original_total==n["total_private_paid_cil"]
+    assert costs==n["costs"]
+    saved=attempts=actual_reverts=readbacks=supp102=supp28=prefixes=noexposure=0
+    cases=[]
+    def trace(rec):
+        path=Path(sys.argv[2])/("cl1b_g2_state_rollback_c10_original_"+rec["name"]+".jsonl")
+        return [json.loads(row) for row in path.read_text(encoding="utf-8").splitlines() if row.strip()]
+    for i,c in enumerate(m["cases"]):
+        live,sup102,sup28,placebo,legacy,abstain=actual[6*i:6*i+6]
+        assert [x["source"] for x in (live,sup102,sup28,placebo,legacy,abstain)]==list(SOURCES)
+        assert all(x["goals"]==c["goals"] for x in (sup102,sup28,placebo,legacy,abstain))
+        assert all((x["completed_stages"],x["truthful_matches"],x["claim"],x["budget_exhausted"])==(48,48,1,False)
+                   for x in (live,sup102,sup28,placebo,legacy,abstain))
+        assert all(x["attested_gate_mismatches"]==0 for x in (live,sup102,sup28,placebo,legacy,abstain))
+        assert live["actor_paid_checkpoint_writes"]==len(live["parameter_patches"])
+        assert trace(live)==trace(placebo)
+        assert live["steps"]==placebo["steps"]
+        assert live["rollback_attempt_records"]==placebo["rollback_attempt_records"]
+        assert sup102["genuine_paid_physical_parent_restores"]==0
+        for row in live["rollback_attempt_records"]:
+            assert row["pc"]==102
+            assert row["after"]==row["parent_from_actor_cell42"]
+            assert row["paid_history_trigger_step"]<row["step"]
+            assert row["step"]-row["paid_history_trigger_step"]==4
+            if row["actual_physical_parent_restoration"]:
+                assert row["checkpoint_exists"] and row["before"]!=row["after"]
+        attempts+=len(live["rollback_attempt_records"])
+        saved+=live["actor_paid_checkpoint_writes"]
+        actual_reverts+=live["genuine_paid_physical_parent_restores"]
+        readbacks+=len(live["later_actual_rollback_readbacks"])
+        supp102+=sup102["suppressed_pc102_count"]
+        supp28+=len(sup28["suppressed_pc28"])
+        suppressed_events=[x for x in sup102["rollback_attempt_records"] if x["suppressed"]]
+        if suppressed_events:
+            first=suppressed_events[0]["step"]
+            t1=trace(live);t2=trace(sup102)
+            j=next(i for i,v in enumerate(t2) if v[0]=="cil" and v[1]==first and v[2]==102)
+            assert t1[:j]==t2[:j],"actual original same-source history before first suppressed restoration differs"
+            assert t2[j][10]=="suppressed_pc102"
+            prefixes+=1
+        else:
+            noexposure+=1
+            assert trace(live)==trace(sup102)
+        cases.append({
+          "name":c["name"],"regime":c["regime"],"fee_rollback":live["steps"],
+          "fee_same_initial_source_restoration_effect_suppressed":sup102["steps"],
+          "fee_C9_different_initial_source_no_rollback":legacy["steps"],
+          "fee_C9_different_initial_source_never_edit":abstain["steps"],
+          "original_native_pc102_attempts":len(live["rollback_attempt_records"]),
+          "actual_native_parent_theta_restores":live["genuine_paid_physical_parent_restores"],
+          "later_original_native_PC173_physically_confirmed_restores":len(live["later_actual_rollback_readbacks"])
+        })
+    assert (saved,attempts,actual_reverts,readbacks,supp102,supp28,prefixes,noexposure)==(
+        n["actor_paid_physical_parent_checkpoints"],
+        n["actor_paid_PC102_restore_attempts"],
+        n["actual_native_physical_parent_restorations"],
+        n["later_paid_true_PC173_readbacks_of_restored_parent"],
+        n["host_research_suppressed_pc102_effects"],
+        n["host_research_suppressed_pc28_effects"],
+        n["strict_same_source_first_pc102_suppression_prefixes"],
+        n["unexposed_rollback_suppressor_pairs"])
+    assert actual_reverts>0 and readbacks>0 and supp102>0 and prefixes>0
+    assert costs["G2_rollback_pc102_suppressed"]-costs["G2_rollback"]==n["same_initial_source_rollback_effect_net_saving"]
+    assert (costs["G2_rollback"]<costs["G2_C9_checkpoint_no_rollback"])==n["paid_rollback_cheaper_than_C9_no_rollback_different_source"]
+    assert (costs["G2_rollback"]<costs["G2_C9_checkpoint_abstain"])==n["paid_rollback_cheaper_than_C9_never_edit_different_source"]
+    print(json.dumps({
+      "study":m["study"],
+      "status":"INDEPENDENT_ALL_ORIGINAL_NATIVE_CIL_ACTOR_PAID_STATE_ROLLBACK",
+      "native_original_worlds":274,
+      "original_native_private_paid_CIL_replayed":original_total,
+      "first_divergence":None,
+      "actual_pid1_previous_physical_theta_checkpoints":saved,
+      "original_pid1_paid_PC102_restore_attempts":attempts,
+      "source_effective_prior_theta_restorations":actual_reverts,
+      "subsequent_original_PID1_PC173_true_source_readbacks":readbacks,
+      "paid_PC102_effect_suppressions":supp102,
+      "paid_PC28_effect_suppressions":supp28,
+      "same_source_strict_prefixes_before_effect_suppression":prefixes,
+      "same_source_rollback_effect_net_CIL_saving":n["same_initial_source_rollback_effect_net_saving"],
+      "fees":costs,
+      "family_fees":families,
+      "case_records":cases,
+      "nonclaims":[
+        "Native PID1 genuinely rewrote PC173 with verified earlier physical theta at trigger, but existing cell36 trigger does NOT estimate ROI.",
+        "Original C9 no-rollback/fixed-abstain have different PC99/101 source; cost contrast is descriptive, not pure code recovery causality.",
+        "The PC102-suppressed arm alone is same-initial-source full-experiment effect intervention; it pays the suppressed opcode fee.",
+        "No autonomous novelty, reliable future-value prediction or CL1B B3/B4."
+      ]
+    },ensure_ascii=False,indent=2))
+if __name__=="__main__":main()
