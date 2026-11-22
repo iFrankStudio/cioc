@@ -1,5 +1,7 @@
 # CL-1B G2 PC28 exploratory counterfactual: statistical and evidence-level audit
 
+**最新补证（2026-11-22 UTC）：** [源码级专项复验 Actions #44987313777 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/44987313777)，精确源码 SHA 7dfa1a2f3e14fafcfdaab6b3b2ea4fcde349bb35。先前 #44978397051 的旧案例名指纹断言失败已通过此前只改字符串归一化的 bcf647e 修复，并在新的实际 GitHub Actions 运行中复验通过：45对、4正/2负/39平、旧源码级 off−on=+156。此项仅证明**旧 Python 模拟回归恢复 PASS**；不改变新的原生 C1−131 结论，也不是第二个原生实验。本文下方当时“尚未复跑”的表述是历史原貌，由此条最新事实取代其当前状态判断。
+
 ## 2026-11-22 后续状态：原生 C1 已验证，旧源码级 CI 最新失败的原因已定位
 
 1. 全新的独立原生同源因果研究已完成：[C1 full Rust CI #44983484895 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/44983484895)；[原生 184 世界、306,432 私有 CIL 指令精确重放](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/9d8bef2712c4c5750dd416ddedc59990219010c2-44983484895-1/cl1b_g2_pc28_c1_independent_native_replay.json)。**在45条新冻结目标上真实同源 off−on=−131（on 0胜/1负/44平），与本文件旧45例的来源级 +156 结果方向相反**；但两者的任务向量不同，旧结果非原生，不可直接合并为同分布推断。[新原生完整报告](CL1B-G2-PC28-NATIVE-C1-source-identical-184-world-causal-audit.md) 是当前最高等级证据。
