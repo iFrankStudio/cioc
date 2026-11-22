@@ -1051,6 +1051,10 @@ pub struct World {
     /// The native Write still validates and consumes its ordinary compute fee.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     native_write_suppression: Option<(ProcessId, usize, CellKey, i64)>,
+    /// Researcher-only paid PatchConst effect suppression at one precise process/PC/target.
+    /// Default None: original paid code mutation physics is unchanged.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    native_patchconst_suppression: Option<(ProcessId, usize, usize)>,
     /// Observer-only event detail for native PatchNext; default off to preserve
     /// the original hash-serialized world semantics in older studies.
     #[serde(default, skip_serializing_if = "is_false")]
@@ -1140,6 +1144,7 @@ impl World {
             native_code_edits_disabled: false,
             native_patchnext_disabled: false,
             native_write_suppression: None,
+            native_patchconst_suppression: None,
             trace_native_executable_edits: false,
             cell_write_provenance_enabled: false,
             cell_last_writer: BTreeMap::new(),
@@ -1289,6 +1294,22 @@ impl World {
 
     pub fn native_write_suppression(&self) -> Option<(ProcessId, usize, CellKey, i64)> {
         self.native_write_suppression
+    }
+
+    /// Strict researcher-only counterfactual: normal actor still pays for
+    /// executing this PatchConst. Operand/next/source checks run on a shadow
+    /// world, but only the resulting PC is kept, not the patched Const value.
+    /// Wrong opcode or target when the configured PC executes traps closed.
+    /// This is not an available action or observation for the native actor.
+    pub fn with_native_patchconst_suppression(
+        mut self, process: ProcessId, pc: usize, target_const_node: usize,
+    ) -> Self {
+        self.native_patchconst_suppression = Some((process, pc, target_const_node));
+        self
+    }
+
+    pub fn native_patchconst_suppression(&self) -> Option<(ProcessId, usize, usize)> {
+        self.native_patchconst_suppression
     }
 
     /// Instrument only real native PatchNext edge changes, never a virtual goal
@@ -1633,6 +1654,40 @@ impl World {
 
     /// Returns Ok(true) on halt; no instruction expresses semantic notions of repair.
     fn execute(&mut self, id: ProcessId, op: Op) -> Result<bool, String> {
+        // Researcher-only C1 control physics. The ordinary native scheduler has
+        // already debited exactly one private CIL credit before execute().
+        // A wrong opcode or destination at the target PC must trap rather than
+        // suppressing a different mutation. All unrelated paid edits remain real.
+        if let Some((target_pid, target_pc, target_node)) = self.native_patchconst_suppression {
+            if id == target_pid
+                && self.processes.get(&id).expect("scheduled actor exists").pc == target_pc
+            {
+                let Op::PatchConst { node, .. } = &op else {
+                    return Err("native PatchConst suppression opcode mismatch".into());
+                };
+                let actor = self.processes.get(&id).expect("scheduled actor exists");
+                let target = usize::try_from(*actor.registers.get(*node)
+                    .ok_or("invalid PatchConst node register")?)
+                    .map_err(|_| "invalid PatchConst target".to_string())?;
+                if target != target_node {
+                    return Err("native PatchConst suppression target mismatch".into());
+                }
+                // Reuse native opcode validation, including edge, register and
+                // live destination type. Shadow writes are never committed.
+                let mut shadow = self.clone();
+                shadow.native_patchconst_suppression = None;
+                shadow.native_code_edits_disabled = false;
+                shadow.native_patchnext_disabled = false;
+                let halted = shadow.execute(id, op.clone())?;
+                debug_assert!(!halted);
+                let next = shadow.process(id).expect("shadow actor exists").pc;
+                self.processes.get_mut(&id).expect("scheduled actor exists").pc = next;
+                self.pending_transition = Some(EventKind::NativeCodeEditSuppressed {
+                    opcode_tag: op.opcode_tag(),
+                });
+                return Ok(false);
+            }
+        }
         // Study80 control physics: consume the same charged attempt and advance the
         // original next edge, while suppressing ONLY mutations of executable code.
         // Invalid next edges still trap; no actor is refilled, rescued or cloned.
