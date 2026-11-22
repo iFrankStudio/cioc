@@ -1,0 +1,81 @@
+name: CL-1B C9 paid physical parent checkpoint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-PAID-TRUE-PARENT-CHECKPOINT-C9-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_true_parent_checkpoint_c9.rs'
+      - 'cl1b/audits/cl1b_g2_true_parent_checkpoint_c9_independent_native_replay.py'
+      - '.github/workflows/cl1b-c9-paid-parent-checkpoint.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c9-true-code-parent-checkpoint
+  cancel-in-progress: true
+
+jobs:
+  original-native-c9:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 274 frozen original CL0 PID1 C9 true-parent-checkpoint worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_true_parent_checkpoint_c9 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c9-native-parent-checkpoint.log
+      - name: Independently re-execute every original paid CIL and all source-parent writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_true_parent_checkpoint_c9_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_true_parent_checkpoint_c9_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_true_parent_checkpoint_c9_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_true_parent_checkpoint_c9_independent_replay.json"))
+          assert d["verified_original_native_worlds"]==274
+          assert d["first_divergence"] is None
+          assert d["paid_pre_edit_true_parent_checkpoints"]>0
+          assert d["paid_pre_edit_true_parent_checkpoints"]==d["actual_paid_pc28_mutation_attempts"]
+          assert d["exact_extra_paid_CIL_vs_equivalent_source_bypass"]==4*d["paid_pre_edit_true_parent_checkpoints"]
+          print("C9 verified original-native worlds and real private CIL fee =",d["verified_original_native_worlds"],d["verified_charged_private_cil"])
+          print("C9 real source-parent checkpoints and physical PatchConst =",d["paid_pre_edit_true_parent_checkpoints"],d["actual_paid_pc28_mutation_attempts"])
+          print("C9 four charged CIL instructions per saved physical parent =",d["exact_extra_paid_CIL_vs_equivalent_source_bypass"])
+          print("C9 research host only suppressed physical code mutation count =",d["native_pc28_effect_suppressed_for_causal_negative_control"])
+          print("C9 true executed source readbacks after suppression =",d["later_paid_true_source_readbacks_after_suppression"])
+          print("C9 original native arm actual costs =",d["arm_costs"])
+          for regime,costs in d["family_arm_costs"].items():print("C9 9-case family",regime,costs)
+          PY
+      - name: Retain precise original native source provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=one_C9_original_Rust_native_test_274_PID1_worlds_and_independent_Python_full_original_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c9-original-native-provenance.txt
+      - name: Archive original CIL and paid checkpoint provenance (including failure)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c9-original-native-paid-physical-parent-checkpoint
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
