@@ -404,6 +404,89 @@ fn c8_native_274_attested_source_same_history_future_value_alias(){
  assert_eq!(attested_mismatches,0);
  assert!(suppressions>0&&first_prefixes>0&&suppressed_attested>0,
    "no original-native same-source suppressed PatchConst with later true self-code readback");
+ // New C8 causal-identifiability question: the actor cannot see future goals.
+ // This is an exact 90-pair same-arm full ORIGINAL native trace-prefix test,
+ // not just a comparison of summarized feedback or program source hashes.
+ let mut prefix_exact_equal_pairs=0_u64;
+ let mut source_attested_before_fork=0_u64;
+ let mut live_patch_before_fork=0_u64;
+ let mut positive=0_u64;let mut negative=0_u64;let mut zero=0_u64;
+ let mut anchors_flipping_signed_value=0_u64;
+ let mut exposed_flipping_signed_value=0_u64;
+ let mut future_alias_records=Vec::<Value>::new();
+ let native_trace=|summary:&Value|->Vec<Value>{
+   let name=summary["name"].as_str().unwrap();
+   fs::read_to_string(dir.join(format!("cl1b_g2_attested_future_alias_c8_original_{name}.jsonl"))).unwrap()
+     .lines().map(|line|serde_json::from_str(line).unwrap()).collect()
+ };
+ for (anchor_index,anchor) in m["anchors"].as_array().unwrap().iter().enumerate(){
+  let prefix=anchor["prefix"].as_array().unwrap();
+  assert_eq!(prefix.len(),24);
+  for shift in 0..3{
+   let actual=&cases[3*anchor_index+shift]["goals"];
+   assert_eq!(&actual.as_array().unwrap()[..24],&prefix[..],
+     "new hidden future changed the earlier real service contract");
+  }
+  assert_ne!(cases[3*anchor_index]["goals"],cases[3*anchor_index+1]["goals"]);
+  assert_ne!(cases[3*anchor_index]["goals"],cases[3*anchor_index+2]["goals"]);
+  assert_ne!(cases[3*anchor_index+1]["goals"],cases[3*anchor_index+2]["goals"]);
+  for arm_index in 0..6{
+   let baseline=&truthful[18*anchor_index+arm_index];
+   let canonical=native_trace(baseline);
+   let boundary_index=canonical.iter().position(|r|r[0]=="feedback"&&r[2]==24)
+      .expect("native first stage24 feedback row missing");
+   let first24=&canonical[..boundary_index];
+   assert!(first24.iter().any(|r|r[0]=="cil"&&r[2]==173),
+     "future fork must occur after real paid physical Const execution");
+   for shift in 1..3{
+    let matched=native_trace(&truthful[18*anchor_index+6*shift+arm_index]);
+    let changed=matched.iter().position(|r|r[0]=="feedback"&&r[2]==24)
+       .expect("future variant missing first stage24 feedback");
+    assert_eq!(first24,&matched[..changed],
+       "real original-native CIL+feedback history before hidden future fork is distinguishable");
+    prefix_exact_equal_pairs+=1;
+   }
+  }
+  let baseline=native_trace(&truthful[18*anchor_index]);
+  let fork_paid=baseline.iter().find(|r|r[0]=="feedback"&&r[2]==24).unwrap()[1].as_u64().unwrap();
+  let first_live=&truthful[18*anchor_index];
+  let source_witnessed=first_live["actor_readback_records"].as_array().unwrap().iter()
+      .any(|r|r["step"].as_u64().unwrap()<fork_paid);
+  let patch_exposed=first_live["parameter_patches"].as_array().unwrap().iter()
+      .any(|r|r["step"].as_u64().unwrap()<fork_paid);
+  if source_witnessed{source_attested_before_fork+=1;}
+  if patch_exposed{live_patch_before_fork+=1;}
+  let mut deltas=Vec::<i64>::new();
+  let mut paid_costs=Vec::<Value>::new();
+  for shift in 0..3{
+   let index=18*anchor_index+6*shift;
+   let live=truthful[index]["steps"].as_i64().unwrap();
+   let off=truthful[index+3]["steps"].as_i64().unwrap();
+   let d=off-live;
+   deltas.push(d);
+   paid_costs.push(json!({"future":cases[3*anchor_index+shift]["tail"],
+     "live":live,"suppressed":off,"same_source_suppressed_minus_live":d,
+     "privileged_hindsight_choice":if d>0{"allow_all"}else if d<0{"suppress_all"}else{"either"}}));
+   if d>0{positive+=1;}else if d<0{negative+=1;}else{zero+=1;}
+  }
+  let sign_flip=deltas.iter().any(|x|*x>0)&&deltas.iter().any(|x|*x<0);
+  if sign_flip{anchors_flipping_signed_value+=1;}
+  if sign_flip&&patch_exposed&&source_witnessed{exposed_flipping_signed_value+=1;}
+  future_alias_records.push(json!({
+   "anchor":anchor["anchor"],"regime":anchor["regime"],
+   "paid_code_readback_before_fork":source_witnessed,
+   "paid_pc28_patch_before_fork":patch_exposed,
+   "branch_before_future_first_feedback_paid_instruction":fork_paid,
+   "native_fork_stage":24,
+   "exact_complete_original_native_prefix_equal_across_all_six_arms":true,
+   "signed_same_source_pc28_effect_full_lifecycle":deltas,
+   "strict_positive_and_negative_future_sign_flip":sign_flip,
+   "future_paid_outcomes":paid_costs
+  }));
+ }
+ assert_eq!(prefix_exact_equal_pairs,15*6*2,
+    "C8 90 original-native same-prefix alias comparisons incomplete");
+ assert_eq!(positive+negative+zero,45);
  let output=json!({
   "study":"CL1B-G2-ATTESTED-VALUE-FUTURE-ALIAS-C8",
   "status":"ORIGINAL_NATIVE_ACTOR_PAID_EXECUTED_CONST_SELF_READBACK",
@@ -419,6 +502,16 @@ fn c8_native_274_attested_source_same_history_future_value_alias(){
   "true_physical_attestations_after_effect_suppression":suppressed_attested,
   "first_paid_suppression_prefix_witnesses":first_prefixes,
   "no_suppression_pairs":no_suppression,
+  "prefix_alias_pairs_exact":prefix_exact_equal_pairs,
+  "total_anchor_histories":15,
+  "anchors_paid_source_readback_before_fork":source_attested_before_fork,
+  "anchors_paid_pc28_before_fork":live_patch_before_fork,
+  "future_benefit_positive":positive,
+  "future_benefit_negative":negative,
+  "future_benefit_tied":zero,
+  "anchors_with_both_effect_signs":anchors_flipping_signed_value,
+  "exposed_attested_anchors_with_both_effect_signs":exposed_flipping_signed_value,
+  "future_alias_records":future_alias_records,
   "costs":{
     "G2_readback_attest":costs[0],
     "G2_readback_always":costs[1],
@@ -435,9 +528,9 @@ fn c8_native_274_attested_source_same_history_future_value_alias(){
  });
  fs::write(dir.join("cl1b_g2_attested_future_alias_c8_native_274_worlds.json"),
    serde_json::to_vec_pretty(&output).unwrap()).unwrap();
- println!("C7 ORIGINAL native 274 worlds; paid={}; live execution readbacks={}; native gates={}/{}; suppressed readback-after-edit={}; all-armed attested mismatches={}; cost gate/always/never={}/{}/{}; accepted={}",
+ println!("C8 ORIGINAL future-alias 274 worlds; paid={}; live execution readbacks={}; native gates={}/{}; suppressed readback-after-edit={}; all-armed attested mismatches={}; cost gate/always/never={}/{}/{}; accepted={}",
    total_paid,readback_writes,allow,abstain,suppressed_attested,
    attested_mismatches,costs[0],costs[1],costs[2],
    costs[0]<costs[1]&&costs[0]<costs[2]);
- assert!(incomplete.is_empty(),"C7 truthful completion feasibility failure; preserve original native evidence");
+ assert!(incomplete.is_empty(),"C8 truthful completion feasibility failure; preserve original native evidence");
 }
