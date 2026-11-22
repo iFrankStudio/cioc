@@ -166,6 +166,7 @@ jobs:
             cl1b_refill_causal_r1_native
             cl1b_refill_gate_g1_native
             cl1b_refill_rule_g2_native
+            cl1b_g2_pc28_native_c1
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
@@ -376,6 +377,7 @@ jobs:
             wanted[cl1b_refill_causal_r1_native]=1
             wanted[cl1b_refill_gate_g1_native]=1
             wanted[cl1b_refill_rule_g2_native]=1
+            wanted[cl1b_g2_pc28_native_c1]=1
           fi
           for target in "${targets[@]}"; do
             if [ "${full}" -eq 1 ] || [ "${wanted[${target}]:-0}" -eq 1 ]; then
@@ -388,8 +390,8 @@ jobs:
           fi
           # Detect silent omission of an integration target from the native
           # full-campaign denominator. Update this deliberately with each Study.
-          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 103 ]; then
-            echo "Expected exactly 103 native CL-1B integration targets, got ${#selected[@]}" >&2
+          if [ "${full}" -eq 1 ] && [ "${#selected[@]}" -ne 104 ]; then
+            echo "Expected exactly 104 native CL-1B integration targets, got ${#selected[@]}" >&2
             exit 1
           fi
           {
@@ -958,6 +960,22 @@ jobs:
               echo 'PASS native-original-184-worlds=refill-rule-g2' | tee -a cl1b-ci-evidence/summary.txt
             else
               echo 'FAIL native-original-184-worlds=refill-rule-g2' | tee -a cl1b-ci-evidence/summary.txt
+              failures=$((failures + 1))
+            fi
+          fi
+          # C1: original-native selective PC28 PatchConst effect suppression at full fee.
+          # All 184 worlds must match independent frozen-source CIL interpretation;
+          # native placebo and pre-intervention prefixes are also fail-closed.
+          if printf '%s\n' "${selected[@]}" | grep -qx 'cl1b_g2_pc28_native_c1'; then
+            c1_summary=cl1b-ci-evidence/cl1b_g2_pc28_c1_native_184_worlds.json
+            if [ -f "${c1_summary}" ] && \
+              python3 ../cl1b/analysis/cl1b_g2_pc28_c1_independent_native_replay.py \
+                "${c1_summary}" cl1b-ci-evidence \
+                > cl1b-ci-evidence/cl1b_g2_pc28_c1_independent_native_replay.json \
+                2> cl1b-ci-evidence/cl1b_g2_pc28_c1_independent_native_replay.stderr.log; then
+              echo 'PASS native-original-184-worlds=g2-pc28-c1' | tee -a cl1b-ci-evidence/summary.txt
+            else
+              echo 'FAIL native-original-184-worlds=g2-pc28-c1' | tee -a cl1b-ci-evidence/summary.txt
               failures=$((failures + 1))
             fi
           fi
