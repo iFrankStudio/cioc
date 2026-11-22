@@ -10,6 +10,7 @@ on:
       - 'cl1b/studies/CL1B-G2-ACTOR-PAID-GATE-C4-frozen-274-worlds-v1.json'
       - 'cl0/crates/world/tests/cl1b_g2_actor_gate_c4.rs'
       - 'cl1b/audits/cl1b_g2_actor_gate_c4_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_actor_gate_c4_case_audit.py'
       - '.github/workflows/cl1b-c4-actor-paid-gate.yml'
   workflow_dispatch:
 
@@ -62,6 +63,26 @@ jobs:
           print("C4 predefined efficiency gate ACCEPTED =",d["main_efficiency_accepted"])
           for name,row in d["family_charged_cil_totals"].items():
               print("C4 family",name,"costs",row)
+          PY
+      - name: Audit every original-native case versus paid fixed-source strategies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_actor_gate_c4_case_audit.py \
+            cl1b-ci-evidence/cl1b_g2_actor_gate_c4_native_274_worlds.json \
+            > cl1b-ci-evidence/cl1b_g2_actor_gate_c4_case_audit.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_actor_gate_c4_case_audit.json"))
+          assert d["all_true_worlds_completed"]==270
+          assert len(d["cases"])==45
+          print("C4 gate beats both original CIL fixed comparators in individual tasks =",d["gate_better_than_both_per_case"])
+          print("C4 gate beats always-edit individual cases =",d["gate_better_than_always_per_case"])
+          print("C4 gate beats always-abstain individual cases =",d["gate_better_than_abstain_per_case"])
+          print("C4 gate tie / loses to always-abstain =",d["gate_equal_to_abstain_per_case"],d["gate_worse_than_abstain_per_case"])
+          print("C4 per-case hindsight fixed strategy oracle regret =",d["total_gate_regret_vs_per_case_two_fixed_arm_oracle"])
+          for name,record in d["families"].items():
+              print("C4 frozen-family case-level paid gate =",name,record)
           PY
       - name: Store source SHA and original-world provenance
         if: always()
