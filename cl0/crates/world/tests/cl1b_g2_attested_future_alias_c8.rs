@@ -405,7 +405,7 @@ fn c8_native_274_attested_source_same_history_future_value_alias(){
  assert!(suppressions>0&&first_prefixes>0&&suppressed_attested>0,
    "no original-native same-source suppressed PatchConst with later true self-code readback");
  // New C8 causal-identifiability question: the actor cannot see future goals.
- // This is an exact 90-pair same-arm full ORIGINAL native trace-prefix test,
+ // This is an exact 180-pair same-arm full ORIGINAL native trace-prefix test,
  // not just a comparison of summarized feedback or program source hashes.
  let mut prefix_exact_equal_pairs=0_u64;
  let mut source_attested_before_fork=0_u64;
