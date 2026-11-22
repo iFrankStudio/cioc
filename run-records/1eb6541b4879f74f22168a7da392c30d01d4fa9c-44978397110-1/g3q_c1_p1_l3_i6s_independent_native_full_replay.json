@@ -1,0 +1,308 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I6S",
+  "evidence_level": "NATIVE_67_ORIGINAL_WORLDS_ALL_CHARGED_CIL_STEPS_AND_FEEDBACK_REPLAY",
+  "source_sha": "1eb6541b4879f74f22168a7da392c30d01d4fa9c",
+  "original_paid_steps_independently_replayed": 92093,
+  "original_genotype_cases": 64,
+  "original_actor_one_edit_success": 32,
+  "original_actor_two_edit_success": 8,
+  "all64_structurally_certified": true,
+  "all64_false_certificates": 0,
+  "all64_false_rejections": 0,
+  "single_original_PID_per_run": true,
+  "first_divergence": null,
+  "hard_cases": [
+    {
+      "seed": [
+        0,
+        2,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 349,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 719,
+        "pc": 171,
+        "node": 3,
+        "before": 2,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1086,
+      "paid_task_service_events": 6,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        0,
+        3,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 349,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 719,
+        "pc": 171,
+        "node": 3,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1086,
+      "paid_task_service_events": 6,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        1,
+        1,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 346,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 1,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 711,
+        "pc": 171,
+        "node": 3,
+        "before": 1,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1074,
+      "paid_task_service_events": 7,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        1,
+        2,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 347,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 1,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 715,
+        "pc": 171,
+        "node": 3,
+        "before": 2,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1078,
+      "paid_task_service_events": 7,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        2,
+        1,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 347,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 2,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 713,
+        "pc": 171,
+        "node": 3,
+        "before": 1,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1078,
+      "paid_task_service_events": 8,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        2,
+        3,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 347,
+        "pc": 169,
+        "node": 6,
+        "before": 3,
+        "after": 2,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 716,
+        "pc": 171,
+        "node": 3,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1081,
+      "paid_task_service_events": 8,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        2,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 325,
+        "pc": 171,
+        "node": 6,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 671,
+        "pc": 171,
+        "node": 3,
+        "before": 2,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1014,
+      "paid_task_service_events": 6,
+      "first_native_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        3,
+        3
+      ],
+      "first_charged_patch": {
+        "step": 325,
+        "pc": 171,
+        "node": 6,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "second_charged_patch": {
+        "step": 671,
+        "pc": 171,
+        "node": 3,
+        "before": 3,
+        "after": 0,
+        "edit_suppressed": false
+      },
+      "full_paid_certificate_pass_step": 1014,
+      "paid_task_service_events": 6,
+      "first_native_divergence": null
+    }
+  ],
+  "controls": [
+    {
+      "arm": "native_edits_disabled_hard_initial",
+      "paid_original_steps": 1028,
+      "actual_executable_patches": [
+        {
+          "step": 349,
+          "pc": 169,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        },
+        {
+          "step": 695,
+          "pc": 171,
+          "node": 3,
+          "before": 2,
+          "after": 2,
+          "edit_suppressed": true
+        }
+      ],
+      "structural_certificate": false,
+      "task_probes": 0,
+      "semantic_task_successes": 0,
+      "actor_success_claim": null,
+      "first_divergence": null
+    },
+    {
+      "arm": "native_edits_disabled_RESET_first_gene",
+      "paid_original_steps": 956,
+      "actual_executable_patches": [
+        {
+          "step": 325,
+          "pc": 171,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        },
+        {
+          "step": 647,
+          "pc": 171,
+          "node": 3,
+          "before": 2,
+          "after": 2,
+          "edit_suppressed": true
+        }
+      ],
+      "structural_certificate": false,
+      "task_probes": 0,
+      "semantic_task_successes": 0,
+      "actor_success_claim": null,
+      "first_divergence": null
+    },
+    {
+      "arm": "inverted_feedback_two_edits",
+      "paid_original_steps": 1659,
+      "actual_executable_patches": [
+        {
+          "step": 349,
+          "pc": 169,
+          "node": 6,
+          "before": 3,
+          "after": 0,
+          "edit_suppressed": false
+        },
+        {
+          "step": 719,
+          "pc": 171,
+          "node": 3,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "structural_certificate": true,
+      "task_probes": 5,
+      "semantic_task_successes": 1,
+      "actor_success_claim": 1,
+      "first_divergence": null
+    }
+  ],
+  "limits": "The second edit is a pre-authored fixed middle word3->0. This does not demonstrate selecting the second source repair from new evidence, inventing a repair policy, or open-ended evolution."
+}

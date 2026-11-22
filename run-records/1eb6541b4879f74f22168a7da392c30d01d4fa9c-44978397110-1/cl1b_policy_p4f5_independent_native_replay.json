@@ -1,0 +1,106 @@
+{
+  "study": "CL1B-POLICY-P4F5",
+  "original_native_worlds_exactly_replayed": 434,
+  "original_charged_CIL_instruction_count_exactly_replayed": 579998,
+  "first_divergence": null,
+  "source_sha": "1eb6541b4879f74f22168a7da392c30d01d4fa9c",
+  "regimes": {
+    "stable": {
+      "cases": 9,
+      "same_source_paid": -396,
+      "cross_source_paid": 0,
+      "cross_source_probes_saved": 0
+    },
+    "switch": {
+      "cases": 9,
+      "same_source_paid": 2544,
+      "cross_source_paid": -99,
+      "cross_source_probes_saved": 0
+    },
+    "holdout_revert": {
+      "cases": 9,
+      "same_source_paid": -918,
+      "cross_source_paid": -954,
+      "cross_source_probes_saved": -27
+    },
+    "holdout_rare_shock": {
+      "cases": 9,
+      "same_source_paid": -1468,
+      "cross_source_paid": -844,
+      "cross_source_probes_saved": -24
+    },
+    "early_switch": {
+      "cases": 9,
+      "same_source_paid": 3420,
+      "cross_source_paid": -99,
+      "cross_source_probes_saved": 0
+    },
+    "late_flip": {
+      "cases": 9,
+      "same_source_paid": 1233,
+      "cross_source_paid": -144,
+      "cross_source_probes_saved": 0
+    },
+    "two_pulse": {
+      "cases": 9,
+      "same_source_paid": -3563,
+      "cross_source_paid": 817,
+      "cross_source_probes_saved": -3
+    },
+    "oscillating_step": {
+      "cases": 9,
+      "same_source_paid": 2868,
+      "cross_source_paid": 1155,
+      "cross_source_probes_saved": 0
+    },
+    "fresh_sparse_pulses": {
+      "cases": 9,
+      "same_source_paid": -4555,
+      "cross_source_paid": -1699,
+      "cross_source_probes_saved": -69
+    },
+    "fresh_dense_pulses": {
+      "cases": 9,
+      "same_source_paid": -5294,
+      "cross_source_paid": 5062,
+      "cross_source_probes_saved": 69
+    },
+    "fresh_delayed_revert": {
+      "cases": 9,
+      "same_source_paid": -1044,
+      "cross_source_paid": -642,
+      "cross_source_probes_saved": -18
+    },
+    "fresh_multi_shift": {
+      "cases": 9,
+      "same_source_paid": -1760,
+      "cross_source_paid": -4076,
+      "cross_source_probes_saved": -120
+    },
+    "f5_single_permanent_shift": {
+      "cases": 9,
+      "same_source_paid": 2544,
+      "cross_source_paid": -99,
+      "cross_source_probes_saved": 0
+    },
+    "f5_second_late_shift": {
+      "cases": 9,
+      "same_source_paid": 2070,
+      "cross_source_paid": -1860,
+      "cross_source_probes_saved": -54
+    },
+    "f5_periodic_one_stage_spikes": {
+      "cases": 9,
+      "same_source_paid": -5547,
+      "cross_source_paid": 8295,
+      "cross_source_probes_saved": 144
+    },
+    "f5_quiet_then_dense_two_step_spikes": {
+      "cases": 9,
+      "same_source_paid": -3166,
+      "cross_source_paid": 2741,
+      "cross_source_probes_saved": 39
+    }
+  },
+  "limits": "No self-invented algorithm or cross-world lineage"
+}
