@@ -68,6 +68,10 @@ jobs:
           assert len(d["cases"])==45 and d["total_truthful_worlds"]==180
           print("C2 observed native 48-stage off-minus-on =",d["primary_off_minus_on"])
           print("C2 source-edit reuse worlds =",d["worlds_with_later_mutated_read"])
+          print("C2 original-native arm costs =",d["arm_costs"])
+          print("C2 paid PC28 / changed / later read =",d["paid_pc28_executions"],d["effective_parameter_change_events"],d["later_mutated_read_events"])
+          for name,row in d["families"].items():
+              print("C2 native family =",name,"off_minus_on =",row["off_minus_on_cost"],"on =",row["on_cost"],"off =",row["off_cost"],"never =",row["never_cost"],"reused_worlds =",row["reused_worlds"])
           PY
       - name: Publish source, workflow and run provenance
         if: always()
