@@ -1,0 +1,84 @@
+# C4: genuinely actor-paid conditional mutation at occupied source PC67.
+# New frozen tasks and all actor CIL branches under original 6000-credit CL0.
+# This is one targeted original Rust test + one independent replay, not full CI.
+name: CL-1B C4 actor-paid mutation abstention gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-PAID-GATE-C4-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_actor_gate_c4.rs'
+      - 'cl1b/audits/cl1b_g2_actor_gate_c4_independent_native_replay.py'
+      - '.github/workflows/cl1b-c4-actor-paid-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c4-paid-gate
+  cancel-in-progress: true
+
+jobs:
+  native-c4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute 274 independent original-native PID1 worlds with genuinely paid CIL gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_actor_gate_c4 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-g2-actor-gate-c4-native.log
+      - name: Independently replay every paid CIL and true feedback event in all original-native C4 worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_actor_gate_c4_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_actor_gate_c4_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_actor_gate_c4_independent_replay.json
+          python3 - <<'PY'
+          import json
+          p="cl1b-ci-evidence/cl1b_g2_actor_gate_c4_independent_replay.json"
+          d=json.load(open(p))
+          assert d["verified_original_native_worlds"]==274
+          assert d["first_divergence"] is None
+          assert d["actor_paid_gate_edit_events"]>0 and d["actor_paid_gate_abstain_events"]>0
+          print("C4 original-native independent paid CIL replay verified =",d["verified_charged_original_cil_instructions"])
+          print("C4 actor-paid PC67 gate edit/abstain =",d["actor_paid_gate_edit_events"],d["actor_paid_gate_abstain_events"])
+          print("C4 charged original-native arm costs =",d["arm_costs"])
+          print("C4 gate saving vs same-skeleton always/abstain =",d["net_gate_saving_vs_always"],d["net_gate_saving_vs_abstain"])
+          print("C4 full-fee same-source effect-suppression cost delta =",d["causal_suppressed_minus_gate_cost"])
+          print("C4 predefined efficiency gate ACCEPTED =",d["main_efficiency_accepted"])
+          for name,row in d["family_charged_cil_totals"].items():
+              print("C4 family",name,"costs",row)
+          PY
+      - name: Store source SHA and original-world provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=one_targeted_original_native_C4_Rust_test_and_274_world_independent_CIL_replay"
+          } > cl1b-ci-evidence/c4-provenance.txt
+      - name: Preserve complete original-native CIL feedback and negative outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c4-original-native-actor-paid-gate-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
