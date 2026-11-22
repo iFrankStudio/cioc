@@ -111,7 +111,13 @@ def main():
         "rapid_reversal_pulses_a1_d1": -89,
         "rapid_reversal_pulses_a2_d0": 120,
     }
-    observed = {r["name"]: r["delta_suppressed_minus_on"] for r in rows}
+    # Frozen names are e.g. "g2_persistent_drift_two_shifts_a0_d1_G2_changed_allow".
+    # Regression witness keys below deliberately omit the common arm prefix/suffix.
+    prefix, suffix = "g2_", "_G2_changed_allow"
+    assert all(r["name"].startswith(prefix) and r["name"].endswith(suffix)
+               for r in rows), "unexpected frozen G2 arm name"
+    observed = {r["name"][len(prefix):-len(suffix)]: r["delta_suppressed_minus_on"]
+                for r in rows}
     assert len(observed) == len(rows), "duplicate frozen world names"
     assert {name: delta for name, delta in observed.items() if delta != 0} == expected_nonzero, (
         "pair-level exploratory fingerprint changed; aggregate agreement is insufficient"
