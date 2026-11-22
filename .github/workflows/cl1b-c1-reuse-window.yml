@@ -1,0 +1,92 @@
+# Retrospective diagnostic only: rerun the already-frozen C1 original-native
+# cohort, independently replay every paid CIL/feedback trace, THEN classify
+# mutation attempts, real changes, later use and causal branch/cost outcomes.
+# Not a new holdout, and never a substitute for the full 104-target checkpoint.
+name: CL-1B C1 original-native mutation reuse audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_g2_c1_native_reuse_window.py'
+      - 'cl1b/analysis/cl1b_g2_pc28_c1_independent_native_replay.py'
+      - 'cl1b/studies/CL1B-G2-PC28-NATIVE-C1-frozen-original-native-184-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_pc28_native_c1.rs'
+      - '.github/workflows/cl1b-c1-reuse-window.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c1-reuse-main
+  cancel-in-progress: true
+
+jobs:
+  native-reuse-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run frozen C1 original-native Rust target only
+        run: |
+          set -euo pipefail
+          cargo test --locked -p cl0-world --test cl1b_g2_pc28_native_c1 -- --nocapture \
+            | tee cl1b-c1-native-test.log
+      - name: Verify all 184 native worlds with independent original CIL replay
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/analysis/cl1b_g2_pc28_c1_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c1_native_184_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_pc28_c1_independent_native_replay.json
+          python3 - <<'PY'
+          import json
+          with open("cl1b-ci-evidence/cl1b_g2_pc28_c1_independent_native_replay.json") as f:
+              result = json.load(f)
+          assert result["first_divergence"] is None
+          assert result["verified_original_native_worlds"] == 184
+          assert result["verified_charged_original_cil_instructions"] == 306432
+          print("C1 original native complete independent replay PASS")
+          PY
+      - name: Audit actor-paid mutation reuse funnel from replay-verified native summary
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_c1_native_reuse_window.py \
+            cl1b-ci-evidence/cl1b_g2_pc28_c1_native_184_worlds.json \
+            > cl1b-ci-evidence/cl1b_g2_c1_native_reuse_window.json
+          python3 - <<'PY'
+          import json
+          with open("cl1b-ci-evidence/cl1b_g2_c1_native_reuse_window.json") as f:
+              result = json.load(f)
+          assert [result["funnel"][name] for name in (
+              "never_reached_pc28", "pc28_no_actual_change",
+              "changed_but_never_reused", "changed_and_later_reused"
+          )] == [19, 10, 14, 2]
+          print("C1 original-native reuse funnel PASS: 19 / 10 / 14 / 2")
+          PY
+      - name: Record run/source provenance
+        if: always()
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "source_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=targeted_C1_only_not_full_CL1B"
+          } > cl1b-ci-evidence/reuse-provenance.txt
+      - name: Preserve native summary, exact replay, diagnostics, and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c1-native-reuse-window
+          path: |
+            cl0/cl1b-ci-evidence/
+            cl0/cl1b-c1-native-test.log
+          if-no-files-found: warn
