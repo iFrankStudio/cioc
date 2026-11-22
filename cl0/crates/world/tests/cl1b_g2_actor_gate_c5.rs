@@ -403,11 +403,11 @@ fn c5_frozen_814_original_native_paid_gate_postprefix_label_swaps(){
  });
  fs::write(dir.join("cl1b_g2_actor_gate_c5_native_814_worlds.json"),
    serde_json::to_vec_pretty(&output).unwrap()).unwrap();
- println!("C4 ORIGINAL native 814 worlds; total paid={}; gate allow/abstain={}/{}; gate/always/abstain costs={}/{}/{}; gate beats both={}; effect-suppressed minus gate={}",
+ println!("C5 ORIGINAL native 814 worlds; total paid={}; gate allow/abstain={}/{}; gate/always/abstain costs={}/{}/{}; gate beats both={}; effect-suppressed minus gate={}",
    total_paid,gate_allow_total,gate_abstain_total,
    all_costs[0],all_costs[1],all_costs[2],
    all_costs[0]<all_costs[1]&&all_costs[0]<all_costs[2],paired_savings);
  assert!(incomplete_truthful.is_empty(),
-    "C4 preregistered complete-task feasibility gate failed; evidence retained");
+    "C5 preregistered complete-task feasibility gate failed; evidence retained");
 
 }
