@@ -202,7 +202,7 @@ fn run(m:&Value,arm:&Value,dir:&std::path::Path)->Value{
     assert_eq!(w.cell(41),Some(theta(&expected)));
     last_attested_step=Some(paid);
     actor_readback_writes+=1;
-    if source_name=="G2_checkpoint_pc28_suppressed"{
+    if source_name=="G2_rollback_pc28_suppressed"{
       if let Some(first_suppression)=last_suppressed_step{
        if last173>first_suppression{attested_after_suppressed_patch+=1;}
       }
