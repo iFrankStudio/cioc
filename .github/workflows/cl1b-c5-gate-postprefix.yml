@@ -1,0 +1,101 @@
+# C5: matched original-native C4 actor policy, exactly same first 24 goals
+# then three frozen goal-label futures. Original CPU/memory/world physics.
+name: CL-1B C5 actor gate postprefix semantic robustness
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-GATE-POSTPREFIX-C5-frozen-814-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_actor_gate_c5.rs'
+      - 'cl1b/audits/cl1b_g2_actor_gate_c5_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_g2_actor_gate_c5_feedback_semantics_audit.py'
+      - '.github/workflows/cl1b-c5-gate-postprefix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c5-gate-future-label
+  cancel-in-progress: true
+
+jobs:
+  original-native-c5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all 814 original CL0 PID1 C5 paid-CIL worlds, same first 24 tasks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_actor_gate_c5 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-g2-c5-original-native.log
+      - name: Independent re-execution of all native C5 CIL, code edits, credits and genuine feedback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_actor_gate_c5_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_actor_gate_c5_native_814_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_actor_gate_c5_independent_native_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_actor_gate_c5_independent_native_replay.json"))
+          assert d["verified_original_native_worlds"]==814 and d["first_divergence"] is None
+          print("C5 814 original-native worlds exact CIL paid replay =",d["verified_charged_original_cil_instructions"])
+          print("C5 full charged native arm costs =",d["arm_costs"])
+          print("C5 actor-paid gate routes edit/abstain =",d["actor_paid_gate_edit_events"],d["actor_paid_gate_abstain_events"])
+          print("C5 gate saved vs paid fixed edit/abstain =",d["net_gate_saving_vs_always"],d["net_gate_saving_vs_abstain"])
+          print("C5 preregistered full-net-efficiency accepted =",d["main_efficiency_accepted"])
+          PY
+      - name: Strict native same-prefix and actor-observable paid feedback-signal semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_actor_gate_c5_feedback_semantics_audit.py \
+            cl1b-ci-evidence/cl1b_g2_actor_gate_c5_native_814_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_actor_gate_c5_signal_provenance.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_actor_gate_c5_signal_provenance.json"))
+          assert d["matched_shared_prefix_anchors"]==45
+          assert d["identical_complete_native_histories_before_stage24"]==45
+          assert d["total_paid_actor_gate_events"]>0
+          print("C5 verified 45/45 original-native CIL+feedback histories identical to first stage24 feedback")
+          print("C5 last paid feedback guess equals gate r3 =",d["last_feedback_guess_equals_r3_events"],"of",d["total_paid_actor_gate_events"])
+          print("C5 preceding feedback true+positive =",d["last_feedback_was_true_and_reported_success_events"])
+          print("C5 seen r3 label counts =",d["actor_gate_r3_labels"])
+          print("C5 recent successful paid service streak =",d["last_feedback_success_streak_bounded10"])
+          print("C5 matched futures with changed CIL gate decision sequences =",d["anchors_with_post24_changed_gate_decision_sequences"])
+          print("C5 matched futures with sign reversal versus always abstain =",d["anchors_with_opposite_gate_vs_abstain_future_sign"])
+          for k,v in d["tail_costs"].items():
+              print("C5 frozen future suffix =",k,v)
+          PY
+      - name: Record complete exact-source provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=single_target_original_native_814_world_C5_plus_full_independent_CIL_replay_and_exact_semantic_audit"
+          } > cl1b-ci-evidence/cl1b-c5-provenance.txt
+      - name: Archive full native C5 JSONL traces even if hypothesis fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c5-original-native-postprefix-feedback-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
