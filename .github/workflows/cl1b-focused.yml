@@ -14,6 +14,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_g2_executed_readback_c7.rs'
       - '!cl0/crates/world/tests/cl1b_g2_attested_future_alias_c8.rs'
       - '!cl0/crates/world/tests/cl1b_g2_true_parent_checkpoint_c9.rs'
+      - '!cl0/crates/world/tests/cl1b_g2_state_rollback_c10.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -29,6 +30,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_g2_executed_readback_c7.rs'
       - '!cl0/crates/world/tests/cl1b_g2_attested_future_alias_c8.rs'
       - '!cl0/crates/world/tests/cl1b_g2_true_parent_checkpoint_c9.rs'
+      - '!cl0/crates/world/tests/cl1b_g2_state_rollback_c10.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -180,7 +182,7 @@ jobs:
             cl1b_refill_rule_g2_native
             cl1b_g2_pc28_native_c1
           )
-          # Dedicated C4-C9 original-native targets are verified by source-pinned
+          # Dedicated C4-C10 original-native targets are verified by source-pinned
           # scoped workflows, not the historical 104-target/63-observer matrix.
           # Keep a separately and strictly audited manifest; do not silently
           # accept arbitrary unregistered test sources.
@@ -191,6 +193,7 @@ jobs:
             cl1b_g2_executed_readback_c7
             cl1b_g2_attested_future_alias_c8
             cl1b_g2_true_parent_checkpoint_c9
+            cl1b_g2_state_rollback_c10
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
