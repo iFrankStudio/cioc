@@ -354,3 +354,7 @@ fn c1_frozen_184_original_native_same_source_patchconst_causality(){
 // audited by its own targeted workflow (not a new 105th native target).
 #[path = "support/cl1b_g2_pc28_c2_native.rs"]
 mod cl1b_c2_lifecycle;
+
+// C3: frozen same-prefix futures share the original registered native target.
+#[path = "support/cl1b_g2_pc28_c3_native.rs"]
+mod cl1b_c3_decision_alias;
