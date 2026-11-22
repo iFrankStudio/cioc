@@ -1,0 +1,112 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M1",
+  "level": "NATIVE_AGGREGATE_CROSSCHECK_NOT_NATIVE_EVENT_REPLAY",
+  "rows": [
+    {
+      "arm": "original",
+      "steps": 24149,
+      "bank": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "active": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "fetch": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "accumulators": [
+        1,
+        0,
+        2
+      ],
+      "result": 2
+    },
+    {
+      "arm": "bank_tail_address_mutant",
+      "steps": 24149,
+      "bank": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          51,
+          1
+        ]
+      ],
+      "active": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "fetch": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "accumulators": [
+        1,
+        0,
+        1
+      ],
+      "result": 1
+    }
+  ],
+  "first_divergence": null,
+  "limits": "Original PID is still running at the sampled output; no full lifecycle termination, hidden task or task feedback."
+}
