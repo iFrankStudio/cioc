@@ -1,0 +1,180 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I4",
+  "evidence_level": "NATIVE_67_ORIGINAL_WORLDS_EVERY_CHARGED_CIL_STEP_SOURCE_CHOICE_AND_FEEDBACK_REPLAY",
+  "source_sha": "ffbd943e744eeddbc428a1b393d1931355d17d65",
+  "original_paid_steps_independently_checked": 84255,
+  "original_genotypes": 64,
+  "initially_unsafe": 40,
+  "original_actor_paid_edits": 40,
+  "conditional_edit_target_counts": {
+    "source_PC3_middle": 24,
+    "source_PC6_tail": 16
+  },
+  "actual_successful_repairs": 30,
+  "verified_I3_native_rescue_baseline": 6,
+  "rescue_multiplier": 5.0,
+  "false_certificates": 0,
+  "false_rejections": 0,
+  "native_first_divergence": null,
+  "critical_counterexamples": [
+    {
+      "seed": [
+        0,
+        0,
+        3
+      ],
+      "original_paid_steps": 1460,
+      "selected_source_node": 6,
+      "final_rule": [
+        0,
+        0,
+        0
+      ],
+      "original_semantic_coverage": true,
+      "actor_certificate": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        0,
+        2,
+        0
+      ],
+      "original_paid_steps": 1471,
+      "selected_source_node": 3,
+      "final_rule": [
+        0,
+        0,
+        0
+      ],
+      "original_semantic_coverage": true,
+      "actor_certificate": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        0,
+        2,
+        3
+      ],
+      "original_paid_steps": 727,
+      "selected_source_node": 6,
+      "final_rule": [
+        0,
+        2,
+        0
+      ],
+      "original_semantic_coverage": false,
+      "actor_certificate": false,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        1,
+        1,
+        0
+      ],
+      "original_paid_steps": 1715,
+      "selected_source_node": 3,
+      "final_rule": [
+        1,
+        0,
+        0
+      ],
+      "original_semantic_coverage": true,
+      "actor_certificate": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        2,
+        0,
+        3
+      ],
+      "original_paid_steps": 1713,
+      "selected_source_node": 6,
+      "final_rule": [
+        2,
+        0,
+        2
+      ],
+      "original_semantic_coverage": true,
+      "actor_certificate": true,
+      "first_divergence": null
+    },
+    {
+      "seed": [
+        3,
+        3,
+        3
+      ],
+      "original_paid_steps": 673,
+      "selected_source_node": 6,
+      "final_rule": [
+        3,
+        3,
+        3
+      ],
+      "original_semantic_coverage": false,
+      "actor_certificate": false,
+      "first_divergence": null
+    }
+  ],
+  "adversarial_controls": [
+    {
+      "arm": "edit_suppressed_tail_failure",
+      "paid_original_instructions": 721,
+      "patch": [
+        {
+          "step": 368,
+          "pc": 177,
+          "node": 6,
+          "before": 3,
+          "after": 3,
+          "edit_suppressed": true
+        }
+      ],
+      "paid_task_probes": 0,
+      "true_task_matches": 0,
+      "actor_claimed_success": null,
+      "first_divergence": null
+    },
+    {
+      "arm": "edit_suppressed_middle_failure",
+      "paid_original_instructions": 743,
+      "patch": [
+        {
+          "step": 378,
+          "pc": 179,
+          "node": 3,
+          "before": 2,
+          "after": 2,
+          "edit_suppressed": true
+        }
+      ],
+      "paid_task_probes": 0,
+      "true_task_matches": 0,
+      "actor_claimed_success": null,
+      "first_divergence": null
+    },
+    {
+      "arm": "inverted_feedback_after_middle_repair",
+      "paid_original_instructions": 1350,
+      "patch": [
+        {
+          "step": 378,
+          "pc": 179,
+          "node": 3,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "paid_task_probes": 5,
+      "true_task_matches": 1,
+      "actor_claimed_success": 1,
+      "first_divergence": null
+    }
+  ],
+  "limits": "Two-branch researcher-authored evidence-conditioned source edit policy; no novel repair-algorithm invention, persistent lineage or semantically trusted task oracle."
+}
