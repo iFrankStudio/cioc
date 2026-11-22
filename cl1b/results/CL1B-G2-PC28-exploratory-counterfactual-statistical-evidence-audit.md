@@ -1,5 +1,11 @@
 # CL-1B G2 PC28 exploratory counterfactual: statistical and evidence-level audit
 
+## 2026-11-22 后续状态：原生 C1 已验证，旧源码级 CI 最新失败的原因已定位
+
+1. 全新的独立原生同源因果研究已完成：[C1 full Rust CI #44983484895 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/44983484895)；[原生 184 世界、306,432 私有 CIL 指令精确重放](https://github.com/iFrankStudio/cioc/blob/cl1b-ci-evidence/run-records/9d8bef2712c4c5750dd416ddedc59990219010c2-44983484895-1/cl1b_g2_pc28_c1_independent_native_replay.json)。**在45条新冻结目标上真实同源 off−on=−131（on 0胜/1负/44平），与本文件旧45例的来源级 +156 结果方向相反**；但两者的任务向量不同，旧结果非原生，不可直接合并为同分布推断。[新原生完整报告](CL1B-G2-PC28-NATIVE-C1-source-identical-184-world-causal-audit.md) 是当前最高等级证据。
+2. 原有单独的 **Python 源码级工作流 [#44978397051 — FAILURE](https://github.com/iFrankStudio/cioc/actions/runs/44978397051)**：在此前新加逐案例指纹断言后，断言键使用了短名 `persistent_drift_two_shifts_a0_d1`，而被比较的 `arm["name"]` 是完整名 `g2_persistent_drift_two_shifts_a0_d1_G2_changed_allow`，所以总是因命名不一致触发 `pair-level exploratory fingerprint changed`。失败不是原生因果效应的反证，也**不能假称已经通过**。
+3. 源码级脚本已在 [commit bcf647e](https://github.com/iFrankStudio/cioc/commit/bcf647e2c43d2722f9d9791dbd34578366d64bf4) 只修改案例名归一化，在不更改任务、计费、模拟物理、效应统计的情况下保留原始六例逐案期望值。这次使用 `[skip ci]`，**尚未重新获得修复后的 GitHub Actions PASS**，所以本文件不声称源码级指纹验证已恢复。其科学等级依旧低于已经独立通过的 C1 原生证据。
+
 **2026-11-21 UTC — retrospective methodological audit, NOT a new native experiment.**
 
 Source at audit: [main 84956f14](https://github.com/iFrankStudio/cioc/commit/84956f14c303fa71f3812fcec361b9633e3d172e). Original G2 native evidence: [Actions #44917352841](https://github.com/iFrankStudio/cioc/actions/runs/44917352841), source `9cdbeb5f43b897f3f1ddd19fa0d8fc6c8d31404b`, 184 original native worlds / 283,918 independently replayed paid CIL instructions. The **PC28-suppressed worlds are not among those original native worlds**. Their costs come solely from the later [exploratory source-level simulator](../analysis/cl1b_g2_pc28_effect_source_level_exploration.py) and its [CI workflow](../../.github/workflows/cl1b-g2-pc28-source-crosscheck.yml). This audit does not establish whether that workflow ran successfully.
