@@ -37,7 +37,7 @@ jobs:
           mkdir -p cl1b-ci-evidence
           cargo test --locked -p cl0-world --test cl1b_g2_attested_future_alias_c8 -- --nocapture \
              2>&1 | tee cl1b-ci-evidence/cl1b-c8-274-world-original-native.log
-      - name: Independently replay every actual paid CIL and all 90 full-history future aliases
+      - name: Independently replay every actual paid CIL and all 180 full-history future aliases
         shell: bash
         run: |
           set -euo pipefail
@@ -49,7 +49,7 @@ jobs:
           r=json.load(open("cl1b-ci-evidence/cl1b_g2_attested_future_alias_c8_independent_replay.json"))
           assert r["verified_original_native_worlds"]==274
           assert r["first_divergence"] is None
-          assert r["verified_identical_original_native_history_prefix_pairs"]==90
+          assert r["verified_identical_original_native_history_prefix_pairs"]==180
           assert r["verified_frozen_same_prefix_anchor_histories"]==15
           assert (r["same_source_PC28_effect_full_run_positive"]+
                   r["same_source_PC28_effect_full_run_negative"]+
@@ -77,7 +77,7 @@ jobs:
             echo "tested_source_sha=$GITHUB_SHA"
             echo "workflow_run_id=$GITHUB_RUN_ID"
             echo "attempt=$GITHUB_RUN_ATTEMPT"
-            echo "scope=C8_only_one_Rust_274_original_CL0_worlds_90_full_prefixes_and_one_Python_full_independent_original_CIL_replay"
+            echo "scope=C8_only_one_Rust_274_original_CL0_worlds_180_full_prefixes_and_one_Python_full_independent_original_CIL_replay"
           } > cl1b-ci-evidence/cl1b-c8-original-native-provenance.txt
       - name: Preserve original Rust CIL and independent complete negative evidence
         if: always()
