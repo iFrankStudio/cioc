@@ -1,0 +1,83 @@
+# C6: paid actor-maintained source-parameter shadow memory, true native
+# PC28 no-op rejection and researcher-poisoned cache negative control.
+name: CL-1B C6 actor-paid self-state mirror
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-G2-ACTOR-SELFSTATE-MIRROR-C6-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_g2_selfstate_mirror_c6.rs'
+      - 'cl1b/audits/cl1b_g2_selfstate_mirror_c6_independent_native_replay.py'
+      - '.github/workflows/cl1b-c6-selfstate-mirror.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c6-source-mirror
+  cancel-in-progress: true
+
+jobs:
+  original-native-c6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute exactly frozen 274 original-native paid single-PID worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_g2_selfstate_mirror_c6 -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-g2-c6-original-native.log
+      - name: Independently re-execute all original CIL and feedback events, including actor cell40
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_g2_selfstate_mirror_c6_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_independent_native_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_g2_selfstate_mirror_c6_independent_native_replay.json"))
+          assert d["verified_original_native_worlds"]==274 and d["first_divergence"] is None
+          assert d["actor_mirror_gate_allow"]>0 and d["actor_mirror_gate_abstain"]>0
+          assert d["skipped_same_value_edits"]==d["actor_mirror_gate_abstain"]
+          print("C6 exact original-native 274-world private charged CIL =",d["verified_charged_original_cil_instructions"])
+          print("C6 actor-paid mirror edit / skip =",d["actor_mirror_gate_allow"],d["actor_mirror_gate_abstain"])
+          print("C6 actor-paid mirror writes / paid noop edits avoided =",d["paid_mirror_writes"],d["skipped_same_value_edits"])
+          print("C6 paid poison native suppression and shadow mismatches =",d["poisoned_paid_pc28_effect_suppressions"],d["poisoned_shadow_mismatch_gate_events"])
+          print("C6 complete original-native 45-case costs =",d["arm_costs"])
+          print("C6 net mirror saving vs matched paid always/abstain =",d["full_fee_mirror_vs_always_saving"],d["full_fee_mirror_vs_abstain_saving"])
+          print("C6 pre-frozen main aggregate economic benefit gate ACCEPT =",d["main_efficiency_accepted"])
+          for name,row in d["family_arm_costs"].items():
+              print("C6 family",name,"costs",row)
+          PY
+      - name: Preserve exact source and original-run provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "source_sha=$GITHUB_SHA"
+            echo "workflow_run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=single_original_native_C6_Rust_test_274_worlds_full_paid_CIL_replay"
+          } > cl1b-ci-evidence/c6-original-native-provenance.txt
+      - name: Archive all original CIL, true service, shadow poison, and negative evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c6-original-native-paid-shadow-evidence
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
