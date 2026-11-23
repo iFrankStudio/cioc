@@ -1,0 +1,77 @@
+name: CL-1B C14b paid success-attested code restoration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C14B-PAID-WRITER-VERIFIED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C14B-PAID-WRITER-VERIFIED-SUCCESS-SOURCE-RESTORATION-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c14b_paid_writer_verified_success.rs'
+      - 'cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_native_replay.py'
+      - '.github/workflows/cl1b-c14b-paid-writer-verified-success.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c14b-original-native-paid-success-source
+  cancel-in-progress: true
+
+jobs:
+  original-native-and-independent-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all 274 original PID1 worlds and physical successful-source memory restorations
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c14b_paid_writer_verified_success -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c14b-original-native.log
+      - name: Independently reexecute every original native paid CIL and world intervention
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c14b_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c14b_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_c14b_independent_replay.json"))
+          assert d["native_worlds"]==274 and d["first_divergence"] is None
+          assert d["new_goal_schedules"]==45
+          assert d["native_worlds"]==274
+          assert d["new_goal_schedules"]==45
+          print("C14b writer-certified stored success count:",d["main_paid_success_source_records"])
+          print("C14b physical restores (can be zero scientific negative):",d["main_physical_success_source_restores"])
+          print("C14b original native independent complete paid CIL and memory provenance replay:",d)
+          PY
+      - name: Record original exact tested Git SHA and run ID
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C14b_274_native_worlds_full_paid_CIL_actor_executed_code_success_and_restoration_replay"
+          } > cl1b-ci-evidence/cl1b-c14b-original-provenance.txt
+      - name: Preserve full native 274-world original evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c14b-original-native-paid-writer-certified-success-code
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
