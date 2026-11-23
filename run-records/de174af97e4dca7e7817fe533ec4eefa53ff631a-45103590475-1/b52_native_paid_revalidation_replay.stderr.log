@@ -1,0 +1,11 @@
+file:///home/runner/work/cioc/cioc/cl1b/analysis/b52_native_paid_revalidation_replay.mjs:40
+if(!fs.existsSync(file))throw Error('B52 current-CI native trace missing');
+                              ^
+
+Error: B52 current-CI native trace missing
+    at file:///home/runner/work/cioc/cioc/cl1b/analysis/b52_native_paid_revalidation_replay.mjs:40:31
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.3
