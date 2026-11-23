@@ -1,0 +1,72 @@
+name: CL-1B C14c paid provenance-on successful-code restore
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C14C-SOURCE-WRITER-ON-DOUBLE-STORAGE-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c14c_provenance_on_success_restore.rs'
+      - 'cl1b/audits/cl1b_c14c_provenance_on_success_independent_replay.py'
+      - '.github/workflows/cl1b-c14c-provenance-on-success-restore.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c14c-optin-provenance-double-storage
+  cancel-in-progress: true
+
+jobs:
+  c14c-original-native-and-independent-cil:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 274 original PID1 fully paid CIL worlds, explicitly opt-in double cell storage
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c14c_provenance_on_success_restore -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c14c-original-native.log
+      - name: Independently replay full CIL, write-origin provenance and paid resource ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c14c_provenance_on_success_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c14c_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c14c_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_c14c_independent_replay.json"))
+          assert d["native_worlds"]==274 and d["first_divergence"] is None
+          assert d["new_goal_schedules"]==45
+          print("C14c source paid last-writer check and doubled storage exact replay",d)
+          PY
+      - name: Pin original SHA and Actions run provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C14c_274_native_worlds_paid_lastwriter_optin_double_storage_full_independent_CIL"
+          } > cl1b-ci-evidence/cl1b-c14c-original-provenance.txt
+      - name: Preserve all original native world CIL and feedback traces on failure or success
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c14c-native-writer-on-double-storage-274
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
