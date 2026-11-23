@@ -1,0 +1,78 @@
+name: CL-1B C16 exact source-pinned native one-use ticket 45-pair causal audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c16_original_native_paid_ticket_effect_45_pair_audit.py'
+      - '.github/workflows/cl1b-c16-original-ticket-effect-45-pair-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-native-paid-certificate-causality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch original preserved 274-world native ZIP from Git archive and require unchanged SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c16-archive
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show 'FETCH_HEAD:run-records/c39103bb8b810102a77ca3361acea7f7bc99be07-45116000258-1/original-native-artifact.zip' \
+            > /tmp/cl1b-c16-archive/original-native.zip
+          echo 'c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479  /tmp/cl1b-c16-archive/original-native.zip' | sha256sum -c -
+      - name: Re-audit full 45 strict ticket-source pairs, real 35 certificate writes, first causal divergence and 54 recovered stages
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c16_original_native_paid_ticket_effect_45_pair_audit.py \
+            /tmp/cl1b-c16-archive/original-native.zip \
+            cl1b-ci-evidence/cl1b_c16_original_native_45_strict_causal_pairs.json \
+            > cl1b-ci-evidence/cl1b_c16_ticket_effect_audit_log.txt
+          python3 - <<'PY'
+          import json
+          p='cl1b-ci-evidence/cl1b_c16_original_native_45_strict_causal_pairs.json'
+          d=json.load(open(p))
+          assert d['original_paid_cil']==1112914
+          assert d['full_original_274_worlds_replay_first_divergence'] is None
+          assert d['forty_five_strict_same_source_true_pairs']==45
+          assert d['true_ticket_effect_cases']==2
+          assert d['both_affected_cases_identical_native_pre_first_ticket_write']
+          assert d['paid_ticket_PC202_single_use_invariant_events']==35
+          assert d['stages_saved_by_ticket_actual_write_effect']==54
+          assert d['CIL_saved_by_ticket_effect']==713
+          assert d['main_physical_source_edit_effect_stage_gain_vs_same_source_suppression']==0
+          assert d['main_physical_effect_CIL_disadvantage']==359
+          assert len(d['complete_45_true_pairs'])==45
+          assert {x['name']:x['stages_saved'] for x in d['ticket_causal_cases']}=={
+            'c16_pulse_trains_a2_d0':22,'c16_irregular_switchback_a2_d2':32
+          }
+          print('C16 archived original native 274 worlds: all paid single-use evidence ticket and 45 matched physical controls, 54 stages saved; physical source restores not positive ROI.')
+          PY
+      - name: Record independently retrieved and audit source identities
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "audit_sha=$GITHUB_SHA"
+            echo "audit_run=$GITHUB_RUN_ID"
+            echo "original_native_test_sha=c39103bb8b810102a77ca3361acea7f7bc99be07"
+            echo "original_native_run=45116000258"
+            echo "original_native_zip_sha256=c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479"
+            echo "scope=retrospective_source_pinned_45_true_native_paid_ticket_suppression_pairs_and_4_false_controls"
+          } > cl1b-ci-evidence/cl1b-c16-ticket-effect-audit-provenance.txt
+      - name: Upload all 45 true-pair machine readable audit outcomes even on negative finding
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c16-original-native-exact-45-ticket-causal-pairs
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
