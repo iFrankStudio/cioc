@@ -1,0 +1,68 @@
+name: CL-1B C20 known C19B native exact PC202 paid single-use ticket effect
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c20_paid_ticket_spend_native.rs'
+      - 'cl1b/audits/cl1b_c20_paid_ticket_spend_independent_native_replay.py'
+      - '.github/workflows/cl1b-c20-known-paid-ticket-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c20-known-native
+  cancel-in-progress: true
+jobs:
+  original-184-worlds-and-independent-paid-CIL-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 184 original native worlds from frozen known-task protocol
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c20_paid_ticket_spend_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c20-native.log
+      - name: Independently replay 184 original worlds and verify strict first paid PC202 causal effect
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c20_paid_ticket_spend_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c20_original_native_184_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c20_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c20_independent_replay.json'))
+          assert d['native_worlds']==184 and d['first_divergence'] is None
+          assert d['known_C19B_goal_schedules_reused']==45
+          assert len(d['strict_PC202_effect_first_original_event_proofs'])==45
+          assert d['true_PC202_exposure_worlds']+d['strict_PC202_no_exposure_worlds']==45
+          print('C20 full 184-world Rust/native + Python paid-CIL replay + exact PC202 first-effect original audit PASS, B3/B4 NOT_MET')
+          PY
+      - name: Record test SHA, prior known cohort identity and no prospective novelty
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "cohort=KNOWN_C19B_45_REUSED_NOT_NEW_HELDOUT"
+            echo "scope=C20_ORIGINAL_184_NATIVE_WORLDS_EXACT_PC202_STATE_EFFECT"
+          } > cl1b-ci-evidence/cl1b-c20-native-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c20-known-original-native-184-worlds-paid-PC202-effect
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
