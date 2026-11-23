@@ -1,0 +1,1418 @@
+{
+  "evidence": "independent Rust-literal-source-parsed CIL execution; NOT native CI",
+  "worlds": 48,
+  "counts": {
+    "passed": 48,
+    "feedbackHeldoutCorrect": 91,
+    "feedbackHeldoutWrong": 21,
+    "staticHeldoutCorrect": 144,
+    "halted": 12,
+    "feedbackWrongRetentions": 2
+  },
+  "cases": [
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 2,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 2,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 3,
+      "trainWrong": 1,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 1,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 35
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 0,
+      "trainWrong": 7,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 3,
+      "trainWrong": 1,
+      "holdoutCorrect": 10,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 35
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 0,
+      "trainWrong": 7,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 3,
+      "trainWrong": 1,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 1,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 35
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 0,
+      "trainWrong": 7,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 3,
+      "trainWrong": 1,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 1,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 35
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 0,
+      "trainWrong": 7,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 9,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        5,
+        9
+      ],
+      "trueSwitches": 0,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 14,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 14,
+      "second": 15,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 2,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 2,
+      "trainWrong": 0,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 0,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 17,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": -9,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    },
+    {
+      "arm": "Feedback",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "AssumePass",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 7,
+      "trainWrong": 0,
+      "holdoutCorrect": 9,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 15,
+      "finalWriteNext": [
+        9,
+        5
+      ],
+      "trueSwitches": 1,
+      "trueRetentions": 1,
+      "fallbackWrites": 0,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 15,
+          "before": 9,
+          "after": 5,
+          "at": 17
+        }
+      ]
+    },
+    {
+      "arm": "ForceFallback",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 1,
+      "trainWrong": 1,
+      "holdoutCorrect": 0,
+      "holdoutWrong": 0,
+      "charged": 35,
+      "stopped": true,
+      "finalEdge": 14,
+      "finalWriteNext": [
+        9,
+        9
+      ],
+      "trueSwitches": 2,
+      "trueRetentions": 0,
+      "fallbackWrites": 1,
+      "edits": [
+        {
+          "node": 8,
+          "before": 14,
+          "after": 15,
+          "at": 5
+        },
+        {
+          "node": 8,
+          "before": 15,
+          "after": 14,
+          "at": 20
+        }
+      ]
+    },
+    {
+      "arm": "StaticCorrect",
+      "first": 15,
+      "second": 14,
+      "train": 23,
+      "holdout": 17,
+      "trainCorrect": 12,
+      "trainWrong": 0,
+      "holdoutCorrect": 12,
+      "holdoutWrong": 0,
+      "charged": 96,
+      "stopped": false,
+      "finalEdge": 3,
+      "finalWriteNext": null,
+      "trueSwitches": 0,
+      "trueRetentions": 0,
+      "fallbackWrites": 0,
+      "edits": []
+    }
+  ]
+}
