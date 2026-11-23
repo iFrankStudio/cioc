@@ -1,0 +1,68 @@
+name: CL-1B C21 true new heldout 186-world paid PC202 causal test
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c21_paid_ticket_spend_new_heldout.rs'
+      - 'cl1b/audits/cl1b_c21_paid_ticket_spend_new_heldout_independent_replay.py'
+      - '.github/workflows/cl1b-c21-new-heldout-paid-ticket-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c21-new-heldout-native
+  cancel-in-progress: true
+jobs:
+  original-186-worlds-and-independent-paid-CIL-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run all 186 new native worlds from fully preregistered genuinely unseen 45 cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c21_paid_ticket_spend_new_heldout -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c21-native.log
+      - name: Independently replay all 186 frozen new-goal worlds and all 45 PC202 strict first-effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c21_paid_ticket_spend_new_heldout_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c21_original_native_186_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c21_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c21_independent_replay.json'))
+          assert d['native_worlds']==186 and d['first_divergence'] is None
+          assert d['new_heldout_goal_schedules']==45
+          assert len(d['strict_PC202_effect_first_original_event_proofs'])==45
+          assert d['true_PC202_exposure_worlds']+d['strict_PC202_no_exposure_worlds']==45
+          print('C21 original 186-world NEW HELDOUT Rust/native + independent Python paid-CIL + exact PC202 first-effect PASS, B3/B4 NOT_MET')
+          PY
+      - name: Record test SHA, prior known cohort identity and no prospective novelty
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "cohort=NEW_UNSEEN_C21_45_FROZEN_DISJOINT_FROM_8_HISTORICAL_MANIFESTS"
+            echo "scope=C21_ORIGINAL_186_NATIVE_WORLDS_EXACT_PC202_STATE_EFFECT"
+          } > cl1b-ci-evidence/cl1b-c21-native-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c21-new-heldout-original-186-worlds-paid-PC202-effect
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
