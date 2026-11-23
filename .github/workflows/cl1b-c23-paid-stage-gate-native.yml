@@ -1,0 +1,75 @@
+name: CL-1B C23 186 paid-native F7 maturity gate new task experiment
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c23_paid_stage_maturity_gate_native.rs'
+      - 'cl1b/audits/cl1b_c23_paid_stage_gate_independent_native_replay.py'
+      - '.github/workflows/cl1b-c23-paid-stage-gate-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c23-paid-gate-native
+  cancel-in-progress: true
+jobs:
+  frozen-new-goals-original-paid-native-186:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Original Rust C23 186 worlds four frozen arms 45 genuinely new tasks and six false-feedback controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c23_paid_stage_maturity_gate_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c23-native.log
+      - name: Independent every paid CIL, service, code edit, staged Read32/Branch82, same-source first physical edit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c23_paid_stage_gate_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c23_original_native_186_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c23_independent_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c23_independent_paid_replay.json'))
+          assert d['study']=='CL1B-C23-F7-PAID-OBSERVED-STAGE-MATURITY-CODE-EDIT-GATE'
+          assert d['original_native_worlds_exactly_replayed']==186
+          assert d['first_divergence'] is None
+          assert len(d['same_source_first_true_physical_patchnext_effect'])==45
+          assert sum(d['actor_paid_stage_gate_evidence'][x] for x in ('gate_skip_zero_stage','gate_allow_after_stage'))==d['actor_paid_stage_gate_evidence']['paid_stage_reads']
+          assert all(0<=v<=1080 for v in d['arm_true_matched_stages'].values())
+          print('C23 PASS: full 186 original native paid-worlds + 186 independently replayed exact paid-CIL traces and actor-completed stage branch decisions. B3/B4 NOT_MET')
+          print('C23 real four-arm fees',d['arm_fees'])
+          print('C23 real stage successes',d['arm_true_matched_stages'])
+          print('C23 source-paid maturity gate',d['actor_paid_stage_gate_evidence'])
+          PY
+      - name: Original source SHA and frozen cohort provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "original_frozen_cohort=C23_45_TRUE_NEW_24_STAGE_GOALS_V1"
+            echo "pre_native_frozen_source=CL1B-C23-PAID-STAGE-GATE-frozen-186-worlds-v1.json"
+            echo "original_parent_source=CL1B-POLICY-P4F6-frozen-actor-paid-clean-success-refill-542-world-v1.json"
+            echo "scope=AUTHOR_DEFINED_PID_PAID_MATURITY_GATE_NOT_TRUE_SELF_LEARNED_ROI"
+          } > cl1b-ci-evidence/cl1b-c23-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c23-original-native-186-world-new-goal-paid-stage-gate
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
