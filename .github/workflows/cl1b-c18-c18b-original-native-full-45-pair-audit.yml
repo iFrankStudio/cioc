@@ -1,0 +1,98 @@
+name: CL-1B C18+C18b source-pinned zero exposure and 33/33 source-change miss audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c18_c18b_original_274_zero_exposure_and_65_paid_false_equal_audit.py'
+      - '.github/workflows/cl1b-c18-c18b-original-native-full-45-pair-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-two-original-native-274-world-full-pair-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently retrieve immutable original C18 and C18b 274-world ZIPs from Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c18-native-archives
+          p18='run-records/3bdfd2332fc0b6ec99996fedc8887495d14894d7-45123659232-1/original-native-artifact.zip'
+          p18b='run-records/e17ecbef4599d4112a2db2221c852678d48ffdaf-45124104775-1/original-native-artifact.zip'
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+            if git cat-file -e "FETCH_HEAD:$p18" 2>/dev/null && \
+               git cat-file -e "FETCH_HEAD:$p18b" 2>/dev/null; then
+              git show "FETCH_HEAD:$p18" > /tmp/cl1b-c18-native-archives/C18-original.zip
+              git show "FETCH_HEAD:$p18b" > /tmp/cl1b-c18-native-archives/C18b-known-original.zip
+              echo "Original C18/C18b persistent Git ZIP evidence both present on attempt $attempt"
+              break
+            fi
+            if [ "$attempt" = 8 ]; then
+              echo 'Both original C18/C18b permanent Git evidence archives not ready: no fallback to fake local results' >&2
+              exit 1
+            fi
+            sleep 12
+          done
+          echo '810cfcadb2e8912fd998c21d6600401351556a9fbfc3191021019adefaa5fbdc  /tmp/cl1b-c18-native-archives/C18-original.zip' | sha256sum -c -
+          echo 'dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad  /tmp/cl1b-c18-native-archives/C18b-known-original.zip' | sha256sum -c -
+      - name: Re-audit all original C18 prospective zero exposure and all known C18b 65 paid comparison PC102 physical truths, eight strict paired first PC225 effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c18_c18b_original_274_zero_exposure_and_65_paid_false_equal_audit.py \
+            /tmp/cl1b-c18-native-archives/C18-original.zip \
+            /tmp/cl1b-c18-native-archives/C18b-known-original.zip \
+            cl1b-ci-evidence/cl1b_c18_c18b_original_native_full45_source_truth_and_causal_pairs.json \
+            > cl1b-ci-evidence/cl1b-c18-c18b-exact-original-audit.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c18_c18b_original_native_full45_source_truth_and_causal_pairs.json'))
+          assert d['independent_original_CIL_replay_first_divergence'] is None
+          assert d['unseen_C18_all_45_prospective_cases_have_zero_exposure']
+          assert d['known_C18b_45_case_exposure_cohort_IS_PREVIOUS_C17_NOT_HOLDOUT']
+          assert d['paid_comparisons']==65
+          assert d['original_cache_vs_physical_confusion']=={
+              'actor_equal_actual_equal':31,
+              'actor_equal_actual_different':33,
+              'actor_different_actual_equal':1,
+              'actor_different_actual_different':0,
+          }
+          assert d['actual_physical_edits_all_misclassified_equal']==33
+          assert d['actor_stored_same_marker']==64
+          assert d['only_one_monitor_activated_on_actually_unchanged_source']==1
+          assert d['same_source_real_PC225_effect_cases']==8
+          assert d['exact_pre_first_PC225_native_event_prefix_equal']
+          assert d['main_minus_suppressed_CIL_disadvantage']==2484
+          assert len(d['known_C18b_complete_45_original_pairs'])==45
+          assert len(d['known_C18b_effect_cases'])==8
+          print('PASS 274 original unseen C18 + 274 separate known C18b worlds: real code-changes 33/33 falsely called equal by stale cell41; strict PC225 gate adds 2484 CIL; B3/B4 not met.')
+          PY
+      - name: Pin two tested SHAs and permanent evidence paths
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_revision=$GITHUB_SHA"
+            echo "audit_run_id=$GITHUB_RUN_ID"
+            echo "C18_unseen_original_test_sha=3bdfd2332fc0b6ec99996fedc8887495d14894d7"
+            echo "C18_unseen_native_run=45123659232"
+            echo "C18_unseen_zip_sha256=810cfcadb2e8912fd998c21d6600401351556a9fbfc3191021019adefaa5fbdc"
+            echo "C18b_known_original_test_sha=e17ecbef4599d4112a2db2221c852678d48ffdaf"
+            echo "C18b_known_native_run=45124104775"
+            echo "C18b_known_zip_sha256=dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad"
+            echo "scope=two_distinct_original_274_runs_not_independent_generalization_true_45_pairs"
+          } > cl1b-ci-evidence/cl1b-c18-c18b-original-audit-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c18-c18b-source-pinned-original-45-source-truth-causal-pairs
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
