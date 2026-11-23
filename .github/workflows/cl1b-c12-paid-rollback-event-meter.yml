@@ -35,7 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p cl1b-ci-evidence
-          cargo test --locked -p cl0-world --test cl1b_c12_paid_service_meter -- --nocapture \
+          cargo test --locked -p cl0-world --test cl1b_c12_paid_rollback_event_meter -- --nocapture \
             2>&1 | tee cl1b-ci-evidence/cl1b-c12-native.log
       - name: Independently replay 182 original native CIL streams
         shell: bash
