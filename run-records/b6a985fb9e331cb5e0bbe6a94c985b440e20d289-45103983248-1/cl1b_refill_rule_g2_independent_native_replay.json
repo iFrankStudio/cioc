@@ -1,0 +1,46 @@
+{
+  "study": "CL1B-REFILL-RULE-G2",
+  "status": "VERIFIED_ORIGINAL_NATIVE_CIL_PER_INSTRUCTION",
+  "worlds": 184,
+  "total_native_paid_cil": 283918,
+  "first_divergence": null,
+  "conditional_effective_source_mutations": 15,
+  "conditional_later_mutated_parameter_reads": 8,
+  "conditional_paid_decision_gates": 27,
+  "per_regime_total_charged_cil": {
+    "stationary_terminal_switch": {
+      "G2_changed_allow": 9432,
+      "G2_changed_deny": 9432,
+      "G2_always": 9432,
+      "G2_never": 9432
+    },
+    "persistent_drift_two_shifts": {
+      "G2_changed_allow": 13791,
+      "G2_changed_deny": 13458,
+      "G2_always": 14143,
+      "G2_never": 13115
+    },
+    "rapid_reversal_pulses": {
+      "G2_changed_allow": 15635,
+      "G2_changed_deny": 15250,
+      "G2_always": 16427,
+      "G2_never": 14789
+    },
+    "late_phase_flip": {
+      "G2_changed_allow": 13425,
+      "G2_changed_deny": 13425,
+      "G2_always": 13425,
+      "G2_never": 13425
+    },
+    "seeded_noise_impulses": {
+      "G2_changed_allow": 17998,
+      "G2_changed_deny": 18193,
+      "G2_always": 18347,
+      "G2_never": 17844
+    }
+  },
+  "nonclaims": [
+    "Source mutator authored externally",
+    "B3/B4 not met"
+  ]
+}

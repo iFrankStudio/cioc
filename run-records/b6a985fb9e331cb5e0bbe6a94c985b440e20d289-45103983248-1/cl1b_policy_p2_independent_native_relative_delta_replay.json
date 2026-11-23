@@ -1,0 +1,151 @@
+{
+  "study": "CL1B-POLICY-P2",
+  "evidence_level": "NATIVE_168_ORIGINAL_WORLD_EXACT_CHARGED_STEP_INDEPENDENT_REPLAY",
+  "source_sha": "b6a985fb9e331cb5e0bbe6a94c985b440e20d289",
+  "original_private_paid_steps_independently_replayed": 40735,
+  "original_worlds": 168,
+  "goals": 81,
+  "paid_previous_goal_Write34_and_Read34": true,
+  "actual_original_PID1_owns_relative_policy_PatchConst46": true,
+  "causally_helped": 27,
+  "causally_harmed": 27,
+  "causally_tied": 27,
+  "net_paid_savings_on_full_goal_cube": -54,
+  "relative_absolute_paid_change_vs_native_verified_P1_projection": -1917,
+  "first_divergence": null,
+  "selected_causal_counterexamples": [
+    {
+      "goals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "paid_when_policy_mutates": 198,
+      "paid_when_source_edit_suppressed": 296,
+      "causal_savings": 98,
+      "original_source_patch": [
+        {
+          "step": 125,
+          "source_node": 46,
+          "before": 1,
+          "after": 0,
+          "requested": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    },
+    {
+      "goals": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "paid_when_policy_mutates": 271,
+      "paid_when_source_edit_suppressed": 221,
+      "causal_savings": -50,
+      "original_source_patch": [
+        {
+          "step": 125,
+          "source_node": 46,
+          "before": 1,
+          "after": 0,
+          "requested": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    },
+    {
+      "goals": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "paid_when_policy_mutates": 223,
+      "paid_when_source_edit_suppressed": 223,
+      "causal_savings": 0,
+      "original_source_patch": [
+        {
+          "step": 76,
+          "source_node": 46,
+          "before": 1,
+          "after": 1,
+          "requested": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    },
+    {
+      "goals": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "paid_when_policy_mutates": 222,
+      "paid_when_source_edit_suppressed": 320,
+      "causal_savings": 98,
+      "original_source_patch": [
+        {
+          "step": 149,
+          "source_node": 46,
+          "before": 1,
+          "after": 0,
+          "requested": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    },
+    {
+      "goals": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "paid_when_policy_mutates": 196,
+      "paid_when_source_edit_suppressed": 196,
+      "causal_savings": 0,
+      "original_source_patch": [
+        {
+          "step": 100,
+          "source_node": 46,
+          "before": 1,
+          "after": 1,
+          "requested": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    },
+    {
+      "goals": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "paid_when_policy_mutates": 244,
+      "paid_when_source_edit_suppressed": 338,
+      "causal_savings": 94,
+      "original_source_patch": [
+        {
+          "step": 171,
+          "source_node": 46,
+          "before": 1,
+          "after": 0,
+          "requested": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "independent_native_divergence": null
+    }
+  ],
+  "limitations": "Researcher-authored relative-delta heuristic with finite alphabet; expensive extra paid observation cannot predict unrestricted future tasks and is not general policy invention."
+}

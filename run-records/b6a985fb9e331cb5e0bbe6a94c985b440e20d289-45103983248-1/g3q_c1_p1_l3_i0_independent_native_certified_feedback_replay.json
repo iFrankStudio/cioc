@@ -1,0 +1,46 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I0",
+  "evidence_level": "EXACT_NATIVE_EVERY_PID_STEP_AND_FEEDBACK_REPLAY",
+  "source_sha": "b6a985fb9e331cb5e0bbe6a94c985b440e20d289",
+  "independently_verified_original_paid_steps": 3697,
+  "arms": [
+    {
+      "arm": "safe_bank_2_0_2_true_shift",
+      "original_paid_steps": 1357,
+      "actor_certified": true,
+      "real_task_services": 8,
+      "true_task_matches": 4,
+      "claimed_success": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "safe_bank_2_2_2_true_shift",
+      "original_paid_steps": 1109,
+      "actor_certified": true,
+      "real_task_services": 6,
+      "true_task_matches": 4,
+      "claimed_success": 1,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "unsafe_tail3_cert_reject",
+      "original_paid_steps": 362,
+      "actor_certified": false,
+      "real_task_services": 0,
+      "true_task_matches": 0,
+      "claimed_success": 0,
+      "native_first_divergence": null
+    },
+    {
+      "arm": "safe_bank_deceptive_feedback",
+      "original_paid_steps": 869,
+      "actor_certified": true,
+      "real_task_services": 4,
+      "true_task_matches": 0,
+      "claimed_success": 1,
+      "native_first_divergence": null
+    }
+  ],
+  "first_divergence": null,
+  "limits": "One PID certifies authored safe grammar but did not create descriptors by in-world rule search; deceptive feedback still yields false success."
+}
