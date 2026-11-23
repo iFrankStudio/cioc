@@ -1,0 +1,77 @@
+name: CL-1B C13 native paid counter-controlled rollback
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C13-PAID-COUNTER-CAUSAL-ROLLBACK-GATE-frozen-184-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C13-PAID-COUNTER-CAUSAL-ROLLBACK-GATE-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c13_paid_counter_causal_gate.rs'
+      - 'cl1b/audits/cl1b_c13_paid_counter_causal_gate_independent_replay.py'
+      - '.github/workflows/cl1b-c13-paid-counter-causal-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c13-native-paid-counter-gate
+  cancel-in-progress: true
+
+jobs:
+  original-native-and-independent-interpreter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run all 184 original CL0 C13 native paid-source worlds and four corrupt-feedback controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c13_paid_counter_causal_gate -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c13-original-native.log
+      - name: Independently replay all paid CIL and external tamper/feedback interventions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c13_paid_counter_causal_gate_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c13_native_184_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c13_independent_replay.json
+          python3 - <<'PY'
+          import json
+          p="cl1b-ci-evidence/cl1b_c13_independent_replay.json"
+          d=json.load(open(p))
+          assert d["native_worlds"]==184 and d["first_divergence"] is None
+          assert d["new_frozen_true_cases"]==30
+          assert d["gated_live_skipped_paid_PC102"]>0
+          assert d["causal_tamper_differentiated_cases"]>0
+          assert d["externally_tampered_events"]>0
+          print("C13 full original-native exact source-interpreter parity",d)
+          PY
+      - name: Record source SHA and original experiment run scope
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C13_184_native_single_PID1_worlds_full_original_paid_CIL_and_external_intervention_independent_replay"
+          } > cl1b-ci-evidence/cl1b-c13-original-provenance.txt
+      - name: Archive all original complete traces including failed worlds
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c13-original-native-paid-counter-controlled-rollback
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
