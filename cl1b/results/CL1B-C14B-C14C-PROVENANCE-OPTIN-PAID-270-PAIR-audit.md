@@ -2,6 +2,13 @@
 
 **2026-11-23 UTC。此为原生实验完成后的回顾性全分母源钉死对照分析，不是前瞻盲法预注册、更不代表主体学会ROI。** 两次独立原生专项及独立CIL逐指令复放均成功以后，再逐案例比对原始存档。所有45×6真实世界和4假反馈控制均保留。
 
+## 永久原始证据二进制与独立CI再审（2026-11-23 UTC）
+
+- **C14b 来源OFF原始 ZIP**：[永久证据分支固定原始目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/2ecf5fd5510d6a0564c8cf4eba81f37c637f8bf3-45108367499-1)，[独立远端归档/原始字节再取回 CI #45109057308 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109057308)，原始受测SHA `2ecf5fd5510d6a0564c8cf4eba81f37c637f8bf3`，ZIP SHA256 `d35dfa5dd01bb0d0443a839ebbd35c99d29458ee9acac6c2ff740ebe0e60e941`。第一次归档CI #45108518197 的Git push遇到并发快速前移而失败，保留失败记录；补入非强制rebase/retry后重新核验全部文件、推送并远端重新读回字节，成功归档。
+- **C14c 来源ON原始 ZIP**：[永久证据分支固定原始目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/f19110445f7535d1bbdc0041abe76e11034718e0-45108004088-1)，[独立归档/远端字节再读CI #45108226420 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45108226420)，原始受测SHA `f19110445f7535d1bbdc0041abe76e11034718e0`，ZIP SHA256 `9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be`。
+- **独立跨原始运行270配对再计算**：[GitHub Actions #45109540958 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109540958)，[严格源钉死原始ZIP审计脚本](../audits/cl1b_c14b_c14c_source_pinned_optin_cost_audit.py)由远端Git取回两份历史已存原始ZIP，重新核验双方SHA256/ZIP CRC、274 JSONL与原始独立重放first_divergence=null，逐对重算**270/270相同任务服务序列、270/270净费精确4×有费成功Write44、ON-OFF总+3680、每个同源四臂+920、来源ON的230次可验证记忆，以及四臂陈旧23/190/23/229和主臂占用204→220**，全部PASS。[机器可读270配对工件#14788594100](https://github.com/iFrankStudio/cioc/actions/runs/45109540958/artifacts/14788594100)。这只是回顾性完整分母再分析，不是新原生实验和未来未知任务。
+- **独立恢复后可达性再审**：[CI #45109217214 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109217214)，[完整五例原生证据报告](CL1B-C14C-POST-RESTORE-NO-REEXECUTION-17004-395-source-pinned-audit.md)：5次实际物理PC173改写后仍经历**17004条后续有偿CIL、395次真任务反馈，但PC173原生执行0次**，排除“仅因为改写发生在任务结束时才没重试”的简化解释；不宣称所有未来永不可达。
+
 ## 精确原始证据
 
 - **C14b，来源记录 OFF：** 原CL0`World::with_strict_capacity(16,189,300)`，没有开启`with_cell_write_provenance()`，但PID1仍为普通`ReadLastWriter`付费。受测SHA `2ecf5fd5510d6a0564c8cf4eba81f37c637f8bf3`；[原生+独立复放CI #45108367499 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45108367499)。274世界**1,050,989**条真实私有付费CIL，first_divergence=null。原始ZIP工件#14788592048，字节**10,017,135**，原始SHA256 `d35dfa5dd01bb0d0443a839ebbd35c99d29458ee9acac6c2ff740ebe0e60e941`，278成员/274原生JSONL、CRC PASS。其早先多次失败的测试/非法PC183→189/独立重放路径错误保留于历史，成功运行并不改写过去。
