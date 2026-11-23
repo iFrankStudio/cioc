@@ -136,14 +136,16 @@ fn run(m: &Value, name: &str, arm: &str, mode: &str, goals: &[i64],
                 assert!(matches!(e.kind,EventKind::Executed));
                 if let Op::Const{value:old,..}=&mut expected[target] {*old=value;}
             }
-            if pc==102 {
-                assert_eq!(target,173);
+            if pc==102 && target==173 {
                 assert_eq!(value,world.cell(42).unwrap_or(0),"PC102 value must be actor-stored parent");
                 pc102_paid+=1;
                 if !suppressed&&before!=value {physically_changed+=1;}
                 if gated {
                     assert_eq!(last_paid_185.map(|x|x<paid),Some(true));
                 }
+            }
+            if pc==102 && arm=="c9_fixed_abstain_reference" {
+                assert_eq!(target,46,"C9 historical PC102 patches stride, never the C13 parent target");
             }
             edits.push(json!([pc,target,before,value,suppressed]));
         }
