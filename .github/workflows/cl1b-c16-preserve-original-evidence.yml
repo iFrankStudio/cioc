@@ -1,0 +1,113 @@
+name: CL-1B preserve verified C16 original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c16-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c16-permanent-native-evidence
+  cancel-in-progress: false
+
+jobs:
+  preserve-verified-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download and check original-success C16 artifact, exact byte hash and 274 traces
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c16-preserve
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14791054622/zip" \
+            -o /tmp/cl1b-c16-preserve/original-native.zip
+          echo 'c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479  /tmp/cl1b-c16-preserve/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          p='/tmp/cl1b-c16-preserve/original-native.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              names=z.namelist()
+              assert len(names)==len(set(names))==278,len(names)
+              assert sum(n.endswith('.jsonl') for n in names)==274
+              d=json.loads(z.read('cl1b_c16_original_native_274_worlds.json'))
+              a=json.loads(z.read('cl1b_c16_independent_replay.json'))
+              assert d['study']=='CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE'
+              assert d['native_worlds']==274 and len(d['records'])==45
+              assert d['total_paid_cil']==a['exact_private_paid_cil_replayed']==1112914
+              assert a['first_divergence'] is None and a['native_worlds']==274
+              assert d['main_actor_paid_success_records']==78
+              assert d['main_actual_physical_pc173_restores']==33
+              assert d['same_source_live_vs_suppressed_paid_or_feedback_difference_cases']==2
+              assert d['same_source_live_vs_ticket_spend_effect_difference_cases']==2
+              assert d['arm_completed_worlds']['truth_one_use_reentry']==45
+              assert d['arm_completed_worlds']['same_source_pc202_ticket_consumption_suppressed']==43
+              assert d['arm_completed_worlds']['different_source_c9_fixed_abstain']==45
+              assert d['arm_fees']['truth_one_use_reentry']==195446
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==132701
+              assert sum(r['arms'][0]['paid_ticket_consumed_gate_rejections'] for r in d['records'])==4
+              assert sum(r['arms'][0]['paid_ticket_spend_writes'] for r in d['records'])==35
+              assert sum(r['arms'][2]['paid_ticket_spend_writes'] for r in d['records'])==73
+              prov=z.read('cl1b-c16-original-provenance.txt').decode()
+              assert 'tested_sha=c39103bb8b810102a77ca3361acea7f7bc99be07' in prov
+              assert 'run_id=45116000258' in prov
+              print('C16 native ZIP integrity PASS: all 274 original 203-node source-paid worlds, four true ticket blocks, 2 blocked 6000-budget losses, independent full CIL')
+          PY
+      - name: Preserve binary original at immutable run-record path on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/c39103bb8b810102a77ca3361acea7f7bc99be07-45116000258-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c16-preserve/original-native.zip "$dest/original-native-artifact.zip"
+          echo 'c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C16 original 274-world paid single-use success certificate native archive'
+            # Independent focused-history and C14c archival jobs share this branch.
+            # Rebase the unique C16 evidence commit onto the new remote HEAD
+            # after a stale-ref rejection. Never force push or drop another run.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then
+                echo "C16 original bytes pushed on attempt $attempt"
+                break
+              fi
+              if [ "$attempt" = 5 ]; then
+                echo "C16 evidence push still conflicted after five retries" >&2
+                exit 1
+              fi
+              echo "C16 archive branch changed concurrently: retry $attempt/5" >&2
+              git fetch origin cl1b-ci-evidence
+              git rebase origin/cl1b-ci-evidence
+            done
+          else
+            echo 'Identical C16 bytes already recorded'
+          fi
+      - name: Fetch back Git archive bytes and repeat independent hash check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/c39103bb8b810102a77ca3361acea7f7bc99be07-45116000258-1'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | grep -F 'c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F 'c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479'
+          echo 'C16 independently fetched permanent Git original binary: exact SHA-256 verified'
