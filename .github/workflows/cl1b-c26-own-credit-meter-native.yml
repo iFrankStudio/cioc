@@ -1,0 +1,85 @@
+name: CL-1B C26 generic paid own-private-resource sensor 4 original native worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/src/lib.rs'
+      - 'cl0/crates/world/tests/cl1b_c26_private_compute_meter_original_native.rs'
+      - 'cl1b/audits/cl1b_c26_original_native_paid_own_credit_independent_replay.py'
+      - '.github/workflows/cl1b-c26-own-credit-meter-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c26-credited-own-resource-meter-native
+  cancel-in-progress: true
+jobs:
+  original-rust-neutral-abi-and-independent-four-paid-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Check generic append-only opcode35 CIL neutral paid private-credit ABI and post-debit behavior
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --locked -p cl0-world c26_private_compute_sensor_contract -- --nocapture
+      - name: Run four original Rust native worlds on same 160 CIL source and two reversed real candidate cost regimes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c26_private_compute_meter_original_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c26-original-native.log
+      - name: Independent ordinary Python full original paid CIL interpreter confirms native credit sensors, trials, own decision, edit and true services
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c26_original_native_paid_own_credit_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c26_original_native_four_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c26_independent_full_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c26_independent_full_paid_replay.json'))
+          assert d['study']=='CL1B-C26-PAID-OWN-CREDIT-METROLOGY-CANDIDATE-CHOICE'
+          assert d['original_native_worlds_exactly_replayed']==4
+          assert d['first_divergence'] is None
+          assert d['true_production_services']==96
+          assert len(d['original_pair_causal_first_effect_prefix'])==2
+          assert d['original_pair_causal_first_effect_prefix'][0]['full_same_source_paid_CIL_native_traces_equal']
+          assert d['original_pair_causal_first_effect_prefix'][1]['first_physical_edit_exposure']['paid_PC']==95
+          assert d['actor_paid_cost_A_and_B_and_chosen_candidate']['m0_on']['choice']==0
+          assert d['actor_paid_cost_A_and_B_and_chosen_candidate']['m1_on']['choice']==1
+          print('C26 PASS: four original native full paid-CIL worlds, independently replayed actual private post-debit resource measurements and selection. B3/B4 NOT_MET')
+          print('C26 charged real cost per world',d['native_original_full_paid_CIL_per_world'])
+          print('C26 PID itself charged private trials A/B and chose source:',d['actor_paid_cost_A_and_B_and_chosen_candidate'])
+          print('C26 strict identical-initial-source mode1 paid effect saving:',d['same_initial_source_mode1_effect_net_paid_saving'])
+          PY
+      - name: Preserve C26 original native source, manifest and non-blinded status provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "full_prenative_frozen_protocol=CL1B-C26-PAID-OWN-CREDIT-METER-CANDIDATE-CHOICE-frozen-4-worlds-v1.json"
+            echo "CIL_neutral_resource_sensor=SenseOwnCredits_tag35_POST_PRIVATE_CHARGE"
+            echo "preflight_disclosed=NONRUST_SIM_PREDICTED_454_454_458_554"
+            echo "scientific_scope=ENGINEERED_4_WORLD_PAID_METROLOGY_FEASIBILITY_NOT_BLIND_GENERALIZATION"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c26-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c26-original-4-native-paid-private-resource-choices
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
