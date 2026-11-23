@@ -1,0 +1,45 @@
+{
+  "active_writes": [
+    [
+      62,
+      1
+    ],
+    [
+      63,
+      3
+    ],
+    [
+      64,
+      2
+    ]
+  ],
+  "bank_reads": [
+    [
+      51,
+      1
+    ],
+    [
+      52,
+      3
+    ],
+    [
+      53,
+      2
+    ]
+  ],
+  "certificate_writes": 64,
+  "charged_steps": 24066,
+  "credits_remain": 7934,
+  "credits_start": 32000,
+  "diagnostic_output": 2,
+  "github_sha": "2bc297beebe712c8634f874d3c2d32d22929c240",
+  "level": "NATIVE_NARROW_DEPLOYMENT_BRIDGE_NOT_TASK_SERVICE",
+  "limitations": "No hidden task, true service, task feedback, task shift, or independent replay. No full C1 achievement.",
+  "original_pid": 1,
+  "paid_retention_writes": 72,
+  "peak_occupied": 197,
+  "postload_external_cell_interventions": 0,
+  "restarts": 0,
+  "source_nodes": 180,
+  "study": "B56-F1d1k-G3Q-C1-P0"
+}
