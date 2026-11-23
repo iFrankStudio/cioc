@@ -14,7 +14,7 @@ const C18_FROZEN: &str="../../../cl1b/studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-
 const C18B_FROZEN: &str="../../../cl1b/studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-frozen-274-worlds-v1.json";
 const C19A_FROZEN: &str="../../../cl1b/studies/CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION-frozen-274-worlds-v1.json";
 const C19B_FROZEN: &str="../../../cl1b/studies/CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT-frozen-274-worlds-v1.json";
-const C21_FROZEN: &str="../../../cl1b/studies/CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-frozen-186-worlds-v1.json";
+const C21_FROZEN: &str="../../../cl1b/studies/CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-frozen-186-worlds-v2.json";
 const CELLS: [i64; 20]=[11,20,21,30,32,33,34,35,36,37,38,39,40,41,42,44,45,46,47,48];
 const CREDIT: u64=6000;
 
@@ -706,7 +706,7 @@ fn c21_45_new_goals_paid_ticket_effect_prospective_heldout() {
     assert_eq!(c19a["study"],"CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION");
     assert_eq!(c19b["study"],"CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT");
     assert_eq!(policy["study"],"CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-HELDOUT");
-    assert_eq!(policy["status"],"PRE_NATIVE_FROZEN_TRUE_NEW_PROSPECTIVE_HELDOUT");
+    assert_eq!(policy["status"],"PRE_NATIVE_FROZEN_V2_PRE_EXECUTION_RECOVER_MISSING_ARRAY");
     assert_eq!(policy["counts"]["cases"],45);
     assert_eq!(c19b["source_append_229_through_240"],c19a["source_append_229_through_240"],
         "Prospective C19b source cannot depend on C19a outcome");

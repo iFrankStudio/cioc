@@ -15,7 +15,7 @@ C18=ROOT/"studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-DIFF-POSTEDIT-GATE-frozen-27
 C18B=ROOT/"studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-frozen-274-worlds-v1.json"
 C19A=ROOT/"studies/CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION-frozen-274-worlds-v1.json"
 C19B=ROOT/"studies/CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT-frozen-274-worlds-v1.json"
-C21=ROOT/"studies/CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-frozen-186-worlds-v1.json"
+C21=ROOT/"studies/CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-frozen-186-worlds-v2.json"
 CELLS=(11,20,21,30,32,33,34,35,36,37,38,39,40,41,42,44,45,46,47,48)
 CREDIT=6000
 
@@ -610,7 +610,7 @@ def main(summary_path,folder):
     assert c19a["study"]=="CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION"
     assert c19b["study"]=="CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT"
     assert policy["study"]=="CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-HELDOUT"
-    assert policy["status"]=="PRE_NATIVE_FROZEN_TRUE_NEW_PROSPECTIVE_HELDOUT"
+    assert policy["status"]=="PRE_NATIVE_FROZEN_V2_PRE_EXECUTION_RECOVER_MISSING_ARRAY"
     assert policy["counts"]["cases"]==45
     assert c19b["source_append_229_through_240"]==c19a["source_append_229_through_240"]
     frozen_source=source(p,"truth_paid_live_self_executed_source_difference_gate")
