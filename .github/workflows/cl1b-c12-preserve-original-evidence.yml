@@ -1,0 +1,89 @@
+name: CL-1B preserve verified C12 original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c12-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c12-permanent-native-evidence
+  cancel-in-progress: false
+
+jobs:
+  preserve-verified-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download and check original-success C12 artifact, exact byte hash and 182 traces
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c12-preserve
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14786616843/zip" \
+            -o /tmp/cl1b-c12-preserve/original-native.zip
+          echo '431d81ef9c6f2438fa92c8a5403b31687e761c1ac5e808cbc1a0d55c3176210a  /tmp/cl1b-c12-preserve/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile,hashlib
+          p='/tmp/cl1b-c12-preserve/original-native.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              names=z.namelist()
+              assert len(names)==len(set(names))==186, len(names)
+              assert sum(n.endswith('.jsonl') for n in names)==182
+              s=json.loads(z.read('cl1b_c12_paid_meter_native_182_worlds.json'))
+              a=json.loads(z.read('cl1b_c12_independent_replay.json'))
+              assert s['study']=='CL1B-C12-PAID-ROLLBACK-EVENT-METER'
+              assert s['native_worlds']==182 and len(s['all_cases'])==45
+              assert s['total_native_private_cil']==a['all_exact_replayed_private_CIL']==621774
+              assert a['first_divergence'] is None and a['native_worlds']==182
+              assert s['total_meter_fee_across_truthful_metered_arms']==2772
+              assert s['reference_same_source_PC102_effect_net_saving']==1840
+              assert s['metered_same_source_PC102_effect_net_saving']==1876
+              prov=z.read('cl1b-c12-provenance.txt').decode()
+              assert 'tested_sha=40a73d71911605ed8b61fc837bd92436a4dd7379' in prov
+              assert 'run_id=45103602161' in prov
+              print('C12 archive verified: ZIP checksum, CRC, all182 traces, per-world summaries and independent replay')
+          PY
+      - name: Preserve binary original at immutable run-record path on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/40a73d71911605ed8b61fc837bd92436a4dd7379-45103602161-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c12-preserve/original-native.zip "$dest/original-native-artifact.zip"
+          echo '431d81ef9c6f2438fa92c8a5403b31687e761c1ac5e808cbc1a0d55c3176210a  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C12 original 182-world paid meter native archive'
+            git push origin HEAD:cl1b-ci-evidence
+          else
+            echo 'Identical C12 bytes already recorded'
+          fi
+      - name: Fetch back Git archive bytes and repeat independent hash check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/40a73d71911605ed8b61fc837bd92436a4dd7379-45103602161-1'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | grep -F '431d81ef9c6f2438fa92c8a5403b31687e761c1ac5e808cbc1a0d55c3176210a'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F '431d81ef9c6f2438fa92c8a5403b31687e761c1ac5e808cbc1a0d55c3176210a'
+          echo 'C12 independently fetched permanent Git original binary: exact SHA-256 verified'
