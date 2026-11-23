@@ -1,0 +1,64 @@
+name: CL-1B C10 independent feedback-vs-cost alias audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c10-feedback-cost-alias.yml'
+      - 'cl1b/audits/cl1b_g2_c10_feedback_cost_alias_audit.py'
+      - 'cl1b/studies/CL1B-C10-FEEDBACK-COST-ALIAS-preregistration.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c10-feedback-cost-alias
+  cancel-in-progress: true
+
+jobs:
+  original-git-evidence-reanalysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Read immutable referenced evidence from Git archive branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin refs/heads/cl1b-ci-evidence:refs/remotes/origin/cl1b-ci-evidence
+          archive='run-records/353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e-45041352673-1/original-native-artifact.zip'
+          test "$(git rev-parse "origin/cl1b-ci-evidence:\${archive}")" = '210f40a21f42d37a9920f2399e5cb0ffc663b59a'
+          mkdir -p /tmp/cl1b-c10-git /tmp/cl1b-feedback-alias
+          git show "origin/cl1b-ci-evidence:\${archive}" > /tmp/cl1b-c10-git/original-native-artifact.zip
+      - name: Independently audit paid-cost identifiability from original native feedback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 cl1b/audits/cl1b_g2_c10_feedback_cost_alias_audit.py \
+            /tmp/cl1b-c10-git/original-native-artifact.zip \
+            /tmp/cl1b-feedback-alias/c10-original-feedback-cost-alias.json
+          python3 - <<'PY'
+          import json
+          p='/tmp/cl1b-feedback-alias/c10-original-feedback-cost-alias.json'
+          d=json.load(open(p))
+          assert d["truthful_comparable_pairs"]==45
+          assert d["original_native_paid_cil_crosschecked"]==887330
+          assert d["strict_same_initial_source_delta_cil"]==1840
+          print("RESULT",json.dumps({
+              "effect_positive_cases":d["effect_positive_cases"],
+              "effect_negative_cases":d["effect_negative_cases"],
+              "effect_zero_cases":d["effect_zero_cases"],
+              "exact_feedback_cost_alias_pairs":d["exact_feedback_cost_alias_pairs"],
+              "coarse_attempt_failure_count_cost_alias_pairs":d["coarse_attempt_failure_count_cost_alias_pairs"]},sort_keys=True))
+          PY
+      - name: Preserve complete 45-pair audit even when scientific effect is zero
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c10-original-feedback-cost-alias
+          path: /tmp/cl1b-feedback-alias/
+          if-no-files-found: warn
