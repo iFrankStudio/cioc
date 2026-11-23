@@ -1,0 +1,80 @@
+name: CL-1B verify Git-stored original C10 evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c10-verify-archived-copy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c10-verify-archived-copy
+  cancel-in-progress: false
+
+jobs:
+  verify-git-copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Fetch archived evidence branch as Git objects (not Actions artifact)
+        run: git fetch --no-tags --depth=1 origin refs/heads/cl1b-ci-evidence:refs/remotes/origin/cl1b-ci-evidence
+      - name: Recheck Git blob, ZIP SHA-256, member CRCs, provenance, and original summaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          folder='run-records/353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e-45041352673-1'
+          expected_blob='210f40a21f42d37a9920f2399e5cb0ffc663b59a'
+          actual_blob="$(git rev-parse "origin/cl1b-ci-evidence:${folder}/original-native-artifact.zip")"
+          test "$actual_blob" = "$expected_blob"
+          mkdir -p /tmp/cl1b-c10-git-copy
+          git show "origin/cl1b-ci-evidence:${folder}/original-native-artifact.zip" > /tmp/cl1b-c10-git-copy/original-native-artifact.zip
+          git show "origin/cl1b-ci-evidence:${folder}/original-native-artifact.sha256" > /tmp/cl1b-c10-git-copy/original-native-artifact.sha256
+          (cd /tmp/cl1b-c10-git-copy && sha256sum --check original-native-artifact.sha256)
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import pathlib
+          import zipfile
+
+          p = pathlib.Path('/tmp/cl1b-c10-git-copy/original-native-artifact.zip')
+          assert p.stat().st_size == 8868234, p.stat().st_size
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == '9b468cd8ce3c9ddc8c07ebe092decf297a7a9e77e65c7ebfe62d0f53e4f0d276'
+          expected = {
+              'cl1b-c10-original-provenance.txt': '2ba5c7b0aaa026771b417c83989c2c85886a79c6bb147a48fff277b9485cdcdc',
+              'cl1b_g2_state_rollback_c10_native_274_worlds.json': 'feeafdfe9c805c7bd7079c5854cf21cacb8089b6534b20764b45795d37236129',
+              'cl1b_g2_state_rollback_c10_independent_replay.json': '76d67596752490687b67c6ecc882213da08a44ae32176499a6cff45dffad180e',
+              'cl1b-c10-original-native-rollback.log': 'f8b745f2cd3d54179c3c2f2b3737cbba5c97bfb98db31346a4e347be7c4c6a4e',
+          }
+          with zipfile.ZipFile(p) as z:
+              bad = z.testzip()
+              assert bad is None, f'ZIP CRC error: {bad}'
+              names = z.namelist()
+              assert len(names) == 278, len(names)
+              assert len(names) == len(set(names)), 'duplicate archive names'
+              assert sum(n.endswith('.jsonl') for n in names) == 274
+              for name, sha in expected.items():
+                  matches = [n for n in names if n == name or n.endswith('/' + name)]
+                  assert len(matches) == 1, (name, matches)
+                  raw = z.read(matches[0])
+                  assert hashlib.sha256(raw).hexdigest() == sha, name
+                  if name == 'cl1b-c10-original-provenance.txt':
+                      lines = raw.decode('utf-8')
+                      assert 'tested_sha=353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e' in lines
+                      assert 'run_id=45041352673' in lines
+                  if name == 'cl1b_g2_state_rollback_c10_independent_replay.json':
+                      d = json.loads(raw)
+                      assert d['native_original_worlds'] == 274
+                      assert d['first_divergence'] is None
+                      assert d['original_native_private_paid_CIL_replayed'] == 887330
+                      assert d['source_effective_prior_theta_restorations'] == 19
+                      assert d['subsequent_original_PID1_PC173_true_source_readbacks'] == 10
+                      assert d['same_source_rollback_effect_net_CIL_saving'] == 1840
+          print('PASS: fresh Git copy verified by expected Git blob + SHA256 + size + ZIP CRC + 274 traces + 4 member hashes + original SHA/run + replay summary')
+          PY
