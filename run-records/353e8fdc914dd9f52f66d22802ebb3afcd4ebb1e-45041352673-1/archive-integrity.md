@@ -1,6 +1,6 @@
 # C10 original-native artifact integrity record (2026-11-22)
 
-This is a **verified index of the original downloadable GitHub Actions ZIP**, not a permanent copy of the 274 raw JSONL traces. The latter remain in the time-limited artifact and must not be described as evidence-branch archived.
+This index records the originally downloaded and verified Actions ZIP. **Subsequent archival update (2026-11-23 UTC):** the evidence branch now also contains `original-native-artifact.zip` (Git blob `210f40a21f42d37a9920f2399e5cb0ffc663b59a`) and `original-native-artifact.sha256` recording the same expected SHA-256. The archive path and manifest were verified via the authorized GitHub contents API. This update does **not** claim a fresh download and bytewise SHA-256 recheck of the Git-stored binary, or a new independent replay.
 
 - Repository: `iFrankStudio/cioc`; tested source SHA: `353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e`
 - Successful focused Actions run: https://github.com/iFrankStudio/cioc/actions/runs/45041352673 (attempt 1)
@@ -14,4 +14,4 @@ This is a **verified index of the original downloadable GitHub Actions ZIP**, no
 
 The extracted independent-replay summary reports **274 worlds**, **887,330 paid CIL instructions**, `first_divergence: null`, **21** physical parent checkpoints, **228** paid restore attempts, **19** source-effective restorations, **10** subsequent source readbacks, and a **1,840**-instruction same-initial-source suppression difference. These are *reported output values cross-checked against the archived ZIP*, **not a new independent execution** of the Rust kernel or Python replayer.
 
-**Evidence scope and remaining gap:** The ZIP checksum and extracted summaries are now permanently indexed here, but this text does **not** preserve raw CIL events. Download and preserve the full artifact (or all 274 JSONL members with an independently verified per-file manifest) before expiry. Focused C10 success is not proof of a latest-HEAD full historical regression, autonomous ROI learning, B3, or B4.
+**Evidence scope and remaining verification:** The original ZIP is now present as a Git blob on this branch alongside its checksum manifest; the earlier statement that only the index survived is obsolete. A fresh download of the Git-stored ZIP and SHA-256/ZIP CRC revalidation remains desirable to independently verify the archival transfer. The earlier 278-entry/274-trace integrity check applies to the original Actions download, not a newly rechecked Git copy. Focused C10 success is not proof of a latest-HEAD full historical regression, autonomous ROI learning, B3, or B4.
