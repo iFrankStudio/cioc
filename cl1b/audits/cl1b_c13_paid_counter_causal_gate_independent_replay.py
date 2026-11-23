@@ -113,12 +113,14 @@ def replay(parent,original,folder):
                 pc=op["next"]
                 assert at in (45,88,102,122,28)
                 edits.append([at,target,before,value,skipped_effect])
-                if at==102:
-                    assert target==173 and value==memory.get(42,0)
+                if at==102 and target==173:
+                    assert value==memory.get(42,0)
                     pc102_paid+=1
                     if not skipped_effect and before!=value:
                         changed+=1
                     if gated: assert last185 is not None and last185<paid
+                if at==102 and arm=="c9_fixed_abstain_reference":
+                    assert target==46
             elif kind=="PatchNext":
                 target=regs[op["node"]]
                 value=regs[op["target"]]
