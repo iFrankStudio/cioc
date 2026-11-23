@@ -95,7 +95,11 @@ def replay(parent,record,folder):
                 regs[op["dst"]]=memory.get(regs[op["address"]],0)
                 pc=op["next"]
             elif kind=="ReadLastWriter":
-                regs[op["dst"]]=last_writer.get(regs[op["address"]],-1)
+                # ORIGINAL C14b substrate: CL0 provenance recording is opt-in.
+                # This world never called with_cell_write_provenance(), so even
+                # cells that existed return -1; C14c is the *separate* ON world.
+                assert isinstance(regs[op["address"]],int)
+                regs[op["dst"]]=-1
                 pc=op["next"]
             elif kind=="Write":
                 memory[regs[op["address"]]]=regs[op["value"]]
