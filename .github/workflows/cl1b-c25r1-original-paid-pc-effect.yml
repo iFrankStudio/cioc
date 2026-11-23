@@ -1,0 +1,66 @@
+name: CL-1B C25R1 two original native 276-world F10 paid-PC effect anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c25r1_two_cohort_original_per_pc_effect.py'
+      - '.github/workflows/cl1b-c25r1-original-paid-pc-effect.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-pinned-552-original-native-CIL-replay-and-PC-delta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve both permanently preserved source-pinned original 276-world native ZIPs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show "FETCH_HEAD:run-records/03b4dbb7330c8db921096e6512cfa71b0ccb70c5-45181342167-1/original-native-artifact.zip" > /tmp/c25-original-native.zip
+          git show "FETCH_HEAD:run-records/af692838774b0017049034391cc217aeee7a60bf-45182425799-1/original-native-artifact.zip" > /tmp/c25b-original-native.zip
+          echo '3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2  /tmp/c25-original-native.zip' | sha256sum -c -
+          echo '2e55a13d8e5416ee5952c7ecd6a08c45e24d794ebe1a1dabc2e36ee4c3c6f022  /tmp/c25b-original-native.zip' | sha256sum -c -
+      - name: Re-execute independent paid CIL interpreter on all 552 ORIGINAL worlds and decompose 90 task-level full-cost differences per PC
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c25r1_two_cohort_original_per_pc_effect.py \
+            /tmp/c25-original-native.zip /tmp/c25b-original-native.zip \
+            cl1b-ci-evidence/cl1b_c25r1_original_552_world_paid_pc_effect.json \
+            | tee cl1b-ci-evidence/cl1b-c25r1-console.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c25r1_original_552_world_paid_pc_effect.json'))
+          assert d['original_native_worlds_replayed']==552
+          assert d['distinct_frozen_full_24_stage_goal_cases']==90
+          assert d['new_native_worlds']==0
+          assert d['first_divergence'] is None
+          assert d['combined_F10_same_initial_source_full_paid_CIL_saved']==270
+          assert d['combined_F10_pc_delta_sum']==-270
+          assert len(d['all_90_real_original_task_level_costs'])==90
+          print('PASS original 552 native fully reinterpreted paid CIL worlds, 90 costs and per-PC causally paired source first-effects. B3/B4 NOT_MET')
+          PY
+      - name: Original sources and provenance of the forensic replay
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_sha=$GITHUB_SHA"
+            echo "C25_original_tested_sha=03b4dbb7330c8db921096e6512cfa71b0ccb70c5"
+            echo "C25B_original_tested_sha=af692838774b0017049034391cc217aeee7a60bf"
+            echo "C25_original_zip_sha256=3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2"
+            echo "C25B_original_zip_sha256=2e55a13d8e5416ee5952c7ecd6a08c45e24d794ebe1a1dabc2e36ee4c3c6f022"
+            echo "new_native_worlds=0"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c25r1-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c25r1-original-552-world-paid-PC-effect-anatomy
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
