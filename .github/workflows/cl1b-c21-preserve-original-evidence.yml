@@ -1,0 +1,114 @@
+name: CL-1B preserve source-verified C21 186 original paid PC202 native worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c21-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c21-original-evidence-sparse-v2
+  cancel-in-progress: false
+jobs:
+  preserve-original-native-and-independent-CIL-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download the EXACT verified C21 original native artifact and independently confirm all 186 world records
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c21-archive
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14805784213/zip" \
+            -o /tmp/cl1b-c21-archive/original-native.zip
+          echo 'fc6c45e3edd28c0860c2b5b97f4f149d64db230e7b15aabdee9b664b40a5ba79  /tmp/cl1b-c21-archive/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          path='/tmp/cl1b-c21-archive/original-native.zip'
+          with zipfile.ZipFile(path) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names))==190
+              assert sum(n.endswith('.jsonl') for n in names)==186
+              d=json.loads(z.read('cl1b_c21_original_native_186_worlds.json'))
+              p=json.loads(z.read('cl1b_c21_independent_replay.json'))
+              assert d['study']==p['study']=='CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-HELDOUT'
+              assert d['native_worlds']==p['native_worlds']==186
+              assert d['true_worlds']==180 and d['false_feedback_worlds']==6
+              assert d['frozen_genuinely_new_cases']==p['new_heldout_goal_schedules']==45
+              assert d['total_paid_cil']==p['exact_private_paid_cil_replayed']==764218
+              assert p['first_divergence'] is None
+              assert len(d['records'])==45 and len(d['adversarial_records'])==6
+              assert len(p['strict_PC202_effect_first_original_event_proofs'])==45
+              assert p['true_PC202_exposure_worlds']+p['strict_PC202_no_exposure_worlds']==45
+              assert d['arm_fees']['truth_paid_live_self_executed_source_difference_gate']==202903
+              assert d['arm_fees']['same_source_pc202_ticket_spend_effect_suppressed']==202903
+              assert d['arm_fees']['same_source_pc225_equal_marker_suppressed']==202630
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==146966
+              assert all(v==45 for v in d['arm_completed_worlds'].values())
+              assert d['same_source_live_vs_suppressed_paid_or_feedback_difference_cases']==0
+              assert d['same_source_live_vs_cached_equal_marker_effect_difference_cases']==1
+              assert all(sum(r['arms'][j]['completed_stages'] for r in d['records'])==2160 for j in range(4))
+              provenance=z.read('cl1b-c21-native-provenance.txt').decode()
+              assert 'tested_sha=8b1253dbf2464ab9d8fd3c8158659740c554ca9c' in provenance
+              assert 'run_id=45151909596' in provenance
+              assert 'cohort=NEW_UNSEEN_C21_45_FROZEN_DISJOINT_FROM_8_HISTORICAL_MANIFESTS' in provenance
+              print('PASS ORIGINAL C21 native ZIP: all 186 traces, exact full independent paid CIL, strict PC202 first physical effect events, B3/B4 NOT_MET')
+              print('EXPOSURE:',p['true_PC202_exposure_worlds'],'NO_EXPOSURE:',p['strict_PC202_no_exposure_worlds'])
+          PY
+      - name: Preserve original bytes at tested-SHA and run-id anchored path on evidence Git branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git sparse-checkout init --cone
+          git sparse-checkout set run-records/8b1253dbf2464ab9d8fd3c8158659740c554ca9c-45151909596-1
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          dest='run-records/8b1253dbf2464ab9d8fd3c8158659740c554ca9c-45151909596-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c21-archive/original-native.zip "$dest/original-native-artifact.zip"
+          echo 'fc6c45e3edd28c0860c2b5b97f4f149d64db230e7b15aabdee9b664b40a5ba79  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C21 original source-pinned new-heldout 186-world native experiment
+
+          - Tested commit: 8b1253dbf2464ab9d8fd3c8158659740c554ca9c
+          - Verified successful original native run: https://github.com/iFrankStudio/cioc/actions/runs/45151909596
+          - Original artifact ZIP SHA-256: fc6c45e3edd28c0860c2b5b97f4f149d64db230e7b15aabdee9b664b40a5ba79
+          - 186 JSONL native traces; original native summary, Rust log, independent Python paid-CIL interpretation and complete PC202 first-effect audit.
+          - C21's 45 goals are genuinely fresh relative to eight historical frozen manifests. Initial v1 omitted its array and failed before any native execution; the same frozen seed/formula produced v2 full goals prior to original 186-world run.
+          - B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C21 original truly new heldout 186-world native ticket-effect ZIP'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'archive push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'Existing identical C21 archive'
+          fi
+      - name: Fetch the committed ZIP back from permanent Git and verify byte identity again
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/8b1253dbf2464ab9d8fd3c8158659740c554ca9c-45151909596-1'
+          actual="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$actual" = 'fc6c45e3edd28c0860c2b5b97f4f149d64db230e7b15aabdee9b664b40a5ba79'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F 'fc6c45e3edd28c0860c2b5b97f4f149d64db230e7b15aabdee9b664b40a5ba79'
+          echo 'C21 native ZIP is permanently Git-backed and verified after remote readback'
