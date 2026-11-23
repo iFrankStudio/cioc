@@ -1,0 +1,50 @@
+{
+  "study": "CL1B-G2-PC28-NATIVE-C1",
+  "status": "VERIFIED_INDEPENDENT_ORIGINAL_NATIVE_SOURCE_IDENTICAL_PC28_CAUSAL",
+  "source_manifest": "cl1b/studies/CL1B-G2-PC28-NATIVE-C1-frozen-original-native-184-worlds-v1.json",
+  "verified_original_native_worlds": 184,
+  "verified_charged_original_cil_instructions": 306432,
+  "first_divergence": null,
+  "actual_native_suppressed_pc28_attempts": 28,
+  "exposure_free_pairs": 19,
+  "paired_suppressed_minus_on_cost": -131,
+  "on_wins": 0,
+  "on_losses": 1,
+  "ties": 44,
+  "family_charged_cil_totals": {
+    "slow_two_regime_changes": {
+      "G2_on": 14177,
+      "G2_pc28_suppressed": 14177,
+      "G2_placebo180": 14177,
+      "G2_never": 13155
+    },
+    "fast_reverting_pulses": {
+      "G2_on": 16578,
+      "G2_pc28_suppressed": 16447,
+      "G2_placebo180": 16578,
+      "G2_never": 15752
+    },
+    "late_reverse_drift": {
+      "G2_on": 15084,
+      "G2_pc28_suppressed": 15084,
+      "G2_placebo180": 15084,
+      "G2_never": 14946
+    },
+    "reset_with_sparse_impulses": {
+      "G2_on": 16488,
+      "G2_pc28_suppressed": 16488,
+      "G2_placebo180": 16488,
+      "G2_never": 16383
+    },
+    "low_frequency_terminal_perturbations": {
+      "G2_on": 13934,
+      "G2_pc28_suppressed": 13934,
+      "G2_placebo180": 13934,
+      "G2_never": 13934
+    }
+  },
+  "nonclaims": [
+    "Study is causal effect of researcher-authored G2 update rule only.",
+    "No native actor-generated algorithm, trusted feedback, or CL1B B3/B4."
+  ]
+}

@@ -1,0 +1,24 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+[1m[92m     Running[0m tests/cl1b_b51b_native_candidate_composition.rs (target/debug/build/cl0-world/d4535c087a414dd3/out/cl1b_b51b_native_candidate_composition-d4535c087a414dd3)
+
+running 4 tests
+B51C_EIGHT_MODE_NATIVE sign=-1 offset=-3 exact=[false, false]
+B51C_TWO_PROBE_NATIVE [(0, [2, 2], [[true, true], [true, true]]), (5, [7, -3], [[true, false], [false, true]]), (-3, [-1, 5], [[true, false], [false, true]])]; 84 paid native CIL steps; feedback evaluated by laboratory only; no actor selection
+B51C_EIGHT_MODE_NATIVE sign=-1 offset=-2 exact=[false, false]
+B51C_EIGHT_MODE_NATIVE sign=-1 offset=2 exact=[false, true]
+B51C_EIGHT_MODE_NATIVE sign=-1 offset=3 exact=[false, false]
+B51C_EIGHT_MODE_NATIVE sign=1 offset=-3 exact=[false, false]
+B51C_EIGHT_MODE_NATIVE sign=1 offset=-2 exact=[false, false]
+B51C_EIGHT_MODE_NATIVE sign=1 offset=2 exact=[true, false]
+B51C_EIGHT_MODE_NATIVE sign=1 offset=3 exact=[false, false]
+B51C_COVERAGE_NATIVE worlds=24 paid=672 covered=2 uncovered=6 zero_aliases=2; lab scoring only, no actor-side selection
+test b51c_hidden_mode_two_probe_native_identifiability_control ... ok
+test b51c_eight_mode_native_candidate_coverage_negative_control ... ok
+B51C_ALIAS_NATIVE x0=[2, 2] x5=[7, -3]; no selection or transfer claimed
+test b51c_zero_probe_aliasing_requires_distinguishing_probe ... ok
+B51B_NATIVE three worlds * 28 paid steps, two new executable graphs per world; mutation-disabled control 64 charges / zero output; separate JS per-step replay pending; trace=/home/runner/work/cioc/cioc/cl0/crates/world/../../cl1b-ci-evidence/b51b_native_steps.jsonl
+test b51b_native_composition_paid_two_executable_candidates ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

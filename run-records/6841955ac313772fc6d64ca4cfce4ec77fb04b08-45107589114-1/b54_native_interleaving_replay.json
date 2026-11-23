@@ -1,0 +1,770 @@
+{
+  "study": "B54",
+  "source_sha": "6841955ac313772fc6d64ca4cfce4ec77fb04b08",
+  "independently_replayed_worlds": 20,
+  "independently_replayed_paid_native_instructions": 80000,
+  "independently_replayed_external_interventions": 12052,
+  "verified_lab_only_task_transitions": 40,
+  "verified_native_executable_patches": 602,
+  "first_divergence": null,
+  "fresh_control_reacquired": true,
+  "timed_bit_toctou_falsifier_confirmed": true,
+  "commit_read_snapshot_not_atomic": true,
+  "current_nonce_content_forgery_detected": false,
+  "original_old_nonce_replay_rejected": true,
+  "source_blind_endogenous_policy_formation": false,
+  "b3_met": false,
+  "b4_met": false,
+  "cyberlife_established": false,
+  "by_arm": {
+    "FRESH_ATOMIC": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        92,
+        92
+      ],
+      "wrong_by_stage": [
+        0,
+        4,
+        4
+      ],
+      "retentions": 12,
+      "reopens": 8,
+      "rejected_packets": 0,
+      "accepted_false_successes": 0,
+      "feedback_reads": 388,
+      "nonce_writes": 548,
+      "late_bit_flips": 0,
+      "late_commit_flips": 0,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        }
+      ]
+    },
+    "LATE_BIT_FLIP": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 0,
+      "accepted_false_successes": 96,
+      "feedback_reads": 508,
+      "nonce_writes": 548,
+      "late_bit_flips": 96,
+      "late_commit_flips": 0,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 24,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 24,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 24,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 24,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    },
+    "LATE_COMMIT_FLIP": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        92,
+        92
+      ],
+      "wrong_by_stage": [
+        0,
+        4,
+        4
+      ],
+      "retentions": 12,
+      "reopens": 8,
+      "rejected_packets": 0,
+      "accepted_false_successes": 0,
+      "feedback_reads": 388,
+      "nonce_writes": 548,
+      "late_bit_flips": 0,
+      "late_commit_flips": 388,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 101,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 101,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 93,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            23,
+            23
+          ],
+          "wrong": [
+            0,
+            1,
+            1
+          ],
+          "rejected": 0,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 93,
+          "retentions": 3,
+          "reopens": 2,
+          "paid": 4000
+        }
+      ]
+    },
+    "STABLE_FORGED_CURRENT": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 0,
+      "accepted_false_successes": 96,
+      "feedback_reads": 508,
+      "nonce_writes": 548,
+      "late_bit_flips": 0,
+      "late_commit_flips": 0,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 0,
+          "false_success": 24,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    },
+    "OLD_NONCE_REPLAY": {
+      "worlds": 4,
+      "paid": 16000,
+      "service_writes": 288,
+      "correct_by_stage": [
+        96,
+        0,
+        96
+      ],
+      "wrong_by_stage": [
+        0,
+        96,
+        0
+      ],
+      "retentions": 4,
+      "reopens": 0,
+      "rejected_packets": 638,
+      "accepted_false_successes": 0,
+      "feedback_reads": 0,
+      "nonce_writes": 682,
+      "late_bit_flips": 0,
+      "late_commit_flips": 0,
+      "per_world": [
+        {
+          "transition": "A",
+          "phase": 0,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "A",
+          "phase": 1,
+          "chosen": [
+            [
+              0,
+              -2
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 167,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 0,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        },
+        {
+          "transition": "B",
+          "phase": 1,
+          "chosen": [
+            [
+              1,
+              -3
+            ]
+          ],
+          "service": 72,
+          "correct": [
+            24,
+            0,
+            24
+          ],
+          "wrong": [
+            0,
+            24,
+            0
+          ],
+          "rejected": 152,
+          "false_success": 0,
+          "late_bit_flips": 0,
+          "late_commit_flips": 0,
+          "retentions": 1,
+          "reopens": 0,
+          "paid": 4000
+        }
+      ]
+    }
+  }
+}
