@@ -1,0 +1,72 @@
+name: CL-1B C18b original known C17 full 45-case exposure calibration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-frozen-274-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c18b_known_c17_exposure_calibration.rs'
+      - 'cl1b/audits/cl1b_c18b_known_c17_exposure_independent_replay.py'
+      - '.github/workflows/cl1b-c18b-known-c17-exposure-calibration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c18b-original-known-45-exposure-calibration
+  cancel-in-progress: true
+
+jobs:
+  native-and-independent-known-exposure-274-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 274 original world native known-C17 exposure calibration; not unseen generalization
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c18b_known_c17_exposure_calibration -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c18b-original-known-exposure.log
+      - name: Independently replay every paid native CIL on all 274 known calibration worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c18b_known_c17_exposure_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c18b_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c18b_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c18b_independent_replay.json'))
+          assert d['first_divergence'] is None and d['native_worlds']==274
+          assert d['new_goal_schedules']==45 # parser field only; 45 are explicitly known historical C17
+          print('C18b known historical exposure calibration replays all original native paid CIL, NOT a novel holdout:',d)
+          PY
+      - name: Pin exact original C18b SHA, run and known previous-world provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C18b_274_original_native_worlds_using_all_45_PREVIOUSLY_KNOWN_C17_goals_not_new_future"
+          } > cl1b-ci-evidence/cl1b-c18b-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c18b-original-native-known-C17-exposure-calibration-274
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
