@@ -29,9 +29,16 @@
 
 与旧C18b不同源码源同后观察的直接差值是-4176条CIL；不能当作严格同源码PC225“仅改变读取方式”的因果效应。本C19A特意复用此前C17整组已知任务，未建立跨任务未知泛化；其机械校准证据只说明C18b在原源值快照过时方面的失效被修复。强C9静态成本比C19A主臂还少28034条CIL，**且也完成全部45世界的2160个真正任务阶段**。另一个同源码PC102物理源修改被精确抑制的世界也45/45、总费192218，不能认领真的源码修改本身构成已经学会的ROI改进。
 
+## 永久Git原始ZIP与全部原生事件首次因果影响独立回审 — 最终SUCCESS
+
+- [C19A本组原始274世界永久证据归档＋远端重新fetch ZIP二进制SHA256 CI #45127416275 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45127416275)：已将原生成功工作流的原始ZIP完整提交到[固定Git证据目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/8d2cf7f71ef744b50e59b11ea9a5a75130ff510b-45127112522-1)，又从远端取回原始ZIP并重新核对原本的SHA256、CRC、278个唯一成员含274条原生JSONL、独立Python全收费CIL零分歧、15次真实收费临时改码/源码自执行/边修复、无临时边遗留。不是只保存GitHub Actions短期附件。
+- [C19A＋C19B两份永久原始ZIP同时取回、548世界和所有90个真世界严格同源码对照源钉死原始事件复审 #45127703667 attempt2 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45127703667)验证**总计47次原生真正付费PC233→PC173→PC236自执行并复原活跃源码后继边，47次主体自己获得的真实值100%等于当前物理源码参数，0次漏报真改、0次误报同值、0次遗留临时未恢复边**。对已知C17暴露校准中的**全部45对**严格相同初始241节点源码，仅研究者压制PC225真实Write47物理效果的对照，独立原生回审发现4例产生后继收费/服务路径差异，且这四例在**首次真付费PC225写入效果发生以前全部原生有费PC/寄存器/源签名/剩余信用/服务反馈事件逐项完全相同**，本组最终净成本效果为**节省1812条私人收费CIL**，完成的真实阶段没有增加。其余41对未观察到后继服务或总费用差异。
+- [原始45例逐一付费临时边改动与四例第一因果写事件机器可读审计工件 #14796462944](https://github.com/iFrankStudio/cioc/actions/runs/45127703667/artifacts/14796462944)，[可独立重放的完整真实原生ZIP双队列审计代码](../audits/cl1b_c19_original_live_source_47_paid_edge_reads_dual_cohort_audit.py)。第一次[同一审计CI #45127703667 attempt1 FAILED](https://github.com/iFrankStudio/cioc/actions/runs/45127703667)因原始两份11/12MB ZIP尚在独立Git归档push途中，严格拒绝以缺失证据生成结果；两份归档成功后以**同一原生测试与同一审计代码直接retry失败工作**，attempt2 PASS。失败与原生先前的两种观察器断言失败历史全部保留。
+- **科学层级明确**：这是已知C17暴露校准对C19安全自修改/准确活跃读码机械性能和同源码因果收费的完整验证；不等于主体学会算法自我优化、也没有超越C9强成本基线。**B3/B4仍NOT_MET**。
+
 ## 原始逐事件证据、双份持久归档与科学边界
 
-[原始274世界GitHub Actions原始工件#14796352121](https://github.com/iFrankStudio/cioc/actions/runs/45127112522/artifacts/14796352121)，**ZIP本体11,274,534字节**，SHA256 **`4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b`**，CRC PASS、278不重复成员含274个原生有费CIL JSONL。已经在原始ZIP内逐世界独立核对所有源码图、真假服务反馈、私有收费寄存器与数据内存、末次来源；**永久Git证据分支是否完全push并远端重新取回**需等待[对应保存工作流](../../.github/workflows/cl1b-c19a-preserve-original-evidence.yml)最终SUCCESS，完成前不得称永久已完成。
+[原始274世界GitHub Actions原始工件#14796352121](https://github.com/iFrankStudio/cioc/actions/runs/45127112522/artifacts/14796352121)，**ZIP本体11,274,534字节**，SHA256 **`4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b`**，CRC PASS、278不重复成员含274个原生有费CIL JSONL。已经在原始ZIP内逐世界独立核对所有源码图、真假服务反馈、私有收费寄存器与数据内存、末次来源；**永久Git原始证据归档与远端重新哈希已经核验PASS**，[保存工作流#45127416275](https://github.com/iFrankStudio/cioc/actions/runs/45127416275)，对应路径见上文；无需依赖临时Actions工件的保留期。
 
 首版C19原生观察器因manifest键名`counts.native_worlds`写错而在任何世界执行前失败，后续对不同初始源码旧C18b PC202目标把226误断言成203导致原生中途失败；两处只修改观察器与Python核查，没有改**已经事先冻结的241节点主体程序、45目标、六臂、世界容量或结果筛选**。保留失败run、取消run及最终受测SHA，不抹除。
 
