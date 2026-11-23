@@ -1,0 +1,9 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+[1m[92m     Running[0m tests/cl1b_b21_cooperative_compute_relay.rs (target/debug/build/cl0-world/e0d07893ed733876/out/cl1b_b21_cooperative_compute_relay-e0d07893ed733876)
+
+running 1 test
+test b21_native_cil_companion_relay_restores_blocked_worker_under_neutral_compute_pool ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

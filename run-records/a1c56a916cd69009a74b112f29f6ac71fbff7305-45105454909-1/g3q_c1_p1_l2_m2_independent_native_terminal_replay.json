@@ -1,0 +1,38 @@
+{
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M2",
+  "evidence_level": "EXACT_NATIVE_PID_INSTRUCTION_REPLAY",
+  "verified_rows": 48298,
+  "source_sha": "a1c56a916cd69009a74b112f29f6ac71fbff7305",
+  "results": [
+    {
+      "arm": "original",
+      "paid_native_or_interpreted_steps": 24149,
+      "first_divergence": null,
+      "self_patch": {
+        "step": 24064,
+        "executed_pc": 177,
+        "node": 59,
+        "before": 60,
+        "after": 178
+      },
+      "output": 2,
+      "halted": true
+    },
+    {
+      "arm": "preload_tail_bank_address_mutant",
+      "paid_native_or_interpreted_steps": 24149,
+      "first_divergence": null,
+      "self_patch": {
+        "step": 24064,
+        "executed_pc": 177,
+        "node": 59,
+        "before": 60,
+        "after": 178
+      },
+      "output": 1,
+      "halted": true
+    }
+  ],
+  "first_divergence": null,
+  "limitations": "Preauthored PatchNext behavior; no hidden objective, task feedback, evolving fitness or novel ISA."
+}
