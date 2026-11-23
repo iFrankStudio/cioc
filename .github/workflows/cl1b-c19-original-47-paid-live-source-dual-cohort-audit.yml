@@ -1,0 +1,97 @@
+name: CL-1B C19 exact original native paid live-PC173 47-read dual-cohort 45-pair audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c19_original_live_source_47_paid_edge_reads_dual_cohort_audit.py'
+      - '.github/workflows/cl1b-c19-original-47-paid-live-source-dual-cohort-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-548-world-47-live-source-and-strict-pc225-first-effect-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch real original C19A+C19B immutable test ZIP bytes from permanent evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c19-dual-original
+          a='run-records/8d2cf7f71ef744b50e59b11ea9a5a75130ff510b-45127112522-1/original-native-artifact.zip'
+          b='run-records/ce8a6fdc15711a1645756a1fe871bbde3bd9928b-45127120747-1/original-native-artifact.zip'
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+            if git cat-file -e "FETCH_HEAD:$a" 2>/dev/null && \
+               git cat-file -e "FETCH_HEAD:$b" 2>/dev/null; then
+              git show "FETCH_HEAD:$a" > /tmp/cl1b-c19-dual-original/C19a-known-original.zip
+              git show "FETCH_HEAD:$b" > /tmp/cl1b-c19-dual-original/C19b-heldout-original.zip
+              echo "Both C19 original ZIPs retrieved from permanent Git evidence on attempt $attempt"
+              break
+            fi
+            if [ "$attempt" = 8 ]; then
+              echo 'Immutable C19 original evidence ZIPs not both available yet; refuse partial posthoc audit' >&2
+              exit 1
+            fi
+            sleep 12
+          done
+          echo '4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b  /tmp/cl1b-c19-dual-original/C19a-known-original.zip' | sha256sum -c -
+          echo '04037a8fefc9e59c22986d32aa944814dbc596480576addc8cbaf86c7c25c363  /tmp/cl1b-c19-dual-original/C19b-heldout-original.zip' | sha256sum -c -
+      - name: Re-audit all 548 original worlds, exact 47 paid live Const173 self-executions and all strict 45 source-matched pairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c19_original_live_source_47_paid_edge_reads_dual_cohort_audit.py \
+            /tmp/cl1b-c19-dual-original/C19a-known-original.zip \
+            /tmp/cl1b-c19-dual-original/C19b-heldout-original.zip \
+            cl1b-ci-evidence/cl1b_c19_original_548_paid_live_source_strict_45_pairs.json \
+            > cl1b-ci-evidence/cl1b-c19-original-dual-cohort-audit.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c19_original_548_paid_live_source_strict_45_pairs.json'))
+          a=d['original_known_calibration'];b=d['original_new_heldout']
+          assert d['independent_274_full_CIL_replay_first_divergence'] is None
+          assert d['total_paid_original_CIL']==2329613
+          assert d['total_paid_live_active_source_read_and_restored']==47
+          assert d['all_true_live_source_comparisons_are_exact']
+          assert d['no_live_source_edge_unrestored']
+          assert a['paid_temporary_edge_armed']==a['paid_temporary_edge_restored']==a['actually_executed_live_Const173']==15
+          assert b['paid_temporary_edge_armed']==b['paid_temporary_edge_restored']==b['actually_executed_live_Const173']==32
+          assert a['actor_false_equal']==b['actor_false_equal']==0
+          assert a['actor_false_different']==b['actor_false_different']==0
+          assert (a['actor_correct_equal_source_cases'],a['actor_correct_different_source_cases'])==(4,11)
+          assert (b['actor_correct_equal_source_cases'],b['actor_correct_different_source_cases'])==(20,12)
+          assert a['same_source_PC225_gate_causal_cases']==b['same_source_PC225_gate_causal_cases']==4
+          assert a['same_source_first_native_effect_has_identical_paid_prefix']
+          assert b['same_source_first_native_effect_has_identical_paid_prefix']
+          assert a['main_minus_suppressed_CIL']==-1812
+          assert b['main_minus_suppressed_CIL']==2755
+          assert len(a['original_complete_45_case_rows'])==len(b['original_complete_45_case_rows'])==45
+          assert len(a['strict_four_PC225_first_effect_cases'])==len(b['strict_four_PC225_first_effect_cases'])==4
+          assert a['known_C17_prior_exposure'] and not b['known_C17_prior_exposure']
+          print('PASS: both original persistent source-pinned ZIPs and all 548 worlds, genuine 47 charged native live source reads and 47 charged restores, no falsely inferred source state.')
+          PY
+      - name: Record source commit and permanent original run anchors
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_revision=$GITHUB_SHA"
+            echo "audit_run=$GITHUB_RUN_ID"
+            echo "C19a_known_not_holdout_tested_sha=8d2cf7f71ef744b50e59b11ea9a5a75130ff510b"
+            echo "C19a_native_run=45127112522"
+            echo "C19a_original_sha256=4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b"
+            echo "C19b_new_heldout_tested_sha=ce8a6fdc15711a1645756a1fe871bbde3bd9928b"
+            echo "C19b_native_run=45127120747"
+            echo "C19b_original_sha256=04037a8fefc9e59c22986d32aa944814dbc596480576addc8cbaf86c7c25c363"
+            echo "scope=two_preregistered_cohorts_original_274_plus_274_no_heldout_sample_reuse"
+          } > cl1b-ci-evidence/cl1b-c19-original-dual-cohort-audit-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c19-original-paid-live-PC173-47-reads-and-90-strict-pairs
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
