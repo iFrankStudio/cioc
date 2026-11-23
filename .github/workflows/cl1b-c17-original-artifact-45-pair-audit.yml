@@ -1,0 +1,73 @@
+name: CL-1B C17 original Actions artifact 45-pair paid feedback audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c17-original-artifact-45-pair-audit.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  original-native-45-pair-effect-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download original exact C17 test ZIP via immutable GitHub Actions artifact ID
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c17-audit
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14792844372/zip" \
+            -o /tmp/cl1b-c17-audit/original-native.zip
+          echo '29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c  /tmp/cl1b-c17-audit/original-native.zip' | sha256sum -c -
+      - name: Independent source-pinned full native 45 paired causal effect re-analysis
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c17_original_native_one_shot_first_veto_45_pair_audit.py \
+            /tmp/cl1b-c17-audit/original-native.zip \
+            cl1b-ci-evidence/cl1b_c17_45_original_native_first_veto_causal_pairs.json \
+            > cl1b-ci-evidence/cl1b_c17_original_native_causal_audit.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c17_45_original_native_first_veto_causal_pairs.json'))
+          assert d['original_native_paid_cil']==1147263
+          assert d['all_45_true_source_identical_effect_pairs']==45
+          assert d['actual_actor_self_patch_activated']==d['actor_self_patch_restored']==57
+          assert d['paid_postedit_real_feedback_consumed']==57
+          assert d['paid_risk_veto_writes']==8 and d['paid_future_veto_branch_blocks']==56
+          assert d['real_veto_causal_cases']==8
+          assert d['exact_equal_paid_native_event_prefix_on_each_first_veto']
+          assert d['stages_saved_by_paid_veto']==2 and d['private_CIL_saved_by_paid_veto']==4408
+          assert d['true_physical_code_effect_cases']==8
+          assert d['net_private_CIL_saved_by_real_physical_code_effect']==735
+          print('PASS: 274 original native worlds independently re-audited; genuine paid one-shot feedback and same-source causal risk veto')
+          PY
+      - name: Preserve original test SHA and source proof
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "auditor_commit=$GITHUB_SHA"
+            echo "audit_run=$GITHUB_RUN_ID"
+            echo "original_test_sha=1c998412bddc26d32e8536bc5c7542b9c6ff3fe8"
+            echo "original_test_run=45120094165"
+            echo "original_artifact_id=14792844372"
+            echo "original_zip_sha256=29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c"
+            echo "source=Actions_original_artifact_not_yet_automatically_proof_of_permanent_Git_archive"
+          } > cl1b-ci-evidence/cl1b-c17-original-artifact-audit-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c17-original-artifact-45-native-paid-veto-effect-pairs
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
