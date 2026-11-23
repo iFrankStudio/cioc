@@ -1,0 +1,63 @@
+name: CL-1B C22R1 source-pinned original 141-world paid PC ROI path forensics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c22r1_original_native_paid_pc_cost_forensics.py'
+      - '.github/workflows/cl1b-c22r1-original-native-paid-pc-forensics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-141-world-PC-cost-forensics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Obtain byte-exact permanent original C22 ZIP from Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/3fec55f901b418b81ed06f08c234a78724024977-45156358171-1'
+          git cat-file -e "FETCH_HEAD:$dest/original-native-artifact.zip"
+          git show "FETCH_HEAD:$dest/original-native-artifact.zip" > /tmp/cl1b-c22-original-native.zip
+          echo 'ef44677809546195960772e7d7dadc093d0a0cf28d2d1adacd35995f93d8a150  /tmp/cl1b-c22-original-native.zip' | sha256sum -c -
+      - name: Rerun independent full native original CIL interpreter and forensically decompose ALL 45 paid on/off pairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c22r1_original_native_paid_pc_cost_forensics.py \
+            /tmp/cl1b-c22-original-native.zip \
+            cl1b-ci-evidence/cl1b_c22r1_original_paid_pc_forensics.json \
+            | tee cl1b-ci-evidence/cl1b-c22r1-rollup.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c22r1_original_paid_pc_forensics.json'))
+          assert d['original_native_worlds_reinterpreted']==141
+          assert d['paid_cost_excess_main_minus_same_source_off']==26569
+          assert d['all_45_pairs_first_effect_physical_prefix_proven']
+          assert len(d['per_case'])==45
+          assert all(x['main_minus_same_source_suppressed_CIL']>0 for x in d['per_case'])
+          assert d['PC_0_152_extra_paid']+d['PC_153_179_extra_paid']==26569
+          print('PASS 141/141 source-pinned original worlds and case-level PC-cost path forensics, B3/B4 NOT_MET')
+          PY
+      - name: Preserve SHA of audit and original native ZIP
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "forensic_audit_sha=$GITHUB_SHA"
+            echo "original_native_tested_sha=3fec55f901b418b81ed06f08c234a78724024977"
+            echo "original_native_run=45156358171"
+            echo "original_zip_sha256=ef44677809546195960772e7d7dadc093d0a0cf28d2d1adacd35995f93d8a150"
+            echo "scope=NO_NEW_NATIVE_WORLDS_RETROSPECTIVE_PC_HISTOGRAM_DESCRIPTIVE"
+          } > cl1b-ci-evidence/cl1b-c22r1-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c22r1-original-native-141-world-paid-pc-forensics
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
