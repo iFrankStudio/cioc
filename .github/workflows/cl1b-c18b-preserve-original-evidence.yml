@@ -1,0 +1,111 @@
+name: CL-1B preserve verified C18B original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c18b-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c18b-permanent-native-evidence
+  cancel-in-progress: false
+
+jobs:
+  preserve-verified-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download and check original-success C18B artifact, exact byte hash and 274 traces
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c18b-preserve
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14795345209/zip" \
+            -o /tmp/cl1b-c18b-preserve/original-native.zip
+          echo 'dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad  /tmp/cl1b-c18b-preserve/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import zipfile,json
+          p='/tmp/cl1b-c18b-preserve/original-native.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names))==278
+              assert sum(n.endswith('.jsonl') for n in names)==274
+              d=json.loads(z.read('cl1b_c18b_original_native_274_worlds.json'))
+              a=json.loads(z.read('cl1b_c18b_independent_replay.json'))
+              assert d['study']=='CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION'
+              assert d['native_worlds']==a['native_worlds']==274 and len(d['records'])==45
+              assert d['total_paid_cil']==a['exact_private_paid_cil_replayed']==1135094
+              assert a['first_divergence'] is None
+              assert d['main_actor_paid_success_records']==287 and d['main_actual_physical_pc173_restores']==33
+              assert d['arm_fees']['truth_paid_cached_source_difference_gate']==194239
+              assert d['arm_fees']['same_source_pc225_equal_marker_suppressed']==191755
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==162029
+              assert sum(v['paid_gate_unconditional_clear47'] for c in d['records'] for v in c['arms'][:1])==65
+              assert sum(v['paid_cached_same_probe_bypasses'] for c in d['records'] for v in c['arms'][:1])==64
+              assert sum(v['observer_cache_false_equal'] for c in d['records'] for v in c['arms'][:1])==33
+              assert sum(v['observer_cache_false_different'] for c in d['records'] for v in c['arms'][:1])==1
+              assert sum(v['observer_true_prepatch_equal'] for c in d['records'] for v in c['arms'][:1])==32
+              assert sum(v['observer_true_prepatch_different'] for c in d['records'] for v in c['arms'][:1])==33
+              assert all(v['completed_stages']==48 for c in d['records'] for v in c['arms'])
+              prov=z.read('cl1b-c18b-original-provenance.txt').decode()
+              assert 'tested_sha=e17ecbef4599d4112a2db2221c852678d48ffdaf' in prov
+              assert 'run_id=45124104775' in prov
+              print('C18b known C17 exposure calibration original: 33/64 false cached equals; NOT new holdout. Full 274 world native ZIP validated.')
+          PY
+      - name: Preserve binary original at immutable run-record path on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/e17ecbef4599d4112a2db2221c852678d48ffdaf-45124104775-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c18b-preserve/original-native.zip "$dest/original-native-artifact.zip"
+          echo 'dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C18B original 274-world paid single-use success certificate native archive'
+            # Independent focused-history and C14c archival jobs share this branch.
+            # Rebase the unique C18B evidence commit onto the new remote HEAD
+            # after a stale-ref rejection. Never force push or drop another run.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then
+                echo "C18B original bytes pushed on attempt $attempt"
+                break
+              fi
+              if [ "$attempt" = 5 ]; then
+                echo "C18B evidence push still conflicted after five retries" >&2
+                exit 1
+              fi
+              echo "C18B archive branch changed concurrently: retry $attempt/5" >&2
+              git fetch origin cl1b-ci-evidence
+              git rebase origin/cl1b-ci-evidence
+            done
+          else
+            echo 'Identical C18B bytes already recorded'
+          fi
+      - name: Fetch back Git archive bytes and repeat independent hash check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/e17ecbef4599d4112a2db2221c852678d48ffdaf-45124104775-1'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | grep -F 'dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F 'dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad'
+          echo 'C18B independently fetched permanent Git original binary: exact SHA-256 verified'
