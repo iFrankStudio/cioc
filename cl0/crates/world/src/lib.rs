@@ -151,6 +151,14 @@ pub enum Op {
         dst: usize,
         next: usize,
     },
+    /// Ordinary paid observation of this process's private remaining
+    /// instruction credits *after* the scheduler has charged this instruction.
+    /// Never reports future reward, another process's credits, or compute from
+    /// the neutral ambient pool. Tag 35 is append-only; tag 34 remains unknown.
+    SenseOwnCredits {
+        dst: usize,
+        next: usize,
+    },
     /// Paid nonblocking transfer; success written to a register, never pool-paid.
     TryDrawCompute {
         amount: usize,
@@ -513,6 +521,13 @@ impl Op {
                 0,
                 0,
             ]),
+            Op::SenseOwnCredits { dst, next } => Ok([
+                35,
+                i64::try_from(*dst).map_err(|_| "operand exceeds i64".to_string())?,
+                i64::try_from(*next).map_err(|_| "operand exceeds i64".to_string())?,
+                0,
+                0,
+            ]),
             Op::TryDrawCompute { amount, dst, next } => Ok([
                 32,
                 i64::try_from(*amount).map_err(|_| "operand exceeds i64".to_string())?,
@@ -558,6 +573,7 @@ impl Op {
             Op::GraphTransfer { .. } => 29,
             Op::GraphCopyNodeLocal { .. } => 30,
             Op::SenseComputePool { .. } => 31,
+            Op::SenseOwnCredits { .. } => 35,
             Op::TryDrawCompute { .. } => 32,
         }
     }
@@ -589,6 +605,7 @@ impl Op {
             | Op::GraphReadTag { next, .. }
             | Op::DrawCompute { next, .. }
             | Op::SenseComputePool { next, .. }
+            | Op::SenseOwnCredits { next, .. }
             | Op::TryDrawCompute { next, .. }
             | Op::ReturnCompute { next, .. }
             | Op::TransferCompute { next, .. }
@@ -807,6 +824,10 @@ impl Op {
                 dst: slot(1)?,
                 address: slot(2)?,
                 next: slot(3)?,
+            }),
+            35 => Ok(Op::SenseOwnCredits {
+                dst: slot(1)?,
+                next: slot(2)?,
             }),
             _ => Err("unknown opcode tag".into()),
         }
@@ -1838,6 +1859,19 @@ impl World {
                     available: observed_compute_pool,
                 });
             }
+            Op::SenseOwnCredits { dst, next } => {
+                edge(next)?;
+                if dst >= REGISTERS {
+                    return Err("invalid register".into());
+                }
+                // step() already debited this process if private-funded.
+                // For an explicitly pool-paid instruction, its private balance
+                // remains unchanged; environmental pool is never misreported.
+                let credits = i64::try_from(p.credits)
+                    .map_err(|_| "private credits exceed i64 register capacity".to_string())?;
+                p.registers[dst] = credits;
+                p.pc = next;
+            }
             Op::Read { dst, address, next } => {
                 edge(next)?;
                 let key = reg(address)?;
@@ -1967,6 +2001,7 @@ impl World {
                     | Op::GraphReadTag { next, .. }
                     | Op::DrawCompute { next, .. }
                     | Op::SenseComputePool { next, .. }
+                    | Op::SenseOwnCredits { next, .. }
                     | Op::TryDrawCompute { next, .. }
                     | Op::ReturnCompute { next, .. }
                     | Op::TransferCompute { next, .. }
@@ -5003,5 +5038,53 @@ mod b34_trydraw_abi_tests {
         let mut op = Op::TryDrawCompute { amount: 1, dst: 2, next: 7 };
         op.relocate_edges(6, 2);
         assert_eq!(op, Op::TryDrawCompute { amount: 1, dst: 2, next: 0 });
+    }
+}
+
+
+// C26: Neutral, charged private-resource metrology is a *world affordance*,
+// not a fitness oracle, free counterfactual, or demonstration of life.
+// Intentionally just two contract tests: paid post-debit observation and stable
+// ABI / relocatable control edge. Existing thirty-four tags are unchanged.
+#[cfg(test)]
+mod c26_private_compute_sensor_contract {
+    use super::{EventKind, Op, Process, World};
+
+    #[test]
+    fn original_private_credits_sensor_reports_only_own_post_charged_balance() {
+        let nodes = vec![
+            Op::SenseOwnCredits { dst: 0, next: 1 },
+            Op::Const { dst: 1, value: 7, next: 2 },
+            Op::SenseOwnCredits { dst: 2, next: 3 },
+            Op::Sub { dst: 3, lhs: 0, rhs: 2, next: 4 },
+            Op::Halt,
+        ];
+        let mut world = World::new(0, 8);
+        world.load(Process::new(1, nodes, 10)).unwrap();
+        assert!(world.step());
+        assert_eq!(world.process(1).unwrap().registers[0], 9);
+        assert_eq!(world.process(1).unwrap().credits, 9);
+        assert!(world.step());
+        assert!(world.step());
+        assert_eq!(world.process(1).unwrap().registers[2], 7);
+        assert!(world.step());
+        assert_eq!(world.process(1).unwrap().registers[3], 2);
+        assert_eq!(world.process(1).unwrap().credits, 6);
+        assert_eq!(world.run(2), 1);
+        assert_eq!(world.process(1).unwrap().credits, 5);
+        assert!(matches!(world.events().last().unwrap().kind, EventKind::Halted));
+    }
+
+    #[test]
+    fn source_abi_tag_35_is_append_only_and_sensor_edge_relocates() {
+        let mut op = Op::SenseOwnCredits { dst: 2, next: 7 };
+        assert_eq!(op.encode_instruction().unwrap(), [35, 2, 7, 0, 0]);
+        assert_eq!(Op::decode_instruction([35, 2, 7, 0, 0]).unwrap(), op);
+        let json = serde_json::to_string(&op).unwrap();
+        assert_eq!(serde_json::from_str::<Op>(&json).unwrap(), op);
+        assert!(Op::decode_instruction([34, 0, 0, 0, 0]).is_err());
+        assert!(Op::decode_instruction([35, -1, 1, 0, 0]).is_err());
+        op.relocate_edges(6, 2);
+        assert_eq!(op, Op::SenseOwnCredits { dst: 2, next: 0 });
     }
 }
