@@ -403,7 +403,7 @@ def replay(parent,record,folder):
             if at==220 and evaluator:
                 raise AssertionError("C19 cannot use old cached cell41 to infer live code")
             if at==230 and evaluator:
-                assert memory[48]==last_writer.get(48,1)*0+memory[48]
+                assert last_writer[48]==1 and memory[48] in (0,1,2)
                 paid_candidate_source_saved+=1
             if at==238 and evaluator:
                 assert regs[3]==most_recent_live_current_source
