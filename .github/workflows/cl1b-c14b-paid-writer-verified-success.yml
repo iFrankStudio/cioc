@@ -7,7 +7,7 @@ on:
       - 'cl1b/studies/CL1B-C14-NATIVE-FEEDBACK-ATTESTED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json'
       - 'cl1b/studies/CL1B-C14B-PAID-WRITER-VERIFIED-SUCCESS-SOURCE-RESTORATION-preregistration.md'
       - 'cl0/crates/world/tests/cl1b_c14b_paid_writer_verified_success.rs'
-      - 'cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_native_replay.py'
+      - 'cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_replay.py'
       - '.github/workflows/cl1b-c14b-paid-writer-verified-success.yml'
   workflow_dispatch:
 
@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 ../cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_native_replay.py \
+          python3 ../cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_replay.py \
             cl1b-ci-evidence/cl1b_c14b_original_native_274_worlds.json cl1b-ci-evidence \
             > cl1b-ci-evidence/cl1b_c14b_independent_replay.json
           python3 - <<'PY'
