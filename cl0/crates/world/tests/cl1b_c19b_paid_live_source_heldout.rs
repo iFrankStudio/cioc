@@ -716,7 +716,7 @@ fn c19b_45_new_prospective_original_native_live_source_heldout() {
     let arms=policy["arms"].as_array().unwrap();
     let controls=policy["false_feedback_controls"].as_array().unwrap();
     assert_eq!((cases.len(),arms.len(),controls.len()),(45,6,4));
-    assert_eq!(policy["counts"]["native_worlds"],274);
+    assert_eq!(policy["counts"]["total_worlds"],274);
     let mut old=std::collections::BTreeSet::new();
     for case in parent["cases"].as_array().unwrap(){old.insert(case["goals"].to_string());}
     for case in frozen["cases"].as_array().unwrap(){old.insert(case["goals"].to_string());}
