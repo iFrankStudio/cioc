@@ -620,7 +620,7 @@ def main(summary_path,folder):
     n=json.loads(Path(summary_path).read_text())
     assert m["status"]=="PRE_NATIVE_FROZEN"
     assert m["study"]=="CL1B-C14-NATIVE-FEEDBACK-ATTESTED-SUCCESS-SOURCE-RESTORATION"
-    assert n["study"]=="CL1B-C20-C16-TICKET-CONSUMPTION-EFFECT-RECALIBRATION"
+    assert n["study"]=="CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-HELDOUT"
     assert len(policy["cases"])==45 and len(policy["arms"])==4 and len(policy["false_feedback_controls"])==6
     assert len(n["records"])==45 and len(n["adversarial_records"])==6
     old={tuple(v["goals"]) for v in p["cases"]}
