@@ -206,62 +206,134 @@ def replay(source,arm,trace):
       "online_edit_budget_meter":cells.get(38,0),"final_edges":edges_now(),
       "peak_occupied":peak,"original_pid_halted":True,"host_source_edits":0}
 
+
+def first_patchnext_physical_effect(folder, on, off):
+    assert on["source"]==off["source"]=="F6"
+    assert on["goals"]==off["goals"] and on["feedback"]==off["feedback"]=="truth"
+    assert on["suppressed"] is False and off["suppressed"] is True
+    def events(r):
+        return [json.loads(line) for line in (Path(folder)/f"cl1b_c23_original_{r['name']}.jsonl").read_text().splitlines()]
+    aa,bb=events(on),events(off)
+    i=next((i for i,(a,b) in enumerate(zip(aa,bb)) if a!=b),None)
+    if i is None:
+        assert len(aa)==len(bb)
+        return {"case":on["name"],"physical_patchnext_exposed":False,"original_native_full_trace_identical":True}
+    assert aa[:i]==bb[:i]
+    a,b=aa[i],bb[i]
+    assert a[:8]==b[:8] and a[0]==b[0]=="cil"
+    assert a[2] in (82,131,136,139,155,177),"First native difference must be charged PatchNext effect"
+    differences=[j for j in range(4) if a[8][j]!=b[8][j]]
+    assert len(differences)==1
+    return {"case":on["name"],"physical_patchnext_exposed":True,
+        "identical_all_original_paid_and_feedback_prior_events":i,
+        "first_effect_paid_PC":a[2],"changed_live_edge_slot":differences[0],
+        "active_edge":a[8][differences[0]],"suppressed_edge":b[8][differences[0]]}
+
 def main():
     if len(sys.argv)!=3:
-        raise SystemExit("usage: script SUMMARY.json ORIGINAL_TRACE_DIR")
+        raise SystemExit("usage: C23_AUDIT SUMMARY.json ORIGINAL_TRACE_DIR")
     summary=json.loads(Path(sys.argv[1]).read_text())
     manifest=json.loads(FROZEN.read_text())
-    assert summary["study"]==manifest["study"]=="CL1B-POLICY-P4F6"
-    assert summary["level"]=="ORIGINAL_NATIVE_542_WORLD_ACTOR_PAID_FOUR_CLEAN_SUCCESS_EDIT_REFILL"
+    parent=json.loads(PARENT.read_text())
+    c22=json.loads(C22.read_text())
+    assert summary["study"]==manifest["study"]=="CL1B-C23-F7-PAID-OBSERVED-STAGE-MATURITY-CODE-EDIT-GATE"
+    assert summary["level"]=="ORIGINAL_NATIVE_C23_186_WORLD_PID_PAID_STAGE_MATURITY_GATE"
+    assert manifest["status"]=="PRE_NATIVE_FULL_FROZEN_TRUE_NEW_45_GOALS"
+    assert parent["study"]=="CL1B-POLICY-P4F6"
     assert summary["source_sha"] not in ("","local")
     if os.environ.get("GITHUB_SHA"):
         assert summary["source_sha"]==os.environ["GITHUB_SHA"]
-    assert len(manifest["arms"])==540 and len(summary["records"])==180
+    f7=manifest["gate_source_F7_184_nodes"]
+    f6=parent["original_native_CIL_source_f6"]
+    f5=parent["baseline_source_f5"]
+    assert len(f7)==184 and len(f6)==180 and len(f5)==153
+    assert f7[81]==dict(f6[81],next=180)
+    assert f7[:81]==f6[:81] and f7[82:180]==f6[82:]
+    assert f7[180:]==[
+        {"kind":"Const","dst":2,"value":32,"next":181},
+        {"kind":"Read","dst":0,"address":2,"next":182},
+        {"kind":"Branch","test":0,"nonzero":183,"zero":127},
+        {"kind":"Const","dst":0,"value":137,"next":82}]
+    old={tuple(x["goals"]) for x in parent["goal_cases"]+c22["goal_cases"]}
+    frozen={tuple(x["goals"]) for x in manifest["goal_cases"]}
+    assert len(frozen)==45 and not old.intersection(frozen)
+    assert len(manifest["arms"])==180 and len(summary["records"])==45
+    assert len(manifest["controls"])==len(summary["controls"])==6
     total=0
     worlds=0
     groups={}
+    proofs=[]
+    totals={"f7_on":0,"f7_off":0,"f6_original":0,"f5_original":0}
+    correct={k:0 for k in totals}
+    actor_gate={"paid_stage_reads":0,"gate_skip_zero_stage":0,"gate_allow_after_stage":0,
+                "paid_PC82_executions_after_allowed_gate":0}
     def check(arm,native):
         nonlocal total,worlds
-        source=manifest["gate_source_F7_184_nodes"] if arm["source"]=="F6" else parent["original_native_CIL_source_f6"] if arm["source"]=="F6BASE" else parent["baseline_source_f5"]
-        path=Path(sys.argv[2])/f"cl1b_policy_p4f6_original_{arm['name']}.jsonl"
-        independently=replay(source,arm,path)
-        assert independently==native,(arm["name"],next((k for k in independently if independently[k]!=native.get(k)),None))
-        total+=independently["steps"]
+        source=f7 if arm["source"]=="F6" else f6 if arm["source"]=="F6BASE" else f5
+        path=Path(sys.argv[2])/f"cl1b_c23_original_{arm['name']}.jsonl"
+        independent=replay(source,arm,path)
+        assert independent==native,(arm["name"],next((k for k in independent if independent[k]!=native.get(k)),None))
+        if arm["source"]=="F6":
+            assert len(independent["paid_stage_reads"])==len(independent["paid_stage_branches"])
+            assert all(x["stage"]==y["stage"] and x["step"]+1==y["step"]
+                for x,y in zip(independent["paid_stage_reads"],independent["paid_stage_branches"]))
+            assert all(x["next"]==(183 if x["stage"] else 127)
+                for x in independent["paid_stage_branches"])
+        else:
+            assert independent["paid_stage_reads"]==independent["paid_stage_branches"]==[]
+        total+=independent["steps"]
         worlds+=1
-        return independently
+        return independent
     for i,g in enumerate(manifest["goal_cases"]):
-        a,b,c=manifest["arms"][3*i:3*i+3]
-        record=summary["records"][i]
-        assert a["goals"]==b["goals"]==c["goals"]==g["goals"]
-        assert record["regime"]==g["regime"] and record["goals"]==g["goals"]
-        on=check(a,record["f6_on"])
-        off=check(b,record["f6_off"])
-        base=check(c,record["f5_on"])
-        assert all(x["truthful_matches"]==x["completed_stages"]==24
-                    and x["claim"]==1 for x in (on,off,base))
-        d=off["steps"]-on["steps"]
-        p=len(off["services"])-len(on["services"])
-        x=base["steps"]-on["steps"]
-        xp=len(base["services"])-len(on["services"])
-        assert record["same_source_bundle_paid_saving"]==d
-        assert record["same_source_bundle_probe_saving"]==p
-        assert record["cross_source_f6_vs_f5_paid_saving"]==x
-        assert record["cross_source_f6_vs_f5_probe_saving"]==xp
-        group=groups.setdefault(g["regime"],{"cases":0,"same_source_paid":0,"cross_source_paid":0,"cross_source_probes_saved":0})
-        group["cases"]+=1
-        group["same_source_paid"]+=d
-        group["cross_source_paid"]+=x
-        group["cross_source_probes_saved"]+=xp
+        a,b,c,d=manifest["arms"][4*i:4*i+4]
+        n=summary["records"][i]
+        assert a["goals"]==b["goals"]==c["goals"]==d["goals"]==g["goals"]
+        assert a["source"]==b["source"]=="F6" and c["source"]=="F6BASE" and d["source"]=="F5"
+        assert n["regime"]==g["regime"] and n["goals"]==g["goals"]
+        x=check(a,n["f7_on"])
+        y=check(b,n["f7_off"])
+        z=check(c,n["f6_original"])
+        w=check(d,n["f5_original"])
+        for label,outcome in (("f7_on",x),("f7_off",y),("f6_original",z),("f5_original",w)):
+            assert 0<=outcome["truthful_matches"]<=24 and 0<=outcome["completed_stages"]<=24
+            totals[label]+=outcome["steps"]
+            correct[label]+=outcome["truthful_matches"]
+        proofs.append(first_patchnext_physical_effect(sys.argv[2],x,y))
+        actor_gate["paid_stage_reads"]+=len(x["paid_stage_reads"])
+        actor_gate["gate_skip_zero_stage"]+=sum(e["stage"]==0 for e in x["paid_stage_branches"])
+        actor_gate["gate_allow_after_stage"]+=sum(e["stage"]!=0 for e in x["paid_stage_branches"])
+        actor_gate["paid_PC82_executions_after_allowed_gate"]+=sum(e["pc"]==82 for e in x["edge_edits"])
+        assert n["same_source_bundle_paid_saving"]==y["steps"]-x["steps"]
+        assert n["same_source_bundle_probe_saving"]==len(y["services"])-len(x["services"])
+        assert n["F7_on_minus_F6_original_paid_CIL"]==x["steps"]-z["steps"]
+        assert n["F7_on_minus_F5_original_paid_CIL"]==x["steps"]-w["steps"]
+        assert n["cross_source_f6_vs_f5_paid_saving"]==w["steps"]-x["steps"]
+        assert n["cross_source_f6_vs_f5_probe_saving"]==len(w["services"])-len(x["services"])
+        gp=groups.setdefault(g["regime"],{"cases":0,"same_source_paid_saving":0,
+              "new_F7_minus_original_F6_paid":0,"new_F7_minus_F5_paid":0})
+        gp["cases"]+=1
+        gp["same_source_paid_saving"]+=y["steps"]-x["steps"]
+        gp["new_F7_minus_original_F6_paid"]+=x["steps"]-z["steps"]
+        gp["new_F7_minus_F5_paid"]+=x["steps"]-w["steps"]
     for arm,native in zip(manifest["controls"],summary["controls"]):
         check(arm,native)
-    assert worlds==542
-    assert total==summary["counts"]["total_original_paid_instructions"]
-    assert summary["counts"]["worlds"]==542
-    print(json.dumps({"study":"CL1B-POLICY-P4F6",
-      "original_native_worlds_exactly_replayed":worlds,
-      "original_charged_CIL_instruction_count_exactly_replayed":total,
-      "first_divergence":None,"source_sha":summary["source_sha"],
-      "regimes":groups,"limits":"No self-invented algorithm or cross-world lineage"},indent=2))
+    assert worlds==186 and len(proofs)==45
+    assert sum(g["cases"] for g in groups.values())==45
+    assert summary["counts"]["worlds"]==186
+    assert summary["counts"]["total_original_paid_instructions"]==total
+    print(json.dumps({
+        "study":manifest["study"],"status":"C23_ORIGINAL_NATIVE_186_COMPLETE_INDEPENDENT_PAID_CIL_REPLAY",
+        "original_native_worlds_exactly_replayed":worlds,
+        "original_charged_CIL_instruction_count_exactly_replayed":total,
+        "original_native_sha":summary["source_sha"],"first_divergence":None,
+        "arm_fees":totals,"arm_true_matched_stages":correct,
+        "actor_paid_stage_gate_evidence":actor_gate,
+        "same_source_first_true_physical_patchnext_effect":proofs,
+        "same_source_paid_savings_sum":totals["f7_off"]-totals["f7_on"],
+        "F7_on_minus_original_F6_paid":totals["f7_on"]-totals["f6_original"],
+        "F7_on_minus_original_F5_paid":totals["f7_on"]-totals["f5_original"],
+        "regimes":groups,
+        "limitations":"Paid PID1 stage maturity observation externally authored. No true ROI model, no learned search algorithm, no B3/B4."},indent=2))
 
 if __name__=="__main__":
     main()
