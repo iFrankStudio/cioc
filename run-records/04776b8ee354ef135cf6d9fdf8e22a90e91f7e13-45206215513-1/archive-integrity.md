@@ -1,0 +1,11 @@
+# C27 full original native 8-world true actor-paid resource metrology, environmental mode reversal and source rollback
+- Exact original tested SHA: 04776b8ee354ef135cf6d9fdf8e22a90e91f7e13
+- Native Rust + independent exact full charged original CIL: https://github.com/iFrankStudio/cioc/actions/runs/45206215513
+- Original 8-world ZIP byte-exact SHA256: 11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a
+- Eight original native full paid CIL JSONLs, Rust/native summary, independent ordinary Python paid-CIL replay and provenance.
+- True native PID1 credited measurements at PCs0/30/60 twice per lifetime, 48 charged sensor calls, 192 production services and 32 trial services.
+- Normal environment may update only cell50 at stage12; neither PID private energy nor code is edited by the host.
+- 0->1: actor selects A then B, paid PC95 modifies source100.next101->131, 625 vs 673 full CIL, +48 saved.
+- 1->0: actor selects B then A, paid PC95 edits101->131 and later true paid ReadNext PC164 and paid PatchNext PC169 restores131->101, 627 vs 673, +46 saved.
+- Stable0 on/off 626/626 and identical full traces; Stable1 on/off 624/720, +96 saved.
+- Complete pre-authored two-candidate metrology and reversible source-control engineering gate. NOT self-invented adaptation or B3/B4.
