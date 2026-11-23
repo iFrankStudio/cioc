@@ -23,6 +23,6 @@
 
 ## 原始证据而非事后删除的阴性证明
 
-[原始274世界ZIP工件#14794618228](https://github.com/iFrankStudio/cioc/actions/runs/45123659232/artifacts/14794618228)，ZIP原始大小 **11,811,357 bytes**、SHA256 **`810cfcadb2e8912fd998c21d6600401351556a9fbfc3191021019adefaa5fbdc`**、CRC PASS、278个不重复成员含274个原始逐条真实CIL JSONL；已对原始原生及独立解释器的0成功证据、0新门执行核对。永久Git证据分支/远端二次hash由[独立持久保存工作流](../../.github/workflows/cl1b-c18-preserve-original-evidence.yml)严格验收，**工作流完成前不能声称长期归档成功**。
+[原始274世界ZIP工件#14794618228](https://github.com/iFrankStudio/cioc/actions/runs/45123659232/artifacts/14794618228)，ZIP原始大小 **11,811,357 bytes**、SHA256 **`810cfcadb2e8912fd998c21d6600401351556a9fbfc3191021019adefaa5fbdc`**、CRC PASS、278个不重复成员含274个原始逐条真实CIL JSONL；已对原始原生及独立解释器的0成功证据、0新门执行核对。**永久证据归档CI #45123887948 SUCCESS**：[专项GitHub Actions](https://github.com/iFrankStudio/cioc/actions/runs/45123887948)检验原始11,811,357字节ZIP全部278成员、274 JSONL、SHA256及原生+独立replay总账后写入[Git独立证据分支固定原始SHA/run目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/3bdfd2332fc0b6ec99996fedc8887495d14894d7-45123659232-1)，再从远端Git真实重新取回二进制对比同SHA256，已不依赖短期Actions下载期限。
 
 **科学解释**：这不是能成功证明“细胞41缓存识别物理同值”的实验，而是**前瞻完整样本没有触发此类编码服务反馈→合法历史源码记录→有费恢复候选**。用户和后续研究者必须保留C18的负结果，不许为产生漂亮数据改任务、删掉未触发世界，也不能把以后故意重用已知C17任务的C18b机制校准称为新的未知泛化。C18b的作用只能是进一步证伪缓存值是否能代表真实活跃PC173。**B3自主累积优化、B4内生组织与真正赛博生命均NOT_MET。**
