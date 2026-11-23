@@ -1,0 +1,112 @@
+name: CL-1B preserve source-verified C20 184 original paid PC202 native worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c20-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c20-original-evidence
+  cancel-in-progress: false
+jobs:
+  preserve-original-native-and-independent-CIL-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download the EXACT verified C20 original native artifact and independently confirm all 184 world records
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c20-archive
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14804017729/zip" \
+            -o /tmp/cl1b-c20-archive/original-native.zip
+          echo '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977  /tmp/cl1b-c20-archive/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          path='/tmp/cl1b-c20-archive/original-native.zip'
+          with zipfile.ZipFile(path) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names))==188
+              assert sum(n.endswith('.jsonl') for n in names)==184
+              d=json.loads(z.read('cl1b_c20_original_native_184_worlds.json'))
+              p=json.loads(z.read('cl1b_c20_independent_replay.json'))
+              assert d['study']==p['study']=='CL1B-C20-C16-TICKET-CONSUMPTION-EFFECT-RECALIBRATION'
+              assert d['native_worlds']==p['native_worlds']==184
+              assert d['true_worlds']==180 and d['false_feedback_worlds']==4
+              assert d['reused_C19B_known_cases']==p['known_C19B_goal_schedules_reused']==45
+              assert d['total_paid_cil']==p['exact_private_paid_cil_replayed']==777562
+              assert p['first_divergence'] is None
+              assert len(d['records'])==45 and len(d['adversarial_records'])==4
+              assert len(p['strict_PC202_effect_first_original_event_proofs'])==45
+              assert p['true_PC202_exposure_worlds']+p['strict_PC202_no_exposure_worlds']==45
+              assert d['arm_fees']['truth_paid_live_self_executed_source_difference_gate']==209189
+              assert d['arm_fees']['same_source_pc202_ticket_spend_effect_suppressed']==208867
+              assert d['arm_fees']['same_source_pc225_equal_marker_suppressed']==206434
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==147096
+              assert all(v==45 for v in d['arm_completed_worlds'].values())
+              assert d['same_source_live_vs_suppressed_paid_or_feedback_difference_cases']==2
+              assert d['same_source_live_vs_cached_equal_marker_effect_difference_cases']==4
+              assert all(sum(r['arms'][j]['completed_stages'] for r in d['records'])==2160 for j in range(4))
+              provenance=z.read('cl1b-c20-native-provenance.txt').decode()
+              assert 'tested_sha=6a1dd043b6b970ef7ba83037a8dc2800e20553d5' in provenance
+              assert 'run_id=45146154128' in provenance
+              assert 'cohort=KNOWN_C19B_45_REUSED_NOT_NEW_HELDOUT' in provenance
+              print('PASS ORIGINAL C20 native ZIP: all 184 traces, exact full independent paid CIL, strict PC202 first physical effect events, B3/B4 NOT_MET')
+              print('EXPOSURE:',p['true_PC202_exposure_worlds'],'NO_EXPOSURE:',p['strict_PC202_no_exposure_worlds'])
+          PY
+      - name: Preserve original bytes at tested-SHA and run-id anchored path on evidence Git branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c20-archive/original-native.zip "$dest/original-native-artifact.zip"
+          echo '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C20 original source-pinned known-task 184-world native experiment
+
+          - Tested commit: 6a1dd043b6b970ef7ba83037a8dc2800e20553d5
+          - Verified successful original native run: https://github.com/iFrankStudio/cioc/actions/runs/45146154128
+          - Original artifact ZIP SHA-256: 6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977
+          - 184 JSONL native traces; original native summary, Rust log, independent Python paid-CIL interpretation and complete PC202 first-effect audit.
+          - C19B's formerly unseen 45 cases are **known calibration cases** for C20. Not new holdout evidence.
+          - B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C20 original known C19B 184-world native ticket-effect ZIP'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'archive push exhausted retries' >&2; exit 1; fi
+              git fetch origin cl1b-ci-evidence
+              git rebase origin/cl1b-ci-evidence
+            done
+          else
+            echo 'Existing identical C20 archive'
+          fi
+      - name: Fetch the committed ZIP back from permanent Git and verify byte identity again
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1'
+          actual="$(git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$actual" = '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977'
+          echo 'C20 native ZIP is permanently Git-backed and verified after remote readback'
