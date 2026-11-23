@@ -1,0 +1,139 @@
+name: CL-1B preserve C27 original 8-world paid-source self-edit and rollback evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c27-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c27-source-pinned-original-remeasure-rollback
+  cancel-in-progress: false
+jobs:
+  verify-and-archive-byte-exact-C27-original-8-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Retrieve original successful paid native C27 ZIP and independently verify resource measuring, source self-edit, real rollback
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c27
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14833581930/zip" \
+            -o /tmp/cl1b-c27/original-native-artifact.zip
+          echo '11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a  /tmp/cl1b-c27/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          with zipfile.ZipFile('/tmp/cl1b-c27/original-native-artifact.zip') as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names)) and len(names)>=12
+              assert all('/' not in n and '..' not in n for n in names)
+              assert sum(n.endswith('.jsonl') for n in names)==8
+              n=json.loads(z.read('cl1b_c27_original_native_eight_worlds.json'))
+              a=json.loads(z.read('cl1b_c27_independent_full_paid_replay.json'))
+              study='CL1B-C27-INTRA-LIFECYCLE-PAID-RESOURCE-REMEASUREMENT-SOURCE-ROLLBACK'
+              sha='04776b8ee354ef135cf6d9fdf8e22a90e91f7e13'
+              assert n['study']==a['study']==study
+              assert n['source_sha']==a['tested_original_native_sha']==sha
+              assert n['level']=='ORIGINAL_NATIVE_C27_EIGHT_WORLD_PAID_RESOURCE_REMEASURE_AND_SOURCE_ROLLBACK'
+              assert n['counts']=={'original_native_worlds':8,'total_paid_CIL':5194,'production_services':192,'trial_services':32,'paid_private_sensor_executions':48}
+              assert a['original_native_worlds_exactly_replayed']==8 and a['first_divergence'] is None
+              assert a['total_original_paid_CIL']==5194 and a['actual_private_credit_sensors_paid']==48
+              assert a['actual_production_services']==192 and a['actual_candidate_trial_services']==32
+              costs={'c27_0to1_on':625,'c27_0to1_off':673,
+                'c27_1to0_on':627,'c27_1to0_off':673,
+                'c27_0stable_on':626,'c27_0stable_off':626,
+                'c27_1stable_on':624,'c27_1stable_off':720}
+              assert a['arm_full_paid_CIL']==costs
+              pairs=a['paired_same_initial_source_full_paid_cost_and_actor_decisions']
+              assert [r['same_source_physical_effect_paid_saving'] for r in pairs]==[48,46,0,96]
+              assert [r['actor_choices'] for r in pairs]==[[0,1],[1,0],[0,0],[1,1]]
+              assert [r['rollback_PC169_count'] for r in pairs]==[0,1,0,0]
+              assert [len(r['environment_external_mode_changes']) for r in pairs]==[1,1,0,0]
+              assert a['exact_first_physical_edit_prefix'][2]['full_original_native_trace_identical']
+              assert len(n['results'])==8
+              for x in n['results']:
+                  k=x['id']
+                  assert costs[k]==x['total_paid_cil']
+                  assert x['real_production_services']==x['completed_production_services']==24
+                  assert x['real_trial_services']==4
+                  assert len(x['sensor_records'])==6
+                  assert len(x['actor_paid_decisions'])==2
+                  assert len(x['cost_comparisons_by_paid_phase'])==2
+                  assert x['original_pid_halted'] and not x['trapped']
+                  assert all(y['own_private_credits_after']==3000-y['step'] for y in x['sensor_records'])
+                  records=[json.loads(q) for q in z.read('cl1b_c27_original_'+k+'.jsonl').decode().splitlines()]
+                  assert sum('charged_step' in q for q in records)==x['total_paid_cil']
+                  assert sum('environment_change' in q for q in records)==len(x['environment_events'])
+                  assert records[0]['pc']==0 and records[0]['own_credits_after']==2999
+                  assert records[-1]['original_native_event']=='halt'
+              live=a['native_actor_paid_real_edits_and_rollback']['c27_1to0_on']
+              assert len(live)==2 and live[0]['pc']==95 and live[0]['actual_after']==131
+              assert live[1]['pc']==169 and live[1]['prior']==131 and live[1]['actual_after']==101 and not live[1]['suppressed']
+              assert not any(v['pc']==169 for v in a['native_actor_paid_real_edits_and_rollback']['c27_1to0_off'])
+              t=z.read('cl1b-c27-original-provenance.txt').decode()
+              assert 'tested_sha='+sha in t and 'run_id=45206215513' in t
+              assert 'nonblind_toy_preflight=625_673_627_673_626_626_624_720' in t
+              assert 'B3_B4=NOT_MET' in t
+              print('PASS original exact 8 paid C27 worlds, 48 true paid own-credit samples, mode reversal, native charge + source rollback and unchanged-source first physical prefixes, B3/B4 NOT_MET')
+          PY
+      - name: Preserve byte-exact original native paid C27 ZIP permanently in Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/04776b8ee354ef135cf6d9fdf8e22a90e91f7e13-45206215513-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c27/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          echo '11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C27 full original native 8-world true actor-paid resource metrology, environmental mode reversal and source rollback
+          - Exact original tested SHA: 04776b8ee354ef135cf6d9fdf8e22a90e91f7e13
+          - Native Rust + independent exact full charged original CIL: https://github.com/iFrankStudio/cioc/actions/runs/45206215513
+          - Original 8-world ZIP byte-exact SHA256: 11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a
+          - Eight original native full paid CIL JSONLs, Rust/native summary, independent ordinary Python paid-CIL replay and provenance.
+          - True native PID1 credited measurements at PCs0/30/60 twice per lifetime, 48 charged sensor calls, 192 production services and 32 trial services.
+          - Normal environment may update only cell50 at stage12; neither PID private energy nor code is edited by the host.
+          - 0->1: actor selects A then B, paid PC95 modifies source100.next101->131, 625 vs 673 full CIL, +48 saved.
+          - 1->0: actor selects B then A, paid PC95 edits101->131 and later true paid ReadNext PC164 and paid PatchNext PC169 restores131->101, 627 vs 673, +46 saved.
+          - Stable0 on/off 626/626 and identical full traces; Stable1 on/off 624/720, +96 saved.
+          - Complete pre-authored two-candidate metrology and reversible source-control engineering gate. NOT self-invented adaptation or B3/B4.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C27 original eight paid-source self-edit and rollback worlds'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'C27 archive Git push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'C27 original ZIP already preserved'
+          fi
+      - name: Re-fetch original C27 native archive bytes from remote and revalidate SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/04776b8ee354ef135cf6d9fdf8e22a90e91f7e13-45206215513-1'
+          got="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$got" = '11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F '11828d4d6947f329e2760738899450d84218e5735841f54c2e083502d6dade1a'
+          echo 'PASS C27 original eight paid-CIL worlds archived byte-identically and independently reread from Git evidence'
