@@ -44,7 +44,7 @@ def trace_hist(path):
             n+=1
             h[e[2]]+=1
         elif e[0]=="feedback":
-            assert len(e)==11
+            assert len(e)==10
             services.append({"at_paid_step":e[1],"stage":e[2],
                 "truth":e[5],"actual_feedback":e[6]})
         else:
