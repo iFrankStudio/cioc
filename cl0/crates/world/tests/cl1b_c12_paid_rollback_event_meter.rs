@@ -194,7 +194,7 @@ fn run(
     }
     trace.flush().unwrap();
     assert_eq!(paid_counter_writes, if metered { rollback_attempts } else { 0 });
-    assert_eq!(world.cell(43), if metered { Some(rollback_attempts as i64) } else { None });
+    assert_eq!(world.cell(43), if metered && rollback_attempts > 0 { Some(rollback_attempts as i64) } else { None });
     let successes = services.iter().filter(|x| x[2] == 1).count();
     let completed = world.cell(32).unwrap_or(0);
     let claim = world.cell(21).unwrap_or(0);
