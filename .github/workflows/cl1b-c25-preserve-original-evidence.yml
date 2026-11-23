@@ -1,0 +1,126 @@
+name: CL-1B preserve C25 original 276 real paid CIL self-quarantine worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c25-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c25-276-original-native-evidence
+  cancel-in-progress: false
+jobs:
+  source-pin-reverify-original-and-permanently-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Fetch exact successful ORIGINAL native ZIP and verify every original world and full independent CIL outcome
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c25-original
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14821307230/zip" \
+            -o /tmp/cl1b-c25-original/original-native-artifact.zip
+          echo '3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2  /tmp/cl1b-c25-original/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          p='/tmp/cl1b-c25-original/original-native-artifact.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(set(names))==len(names)==280
+              assert sum(n.endswith(".jsonl") for n in names)==276
+              assert all('/' not in n and '..' not in n for n in names)
+              n=json.loads(z.read('cl1b_c25_original_native_276_worlds.json'))
+              a=json.loads(z.read('cl1b_c25_independent_full_paid_replay.json'))
+              study='CL1B-C25-F9F10-ACTOR-PAID-PATCHNEXT-SELF-QUARANTINE'
+              assert n['study']==a['study']==study
+              assert n['level']=='ORIGINAL_NATIVE_C25_276_WORLD_ACTOR_PAID_SELF_QUARANTINE'
+              assert n['source_sha']==a['tested_source_sha']=='03b4dbb7330c8db921096e6512cfa71b0ccb70c5'
+              assert n['counts']['worlds']==a['original_worlds_exactly_replayed']==276
+              assert n['counts']['truthful_worlds']==270 and n['counts']['adversarial']==6
+              assert len(n['records'])==45 and len(n['controls'])==6
+              assert a['first_divergence'] is None
+              assert a['arm_paid_CIL']=={'f9_on':76704,'f9_off':73800,'f10_on':73743,'f10_off':73878,'f8_original':77952,'f5_original':80013}
+              assert a['arm_true_matched_stages']=={'f9_on':1080,'f9_off':1080,'f10_on':1080,'f10_off':1080,'f8_original':1080,'f5_original':1080}
+              assert a['F9_same_source_full_paid_physical_edit_net_saving']==-2904
+              assert a['F10_same_source_full_paid_physical_edit_net_saving']==135
+              assert a['F10_on_vs_original_F8_paid_saving']==4209
+              assert a['F10_on_vs_original_F5_paid_saving']==6270
+              assert a['paid_PID1_quarantine_witness']=={'f9_on':195,'f9_off':195,'f10_on':225,'f10_off':225,'f9_selected_execution_cases':39,'f10_all_execution_cases':45}
+              assert len(a['F9_same_source_first_physical_edit_effect'])==45
+              assert len(a['F10_same_source_first_physical_edit_effect'])==45
+              assert sum(x['physical_patchnext_exposed'] for x in a['F9_same_source_first_physical_edit_effect'])==45
+              assert sum(x['physical_patchnext_exposed'] for x in a['F10_same_source_first_physical_edit_effect'])==45
+              for row in n['records']:
+                  assert all(row[k]['truthful_matches']==row[k]['completed_stages']==24 for k in ('f9_on','f9_off','f10_on','f10_off','f8_original','f5_original'))
+                  for k in ('f9_on','f9_off','f10_on','f10_off'):
+                      x=row[k]
+                      assert len(x['paid_counter_reads'])==len(x['paid_counter_writes'])==len(x['services'])
+                      assert [e['value'] for e in x['paid_counter_writes']]==list(range(1,len(x['services'])+1))
+                  assert len(row['f10_on']['paid_quarantine_self_edits'])==5
+              assert n['counts']['total_original_paid_instructions']==a['total_original_paid_CIL_including_negatives']
+              provenance=z.read('cl1b-c25-original-source-provenance.txt').decode()
+              assert 'tested_sha=03b4dbb7330c8db921096e6512cfa71b0ccb70c5' in provenance
+              assert 'run_id=45181342167' in provenance
+              assert 'new_cohort=45_DISJOINT_FROM_P4F6_C22_C23_C24_C24B' in provenance
+              print('PASS C25 276 full original native worlds, exact independent paid CIL and F10 +135 same-source effect, B3/B4 NOT_MET')
+          PY
+      - name: Commit exact native 276-world ZIP bytes to permanent Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/03b4dbb7330c8db921096e6512cfa71b0ccb70c5-45181342167-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c25-original/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          echo '3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C25 real PID1-paid native PatchNext self-quarantine, all 276 original worlds
+          - Original tested SHA: 03b4dbb7330c8db921096e6512cfa71b0ccb70c5
+          - Original full successful native Rust and exact independent Python CIL CI: https://github.com/iFrankStudio/cioc/actions/runs/45181342167
+          - Original artifact ZIP SHA256: 3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2
+          - 276 original paid per-CIL JSONL, original Rust/native summary, independent ordinary CIL replay, true/negative feedback and original run metadata.
+          - 45 pre-native-frozen never-before-executed full 24-stage goal schedules, 6 true arms per task, 6 deceptive feedback controls.
+          - F10 self-quarantine with 225 real charged CIL native PatchNext rewirings; all 1080 stages complete; 73,743 CIL.
+          - Same initial F10 source with all PatchNext physical effects researcher suppressed: 73,878 CIL, all 1080 stages; native bundled physical effect saves 135 CIL.
+          - F9 paid native selective self-quarantine 76,704; identical initial F9 source effect suppression 73,800; selective effect loses 2,904 CIL.
+          - This is an author-defined paid self-modification plan, not self-invented learning, net positive only for bundled all-PatchNext physical effects, B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve original C25 276 actor-paid native self-quarantine worlds'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'C25 archive push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'C25 original ZIP already preserved'
+          fi
+      - name: Fetch remote Git evidence and byte-identically reverify original C25 ZIP SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/03b4dbb7330c8db921096e6512cfa71b0ccb70c5-45181342167-1'
+          actual="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$actual" = '3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F '3b80382e39ff0181afae04d4a946236060a6809e2ee42654d2cc3a60f244a2c2'
+          echo 'PASS C25 276 original paid world ZIP verified after remote Git evidence branch readback'
