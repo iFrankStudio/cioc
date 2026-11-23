@@ -1,0 +1,85 @@
+name: CL-1B C27 original 8-world paid CIL remeasure and reversible source edit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c27_paid_resource_remeasure_rollback_native.rs'
+      - 'cl1b/audits/cl1b_c27_original_native_paid_candidate_remeasure_rollback_independent_replay.py'
+      - '.github/workflows/cl1b-c27-paid-remeasure-rollback-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c27-original-8-remeasure-and-source-rollback
+  cancel-in-progress: true
+jobs:
+  source-frozen-original-native-eight-worlds-paid-self-rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run original 8 native PID-paid resource candidate remeasure and ReadNext source rollback worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c27_paid_resource_remeasure_rollback_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c27-original-native.log
+      - name: Independently replay original 8 actual paid CIL native instruction traces, two life phases, neutral mode switches and real source rollback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c27_original_native_paid_candidate_remeasure_rollback_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c27_original_native_eight_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c27_independent_full_paid_replay.json
+          python3 - <<'PY'
+          import json
+          p='cl1b-ci-evidence/cl1b_c27_independent_full_paid_replay.json'
+          d=json.load(open(p))
+          assert d['study']=='CL1B-C27-INTRA-LIFECYCLE-PAID-RESOURCE-REMEASUREMENT-SOURCE-ROLLBACK'
+          assert d['original_native_worlds_exactly_replayed']==8
+          assert d['first_divergence'] is None
+          assert d['actual_private_credit_sensors_paid']==48
+          assert d['actual_production_services']==192 and d['actual_candidate_trial_services']==32
+          pairs=d['paired_same_initial_source_full_paid_cost_and_actor_decisions']
+          assert len(pairs)==4
+          assert pairs[0]['actor_choices']==[0,1]
+          assert pairs[1]['actor_choices']==[1,0] and pairs[1]['rollback_PC169_count']==1
+          assert pairs[2]['actor_choices']==[0,0] and pairs[2]['same_source_physical_effect_paid_saving']==0
+          assert pairs[3]['actor_choices']==[1,1]
+          assert len(d['exact_first_physical_edit_prefix'])==4
+          assert d['exact_first_physical_edit_prefix'][2]['full_original_native_trace_identical']
+          print('C27 PASS: 8 original native worlds and independently replayed every paid-CIL private observation, remeasurement, self edit and rollback; B3/B4 NOT_MET')
+          print('C27 actor paid per-phase candidate choices',d['paired_same_initial_source_full_paid_cost_and_actor_decisions'])
+          print('C27 source edits and real paid rollback',d['native_actor_paid_real_edits_and_rollback'])
+          PY
+      - name: Preserve source identity and declared non-blind engineering preflight provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "original_pre_native_frozen_protocol=CL1B-C27-PAID-CREDIT-REMEASURE-ROLLBACK-frozen-8-worlds-v1.json"
+            echo "neutral_resource_sensor=SenseOwnCredits_opcode35_PostPrivateDebit"
+            echo "actor_rollback=ReadNext_PC164_then_paid_PatchNext_PC169_only_if_live_source_previously_changed"
+            echo "environment_only_intervenes_once_on_cell50_immediately_after_actual_PC155_write45_at_stage12=YES"
+            echo "nonblind_toy_preflight=625_673_627_673_626_626_624_720"
+            echo "scope=PREAUTHORED_TWO_CANDIDATES_PAID_INTRA_LIFECYCLE_REMEASURE_AND_ROLLBACK"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c27-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c27-original-8-native-paid-remeasure-self-source-rollback
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
