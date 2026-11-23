@@ -33,6 +33,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_c22_paid_self_edit_heldout_roi.rs'
       - '!cl0/crates/world/tests/cl1b_c23_paid_stage_maturity_gate_native.rs'
       - '!cl0/crates/world/tests/cl1b_c24_paid_service_attempt_gate_native.rs'
+      - '!cl0/crates/world/tests/cl1b_c24b_unchanged_f8_paid_counter_replication_native.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -67,6 +68,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_c22_paid_self_edit_heldout_roi.rs'
       - '!cl0/crates/world/tests/cl1b_c23_paid_stage_maturity_gate_native.rs'
       - '!cl0/crates/world/tests/cl1b_c24_paid_service_attempt_gate_native.rs'
+      - '!cl0/crates/world/tests/cl1b_c24b_unchanged_f8_paid_counter_replication_native.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -218,7 +220,7 @@ jobs:
             cl1b_refill_rule_g2_native
             cl1b_g2_pc28_native_c1
           )
-          # Dedicated C4-C24 original-native targets are verified by source-pinned
+          # Dedicated C4-C24B original-native targets are verified by source-pinned
           # scoped workflows, not the historical 104-target/63-observer matrix.
           # Keep a separately and strictly audited manifest; do not silently
           # accept arbitrary unregistered test sources.
@@ -248,6 +250,7 @@ jobs:
             cl1b_c22_paid_self_edit_heldout_roi
             cl1b_c23_paid_stage_maturity_gate_native
             cl1b_c24_paid_service_attempt_gate_native
+            cl1b_c24b_unchanged_f8_paid_counter_replication_native
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
