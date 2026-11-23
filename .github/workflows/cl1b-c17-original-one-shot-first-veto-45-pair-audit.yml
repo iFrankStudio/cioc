@@ -1,0 +1,87 @@
+name: CL-1B C17 source-pinned native PC5 one-shot feedback 45-pair causal audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c17_original_native_one_shot_first_veto_45_pair_audit.py'
+      - '.github/workflows/cl1b-c17-original-one-shot-first-veto-45-pair-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-native-one-shot-feedback-causal-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch exact C17 original native 274-world ZIP from permanent Git evidence archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c17-audit
+          evidence='run-records/1c998412bddc26d32e8536bc5c7542b9c6ff3fe8-45120094165-1/original-native-artifact.zip'
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+            if git show "FETCH_HEAD:$evidence" > /tmp/cl1b-c17-audit/original-native.zip; then
+              echo "Exact original Git evidence verified present on attempt $attempt"
+              break
+            fi
+            if [ "$attempt" = 8 ]; then
+              echo "C17 original permanent evidence not retrievable after 8 independent attempts" >&2
+              exit 1
+            fi
+            sleep 10
+          done
+          echo '29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c  /tmp/cl1b-c17-audit/original-native.zip' | sha256sum -c -
+      - name: Re-audit all 45 exact source matched true cases, all actual paid self-patches and 8 first Write46 causal divergers
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c17_original_native_one_shot_first_veto_45_pair_audit.py \
+            /tmp/cl1b-c17-audit/original-native.zip \
+            cl1b-ci-evidence/cl1b_c17_45_original_native_first_veto_causal_pairs.json \
+            > cl1b-ci-evidence/cl1b_c17_first_veto_causal_audit.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c17_45_original_native_first_veto_causal_pairs.json'))
+          assert d['original_native_paid_cil']==1147263
+          assert d['original_274_world_CIL_independent_replay_first_divergence'] is None
+          assert d['all_45_true_source_identical_effect_pairs']==45
+          assert d['actual_actor_self_patch_activated']==d['actor_self_patch_restored']==57
+          assert d['paid_postedit_real_feedback_consumed']==57
+          assert d['paid_risk_veto_writes']==8 and d['paid_future_veto_branch_blocks']==56
+          assert d['real_veto_causal_cases']==8
+          assert d['exact_equal_paid_native_event_prefix_on_each_first_veto']
+          assert d['stages_saved_by_paid_veto']==2 and d['private_CIL_saved_by_paid_veto']==4408
+          assert d['true_physical_code_effect_cases']==8
+          assert d['net_private_CIL_saved_by_real_physical_code_effect']==735
+          assert d['strong_fixed_C9_paid']==162029
+          assert len(d['all_45_true_pair_cases'])==45
+          assert len(d['eight_veto_first_causal_write_cases'])==8
+          print('Source-original C17: 274 native worlds, 57 actual PID1 self-patched probes, 8 veto causes, 2 extra real stages and 4408 paid CIL saved, but C9 static remains cheaper.')
+          PY
+      - name: Pin exact original tested SHA and scope including audit revision
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "auditor_source_sha=$GITHUB_SHA"
+            echo "audit_run_id=$GITHUB_RUN_ID"
+            echo "original_native_test_sha=1c998412bddc26d32e8536bc5c7542b9c6ff3fe8"
+            echo "original_native_test_run=45120094165"
+            echo "original_native_zip_sha256=29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c"
+            echo "scope=retrospective_native_45_matched_true_pairs_and_four_false_controls_full_original_zip"
+          } > cl1b-ci-evidence/cl1b-c17-first-veto-audit-provenance.txt
+      - name: Preserve complete 45 matched true-pair machine-readable native audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c17-source-pinned-exact-45-pair-postedit-veto-audit
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
