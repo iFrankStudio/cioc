@@ -9,7 +9,7 @@ permissions:
   actions: read
   contents: write
 concurrency:
-  group: cl1b-c20-original-evidence
+  group: cl1b-c20-original-evidence-sparse-v2
   cancel-in-progress: false
 jobs:
   preserve-original-native-and-independent-CIL-evidence:
@@ -70,8 +70,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin cl1b-ci-evidence
-          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git sparse-checkout init --cone
+          git sparse-checkout set run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
           dest='run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1'
           mkdir -p "$dest"
           cp /tmp/cl1b-c20-archive/original-native.zip "$dest/original-native-artifact.zip"
@@ -94,8 +96,8 @@ jobs:
             for attempt in 1 2 3 4 5; do
               if git push origin HEAD:cl1b-ci-evidence; then break; fi
               if [ "$attempt" = 5 ]; then echo 'archive push exhausted retries' >&2; exit 1; fi
-              git fetch origin cl1b-ci-evidence
-              git rebase origin/cl1b-ci-evidence
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
             done
           else
             echo 'Existing identical C20 archive'
@@ -104,9 +106,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin cl1b-ci-evidence
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
           dest='run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1'
-          actual="$(git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          actual="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
           test "$actual" = '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977'
-          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F '6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977'
           echo 'C20 native ZIP is permanently Git-backed and verified after remote readback'
