@@ -1,0 +1,14 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.66s
+[1m[92m     Running[0m tests/cl1b_g2_pc28_native_c1.rs (target/debug/build/cl0-world/59cbed93ce205674/out/cl1b_g2_pc28_native_c1-59cbed93ce205674)
+
+running 3 tests
+C1 ORIGINAL native 184 worlds, charged=306432, PC28-suppressed=28, on wins/losses/ties=0/1/44, suppressed-minus-on=-131
+test c1_frozen_184_original_native_same_source_patchconst_causality ... ok
+C2 ORIGINAL native 184 worlds, charged=546615, PC28-suppressed=63, on wins/losses/ties=4/8/33, suppressed-minus-on=-2008
+test cl1b_c2_lifecycle::c2_frozen_184_original_native_same_source_patchconst_causality ... ok
+C3 ORIGINAL native 292 worlds, charged=811925, PC28-suppressed=129, on wins/losses/ties=12/18/42, suppressed-minus-on=-740
+test cl1b_c3_decision_alias::c3_frozen_292_original_native_same_source_patchconst_causality ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 21.39s
+

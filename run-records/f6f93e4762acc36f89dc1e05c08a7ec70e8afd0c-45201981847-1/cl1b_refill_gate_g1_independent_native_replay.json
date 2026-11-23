@@ -1,0 +1,45 @@
+{
+  "study": "CL1B-REFILL-GATE-G1",
+  "status": "VERIFIED_INDEPENDENT_ORIGINAL_NATIVE_CIL_REPLAY",
+  "source_manifest": "CL1B-REFILL-GATE-G1-frozen-180-node-native-184-worlds-v1.json",
+  "verified_worlds": 184,
+  "verified_charged_instructions": 270819,
+  "first_divergence": null,
+  "actor_conditional_gates": 29,
+  "cost_by_regime": {
+    "stable_rotation_terminal_probe": {
+      "F6_parent": 10929,
+      "G1_conditional": 10929,
+      "G1_always": 10929,
+      "G1_never": 10929
+    },
+    "wide_double_shift_mid_jitter": {
+      "F6_parent": 13790,
+      "G1_conditional": 13609,
+      "G1_always": 13802,
+      "G1_never": 13227
+    },
+    "brief_double_pulse_terminal": {
+      "F6_parent": 15419,
+      "G1_conditional": 15086,
+      "G1_always": 15428,
+      "G1_never": 14396
+    },
+    "late_inverse_drift": {
+      "F6_parent": 11882,
+      "G1_conditional": 11883,
+      "G1_always": 11885,
+      "G1_never": 11879
+    },
+    "deterministic_sparse_impulses": {
+      "F6_parent": 15423,
+      "G1_conditional": 15317,
+      "G1_always": 15430,
+      "G1_never": 15147
+    }
+  },
+  "nonclaims": [
+    "All G1 initial conditional policies were researcher authored.",
+    "Not a test of autonomous policy invention or open-ended evolution."
+  ]
+}
