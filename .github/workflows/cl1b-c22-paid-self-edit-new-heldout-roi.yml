@@ -1,0 +1,74 @@
+name: CL-1B C22 original paid self-edit ROI on 45 unseen goal schedules
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c22_paid_self_edit_heldout_roi.rs'
+      - 'cl1b/audits/cl1b_c22_paid_self_edit_new_heldout_independent_replay.py'
+      - '.github/workflows/cl1b-c22-paid-self-edit-new-heldout-roi.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c22-original-native-roi
+  cancel-in-progress: true
+jobs:
+  exact-original-native-and-independent-141-world-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 45 fixed genuinely new schedules in 3 native self-edit arms plus 6 fixed negative controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c22_paid_self_edit_heldout_roi -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c22-original-native.log
+      - name: Reinterpret all 141 charged original CIL event streams independently and validate same-source PatchNext first effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c22_paid_self_edit_new_heldout_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c22_original_native_141_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c22_independent_paid_replay.json
+          python3 - <<'PY'
+          import json
+          p='cl1b-ci-evidence/cl1b_c22_independent_paid_replay.json'
+          d=json.load(open(p))
+          assert d['study']=='CL1B-C22-PAID-PATCHNEXT-SELF-EDIT-RETURN-ON-COMPUTE-NEW-HELDOUT'
+          assert d['original_native_worlds_exactly_replayed']==141 and d['first_divergence'] is None
+          assert d['new_goal_cases']==45
+          e=d['economic_observations']
+          assert e['wins']+e['ties']+e['losses']==45
+          assert len(d['strict_same_source_first_physical_PatchNext_divergences'])==45
+          print('C22 PASS: original paid native worlds 141, full independently priced CIL, all case-level ROI and first actual PatchNext effect')
+          print('all 45 new truthful cases:',json.dumps(e,sort_keys=True))
+          PY
+      - name: Record original tested commit and pre-execution goal/source freeze
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "pre_native_freeze=CL1B-C22-PAID-PATCHNEXT-SELF-EDIT-RETURN-frozen-141-worlds-v1.json"
+            echo "reused_original_f6_source=CL1B-POLICY-P4F6-frozen-actor-paid-clean-success-refill-542-world-v1.json"
+            echo "cohort=45_NEW_UNSEEN_GOAL_SCHEDULES_FULL_PAID_PID_SELF_EDIT_COST"
+            echo "scope=RESEARCHER_AUTHORED_FINITE_RULE_NOT_B3_OR_B4"
+          } > cl1b-ci-evidence/cl1b-c22-native-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c22-original-native-141-new-goals-paid-self-edit-roi
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
