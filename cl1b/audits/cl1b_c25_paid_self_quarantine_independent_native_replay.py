@@ -324,14 +324,18 @@ def main():
             assert len(independently["paid_counter_reads"])==len(independently["paid_counter_writes"])==count
             assert [x["value"] for x in independently["paid_counter_reads"]]==list(range(count))
             assert [x["value"] for x in independently["paid_counter_writes"]]==list(range(1,count+1))
-            assert len(independently["paid_attempt_reads"])==1
+            if arm["feedback"]=="truth":
+                assert len(independently["paid_attempt_reads"])==1, "all truthful arms must expose first paid CIL gate"
+            else:
+                assert len(independently["paid_attempt_reads"])<=1, "false feedback can prevent any gate exposure"
         else:
             assert independently["paid_counter_reads"]==independently["paid_counter_writes"]==[]
             assert independently["paid_attempt_reads"]==independently["paid_attempt_decisions"]==[]
         if arm["source"] in ("F9","F10"):
-            attempts=independently["paid_attempt_reads"][0]["attempts"]
-            assert attempts>=2
-            expected=5 if arm["source"]=="F10" or attempts>=4 else 0
+            attempts=(independently["paid_attempt_reads"][0]["attempts"]
+                if independently["paid_attempt_reads"] else None)
+            if attempts is not None: assert attempts>=2
+            expected=5 if attempts is not None and (arm["source"]=="F10" or attempts>=4) else 0
             assert len(independently["paid_quarantine_self_edits"])==expected
             assert [x["pc"] for x in independently["paid_quarantine_self_edits"]]==([197,200,203,206,209] if expected else [])
             assert all(x["suppressed"]==arm["patchnext_suppressed"] for x in independently["paid_quarantine_self_edits"])
