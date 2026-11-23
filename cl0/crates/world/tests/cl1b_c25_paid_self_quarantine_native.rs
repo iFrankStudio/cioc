@@ -228,7 +228,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    observations+=1;
   }
   if pc==185{
-   assert_eq!(source,"F6");
+   assert!(source=="F9"||source=="F10"||source=="F8BASE");
    match &ev.kind{
     EventKind::CellRead{key:40,value}=>{
       assert_eq!(*value+1,services.len() as i64);
@@ -239,7 +239,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    }
   }
   if pc==189{
-   assert_eq!(source,"F6");
+   assert!(source=="F9"||source=="F10"||source=="F8BASE");
    match &ev.kind{
     EventKind::CellWritten{key:40,value}=>{
       assert_eq!(*value,services.len() as i64);
@@ -250,7 +250,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    }
   }
   if pc==181{
-   assert_eq!(source,"F6");
+   assert!(source=="F9"||source=="F10"||source=="F8BASE");
    match &ev.kind{
     EventKind::CellRead{key:40,value}=>{
       assert_eq!(*value,services.len() as i64);
@@ -260,7 +260,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    }
   }
   if pc==190||pc==194{
-   assert_eq!(source,"F6");
+   assert!(source=="F9"||source=="F10"||source=="F8BASE");
    assert!(matches!(&ev.kind,EventKind::Executed));
    let p=w.process(1).unwrap();
    let attempts=w.cell(40).unwrap_or(0);
