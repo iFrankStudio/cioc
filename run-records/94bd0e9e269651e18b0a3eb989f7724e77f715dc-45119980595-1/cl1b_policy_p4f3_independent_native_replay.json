@@ -1,0 +1,58 @@
+{
+  "study": "CL1B-POLICY-P4F3",
+  "original_native_worlds_exactly_replayed": 218,
+  "original_charged_CIL_instruction_count_exactly_replayed": 267284,
+  "first_divergence": null,
+  "source_sha": "94bd0e9e269651e18b0a3eb989f7724e77f715dc",
+  "regimes": {
+    "stable": {
+      "cases": 9,
+      "same_source_paid": -1386,
+      "cross_source_paid": -1431,
+      "cross_source_probes_saved": 0
+    },
+    "switch": {
+      "cases": 9,
+      "same_source_paid": 1770,
+      "cross_source_paid": 2157,
+      "cross_source_probes_saved": 135
+    },
+    "holdout_revert": {
+      "cases": 9,
+      "same_source_paid": -675,
+      "cross_source_paid": -504,
+      "cross_source_probes_saved": 45
+    },
+    "holdout_rare_shock": {
+      "cases": 9,
+      "same_source_paid": -1428,
+      "cross_source_paid": -1326,
+      "cross_source_probes_saved": 9
+    },
+    "early_switch": {
+      "cases": 9,
+      "same_source_paid": 2646,
+      "cross_source_paid": 3141,
+      "cross_source_probes_saved": 171
+    },
+    "late_flip": {
+      "cases": 9,
+      "same_source_paid": 549,
+      "cross_source_paid": -144,
+      "cross_source_probes_saved": 45
+    },
+    "two_pulse": {
+      "cases": 9,
+      "same_source_paid": -4254,
+      "cross_source_paid": -2542,
+      "cross_source_probes_saved": -6
+    },
+    "oscillating_step": {
+      "cases": 9,
+      "same_source_paid": 1794,
+      "cross_source_paid": 981,
+      "cross_source_probes_saved": 108
+    }
+  },
+  "limits": "No self-invented algorithm or cross-world lineage"
+}
