@@ -39,7 +39,7 @@ fn source(m:&Value,arm:&str)->Vec<Op> {
             json!({"kind":"Const","dst":2,"value":41,"next":181}),
             json!({"kind":"ReadLastWriter","dst":0,"address":2,"next":182}),
             json!({"kind":"Const","dst":2,"value":1,"next":183}),
-            json!({"kind":"Sub","dst":0,"lhs":0,"rhs":2,"next":189}),
+            json!({"kind":"Sub","dst":0,"lhs":0,"rhs":2,"next":184}),
             json!({"kind":"Branch","test":0,"nonzero":29,"zero":185}),
             json!({"kind":"Const","dst":2,"value":41,"next":186}),
             json!({"kind":"Read","dst":0,"address":2,"next":187}),
