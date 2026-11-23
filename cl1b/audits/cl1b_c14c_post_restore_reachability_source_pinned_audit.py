@@ -55,7 +55,7 @@ def audit(path):
                 assert effective and not supp and before!=after
                 target=[e for e in cil_events if e[1]==step]
                 assert len(target)==1 and target[0][2]==102
-                assert target[0][9][4]==after # original native observer signature: PC173 physical Const
+                assert target[0][8][4]==after # original native observer signature: PC173 physical Const
                 subsequent=[e for e in cil_events if e[1]>step]
                 services=[e for e in feedback if e[1]>step]
                 assert services and len(subsequent)>100
