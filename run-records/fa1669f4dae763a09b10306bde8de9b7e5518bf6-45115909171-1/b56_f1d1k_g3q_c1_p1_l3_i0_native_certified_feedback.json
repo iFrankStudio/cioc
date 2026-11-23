@@ -1,0 +1,349 @@
+{
+  "arms": [
+    {
+      "arm": "safe_bank_2_0_2_true_shift",
+      "certificate_marks": [
+        {
+          "key": 8,
+          "step": 127,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 243,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 360,
+          "value": 1
+        }
+      ],
+      "certificate_passes": 1,
+      "credits_remaining": 6643,
+      "environment_feedback_writes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "final_halt_pc": 98,
+      "initial_bank": [
+        2,
+        0,
+        2
+      ],
+      "native_original_pid_halted": true,
+      "paid_accumulator_checkpoints": 33,
+      "paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 33,
+      "paid_steps": 1357,
+      "peak_occupied": 189,
+      "postload_external_rule_or_source_writes": 0,
+      "source_nodes": 172,
+      "task_services": [
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 487,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 0,
+          "middle": 1,
+          "output": 2,
+          "step": 608,
+          "truth": 0
+        },
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 730,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 850,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 970,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 1095,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1216,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1335,
+          "truth": 1
+        }
+      ]
+    },
+    {
+      "arm": "safe_bank_2_2_2_true_shift",
+      "certificate_marks": [
+        {
+          "key": 7,
+          "step": 127,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 237,
+          "value": 1
+        },
+        {
+          "key": 8,
+          "step": 355,
+          "value": 1
+        }
+      ],
+      "certificate_passes": 1,
+      "credits_remaining": 6891,
+      "environment_feedback_writes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "final_halt_pc": 98,
+      "initial_bank": [
+        2,
+        2,
+        2
+      ],
+      "native_original_pid_halted": true,
+      "paid_accumulator_checkpoints": 27,
+      "paid_feedback_reads": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 27,
+      "paid_steps": 1109,
+      "peak_occupied": 189,
+      "postload_external_rule_or_source_writes": 0,
+      "source_nodes": 172,
+      "task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 482,
+          "truth": 1
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 2,
+          "output": 0,
+          "step": 602,
+          "truth": 1
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 2,
+          "output": 0,
+          "step": 722,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 0,
+          "middle": 0,
+          "output": 1,
+          "step": 847,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 968,
+          "truth": 1
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 1,
+          "output": 2,
+          "step": 1087,
+          "truth": 1
+        }
+      ]
+    },
+    {
+      "arm": "unsafe_tail3_cert_reject",
+      "certificate_marks": [
+        {
+          "key": 7,
+          "step": 120,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 230,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 341,
+          "value": 1
+        }
+      ],
+      "certificate_passes": 0,
+      "credits_remaining": 7638,
+      "environment_feedback_writes": [],
+      "final_halt_pc": 171,
+      "initial_bank": [
+        2,
+        0,
+        3
+      ],
+      "native_original_pid_halted": true,
+      "paid_accumulator_checkpoints": 9,
+      "paid_feedback_reads": [],
+      "paid_meta_fetches": 9,
+      "paid_steps": 362,
+      "peak_occupied": 185,
+      "postload_external_rule_or_source_writes": 0,
+      "source_nodes": 172,
+      "task_services": []
+    },
+    {
+      "arm": "safe_bank_deceptive_feedback",
+      "certificate_marks": [
+        {
+          "key": 8,
+          "step": 127,
+          "value": 1
+        },
+        {
+          "key": 9,
+          "step": 243,
+          "value": 1
+        },
+        {
+          "key": 7,
+          "step": 360,
+          "value": 1
+        }
+      ],
+      "certificate_passes": 1,
+      "credits_remaining": 7131,
+      "environment_feedback_writes": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "final_halt_pc": 98,
+      "initial_bank": [
+        2,
+        0,
+        2
+      ],
+      "native_original_pid_halted": true,
+      "paid_accumulator_checkpoints": 21,
+      "paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "paid_meta_fetches": 21,
+      "paid_steps": 869,
+      "peak_occupied": 189,
+      "postload_external_rule_or_source_writes": 0,
+      "source_nodes": 172,
+      "task_services": [
+        {
+          "episode": 0,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 487,
+          "truth": 0
+        },
+        {
+          "episode": 1,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 607,
+          "truth": 0
+        },
+        {
+          "episode": 2,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 727,
+          "truth": 0
+        },
+        {
+          "episode": 3,
+          "feedback": 1,
+          "middle": 0,
+          "output": 1,
+          "step": 847,
+          "truth": 0
+        }
+      ]
+    }
+  ],
+  "level": "NATIVE_ONE_PID_STRUCTURAL_CERTIFICATION_AND_HIDDEN_TASK_FEEDBACK_RELEARNING",
+  "limits": "Investigator-written candidate bank; actor pays to validate coverage but did not search 64 rules or create novel opcodes. Deceptive feedback can still fool actor.",
+  "source_sha": "fa1669f4dae763a09b10306bde8de9b7e5518bf6",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-I0"
+}

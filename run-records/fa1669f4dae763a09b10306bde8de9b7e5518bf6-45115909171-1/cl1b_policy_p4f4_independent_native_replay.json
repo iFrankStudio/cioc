@@ -1,0 +1,82 @@
+{
+  "study": "CL1B-POLICY-P4F4",
+  "original_native_worlds_exactly_replayed": 326,
+  "original_charged_CIL_instruction_count_exactly_replayed": 419679,
+  "first_divergence": null,
+  "source_sha": "fa1669f4dae763a09b10306bde8de9b7e5518bf6",
+  "regimes": {
+    "stable": {
+      "cases": 9,
+      "same_source_paid": -396,
+      "cross_source_paid": 990,
+      "cross_source_probes_saved": 0
+    },
+    "switch": {
+      "cases": 9,
+      "same_source_paid": 2643,
+      "cross_source_paid": 873,
+      "cross_source_probes_saved": 0
+    },
+    "holdout_revert": {
+      "cases": 9,
+      "same_source_paid": 36,
+      "cross_source_paid": 711,
+      "cross_source_probes_saved": 0
+    },
+    "holdout_rare_shock": {
+      "cases": 9,
+      "same_source_paid": -624,
+      "cross_source_paid": 804,
+      "cross_source_probes_saved": 0
+    },
+    "early_switch": {
+      "cases": 9,
+      "same_source_paid": 3519,
+      "cross_source_paid": 873,
+      "cross_source_probes_saved": 0
+    },
+    "late_flip": {
+      "cases": 9,
+      "same_source_paid": 1377,
+      "cross_source_paid": 828,
+      "cross_source_probes_saved": 0
+    },
+    "two_pulse": {
+      "cases": 9,
+      "same_source_paid": -4380,
+      "cross_source_paid": -126,
+      "cross_source_probes_saved": 0
+    },
+    "oscillating_step": {
+      "cases": 9,
+      "same_source_paid": 1713,
+      "cross_source_paid": -81,
+      "cross_source_probes_saved": 0
+    },
+    "fresh_sparse_pulses": {
+      "cases": 9,
+      "same_source_paid": -2856,
+      "cross_source_paid": -180,
+      "cross_source_probes_saved": 0
+    },
+    "fresh_dense_pulses": {
+      "cases": 9,
+      "same_source_paid": -10356,
+      "cross_source_paid": -1800,
+      "cross_source_probes_saved": 0
+    },
+    "fresh_delayed_revert": {
+      "cases": 9,
+      "same_source_paid": -402,
+      "cross_source_paid": 711,
+      "cross_source_probes_saved": 0
+    },
+    "fresh_multi_shift": {
+      "cases": 9,
+      "same_source_paid": 2316,
+      "cross_source_paid": 405,
+      "cross_source_probes_saved": 0
+    }
+  },
+  "limits": "No self-invented algorithm or cross-world lineage"
+}

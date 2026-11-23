@@ -1,0 +1,510 @@
+{
+  "arms": [
+    {
+      "accumulator_checkpoints": 24,
+      "actor_success_claim": 1,
+      "arm": "shift0_to2",
+      "credits_remain": 7029,
+      "episode_probes": [
+        3,
+        1,
+        3,
+        1
+      ],
+      "feedback_regime": "truth",
+      "final_active_middle": 1,
+      "final_episode": 4,
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "meta_fetches": 24,
+      "original_paid_feedback_reads": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_steps": 971,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 8,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          122
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          240
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          1,
+          1,
+          359
+        ],
+        [
+          1,
+          0,
+          2,
+          0,
+          1,
+          1,
+          476
+        ],
+        [
+          2,
+          2,
+          2,
+          0,
+          0,
+          0,
+          593
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          0,
+          0,
+          715
+        ],
+        [
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          833
+        ],
+        [
+          3,
+          2,
+          1,
+          2,
+          1,
+          1,
+          949
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 4
+    },
+    {
+      "accumulator_checkpoints": 18,
+      "actor_success_claim": 1,
+      "arm": "shift1_to0",
+      "credits_remain": 7268,
+      "episode_probes": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "feedback_regime": "truth",
+      "final_active_middle": 2,
+      "final_episode": 4,
+      "goals": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "meta_fetches": 18,
+      "original_paid_feedback_reads": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_steps": 732,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 6,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          122
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          239
+        ],
+        [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          356
+        ],
+        [
+          2,
+          0,
+          1,
+          2,
+          0,
+          0,
+          474
+        ],
+        [
+          2,
+          0,
+          2,
+          0,
+          1,
+          1,
+          593
+        ],
+        [
+          3,
+          0,
+          2,
+          0,
+          1,
+          1,
+          710
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 4
+    },
+    {
+      "accumulator_checkpoints": 21,
+      "actor_success_claim": 1,
+      "arm": "shift2_to1",
+      "credits_remain": 7148,
+      "episode_probes": [
+        2,
+        1,
+        3,
+        1
+      ],
+      "feedback_regime": "truth",
+      "final_active_middle": 0,
+      "final_episode": 4,
+      "goals": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "meta_fetches": 21,
+      "original_paid_feedback_reads": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "paid_steps": 852,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 7,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          122
+        ],
+        [
+          0,
+          2,
+          1,
+          2,
+          1,
+          1,
+          240
+        ],
+        [
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          356
+        ],
+        [
+          2,
+          1,
+          1,
+          2,
+          0,
+          0,
+          472
+        ],
+        [
+          2,
+          1,
+          2,
+          0,
+          0,
+          0,
+          591
+        ],
+        [
+          2,
+          1,
+          0,
+          1,
+          1,
+          1,
+          713
+        ],
+        [
+          3,
+          1,
+          0,
+          1,
+          1,
+          1,
+          830
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 4
+    },
+    {
+      "accumulator_checkpoints": 9,
+      "actor_success_claim": 0,
+      "arm": "unreachable",
+      "credits_remain": 7623,
+      "episode_probes": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "feedback_regime": "truth",
+      "final_active_middle": 2,
+      "final_episode": 0,
+      "goals": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "meta_fetches": 9,
+      "original_paid_feedback_reads": [
+        0,
+        0,
+        0
+      ],
+      "paid_steps": 377,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 3,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          3,
+          0,
+          1,
+          0,
+          0,
+          122
+        ],
+        [
+          0,
+          3,
+          1,
+          2,
+          0,
+          0,
+          240
+        ],
+        [
+          0,
+          3,
+          2,
+          0,
+          0,
+          0,
+          359
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 0
+    },
+    {
+      "accumulator_checkpoints": 9,
+      "actor_success_claim": 0,
+      "arm": "blind_feedback",
+      "credits_remain": 7623,
+      "episode_probes": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "feedback_regime": "blind",
+      "final_active_middle": 2,
+      "final_episode": 0,
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "meta_fetches": 9,
+      "original_paid_feedback_reads": [
+        0,
+        0,
+        0
+      ],
+      "paid_steps": 377,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 3,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          122
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          240
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          359
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 1
+    },
+    {
+      "accumulator_checkpoints": 12,
+      "actor_success_claim": 1,
+      "arm": "inverted_feedback",
+      "credits_remain": 7505,
+      "episode_probes": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "feedback_regime": "inverted",
+      "final_active_middle": 0,
+      "final_episode": 4,
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "meta_fetches": 12,
+      "original_paid_feedback_reads": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "paid_steps": 495,
+      "peak_occupied": 136,
+      "postload_environment_feedback_writes": 4,
+      "self_halted": true,
+      "services": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          122
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          239
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          0,
+          1,
+          356
+        ],
+        [
+          3,
+          2,
+          0,
+          1,
+          0,
+          1,
+          473
+        ]
+      ],
+      "single_original_pid1": true,
+      "true_service_matches": 0
+    }
+  ],
+  "level": "NATIVE_ONE_PID_FEEDBACK_CONDITIONED_FINITE_META_SEARCH_NOT_EARNED_C0",
+  "limits": "Researcher-authored safe starting bank; feedback task oracle; not integrated C0, self-discovered algorithm or open-ended life.",
+  "source_sha": "fa1669f4dae763a09b10306bde8de9b7e5518bf6",
+  "study": "B56-F1d1k-G3Q-C1-P1-L3-F0"
+}

@@ -1,0 +1,9 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.55s
+[1m[92m     Running[0m tests/cl1b_policy_p4f3_online_native.rs (target/debug/build/cl0-world/2075afee2546c3d9/out/cl1b_policy_p4f3_online_native-2075afee2546c3d9)
+
+running 1 test
+test p4f3_original_native_218_worlds_online_delta ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.36s
+
