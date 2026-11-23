@@ -1,0 +1,796 @@
+{
+  "study": "CL1B-C26-PAID-OWN-CREDIT-METROLOGY-CANDIDATE-CHOICE",
+  "status": "PRE_NATIVE_FROZEN_FOUR_WORLDS_GENERIC_ABI_TAG35",
+  "date_utc": "2026-11-23",
+  "original_program_160_node_CIL": [
+    {
+      "kind": "SenseOwnCredits",
+      "dst": 0,
+      "next": 1
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 41,
+      "next": 2
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 3
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 4
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 5
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 20,
+      "zero": 10
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 11
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 12
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 30
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 21
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 22
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 23
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 10
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "SenseOwnCredits",
+      "dst": 0,
+      "next": 31
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 42,
+      "next": 32
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 33
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 34
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 35
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 40,
+      "zero": 50
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 41
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 42
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 60
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 51
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 52
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 53
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 40
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "SenseOwnCredits",
+      "dst": 0,
+      "next": 61
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 43,
+      "next": 62
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 63
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 41,
+      "next": 64
+    },
+    {
+      "kind": "Read",
+      "dst": 0,
+      "address": 2,
+      "next": 65
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 42,
+      "next": 66
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 67
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 1,
+      "next": 68
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 42,
+      "next": 69
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 70
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 43,
+      "next": 71
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 72
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 3,
+      "next": 73
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 74,
+      "zero": 80
+    },
+    {
+      "kind": "Branch",
+      "test": 1,
+      "nonzero": 75,
+      "zero": 90
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 76
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 77
+    },
+    {
+      "kind": "Sub",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 78
+    },
+    {
+      "kind": "Branch",
+      "test": 2,
+      "nonzero": 73,
+      "zero": 73
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 44,
+      "next": 81
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 0,
+      "next": 82
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 100
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 44,
+      "next": 91
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 1,
+      "next": 92
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 0,
+      "next": 93
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 100,
+      "next": 94
+    },
+    {
+      "kind": "Const",
+      "dst": 0,
+      "value": 131,
+      "next": 95
+    },
+    {
+      "kind": "PatchNext",
+      "node": 1,
+      "target": 0,
+      "next": 100
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 50,
+      "next": 101
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 102
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 110,
+      "zero": 105
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 106
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 107
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 111
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 112
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 113
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 105
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Read",
+      "dst": 3,
+      "address": 2,
+      "next": 132
+    },
+    {
+      "kind": "Branch",
+      "test": 3,
+      "nonzero": 135,
+      "zero": 140
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 11,
+      "next": 136
+    },
+    {
+      "kind": "Const",
+      "dst": 1,
+      "value": 1,
+      "next": 137
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 150
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 141
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 142
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 143
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 0,
+      "next": 135
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Halt"
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 45,
+      "next": 151
+    },
+    {
+      "kind": "Read",
+      "dst": 1,
+      "address": 2,
+      "next": 152
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 153
+    },
+    {
+      "kind": "Add",
+      "dst": 1,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 154
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 45,
+      "next": 155
+    },
+    {
+      "kind": "Write",
+      "address": 2,
+      "value": 1,
+      "next": 156
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 24,
+      "next": 157
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 1,
+      "rhs": 2,
+      "next": 158
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 100,
+      "zero": 159
+    },
+    {
+      "kind": "Halt"
+    }
+  ],
+  "source_goals": "This is a tiny authored capability test, NOT an open-ended or new generalization cohort. PID1 independently pays to measure and compare two existing semantically equivalent candidate paths before choosing a real PatchNext self-edit.",
+  "budgets": {
+    "PID1": 1,
+    "private_credits": 3000,
+    "max_data_keys": 16,
+    "max_source_nodes": 160,
+    "total_occupied_limit": 185,
+    "production_services": 24
+  },
+  "primitive": {
+    "name": "SenseOwnCredits",
+    "opcode_tag": 35,
+    "semantics": "Paid instruction reads own private balance AFTER ordinary native debit; no other PID balance, no pool balance, no success predictor. Existing tags0..33 preserved, tag34 remains invalid."
+  },
+  "measured_credit_PCs": [
+    0,
+    30,
+    60
+  ],
+  "measured_credit_storage": [
+    41,
+    42,
+    43
+  ],
+  "selection_algorithm": "S0-S1=A paid trial cost, S1-S2=B paid trial cost; CIL PCs73-78 decrement both cost integers until first zero; tie chooses A; cheaper B pays PC95 PatchNext target node100.next=131, else default 100.next=101.",
+  "semantics": "mode0 A cheaper B contains four extra charged Const; mode1 B cheaper A contains four extra charged Const. Candidate trials each produce cell11=1, future24 services each produce cell11=1.",
+  "exposure_control": "Exactly same initial 160 CIL nodes and initial credits for on/off per mode, research-only native_patchnext_disabled suppresses only paid PC95 physical effect when executed. Mode0 should have no PC95, full parity.",
+  "nonnative_preflight": "Before freezing, lightweight manual simulator predicted mode0 both arms 454 native-equivalent paid CIL, mode1 real edit on458 vs effect suppressed554; these predictions are disclosed engineering preflight, NOT blinded/new native scientific evidence.",
+  "arms": [
+    {
+      "id": "m0_on",
+      "mode": 0,
+      "patchnext_suppressed": false
+    },
+    {
+      "id": "m0_off",
+      "mode": 0,
+      "patchnext_suppressed": true
+    },
+    {
+      "id": "m1_on",
+      "mode": 1,
+      "patchnext_suppressed": false
+    },
+    {
+      "id": "m1_off",
+      "mode": 1,
+      "patchnext_suppressed": true
+    }
+  ],
+  "preregistered_endpoints": [
+    "Source ABI and existing old-world compatibility; original Rust paid sensor returns actual own post-debit private balance.",
+    "Original four native worlds all complete 24 real service writes and report exact CIL cost.",
+    "PID1 reads three own paid credit snapshots, stores them using real Write, and CIL alone determines candidate selection by a paid decrementing comparison loop.",
+    "Mode0 selects A with no actual PC95 edit; on/off same source full original trace identical.",
+    "Mode1 selects B, pays PC95, actual native code node100.next changes from101 to131; off also pays PC95 but suppresses physical effect; track true full-lifecycle cost.",
+    "Separate independent ordinary Python interpreter must replay every charged original PC, registers, cells, own credits and source edge including first physical causal prefix.",
+    "This authored candidate microbenchmark cannot show generated algorithms, natural fitness, online cross-task evolving policies, B3 or B4."
+  ],
+  "scientific_status": "B3_B4_NOT_MET"
+}
