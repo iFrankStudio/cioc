@@ -1,0 +1,73 @@
+name: CL-1B C12 actor-paid rollback-event meter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c12_paid_rollback_event_meter.rs'
+      - 'cl1b/audits/cl1b_c12_paid_rollback_event_meter_independent_replay.py'
+      - 'cl1b/studies/CL1B-C12-PAID-ROLLBACK-EVENT-METER-preregistration.md'
+      - '.github/workflows/cl1b-c12-paid-rollback-event-meter.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c12-actor-paid-rollback-event-meter
+  cancel-in-progress: true
+
+jobs:
+  c12-original-native-and-independent-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 182 native single-PID1 billed telemetry and reference worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c12_paid_service_meter -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c12-native.log
+      - name: Independently replay 182 original native CIL streams
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c12_paid_rollback_event_meter_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c12_paid_meter_native_182_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c12_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_c12_independent_replay.json"))
+          assert d["first_divergence"] is None and d["native_worlds"]==182
+          assert d["C10_same_source_PC102_saving"]==1840
+          assert d["C12_true_arms_meter_fee"]>0
+          print("C12 independent original 182-world complete paid replay:",d)
+          PY
+      - name: Record SHA and run provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C12_Rust_182_original_worlds_and_independent_full_fee_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c12-provenance.txt
+      - name: Archive complete original native CIL and source verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c12-original-native-paid-rollback-event-meter
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
