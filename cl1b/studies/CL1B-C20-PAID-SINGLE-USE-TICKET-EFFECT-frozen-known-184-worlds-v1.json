@@ -1,0 +1,68 @@
+{
+  "study": "CL1B-C20-C16-TICKET-CONSUMPTION-EFFECT-RECALIBRATION",
+  "status": "PRE_NATIVE_FROZEN_REUSED_C19B_CALIBRATION",
+  "date_utc": "2026-11-23",
+  "scientific_scope": "45 previously publicly executed C19B tasks, not novel holdout or autonomous learning",
+  "reused_case_manifest": "cl1b/studies/CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT-frozen-274-worlds-v1.json",
+  "reused_case_git_blob_sha": "bd23c2a1e3d8a6ec04b3d7bb85034e82f56302fa",
+  "source_parent": "cl1b/studies/CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10-frozen-274-worlds-v1.json",
+  "source_241_nodes": "unaltered C19B 241-node real paid live-PC173 source for first three arms",
+  "effect_suppression": "Only in arm 1, researcher suppresses physical PC202 Write(key=45,value=1), still charges native PID1 instruction, traps on mismatched opcode/key/value; preserves source graph and all other physical rules",
+  "resources": {
+    "single_pid": 1,
+    "private_paid_CIL_credit": 6000,
+    "capacity_data_keys": 19,
+    "source_nodes_max": 241,
+    "total_capacity": 300,
+    "cell_write_provenance": true
+  },
+  "arms": [
+    "truth_paid_live_self_executed_source_difference_gate",
+    "same_source_pc202_ticket_spend_effect_suppressed",
+    "same_source_pc225_equal_marker_suppressed",
+    "different_source_c9_fixed_abstain"
+  ],
+  "false_feedback_controls": [
+    {
+      "name": "c20_inverted_control_0",
+      "case": "c19_long_alternating_a0_d0",
+      "arm": "truth_paid_live_self_executed_source_difference_gate",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c20_forced0_control_1",
+      "case": "c19_long_alternating_a0_d0",
+      "arm": "truth_paid_live_self_executed_source_difference_gate",
+      "feedback": "forced0"
+    },
+    {
+      "name": "c20_inverted_control_2",
+      "case": "c19_long_alternating_a0_d0",
+      "arm": "same_source_pc225_equal_marker_suppressed",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c20_forced0_control_3",
+      "case": "c19_long_alternating_a0_d0",
+      "arm": "same_source_pc225_equal_marker_suppressed",
+      "feedback": "forced0"
+    }
+  ],
+  "counts": {
+    "known_C19B_tasks": 45,
+    "truthful_arms": 4,
+    "truthful_worlds": 180,
+    "negative_feedback_worlds": 4,
+    "total_worlds": 184
+  },
+  "expected_positive_exposure": "unknown; report all affected and unaffected, no case removal",
+  "expected_stage_gain": "unknown; no mandatory win, report loss and cost; C9 dissimilar source economic comparator only",
+  "primary_outcomes": [
+    "source-identical PC202 first physical effect event full paid-prefix equivalence",
+    "PC202 paid effect exposure and repeated candidate attempts",
+    "48-stage true task completion and private paid CIL for every case and arm",
+    "real source patch edits and accurate PC173 self-reads with paid recovery",
+    "false feedback controls, budget exhaustion, final cell45 writer provenance"
+  ],
+  "B3_B4": "NOT_MET"
+}
