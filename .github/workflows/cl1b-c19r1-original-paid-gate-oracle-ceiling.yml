@@ -1,0 +1,66 @@
+name: CL-1B C19R1 strict original ZIP hindsight-only PC225 gate oracle ceiling
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c19r1_paid_pc225_oracle_ceiling.py'
+      - '.github/workflows/cl1b-c19r1-original-paid-gate-oracle-ceiling.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source-pinned-90-pair-free-hindsight-cost-ceiling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch both immutable C19 original full-native artifacts from Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c19r1
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          a='run-records/8d2cf7f71ef744b50e59b11ea9a5a75130ff510b-45127112522-1/original-native-artifact.zip'
+          b='run-records/ce8a6fdc15711a1645756a1fe871bbde3bd9928b-45127120747-1/original-native-artifact.zip'
+          git cat-file -e "FETCH_HEAD:$a"
+          git cat-file -e "FETCH_HEAD:$b"
+          git show "FETCH_HEAD:$a" > /tmp/cl1b-c19r1/a.zip
+          git show "FETCH_HEAD:$b" > /tmp/cl1b-c19r1/b.zip
+      - name: Recheck all 548 original worlds, 47 charged self-reads and exact first-effect causal prefixes then compute unimplementable gate-selection bound
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c19r1_paid_pc225_oracle_ceiling.py \
+            /tmp/cl1b-c19r1/a.zip /tmp/cl1b-c19r1/b.zip \
+            cl1b-ci-evidence/cl1b_c19r1_hindsight_oracle_cost_ceiling.json \
+            | tee cl1b-ci-evidence/cl1b-c19r1-audit.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c19r1_hindsight_oracle_cost_ceiling.json'))
+          assert d['combined_oracle_paid_CIL']==396148
+          assert d['combined_different_source_C9_paid_CIL']==309125
+          assert d['combined_oracle_excess_vs_C9_CIL']==87023
+          assert d['combined_oracle_saving_vs_executed_main_CIL']==3104
+          assert d['known_not_heldout']['cases_equal']==d['prospective_heldout']['cases_equal']==41
+          print('PASS C19R1 retrospective original native oracle ceiling, B3/B4 NOT_MET')
+          PY
+      - name: Record provenance without claiming a new native trial
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_revision=$GITHUB_SHA"
+            echo "audit_run=$GITHUB_RUN_ID"
+            echo "scope=RETROSPECTIVE_ORIGINAL_C19A_C19B_ONLY"
+            echo "no_new_native_worlds=true"
+            echo "C19a_original_native_run=45127112522"
+            echo "C19b_original_native_run=45127120747"
+          } > cl1b-ci-evidence/cl1b-c19r1-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c19r1-original-90-pair-pc225-oracle-ceiling
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
