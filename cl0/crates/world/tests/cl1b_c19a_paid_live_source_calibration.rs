@@ -426,7 +426,7 @@ fn trial(m:&Value,name:&str,arm:&str,mode:&str,goals:&[i64],
             }
         }
         if at==202&&ticket {
-            assert_eq!(p.pc,if evaluator{226}else if probe{203}else{173});
+            assert_eq!(p.pc,if cached{226}else if probe{203}else{173});
             if suppress_ticket {
                 assert!(matches!(&e.kind,EventKind::NativeCellWriteSuppressed{key:45,value:1}));
                 assert_eq!(world.cell(45),Some(0));
