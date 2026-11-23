@@ -1,6 +1,6 @@
 # CL-1B C19 · 候选技术路线：真正有费执行当前活跃源码并读取即时参数，取代C18失败的历史缓存
 
-**状态：DESIGN_REVIEW_NOT_FROZEN / NOT_EXECUTED，2026-11-23 UTC。** 本文不是原生实验结果，也不是自动研究的固定下一目标，仍需根据实时main与C18原始结论确定是否采用。它记录C18/C18b已验证失败的一个**可行低层解决构型**，供后续研究完整事前冻结、独立实现和反事实验证。任何未运行机制不得标记PASS。
+**历史阶段状态（本原稿首次提交时）：DESIGN_REVIEW_NOT_FROZEN / NOT_EXECUTED，2026-11-23 UTC。** 随后已正式事前冻结并完整原生执行C19A（全已知C17机械校准）和C19B（独立真新45任务），因此不能再将这份历史设计原稿的“尚未运行”理解为当前研究状态。最终验证：[C19A原生274世界PASS](https://github.com/iFrankStudio/cioc/actions/runs/45127112522) · [C19B原生274真新世界PASS](https://github.com/iFrankStudio/cioc/actions/runs/45127120747) · [两份原始ZIP永久保存](https://github.com/iFrankStudio/cioc/actions/runs/45127422168) · [两份原始ZIP源码身份精确、548世界全CIL、47次自己付费即时Const173参数读取与47次边复原及90个严格同源码对照的完整因果审计PASS](https://github.com/iFrankStudio/cioc/actions/runs/45127703667)。**机械真实读码47/47正确**，但前瞻C19B相对严格同源码禁PC225标记对照反而多耗2755条CIL、静态C9仍更便宜，B3/B4 NOT_MET。[最终校准报告](../results/CL1B-C19A-KNOWN-C17-CALIBRATION-PAID-LIVE-SOURCE-274-native-replay.md) · [前瞻报告](../results/CL1B-C19B-NEW-HELDOUT-PAID-LIVE-SOURCE-274-native-replay.md)。**以下保留原先设计候选文本作为历史轨迹，原本未执行措辞仅描述当时状态，不改写已冻结协议。** 本文不是原生实验结果，也不是自动研究的固定下一目标，仍需根据实时main与C18原始结论确定是否采用。它记录C18/C18b已验证失败的一个**可行低层解决构型**，供后续研究完整事前冻结、独立实现和反事实验证。任何未运行机制不得标记PASS。
 
 ## 被现有证据逼出来的问题
 
