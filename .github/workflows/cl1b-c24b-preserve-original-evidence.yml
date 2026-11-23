@@ -1,0 +1,123 @@
+name: CL-1B preserve C24B original 186-world paid service proxy self-edit experiment
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c24b-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c24b-original-evidence
+  cancel-in-progress: false
+jobs:
+  verify-and-preserve-original-native-C24B:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Retrieve byte-exact successful original C24B ZIP and confirm paid CIL evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c24b
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14814901408/zip" \
+            -o /tmp/cl1b-c24b/original-native.zip
+          echo '5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2  /tmp/cl1b-c24b/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile,collections
+          path='/tmp/cl1b-c24b/original-native.zip'
+          with zipfile.ZipFile(path) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names))==190
+              assert sum(n.endswith('.jsonl') for n in names)==186
+              s=json.loads(z.read('cl1b_c24b_original_native_186_worlds.json'))
+              p=json.loads(z.read('cl1b_c24b_independent_paid_replay.json'))
+              study='CL1B-C24B-F8-PAID-SERVICE-COUNT-DISJOINT-HELDOUT-REPLICATION'
+              assert s['study']==p['study']==study
+              assert s['level']=='ORIGINAL_NATIVE_C24B_186_WORLD_UNCHANGED_F8_PAID_SERVICE_COUNT_REPLICATION'
+              assert s['source_sha']==p['original_native_sha']=='e9d90a03d965aad0f4d767ecef733f86fcfc10b0'
+              assert s['counts']['worlds']==p['original_native_worlds_exactly_replayed']==186
+              assert s['counts']['truthful_worlds']==180 and s['counts']['adversarial']==6
+              assert s['counts']['total_original_paid_instructions']==p['original_charged_CIL_instruction_count_exactly_replayed']
+              assert p['first_divergence'] is None and len(s['records'])==45 and len(s['controls'])==6
+              assert len(p['same_source_first_true_physical_patchnext_effect'])==45
+              assert p['arm_fees']=={'f8_on':80288,'f8_off':73197,'f6_original':87738,'f5_original':78747}
+              assert p['arm_true_matched_stages']=={'f8_on':1080,'f8_off':1080,'f6_original':1080,'f5_original':1080}
+              gate=p['actor_paid_service_count_gate_evidence']
+              assert gate=={'charged_counter_increments':1972,'charged_counter_reads_before_increment':1972,
+                'charged_attempt_reads_before_first_edit':45,'gate_allow_attempt_2':1,
+                'gate_allow_attempt_3':8,'gate_skip_all_other_attempt_counts':36,
+                'paid_original_PC82_patchnext_executions':9}
+              assert p['same_source_paid_savings_sum']==-7091
+              assert p['F8_on_minus_original_F6_paid']==-7450
+              assert p['F8_on_minus_original_F5_paid']==1541
+              assert all(r['f8_on']['truthful_matches']==r['f8_off']['truthful_matches']==r['f6_original']['truthful_matches']==r['f5_original']['truthful_matches']==24 for r in s['records'])
+              for row in s['records']:
+                  on=row['f8_on']
+                  assert len(on['paid_attempt_reads'])==1
+                  assert len(on['paid_counter_writes'])==len(on['paid_counter_reads'])==len(on['services'])
+                  assert [e['value'] for e in on['paid_counter_writes']]==list(range(1,len(on['services'])+1))
+              text=z.read('cl1b-c24b-original-provenance.txt').decode()
+              assert 'tested_sha=e9d90a03d965aad0f4d767ecef733f86fcfc10b0' in text
+              assert 'run_id=45166998216' in text
+              assert 'new_45_case_status=FULLY_NEW_DISJOINT_FROM_P4F6_C22_C23_C24' in text
+              seen=collections.Counter(row['f8_on']['paid_attempt_reads'][0]['attempts'] for row in s['records'])
+              print('PASS C24B 186 original worlds, true paid 1972 CIL Write40 and independent original 186-world full CIL evidence. B3/B4 NOT_MET')
+              print('C24B ACTUAL ORIGINAL PAID SERVICE ATTEMPTS AT EDIT GATE:',dict(sorted(seen.items())))
+          PY
+      - name: Preserve exact original C24B ZIP bytes in Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/e9d90a03d965aad0f4d767ecef733f86fcfc10b0-45166998216-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c24b/original-native.zip "$dest/original-native-artifact.zip"
+          echo '5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C24B exact original 186 native worlds, paid CIL cumulative service count gate
+          - Original tested SHA: e9d90a03d965aad0f4d767ecef733f86fcfc10b0
+          - Verified original native Rust + independent exact full paid CIL: https://github.com/iFrankStudio/cioc/actions/runs/45166998216
+          - Original artifact ZIP SHA256: 5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2
+          - 186 full native original JSONL, native summary, Rust stdout, 186-world independent Python ordinary paid CIL replay, source provenance.
+          - 45 new 24-stage goal schedules; four arms, six deceptive-feedback negatives; every truthful stage completed.
+          - F8 PID1 itself charges 1972 service Write40 increments; first Edit gate executes 9 paid PC82 edits and skips 36/45.
+          - F8 lifetime 80288 paid CIL vs different-source original F6 87738, saving 7450; but same F8 source PatchNext physically suppressed 73197, still 7091 cheaper. No self-invented ROI, B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C24B original 186 paid CIL service-counter worlds'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'C24B archive push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'C24B original ZIP already archived'
+          fi
+      - name: Fetch archived original ZIP from remote Git and rehash exact bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/e9d90a03d965aad0f4d767ecef733f86fcfc10b0-45166998216-1'
+          got="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$got" = '5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F '5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2'
+          echo 'PASS C24B original 186-world ZIP permanently Git-preserved, byte-identical after remote re-read'
