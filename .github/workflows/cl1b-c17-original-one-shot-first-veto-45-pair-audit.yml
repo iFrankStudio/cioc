@@ -53,6 +53,13 @@ jobs:
           assert d['all_45_true_source_identical_effect_pairs']==45
           assert d['actual_actor_self_patch_activated']==d['actor_self_patch_restored']==57
           assert d['paid_postedit_real_feedback_consumed']==57
+          assert d['failure_feedback_without_any_physical_code_change']==3
+          assert d['postedit_next_feedback_by_actual_physical_code_effect']=={
+              'physical_change_then_success':34,
+              'physical_change_then_failure':5,
+              'physical_noop_then_success':15,
+              'physical_noop_then_failure':3,
+          }
           assert d['paid_risk_veto_writes']==8 and d['paid_future_veto_branch_blocks']==56
           assert d['real_veto_causal_cases']==8
           assert d['exact_equal_paid_native_event_prefix_on_each_first_veto']
