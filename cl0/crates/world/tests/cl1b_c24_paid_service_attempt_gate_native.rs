@@ -71,8 +71,10 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
  let mut writes39=Vec::<Value>::new();
  let mut reads39=Vec::<Value>::new();
  let mut clean_streak_gates=Vec::<Value>::new();
- let mut paid_stage_reads=Vec::<Value>::new();
- let mut paid_stage_branches=Vec::<Value>::new();
+ let mut paid_attempt_reads=Vec::<Value>::new();
+ let mut paid_attempt_decisions=Vec::<Value>::new();
+ let mut paid_counter_reads=Vec::<Value>::new();
+ let mut paid_counter_writes=Vec::<Value>::new();
  while w.step(){
   paid+=1;
   assert!(paid<=CREDIT as usize);
@@ -220,24 +222,51 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    assert!(matches!(&ev.kind,EventKind::CellRead{key:20,..}));
    observations+=1;
   }
+  if pc==185{
+   assert_eq!(source,"F6");
+   match &ev.kind{
+    EventKind::CellRead{key:40,value}=>{
+      assert_eq!(*value+1,services.len() as i64);
+      assert_eq!(w.cell(40).unwrap_or(0),*value);
+      paid_counter_reads.push(json!({"step":paid,"value":value}));
+    },
+    other=>panic!("C24 original paid preincrement Read40 missing: {other:?}")
+   }
+  }
+  if pc==189{
+   assert_eq!(source,"F6");
+   match &ev.kind{
+    EventKind::CellWritten{key:40,value}=>{
+      assert_eq!(*value,services.len() as i64);
+      assert_eq!(w.cell(40),Some(*value));
+      paid_counter_writes.push(json!({"step":paid,"value":value}));
+    },
+    other=>panic!("C24 original paid Write40 service counter missing: {other:?}")
+   }
+  }
   if pc==181{
    assert_eq!(source,"F6");
    match &ev.kind{
-    EventKind::CellRead{key:32,value}=>{
-      assert_eq!(*value,w.cell(32).unwrap_or(0));
-      paid_stage_reads.push(json!({"step":paid,"stage":value}));
+    EventKind::CellRead{key:40,value}=>{
+      assert_eq!(*value,services.len() as i64);
+      paid_attempt_reads.push(json!({"step":paid,"attempts":value}));
     },
-    other=>panic!("C23 charged Read32 missing: {other:?}")
+    other=>panic!("C24 charged attempted task services Read40 missing: {other:?}")
    }
   }
-  if pc==182{
+  if pc==190||pc==194{
    assert_eq!(source,"F6");
    assert!(matches!(&ev.kind,EventKind::Executed));
    let p=w.process(1).unwrap();
-   let stage=p.registers[0];
-   assert_eq!(stage,w.cell(32).unwrap_or(0));
-   assert_eq!(p.pc,if stage!=0{183}else{127});
-   paid_stage_branches.push(json!({"step":paid,"stage":stage,"next":p.pc}));
+   let attempts=w.cell(40).unwrap_or(0);
+   if pc==190{
+     assert_eq!(p.registers[0],attempts-2);
+     assert_eq!(p.pc,if attempts==2{191}else{192});
+   }else{
+     assert_eq!(p.registers[0],attempts-3);
+     assert_eq!(p.pc,if attempts==3{191}else{127});
+   }
+   paid_attempt_decisions.push(json!({"step":paid,"pc":pc,"attempts":attempts,"next":p.pc}));
   }
   let pid=w.process(1).unwrap();
   assert_eq!(pid.code.nodes,expected,"unexpected postload source mutation");
@@ -301,7 +330,8 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
   "write37":writes37,"read37":reads37,
   "write38":writes38,"read38":reads38,"budget_gates":budget_gates,
   "write39":writes39,"read39":reads39,"clean_streak_gates":clean_streak_gates,
-   "paid_stage_reads":paid_stage_reads,"paid_stage_branches":paid_stage_branches,
+   "paid_attempt_reads":paid_attempt_reads,"paid_attempt_decisions":paid_attempt_decisions,
+   "paid_counter_reads":paid_counter_reads,"paid_counter_writes":paid_counter_writes,
   "online_edit_budget_meter":w.cell(38).unwrap_or(0),
   "final_edges":get_edges(&w),"peak_occupied":peak,
   "original_pid_halted":true,"host_source_edits":0})
