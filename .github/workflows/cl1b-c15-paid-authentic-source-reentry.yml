@@ -1,0 +1,74 @@
+name: CL-1B C15 native source-writer authenticated PC173 reentry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C15-ACTOR-PAID-AUTHENTIC-SOURCE-REENTRY-preregistration.md'
+      - 'cl1b/studies/CL1B-C15-AUTHENTIC-SOURCE-PAID-REENTRY-frozen-274-worlds-v1.json'
+      - 'cl0/crates/world/tests/cl1b_c15_paid_authenticated_source_reentry.rs'
+      - 'cl1b/audits/cl1b_c15_paid_authenticated_source_reentry_independent_native_replay.py'
+      - '.github/workflows/cl1b-c15-paid-authentic-source-reentry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c15-native-paid-authenticated-source-reentry
+  cancel-in-progress: true
+
+jobs:
+  original-native-and-complete-independent-CIL:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run frozen C15 274 paid PID1 worlds, authenticated rollback and actual PC173 reentry
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c15_paid_authenticated_source_reentry -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c15-native-original.log
+      - name: Independent complete original CIL interpreter with paid source readback and doubled storage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c15_paid_authenticated_source_reentry_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c15_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c15_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c15_independent_replay.json'))
+          assert d['native_worlds']==274 and d['first_divergence'] is None
+          assert d['new_goal_schedules']==45
+          print('C15 independent complete paid original PID1 execution and source restoration:')
+          print(d)
+          PY
+      - name: Pin exact tested main SHA and scope even if negative
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repo=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "original_run=$GITHUB_RUN_ID"
+            echo "original_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C15_exact_274_original_PID1_worlds_provenance_on_194_node_source_and_full_CIL_replay"
+          } > cl1b-ci-evidence/cl1b-c15-native-provenance.txt
+      - name: Preserve all actual charged source traces regardless of scientific conclusion
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c15-original-native-paid-authentic-source-reentry
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
