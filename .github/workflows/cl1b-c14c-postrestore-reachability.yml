@@ -1,0 +1,69 @@
+name: CL-1B C14c exact native post-restore reachability audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c14c_post_restore_reachability_source_pinned_audit.py'
+      - '.github/workflows/cl1b-c14c-postrestore-reachability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-native-C14c-post-restoration-exposure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve exact permanently archived C14c original native ZIP from Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c14c-exposure
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show 'FETCH_HEAD:run-records/f19110445f7535d1bbdc0041abe76e11034718e0-45108004088-1/original-native-artifact.zip' \
+            > /tmp/cl1b-c14c-exposure/original-native.zip
+          echo '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be  /tmp/cl1b-c14c-exposure/original-native.zip' | sha256sum -c -
+      - name: Analyze all physically changed restores and their entire subsequent original-native task exposure
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c14c_post_restore_reachability_source_pinned_audit.py \
+            /tmp/cl1b-c14c-exposure/original-native.zip \
+            cl1b-ci-evidence/cl1b_c14c_post_restore_reachability_native_source_pinned.json
+          python3 - <<'PY'
+          import json
+          p='cl1b-ci-evidence/cl1b_c14c_post_restore_reachability_native_source_pinned.json'
+          d=json.load(open(p))
+          assert d['source_effect_suppressed_same_initial_cil_pairs']==45
+          assert d['totals']['physical_value_restoration_events']==5
+          assert d['totals']['paid_cil_after_effective_physical_rollback']==17004
+          assert d['totals']['feedback_service_events_after_effective_physical_rollback']==395
+          assert d['totals']['true_pc173_executions_after_rollback']==0
+          assert d['totals']['true_pc28_edits_after_rollback']==0
+          assert len(d['all_five_cases'])==5
+          print('Five genuine physical source restorations remained execution-invisible across 17004 paid later CIL and 395 actual task feedback services')
+          PY
+      - name: Source-pin scope even on error
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "audit_source_sha=$GITHUB_SHA"
+            echo "audit_run_id=$GITHUB_RUN_ID"
+            echo "original_native_test_sha=f19110445f7535d1bbdc0041abe76e11034718e0"
+            echo "original_native_test_run=45108004088"
+            echo "scope=retrospective_exact_git_original_274_worlds_5_physical_restores"
+          } > cl1b-ci-evidence/cl1b-c14c-exposure-provenance.txt
+      - name: Archive full five-event exact source-pinned audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c14c-post-restoration-source-exposure-5-native-events
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
