@@ -1,0 +1,26 @@
+{
+  "study": "CL1B-POLICY-P3",
+  "source_sha": "d9769c379e0123ff56c1a1a74f89a4ba07c4b962",
+  "evidence_level": "56_ORIGINAL_NATIVE_WORLD_EVERY_CHARGED_CIL_INSTRUCTION_INDEPENDENT_REPLAY",
+  "native_original_paid_instructions_independently_replayed": 25303,
+  "native_worlds": 56,
+  "regimes": {
+    "stable": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 1296,
+      "net_task_probe_saving": 54
+    },
+    "switch": {
+      "pairs": 9,
+      "net_paid_instruction_saving": 420,
+      "net_task_probe_saving": 18
+    },
+    "scrambled": {
+      "pairs": 9,
+      "net_paid_instruction_saving": -456,
+      "net_task_probe_saving": -18
+    }
+  },
+  "first_native_divergence": null,
+  "nonclaims": "Host preloaded 8-stage horizon, researcher-authored one-time policy, no rollback/strategy inference."
+}

@@ -1,0 +1,10 @@
+[1m[92m   Compiling[0m cl0-world v0.1.0 (/home/runner/work/cioc/cioc/cl0/crates/world)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.27s
+[1m[92m     Running[0m tests/cl1b_refill_rule_g2_native.rs (target/debug/build/cl0-world/d5b7b0a2fa1f4d49/out/cl1b_refill_rule_g2_native-d5b7b0a2fa1f4d49)
+
+running 1 test
+G2 original native 184 worlds, real charged CIL=283918, actor parameter mutations=15, later reads=8
+test g2_frozen_184_worlds_actor_paid_mutable_rule ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.38s
+
