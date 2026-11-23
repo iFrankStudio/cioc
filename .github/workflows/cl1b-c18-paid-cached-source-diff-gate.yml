@@ -1,0 +1,73 @@
+name: CL-1B C18 original actor-paid cached-source difference gate 274 worlds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-DIFF-POSTEDIT-GATE-frozen-274-worlds-v2.json'
+      - 'cl1b/studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-DIFF-POSTEDIT-GATE-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c18_paid_cached_source_diff_gate.rs'
+      - 'cl1b/audits/cl1b_c18_paid_cached_source_diff_gate_independent_replay.py'
+      - '.github/workflows/cl1b-c18-paid-cached-source-diff-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c18-original-native-paid-source-cache-difference
+  cancel-in-progress: true
+
+jobs:
+  native-and-independent-original-274-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all original 274 PID1 paid cached source comparison and actual/source-noop control worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c18_paid_cached_source_diff_gate -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c18-original-native.log
+      - name: Independently replay C18 all paid CIL, last-writer, two paid Write47 paths and real source edits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c18_paid_cached_source_diff_gate_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c18_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c18_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c18_independent_replay.json'))
+          assert d['first_divergence'] is None
+          assert d['native_worlds']==274 and d['new_goal_schedules']==45
+          print('Original C18 274 prospective paid native worlds have exact independent full CIL/source audit:',d)
+          PY
+      - name: Pin original SHA and Actions evidence identifiers
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C18_frozen_v2_original_274_native_PID1_229_node_18_double_cell_paid_cached_source_change_gate_and_3_strict_source_controls"
+          } > cl1b-ci-evidence/cl1b-c18-original-provenance.txt
+      - name: Keep all original 274 paid worlds and negative native outcomes on success or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c18-original-native-paid-cached-source-gate-274
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
