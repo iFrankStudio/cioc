@@ -31,9 +31,9 @@ jobs:
           set -euo pipefail
           git fetch --no-tags --depth=1 origin refs/heads/cl1b-ci-evidence:refs/remotes/origin/cl1b-ci-evidence
           archive='run-records/353e8fdc914dd9f52f66d22802ebb3afcd4ebb1e-45041352673-1/original-native-artifact.zip'
-          test "$(git rev-parse "origin/cl1b-ci-evidence:\${archive}")" = '210f40a21f42d37a9920f2399e5cb0ffc663b59a'
+          test "$(git rev-parse "origin/cl1b-ci-evidence:${archive}")" = '210f40a21f42d37a9920f2399e5cb0ffc663b59a'
           mkdir -p /tmp/cl1b-c10-git /tmp/cl1b-feedback-alias
-          git show "origin/cl1b-ci-evidence:\${archive}" > /tmp/cl1b-c10-git/original-native-artifact.zip
+          git show "origin/cl1b-ci-evidence:${archive}" > /tmp/cl1b-c10-git/original-native-artifact.zip
       - name: Independently audit paid-cost identifiability from original native feedback
         shell: bash
         run: |
