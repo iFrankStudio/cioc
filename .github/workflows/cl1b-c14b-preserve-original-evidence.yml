@@ -75,7 +75,22 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git commit -m 'evidence(cl1b): preserve C14b original 274-world paid meter native archive'
-            git push origin HEAD:cl1b-ci-evidence
+            # Independent focused-history and C14c archival jobs share this branch.
+            # Rebase the unique C14b evidence commit onto the new remote HEAD
+            # after a stale-ref rejection. Never force push or drop another run.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then
+                echo "C14b original bytes pushed on attempt $attempt"
+                break
+              fi
+              if [ "$attempt" = 5 ]; then
+                echo "C14b evidence push still conflicted after five retries" >&2
+                exit 1
+              fi
+              echo "C14b archive branch changed concurrently: retry $attempt/5" >&2
+              git fetch origin cl1b-ci-evidence
+              git rebase origin/cl1b-ci-evidence
+            done
           else
             echo 'Identical C14b bytes already recorded'
           fi
