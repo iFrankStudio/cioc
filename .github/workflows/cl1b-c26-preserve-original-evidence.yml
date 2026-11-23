@@ -1,0 +1,132 @@
+name: CL-1B permanently preserve exact C26 original four paid native own-credit worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c26-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c26-original-source-pinned-4-world-evidence
+  cancel-in-progress: false
+jobs:
+  validate-original-paid-native-and-preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Fetch exact original Rust C26 native source-tested artifact and independently verify CIL original evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c26
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14832454210/zip" \
+            -o /tmp/cl1b-c26/original-native-artifact.zip
+          echo 'eb0ebd1143fc753a6b78c6f5c48f3e13cb079202c9d1de3333e2e927aea79768  /tmp/cl1b-c26/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          with zipfile.ZipFile('/tmp/cl1b-c26/original-native-artifact.zip') as z:
+              files=z.namelist()
+              assert z.testzip() is None and len(files)==len(set(files)) and len(files)>=8
+              assert all('/' not in f and '..' not in f for f in files)
+              assert sum(f.endswith('.jsonl') for f in files)==4
+              study='CL1B-C26-PAID-OWN-CREDIT-METROLOGY-CANDIDATE-CHOICE'
+              original=json.loads(z.read('cl1b_c26_original_native_four_worlds.json'))
+              audit=json.loads(z.read('cl1b_c26_independent_full_paid_replay.json'))
+              sha='3e44868f7b5eafa35342bbb3dd6a940f69bf6ee6'
+              assert original['study']==audit['study']==study
+              assert original['level']=='ORIGINAL_NATIVE_C26_PAID_OWN_COMPUTE_PRICE_COMPARISON_FOUR_WORLDS'
+              assert original['source_sha']==audit['original_native_source_sha']==sha
+              assert original['counts']['original_native_worlds']==audit['original_native_worlds_exactly_replayed']==4
+              assert audit['first_divergence'] is None
+              assert original['counts']['actual_paid_cil_total']==1920
+              assert original['counts']['true_production_services']==audit['true_production_services']==96
+              assert original['counts']['true_trial_services']==8
+              costs={'m0_on':454,'m0_off':454,'m1_on':458,'m1_off':554}
+              assert audit['native_original_full_paid_CIL_per_world']==costs
+              assert audit['same_initial_source_mode0_effect_net_paid_saving']==0
+              assert audit['same_initial_source_mode1_effect_net_paid_saving']==96
+              assert len(original['results'])==4
+              assert len(audit['original_pair_causal_first_effect_prefix'])==2
+              assert audit['original_pair_causal_first_effect_prefix'][0]['full_same_source_paid_CIL_native_traces_equal']
+              assert audit['original_pair_causal_first_effect_prefix'][1]['first_physical_edit_exposure']['paid_PC']==95
+              assert audit['original_pair_causal_first_effect_prefix'][1]['first_physical_edit_exposure']['on_actual_next']==131
+              for x in original['results']:
+                  k=x['id']
+                  assert costs[k]==x['total_paid_cil']
+                  assert x['completed_production_services']==x['total_real_production_services']==24
+                  assert x['total_real_trial_services']==2
+                  assert len(x['sensor_records'])==3
+                  assert x['actor_chosen_candidate']==x['mode']
+                  assert len(x['actor_paid_real_edit_records'])==x['mode']
+                  for ss in x['sensor_records']:
+                      assert ss['post_debit_private_credits']==3000-ss['step']
+                  assert x['trial_cost_a_paid'] in (9,13) and x['trial_cost_b_paid'] in (9,13)
+                  events=[json.loads(q) for q in z.read('cl1b_c26_original_'+k+'.jsonl').decode().splitlines()]
+                  assert len(events)==x['total_paid_cil']
+                  assert events[0]['pc']==0 and events[0]['own_credits_after']==2999
+                  assert events[-1]['original_native_event']=='halt'
+              provenance=z.read('cl1b-c26-original-provenance.txt').decode()
+              assert 'tested_sha='+sha in provenance
+              assert 'run_id=45203791812' in provenance
+              assert 'preflight_disclosed=NONRUST_SIM_PREDICTED_454_454_458_554' in provenance
+              assert 'scientific_scope=ENGINEERED_4_WORLD_PAID_METROLOGY_FEASIBILITY_NOT_BLIND_GENERALIZATION' in provenance
+              print('PASS exact original C26 four source-pinned native paid worlds and independent ordinary CIL, own resource observations and 96 charged-CIL same-source benefit. B3/B4 NOT_MET')
+          PY
+      - name: Commit exact original paid native C26 ZIP bytes into permanent cl1b-ci-evidence Git branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/3e44868f7b5eafa35342bbb3dd6a940f69bf6ee6-45203791812-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c26/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          echo 'eb0ebd1143fc753a6b78c6f5c48f3e13cb079202c9d1de3333e2e927aea79768  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C26 original charged private resource sensor candidate-choice capability worlds
+          - Exact original tested source: 3e44868f7b5eafa35342bbb3dd6a940f69bf6ee6
+          - Original native Rust and independent full paid CIL replay: https://github.com/iFrankStudio/cioc/actions/runs/45203791812
+          - Original artifact byte-exact ZIP SHA256: eb0ebd1143fc753a6b78c6f5c48f3e13cb079202c9d1de3333e2e927aea79768
+          - Four original PID1 private-paid CIL traces; ordinary Rust source, independently written Python CIL replay and provenance.
+          - Genuine paid generic post-debit SenseOwnCredits tag35 measured A/B as 9 vs13 (mode0), 13 vs9 (mode1), via three paid resource samples.
+          - Actor's own paid CIL chose candidate A in mode0, B in mode1, and paid PC95 PatchNext of own executable source only in mode1.
+          - Mode0 equal source on/off 454/454 paid CIL no physical edit exposure; mode1 edit physical effect on458 vs identical initial source disabled effect off554, saving96 CIL with 24 true production services.
+          - Pre-freeze toy preflight predicted these totals. Engineering proof of pre-authored two-candidate resource selection, NOT blind or open-world evolution; B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve exact original C26 four paid private resource metrology worlds'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'C26 archive Git push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'C26 original ZIP already archived'
+          fi
+      - name: Verify remote original C26 ZIP exact SHA256 after Git evidence readback
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/3e44868f7b5eafa35342bbb3dd6a940f69bf6ee6-45203791812-1'
+          got="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$got" = 'eb0ebd1143fc753a6b78c6f5c48f3e13cb079202c9d1de3333e2e927aea79768'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F 'eb0ebd1143fc753a6b78c6f5c48f3e13cb079202c9d1de3333e2e927aea79768'
+          echo 'PASS C26 four original native paid CIL source-tested worlds permanently Git archived byte-identically'
