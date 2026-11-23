@@ -7,7 +7,7 @@
 - 原生受测代码精确SHA：`ce76da3f9035a43c691a53480950290f7aff5652`；[GitHub Actions #45102949516 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45102949516)。一项新Rust原生专项测试PASS、独立Python解释器重新执行**182个世界、668220条真实有偿CIL，first_divergence=null**。此为专项验证，**不是全部CL1B集成测试**。
 - 先冻结[有偿计数器与经济反例协议](../studies/CL1B-C11-PAID-SERVICE-METER-CALIBRATION-preregistration.md)，提交SHA `3b4fdf1c7ef98693b27c7408b1a34fa0019dd31a`，再提交[新Rust原生实验](../../cl0/crates/world/tests/cl1b_c11_paid_service_meter.rs) `324beba255e282bdf8c5d003d8487de48b7b2442`、[独立Python逐指令解释器](../audits/cl1b_c11_paid_service_meter_independent_replay.py) `75feee597ab73764c34ac7a43117672a498ef250`，最后提交并运行workflow。其45个原始目标均来自已经公开的C10，没有再宣称盲法隐藏任务。
 - [原始Actions工件 #14785993941](https://github.com/iFrankStudio/cioc/actions/runs/45102949516/artifacts/14785993941)：包含全部**182条JSONL原生逐指令轨迹**、一份182世界总账JSON、一次独立复放结果JSON、Rust日志和原始SHA provenance，总**186条ZIP成员**；下载ZIP实得**6604595 bytes**，SHA256=`aeb37f9ddbaa5495f9239159fc5d393176102d986c007fb5fc2bfbd4411bd753`，ZIP完整性检查与CRC通过。Actions工件有保留期限。
-- 持久Git原始工件的保存与二次检验由[专项归档工作流](../../.github/workflows/cl1b-c11-preserve-original-evidence.yml)独立负责；归档成功与否以其真实CI结论为准，**不能因为首次Actions成功就声称永久存储成功**。
+- **持久原始证据归档已通过**：[独立归档CI #45103118445 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45103118445)，原生ZIP经完整CRC、186条目/182 JSONL、源SHA和独立重放摘要复核后，写入[Git长期证据分支的固定运行目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/ce76da3f9035a43c691a53480950290f7aff5652-45102949516-1)。该工作流在Git push后**重新fetch真实远端分支并git show取回ZIP字节**，再次验得完全相同SHA256 `aeb37f9ddbaa5495f9239159fc5d393176102d986c007fb5fc2bfbd4411bd753`；因此不依赖临时Actions工件保留期限。
 
 ## 原生命题与费用计量的来源
 
