@@ -362,7 +362,7 @@ def replay(parent,record,folder):
                 else:
                     assert pc==189 and memory.get(45,0)==0
             if at==202 and ticket:
-                assert pc==(226 if evaluator else 203 if probe else 173)
+                assert pc==(226 if cached else 203 if probe else 173)
                 if suppress_ticket:
                     assert memory[45]==0
                     suppressed_ticket_writes+=1
