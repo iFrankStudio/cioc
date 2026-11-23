@@ -48,7 +48,7 @@ jobs:
           assert d['true_PC202_exposure_worlds']+d['strict_PC202_no_exposure_worlds']==45
           print('C21 original 186-world NEW HELDOUT Rust/native + independent Python paid-CIL + exact PC202 first-effect PASS, B3/B4 NOT_MET')
           PY
-      - name: Record test SHA, prior known cohort identity and no prospective novelty
+      - name: Record tested source SHA and genuinely new prospectively frozen goal-cohort identity
         if: always()
         shell: bash
         run: |
