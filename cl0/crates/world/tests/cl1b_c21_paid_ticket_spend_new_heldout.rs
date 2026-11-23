@@ -806,7 +806,7 @@ fn c21_45_new_goals_paid_ticket_effect_prospective_heldout() {
         "incomplete_true_world_names":incomplete,
         "records":records,"adversarial_records":adversarial
     });
-    fs::write(out_dir.join("cl1b_c21_original_native_184_worlds.json"),
+    fs::write(out_dir.join("cl1b_c21_original_native_186_worlds.json"),
         serde_json::to_vec_pretty(&result).unwrap()).unwrap();
     // A zero-evidence result is a legitimate, preregistered negative, not a VM validation failure.
     // C16 must not synthesize PID1 writer provenance or delete such worlds.
