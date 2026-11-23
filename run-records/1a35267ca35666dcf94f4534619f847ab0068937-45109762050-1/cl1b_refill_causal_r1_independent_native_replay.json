@@ -1,0 +1,62 @@
+{
+  "study": "CL1B-REFILL-CAUSAL-R1",
+  "original_native_worlds_exactly_replayed": 472,
+  "original_charged_CIL_instruction_count_exactly_replayed": 677122,
+  "first_divergence": null,
+  "source_sha": "1a35267ca35666dcf94f4534619f847ab0068937",
+  "fresh_cases": 45,
+  "previously_exposed_cases": 144,
+  "fresh_same_source_paid_saving": -1854,
+  "old_exploratory_same_source_paid_saving": 451,
+  "actual_suppressed_pc174_exposures": 99,
+  "fresh_exposures": 21,
+  "fresh_pairs_with_actual_causal_exposure": 21,
+  "fresh_regimes": {
+    "wide_double_shift_with_jitter": {
+      "cases": 9,
+      "causal_paid_saving": -1326,
+      "causal_probe_saving": -17,
+      "f5_distinct_source_saving": -2256,
+      "suppressions": 9,
+      "wins": 0,
+      "no_exposure": 0
+    },
+    "tight_double_shift": {
+      "cases": 9,
+      "causal_paid_saving": 0,
+      "causal_probe_saving": 0,
+      "f5_distinct_source_saving": -798,
+      "suppressions": 7,
+      "wins": 0,
+      "no_exposure": 2
+    },
+    "seeded_sparse_task_impulses": {
+      "cases": 9,
+      "causal_paid_saving": -528,
+      "causal_probe_saving": -3,
+      "f5_distinct_source_saving": -1674,
+      "suppressions": 5,
+      "wins": 0,
+      "no_exposure": 4
+    },
+    "late_drift_reversion": {
+      "cases": 9,
+      "causal_paid_saving": 0,
+      "causal_probe_saving": 0,
+      "f5_distinct_source_saving": -297,
+      "suppressions": 0,
+      "wins": 0,
+      "no_exposure": 9
+    },
+    "stable_no_refill_control": {
+      "cases": 9,
+      "causal_paid_saving": 0,
+      "causal_probe_saving": 0,
+      "f5_distinct_source_saving": 0,
+      "suppressions": 0,
+      "wins": 0,
+      "no_exposure": 9
+    }
+  },
+  "nonclaims": "Exact same-CIL-source researcher-only PC174 intervention, not actor invention"
+}

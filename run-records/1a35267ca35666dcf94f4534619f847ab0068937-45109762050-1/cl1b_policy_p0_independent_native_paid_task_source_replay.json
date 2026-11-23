@@ -1,0 +1,297 @@
+{
+  "study": "CL1B-POLICY-P0",
+  "evidence_level": "NATIVE_8_ORIGINAL_WORLDS_ALL_PAID_EXECUTABLE_SOURCE_PATCH_STEPS_REPLAY",
+  "source_sha": "1a35267ca35666dcf94f4534619f847ab0068937",
+  "original_paid_steps_independently_checked": 1094,
+  "native_original_worlds": 8,
+  "source_nodes": 43,
+  "peak_world_occupied": 49,
+  "charged_task_feedback_driven_executable_source_mutations": 20,
+  "honest_regime_full_task_completions": 4,
+  "first_divergence": null,
+  "honest_task_regimes": [
+    {
+      "arm": "training_0022",
+      "goals": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "paid_native_source_edit_events": 2,
+      "source_edit_provenance": [
+        {
+          "step": 58,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 80,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        }
+      ],
+      "true_task_attempts": 6,
+      "true_task_completions": 4,
+      "original_paid_instructions": 120,
+      "full_four_stage_task_complete": true,
+      "first_divergence": null
+    },
+    {
+      "arm": "reversed_2200",
+      "goals": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "paid_native_source_edit_events": 3,
+      "source_edit_provenance": [
+        {
+          "step": 22,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 44,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        },
+        {
+          "step": 103,
+          "pc": 22,
+          "node": 1,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        }
+      ],
+      "true_task_attempts": 7,
+      "true_task_completions": 4,
+      "original_paid_instructions": 143,
+      "full_four_stage_task_complete": true,
+      "first_divergence": null
+    },
+    {
+      "arm": "alternating_1021",
+      "goals": [
+        1,
+        0,
+        2,
+        1
+      ],
+      "paid_native_source_edit_events": 7,
+      "source_edit_provenance": [
+        {
+          "step": 22,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 62,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        },
+        {
+          "step": 85,
+          "pc": 22,
+          "node": 1,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        },
+        {
+          "step": 125,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 147,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        },
+        {
+          "step": 188,
+          "pc": 22,
+          "node": 1,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        },
+        {
+          "step": 210,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        }
+      ],
+      "true_task_attempts": 11,
+      "true_task_completions": 4,
+      "original_paid_instructions": 232,
+      "full_four_stage_task_complete": true,
+      "first_divergence": null
+    },
+    {
+      "arm": "mixed_2102",
+      "goals": [
+        2,
+        1,
+        0,
+        2
+      ],
+      "paid_native_source_edit_events": 8,
+      "source_edit_provenance": [
+        {
+          "step": 22,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 44,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        },
+        {
+          "step": 85,
+          "pc": 22,
+          "node": 1,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        },
+        {
+          "step": 107,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 147,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        },
+        {
+          "step": 170,
+          "pc": 22,
+          "node": 1,
+          "before": 2,
+          "after": 0,
+          "edit_suppressed": false
+        },
+        {
+          "step": 210,
+          "pc": 22,
+          "node": 1,
+          "before": 0,
+          "after": 1,
+          "edit_suppressed": false
+        },
+        {
+          "step": 232,
+          "pc": 22,
+          "node": 1,
+          "before": 1,
+          "after": 2,
+          "edit_suppressed": false
+        }
+      ],
+      "true_task_attempts": 12,
+      "true_task_completions": 4,
+      "original_paid_instructions": 254,
+      "full_four_stage_task_complete": true,
+      "first_divergence": null
+    }
+  ],
+  "causal_controls": [
+    {
+      "arm": "disable_patches_training",
+      "feedback_regime": "truth",
+      "edit_suppressed": true,
+      "paid_original_instructions": 99,
+      "source_edit_attempts": 2,
+      "true_task_matches": 2,
+      "actor_success_claim": 0,
+      "first_divergence": null
+    },
+    {
+      "arm": "disable_patches_reversed",
+      "feedback_regime": "truth",
+      "edit_suppressed": true,
+      "paid_original_instructions": 63,
+      "source_edit_attempts": 2,
+      "true_task_matches": 0,
+      "actor_success_claim": 0,
+      "first_divergence": null
+    },
+    {
+      "arm": "inverted_feedback_alternating",
+      "feedback_regime": "inverted",
+      "edit_suppressed": false,
+      "paid_original_instructions": 120,
+      "source_edit_attempts": 2,
+      "true_task_matches": 2,
+      "actor_success_claim": 1,
+      "first_divergence": null
+    },
+    {
+      "arm": "forced_zero_feedback_mixed",
+      "feedback_regime": "forced0",
+      "edit_suppressed": false,
+      "paid_original_instructions": 63,
+      "source_edit_attempts": 2,
+      "true_task_matches": 1,
+      "actor_success_claim": 0,
+      "first_divergence": null
+    }
+  ],
+  "source_only_81_four_task_sequences": {
+    "level": "SOURCE_ONLY_NON_NATIVE",
+    "goal_sequences": 81,
+    "hidden_goals_alphabet": [
+      0,
+      1,
+      2
+    ],
+    "stages": 4,
+    "source_interpreter_full_task_completions": 81,
+    "max_paid_in_all81": 254
+  },
+  "limits": "Executable output-guess mutation is contingent on real paid feedback. However the mutation rule was pre-authored, not discovered by the individual; no general code synthesis, semantic reward authentication or open-ended evolution is proven."
+}
