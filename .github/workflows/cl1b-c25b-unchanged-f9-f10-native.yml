@@ -1,0 +1,83 @@
+name: CL-1B C25B unchanged paid F9/F10 native 276-world net edit replication
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c25b_unchanged_self_quarantine_native.rs'
+      - 'cl1b/audits/cl1b_c25b_unchanged_self_quarantine_independent_native_replay.py'
+      - '.github/workflows/cl1b-c25b-unchanged-f9-f10-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c25b-native-276-source-unchanged
+  cancel-in-progress: true
+jobs:
+  frozen-276-paid-original-native-unchanged-f9-f10-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: All 276 original Rust native worlds with literal unchanged C25 F9/F10 original actor-paid 210-node source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c25b_unchanged_self_quarantine_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c25b-original-native.log
+      - name: Full original Python CIL independent source-pinned replay, native charged code edits and pair first-effect proofs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c25b_unchanged_self_quarantine_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c25b_original_native_276_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c25b_independent_full_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c25b_independent_full_paid_replay.json'))
+          assert d['study']=='CL1B-C25B-UNCHANGED-F9F10-PAID-SELF-QUARANTINE-REPLICATION'
+          assert d['original_worlds_exactly_replayed']==276 and d['true_new_task_schedules']==45
+          assert d['first_divergence'] is None
+          assert len(d['F9_same_source_first_physical_edit_effect'])==45
+          assert len(d['F10_same_source_first_physical_edit_effect'])==45
+          assert d['paid_PID1_quarantine_witness']['f10_on']==225
+          assert d['paid_PID1_quarantine_witness']['f10_off']==225
+          assert all(0<=v<=1080 for v in d['arm_true_matched_stages'].values())
+          print('C25B PASS 276 source-unchanged native worlds and independent every paid-CIL original interpreter, B3/B4 NOT_MET')
+          print('C25B original native six arm full paid costs',d['arm_paid_CIL'])
+          print('C25B all true stages',d['arm_true_matched_stages'])
+          print('C25B true actor-paid self-quarantine edit counts',d['paid_PID1_quarantine_witness'])
+          print('C25B crucial replication F10 on/off SAME initial source physical net CIL gain:',
+                 d['F10_same_source_full_paid_physical_edit_net_saving'])
+          print('C25B F9 source pair physical net CIL gain:',
+                 d['F9_same_source_full_paid_physical_edit_net_saving'])
+          PY
+      - name: Test provenance and exact source lock before-original
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "frozen_protocol=CL1B-C25B-UNCHANGED-SELF-QUARANTINE-frozen-276-worlds-v1.json"
+            echo "original_f9_f10_source=CL1B-C25-PAID-SELF-QUARANTINE-frozen-276-worlds-v1.json"
+            echo "original_source_C25_210_nodes_exact_frozen_identity=TRUE"
+            echo "new_goal_cases=45_DISJOINT_FROM_P4F6_C22_C23_C24_C24B_C25"
+            echo "scope=REPLICATION_OF_RESEARCHER_DESIGNED_REAL_PID1_PAID_EDIT_BUNDLED_EFFECT"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c25b-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c25b-original-276-unchanged-f9-f10-paid-self-quarantine
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
