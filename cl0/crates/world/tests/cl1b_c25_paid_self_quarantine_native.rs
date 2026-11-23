@@ -367,126 +367,147 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
   "original_pid_halted":true,"host_source_edits":0})
 }
 #[test]
-fn c24b_186_new_goals_unchanged_F8_paid_service_attempt_gate(){
+fn c25_276_original_native_actor_paid_self_quarantine_worlds(){
  let root=std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
  let m:Value=serde_json::from_slice(&fs::read(root.join(STUDY)).unwrap()).unwrap();
  let parent:Value=serde_json::from_slice(&fs::read(root.join(PARENT)).unwrap()).unwrap();
- let original_c24:Value=serde_json::from_slice(&fs::read(root.join("../../../cl1b/studies/CL1B-C24-PAID-SERVICE-COUNT-EDIT-GATE-frozen-186-worlds-v1.json")).unwrap()).unwrap();
- assert_eq!(original_c24["study"],"CL1B-C24-F8-PAID-CUMULATIVE-SERVICE-PROXY-EDIT-GATE");
- assert_eq!(m["study"],"CL1B-C24B-F8-PAID-SERVICE-COUNT-DISJOINT-HELDOUT-REPLICATION");
- assert_eq!(m["status"],"PRE_NATIVE_FROZEN_NEW_DISJOINT_STRESS_45_GOALS");
+ let old:Value=serde_json::from_slice(&fs::read(root.join("../../../cl1b/studies/CL1B-C24-PAID-SERVICE-COUNT-EDIT-GATE-frozen-186-worlds-v1.json")).unwrap()).unwrap();
+ assert_eq!(m["study"],"CL1B-C25-F9F10-ACTOR-PAID-PATCHNEXT-SELF-QUARANTINE");
+ assert_eq!(m["status"],"PRE_NATIVE_FROZEN_SIX_ARM_276_NATIVE_WORLDS_NEW45_GOALS");
  assert_eq!(parent["study"],"CL1B-POLICY-P4F6");
- assert_eq!(parent["status"],"PRE_NATIVE_FROZEN_ACTOR_PAID_FOUR_CLEAN_SUCCESS_REPLENISHABLE_ONE_ONLINE_EDIT_BUDGET");
- let f6=m["exact_frozen_F8_source_195_nodes"].as_array().unwrap();
- assert_eq!(f6,original_c24["exact_frozen_F8_source_195_nodes"].as_array().unwrap(),"F8 changed between frozen C24 and C24B");
- let f6base=parent["original_native_CIL_source_f6"].as_array().unwrap();
+ assert_eq!(old["study"],"CL1B-C24-F8-PAID-CUMULATIVE-SERVICE-PROXY-EDIT-GATE");
+ let f9=m["actor_paid_source_F9_selective_210_nodes"].as_array().unwrap();
+ let f10=m["actor_paid_source_F10_full_210_nodes"].as_array().unwrap();
+ let f8=old["exact_frozen_F8_source_195_nodes"].as_array().unwrap();
  let f5=parent["baseline_source_f5"].as_array().unwrap();
- assert_eq!(f6.len(),195);assert_eq!(f6base.len(),180);assert_eq!(f5.len(),153);
- assert_eq!(f6[3]["next"],184);assert_eq!(f6[81]["next"],180);
- assert_eq!(f6base[3]["next"],4);assert_eq!(f6base[81]["next"],82);
- for i in 0..180{if i!=3&&i!=81{assert_eq!(f6[i],f6base[i],"unregistered original source node alteration");}}
- assert_eq!(f6[180],json!({"kind":"Const","dst":2,"value":40,"next":181}));
- assert_eq!(f6[181],json!({"kind":"Read","dst":0,"address":2,"next":182}));
- assert_eq!(f6[182],json!({"kind":"Const","dst":2,"value":2,"next":183}));
- assert_eq!(f6[183],json!({"kind":"Sub","dst":0,"lhs":0,"rhs":2,"next":190}));
- assert_eq!(f6[184],json!({"kind":"Const","dst":2,"value":40,"next":185}));
- assert_eq!(f6[185],json!({"kind":"Read","dst":0,"address":2,"next":186}));
- assert_eq!(f6[189],json!({"kind":"Write","address":2,"value":0,"next":4}));
- assert_eq!(f6[190],json!({"kind":"Branch","test":0,"nonzero":192,"zero":191}));
- assert_eq!(f6[191],json!({"kind":"Const","dst":0,"value":137,"next":82}));
- assert_eq!(f6[194],json!({"kind":"Branch","test":0,"nonzero":127,"zero":191}));
- assert_eq!(f6[82],json!({"kind":"PatchNext","node":1,"target":0,"next":127}));
- assert_eq!(f6[137]["next"],142);
- assert_eq!(f6[122]["next"],147);
- assert_eq!(f6[143],json!({"kind":"Read","dst":0,"address":2,"next":144}));
- assert_eq!(f6[146],json!({"kind":"Branch","test":0,"nonzero":138,"zero":140}));
- assert_eq!(f6[152],json!({"kind":"Write","address":2,"value":0,"next":153}));
- assert_eq!(f5[152]["next"],134);
- assert_eq!(f6[133]["next"],62);
- assert_eq!(f6[155],json!({"kind":"PatchNext","node":1,"target":0,"next":134}));
- assert_eq!(f6[177],json!({"kind":"PatchNext","node":1,"target":0,"next":178}));
- assert_eq!(f6[170],json!({"kind":"Branch","test":0,"nonzero":62,"zero":171}));
- assert_eq!(f6[81]["value"],137);
- assert_eq!(f6[130]["value"],132);
- assert_eq!(f5[122]["next"],147);
- assert_eq!(f6[136],json!({"kind":"PatchNext","node":1,"target":0,"next":123}));
- assert_eq!(f6[139],json!({"kind":"PatchNext","node":1,"target":0,"next":140}));
- assert_eq!(f6[131],json!({"kind":"PatchNext","node":1,"target":0,"next":46}));
+ assert_eq!(f9.len(),210);
+ assert_eq!(f10.len(),210);
+ assert_eq!(f8.len(),195);
+ assert_eq!(f5.len(),153);
+ assert_eq!(f9[194]["nonzero"],195);
+ assert_eq!(f9[194]["zero"],191);
+ assert_eq!(f9[190]["zero"],191);
+ assert_eq!(f10[190]["zero"],195);
+ assert_eq!(f10[194]["zero"],195);
+ assert_eq!(f10[194]["nonzero"],195);
+ for i in 0..195{
+   if i!=194{assert_eq!(f9[i],f8[i],"F9 unregistered inherited original code change at {i}");}
+   if i!=190&&i!=194{assert_eq!(f10[i],f8[i],"F10 unregistered inherited original code change at {i}");}
+ }
+ for i in 195..210{assert_eq!(f9[i],f10[i],"F9 and F10 quarantine CIL implementation differs unexpectedly");}
+ for (idx,(node,target)) in [(128,46),(134,123),(138,140),(153,134),(175,178)].iter().enumerate(){
+   let pc=195+idx*3;
+   assert_eq!(f9[pc],json!({"kind":"Const","dst":1,"value":node,"next":pc+1}));
+   assert_eq!(f9[pc+1],json!({"kind":"Const","dst":0,"value":target,"next":pc+2}));
+   assert_eq!(f9[pc+2],json!({"kind":"PatchNext","node":1,"target":0,"next":if idx==4{127}else{pc+3}}));
+ }
  let goals=m["goal_cases"].as_array().unwrap();
  let arms=m["arms"].as_array().unwrap();
  let controls=m["controls"].as_array().unwrap();
- assert_eq!(goals.len(),45);assert_eq!(arms.len(),180);assert_eq!(controls.len(),6);
- let c22:Value=serde_json::from_slice(&fs::read(root.join("../../../cl1b/studies/CL1B-C22-PAID-PATCHNEXT-SELF-EDIT-RETURN-frozen-141-worlds-v1.json")).unwrap()).unwrap();
- let mut old=std::collections::BTreeSet::new();
- for g in parent["goal_cases"].as_array().unwrap(){old.insert(g["goals"].to_string());}
- for g in c22["goal_cases"].as_array().unwrap(){old.insert(g["goals"].to_string());}
- let c23:Value=serde_json::from_slice(&fs::read(root.join("../../../cl1b/studies/CL1B-C23-PAID-STAGE-GATE-frozen-186-worlds-v1.json")).unwrap()).unwrap();
- for g in c23["goal_cases"].as_array().unwrap(){old.insert(g["goals"].to_string());}
- for g in original_c24["goal_cases"].as_array().unwrap(){old.insert(g["goals"].to_string());}
+ assert_eq!(goals.len(),45);
+ assert_eq!(arms.len(),270);
+ assert_eq!(controls.len(),6);
+ let prior_files=[
+ "../../../cl1b/studies/CL1B-POLICY-P4F6-frozen-actor-paid-clean-success-refill-542-world-v1.json",
+ "../../../cl1b/studies/CL1B-C22-PAID-PATCHNEXT-SELF-EDIT-RETURN-frozen-141-worlds-v1.json",
+ "../../../cl1b/studies/CL1B-C23-PAID-STAGE-GATE-frozen-186-worlds-v1.json",
+ "../../../cl1b/studies/CL1B-C24-PAID-SERVICE-COUNT-EDIT-GATE-frozen-186-worlds-v1.json",
+ "../../../cl1b/studies/CL1B-C24B-F8-PAID-SERVICE-COUNT-HELDOUT-REPLICATION-frozen-186-worlds-v1.json",
+ ];
+ let mut prior=std::collections::BTreeSet::new();
+ for file in prior_files{
+   let document:Value=serde_json::from_slice(&fs::read(root.join(file)).unwrap()).unwrap();
+   for case in document["goal_cases"].as_array().unwrap(){
+     prior.insert(case["goals"].to_string());
+   }
+ }
  let mut fresh=std::collections::BTreeSet::new();
- for g in goals{
-   assert_eq!(g["goals"].as_array().unwrap().len(),24);
-   assert!(!old.contains(&g["goals"].to_string()),"C23 goal reused old");
-   assert!(fresh.insert(g["goals"].to_string()),"C23 goal duplicated");
+ for case in goals{
+   assert_eq!(case["goals"].as_array().unwrap().len(),24);
+   assert!(!prior.contains(&case["goals"].to_string()),"C25 repeats a historical full 24-stage task");
+   assert!(fresh.insert(case["goals"].to_string()),"C25 duplicated own frozen new goal");
  }
  assert_eq!(fresh.len(),45);
  let dir=root.join("../../cl1b-ci-evidence");
  fs::create_dir_all(&dir).unwrap();
  let mut records=Vec::<Value>::new();
- let mut total=0_u64;
- let mut grouped=BTreeMap::<String,(i64,i64,i64,i64,u64,u64)>::new();
- for (index,g) in goals.iter().enumerate(){
-  let (a,b,c,d)=(&arms[4*index],&arms[4*index+1],&arms[4*index+2],&arms[4*index+3]);
-  assert_eq!(a["source"],"F6");assert_eq!(b["source"],"F6");
-  assert_eq!(c["source"],"F6BASE");assert_eq!(d["source"],"F5");
-  assert_eq!(a["goals"],g["goals"]);assert_eq!(b["goals"],g["goals"]);
-  assert_eq!(c["goals"],g["goals"]);assert_eq!(d["goals"],g["goals"]);
-  let on=run(f6,a,&dir);let off=run(f6,b,&dir);let original=run(f6base,c,&dir);let baseline=run(f5,d,&dir);
-  for outcome in [&on,&off,&original,&baseline]{
-   assert!(outcome["completed_stages"].as_u64().unwrap_or(0)<=24);
-   assert!(outcome["truthful_matches"].as_u64().unwrap_or(0)<=24);
-   total+=outcome["steps"].as_u64().unwrap();
-  }
-  // Zero exposure, bad accuracy, or negative edit ROI are valid: preserve them.
-  let paired=off["steps"].as_i64().unwrap()-on["steps"].as_i64().unwrap();
-  let paired_probes=off["services"].as_array().unwrap().len() as i64-
-    on["services"].as_array().unwrap().len() as i64;
-  let cross=baseline["steps"].as_i64().unwrap()-on["steps"].as_i64().unwrap();
-  let cross_probes=baseline["services"].as_array().unwrap().len() as i64-
-    on["services"].as_array().unwrap().len() as i64;
-  let name=g["regime"].as_str().unwrap().to_string();
-  let entry=grouped.entry(name.clone()).or_insert((0,0,0,0,0,0));
-  entry.0+=paired;entry.1+=paired_probes;entry.2+=cross;entry.3+=cross_probes;
-  entry.4+=1;
-  entry.5+=on["code_edits"].as_array().unwrap().iter()
-   .filter(|x|x["pc"]==122).count() as u64;
-  records.push(json!({"regime":name,"classification":g["classification"],
-   "goals":g["goals"],"f8_on":on,"f8_off":off,"f6_original":original,"f5_original":baseline,
-    "F8_on_minus_F6_original_paid_CIL":on["steps"].as_i64().unwrap()-original["steps"].as_i64().unwrap(),
-    "F8_on_minus_F5_original_paid_CIL":on["steps"].as_i64().unwrap()-baseline["steps"].as_i64().unwrap(),
-   "same_source_bundle_paid_saving":paired,
-   "same_source_bundle_probe_saving":paired_probes,
-   "cross_source_f6_vs_f5_paid_saving":cross,
-   "cross_source_f6_vs_f5_probe_saving":cross_probes}));
+ let mut totals=BTreeMap::<String,u64>::new();
+ let labels=["f9_on","f9_off","f10_on","f10_off","f8_original","f5_original"];
+ let cohort_sources=["F9","F9","F10","F10","F8BASE","F5"];
+ let frozen_sources=[f9,f9,f10,f10,f8,f5];
+ let mut per_regime=BTreeMap::<String,(i64,i64,i64,i64,i64,u64,u64)>::new();
+ for (i,g) in goals.iter().enumerate(){
+   let chunk=&arms[6*i..6*i+6];
+   for j in 0..6{
+     assert_eq!(chunk[j]["source"],cohort_sources[j]);
+     assert_eq!(chunk[j]["goals"],g["goals"]);
+     assert_eq!(chunk[j]["feedback"],"truth");
+     assert_eq!(chunk[j]["patchnext_suppressed"],j==1||j==3);
+   }
+   let mut outcomes=Vec::<Value>::new();
+   for j in 0..6{
+     let output=run(frozen_sources[j],&chunk[j],&dir);
+     assert!(output["truthful_matches"].as_u64().unwrap_or(0)<=24);
+     assert!(output["completed_stages"].as_u64().unwrap_or(0)<=24);
+     *totals.entry(labels[j].into()).or_insert(0)+=output["steps"].as_u64().unwrap();
+     outcomes.push(output);
+   }
+   let cost=|j:usize|outcomes[j]["steps"].as_i64().unwrap();
+   let qu=|j:usize|outcomes[j]["paid_quarantine_self_edits"].as_array().unwrap().len();
+   let regime=g["regime"].as_str().unwrap().to_string();
+   let group=per_regime.entry(regime.clone()).or_insert((0,0,0,0,0,0,0));
+   group.0+=cost(1)-cost(0);
+   group.1+=cost(3)-cost(2);
+   group.2+=cost(4)-cost(0);
+   group.3+=cost(4)-cost(2);
+   group.4+=cost(5)-cost(2);
+   group.5+=qu(0) as u64;
+   group.6+=qu(2) as u64;
+   records.push(json!({
+      "regime":regime,"goals":g["goals"],"classification":g["classification"],
+      "f9_on":outcomes[0],"f9_off":outcomes[1],
+      "f10_on":outcomes[2],"f10_off":outcomes[3],
+      "f8_original":outcomes[4],"f5_original":outcomes[5],
+      "F9_same_source_physical_edit_net_paid_saving":cost(1)-cost(0),
+      "F10_same_source_physical_edit_net_paid_saving":cost(3)-cost(2),
+      "F9_vs_old_F8_full_program_paid_saving":cost(4)-cost(0),
+      "F10_vs_old_F8_full_program_paid_saving":cost(4)-cost(2),
+      "F10_vs_old_F5_full_program_paid_saving":cost(5)-cost(2),
+      "F9_original_real_paid_quarantine_edits":qu(0),
+      "F10_original_real_paid_quarantine_edits":qu(2)
+   }));
  }
- let mut adverse=Vec::<Value>::new();
+ let mut negative=Vec::<Value>::new();
  for arm in controls{
-  let result=run(if arm["source"]=="F5"{f5}else if arm["source"]=="F6BASE"{f6base}else{f6},arm,&dir);
-  total+=result["steps"].as_u64().unwrap();
-  adverse.push(result);
+   let source=match arm["source"].as_str().unwrap(){
+     "F9"=>f9,"F10"=>f10,"F8BASE"=>f8,"F5"=>f5,other=>panic!("C25 unknown frozen negative source {other}")
+   };
+   let outcome=run(source,arm,&dir);
+   *totals.entry("negative_controls".into()).or_insert(0)+=outcome["steps"].as_u64().unwrap();
+   negative.push(outcome);
  }
- // Preserve all adversarial true-truth outcomes, even if self-claim is wrong.
- let summaries=grouped.into_iter().map(|(k,(p,pp,c,cp,n,e))|
-  (k,json!({"cases":n,"causal_bundle_paid_saving":p,
-   "causal_bundle_probes_saved":pp,"cross_source_paid_saving":c,
-   "cross_source_probes_saved":cp,"online_actor_edits":e})))
-  .collect::<serde_json::Map<String,Value>>();
- fs::write(dir.join("cl1b_c25_original_native_186_worlds.json"),
-  serde_json::to_vec_pretty(&json!({"study":"CL1B-C24B-F8-PAID-SERVICE-COUNT-DISJOINT-HELDOUT-REPLICATION",
-   "level":"ORIGINAL_NATIVE_C24B_186_WORLD_UNCHANGED_F8_PAID_SERVICE_COUNT_REPLICATION",
-   "source_sha":std::env::var("GITHUB_SHA").unwrap_or_else(|_|"local".into()),
-   "records":records,"controls":adverse,
-   "counts":{"worlds":186,"truthful_worlds":180,"adversarial":6,"frozen_goal_sequences":45,"fresh_heldout_goal_sequences":45,
-    "total_original_paid_instructions":total,"regimes":summaries},
-   "caveat":"Researcher-authored F8 195-node fully paid service count edit gate, not earned ROI; same-source PatchNext effects bundled, original F6/F5 distinct source."})).unwrap()).unwrap();
+ assert_eq!(negative.len(),6);
+ let total=totals.values().copied().sum::<u64>();
+ let groups=per_regime.iter().map(|(regime,v)|json!({
+  "regime":regime,"cases":9,
+  "f9_same_source_paid_saving":v.0,"f10_same_source_paid_saving":v.1,
+  "f9_vs_original_F8_full_program_paid_saving":v.2,
+  "f10_vs_original_F8_full_program_paid_saving":v.3,
+  "f10_vs_original_F5_full_program_paid_saving":v.4,
+  "f9_true_paid_self_quarantine_edits":v.5,
+  "f10_true_paid_self_quarantine_edits":v.6
+ })).collect::<Vec<_>>();
+ fs::write(dir.join("cl1b_c25_original_native_276_worlds.json"),
+   serde_json::to_vec_pretty(&json!({
+    "study":"CL1B-C25-F9F10-ACTOR-PAID-PATCHNEXT-SELF-QUARANTINE",
+    "level":"ORIGINAL_NATIVE_C25_276_WORLD_ACTOR_PAID_SELF_QUARANTINE",
+    "source_sha":std::env::var("GITHUB_SHA").unwrap_or_else(|_|"local".into()),
+    "records":records,"controls":negative,
+    "counts":{"worlds":276,"truthful_worlds":270,"adversarial":6,
+      "frozen_goal_sequences":45,"true_stages_per_goal":24,
+      "total_original_paid_instructions":total,"arm_paid_totals":totals,
+      "regimes":groups},
+    "limits":"Researcher-authored finite F9/F10 self-quarantine edited by real charged PID1 PatchNext. Same-source all-PatchNext effect suppression is bundled researcher negative control, not single-PC effect, not endogenous B3/B4."
+   })).unwrap()).unwrap();
+ println!("ORIGINAL_NATIVE_C25_276_WORLD_PID_PAID_QUARANTINE_TOTALS {:?}",totals);
 }
