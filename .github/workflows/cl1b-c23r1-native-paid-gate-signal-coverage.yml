@@ -1,0 +1,59 @@
+name: CL-1B C23R1 archived original native gate-time observable sensor coverage
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c23r1_original_paid_gate_observable_signals.py'
+      - '.github/workflows/cl1b-c23r1-native-paid-gate-signal-coverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-186-world-sensor-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve byte-exact permanent original C23 native ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/934cbe7af9e906f041de0fc3e9d9100c3b29c297-45164051650-1'
+          git show "FETCH_HEAD:$dest/original-native-artifact.zip" > /tmp/cl1b-c23-original.zip
+          echo '5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e  /tmp/cl1b-c23-original.zip' | sha256sum -c -
+      - name: Independently reinterpret 186 original paid CIL worlds and record honest observational gate sensor diversity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c23r1_original_paid_gate_observable_signals.py \
+            /tmp/cl1b-c23-original.zip cl1b-ci-evidence/cl1b_c23r1_original_gate_sensor_coverage.json \
+            | tee cl1b-ci-evidence/cl1b-c23r1-console.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c23r1_original_gate_sensor_coverage.json'))
+          assert d['original_worlds_exactly_replayed']==186
+          assert len(d['individual_exact_native_gate_snapshots'])==45
+          assert d['PC181_observed_stage_histogram']=={'2':45}
+          assert d['new_native_worlds']==0
+          assert d['first_divergence'] is None
+          print('PASS original 45 paid-stage gate first-time snapshots; no new worlds or learned ROI')
+          PY
+      - name: Preserve original source and source-pinned original ZIP SHA
+        if: always()
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_sha=$GITHUB_SHA"
+            echo "original_native_sha=934cbe7af9e906f041de0fc3e9d9100c3b29c297"
+            echo "original_native_run=45164051650"
+            echo "original_native_zip_sha=5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e"
+            echo "scope=RETROSPECTIVE_EXISTING_186_WORLD_NATIVE_PAID_SENSOR_SNAPSHOT_ONLY"
+          } > cl1b-ci-evidence/cl1b-c23r1-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c23r1-original-native-paid-gate-sensor-diversity
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
