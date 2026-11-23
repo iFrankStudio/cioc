@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'cl1b/studies/CL1B-C14B-PAID-WRITER-VERIFIED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C14-NATIVE-FEEDBACK-ATTESTED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json'
       - 'cl1b/studies/CL1B-C14B-PAID-WRITER-VERIFIED-SUCCESS-SOURCE-RESTORATION-preregistration.md'
       - 'cl0/crates/world/tests/cl1b_c14b_paid_writer_verified_success.rs'
       - 'cl1b/audits/cl1b_c14b_paid_writer_verified_success_independent_native_replay.py'
