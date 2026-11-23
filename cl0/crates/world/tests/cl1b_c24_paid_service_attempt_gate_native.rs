@@ -427,9 +427,9 @@ fn c24_186_original_native_paid_service_attempt_gate(){
   entry.5+=on["code_edits"].as_array().unwrap().iter()
    .filter(|x|x["pc"]==122).count() as u64;
   records.push(json!({"regime":name,"classification":g["classification"],
-   "goals":g["goals"],"f7_on":on,"f7_off":off,"f6_original":original,"f5_original":baseline,
-    "F7_on_minus_F6_original_paid_CIL":on["steps"].as_i64().unwrap()-original["steps"].as_i64().unwrap(),
-    "F7_on_minus_F5_original_paid_CIL":on["steps"].as_i64().unwrap()-baseline["steps"].as_i64().unwrap(),
+   "goals":g["goals"],"f8_on":on,"f8_off":off,"f6_original":original,"f5_original":baseline,
+    "F8_on_minus_F6_original_paid_CIL":on["steps"].as_i64().unwrap()-original["steps"].as_i64().unwrap(),
+    "F8_on_minus_F5_original_paid_CIL":on["steps"].as_i64().unwrap()-baseline["steps"].as_i64().unwrap(),
    "same_source_bundle_paid_saving":paired,
    "same_source_bundle_probe_saving":paired_probes,
    "cross_source_f6_vs_f5_paid_saving":cross,
