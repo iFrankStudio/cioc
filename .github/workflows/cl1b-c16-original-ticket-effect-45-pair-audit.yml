@@ -47,7 +47,7 @@ jobs:
           assert d['paid_ticket_PC202_single_use_invariant_events']==35
           assert d['stages_saved_by_ticket_actual_write_effect']==54
           assert d['CIL_saved_by_ticket_effect']==713
-          assert d['main_physical_source_edit_effect_stage_gain_vs_same_source_suppression']==0
+          assert d['main_physical_source_edit_stage_gain_vs_same_source_suppression']==0
           assert d['main_physical_effect_CIL_disadvantage']==359
           assert len(d['complete_45_true_pairs'])==45
           assert {x['name']:x['stages_saved'] for x in d['ticket_causal_cases']}=={
