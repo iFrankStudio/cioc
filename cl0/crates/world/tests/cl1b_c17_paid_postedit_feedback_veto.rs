@@ -1,3 +1,4 @@
+#![recursion_limit = "512"]
 //! C17 original native PID1 paid one-shot dynamic postedit feedback probe and future recovery veto.
 //! Source-authored success-memory policy, NOT learned ROI / B3 / B4.
 use cl0_world::{EventKind, Intervention, Op, Origin, Process, World};
