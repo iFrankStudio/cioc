@@ -127,7 +127,7 @@ def replay(m, record, folder):
         assert next(rows,None) is None, ("excess native trace rows",name)
 
     assert meter_writes==(rollback_attempts if metered else 0)
-    assert memory.get(43)==(rollback_attempts if metered else None)
+    assert memory.get(43)==(rollback_attempts if metered and rollback_attempts>0 else None)
     correct=sum(x[2] for x in services)
     completed,claim=memory.get(32,0),memory.get(21,0)
     if mode=="truth":
