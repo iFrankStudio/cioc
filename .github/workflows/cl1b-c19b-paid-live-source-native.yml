@@ -1,0 +1,69 @@
+name: CL-1B C19B original paid live source self-execution 45 genuinely new heldout tasks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT-frozen-274-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C19-PAID-LIVE-PC173-SOURCE-SELF-EXECUTION-DUAL-COHORT-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c19b_paid_live_source_heldout.rs'
+      - 'cl1b/audits/cl1b_c19b_paid_live_source_heldout_independent_replay.py'
+      - '.github/workflows/cl1b-c19b-paid-live-source-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c19b-original-native-source-execution
+  cancel-in-progress: true
+jobs:
+  native-and-independent-274-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all 274 original PID1 paid live-source self-read and restore-edge worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c19b_paid_live_source_heldout -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c19b-original-native.log
+      - name: Independently replay 274 original worlds all paid CIL and seven-field dynamic source signature
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c19b_paid_live_source_heldout_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c19b_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c19b_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c19b_independent_replay.json'))
+          assert d['native_worlds']==274 and d['first_divergence'] is None
+          assert d['new_goal_schedules']==45
+          print('C19B full native plus independent replay PASS, 274 worlds:',d)
+          PY
+      - name: Record exact tested SHA and cohort provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "cohort=NEW_45_HELDOUT"
+            echo "scope=C19B_274_native_PID1_241_node_paid_self_exec_PC173_next234_24_and_all_6_controls"
+          } > cl1b-ci-evidence/cl1b-c19b-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c19b-original-native-paid-self-executed-live-source-274
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
