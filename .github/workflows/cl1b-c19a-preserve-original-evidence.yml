@@ -1,0 +1,117 @@
+name: CL-1B preserve verified C19A original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c19a-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c19a-permanent-native-evidence
+  cancel-in-progress: false
+
+jobs:
+  preserve-verified-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download and check original-success C19A artifact, exact byte hash and 274 traces
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c19a-preserve
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14796352121/zip" \
+            -o /tmp/cl1b-c19a-preserve/original-native.zip
+          echo '4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b  /tmp/cl1b-c19a-preserve/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          p='/tmp/cl1b-c19a-preserve/original-native.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None and len(names)==len(set(names))==278
+              assert sum(n.endswith('.jsonl') for n in names)==274
+              d=json.loads(z.read('cl1b_c19a_original_native_274_worlds.json'))
+              a=json.loads(z.read('cl1b_c19a_independent_replay.json'))
+              assert d['study']=='CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION'
+              assert d['native_worlds']==a['native_worlds']==274 and len(d['records'])==45
+              assert d['total_paid_cil']==a['exact_private_paid_cil_replayed']==1129708
+              assert a['first_divergence'] is None
+              assert d['main_actor_paid_success_records']==287 and d['main_actual_physical_pc173_restores']==11
+              main=[r['arms'][0] for r in d['records']]
+              assert sum(v['paid_live_source_edge_armed'] for v in main)==15
+              assert sum(v['paid_live_source_edge_restored'] for v in main)==15
+              assert sum(v['paid_live_source_const_executed'] for v in main)==15
+              assert sum(v['paid_live_source_register_copied'] for v in main)==15
+              assert sum(v['paid_live_candidate_cell48_writes'] for v in main)==15
+              assert sum(v['paid_live_candidate_cell48_reads'] for v in main)==15
+              assert sum(v['observer_true_prepatch_equal'] for v in main)==4
+              assert sum(v['observer_true_prepatch_different'] for v in main)==11
+              assert sum(v['observer_cache_false_equal']+v['observer_cache_false_different'] for v in main)==0
+              assert sum(bool(v['unrestored_live_PC173_edge_at_termination']) for v in main)==0
+              assert all(v['final_live_PC173_next']==24 for v in main)
+              assert d['arm_completed_worlds']['truth_paid_live_self_executed_source_difference_gate']==45
+              assert d['arm_completed_worlds']['different_source_c9_fixed_abstain']==45
+              assert d['arm_fees']['truth_paid_live_self_executed_source_difference_gate']==190063
+              assert d['arm_fees']['same_source_pc225_equal_marker_suppressed']==191875
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==162029
+              prov=z.read('cl1b-c19a-original-provenance.txt').decode()
+              assert 'tested_sha=8d2cf7f71ef744b50e59b11ea9a5a75130ff510b' in prov and 'run_id=45127112522' in prov
+              print('C19a native original all 274 worlds PASS, accurately PAID live-executed source read and restored edge, no oracle or leakage')
+          PY
+      - name: Preserve binary original at immutable run-record path on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/8d2cf7f71ef744b50e59b11ea9a5a75130ff510b-45127112522-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c19a-preserve/original-native.zip "$dest/original-native-artifact.zip"
+          echo '4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C19A original 274-world paid single-use success certificate native archive'
+            # Independent focused-history and C14c archival jobs share this branch.
+            # Rebase the unique C19A evidence commit onto the new remote HEAD
+            # after a stale-ref rejection. Never force push or drop another run.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then
+                echo "C19A original bytes pushed on attempt $attempt"
+                break
+              fi
+              if [ "$attempt" = 5 ]; then
+                echo "C19A evidence push still conflicted after five retries" >&2
+                exit 1
+              fi
+              echo "C19A archive branch changed concurrently: retry $attempt/5" >&2
+              git fetch origin cl1b-ci-evidence
+              git rebase origin/cl1b-ci-evidence
+            done
+          else
+            echo 'Identical C19A bytes already recorded'
+          fi
+      - name: Fetch back Git archive bytes and repeat independent hash check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/8d2cf7f71ef744b50e59b11ea9a5a75130ff510b-45127112522-1'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | grep -F '4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F '4e0eea03df3a6009a94b972539184d96cd76450974f8a1777aff76e2b5ee568b'
+          echo 'C19A independently fetched permanent Git original binary: exact SHA-256 verified'
