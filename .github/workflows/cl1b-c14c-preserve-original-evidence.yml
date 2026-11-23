@@ -1,0 +1,94 @@
+name: CL-1B preserve verified C14c original native evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c14c-preserve-original-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: cl1b-c14c-permanent-native-evidence
+  cancel-in-progress: false
+
+jobs:
+  preserve-verified-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download and check original-success C14c artifact, exact byte hash and 274 traces
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c14c-preserve
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14788162061/zip" \
+            -o /tmp/cl1b-c14c-preserve/original-native.zip
+          echo '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be  /tmp/cl1b-c14c-preserve/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile
+          p='/tmp/cl1b-c14c-preserve/original-native.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              names=z.namelist()
+              assert len(names)==len(set(names))==278,len(names)
+              assert sum(n.endswith('.jsonl') for n in names)==274
+              d=json.loads(z.read('cl1b_c14c_original_native_274_worlds.json'))
+              a=json.loads(z.read('cl1b_c14c_independent_replay.json'))
+              assert d['study']=='CL1B-C14C-PAID-WRITER-ON-SUCCESS-SOURCE-RESTORATION'
+              assert d['native_worlds']==274 and len(d['records'])==45
+              assert d['total_paid_cil']==a['exact_private_paid_cil_replayed']==1054669
+              assert a['first_divergence'] is None and a['native_worlds']==274
+              assert d['main_actor_paid_success_records']==230
+              assert d['main_actual_physical_pc173_restores']==5
+              assert d['same_source_live_vs_suppressed_paid_or_feedback_difference_cases']==0
+              assert sum(r['arms'][0]['skipped_unverified_positive'] for r in d['records'])==1930
+              assert sum(r['arms'][0]['stale_success_code_samples'] for r in d['records'])==23
+              assert sum(len(r['arms'][0]['subsequent_physical_pc173_readbacks']) for r in d['records'])==0
+              assert d['arm_fees']['truth_success_restore']==183235
+              assert d['arm_fees']['different_source_c9_fixed_abstain']==142838
+              prov=z.read('cl1b-c14c-original-provenance.txt').decode()
+              assert 'tested_sha=f19110445f7535d1bbdc0041abe76e11034718e0' in prov
+              assert 'run_id=45108004088' in prov
+              print('C14c ZIP verified: 278 members, 274 original JSONL, full independently replayed CIL, 230 truthful sources/23 stale/5 unexecuted restorations')
+          PY
+      - name: Preserve binary original at immutable run-record path on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          git checkout -B cl1b-ci-evidence origin/cl1b-ci-evidence
+          dest='run-records/f19110445f7535d1bbdc0041abe76e11034718e0-45108004088-1'
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c14c-preserve/original-native.zip "$dest/original-native-artifact.zip"
+          echo '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          git add "$dest/original-native-artifact.zip" "$dest/original-native-artifact.sha256"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C14c original 274-world paid meter native archive'
+            git push origin HEAD:cl1b-ci-evidence
+          else
+            echo 'Identical C14c bytes already recorded'
+          fi
+      - name: Fetch back Git archive bytes and repeat independent hash check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin cl1b-ci-evidence
+          dest='run-records/f19110445f7535d1bbdc0041abe76e11034718e0-45108004088-1'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.zip" | sha256sum | grep -F '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be'
+          git show "origin/cl1b-ci-evidence:$dest/original-native-artifact.sha256" | grep -F '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be'
+          echo 'C14c independently fetched permanent Git original binary: exact SHA-256 verified'
