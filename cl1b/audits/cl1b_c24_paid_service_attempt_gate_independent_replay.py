@@ -248,110 +248,128 @@ def first_patchnext_physical_effect(folder, on, off):
         "active_edge":a[8][differences[0]],"suppressed_edge":b[8][differences[0]]}
 
 def main():
-    if len(sys.argv)!=3:
-        raise SystemExit("usage: C23_AUDIT SUMMARY.json ORIGINAL_TRACE_DIR")
+    if len(sys.argv)!=3:raise SystemExit("usage: C24_NATIVE_AUDIT SUMMARY.json ORIGINAL_TRACE_DIR")
     summary=json.loads(Path(sys.argv[1]).read_text())
     manifest=json.loads(FROZEN.read_text())
     parent=json.loads(PARENT.read_text())
     c22=json.loads(C22.read_text())
-    assert summary["study"]==manifest["study"]=="CL1B-C23-F7-PAID-OBSERVED-STAGE-MATURITY-CODE-EDIT-GATE"
-    assert summary["level"]=="ORIGINAL_NATIVE_C23_186_WORLD_PID_PAID_STAGE_MATURITY_GATE"
-    assert manifest["status"]=="PRE_NATIVE_FULL_FROZEN_TRUE_NEW_45_GOALS"
+    c23=json.loads(C23.read_text())
+    study="CL1B-C24-F8-PAID-CUMULATIVE-SERVICE-PROXY-EDIT-GATE"
+    assert summary["study"]==manifest["study"]==study
+    assert summary["level"]=="ORIGINAL_NATIVE_C24_186_WORLD_PID_PAID_SERVICE_COUNTER_GATE"
+    assert manifest["status"]=="PRE_NATIVE_FROZEN_NEW_GOALS_FULL_186_WORLD"
     assert parent["study"]=="CL1B-POLICY-P4F6"
     assert summary["source_sha"] not in ("","local")
-    if os.environ.get("GITHUB_SHA"):
-        assert summary["source_sha"]==os.environ["GITHUB_SHA"]
-    f7=manifest["gate_source_F7_184_nodes"]
+    if os.environ.get("GITHUB_SHA"):assert summary["source_sha"]==os.environ["GITHUB_SHA"]
+    f8=manifest["exact_frozen_F8_source_195_nodes"]
     f6=parent["original_native_CIL_source_f6"]
     f5=parent["baseline_source_f5"]
-    assert len(f7)==184 and len(f6)==180 and len(f5)==153
-    assert f7[81]==dict(f6[81],next=180)
-    assert f7[:81]==f6[:81] and f7[82:180]==f6[82:]
-    assert f7[180:]==[
-        {"kind":"Const","dst":2,"value":32,"next":181},
-        {"kind":"Read","dst":0,"address":2,"next":182},
-        {"kind":"Branch","test":0,"nonzero":183,"zero":127},
-        {"kind":"Const","dst":0,"value":137,"next":82}]
-    old={tuple(x["goals"]) for x in parent["goal_cases"]+c22["goal_cases"]}
-    frozen={tuple(x["goals"]) for x in manifest["goal_cases"]}
-    assert len(frozen)==45 and not old.intersection(frozen)
+    assert len(f8)==195 and len(f6)==180 and len(f5)==153
+    assert f8[3]==dict(f6[3],next=184)
+    assert f8[81]==dict(f6[81],next=180)
+    assert all(f8[j]==f6[j] for j in range(180) if j not in (3,81))
+    assert f8[180]=={"kind":"Const","dst":2,"value":40,"next":181}
+    assert f8[181]=={"kind":"Read","dst":0,"address":2,"next":182}
+    assert f8[182]=={"kind":"Const","dst":2,"value":2,"next":183}
+    assert f8[183]=={"kind":"Sub","dst":0,"lhs":0,"rhs":2,"next":190}
+    assert f8[184]=={"kind":"Const","dst":2,"value":40,"next":185}
+    assert f8[185]=={"kind":"Read","dst":0,"address":2,"next":186}
+    assert f8[189]=={"kind":"Write","address":2,"value":0,"next":4}
+    assert f8[190]=={"kind":"Branch","test":0,"nonzero":192,"zero":191}
+    assert f8[191]=={"kind":"Const","dst":0,"value":137,"next":82}
+    assert f8[194]=={"kind":"Branch","test":0,"nonzero":127,"zero":191}
+    old={tuple(x["goals"]) for x in parent["goal_cases"]+c22["goal_cases"]+c23["goal_cases"]}
+    new={tuple(x["goals"]) for x in manifest["goal_cases"]}
+    assert len(new)==45 and not old.intersection(new)
     assert len(manifest["arms"])==180 and len(summary["records"])==45
     assert len(manifest["controls"])==len(summary["controls"])==6
     total=0
     worlds=0
-    groups={}
     proofs=[]
-    totals={"f7_on":0,"f7_off":0,"f6_original":0,"f5_original":0}
+    group={}
+    totals={"f8_on":0,"f8_off":0,"f6_original":0,"f5_original":0}
     correct={k:0 for k in totals}
-    actor_gate={"paid_stage_reads":0,"gate_skip_zero_stage":0,"gate_allow_after_stage":0,
-                "paid_PC82_executions_after_allowed_gate":0}
+    gate={"charged_counter_increments":0,"charged_counter_reads_before_increment":0,
+          "charged_attempt_reads_before_first_edit":0,"gate_allow_attempt_2":0,
+          "gate_allow_attempt_3":0,"gate_skip_all_other_attempt_counts":0,
+          "paid_original_PC82_patchnext_executions":0}
     def check(arm,native):
         nonlocal total,worlds
-        source=f7 if arm["source"]=="F6" else f6 if arm["source"]=="F6BASE" else f5
+        source=f8 if arm["source"]=="F6" else f6 if arm["source"]=="F6BASE" else f5
         path=Path(sys.argv[2])/f"cl1b_c24_original_{arm['name']}.jsonl"
-        independent=replay(source,arm,path)
-        assert independent==native,(arm["name"],next((k for k in independent if independent[k]!=native.get(k)),None))
+        expected=replay(source,arm,path)
+        assert expected==native,(arm["name"],next((k for k in expected if expected[k]!=native.get(k)),None))
         if arm["source"]=="F6":
-            assert len(independent["paid_stage_reads"])==len(independent["paid_stage_branches"])
-            assert all(x["stage"]==y["stage"] and x["step"]+1==y["step"]
-                for x,y in zip(independent["paid_stage_reads"],independent["paid_stage_branches"]))
-            assert all(x["next"]==(183 if x["stage"] else 127)
-                for x in independent["paid_stage_branches"])
+            count=len(expected["services"])
+            assert len(expected["paid_counter_reads"])==len(expected["paid_counter_writes"])==count
+            assert [e["value"] for e in expected["paid_counter_reads"]]==list(range(count))
+            assert [e["value"] for e in expected["paid_counter_writes"]]==list(range(1,count+1))
+            assert all(e["attempts"]>=2 for e in expected["paid_attempt_reads"])
+            for e in expected["paid_attempt_decisions"]:
+                n=e["attempts"]
+                assert e["next"]==((191 if n==2 else 192) if e["pc"]==190 else (191 if n==3 else 127))
         else:
-            assert independent["paid_stage_reads"]==independent["paid_stage_branches"]==[]
-        total+=independent["steps"]
+            assert (expected["paid_counter_reads"]==expected["paid_counter_writes"]==
+                    expected["paid_attempt_reads"]==expected["paid_attempt_decisions"]==[])
+        total+=expected["steps"]
         worlds+=1
-        return independent
-    for i,g in enumerate(manifest["goal_cases"]):
-        a,b,c,d=manifest["arms"][4*i:4*i+4]
-        n=summary["records"][i]
+        return expected
+    for idx,g in enumerate(manifest["goal_cases"]):
+        a,b,c,d=manifest["arms"][4*idx:4*idx+4]
+        n=summary["records"][idx]
         assert a["goals"]==b["goals"]==c["goals"]==d["goals"]==g["goals"]
         assert a["source"]==b["source"]=="F6" and c["source"]=="F6BASE" and d["source"]=="F5"
         assert n["regime"]==g["regime"] and n["goals"]==g["goals"]
-        x=check(a,n["f7_on"])
-        y=check(b,n["f7_off"])
+        x=check(a,n["f8_on"])
+        y=check(b,n["f8_off"])
         z=check(c,n["f6_original"])
         w=check(d,n["f5_original"])
-        for label,outcome in (("f7_on",x),("f7_off",y),("f6_original",z),("f5_original",w)):
+        for label,outcome in (("f8_on",x),("f8_off",y),("f6_original",z),("f5_original",w)):
             assert 0<=outcome["truthful_matches"]<=24 and 0<=outcome["completed_stages"]<=24
             totals[label]+=outcome["steps"]
             correct[label]+=outcome["truthful_matches"]
         proofs.append(first_patchnext_physical_effect(sys.argv[2],x,y))
-        actor_gate["paid_stage_reads"]+=len(x["paid_stage_reads"])
-        actor_gate["gate_skip_zero_stage"]+=sum(e["stage"]==0 for e in x["paid_stage_branches"])
-        actor_gate["gate_allow_after_stage"]+=sum(e["stage"]!=0 for e in x["paid_stage_branches"])
-        actor_gate["paid_PC82_executions_after_allowed_gate"]+=sum(e["pc"]==82 for e in x["edge_edits"])
+        gate["charged_counter_increments"]+=len(x["paid_counter_writes"])
+        gate["charged_counter_reads_before_increment"]+=len(x["paid_counter_reads"])
+        gate["charged_attempt_reads_before_first_edit"]+=len(x["paid_attempt_reads"])
+        gate["paid_original_PC82_patchnext_executions"]+=sum(z["pc"]==82 for z in x["edge_edits"])
+        attempts=[v["attempts"] for v in x["paid_attempt_reads"]]
+        for value in attempts:
+            gate["gate_allow_attempt_2"]+=int(value==2)
+            gate["gate_allow_attempt_3"]+=int(value==3)
+            gate["gate_skip_all_other_attempt_counts"]+=int(value not in (2,3))
         assert n["same_source_bundle_paid_saving"]==y["steps"]-x["steps"]
         assert n["same_source_bundle_probe_saving"]==len(y["services"])-len(x["services"])
-        assert n["F7_on_minus_F6_original_paid_CIL"]==x["steps"]-z["steps"]
-        assert n["F7_on_minus_F5_original_paid_CIL"]==x["steps"]-w["steps"]
+        assert n["F8_on_minus_F6_original_paid_CIL"]==x["steps"]-z["steps"]
+        assert n["F8_on_minus_F5_original_paid_CIL"]==x["steps"]-w["steps"]
         assert n["cross_source_f6_vs_f5_paid_saving"]==w["steps"]-x["steps"]
         assert n["cross_source_f6_vs_f5_probe_saving"]==len(w["services"])-len(x["services"])
-        gp=groups.setdefault(g["regime"],{"cases":0,"same_source_paid_saving":0,
-              "new_F7_minus_original_F6_paid":0,"new_F7_minus_F5_paid":0})
-        gp["cases"]+=1
-        gp["same_source_paid_saving"]+=y["steps"]-x["steps"]
-        gp["new_F7_minus_original_F6_paid"]+=x["steps"]-z["steps"]
-        gp["new_F7_minus_F5_paid"]+=x["steps"]-w["steps"]
+        g_row=group.setdefault(g["regime"],{"cases":0,"same_source_bundle_paid_saving":0,
+                "F8_minus_original_F6_paid":0,"F8_minus_old_F5_paid":0})
+        g_row["cases"]+=1
+        g_row["same_source_bundle_paid_saving"]+=y["steps"]-x["steps"]
+        g_row["F8_minus_original_F6_paid"]+=x["steps"]-z["steps"]
+        g_row["F8_minus_old_F5_paid"]+=x["steps"]-w["steps"]
     for arm,native in zip(manifest["controls"],summary["controls"]):
         check(arm,native)
-    assert worlds==186 and len(proofs)==45
-    assert sum(g["cases"] for g in groups.values())==45
+    assert worlds==186
+    assert len(proofs)==45
+    assert sum(g["cases"] for g in group.values())==45
     assert summary["counts"]["worlds"]==186
     assert summary["counts"]["total_original_paid_instructions"]==total
     print(json.dumps({
-        "study":manifest["study"],"status":"C23_ORIGINAL_NATIVE_186_COMPLETE_INDEPENDENT_PAID_CIL_REPLAY",
-        "original_native_worlds_exactly_replayed":worlds,
-        "original_charged_CIL_instruction_count_exactly_replayed":total,
-        "original_native_sha":summary["source_sha"],"first_divergence":None,
-        "arm_fees":totals,"arm_true_matched_stages":correct,
-        "actor_paid_stage_gate_evidence":actor_gate,
-        "same_source_first_true_physical_patchnext_effect":proofs,
-        "same_source_paid_savings_sum":totals["f7_off"]-totals["f7_on"],
-        "F7_on_minus_original_F6_paid":totals["f7_on"]-totals["f6_original"],
-        "F7_on_minus_original_F5_paid":totals["f7_on"]-totals["f5_original"],
-        "regimes":groups,
-        "limitations":"Paid PID1 stage maturity observation externally authored. No true ROI model, no learned search algorithm, no B3/B4."},indent=2))
-
+      "study":study,
+      "status":"C24_ORIGINAL_NATIVE_186_FULL_PAID_SERVICE_COUNTER_AND_GATE_INDEPENDENT_REPLAY",
+      "original_native_worlds_exactly_replayed":worlds,
+      "original_charged_CIL_instruction_count_exactly_replayed":total,
+      "original_native_sha":summary["source_sha"],"first_divergence":None,
+      "arm_fees":totals,"arm_true_matched_stages":correct,
+      "actor_paid_service_count_gate_evidence":gate,
+      "same_source_first_true_physical_patchnext_effect":proofs,
+      "same_source_paid_savings_sum":totals["f8_off"]-totals["f8_on"],
+      "F8_on_minus_original_F6_paid":totals["f8_on"]-totals["f6_original"],
+      "F8_on_minus_original_F5_paid":totals["f8_on"]-totals["f5_original"],
+      "regimes":group,
+      "limitations":"Researcher-authored two/three-attempt cost proxy; PID paid actual service counters and edits. Not a self-discovered ROI rule, B3/B4 NOT_MET."},indent=2))
 if __name__=="__main__":
     main()
