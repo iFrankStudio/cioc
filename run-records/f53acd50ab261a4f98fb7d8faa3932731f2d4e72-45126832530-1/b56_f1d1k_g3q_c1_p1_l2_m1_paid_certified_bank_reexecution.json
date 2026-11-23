@@ -1,0 +1,126 @@
+{
+  "arms": [
+    {
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "actual_paid_accumulator_writes": [
+        1,
+        0,
+        2
+      ],
+      "actual_paid_meta_opcode_fetches": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          2
+        ]
+      ],
+      "arm": "original",
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "certificate_writes_before_deployment": 64,
+      "credits_remaining": 7851,
+      "mode_output": 2,
+      "paid_steps_until_first_postdeployment_meta_output": 24149,
+      "peak_occupied": 197,
+      "pid": 1,
+      "postdeployment_pid_still_alive": true,
+      "safe_bank_writes_before_deployment": 72,
+      "source_nodes": 180
+    },
+    {
+      "active_writes": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "actual_paid_accumulator_writes": [
+        1,
+        0,
+        1
+      ],
+      "actual_paid_meta_opcode_fetches": [
+        [
+          62,
+          1
+        ],
+        [
+          63,
+          3
+        ],
+        [
+          64,
+          1
+        ]
+      ],
+      "arm": "bank_tail_address_mutant",
+      "bank_reads": [
+        [
+          51,
+          1
+        ],
+        [
+          52,
+          3
+        ],
+        [
+          51,
+          1
+        ]
+      ],
+      "certificate_writes_before_deployment": 64,
+      "credits_remaining": 7851,
+      "mode_output": 1,
+      "paid_steps_until_first_postdeployment_meta_output": 24149,
+      "peak_occupied": 197,
+      "pid": 1,
+      "postdeployment_pid_still_alive": true,
+      "safe_bank_writes_before_deployment": 72,
+      "source_nodes": 180
+    }
+  ],
+  "level": "NATIVE_SINGLE_PID_PAID_FULL_META_REEXECUTION_PREFIX_NOT_TASK_SERVICE",
+  "limits": "Sampled live prefix only; no hidden task service, feedback, terminal Halt, autonomous native source mutation or new ISA.",
+  "source_sha": "f53acd50ab261a4f98fb7d8faa3932731f2d4e72",
+  "study": "B56-F1d1k-G3Q-C1-P1-L2-M1"
+}
