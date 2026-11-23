@@ -1,0 +1,78 @@
+name: CL-1B C14b/C14c full 270-pair exact source provenance ON/OFF audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c14b_c14c_source_pinned_optin_cost_audit.py'
+      - '.github/workflows/cl1b-c14bc-provenance-270-pair-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-270-original-native-pairs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch only provenance-OFF and provenance-ON original ZIP bytes from immutable run paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c14bc-pairs
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show 'FETCH_HEAD:run-records/2ecf5fd5510d6a0564c8cf4eba81f37c637f8bf3-45108367499-1/original-native-artifact.zip' > /tmp/cl1b-c14bc-pairs/off-original-native.zip
+          git show 'FETCH_HEAD:run-records/f19110445f7535d1bbdc0041abe76e11034718e0-45108004088-1/original-native-artifact.zip' > /tmp/cl1b-c14bc-pairs/on-original-native.zip
+          echo 'd35dfa5dd01bb0d0443a839ebbd35c99d29458ee9acac6c2ff740ebe0e60e941  /tmp/cl1b-c14bc-pairs/off-original-native.zip' | sha256sum -c -
+          echo '9dbedd5624de349299da434677f6a8de6e6cf5a7df6784ba00d689d9ab8207be  /tmp/cl1b-c14bc-pairs/on-original-native.zip' | sha256sum -c -
+      - name: Recompute 270 exact matched CIL fee identities, source freshness, strong control
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c14b_c14c_source_pinned_optin_cost_audit.py \
+            /tmp/cl1b-c14bc-pairs/off-original-native.zip \
+            /tmp/cl1b-c14bc-pairs/on-original-native.zip \
+            cl1b-ci-evidence/cl1b_c14bc_270_original_native_full_pair_audit.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c14bc_270_original_native_full_pair_audit.json'))
+          assert d['truthful_pairs']==270 and d['full_service_sequences_equal_pairs']==270
+          assert d['all_pairs_fee_delta_4x_original_paid_write44']==270
+          assert d['total_native_CIL_on_minus_off']==3680
+          assert d['main_arm_CIL_on_minus_off']==920
+          assert d['on_authentic_success_source_memories']==230
+          assert d['on_stale_record_against_current_physical_code_by_arm']=={
+              'truth_success_restore':23,
+              'same_source_pc102_effect_suppressed':190,
+              'same_source_host_force_success_value_0':23,
+              'same_source_host_force_success_value_2':229,
+          }
+          assert d['all_arm_final_code_differences']==6
+          assert d['main_peak_storage_units_off']==204
+          assert d['main_peak_storage_units_on']==220
+          assert len(d['all_pairs'])==270
+          print('Fully source-pinned real-native 270/270 same service histories, +920 per source-paid certificate arm, untrusted freshness contrast PASS')
+          PY
+      - name: Archive source-pinned audit provenance even on failure
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_sha=$GITHUB_SHA"
+            echo "audit_run_id=$GITHUB_RUN_ID"
+            echo "provenance_OFF_tested_sha=2ecf5fd5510d6a0564c8cf4eba81f37c637f8bf3"
+            echo "provenance_OFF_run=45108367499"
+            echo "provenance_ON_tested_sha=f19110445f7535d1bbdc0041abe76e11034718e0"
+            echo "provenance_ON_run=45108004088"
+            echo "scope=retrospective_270_true_pairs_plus_four_false_controls_per_revision"
+          } > cl1b-ci-evidence/cl1b-c14bc-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c14bc-exact-270-native-provenance-on-off-pairs
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
