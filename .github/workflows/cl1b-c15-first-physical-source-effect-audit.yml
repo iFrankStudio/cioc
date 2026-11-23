@@ -1,0 +1,67 @@
+name: CL-1B C15 exact original native first physical source-effect audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c15_first_physical_source_effect_45_pair_audit.py'
+      - '.github/workflows/cl1b-c15-first-physical-source-effect-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-pinned-original-45-paired-physical-effect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read back real C15 original 274-world native ZIP from permanent Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c15-exact-original
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show 'FETCH_HEAD:run-records/48db24cbc091b717a5c11f0237fec7de85146fa9-45109779348-1/original-native-artifact.zip' > /tmp/cl1b-c15-exact-original/native.zip
+          echo 'd01f8527f8dcc795176d8f18e50b4deaaa41c2590c0dd2f80f5a7e32de4a0b5e  /tmp/cl1b-c15-exact-original/native.zip' | sha256sum -c -
+      - name: Verify all original 45 causal source edit pairs, first divergence, resumed code and harm
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c15_first_physical_source_effect_45_pair_audit.py \
+            /tmp/cl1b-c15-exact-original/native.zip \
+            cl1b-ci-evidence/cl1b_c15_source_effect_exact_45_native_pairs.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c15_source_effect_exact_45_native_pairs.json'))
+          assert d['original_native_paid_CIL']==1085881
+          assert d['full_45_true_case_same_source_fee_matched']==45
+          assert d['full_45_case_affected_service_or_paid_lifecycle']==6
+          assert d['six_affected_cases_identical_native_pre_first_physical_edit']==6
+          assert d['physical_source_changes_main']==165
+          assert d['paid_native_PC173_reentries_main']==252
+          assert d['real_source_changes_later_readback']==164
+          assert (d['affected_cases_worse'],d['affected_cases_equal_completed_but_service_different'],d['affected_cases_better'])==(3,3,0)
+          assert d['live_vs_physical_suppression_total_stage_delta']==-50
+          print('Original paid C15 first physical code effect: 6 matched genuine causal divergences, 3 harmful, 0 helpful, -50 stages PASS')
+          PY
+      - name: Preserve original study and retrospective auditor provenance
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "audit_sha=$GITHUB_SHA"
+            echo "audit_run_id=$GITHUB_RUN_ID"
+            echo "original_test_sha=48db24cbc091b717a5c11f0237fec7de85146fa9"
+            echo "original_test_run=45109779348"
+            echo "scope=C15_retrospective_exact_45_matched_true_pairs_original_native_zip"
+          } > cl1b-ci-evidence/cl1b-c15-source-effect-audit-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c15-exact-45-pair-first-native-source-effect
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
