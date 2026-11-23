@@ -1,0 +1,78 @@
+name: CL-1B C24B unchanged original 195-CIL F8 new-stress 186 worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c24b_unchanged_f8_paid_counter_replication_native.rs'
+      - 'cl1b/audits/cl1b_c24b_unchanged_f8_paid_counter_independent_replay.py'
+      - '.github/workflows/cl1b-c24b-unchanged-f8-new-stress-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c24b-unchanged-f8-original-186
+  cancel-in-progress: true
+jobs:
+  unchanged-source-preregistered-original-native-and-independent-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all 186 original C24B native worlds with byte-identical C24 F8 source and pre-frozen new 45 stress goals
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c24b_unchanged_f8_paid_counter_replication_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c24b-original-native.log
+      - name: Independently replay all original 186-world paid CIL instruction, feedback, actor-owned service counter and same-source first-effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c24b_unchanged_f8_paid_counter_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c24b_original_native_186_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c24b_independent_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c24b_independent_paid_replay.json'))
+          assert d['study']=='CL1B-C24B-F8-PAID-SERVICE-COUNT-DISJOINT-HELDOUT-REPLICATION'
+          assert d['original_native_worlds_exactly_replayed']==186
+          assert d['first_divergence'] is None
+          assert len(d['same_source_first_true_physical_patchnext_effect'])==45
+          g=d['actor_paid_service_count_gate_evidence']
+          assert g['charged_counter_increments']==g['charged_counter_reads_before_increment']
+          assert g['charged_attempt_reads_before_first_edit']==g['gate_allow_attempt_2']+g['gate_allow_attempt_3']+g['gate_skip_all_other_attempt_counts']
+          assert all(0<=v<=1080 for v in d['arm_true_matched_stages'].values())
+          print('C24B PASS: 186 source-unchanged original F8 native worlds and fully independently replayed every actor-paid CIL instruction. B3/B4 NOT_MET')
+          print('TRUE NEW-STRESS F8/OLD F6/F5 paid CIL',d['arm_fees'])
+          print('TRUE NEW-STRESS F8/OLD F6/F5 real stage completions',d['arm_true_matched_stages'])
+          print('ACTOR PAID COST-PROXY DECISIONS',g)
+          print('STRICT SAME-SOURCE REAL PHYSICAL PATCHNEXT PAIR EXPOSURE:',sum(x['physical_patchnext_exposed'] for x in d['same_source_first_true_physical_patchnext_effect']))
+          PY
+      - name: Record tested source version and genuinely new pre-frozen independent stress cohort
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "original_pre_native_frozen_cohort=CL1B-C24B-F8-PAID-SERVICE-COUNT-HELDOUT-REPLICATION-frozen-186-worlds-v1.json"
+            echo "source_sha_bound_to_unchanged_C24_F8=CL1B-C24-PAID-SERVICE-COUNT-EDIT-GATE-frozen-186-worlds-v1.json"
+            echo "new_45_case_status=FULLY_NEW_DISJOINT_FROM_P4F6_C22_C23_C24"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c24b-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c24b-original-186-new-stress-worlds-unchanged-paid-F8
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
