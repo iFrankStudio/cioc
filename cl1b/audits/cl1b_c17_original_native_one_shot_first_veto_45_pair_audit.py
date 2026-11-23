@@ -171,6 +171,32 @@ def audit(path):
         assert native["same_source_live_vs_postedit_veto_effect_difference_cases"]==8
         assert native["same_source_live_vs_suppressed_paid_or_feedback_difference_cases"]==8
         assert len({e["name"] for e in native["adversarial_records"]})==4
+        # A failed next service is not even evidence of a changed *source* when
+        # the actor's PC102 PatchConst wrote the same literal. This retrospective
+        # no-op negative control is mandatory to prevent causal overclaim.
+        edit_feedback={
+            "physical_change_then_success":0,
+            "physical_change_then_failure":0,
+            "physical_noop_then_success":0,
+            "physical_noop_then_failure":0,
+        }
+        for case in native["records"]:
+            live=case["arms"][0]
+            repairs=live["physical_parent_restorations"]
+            probes=live["postedit_probe_samples"]
+            assert len(repairs)==len(probes)==live["paid_postedit_probe_armed"]
+            for repair,probe in zip(repairs,probes):
+                assert repair[0]<probe[0]
+                assert not repair[3]  # main actual physical code edit not suppressed
+                k=("physical_change_" if repair[4] else "physical_noop_")
+                k+=("then_success" if probe[3]==1 else "then_failure")
+                edit_feedback[k]+=1
+        assert edit_feedback=={
+            "physical_change_then_success":34,
+            "physical_change_then_failure":5,
+            "physical_noop_then_success":15,
+            "physical_noop_then_failure":3,
+        }
         return dict(study="CL1B-C17-PAID-SELF-PATCHED-POSTEDIT-FEEDBACK-FIRST-CAUSAL-WRITE",
             classification="RETROSPECTIVE_ORIGINAL_NATIVE_FULL_45_TRUE_PAIRS",
             original_zip_sha256=ORIG_SHA,
@@ -181,6 +207,8 @@ def audit(path):
             paid_postedit_real_feedback_consumed=checked_feedback,
             paid_risk_veto_writes=checked_real_veto,
             paid_future_veto_branch_blocks=m["veto_blocks"],
+            postedit_next_feedback_by_actual_physical_code_effect=edit_feedback,
+            failure_feedback_without_any_physical_code_change=3,
             real_veto_causal_cases=len(veto_cases),
             exact_equal_paid_native_event_prefix_on_each_first_veto=True,
             stages_saved_by_paid_veto=2,private_CIL_saved_by_paid_veto=4408,
