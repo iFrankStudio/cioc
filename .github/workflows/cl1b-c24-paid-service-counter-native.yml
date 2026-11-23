@@ -1,0 +1,77 @@
+name: CL-1B C24 original 186 paid task-service counter self-edit gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c24_paid_service_attempt_gate_native.rs'
+      - 'cl1b/audits/cl1b_c24_paid_service_attempt_gate_independent_replay.py'
+      - '.github/workflows/cl1b-c24-paid-service-counter-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c24-native-paid-cost-proxy
+  cancel-in-progress: true
+jobs:
+  all-186-preregistered-original-native-and-paid-CIL-independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run original native C24 45 new goal schedules 4 truthful arms and 6 deceptive feedback controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c24_paid_service_attempt_gate_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c24-native.log
+      - name: Independently replay every original charged CIL instruction and exact paid service-count gate decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c24_paid_service_attempt_gate_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c24_original_native_186_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c24_independent_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c24_independent_paid_replay.json'))
+          assert d['study']=='CL1B-C24-F8-PAID-CUMULATIVE-SERVICE-PROXY-EDIT-GATE'
+          assert d['original_native_worlds_exactly_replayed']==186 and d['first_divergence'] is None
+          assert len(d['same_source_first_true_physical_patchnext_effect'])==45
+          e=d['actor_paid_service_count_gate_evidence']
+          assert e['charged_counter_increments']==e['charged_counter_reads_before_increment']
+          assert e['charged_attempt_reads_before_first_edit']==e['gate_allow_attempt_2']+e['gate_allow_attempt_3']+e['gate_skip_all_other_attempt_counts']
+          assert all(0<=v<=1080 for v in d['arm_true_matched_stages'].values())
+          print('C24 PASS original 186 native worlds and independent paid-CIL Read40 Write40 counter/gate complete, B3/B4 NOT_MET')
+          print('C24 independent exact original fees',d['arm_fees'])
+          print('C24 independent true completed stages',d['arm_true_matched_stages'])
+          print('C24 actual paid service count gate',e)
+          print('C24 first real physical edit exposure cases',sum(x['physical_patchnext_exposed'] for x in d['same_source_first_true_physical_patchnext_effect']))
+          PY
+      - name: Original tested commit, original preregistration, original source and limitations
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "full_prenative_frozen_protocol=CL1B-C24-PAID-SERVICE-COUNT-EDIT-GATE-frozen-186-worlds-v1.json"
+            echo "cohort=45_FULLY_NEW_24_GOAL_SCHEDULES_VS_P4F6_C22_C23"
+            echo "original_source=195_NODE_F8_PID_PAID_CIL_COUNT_NOT_HOST_FREE"
+            echo "scope=RESEARCHER_AUTHORED_FINITE_PAID_COST_PROXY_B3_B4_NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c24-original-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c24-original-native-186-world-paid-CIL-self-edit-cost-proxy
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
