@@ -443,7 +443,7 @@ fn c16_original_274_native_one_use_success_certificate() {
             else {incomplete.push(v["name"].as_str().unwrap().to_string());}
             row.push(v);
         }
-        for j in 1..4 {
+        for j in 1..3 {
             assert_eq!(source(&parent,arms[0].as_str().unwrap()),
                 source(&parent,arms[j].as_str().unwrap()));
         }
@@ -451,10 +451,11 @@ fn c16_original_274_native_one_use_success_certificate() {
            row[0]["services"]!=row[1]["services"] {
             independent_gain_cases+=1;
         }
+        // PC202 paid ticket-consumption effect is the ONLY difference
+        // between arms 0 and 2. Arm 3 is the different 194-node C15 source.
         if row[0]["final_signature"]!=row[2]["final_signature"] ||
-           row[0]["final_signature"]!=row[3]["final_signature"] ||
            row[0]["services"]!=row[2]["services"] ||
-           row[0]["services"]!=row[3]["services"] {
+           row[0]["steps"]!=row[2]["steps"] {
             sample_caused_changed_cases+=1;
         }
         success_records+=row[0]["claimed_success_records"].as_u64().unwrap();
@@ -478,7 +479,7 @@ fn c16_original_274_native_one_use_success_certificate() {
         "main_actor_paid_success_records":success_records,
         "main_actual_physical_pc173_restores":genuine_restores,
         "same_source_live_vs_suppressed_paid_or_feedback_difference_cases":independent_gain_cases,
-        "same_source_live_vs_tampered_state_or_feedback_difference_cases":sample_caused_changed_cases,
+        "same_source_live_vs_ticket_spend_effect_difference_cases":sample_caused_changed_cases,
         "arm_fees":arm_fees,"arm_completed_worlds":arm_completed,
         "arm_physical_restore_changes":arm_physical,
         "incomplete_true_world_names":incomplete,
