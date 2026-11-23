@@ -1,0 +1,100 @@
+{
+  "study": "CL1B-C15-AUTHENTIC-SOURCE-PAID-REENTRY",
+  "status": "PRE_NATIVE_FROZEN",
+  "parent_protocol": "cl1b/studies/CL1B-C15-ACTOR-PAID-AUTHENTIC-SOURCE-REENTRY-preregistration.md",
+  "exact_45_goals": "cl1b/studies/CL1B-C14-NATIVE-FEEDBACK-ATTESTED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json",
+  "note": "No new hidden tasks: published C14 45 world schedules reused for mechanical C15 reentry feasibility; 45*6+4=274 original single PID1 worlds.",
+  "arms": [
+    "truth_success_restore",
+    "same_source_pc102_effect_suppressed",
+    "same_source_host_force_success_value_0",
+    "same_source_host_force_success_value_2",
+    "different_source_c14c_no_reentry",
+    "different_source_c9_fixed_abstain"
+  ],
+  "controls": [
+    {
+      "name": "c15_adversarial_inverted_live",
+      "case": "c14_double_reversal_a0_d0",
+      "arm": "truth_success_restore",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c15_adversarial_forced0_live",
+      "case": "c14_double_reversal_a0_d0",
+      "arm": "truth_success_restore",
+      "feedback": "forced0"
+    },
+    {
+      "name": "c15_adversarial_inverted_force0",
+      "case": "c14_double_reversal_a0_d0",
+      "arm": "same_source_host_force_success_value_0",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c15_adversarial_forced0_force2",
+      "case": "c14_double_reversal_a0_d0",
+      "arm": "same_source_host_force_success_value_2",
+      "feedback": "forced0"
+    }
+  ],
+  "num_true_cases": 45,
+  "num_true_worlds": 270,
+  "num_false_worlds": 4,
+  "total_worlds": 274,
+  "world": {
+    "single_pid": 1,
+    "private_credits": 6000,
+    "max_data_keys": 16,
+    "max_nodes": 194,
+    "max_storage_units": 300,
+    "provenance": "ON_AND_DOUBLE_CELL_STORAGE"
+  },
+  "new_nodes": [
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 44,
+      "next": 190
+    },
+    {
+      "kind": "ReadLastWriter",
+      "dst": 0,
+      "address": 2,
+      "next": 191
+    },
+    {
+      "kind": "Const",
+      "dst": 2,
+      "value": 1,
+      "next": 192
+    },
+    {
+      "kind": "Sub",
+      "dst": 0,
+      "lhs": 0,
+      "rhs": 2,
+      "next": 193
+    },
+    {
+      "kind": "Branch",
+      "test": 0,
+      "nonzero": 103,
+      "zero": 99
+    }
+  ],
+  "patches": [
+    {
+      "pc": 95,
+      "field": "nonzero",
+      "old": 99,
+      "new": 189
+    },
+    {
+      "pc": 102,
+      "field": "next",
+      "old": 103,
+      "new": 173
+    }
+  ]
+}
