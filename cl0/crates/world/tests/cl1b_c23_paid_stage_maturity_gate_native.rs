@@ -71,6 +71,8 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
  let mut writes39=Vec::<Value>::new();
  let mut reads39=Vec::<Value>::new();
  let mut clean_streak_gates=Vec::<Value>::new();
+ let mut paid_stage_reads=Vec::<Value>::new();
+ let mut paid_stage_branches=Vec::<Value>::new();
  while w.step(){
   paid+=1;
   assert!(paid<=CREDIT as usize);
@@ -218,6 +220,25 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
    assert!(matches!(&ev.kind,EventKind::CellRead{key:20,..}));
    observations+=1;
   }
+  if pc==181{
+   assert_eq!(source,"F6");
+   match &ev.kind{
+    EventKind::CellRead{key:32,value}=>{
+      assert_eq!(*value,w.cell(32).unwrap_or(0));
+      paid_stage_reads.push(json!({"step":paid,"stage":value}));
+    },
+    other=>panic!("C23 charged Read32 missing: {other:?}")
+   }
+  }
+  if pc==182{
+   assert_eq!(source,"F6");
+   assert!(matches!(&ev.kind,EventKind::Executed));
+   let p=w.process(1).unwrap();
+   let stage=p.registers[0];
+   assert_eq!(stage,w.cell(32).unwrap_or(0));
+   assert_eq!(p.pc,if stage!=0{183}else{127});
+   paid_stage_branches.push(json!({"step":paid,"stage":stage,"next":p.pc}));
+  }
   let pid=w.process(1).unwrap();
   assert_eq!(pid.code.nodes,expected,"unexpected postload source mutation");
   assert_eq!(pid.credits,CREDIT-paid as u64);
@@ -280,6 +301,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
   "write37":writes37,"read37":reads37,
   "write38":writes38,"read38":reads38,"budget_gates":budget_gates,
   "write39":writes39,"read39":reads39,"clean_streak_gates":clean_streak_gates,
+   "paid_stage_reads":paid_stage_reads,"paid_stage_branches":paid_stage_branches,
   "online_edit_budget_meter":w.cell(38).unwrap_or(0),
   "final_edges":get_edges(&w),"peak_occupied":peak,
   "original_pid_halted":true,"host_source_edits":0})
@@ -394,5 +416,5 @@ fn c23_186_original_native_paid_stage_maturity_gate(){
    "records":records,"controls":adverse,
    "counts":{"worlds":186,"truthful_worlds":180,"adversarial":6,"frozen_goal_sequences":45,"fresh_heldout_goal_sequences":45,
     "total_original_paid_instructions":total,"regimes":summaries},
-   "caveat":"Researcher-authored four-clean-success replenishment at exactly 180/180 original CIL slots; same-source PatchNext-on/off bundles multiple effects; F6 vs F5 is distinct-source overall-cost contrast, not single-edit causality."})).unwrap()).unwrap();
+   "caveat":"Researcher-authored P4F6 source plus 4 paid F7 maturity nodes, not an earned ROI estimator; F7 on/off all PatchNext effects bundled, original F6/F5 distinct-source only."})).unwrap()).unwrap();
 }
