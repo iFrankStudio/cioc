@@ -1,0 +1,116 @@
+name: CL-1B preserve exact original C23 186 native paid maturity gate worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c23-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c23-permanent-native-archive
+  cancel-in-progress: false
+jobs:
+  verify-and-preserve-original-source-pinned-186-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Download exact successful original C23 artifact and reverify every world and original paid CIL
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c23-evidence
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14814841079/zip" \
+            -o /tmp/cl1b-c23-evidence/original-native.zip
+          echo '5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e  /tmp/cl1b-c23-evidence/original-native.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import json,zipfile,collections
+          with zipfile.ZipFile('/tmp/cl1b-c23-evidence/original-native.zip') as z:
+              files=z.namelist()
+              assert z.testzip() is None
+              assert len(files)==len(set(files))==190
+              assert sum(x.endswith('.jsonl') for x in files)==186
+              s=json.loads(z.read('cl1b_c23_original_native_186_worlds.json'))
+              p=json.loads(z.read('cl1b_c23_independent_paid_replay.json'))
+              study='CL1B-C23-F7-PAID-OBSERVED-STAGE-MATURITY-CODE-EDIT-GATE'
+              assert s['study']==p['study']==study
+              assert s['level']=='ORIGINAL_NATIVE_C23_186_WORLD_PID_PAID_STAGE_MATURITY_GATE'
+              assert s['counts']['worlds']==p['original_native_worlds_exactly_replayed']==186
+              assert s['counts']['truthful_worlds']==180 and s['counts']['adversarial']==6
+              assert s['counts']['total_original_paid_instructions']==p['original_charged_CIL_instruction_count_exactly_replayed']
+              assert p['first_divergence'] is None and len(s['records'])==45 and len(s['controls'])==6
+              assert len(p['same_source_first_true_physical_patchnext_effect'])==45
+              assert p['arm_fees']=={'f7_on':83432,'f7_off':59683,'f6_original':83252,'f5_original':76186}
+              assert p['arm_true_matched_stages']=={'f7_on':1080,'f7_off':1080,'f6_original':1080,'f5_original':1080}
+              gate=p['actor_paid_stage_gate_evidence']
+              assert gate=={'paid_stage_reads':45,'gate_skip_zero_stage':0,'gate_allow_after_stage':45,'paid_PC82_executions_after_allowed_gate':45}
+              assert p['F7_on_minus_original_F6_paid']==180
+              assert p['same_source_paid_savings_sum']==59683-83432
+              assert all(row['f7_on']['truthful_matches']==row['f7_off']['truthful_matches']==row['f6_original']['truthful_matches']==row['f5_original']['truthful_matches']==24 for row in s['records'])
+              assert all(row['f7_on']['steps']-row['f6_original']['steps']==4 for row in s['records'])
+              provenance=z.read('cl1b-c23-original-provenance.txt').decode()
+              assert 'tested_sha=934cbe7af9e906f041de0fc3e9d9100c3b29c297' in provenance
+              assert 'run_id=45164051650' in provenance
+              assert 'original_frozen_cohort=C23_45_TRUE_NEW_24_STAGE_GOALS_V1' in provenance
+              for row in s['records']:
+                  assert len(row['f7_on']['paid_stage_reads'])==1
+                  assert row['f7_on']['paid_stage_branches'][0]['stage']>0
+              stages=collections.Counter(row['f7_on']['paid_stage_branches'][0]['stage'] for row in s['records'])
+              print('PASS C23 186 original native source pinned ZIP, per-original-CIL independent interpreter, exact cost and gate branch. B3/B4 NOT_MET')
+              print('C23 PAID READ32 OBSERVED STAGE HISTOGRAM:',dict(sorted(stages.items())))
+          PY
+      - name: Store exact 186-native-world original ZIP in permanent Git evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/934cbe7af9e906f041de0fc3e9d9100c3b29c297-45164051650-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c23-evidence/original-native.zip "$dest/original-native-artifact.zip"
+          echo '5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C23 original 186 worlds, actor-charged stage maturity observation F7
+          - Original tested SHA: 934cbe7af9e906f041de0fc3e9d9100c3b29c297
+          - Original fully successful Rust native and independently paid-CIL-replayed CI: https://github.com/iFrankStudio/cioc/actions/runs/45164051650
+          - Original ZIP byte SHA256: 5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e
+          - Original 186 full native JSONL; 45 new truthful tasks and six frozen deceptive feedback worlds
+          - Four paid 184-node F7 observations in every F7_on task (180 additional paid CIL total versus unchanged original F6); no gate skipped PC82
+          - All true stages completed in all arms; no positive ROI; B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C23 original 186 paid-stage CIL worlds'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then echo 'C23 archive push exhausted retries' >&2; exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          else
+            echo 'C23 exact original ZIP already archived'
+          fi
+      - name: Verify remotely published ZIP and SHA file are byte-for-byte original
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/934cbe7af9e906f041de0fc3e9d9100c3b29c297-45164051650-1'
+          hash="$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)"
+          test "$hash" = '5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e'
+          git show "FETCH_HEAD:$dest/original-native-artifact.sha256" | grep -F '5d55423803f397a143e941e7c8219dfde8c1d3abe5573a44526ebba0e907c44e'
+          echo 'PASS C23 exact original 186-world ZIP Git-readback SHA256'
