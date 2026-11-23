@@ -1,0 +1,85 @@
+name: CL-1B C25 native 276 paid CIL actor-owned PatchNext self-quarantine
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c25_paid_self_quarantine_native.rs'
+      - 'cl1b/audits/cl1b_c25_paid_self_quarantine_independent_native_replay.py'
+      - '.github/workflows/cl1b-c25-paid-self-quarantine-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cl1b-c25-original-native-self-quarantine
+  cancel-in-progress: true
+jobs:
+  frozen-original-276-world-source-paid-real-self-quarantine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Run 276 original real paid native C25 worlds, six frozen arms and 6 deceptive feedback controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c25_paid_self_quarantine_native -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c25-original-native.log
+      - name: Independent Python original charged-CIL every world every instruction and every real self-quarantine edit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c25_paid_self_quarantine_independent_native_replay.py \
+            cl1b-ci-evidence/cl1b_c25_original_native_276_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c25_independent_full_paid_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c25_independent_full_paid_replay.json'))
+          assert d['study']=='CL1B-C25-F9F10-ACTOR-PAID-PATCHNEXT-SELF-QUARANTINE'
+          assert d['original_worlds_exactly_replayed']==276
+          assert d['first_divergence'] is None and d['true_new_task_schedules']==45
+          assert len(d['F9_same_source_first_physical_edit_effect'])==45
+          assert len(d['F10_same_source_first_physical_edit_effect'])==45
+          assert d['paid_PID1_quarantine_witness']['f10_on']==225
+          assert d['paid_PID1_quarantine_witness']['f10_off']==225
+          assert 0<=d['paid_PID1_quarantine_witness']['f9_on']<=225
+          assert all(0<=v<=1080 for v in d['arm_true_matched_stages'].values())
+          print('C25 PASS 276 original true paid PID1 native source-worlds and independently replayed every native CIL instruction. B3/B4 NOT_MET')
+          print('C25 six-arm exact full-life CIL',d['arm_paid_CIL'])
+          print('C25 six-arm exact true-matched stages',d['arm_true_matched_stages'])
+          print('C25 actual PID1 paid self-quarantine edits',d['paid_PID1_quarantine_witness'])
+          print('C25 same-source F9 and F10 paid physical-edit net gains',
+                d['F9_same_source_full_paid_physical_edit_net_saving'],
+                d['F10_same_source_full_paid_physical_edit_net_saving'])
+          print('C25 first genuine physical source edit exposures F9 / F10',
+            sum(x['physical_patchnext_exposed'] for x in d['F9_same_source_first_physical_edit_effect']),
+            sum(x['physical_patchnext_exposed'] for x in d['F10_same_source_first_physical_edit_effect']))
+          PY
+      - name: Record original tested SHA, full prereg provenance, and scientific limits
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "original_full_preregistered_276_world_protocol=CL1B-C25-PAID-SELF-QUARANTINE-frozen-276-worlds-v1.json"
+            echo "new_cohort=45_DISJOINT_FROM_P4F6_C22_C23_C24_C24B"
+            echo "real_paid_CIL_source_F9_F10=210_NODES_WITH_FIVE_REAL_NATIVE_PatchNext_QUARANTINE_EDITS"
+            echo "controls=IDENTICAL_INITIAL_SOURCE_EVERY_PATCHNEXT_PHYSICAL_EFFECT_DISABLED_RESEARCH_ONLY"
+            echo "B3_B4=NOT_MET"
+          } > cl1b-ci-evidence/cl1b-c25-original-source-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c25-original-276-native-actor-paid-self-quarantine
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
