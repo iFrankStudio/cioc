@@ -6,7 +6,7 @@
 
 - [C17全45条新48阶段任务和六臂/四骗反馈274世界冻结清单](../studies/CL1B-C17-ONE-SHOT-PAID-POSTEDIT-FEEDBACK-VETO-frozen-274-worlds-v1.json)在首次C17原生前提交SHA `eab13edd2937e404336a3447a8eeff418c22208c`；[独立事前机制/负控/验收协议](../studies/CL1B-C17-ONE-SHOT-PAID-POSTEDIT-FEEDBACK-VETO-preregistration.md)在原生运行前提交SHA `2edcf1dc35da19bb53402f461c4ce4270c8cdca6`。新环境由seed `0xC17A5EED`、5组可复算生成规则×3×3固定生成，与C10、C14、C16公开旧目标逐一去重；不是后验只挑结果正面的八个案例。C16旧结果仅用于选择下一可证伪机制，**不把这批新数据用于反复寻找阈值或重新训练**。
 - [C17原始Rust原生专项+独立Python逐条全部CIL复放CI #45120094165 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45120094165)；**原始受测SHA `1c998412bddc26d32e8536bc5c7542b9c6ff3fe8`**。274/274真实单PID1世界，共**1,147,263条**私人有费CIL，全部真实代码改写、动态PC5.next第6个source signature字段、真假服务、last-writer、明确源效果压制、实际存储及信用由完全独立Python解释器重建源图逐条重放，**first_divergence=null**；270真反馈世界/4欺骗反馈世界全部入分母。C17首次源码CI [#45119998516 FAILED](https://github.com/iFrankStudio/cioc/actions/runs/45119998516)只是Rust观察器`json!`宏展开超过crate默认递归限制，编译期尚未运行一个C17世界；仅添加`#![recursion_limit="512"]`后原主体CIL、冻结目标、世界资源规则完全不变，以上CI重新完整PASS，失败纪录保留。
-- [原始Actions工件 #14792844372](https://github.com/iFrankStudio/cioc/actions/runs/45120094165/artifacts/14792844372)：ZIP **11,447,733 bytes**，精确SHA256 **`29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c`**，ZIP CRC PASS，**278个唯一成员，含274个原生逐收费指令JSONL轨迹**、Rust日志、Python独立replay结果与原始SHA/run_id。专门[Git永久证据归档工作流](../../.github/workflows/cl1b-c17-preserve-original-evidence.yml)需要真正从Git远端重新取回ZIP二进制并重新核对上述hash后才能称为永久保存成功；不能只因临时Actions工件存在就声称成功。
+- [原始Actions工件 #14792844372](https://github.com/iFrankStudio/cioc/actions/runs/45120094165/artifacts/14792844372)：ZIP **11,447,733 bytes**，精确SHA256 **`29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c`**，ZIP CRC PASS，**278个唯一成员，含274个原生逐收费指令JSONL轨迹**、Rust日志、Python独立replay结果与原始SHA/run_id。**原始274个世界永久Git证据分支归档已经通过**：[独立原始ZIP取回、CRC/原生总账/独立replay验算、Git commit/push并远端重新fetch ZIP二进制SHA256核验的 CI #45120324269 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45120324269)。[永久Git证据分支固定受测SHA+run目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/1c998412bddc26d32e8536bc5c7542b9c6ff3fe8-45120094165-1)，ZIP原始11,447,733字节、SHA256 `29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c`，**远端实际再次读出相同字节哈希**，不再依赖临时GitHub Actions下载保留期。
 - 所有臂相同底层物理规则：`World::with_strict_capacity(17,216,300).with_cell_write_provenance()`，最多17真实data cell、216程序节点、300世界总存储单位，**每个真实data cell占2个存储单位（值+最后写者）**，每PID1固定6000一次性私人指令信用、无免费回复、免费Fitness、免费资源救援、宿主代修代码。主臂实际峰值占用**251/300**。三条同源码臂有完全相同216节点CIL初始内容；C16旧203节点、C14c旧189节点、C9旧180节点对照属于**不同源码**。
 
 ## 原生主体自己完成的可收费自监测闭环
@@ -45,6 +45,16 @@ C17继承C16成功证据`cell44`和一次性凭证`cell45`。研究者只将原P
 **严格同源码物理源码效果对照：** C17真物理修改臂总费**195606**，精确只禁PC102实际物理效果臂**196341**，45世界实际任务全部完成2160/2160，**同源源修改净节省735条付费指令**。其中8例源真正改写造成后继服务/成本差异：2例节费664、972（合计1636）；另外6例收费多付330、93、369、9、37、63（合计901），合并**1636−901=735**。这可以认领**同初始CIL源码在这45例中真实代码状态曾导致有限净收费减少**，但不能据此断言主体知道哪两例会改善，更不能将负例忽略；下一次成功反馈与被改源码的因果归属仍没有在线付费反事实判断。固定不修改的C9仍便宜**33577**条指令，同样45/45全部真阶段完成；整体适应/经济最优未达标。
 - C16异源参照虽全部2160真实阶段完成，但其中一个世界在完整“声明完成/停止”前正好耗尽6000条信用，因此**只有44/45达到完整验收状态**，不能将44/45错读为丢了一个完整48阶段的任务；本C17严格PC212消融则确实每失利世界各差**1个真实阶段**。
 - 四个假反馈世界单独保留在274+1147263分母。inverted反馈仍可能令主体声明48/48完成，观察者真正猜中仅38/48；forced0无法推进，即使尝试猜对1次。假反馈四例**没有形成付费风险46记录**；这不等于证明本策略对已拥有来源证据时反馈造假免疫。
+
+## 原始证据的两条独立审计路径（均成功，失败历史保留）
+
+**严格相同原生ZIP、两种互不替代的取数方式均完成原始45配对重核：**
+
+1. [永久Git证据分支原始ZIP独立45世界×6臂再分析 CI #45120691470 — 最终attempt 2 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45120691470)：审计器从上述固定SHA/run的**Git真实二进制原始文件**重新fetch、以SHA256和ZIP CRC拒绝错误原始版本，再读274世界原始JSONL＋已通过的完整独立Python解释器摘要，独立根据原生事件流逐案计算真实`PC205 PatchNext PC5.next=206` 57次、`PC208 PatchNext PC5.next=6` 57次；PC209消费下一次原生反馈57次（49阳性/8阴性）、PC212有偿真写风险46八次、后续自己付费PC215拒绝未来恢复56次。八个相同源码物理写46效果受抑制配对的第一次真实Write46之前全部原生有费PC/寄存器/源码/数据/信用/反馈轨迹**逐字段一致**，首次因果差异是相同一条PC212实际`cell46=1` vs `NativeCellWriteSuppressed`（支付相同计算、占用另+2存储），严格八例净省4408条付费指令并多完成**2个**真阶段。物理PC102真实代码效果另一组八例同源对照真实净省735条，但有正负各项，不可归为收益评估学习。[全部45配对机器可读原始事件审计#14793652016](https://github.com/iFrankStudio/cioc/actions/runs/45120691470/artifacts/14793652016)。
+2. [原始首次成功Actions工件#14792844372独立取回再审 CI #45120977335 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45120977335)：**不依赖Git证据分支可用性**，从成功原生run的固定artifact ID另行下载原始ZIP，仍要求原始字节SHA256 `29c295382848fb4fe944221766ae51324ada87726120d97d674b93fed551878c`，运行**相同源码固定、可重算的45配对事件审计器**并得到完全一致的57/57、8、56、2阶段与4408/735收费结果。[机器可读45配对审计#14793443092](https://github.com/iFrankStudio/cioc/actions/runs/45120977335/artifacts/14793443092)。这两项是**相同原始数据、两个独立取数渠道**，不是两次独立原生重复实验，也不能误增274世界样本量。
+3. Git版审计首次attempt 1的[失败记录](https://github.com/iFrankStudio/cioc/actions/runs/45120691470)是**启动时永久原始ZIP尚在归档上传中**，因此它拒绝了不完整来源而非伪造一份本地ZIP；持久证据分支后来完全上传且被源哈希验证，重新执行原相同固定审计版本attempt 2 SUCCESS。首次原生源码CI的Rust`json!`宏展开递归深度失败也保留，并不被当作实际274世界运行失败或独立实验结果。
+
+[独立可执行45配对原生审计源码](../audits/cl1b_c17_original_native_one_shot_first_veto_45_pair_audit.py)涵盖**全部45真案例和4个假反馈控制**；每一对样本的真实完成阶段数、真实私有费用及八例第一原生状态分歧均在机器可读JSON中，不需要凭手工挑选摘要信任结论。
 
 ## 因果审计、证据分级和未解难点
 
