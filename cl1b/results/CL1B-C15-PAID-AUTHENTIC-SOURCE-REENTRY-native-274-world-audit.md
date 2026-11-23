@@ -2,6 +2,12 @@
 
 **2026-11-23 UTC，C15新原生Rust专项及独立每条收费CIL复放PASS；物理源码恢复后的实际可达性获得验证，但持续适应性/经济目标为负，B3/B4 NOT MET。** 此实验使用已公开C14的45条48阶段目标，**属于机械补全与同源因果反例，不是新隐藏泛化环境**。源码、控制、限制及否定结果前先冻结：[C15实验研究协议](../studies/CL1B-C15-ACTOR-PAID-AUTHENTIC-SOURCE-REENTRY-preregistration.md)SHA `045649c16b757b5d607f3067bd1b6ee0b8ce527e`，以及[C15 194节点源码与274世界控制清单](../studies/CL1B-C15-AUTHENTIC-SOURCE-PAID-REENTRY-frozen-274-worlds-v1.json) SHA `e99d603f1bf3248330b2d0547f10fc4cf3e290af`，均早于第一次C15原生运行；不更换源亲本/目标家族或删除不利实例。
 
+## 新增：永久原始ZIP与真实物理源码影响的独立逐案复审
+
+- [原始C15完整ZIP永久Git归档/重新fetch字节哈希CI #45109931944 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109931944)。原始首次成功受测SHA `48db24cbc091b717a5c11f0237fec7de85146fa9` 的完整 **274个原生JSONL** 已保存在[Git证据分支固定原始ZIP目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/48db24cbc091b717a5c11f0237fec7de85146fa9-45109779348-1)；归档CI先校验初始ZIP 278成员/CRC/原生及独立复放摘要，又在推送之后**重新从Git远端读取真实原始ZIP字节并验出相同SHA256 `d01f8527f8dcc795176d8f18e50b4deaaa41c2590c0dd2f80f5a7e32de4a0b5e`**，不依赖临时Actions工件保留期限。
+- [原生45对物理源码首次因果分歧回顾性再审CI #45110318678 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45110318678)，[完整独立原生ZIP审计器](../audits/cl1b_c15_first_physical_source_effect_45_pair_audit.py)只从永久Git目录重新读**原始受测版本**，重新验证ZIP SHA256/CRC、274原生JSONL、原生总账与此前独立1,085,881 CIL完整复放第一分歧null，逐案分析45个同初始194节点程序源码效果臂。**全部45配对总私人收费相同，6个因真实物理源修改导致后续付费服务不同的配对，在首次确实改变PC173物理值以前，原生全部CIL步骤/PC/寄存器/内存/信用/反馈事件完全相同（6/6逐事件核对）；差异只在真实修改源以后出现。** 这六个差异案例里，3个真完成阶段**受损29/12/9**，另外3个完成阶段持平但服务次数/尝试路径不同，**0个得益**；主臂总真完成阶段比严格同源禁物理效果**少50（1987对2037）**。证明工程闭环确有可观察的主体代码物理因果影响，且首次效果全分母方向为负，而非将“源码最后状态不同”伪装为服务收益。[审计原始机器可读45例+六个先验前缀验证工件 #14788944098](https://github.com/iFrankStudio/cioc/actions/runs/45110318678/artifacts/14788944098)。审计是**回顾性**检查新原生实验已公开轨迹，不是额外新来源未知目标。
+- 先前[原C14b↔C14c来源记录世界法则ON/OFF的独立270对原生复算CI #45109540958 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109540958)已确认付费来源证据虽能认证PID身份，不能认证当时物理程序源码仍新鲜；C15新增真实重入虽打通后续执行，却仍无法免费知道未来净益。这两组不同阶段的否定结果不能拼接成“主体自发学会优化”的证据。
+
 ## 原始可验证原生证据
 
 - **受测main精确SHA** `48db24cbc091b717a5c11f0237fec7de85146fa9`，原生[GitHub Actions #45109779348 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45109779348)，新Rust原生专项1/1 PASS，**274/274原生单PID1世界、1,085,881条全部私有收费CIL、全部实际动态源改写/反馈/篡改动作/存储与Python独立解释器逐条完全一致`first_divergence=null`**。真反馈45任务×6臂=270世界（其中12世界没完成48阶段但都完整记账），另4骗反馈世界保留且不算真成功。此前历史C14b/C14c所有源与原生证据未改变；本实验是新源码变体。
