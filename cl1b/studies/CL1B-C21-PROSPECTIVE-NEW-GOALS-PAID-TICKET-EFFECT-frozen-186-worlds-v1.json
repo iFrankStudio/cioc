@@ -1,0 +1,135 @@
+{
+  "study": "CL1B-C21-PROSPECTIVE-NEW-GOALS-PAID-TICKET-EFFECT-HELDOUT",
+  "status": "PRE_NATIVE_FROZEN_TRUE_NEW_PROSPECTIVE_HELDOUT",
+  "date_utc": "2026-11-23",
+  "scientific_scope": "45 genuinely new frozen 48-stage 0..2 goal programs; PC202 same-source causal ticket-effect generalization, not organism learning",
+  "source_parent": "cl1b/studies/CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10-frozen-274-worlds-v1.json",
+  "source_241_nodes": "exact C20/C19B original preexisting 241-node paid live-PC173 evaluator source; no code generator or new opcode",
+  "source_equality": "arms 0,1,2 must load byte-identical 241-source; only researcher physical PC202 Write45=1 or PC225 Write47=1 effect suppressed; still charged",
+  "economic_baseline": "arm 3 distinct 180-node C9 source, not same-source single-factor control",
+  "prior_goal_manifest_blobs": [
+    {
+      "path": "cl1b/studies/CL1B-G2-ACTOR-PAID-STATE-TRIGGERED-ROLLBACK-C10-frozen-274-worlds-v1.json",
+      "blob_sha": "07a8cd5486f9c2335d00aececf325783eb432c77",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C14-NATIVE-FEEDBACK-ATTESTED-SUCCESS-SOURCE-RESTORATION-frozen-274-worlds-v1.json",
+      "blob_sha": "ac6843ead68d2a20135b10540328a878ee72c7a4",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE-frozen-274-worlds-v1.json",
+      "blob_sha": "cfb66b45ebe48ae6c57f64c2cf513b8d9a4b3fc3",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C17-ONE-SHOT-PAID-POSTEDIT-FEEDBACK-VETO-frozen-274-worlds-v1.json",
+      "blob_sha": "b5abfb80607196cd2b250b2731836ee834ee1210",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-DIFF-POSTEDIT-GATE-frozen-274-worlds-v2.json",
+      "blob_sha": "fc828716eb1097daed61a6aca6546a5390698622",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-frozen-274-worlds-v1.json",
+      "blob_sha": "e92868572deb412e83d03472de834357cd80e7fb",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C19A-KNOWN-C17-LIVE-SOURCE-CALIBRATION-frozen-274-worlds-v1.json",
+      "blob_sha": "eded940d44e28180bc08efab3e60ca2eb99dae1a",
+      "goals": 45
+    },
+    {
+      "path": "cl1b/studies/CL1B-C19B-PROSPECTIVE-LIVE-SOURCE-HELDOUT-frozen-274-worlds-v1.json",
+      "blob_sha": "bd23c2a1e3d8a6ec04b3d7bb85034e82f56302fa",
+      "goals": 45
+    }
+  ],
+  "prior_frozen_goal_unique_count": 270,
+  "resources": {
+    "single_PID1": true,
+    "private_CIL_budget_per_world": 6000,
+    "max_data_cells": 19,
+    "max_source_nodes": 241,
+    "max_total_occupied": 300,
+    "provenance_metered": true,
+    "stages_per_goal": 48
+  },
+  "generation": {
+    "algorithm": "xorshift32 unsigned shifts 13,17,5; 44 public family-driven items then 4 unique base-3 case tag items; source algorithm is in preregistration",
+    "seed": "0xc21a6e75",
+    "families": [
+      "short_spikes",
+      "long_anchor_switches",
+      "alternating_regime",
+      "irregular_perturbations",
+      "late_recovery"
+    ],
+    "order": "fi 0..4 then a 0..2 d 0..2",
+    "known_or_selected_after_outcome": false
+  },
+  "arms": [
+    "truth_paid_live_self_executed_source_difference_gate",
+    "same_source_pc202_ticket_spend_effect_suppressed",
+    "same_source_pc225_equal_marker_suppressed",
+    "different_source_c9_fixed_abstain"
+  ],
+  "counts": {
+    "cases": 45,
+    "truthful_arms": 4,
+    "truthful_worlds": 180,
+    "false_feedback_worlds": 6,
+    "total_worlds": 186
+  },
+  "false_feedback_controls": [
+    {
+      "name": "c21_inverted_main_control",
+      "case": "c21_short_spikes_a0_d0",
+      "arm": "truth_paid_live_self_executed_source_difference_gate",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c21_forced0_main_control",
+      "case": "c21_short_spikes_a0_d0",
+      "arm": "truth_paid_live_self_executed_source_difference_gate",
+      "feedback": "forced0"
+    },
+    {
+      "name": "c21_inverted_pc202_control",
+      "case": "c21_alternating_regime_a1_d1",
+      "arm": "same_source_pc202_ticket_spend_effect_suppressed",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c21_forced0_pc202_control",
+      "case": "c21_alternating_regime_a1_d1",
+      "arm": "same_source_pc202_ticket_spend_effect_suppressed",
+      "feedback": "forced0"
+    },
+    {
+      "name": "c21_inverted_pc225_control",
+      "case": "c21_late_recovery_a2_d2",
+      "arm": "same_source_pc225_equal_marker_suppressed",
+      "feedback": "inverted"
+    },
+    {
+      "name": "c21_forced0_pc225_control",
+      "case": "c21_late_recovery_a2_d2",
+      "arm": "same_source_pc225_equal_marker_suppressed",
+      "feedback": "forced0"
+    }
+  ],
+  "preregistered_primary_endpoints": [
+    "all 45 cases, no omissions: 48-stage completed/true-match and private CIL per arm",
+    "exact first paid PC202 physical effect pre-divergence full-native trace prefix for every exposed pair",
+    "true C19 live-source PC173 self-execution, restoration/false cache and source mutation pay",
+    "source-identical PC202 negative controls and adverse false-feedback cases",
+    "explicit comparison vs strong economic C9, not causal attribution"
+  ],
+  "preliminary_benchmark_result": "NONE_PRE_NATIVE",
+  "B3_B4": "NOT_MET"
+}
