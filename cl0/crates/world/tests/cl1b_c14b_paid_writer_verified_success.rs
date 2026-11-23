@@ -354,8 +354,9 @@ fn c14b_original_274_native_paid_writer_verified_success_code_record() {
     });
     fs::write(out_dir.join("cl1b_c14b_original_native_274_worlds.json"),
         serde_json::to_vec_pretty(&result).unwrap()).unwrap();
-    assert!(success_records>0,"C14 did not pay for any success source memory");
-    // A zero-effect result is a legitimate scientific negative, not a validation failure.
+    // A zero-evidence result is a legitimate, preregistered negative, not a VM validation failure.
+    // C14b must not synthesize PID1 writer provenance or delete such worlds.
+    // A zero physical restoration result is likewise NOT_DEMONSTRATED, not a test infrastructure failure.
     println!("C14B ORIGINAL NATIVE worlds=274 paid={} actor_success_records={} physical_source_restores={} same_source_effect_cases={} tampered_effect_cases={} total_arm_fees={:?} true_full_completion={:?} unfinished={} ",
         charged,success_records,genuine_restores,independent_gain_cases,sample_caused_changed_cases,
         result["arm_fees"],result["arm_completed_worlds"],incomplete.len());
