@@ -41,7 +41,7 @@ fn run(src:&[Value],arm:&Value,dir:&std::path::Path)->Value{
  let name=arm["name"].as_str().unwrap();
  let source=arm["source"].as_str().unwrap();
  assert!(source=="F6"||source=="F6BASE"||source=="F5");
- assert_eq!(src.len(),if source=="F6"||source=="F6BASE"{184}else if source=="F6BASE"{180}else{153});
+ assert_eq!(src.len(),if source=="F6"{184}else if source=="F6BASE"{180}else{153});
  let goals=arm["goals"].as_array().unwrap().iter()
   .map(|x|x.as_i64().unwrap()).collect::<Vec<_>>();
  assert_eq!(goals.len(),24);
