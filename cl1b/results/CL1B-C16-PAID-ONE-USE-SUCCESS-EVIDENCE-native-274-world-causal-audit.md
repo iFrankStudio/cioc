@@ -7,7 +7,7 @@
 - [C16 45个全新任务×6真反馈控制＋4假反馈共274世界原始冻清单](../studies/CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE-frozen-274-worlds-v1.json)在首次原生运行前已提交SHA `769e912fd0ee77a5986fb0d81051069e6d0360ad`。[独立事前实验协议](../studies/CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE-preregistration.md)提交SHA `d988248a07aa4501b65f5191e1a64f6f07c3a73b`；45任务由固定seed `0xC1618A7E`、5家族×3×3、完整48阶段目标前瞻生成，三进制末4阶段保证唯一，已与旧C10和旧C14目标去重。旧C15结果只用于选择可证伪结构，不用于筛选C16任务。**新任务是对预设规则的一次前瞻测试，不是主体自己通过训练获得的新学习策略。**
 - [专项GitHub Actions #45116000258 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45116000258)，原生精确受测源码SHA **`c39103bb8b810102a77ca3361acea7f7bc99be07`**：274/274单PID1世界，Rust 1/1测试PASS，**1,112,914条真实私人收费CIL、所有原生源码修改、真实真假服务反馈、来源元信息、cell45、每个世界预算及干预，Python从冻源独立完全执行`first_divergence=null`**；270真反馈世界+4欺骗反馈世界全部入账，45×6真世界中4世界没能完成48阶段，但仍计全分母。
 - C16严格世界配置`World::with_strict_capacity(16,203,300).with_cell_write_provenance()`：一个真实可修改的203节点CIL主体，每个真实data cell使用**2份存储单位**（数据值+最后写者），数据cell最大16、总空间300、主体初始且只初始6000个私有收费CIL，通用`ReadLastWriter`每次收费，主体不能直接访问真实goal、免费Fitness、ReadCredits，也不能得到免费的源码证明或恢复。主体新增的单元45是普通真实有费存储，不属于研究者私有免费状态。主臂实际峰值存储占用**236/300**。
-- 原始Actions ZIP工件 [#14791054622](https://github.com/iFrankStudio/cioc/actions/runs/45116000258/artifacts/14791054622)，ZIP **10,626,049 bytes**、SHA256 **`c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479`**，278个不重复成员（含274原始JSONL、原生274汇总、独立完整逐条复放结果、原生Rust日志、确切原始SHA与run_id），CRC PASS。永久原始ZIP Git evidence branch归档在[专门保存与二次取回校验工作流](../../.github/workflows/cl1b-c16-preserve-original-evidence.yml)成功后另行确认，**不能将临时Actions工件视为永久归档成功**。
+- 原始Actions ZIP工件 [#14791054622](https://github.com/iFrankStudio/cioc/actions/runs/45116000258/artifacts/14791054622)，ZIP **10,626,049 bytes**、SHA256 **`c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479`**，278个不重复成员（含274原始JSONL、原生274汇总、独立完整逐条复放结果、原生Rust日志、确切原始SHA与run_id），CRC PASS。**永久原始ZIP Git证据分支归档已SUCCESS**：[独立长期归档及Git远端二次取回校验CI #45116222067](https://github.com/iFrankStudio/cioc/actions/runs/45116222067)先验证原始ZIP SHA256/CRC/274个原生JSONL/原生及独立Python零分歧全账，再完整写入[Git证据分支固定run目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/c39103bb8b810102a77ca3361acea7f7bc99be07-45116000258-1)，**Git push后重新fetch远端二进制并再次验出相同SHA256 `c5a37e69dd885db9aed29caa2107bdb65ee05c78ea3f8b2283ce90d5d9316479`**，不再依赖临时Actions artifact保留期。
 
 ## C16主体真正付费做了什么？
 
@@ -18,6 +18,14 @@ C15已有`ReadLastWriter(cell41)==PID1→Read41→Write44`（只保存真正PID1
 3. 只有原生真正付费执行PC102之后，再付费`PC200 Const45→PC201 Const1→PC202 Write45=1`，才进入真实物理PC173有费重新执行/有费写41；这包括把相同参数重复写入也要消耗一次凭证。新的成功反馈与真正新Write44才会再次开放凭证。
 
 **完整270真世界六臂中，前三臂203节点初始源码逐项完全相同**：正常凭证、压制物理PC102效果、只压制PC202将cell45写成1的实际效果（仍真正收费，必须保留`NativeCellWriteSuppressed`事件）。后面三臂是不同源码C15不限制重复使用194节点、C14c不重执行189节点、C9固定不改180节点。**严格同源单因素物理源码效应与凭证消费效应分开计算，不能以异源基线费用差声称单因果证明。**
+
+## 严格原始轨迹独立因果复审（归档后重复验证）
+
+- [源码钉死原始45组同源凭证效果独立审计脚本](../audits/cl1b_c16_original_native_paid_ticket_effect_45_pair_audit.py)和[GitHub Actions #45116830801 — SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45116830801)不取当前运行状态、不按结果重跑任务：直接从上文永久Git证据目录重新fetch **最初成功原生源码SHA `c39103bb8b810102a77ca3361acea7f7bc99be07` 的10,626,049字节ZIP**，验证SHA256/CRC、274原始JSONL、此前独立1,112,914条CIL全复放`first_divergence=null`，对所有45个真任务的PC202票据效果同源码消融重新逐事件配对。
+- **真实收费一次消费不变量PASS：** 所有45个主臂世界的原生`PC196 Write45=0`到`PC202 Write45=1`序列逐事件证明**35次票据真实消费没有一次发生在前一票据已经消费、又没有真正新成功Write44/PC196生成凭证之后**。它不仅是静态源码政策，也确实是原生实际执行的状态约束。
+- **严格实际第一因果差异PASS：** 全部45对源一致；只有2对在实际任务反馈或收费生命周期有变化。两例在**首次真正执行PC202之前的全部原生CIL/寄存器/信用/数据/源码特征/外部反馈事件完全一致**，分别保留**914和1355个原生事件**的字节逐字段相同前缀；第一次分歧恰是同一条付费PC202之后，正常主体把cell45写为1，研究者精确压制写入效果的控制仍保持0，CIL费用与程序计数器当时一致。此后两例正常主体都48/48；被禁凭证状态写入的控制各只有26/48和16/48，合计**真正多完成54个阶段、少付费713条CIL**；完整45组全部归档，非只挑阳性。
+- **物理源码恢复效益分离：** 另一个严格同初始203节点源码PC102物理效果被禁用的对照仍45/45完成2160真实阶段，且195087条总费**比正常改源码的195446少359**，当前不存在“真实恢复源码给主体带来额外真实任务收益”的证据，必须把“支付凭证限制重复造成损害”和“源修改自身有益”分开。
+- [完整机器可读45对原始CIL因果审计工件#14792086617](https://github.com/iFrankStudio/cioc/actions/runs/45116830801/artifacts/14792086617)。本次独立审计的首轮工作流[#45116766215](https://github.com/iFrankStudio/cioc/actions/runs/45116766215)因**汇总JSON字段名在工作流断言里多写一词`effect`**而失败，原审计Python已正确读取原始ZIP并生成完整数据；修正的是工作流后验断言字段拼写，不是冻结任务/CIL源码/费用/原始轨迹，随后专项#45116830801全部PASS。失败记录保留。
 
 ## 45新任务×六臂原生全分母对照
 
