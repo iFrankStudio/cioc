@@ -5,7 +5,7 @@
 - [成功原生与独立审计Actions #45146154128](https://github.com/iFrankStudio/cioc/actions/runs/45146154128)，**受测源SHA `6a1dd043b6b970ef7ba83037a8dc2800e20553d5`**。
 - [**任何C20原生尝试之前冻结**的机制、已知任务与研究协议](../studies/CL1B-C20-PAID-SINGLE-USE-TICKET-EFFECT-known-calibration-preregistration.md)以及[小型机器可读冻结清单](../studies/CL1B-C20-PAID-SINGLE-USE-TICKET-EFFECT-frozen-known-184-worlds-v1.json)。
 - [原生Rust真实PID1源码和实验观察器](../../cl0/crates/world/tests/cl1b_c20_paid_ticket_spend_native.rs)、[完全独立Python普通收费CIL解释器与首效果事件级审计](../audits/cl1b_c20_paid_ticket_spend_independent_native_replay.py)。
-- [184条原始逐事件原生JSONL与独立机器可读重演结果，成功Actions原始ZIP #14804017729](https://github.com/iFrankStudio/cioc/actions/runs/45146154128/artifacts/14804017729)。原始下载ZIP SHA-256为`6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977`；永久Git分支证据需由独立保存工作流最终确认，不能仅凭本原生成功宣称归档完毕。
+- [184条原始逐事件原生JSONL与独立机器可读重演结果，成功Actions原始ZIP #14804017729](https://github.com/iFrankStudio/cioc/actions/runs/45146154128/artifacts/14804017729)。原始下载ZIP SHA-256为`6f16934731b57a7ec8b69a11fa42e421bf8657bf40f3e50c1631598696193977`；**永久原始Git证据归档和远端二次SHA256核验均已PASS**：[归档工作流#45147070690](https://github.com/iFrankStudio/cioc/actions/runs/45147070690)，[固定Git证据目录](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/6a1dd043b6b970ef7ba83037a8dc2800e20553d5-45146154128-1)。原始ZIP完整7,726,856字节，SHA256与下载来源一致；184个原始JSONL、独立结果JSON及原始Rust日志均无筛选保留。
 
 ## 固定范围
 
@@ -22,7 +22,7 @@ C20刻意复用**原先在C19B公开执行的全部45条完整48阶段任务**�
 | 完全相同初始241源码，精确压制已收费PC225 `Write47=1`真效果 | 45/45 | 2160/2160 | 206434 |
 | **不同**180节点C9固定策略 | 45/45 | 2160/2160 | **147096** |
 
-两项严格同源码对照各自只抑制一个**指定CIL物理写入效果**，两者不能合并解释。C20正常主臂相比仅压制PC202消耗多**322 CIL**，有**2/45**任务产生后继付费/服务差异；其余43/45成本及服务路径没有可观察差异。该两例首次真正有费PC202效果发生前，独立Python已逐事件核对原生全付费轨迹、真实PC、四寄存器、当前7字段动态源码签名、付费余额、数据状态、真实反馈，全部一致；效果发生瞬间仍按原付费，唯一压制的是cell45写1的真实物理效果。无PC202暴露案例必须全程一致且不能伪称有益；**真实暴露次数和逐例细节保留在原始ZIP内独立JSON审计报告**。
+两项严格同源码对照各自只抑制一个**指定CIL物理写入效果**，两者不能合并解释。C20正常主臂相比仅压制PC202消耗多**322 CIL**，有**2/45**任务产生后继付费/服务差异；其余43/45成本及服务路径没有可观察差异。该两例首次真正有费PC202效果发生前，独立Python已逐事件核对原生全付费轨迹、真实PC、四寄存器、当前7字段动态源码签名、付费余额、数据状态、真实反馈，全部一致；效果发生瞬间仍按原付费，唯一压制的是cell45写1的真实物理效果。**实际有11/45个任务真正执行并受PC202效果抑制；34/45个任务完全NO_EXPOSURE，原始两臂全轨迹应严格一致（已由独立Python验证）。** 这11例中仅2例后继行为/付费不同，另外9例虽然干预作用于物理单元格，但未进一步形成可观察后继差；**原始184条全付费轨迹、完整每例首次效果对照及其它事件计数均保存在证据ZIP**。
 
 全184世界共**777562**条私人真实收费CIL，其中180真反馈世界、4固定骗反馈世界；原生和独立解释器所有记录完全重放，`first_divergence=null`。45×4真世界均48/48真阶段完成，无遗漏或裁剪。原C19B主臂本身47/47历史双队列自读完整准确，不可将本C20同任务重跑视作新的独立技术突破。
 
