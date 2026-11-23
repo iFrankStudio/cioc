@@ -18,6 +18,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_c11_paid_service_meter.rs'
       - '!cl0/crates/world/tests/cl1b_c12_paid_rollback_event_meter.rs'
       - '!cl0/crates/world/tests/cl1b_c13_paid_counter_causal_gate.rs'
+      - '!cl0/crates/world/tests/cl1b_c14_success_source_restoration.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -37,6 +38,7 @@ on:
       - '!cl0/crates/world/tests/cl1b_c11_paid_service_meter.rs'
       - '!cl0/crates/world/tests/cl1b_c12_paid_rollback_event_meter.rs'
       - '!cl0/crates/world/tests/cl1b_c13_paid_counter_causal_gate.rs'
+      - '!cl0/crates/world/tests/cl1b_c14_success_source_restoration.rs'
       - 'cl0/crates/world/Cargo.toml'
       - 'cl0/Cargo.toml'
       - 'cl0/Cargo.lock'
@@ -188,7 +190,7 @@ jobs:
             cl1b_refill_rule_g2_native
             cl1b_g2_pc28_native_c1
           )
-          # Dedicated C4-C13 original-native targets are verified by source-pinned
+          # Dedicated C4-C14 original-native targets are verified by source-pinned
           # scoped workflows, not the historical 104-target/63-observer matrix.
           # Keep a separately and strictly audited manifest; do not silently
           # accept arbitrary unregistered test sources.
@@ -203,6 +205,7 @@ jobs:
             cl1b_c11_paid_service_meter
             cl1b_c12_paid_rollback_event_meter
             cl1b_c13_paid_counter_causal_gate
+            cl1b_c14_success_source_restoration
           )
           # B56-F1d0: 32 original VM monitor price calibration worlds, 16
           # feedback masks per policy, source-parsed dynamic 1:1 replay.
