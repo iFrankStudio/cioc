@@ -1,0 +1,63 @@
+name: CL-1B C24R1 exact original 372-world two-cohort per-case F8 cost economics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/audits/cl1b_c24r1_two_cohort_original_per_case_paid_economy.py'
+      - '.github/workflows/cl1b-c24r1-original-two-cohort-per-case.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  both-original-cohorts-source-pinned-paid-CIL-per-case-ROI:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch two SHA256-pinned permanent ORIGINAL full native ZIPs, not regenerated worlds
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          git show "FETCH_HEAD:run-records/22c800a4c80362e48963366b83821a174b2be5d9-45165695178-1/original-native-artifact.zip" > /tmp/c24-original.zip
+          git show "FETCH_HEAD:run-records/e9d90a03d965aad0f4d767ecef733f86fcfc10b0-45166998216-1/original-native-artifact.zip" > /tmp/c24b-original.zip
+          echo '7d6ad6711c9fd780bf93dabac1ba0be2b9e6119ae0a4a116e461ba7520c7d3a9  /tmp/c24-original.zip' | sha256sum -c -
+          echo '5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2  /tmp/c24b-original.zip' | sha256sum -c -
+      - name: Independently re-execute two exact source-tested paid-CIL 186-world interpreters, audit all 90 full-lifecycle case-level comparisons
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          python3 cl1b/audits/cl1b_c24r1_two_cohort_original_per_case_paid_economy.py \
+            /tmp/c24-original.zip /tmp/c24b-original.zip \
+            cl1b-ci-evidence/cl1b_c24r1_372_native_worlds_per_case_economy.json \
+            | tee cl1b-ci-evidence/cl1b-c24r1-console.log
+          python3 - <<'PY'
+          import json
+          d=json.load(open('cl1b-ci-evidence/cl1b_c24r1_372_native_worlds_per_case_economy.json'))
+          assert d['native_worlds_fully_independently_replayed']==372
+          assert d['true_new_goal_schedules_total']==90 and d['first_divergence'] is None
+          assert len(d['per_case_full_paid_lifecycle_and_real_source_edits'])==90
+          assert d['combined_F8_vs_old_F6_different_source_paid_saving']==13065
+          assert d['combined_F8_true_edit_vs_same_initial_source_effect_suppressed_cost_excess']==16016
+          print('PASS: source pinned 372 ORIGINAL native worlds, exact 90 real paid per-case economics; no new worlds and B3/B4 NOT_MET')
+          PY
+      - name: Record all original source identities, replay source SHA and ZIP SHA
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "forensic_audit_sha=$GITHUB_SHA"
+            echo "original_C24_sha=22c800a4c80362e48963366b83821a174b2be5d9"
+            echo "original_C24B_sha=e9d90a03d965aad0f4d767ecef733f86fcfc10b0"
+            echo "original_C24_zip=7d6ad6711c9fd780bf93dabac1ba0be2b9e6119ae0a4a116e461ba7520c7d3a9"
+            echo "original_C24B_zip=5482b83fe2c881aa855424678dca71149376c13afadab5c4ef0b643241808bf2"
+            echo "scope=RETROSPECTIVE_TWO_PRIOR_NATIVE_COHORTS_NO_NEW_WORLDS"
+          } > cl1b-ci-evidence/cl1b-c24r1-provenance.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c24r1-original-372-native-two-cohort-per-case-economy
+          path: cl1b-ci-evidence/
+          if-no-files-found: warn
