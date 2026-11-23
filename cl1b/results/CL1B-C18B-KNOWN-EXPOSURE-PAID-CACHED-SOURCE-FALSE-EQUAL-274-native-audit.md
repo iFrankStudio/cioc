@@ -2,6 +2,10 @@
 
 **2026-11-23 UTC**，单PID1、45已知C17任务×6同/异源码臂＋4骗反馈**274原生世界**均通过Rust真实世界执行与Python完全独立逐收费CIL原始日志重演：**1,135,094条收费CIL，first_divergence=null**。这是一项**刻意重用已知会触发来源恢复的C17任务的机械暴露校准，不是新任务泛化，不得与C18前瞻阴性算两批未知独立测试**。
 
+## 从Git永久原始ZIP复算所有65次比较和8组同源码效果的独立复审
+
+[独立原始 C18/C18b 274×2世界双ZIP精确回审 CI #45124712424 attempt2 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45124712424)：直接读取C18前瞻零暴露原始Git ZIP和C18b事先标注已知目标校准Git ZIP，分别重新验原始字节SHA256、274 JSONL完整性、原生及Python解释器完整1,205,337 / 1,135,094条收费CIL再现零分歧；C18b在65次PC102真实恢复前从原始native日志和归档的全部监测记录**逐例复核PID1自己看到cell41值、存47状态、原生物理PC173修改前值、提议写入值**，31个真正同值正确判、33个真改码却判同值、1个真同值却判改变、0个真改码正确判改变。**所有33次真改码均被错误跳过修改后反馈探针，唯一一次真正付费安装探针是在没有物理改码的操作后**，随后错误累积一个风险46状态。严格同229初始源码仅禁止PC225真写47影响的8对，在**第一条原生收费PC225发生以前全部原生事件逐字段完全相同**；45例完整统计主臂194239 CIL，效果禁写191755，主臂额外**+2484**而完成真实阶段无增益。原始机器可读[45例全部配对及8例第一因果事件工件#14795386079](https://github.com/iFrankStudio/cioc/actions/runs/45124712424/artifacts/14795386079)，可独立重放的[归档源钉死Python审计代码](../audits/cl1b_c18_c18b_original_274_zero_exposure_and_65_paid_false_equal_audit.py)。该复审首次attempt1因为C18b长期Git归档尚未完成、无法取回精确源而诚实失败；归档完成后在原同源码/任务上重新执行attempt2成功。**切勿混淆C18前瞻45未知目标和C18b完全已知C17 45任务**。
+
 ## 原生来源与预注册不引入胜者选择
 
 - [固定全部45条以前C17冻结过的完整48阶段目标、所有六臂与四骗反馈世界](../studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-frozen-274-worlds-v1.json)提交SHA `53b8d849b84c5bbc9ebdb1f8ced25521f9086b72`，[独立明确标注非holdout的事前协议](../studies/CL1B-C18B-KNOWN-C17-EXPOSURE-CALIBRATION-preregistration.md)提交SHA `b2dce8d0b6a523a7eca454b115414dbd029f949a`。没有筛选8个成功案例，45个C17旧案例按原顺序、原目标全部复制，并且与[C18 v2 229节点完整有费代码源](../studies/CL1B-C18-ACTOR-PAID-CACHED-SOURCE-DIFF-POSTEDIT-GATE-frozen-274-worlds-v2.json)逐节点相同。
