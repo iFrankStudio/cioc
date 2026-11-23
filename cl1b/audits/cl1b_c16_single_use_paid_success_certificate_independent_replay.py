@@ -379,10 +379,13 @@ def main(summary_path,folder):
             row.append(out)
         if row[0]["steps"]!=row[1]["steps"] or row[0]["services"]!=row[1]["services"]:
             effects+=1
+        # Full starting CIL is identical only for arms 0,1,2.
+        # Arm3 is a different 194-node baseline, not strict single-factor control.
+        for ctrl in row[1:3]:
+            assert source(p,row[0]["arm"])==source(p,ctrl["arm"])
         if (row[0]["final_signature"]!=row[2]["final_signature"] or
-            row[0]["final_signature"]!=row[3]["final_signature"] or
             row[0]["services"]!=row[2]["services"] or
-            row[0]["services"]!=row[3]["services"]):
+            row[0]["steps"]!=row[2]["steps"]):
             contaminated+=1
         success+=row[0]["claimed_success_records"]
         restores+=row[0]["effective_pc173_restorations"]
@@ -401,7 +404,7 @@ def main(summary_path,folder):
     assert n["main_actor_paid_success_records"]==success
     assert n["main_actual_physical_pc173_restores"]==restores
     assert n["same_source_live_vs_suppressed_paid_or_feedback_difference_cases"]==effects
-    assert n["same_source_live_vs_tampered_state_or_feedback_difference_cases"]==contaminated
+    assert n["same_source_live_vs_ticket_spend_effect_difference_cases"]==contaminated
     assert n["arm_fees"]==fees and n["arm_completed_worlds"]==completed
     assert n["arm_physical_restore_changes"]==physical
     assert n["incomplete_true_world_names"]==incomplete
