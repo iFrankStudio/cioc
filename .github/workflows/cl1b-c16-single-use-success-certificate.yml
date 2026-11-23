@@ -1,0 +1,73 @@
+name: CL-1B C16 original native single-use paid success evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl1b/studies/CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE-frozen-274-worlds-v1.json'
+      - 'cl1b/studies/CL1B-C16-SINGLE-USE-PAID-SUCCESS-CERTIFICATE-preregistration.md'
+      - 'cl0/crates/world/tests/cl1b_c16_single_use_paid_success_certificate.rs'
+      - 'cl1b/audits/cl1b_c16_single_use_paid_success_certificate_independent_replay.py'
+      - '.github/workflows/cl1b-c16-single-use-success-certificate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cl1b-c16-original-single-use-certificate
+  cancel-in-progress: true
+
+jobs:
+  native-and-independent-274-paid-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: cl0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute original 274 paid PID1 worlds on 45 prospective tasks, including no-ticket effect and physical-code effect controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-ci-evidence
+          cargo test --locked -p cl0-world --test cl1b_c16_single_use_paid_success_certificate -- --nocapture \
+            2>&1 | tee cl1b-ci-evidence/cl1b-c16-original-native.log
+      - name: Independently reexecute every paid CIL, actual ticket write and suppression, last-writer and external feedback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ../cl1b/audits/cl1b_c16_single_use_paid_success_certificate_independent_replay.py \
+            cl1b-ci-evidence/cl1b_c16_original_native_274_worlds.json cl1b-ci-evidence \
+            > cl1b-ci-evidence/cl1b_c16_independent_replay.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open("cl1b-ci-evidence/cl1b_c16_independent_replay.json"))
+          assert d["first_divergence"] is None
+          assert d["native_worlds"]==274 and d["new_goal_schedules"]==45
+          print("C16 all prospective goals and paid single-use certificates independently replayed:",d)
+          PY
+      - name: Pin exact original source SHA and Actions run
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p cl1b-ci-evidence
+          {
+            echo "repository=iFrankStudio/cioc"
+            echo "tested_sha=$GITHUB_SHA"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "attempt=$GITHUB_RUN_ATTEMPT"
+            echo "scope=C16_274_original_native_worlds_new_45_goals_cil203_paid_ticket_value45_provenance_double_storage"
+          } > cl1b-ci-evidence/cl1b-c16-original-provenance.txt
+      - name: Preserve all 274 original native worlds even if a negative result, failure, or trap
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cl1b-c16-original-native-single-use-success-evidence-274
+          path: cl0/cl1b-ci-evidence/
+          if-no-files-found: warn
