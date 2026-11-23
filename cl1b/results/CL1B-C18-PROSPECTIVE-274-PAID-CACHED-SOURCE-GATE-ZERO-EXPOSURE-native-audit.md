@@ -2,6 +2,10 @@
 
 **2026-11-23 UTC 原生274世界专项及Python完整独立收费CIL逐步解释器PASS，科学结论：`NO_EXPOSURE / NO_CAUSAL_GAIN / B3_B4_NOT_MET`。**
 
+## C18与C18b的原始Git证据双路径交叉核查
+
+[C18 + C18b 真实原始ZIP独立45×6匹配因果审计 Actions #45124712424（attempt2）SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45124712424)，直接从**两个不同原生成功run的Git永久证据分支**同时提取C18未知目标原始ZIP（SHA256 `810cfcadb2e8912fd998c21d6600401351556a9fbfc3191021019adefaa5fbdc`）与C18b已知C17目标原始ZIP（SHA256 `dd1909075ebf23524ad7ea74f8a1a2f2c542ce52cf53eb996dc85adc6d581aad`），独立核对两个274世界ZIP的CRC/278成员/全CIL Python重演`first_divergence=null`。对C18 45未知目标×六臂全部确认**源码有费成功记录为零、PC102为零、真实活跃源比较为零**；C18b 45已知目标确认**65次付费比较、33次真物理改码全部错判缓存相同、一个缓存判断不同却实际没改码**，原生同源PC225首次差异前完整有费历史一致，8例受影响，严格同源码主臂多2484付费CIL。审计原始[机器可读45对完整案例工件#14795386079](https://github.com/iFrankStudio/cioc/actions/runs/45124712424/artifacts/14795386079)。第一次审计attempt1工作流FAIL是C18b原始11MB ZIP仍正在推送Git证据分支、严格拒绝以缺失二进制冒充完整；归档成功后同一审计源码retry attempt2 PASS，两个原始实验没有重新选择任务或执行。**这个交叉回审是原有两批数据的复核，不是第三批任务实验。**
+
 ## 完整原生事实
 
 - **原生受测SHA `3bdfd2332fc0b6ec99996fedc8887495d14894d7`**；[GitHub Actions原生+独立重演CI #45123659232 SUCCESS](https://github.com/iFrankStudio/cioc/actions/runs/45123659232)。Rust本机内核1/1、**274/274个真实单PID1世界、45条×6真反馈臂＋4欺骗反馈世界共1,205,337次实际私人收费CIL**，独立Python重新解释所有原始有费PC、寄存器、源码变更、来源、数据/双份占用、真实/假外部反馈及数据伪装，`first_divergence=null`，全部274逐条原生JSONL不删除。
