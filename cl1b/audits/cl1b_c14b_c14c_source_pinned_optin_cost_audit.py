@@ -48,6 +48,7 @@ def compare(off,on):
     same_services=valid_fee_identity=final_code_changes=0
     off_writer=on_writer=on_missing=on_stale=0
     on_records=off_records=0
+    stale_by_arm={}
     off_peak={}
     on_peak={}
     for old_case,new_case in zip(off["records"],on["records"]):
@@ -72,6 +73,7 @@ def compare(off,on):
                 on_writer+=sum(w[1]==1 for w in b["paid_writer_checks"])
                 on_missing+=sum(w[1]==-1 for w in b["paid_writer_checks"])
                 on_stale+=b["stale_success_code_samples"]
+                stale_by_arm[arm]=stale_by_arm.get(arm,0)+b["stale_success_code_samples"]
             off_records+=a["claimed_success_records"]
             on_records+=b["claimed_success_records"]
             if a["final_signature"]!=b["final_signature"]:
@@ -88,7 +90,13 @@ def compare(off,on):
     assert same_services==valid_fee_identity==270
     assert off_records==0 and on_records==230*4
     assert off_writer==2160*4 and on_writer==230*4 and on_missing==1930*4
-    assert on_stale==23*4
+    assert stale_by_arm=={
+        "truth_success_restore":23,
+        "same_source_pc102_effect_suppressed":190,
+        "same_source_host_force_success_value_0":23,
+        "same_source_host_force_success_value_2":229,
+    },stale_by_arm
+    assert on_stale==465
     assert final_code_changes==6
     assert off_peak["truth_success_restore"]==204
     assert on_peak["truth_success_restore"]==220
@@ -117,7 +125,8 @@ def compare(off,on):
         "off_true_successes_missing_writer":2160,
         "on_true_successes_missing_writer":1930,
         "on_authentic_success_source_memories":230,
-        "on_stale_record_against_current_physical_code":23,
+        "on_stale_record_against_current_physical_code_by_arm":stale_by_arm,
+        "on_stale_record_four_arms_total":on_stale,
         "physical_restores_without_subsequent_executed_code_readback":5,
         "all_arm_final_code_differences":final_code_changes,
         "main_peak_storage_units_off":204,
