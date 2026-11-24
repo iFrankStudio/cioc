@@ -1,0 +1,3536 @@
+{
+  "study": "CL1B-C29-PAIRED-ARITHMETIC-NATIVE",
+  "status": "FROZEN_BEFORE_FIRST_NATIVE_RUN",
+  "parent": "f84a921fd02f047075bc4f8f78188e18bd0823b2",
+  "capacity": {
+    "cells": 16,
+    "nodes": 200,
+    "total": 220,
+    "credits": 20000
+  },
+  "input_domain": [
+    1,
+    16
+  ],
+  "cutoff": "immediately after Nth paid production count write; no actor Halt required",
+  "environment_contract": "coherent input updates between charged steps only at specified stage writes or first trial A output; no capture tearing tested; snapshot is sequential",
+  "sources": {
+    "snapshot": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 1
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 2
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 3
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 4
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 5
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 6
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 7
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 8
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 10
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 12
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 14
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 16
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 17
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 17,
+          "zero": 20
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 21
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 22
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 24
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 25
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 27
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 28
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 30
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 31
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 32
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 34
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 35
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 37
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 38
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 39
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 37,
+          "zero": 40
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 41
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 42
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 44
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 45
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 46
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 47
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 48
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 49
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 50
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 51
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 52
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 53
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 136,
+          "zero": 54
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 55
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 57
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 59
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 60
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 3,
+          "next": 61
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 62,
+          "zero": 136
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 63
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 64,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 65
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 66,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 67
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 68,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 69
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 70,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 71
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 72,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 73
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 74,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 76,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 77
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 78,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 79
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 80,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 81
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 82,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 83
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 84,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 85
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 86,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 87
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 88,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 89
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 90,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 91
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 92,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 93
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 94,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 95
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 96,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 97
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 98,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 99
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 100,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 101
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 102,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 103
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 104,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 105
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 106,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 107
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 108,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 109
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 110,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 111
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 112,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 114,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 115
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 116,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 117
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 118,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 120,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 121
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 136,
+          "zero": 122
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 136,
+          "next": 123
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 124
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 137,
+          "next": 125
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 126
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 127,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 137,
+          "next": 128
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 136,
+          "next": 130
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 148,
+          "next": 132
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 133
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 134,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 148,
+          "next": 135
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 137
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 138
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 139
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 140
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 141
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 142
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 143
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 144
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 145
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 143,
+          "zero": 146
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 147
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 159
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 149
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 150
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 151
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 152
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 154
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 155
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 156
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 154,
+          "zero": 157
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 158
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 159
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 60,
+          "next": 160
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 161
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 1,
+          "next": 162
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 163
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 164
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 24,
+          "next": 165
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 166
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 136,
+          "zero": 0
+        }
+      ],
+      "labels": {
+        "eval": 0,
+        "trial_a": 8,
+        "loop_a": 17,
+        "output_a": 20,
+        "trial_b": 28,
+        "loop_b": 37,
+        "output_b": 40,
+        "compare": 48,
+        "costs": 54,
+        "cmp1": 62,
+        "cmpB1": 64,
+        "cmp2": 66,
+        "cmpB2": 68,
+        "cmp3": 70,
+        "cmpB3": 72,
+        "cmp4": 74,
+        "cmpB4": 76,
+        "cmp5": 78,
+        "cmpB5": 80,
+        "cmp6": 82,
+        "cmpB6": 84,
+        "cmp7": 86,
+        "cmpB7": 88,
+        "cmp8": 90,
+        "cmpB8": 92,
+        "cmp9": 94,
+        "cmpB9": 96,
+        "cmp10": 98,
+        "cmpB10": 100,
+        "cmp11": 102,
+        "cmpB11": 104,
+        "cmp12": 106,
+        "cmpB12": 108,
+        "cmp13": 110,
+        "cmpB13": 112,
+        "cmp14": 114,
+        "cmpB14": 116,
+        "cmp15": 118,
+        "cmpB15": 120,
+        "choose_a": 122,
+        "patch_a": 127,
+        "choose_b": 129,
+        "patch_b": 134,
+        "dispatch": 136,
+        "prod_a": 137,
+        "prod_loop_a": 143,
+        "prod_out_a": 146,
+        "prod_b": 148,
+        "prod_loop_b": 154,
+        "prod_out_b": 157,
+        "stage": 159,
+        "gate": 164
+      }
+    },
+    "live": {
+      "g": [
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 2
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 4
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 6
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 8
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 9
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 10
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 11
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 9,
+          "zero": 12
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 13
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 14
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 16
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 17
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 18
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 19
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 20
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 21
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 22
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 24
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 26
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 27
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 29
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 30
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 31
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 29,
+          "zero": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 33
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 34
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 35
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 36
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 37
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 39
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 40
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 41
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 42
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 43
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 44
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 45
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 128,
+          "zero": 46
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 47
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 48
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 49
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 50
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 51
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 52
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 3,
+          "next": 53
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 54,
+          "zero": 128
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 55
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 56,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 57
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 58,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 60,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 61
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 62,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 63
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 64,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 65
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 66,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 67
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 68,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 69
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 70,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 71
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 72,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 73
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 74,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 76,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 77
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 78,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 79
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 80,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 81
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 82,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 83
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 84,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 85
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 86,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 87
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 88,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 89
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 90,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 91
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 92,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 93
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 94,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 95
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 96,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 97
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 98,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 99
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 100,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 101
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 102,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 103
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 104,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 105
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 106,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 107
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 108,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 109
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 110,
+          "zero": 114
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 111
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 112,
+          "zero": 121
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 128,
+          "zero": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 128,
+          "next": 115
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 129,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 119,
+          "zero": 128
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 129,
+          "next": 120
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 128
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 128,
+          "next": 122
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 140,
+          "next": 124
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 125
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 126,
+          "zero": 128
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 140,
+          "next": 127
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 128
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 130
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 132
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 133
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 134
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 135
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 136
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 137
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 135,
+          "zero": 138
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 139
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 151
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 141
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 142
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 143
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 144
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 145
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 146
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 147
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 148
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 146,
+          "zero": 149
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 150
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 151
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 60,
+          "next": 152
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 1,
+          "next": 154
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 155
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 156
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 24,
+          "next": 157
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 158
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 128,
+          "zero": 0
+        }
+      ],
+      "labels": {
+        "eval": 0,
+        "trial_a": 0,
+        "loop_a": 9,
+        "output_a": 12,
+        "trial_b": 20,
+        "loop_b": 29,
+        "output_b": 32,
+        "compare": 40,
+        "costs": 46,
+        "cmp1": 54,
+        "cmpB1": 56,
+        "cmp2": 58,
+        "cmpB2": 60,
+        "cmp3": 62,
+        "cmpB3": 64,
+        "cmp4": 66,
+        "cmpB4": 68,
+        "cmp5": 70,
+        "cmpB5": 72,
+        "cmp6": 74,
+        "cmpB6": 76,
+        "cmp7": 78,
+        "cmpB7": 80,
+        "cmp8": 82,
+        "cmpB8": 84,
+        "cmp9": 86,
+        "cmpB9": 88,
+        "cmp10": 90,
+        "cmpB10": 92,
+        "cmp11": 94,
+        "cmpB11": 96,
+        "cmp12": 98,
+        "cmpB12": 100,
+        "cmp13": 102,
+        "cmpB13": 104,
+        "cmp14": 106,
+        "cmpB14": 108,
+        "cmp15": 110,
+        "cmpB15": 112,
+        "choose_a": 114,
+        "patch_a": 119,
+        "choose_b": 121,
+        "patch_b": 126,
+        "dispatch": 128,
+        "prod_a": 129,
+        "prod_loop_a": 135,
+        "prod_out_a": 138,
+        "prod_b": 140,
+        "prod_loop_b": 146,
+        "prod_out_b": 149,
+        "stage": 151,
+        "gate": 156
+      }
+    },
+    "once": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 1
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 2
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 3
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 4
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 5
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 6
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 7
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 8
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 10
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 12
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 14
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 16
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 17
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 17,
+          "zero": 20
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 21
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 22
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 24
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 25
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 27
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 28
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 30
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 31
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 32
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 34
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 35
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 37
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 38
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 39
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 37,
+          "zero": 40
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 41
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 42
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 44
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 45
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 46
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 47
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 48
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 49
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 50
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 51
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 52
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 53
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 136,
+          "zero": 54
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 55
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 57
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 59
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 60
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 3,
+          "next": 61
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 62,
+          "zero": 136
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 63
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 64,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 65
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 66,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 67
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 68,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 69
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 70,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 71
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 72,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 73
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 74,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 76,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 77
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 78,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 79
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 80,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 81
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 82,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 83
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 84,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 85
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 86,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 87
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 88,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 89
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 90,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 91
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 92,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 93
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 94,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 95
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 96,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 97
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 98,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 99
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 100,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 101
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 102,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 103
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 104,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 105
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 106,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 107
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 108,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 109
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 110,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 111
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 112,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 114,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 115
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 116,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 117
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 118,
+          "zero": 122
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 120,
+          "zero": 129
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 121
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 136,
+          "zero": 122
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 136,
+          "next": 123
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 124
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 137,
+          "next": 125
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 126
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 127,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 137,
+          "next": 128
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 136,
+          "next": 130
+        },
+        {
+          "kind": "ReadNext",
+          "dst": 0,
+          "node": 1,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 148,
+          "next": 132
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 133
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 134,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 148,
+          "next": 135
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 137
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 138
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 139
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 140
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 141
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 142
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 143
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 144
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 145
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 143,
+          "zero": 146
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 147
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 159
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 149
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 150
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 151
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 152
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 154
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 155
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 156
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 154,
+          "zero": 157
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 158
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 159
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 60,
+          "next": 160
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 161
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 1,
+          "next": 162
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 163
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 136
+        }
+      ],
+      "labels": {
+        "eval": 0,
+        "trial_a": 8,
+        "loop_a": 17,
+        "output_a": 20,
+        "trial_b": 28,
+        "loop_b": 37,
+        "output_b": 40,
+        "compare": 48,
+        "costs": 54,
+        "cmp1": 62,
+        "cmpB1": 64,
+        "cmp2": 66,
+        "cmpB2": 68,
+        "cmp3": 70,
+        "cmpB3": 72,
+        "cmp4": 74,
+        "cmpB4": 76,
+        "cmp5": 78,
+        "cmpB5": 80,
+        "cmp6": 82,
+        "cmpB6": 84,
+        "cmp7": 86,
+        "cmpB7": 88,
+        "cmp8": 90,
+        "cmpB8": 92,
+        "cmp9": 94,
+        "cmpB9": 96,
+        "cmp10": 98,
+        "cmpB10": 100,
+        "cmp11": 102,
+        "cmpB11": 104,
+        "cmp12": 106,
+        "cmpB12": 108,
+        "cmp13": 110,
+        "cmpB13": 112,
+        "cmp14": 114,
+        "cmpB14": 116,
+        "cmp15": 118,
+        "cmpB15": 120,
+        "choose_a": 122,
+        "patch_a": 127,
+        "choose_b": 129,
+        "patch_b": 134,
+        "dispatch": 136,
+        "prod_a": 137,
+        "prod_loop_a": 143,
+        "prod_out_a": 146,
+        "prod_b": 148,
+        "prod_loop_b": 154,
+        "prod_out_b": 157,
+        "stage": 159
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "cal_swap",
+      "cohort": "calibration",
+      "xy": [
+        12,
+        2
+      ],
+      "midTrial": [
+        2,
+        12
+      ],
+      "n": 48
+    },
+    {
+      "id": "cal_different",
+      "cohort": "calibration",
+      "xy": [
+        12,
+        2
+      ],
+      "midTrial": [
+        3,
+        5
+      ],
+      "n": 48
+    },
+    {
+      "id": "cal_flip",
+      "cohort": "calibration",
+      "xy": [
+        16,
+        2
+      ],
+      "n": 96,
+      "changes": [
+        [
+          23,
+          2,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "cal_stable",
+      "cohort": "calibration",
+      "xy": [
+        12,
+        2
+      ],
+      "n": 48
+    },
+    {
+      "id": "new_equal",
+      "cohort": "prospective",
+      "xy": [
+        9,
+        9
+      ],
+      "n": 64
+    },
+    {
+      "id": "new_stable_a",
+      "cohort": "prospective",
+      "xy": [
+        3,
+        15
+      ],
+      "n": 72
+    },
+    {
+      "id": "new_stable_b",
+      "cohort": "prospective",
+      "xy": [
+        15,
+        3
+      ],
+      "n": 72
+    },
+    {
+      "id": "new_small_flip",
+      "cohort": "prospective",
+      "xy": [
+        5,
+        6
+      ],
+      "n": 78,
+      "changes": [
+        [
+          19,
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "new_large_flip",
+      "cohort": "prospective",
+      "xy": [
+        15,
+        1
+      ],
+      "n": 90,
+      "changes": [
+        [
+          21,
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "id": "new_late",
+      "cohort": "prospective",
+      "xy": [
+        1,
+        15
+      ],
+      "n": 90,
+      "changes": [
+        [
+          29,
+          15,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "new_twice",
+      "cohort": "prospective",
+      "xy": [
+        14,
+        3
+      ],
+      "n": 96,
+      "changes": [
+        [
+          13,
+          3,
+          14
+        ],
+        [
+          61,
+          14,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "new_transient",
+      "cohort": "prospective",
+      "xy": [
+        4,
+        12
+      ],
+      "n": 72,
+      "changes": [
+        [
+          19,
+          12,
+          4
+        ],
+        [
+          26,
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "id": "new_same_product_swap",
+      "cohort": "prospective",
+      "xy": [
+        14,
+        2
+      ],
+      "midTrial": [
+        2,
+        14
+      ],
+      "n": 64
+    },
+    {
+      "id": "new_same_product_factor",
+      "cohort": "prospective",
+      "xy": [
+        15,
+        2
+      ],
+      "midTrial": [
+        5,
+        6
+      ],
+      "n": 66
+    },
+    {
+      "id": "new_different_product",
+      "cohort": "prospective",
+      "xy": [
+        13,
+        3
+      ],
+      "midTrial": [
+        4,
+        7
+      ],
+      "n": 66
+    },
+    {
+      "id": "new_same_product_reverse",
+      "cohort": "prospective",
+      "xy": [
+        3,
+        14
+      ],
+      "midTrial": [
+        7,
+        6
+      ],
+      "n": 66
+    }
+  ],
+  "arms": [
+    {
+      "id": "snapshot_on",
+      "source": "snapshot",
+      "off": false
+    },
+    {
+      "id": "snapshot_off",
+      "source": "snapshot",
+      "off": true
+    },
+    {
+      "id": "live_on",
+      "source": "live",
+      "off": false
+    },
+    {
+      "id": "live_off",
+      "source": "live",
+      "off": true
+    },
+    {
+      "id": "once",
+      "source": "once",
+      "off": false
+    }
+  ],
+  "calibration_expected": {
+    "cal_swap": {
+      "snapshot_on": 2109,
+      "snapshot_off": 1387,
+      "live_on": 1356,
+      "once": 2543
+    },
+    "cal_different": {
+      "snapshot_on": 1627,
+      "snapshot_off": 1481,
+      "live_on": 1421,
+      "once": 1535
+    },
+    "cal_flip": {
+      "snapshot_on": 2591,
+      "snapshot_off": 3513,
+      "live_on": 2575,
+      "once": 5157
+    },
+    "cal_stable": {
+      "snapshot_on": 1385,
+      "snapshot_off": 2827,
+      "live_on": 1369,
+      "once": 1103
+    }
+  },
+  "B3_B4": "NOT_MET"
+}
