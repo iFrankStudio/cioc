@@ -1,0 +1,38 @@
+name: CL-1B C30 R10 frozen construction provenance native
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c30_r10_construction_provenance_native.rs'
+      - 'cl1b/studies/CL1B-C30-R10-CONSTRUCTION-PROVENANCE-frozen-77-worlds-v1.json'
+      - 'cl1b/audits/cl1b_c30_r10_construction_provenance_replay.py'
+      - '.github/workflows/cl1b-c30-r10-construction-provenance-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-and-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute frozen native worlds
+        working-directory: cl0
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-c30-r10-evidence
+          cargo test --locked -p cl0-world --test cl1b_c30_r10_construction_provenance_native -- --nocapture 2>&1 | tee cl1b-c30-r10-evidence/native.log
+      - name: Independent paid dynamic-source replay and matched causal prefix
+        run: |
+          set -euo pipefail
+          python3 cl1b/audits/cl1b_c30_r10_construction_provenance_replay.py cl1b/studies/CL1B-C30-R10-CONSTRUCTION-PROVENANCE-frozen-77-worlds-v1.json cl0/cl1b-c30-r10-evidence > cl0/cl1b-c30-r10-evidence/replay.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c30-r10-frozen-77-worlds-native
+          path: cl0/cl1b-c30-r10-evidence/
+          if-no-files-found: warn
