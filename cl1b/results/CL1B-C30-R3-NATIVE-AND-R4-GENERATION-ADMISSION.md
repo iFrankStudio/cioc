@@ -1,0 +1,18 @@
+# C30 original R3 native and R4 one-shot generation admission
+
+R3 original native [45392748100](https://github.com/iFrankStudio/cioc/actions/runs/45392748100) SUCCESS; exact tested SHA d3eaecd6cfa735e79542a10d2fc2999c70a768f4. Archive [45393553544](https://github.com/iFrankStudio/cioc/actions/runs/45393553544) SUCCESS; artifact14920195850,1578340 bytes, SHA256 c4721154041b5e9dfb70ab50e030b7882c536bb0aafa5167800e90b9e7e5326c. [Permanent evidence](https://github.com/iFrankStudio/cioc/tree/cl1b-ci-evidence/run-records/d3eaecd6cfa735e79542a10d2fc2999c70a768f4-45392748100-1). 51 worlds,156178 paid,5019 production,68 trials,544 clones/544 clone trial steps,13174 production clone steps, max116 nodes/127 occupied. Prospective12 net7332 vs plain (8 wins/4 losses), physical12156. Calibration4 net3904, physical5512; domain check net3208, physical3610. Legacy focused CI45392748218 failed, no whole-repo pass. B3/B4 NOT_MET.
+
+## R4 non-native experiment
+
+Reuse R3 compiled algorithm. Begin with live parent production, observe actual x through already-paid input Read; pay four extra instructions to accumulate x in cell49, paid countdown in cell48 after each production output. At chosen window 4/8/16, retire monitor and gate via real PatchNext of dispatch and production Write.next. Paid compare sum against 6*window using simultaneous decrement of sum and threshold; strict greater admits, tie rejects. No sign or comparison oracle. Admit changes input_x and out edge to calibration path; generate16 clones, perform R3 trials (60/31), validate and compile. Reject never generates, stays parent, no recurring monitoring. Fixed authored window/threshold; not learned horizon, future workload or true ROI. Compare R3 immediate, unconditional delayed4 with same observation overhead (no threshold comparator), gate4/8/16. Off for each suppresses only final activation, not admission/construction. Matched prefix verifies PC/registers/cells before activation with same source and actual mutations independently deterministic in model; no native replay. Every product verified, actual generated path length/address checked. If cutoff occurs at exactly window service, gate has not yet executed because observer stops at output; no free extra work. All storage and instructions charged. Domain remains 1..16 and coherent within service/trials. 
+17 revealed native schedules x10 arms plus plain, 80 designed schedules x10 arms plus plain =1067 model worlds. New grid varies initial x1/4/8/12/16, horizons6/24/72/144, stable, rise at12 or last eligible, fall, mixed. Not blind or representative. Fixed threshold was selected before running this grid, but no optimization claim.
+| family | immediate | delay4 | gate4 | gate8 | gate16 |
+|---|---:|---:|---:|---:|---:|
+|revealed native prospective|7332|6130|3426|3200|-797|
+|grid|35380|26420|15668|13724|-2926|
+|stable|8382|6130|6990|5984|1064|
+|rise|24372|22120|11910|10880|8894|
+|fall|-6378|-8630|-6540|-7480|-11464|
+|mixed|9004|6800|3308|4340|-1420|
+Net is plain paid minus total policy paid, not physical on/off saving. Full metrics in JSON. Gate cost includes initial setup, observation, retirement, comparison, generation and trial. A one-shot reject can miss late profitable workload; early high work can lead to loss on short or falling schedules. No repeated admission or resource reclamation claim. Choose subsequent direction based on these complete costs, not maximizing known-set aggregate; prospective native freeze required before promotion. B3/B4 NOT_MET.
+Reproduce node cl1b/analysis/cl1b_c30_generation_admission.mjs; JS executed in connector; no R4 Rust run.

@@ -1,0 +1,5822 @@
+{
+  "tier": "NON_NATIVE_GENERATION_ADMISSION_MODEL",
+  "summary": {
+    "known": {
+      "r3": {
+        "n": 12,
+        "net": 7332,
+        "physical": 12156,
+        "wins": 8,
+        "admitted": 12,
+        "maxNodes": 116,
+        "peak": 127
+      },
+      "delay4": {
+        "n": 12,
+        "net": 6130,
+        "physical": 11662,
+        "wins": 7,
+        "admitted": 12,
+        "maxNodes": 145,
+        "peak": 158
+      },
+      "gate4": {
+        "n": 12,
+        "net": 3426,
+        "physical": 7324,
+        "wins": 4,
+        "admitted": 6,
+        "maxNodes": 152,
+        "peak": 165
+      },
+      "gate8": {
+        "n": 12,
+        "net": 3200,
+        "physical": 8354,
+        "wins": 5,
+        "admitted": 6,
+        "maxNodes": 152,
+        "peak": 165
+      },
+      "gate16": {
+        "n": 12,
+        "net": -797,
+        "physical": 7504,
+        "wins": 3,
+        "admitted": 7,
+        "maxNodes": 152,
+        "peak": 165
+      }
+    },
+    "grid": {
+      "r3": {
+        "n": 80,
+        "net": 35380,
+        "physical": 67540,
+        "wins": 33,
+        "admitted": 80,
+        "maxNodes": 116,
+        "peak": 127
+      },
+      "delay4": {
+        "n": 80,
+        "net": 26420,
+        "physical": 63300,
+        "wins": 30,
+        "admitted": 80,
+        "maxNodes": 145,
+        "peak": 158
+      },
+      "gate4": {
+        "n": 80,
+        "net": 15668,
+        "physical": 47584,
+        "wins": 22,
+        "admitted": 52,
+        "maxNodes": 152,
+        "peak": 165
+      },
+      "gate8": {
+        "n": 80,
+        "net": 13724,
+        "physical": 47250,
+        "wins": 22,
+        "admitted": 42,
+        "maxNodes": 152,
+        "peak": 165
+      },
+      "gate16": {
+        "n": 80,
+        "net": -2926,
+        "physical": 47097,
+        "wins": 18,
+        "admitted": 45,
+        "maxNodes": 152,
+        "peak": 165
+      }
+    },
+    "groups": {
+      "stable": {
+        "r3": {
+          "n": 20,
+          "net": 8382,
+          "physical": 16422,
+          "wins": 9,
+          "admitted": 20,
+          "maxNodes": 116,
+          "peak": 127
+        },
+        "delay4": {
+          "n": 20,
+          "net": 6130,
+          "physical": 15350,
+          "wins": 8,
+          "admitted": 20,
+          "maxNodes": 145,
+          "peak": 158
+        },
+        "gate4": {
+          "n": 20,
+          "net": 6990,
+          "physical": 14454,
+          "wins": 7,
+          "admitted": 12,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate8": {
+          "n": 20,
+          "net": 5984,
+          "physical": 13581,
+          "wins": 6,
+          "admitted": 9,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate16": {
+          "n": 20,
+          "net": 1064,
+          "physical": 12069,
+          "wins": 5,
+          "admitted": 9,
+          "maxNodes": 152,
+          "peak": 165
+        }
+      },
+      "rise": {
+        "r3": {
+          "n": 20,
+          "net": 24372,
+          "physical": 32412,
+          "wins": 14,
+          "admitted": 20,
+          "maxNodes": 116,
+          "peak": 127
+        },
+        "delay4": {
+          "n": 20,
+          "net": 22120,
+          "physical": 31340,
+          "wins": 12,
+          "admitted": 20,
+          "maxNodes": 145,
+          "peak": 158
+        },
+        "gate4": {
+          "n": 20,
+          "net": 11910,
+          "physical": 19374,
+          "wins": 7,
+          "admitted": 12,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate8": {
+          "n": 20,
+          "net": 10880,
+          "physical": 18477,
+          "wins": 6,
+          "admitted": 9,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate16": {
+          "n": 20,
+          "net": 8894,
+          "physical": 22236,
+          "wins": 8,
+          "admitted": 12,
+          "maxNodes": 152,
+          "peak": 165
+        }
+      },
+      "fall": {
+        "r3": {
+          "n": 20,
+          "net": -6378,
+          "physical": 1662,
+          "wins": 0,
+          "admitted": 20,
+          "maxNodes": 116,
+          "peak": 127
+        },
+        "delay4": {
+          "n": 20,
+          "net": -8630,
+          "physical": 590,
+          "wins": 0,
+          "admitted": 20,
+          "maxNodes": 145,
+          "peak": 158
+        },
+        "gate4": {
+          "n": 20,
+          "net": -6540,
+          "physical": 924,
+          "wins": 0,
+          "admitted": 12,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate8": {
+          "n": 20,
+          "net": -7480,
+          "physical": 117,
+          "wins": 0,
+          "admitted": 9,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate16": {
+          "n": 20,
+          "net": -11464,
+          "physical": -603,
+          "wins": 0,
+          "admitted": 9,
+          "maxNodes": 152,
+          "peak": 165
+        }
+      },
+      "mixed": {
+        "r3": {
+          "n": 20,
+          "net": 9004,
+          "physical": 17044,
+          "wins": 10,
+          "admitted": 20,
+          "maxNodes": 116,
+          "peak": 127
+        },
+        "delay4": {
+          "n": 20,
+          "net": 6800,
+          "physical": 16020,
+          "wins": 10,
+          "admitted": 20,
+          "maxNodes": 145,
+          "peak": 158
+        },
+        "gate4": {
+          "n": 20,
+          "net": 3308,
+          "physical": 12832,
+          "wins": 8,
+          "admitted": 16,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate8": {
+          "n": 20,
+          "net": 4340,
+          "physical": 15075,
+          "wins": 10,
+          "admitted": 15,
+          "maxNodes": 152,
+          "peak": 165
+        },
+        "gate16": {
+          "n": 20,
+          "net": -1420,
+          "physical": 13395,
+          "wins": 5,
+          "admitted": 15,
+          "maxNodes": 152,
+          "peak": 165
+        }
+      }
+    }
+  },
+  "known": [
+    {
+      "id": "stable_1_12",
+      "group": "stable",
+      "plain": 145,
+      "arms": {
+        "r3": {
+          "paid": 562,
+          "off": 547,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 12
+        },
+        "delay4": {
+          "paid": 617,
+          "off": 606,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 8
+        },
+        "gate4": {
+          "paid": 214,
+          "off": 214,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 270,
+          "off": 270,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 264,
+          "off": 264,
+          "admitted": false,
+          "observed": 12,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_8_96",
+      "group": "stable",
+      "plain": 3169,
+      "arms": {
+        "r3": {
+          "paid": 2326,
+          "off": 3571,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 768
+        },
+        "delay4": {
+          "paid": 2437,
+          "off": 3630,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 736
+        },
+        "gate4": {
+          "paid": 2536,
+          "off": 3729,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 736
+        },
+        "gate8": {
+          "paid": 2724,
+          "off": 3865,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 704
+        },
+        "gate16": {
+          "paid": 3100,
+          "off": 4137,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1489,
+          "clones": 640
+        }
+      }
+    },
+    {
+      "id": "shift_8_96",
+      "group": "shift",
+      "plain": 5377,
+      "arms": {
+        "r3": {
+          "paid": 3062,
+          "off": 5779,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1504
+        },
+        "delay4": {
+          "paid": 3173,
+          "off": 5838,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 1472
+        },
+        "gate4": {
+          "paid": 3272,
+          "off": 5937,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 1472
+        },
+        "gate8": {
+          "paid": 3524,
+          "off": 6073,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 1408
+        },
+        "gate16": {
+          "paid": 4028,
+          "off": 6345,
+          "admitted": true,
+          "observed": 224,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1777,
+          "clones": 1280
+        }
+      }
+    },
+    {
+      "id": "return_8_96",
+      "group": "return",
+      "plain": 3649,
+      "arms": {
+        "r3": {
+          "paid": 2486,
+          "off": 4051,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 928
+        },
+        "delay4": {
+          "paid": 2597,
+          "off": 4110,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 896
+        },
+        "gate4": {
+          "paid": 2696,
+          "off": 4209,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 896
+        },
+        "gate8": {
+          "paid": 2948,
+          "off": 4345,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 832
+        },
+        "gate16": {
+          "paid": 3452,
+          "off": 4617,
+          "admitted": true,
+          "observed": 224,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1777,
+          "clones": 704
+        }
+      }
+    },
+    {
+      "id": "fresh_low_17",
+      "group": "prospective",
+      "plain": 226,
+      "arms": {
+        "r3": {
+          "paid": 634,
+          "off": 628,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 24
+        },
+        "delay4": {
+          "paid": 689,
+          "off": 687,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 20
+        },
+        "gate4": {
+          "paid": 295,
+          "off": 295,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 359,
+          "off": 359,
+          "admitted": false,
+          "observed": 10,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 491,
+          "off": 491,
+          "admitted": false,
+          "observed": 23,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fresh_low_73",
+      "group": "prospective",
+      "plain": 1054,
+      "arms": {
+        "r3": {
+          "paid": 1414,
+          "off": 1456,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 132
+        },
+        "delay4": {
+          "paid": 1525,
+          "off": 1515,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 100
+        },
+        "gate4": {
+          "paid": 1624,
+          "off": 1614,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 100
+        },
+        "gate8": {
+          "paid": 1291,
+          "off": 1291,
+          "admitted": false,
+          "observed": 36,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1403,
+          "off": 1403,
+          "admitted": false,
+          "observed": 44,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fresh_low_139",
+      "group": "prospective",
+      "plain": 1837,
+      "arms": {
+        "r3": {
+          "paid": 2269,
+          "off": 2239,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 195
+        },
+        "delay4": {
+          "paid": 2332,
+          "off": 2298,
+          "admitted": true,
+          "observed": 8,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 514,
+          "clones": 187
+        },
+        "gate4": {
+          "paid": 1922,
+          "off": 1922,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1994,
+          "off": 1994,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 2138,
+          "off": 2138,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fresh_high_17",
+      "group": "prospective",
+      "plain": 799,
+      "arms": {
+        "r3": {
+          "paid": 825,
+          "off": 1201,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 215
+        },
+        "delay4": {
+          "paid": 936,
+          "off": 1260,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 183
+        },
+        "gate4": {
+          "paid": 1035,
+          "off": 1359,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 183
+        },
+        "gate8": {
+          "paid": 1279,
+          "off": 1495,
+          "admitted": true,
+          "observed": 92,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1037,
+          "clones": 123
+        },
+        "gate16": {
+          "paid": 1747,
+          "off": 1767,
+          "admitted": true,
+          "observed": 202,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1711,
+          "clones": 13
+        }
+      }
+    },
+    {
+      "id": "fresh_high_73",
+      "group": "prospective",
+      "plain": 3409,
+      "arms": {
+        "r3": {
+          "paid": 2199,
+          "off": 3811,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 917
+        },
+        "delay4": {
+          "paid": 2292,
+          "off": 3870,
+          "admitted": true,
+          "observed": 23,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 559,
+          "clones": 894
+        },
+        "gate4": {
+          "paid": 3554,
+          "off": 3554,
+          "admitted": false,
+          "observed": 23,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 2627,
+          "off": 4105,
+          "admitted": true,
+          "observed": 79,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 998,
+          "clones": 838
+        },
+        "gate16": {
+          "paid": 3099,
+          "off": 4377,
+          "admitted": true,
+          "observed": 191,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1678,
+          "clones": 726
+        }
+      }
+    },
+    {
+      "id": "fresh_high_139",
+      "group": "prospective",
+      "plain": 7267,
+      "arms": {
+        "r3": {
+          "paid": 4079,
+          "off": 7669,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2005
+        },
+        "delay4": {
+          "paid": 4214,
+          "off": 7728,
+          "admitted": true,
+          "observed": 44,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 622,
+          "clones": 1961
+        },
+        "gate4": {
+          "paid": 4313,
+          "off": 7827,
+          "admitted": true,
+          "observed": 44,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 721,
+          "clones": 1961
+        },
+        "gate8": {
+          "paid": 4525,
+          "off": 7963,
+          "admitted": true,
+          "observed": 88,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1025,
+          "clones": 1917
+        },
+        "gate16": {
+          "paid": 5019,
+          "off": 8235,
+          "admitted": true,
+          "observed": 211,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1738,
+          "clones": 1794
+        }
+      }
+    },
+    {
+      "id": "fresh_rising",
+      "group": "prospective",
+      "plain": 2590,
+      "arms": {
+        "r3": {
+          "paid": 1962,
+          "off": 2992,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 632
+        },
+        "delay4": {
+          "paid": 2017,
+          "off": 3051,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 628
+        },
+        "gate4": {
+          "paid": 2659,
+          "off": 2659,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 2727,
+          "off": 2727,
+          "admitted": false,
+          "observed": 11,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 2899,
+          "off": 2899,
+          "admitted": false,
+          "observed": 34,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fresh_falling",
+      "group": "prospective",
+      "plain": 2725,
+      "arms": {
+        "r3": {
+          "paid": 2007,
+          "off": 3127,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 677
+        },
+        "delay4": {
+          "paid": 2182,
+          "off": 3186,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 613
+        },
+        "gate4": {
+          "paid": 2281,
+          "off": 3285,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 613
+        },
+        "gate8": {
+          "paid": 2527,
+          "off": 3421,
+          "admitted": true,
+          "observed": 125,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1136,
+          "clones": 552
+        },
+        "gate16": {
+          "paid": 3001,
+          "off": 3693,
+          "admitted": true,
+          "observed": 238,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1819,
+          "clones": 439
+        }
+      }
+    },
+    {
+      "id": "fresh_bursts",
+      "group": "prospective",
+      "plain": 1996,
+      "arms": {
+        "r3": {
+          "paid": 1980,
+          "off": 2398,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 362
+        },
+        "delay4": {
+          "paid": 2043,
+          "off": 2457,
+          "admitted": true,
+          "observed": 8,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 514,
+          "clones": 354
+        },
+        "gate4": {
+          "paid": 2081,
+          "off": 2081,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 2153,
+          "off": 2153,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 2698,
+          "off": 2964,
+          "admitted": true,
+          "observed": 100,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1405,
+          "clones": 262
+        }
+      }
+    },
+    {
+      "id": "fresh_permuted",
+      "group": "prospective",
+      "plain": 3895,
+      "arms": {
+        "r3": {
+          "paid": 2721,
+          "off": 4297,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 959
+        },
+        "delay4": {
+          "paid": 2840,
+          "off": 4356,
+          "admitted": true,
+          "observed": 36,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 598,
+          "clones": 923
+        },
+        "gate4": {
+          "paid": 2939,
+          "off": 4455,
+          "admitted": true,
+          "observed": 36,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 697,
+          "clones": 923
+        },
+        "gate8": {
+          "paid": 3139,
+          "off": 4591,
+          "admitted": true,
+          "observed": 74,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 983,
+          "clones": 885
+        },
+        "gate16": {
+          "paid": 3507,
+          "off": 4863,
+          "admitted": true,
+          "observed": 134,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1507,
+          "clones": 825
+        }
+      }
+    },
+    {
+      "id": "fresh_late_high",
+      "group": "prospective",
+      "plain": 3991,
+      "arms": {
+        "r3": {
+          "paid": 3041,
+          "off": 4393,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 895
+        },
+        "delay4": {
+          "paid": 3104,
+          "off": 4452,
+          "admitted": true,
+          "observed": 8,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 514,
+          "clones": 887
+        },
+        "gate4": {
+          "paid": 4076,
+          "off": 4076,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 4148,
+          "off": 4148,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 4292,
+          "off": 4292,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fresh_late_low",
+      "group": "prospective",
+      "plain": 3577,
+      "arms": {
+        "r3": {
+          "paid": 2903,
+          "off": 3979,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 757
+        },
+        "delay4": {
+          "paid": 3062,
+          "off": 4038,
+          "admitted": true,
+          "observed": 56,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 658,
+          "clones": 701
+        },
+        "gate4": {
+          "paid": 3161,
+          "off": 4137,
+          "admitted": true,
+          "observed": 56,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 757,
+          "clones": 701
+        },
+        "gate8": {
+          "paid": 3397,
+          "off": 4273,
+          "admitted": true,
+          "observed": 112,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1097,
+          "clones": 645
+        },
+        "gate16": {
+          "paid": 3869,
+          "off": 4545,
+          "admitted": true,
+          "observed": 224,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1777,
+          "clones": 533
+        }
+      }
+    },
+    {
+      "id": "domain256",
+      "group": "domain_check",
+      "plain": 8890,
+      "arms": {
+        "r3": {
+          "paid": 5682,
+          "off": 9292,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2192
+        },
+        "delay4": {
+          "paid": 5767,
+          "off": 9351,
+          "admitted": true,
+          "observed": 19,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 547,
+          "clones": 2173
+        },
+        "gate4": {
+          "paid": 9019,
+          "off": 9019,
+          "admitted": false,
+          "observed": 19,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 9075,
+          "off": 9075,
+          "admitted": false,
+          "observed": 23,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 9187,
+          "off": 9187,
+          "admitted": false,
+          "observed": 31,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    }
+  ],
+  "grid": [
+    {
+      "id": "stable_1_6",
+      "group": "stable",
+      "plain": 73,
+      "arms": {
+        "r3": {
+          "paid": 484,
+          "off": 475,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 6
+        },
+        "delay4": {
+          "paid": 539,
+          "off": 534,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 2
+        },
+        "gate4": {
+          "paid": 142,
+          "off": 142,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 132,
+          "off": 132,
+          "admitted": false,
+          "observed": 6,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 132,
+          "off": 132,
+          "admitted": false,
+          "observed": 6,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_1_6",
+      "group": "rise",
+      "plain": 118,
+      "arms": {
+        "r3": {
+          "paid": 499,
+          "off": 520,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 21
+        },
+        "delay4": {
+          "paid": 554,
+          "off": 579,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 17
+        },
+        "gate4": {
+          "paid": 187,
+          "off": 187,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 177,
+          "off": 177,
+          "admitted": false,
+          "observed": 21,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 177,
+          "off": 177,
+          "admitted": false,
+          "observed": 21,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_1_6",
+      "group": "fall",
+      "plain": 73,
+      "arms": {
+        "r3": {
+          "paid": 484,
+          "off": 475,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 6
+        },
+        "delay4": {
+          "paid": 539,
+          "off": 534,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 2
+        },
+        "gate4": {
+          "paid": 142,
+          "off": 142,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 132,
+          "off": 132,
+          "admitted": false,
+          "observed": 6,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 132,
+          "off": 132,
+          "admitted": false,
+          "observed": 6,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_1_6",
+      "group": "mixed",
+      "plain": 142,
+      "arms": {
+        "r3": {
+          "paid": 507,
+          "off": 544,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 29
+        },
+        "delay4": {
+          "paid": 598,
+          "off": 603,
+          "admitted": true,
+          "observed": 22,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 556,
+          "clones": 7
+        },
+        "gate4": {
+          "paid": 283,
+          "off": 283,
+          "admitted": false,
+          "observed": 22,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 201,
+          "off": 201,
+          "admitted": false,
+          "observed": 29,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 201,
+          "off": 201,
+          "admitted": false,
+          "observed": 29,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_1_24",
+      "group": "stable",
+      "plain": 289,
+      "arms": {
+        "r3": {
+          "paid": 718,
+          "off": 691,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 24
+        },
+        "delay4": {
+          "paid": 773,
+          "off": 750,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 20
+        },
+        "gate4": {
+          "paid": 358,
+          "off": 358,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 414,
+          "off": 414,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 526,
+          "off": 526,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_1_24",
+      "group": "rise",
+      "plain": 829,
+      "arms": {
+        "r3": {
+          "paid": 898,
+          "off": 1231,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 204
+        },
+        "delay4": {
+          "paid": 953,
+          "off": 1290,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 200
+        },
+        "gate4": {
+          "paid": 898,
+          "off": 898,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 954,
+          "off": 954,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1306,
+          "off": 1306,
+          "admitted": false,
+          "observed": 76,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_1_24",
+      "group": "fall",
+      "plain": 289,
+      "arms": {
+        "r3": {
+          "paid": 718,
+          "off": 691,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 24
+        },
+        "delay4": {
+          "paid": 773,
+          "off": 750,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 20
+        },
+        "gate4": {
+          "paid": 358,
+          "off": 358,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 414,
+          "off": 414,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 526,
+          "off": 526,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_1_24",
+      "group": "mixed",
+      "plain": 793,
+      "arms": {
+        "r3": {
+          "paid": 886,
+          "off": 1195,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 192
+        },
+        "delay4": {
+          "paid": 977,
+          "off": 1254,
+          "admitted": true,
+          "observed": 22,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 556,
+          "clones": 170
+        },
+        "gate4": {
+          "paid": 934,
+          "off": 934,
+          "admitted": false,
+          "observed": 22,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1268,
+          "off": 1489,
+          "admitted": true,
+          "observed": 56,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 929,
+          "clones": 136
+        },
+        "gate16": {
+          "paid": 1652,
+          "off": 1761,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 68
+        }
+      }
+    },
+    {
+      "id": "stable_1_72",
+      "group": "stable",
+      "plain": 865,
+      "arms": {
+        "r3": {
+          "paid": 1342,
+          "off": 1267,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 72
+        },
+        "delay4": {
+          "paid": 1397,
+          "off": 1326,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 68
+        },
+        "gate4": {
+          "paid": 934,
+          "off": 934,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 990,
+          "off": 990,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1102,
+          "off": 1102,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_1_72",
+      "group": "rise",
+      "plain": 3565,
+      "arms": {
+        "r3": {
+          "paid": 2242,
+          "off": 3967,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 972
+        },
+        "delay4": {
+          "paid": 2297,
+          "off": 4026,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 968
+        },
+        "gate4": {
+          "paid": 3634,
+          "off": 3634,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 3690,
+          "off": 3690,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 4042,
+          "off": 4042,
+          "admitted": false,
+          "observed": 76,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_1_72",
+      "group": "fall",
+      "plain": 865,
+      "arms": {
+        "r3": {
+          "paid": 1342,
+          "off": 1267,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 72
+        },
+        "delay4": {
+          "paid": 1397,
+          "off": 1326,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 68
+        },
+        "gate4": {
+          "paid": 934,
+          "off": 934,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 990,
+          "off": 990,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1102,
+          "off": 1102,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_1_72",
+      "group": "mixed",
+      "plain": 2449,
+      "arms": {
+        "r3": {
+          "paid": 1870,
+          "off": 2851,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 600
+        },
+        "delay4": {
+          "paid": 1961,
+          "off": 2910,
+          "admitted": true,
+          "observed": 22,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 556,
+          "clones": 578
+        },
+        "gate4": {
+          "paid": 2590,
+          "off": 2590,
+          "admitted": false,
+          "observed": 22,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 2252,
+          "off": 3145,
+          "admitted": true,
+          "observed": 56,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 929,
+          "clones": 544
+        },
+        "gate16": {
+          "paid": 2636,
+          "off": 3417,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 476
+        }
+      }
+    },
+    {
+      "id": "stable_1_144",
+      "group": "stable",
+      "plain": 1729,
+      "arms": {
+        "r3": {
+          "paid": 2278,
+          "off": 2131,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 144
+        },
+        "delay4": {
+          "paid": 2333,
+          "off": 2190,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 140
+        },
+        "gate4": {
+          "paid": 1798,
+          "off": 1798,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1854,
+          "off": 1854,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1966,
+          "off": 1966,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_1_144",
+      "group": "rise",
+      "plain": 7669,
+      "arms": {
+        "r3": {
+          "paid": 4258,
+          "off": 8071,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2124
+        },
+        "delay4": {
+          "paid": 4313,
+          "off": 8130,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 2120
+        },
+        "gate4": {
+          "paid": 7738,
+          "off": 7738,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 7794,
+          "off": 7794,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 8146,
+          "off": 8146,
+          "admitted": false,
+          "observed": 76,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_1_144",
+      "group": "fall",
+      "plain": 1729,
+      "arms": {
+        "r3": {
+          "paid": 2278,
+          "off": 2131,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 144
+        },
+        "delay4": {
+          "paid": 2333,
+          "off": 2190,
+          "admitted": true,
+          "observed": 4,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 502,
+          "clones": 140
+        },
+        "gate4": {
+          "paid": 1798,
+          "off": 1798,
+          "admitted": false,
+          "observed": 4,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1854,
+          "off": 1854,
+          "admitted": false,
+          "observed": 8,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1966,
+          "off": 1966,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_1_144",
+      "group": "mixed",
+      "plain": 4933,
+      "arms": {
+        "r3": {
+          "paid": 3346,
+          "off": 5335,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1212
+        },
+        "delay4": {
+          "paid": 3437,
+          "off": 5394,
+          "admitted": true,
+          "observed": 22,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 556,
+          "clones": 1190
+        },
+        "gate4": {
+          "paid": 5074,
+          "off": 5074,
+          "admitted": false,
+          "observed": 22,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 3728,
+          "off": 5629,
+          "admitted": true,
+          "observed": 56,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 929,
+          "clones": 1156
+        },
+        "gate16": {
+          "paid": 4112,
+          "off": 5901,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 1088
+        }
+      }
+    },
+    {
+      "id": "stable_4_6",
+      "group": "stable",
+      "plain": 127,
+      "arms": {
+        "r3": {
+          "paid": 502,
+          "off": 529,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 24
+        },
+        "delay4": {
+          "paid": 581,
+          "off": 588,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 8
+        },
+        "gate4": {
+          "paid": 244,
+          "off": 244,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 186,
+          "off": 186,
+          "admitted": false,
+          "observed": 24,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 186,
+          "off": 186,
+          "admitted": false,
+          "observed": 24,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_4_6",
+      "group": "rise",
+      "plain": 163,
+      "arms": {
+        "r3": {
+          "paid": 514,
+          "off": 565,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 36
+        },
+        "delay4": {
+          "paid": 593,
+          "off": 624,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 20
+        },
+        "gate4": {
+          "paid": 280,
+          "off": 280,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 222,
+          "off": 222,
+          "admitted": false,
+          "observed": 36,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 222,
+          "off": 222,
+          "admitted": false,
+          "observed": 36,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_4_6",
+      "group": "fall",
+      "plain": 118,
+      "arms": {
+        "r3": {
+          "paid": 499,
+          "off": 520,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 21
+        },
+        "delay4": {
+          "paid": 578,
+          "off": 579,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 5
+        },
+        "gate4": {
+          "paid": 235,
+          "off": 235,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 177,
+          "off": 177,
+          "admitted": false,
+          "observed": 21,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 177,
+          "off": 177,
+          "admitted": false,
+          "observed": 21,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_4_6",
+      "group": "mixed",
+      "plain": 196,
+      "arms": {
+        "r3": {
+          "paid": 525,
+          "off": 598,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 47
+        },
+        "delay4": {
+          "paid": 640,
+          "off": 657,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 13
+        },
+        "gate4": {
+          "paid": 739,
+          "off": 756,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 13
+        },
+        "gate8": {
+          "paid": 255,
+          "off": 255,
+          "admitted": false,
+          "observed": 47,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 255,
+          "off": 255,
+          "admitted": false,
+          "observed": 47,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_4_24",
+      "group": "stable",
+      "plain": 505,
+      "arms": {
+        "r3": {
+          "paid": 790,
+          "off": 907,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 96
+        },
+        "delay4": {
+          "paid": 869,
+          "off": 966,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 80
+        },
+        "gate4": {
+          "paid": 622,
+          "off": 622,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 726,
+          "off": 726,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 934,
+          "off": 934,
+          "admitted": false,
+          "observed": 64,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_4_24",
+      "group": "rise",
+      "plain": 937,
+      "arms": {
+        "r3": {
+          "paid": 934,
+          "off": 1339,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 240
+        },
+        "delay4": {
+          "paid": 1013,
+          "off": 1398,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 224
+        },
+        "gate4": {
+          "paid": 1054,
+          "off": 1054,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1158,
+          "off": 1158,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1676,
+          "off": 1905,
+          "admitted": true,
+          "observed": 112,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1441,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "fall_4_24",
+      "group": "fall",
+      "plain": 397,
+      "arms": {
+        "r3": {
+          "paid": 754,
+          "off": 799,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 60
+        },
+        "delay4": {
+          "paid": 833,
+          "off": 858,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 44
+        },
+        "gate4": {
+          "paid": 514,
+          "off": 514,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 618,
+          "off": 618,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 778,
+          "off": 778,
+          "admitted": false,
+          "observed": 52,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_4_24",
+      "group": "mixed",
+      "plain": 817,
+      "arms": {
+        "r3": {
+          "paid": 894,
+          "off": 1219,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 200
+        },
+        "delay4": {
+          "paid": 1009,
+          "off": 1278,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 166
+        },
+        "gate4": {
+          "paid": 1108,
+          "off": 1377,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 166
+        },
+        "gate8": {
+          "paid": 1292,
+          "off": 1513,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 136
+        },
+        "gate16": {
+          "paid": 1660,
+          "off": 1785,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 76
+        }
+      }
+    },
+    {
+      "id": "stable_4_72",
+      "group": "stable",
+      "plain": 1513,
+      "arms": {
+        "r3": {
+          "paid": 1558,
+          "off": 1915,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 288
+        },
+        "delay4": {
+          "paid": 1637,
+          "off": 1974,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 272
+        },
+        "gate4": {
+          "paid": 1630,
+          "off": 1630,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1734,
+          "off": 1734,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1942,
+          "off": 1942,
+          "admitted": false,
+          "observed": 64,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_4_72",
+      "group": "rise",
+      "plain": 3673,
+      "arms": {
+        "r3": {
+          "paid": 2278,
+          "off": 4075,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1008
+        },
+        "delay4": {
+          "paid": 2357,
+          "off": 4134,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 992
+        },
+        "gate4": {
+          "paid": 3790,
+          "off": 3790,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 3894,
+          "off": 3894,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 3020,
+          "off": 4641,
+          "admitted": true,
+          "observed": 112,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1441,
+          "clones": 896
+        }
+      }
+    },
+    {
+      "id": "fall_4_72",
+      "group": "fall",
+      "plain": 973,
+      "arms": {
+        "r3": {
+          "paid": 1378,
+          "off": 1375,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 108
+        },
+        "delay4": {
+          "paid": 1457,
+          "off": 1434,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 92
+        },
+        "gate4": {
+          "paid": 1090,
+          "off": 1090,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 1194,
+          "off": 1194,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 1354,
+          "off": 1354,
+          "admitted": false,
+          "observed": 52,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_4_72",
+      "group": "mixed",
+      "plain": 2473,
+      "arms": {
+        "r3": {
+          "paid": 1878,
+          "off": 2875,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 608
+        },
+        "delay4": {
+          "paid": 1993,
+          "off": 2934,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 574
+        },
+        "gate4": {
+          "paid": 2092,
+          "off": 3033,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 574
+        },
+        "gate8": {
+          "paid": 2276,
+          "off": 3169,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 544
+        },
+        "gate16": {
+          "paid": 2644,
+          "off": 3441,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 484
+        }
+      }
+    },
+    {
+      "id": "stable_4_144",
+      "group": "stable",
+      "plain": 3025,
+      "arms": {
+        "r3": {
+          "paid": 2710,
+          "off": 3427,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 576
+        },
+        "delay4": {
+          "paid": 2789,
+          "off": 3486,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 560
+        },
+        "gate4": {
+          "paid": 3142,
+          "off": 3142,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 3246,
+          "off": 3246,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 3454,
+          "off": 3454,
+          "admitted": false,
+          "observed": 64,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_4_144",
+      "group": "rise",
+      "plain": 7777,
+      "arms": {
+        "r3": {
+          "paid": 4294,
+          "off": 8179,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2160
+        },
+        "delay4": {
+          "paid": 4373,
+          "off": 8238,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 2144
+        },
+        "gate4": {
+          "paid": 7894,
+          "off": 7894,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 7998,
+          "off": 7998,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 5036,
+          "off": 8745,
+          "admitted": true,
+          "observed": 112,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1441,
+          "clones": 2048
+        }
+      }
+    },
+    {
+      "id": "fall_4_144",
+      "group": "fall",
+      "plain": 1837,
+      "arms": {
+        "r3": {
+          "paid": 2314,
+          "off": 2239,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 180
+        },
+        "delay4": {
+          "paid": 2393,
+          "off": 2298,
+          "admitted": true,
+          "observed": 16,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 538,
+          "clones": 164
+        },
+        "gate4": {
+          "paid": 1954,
+          "off": 1954,
+          "admitted": false,
+          "observed": 16,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate8": {
+          "paid": 2058,
+          "off": 2058,
+          "admitted": false,
+          "observed": 32,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 2218,
+          "off": 2218,
+          "admitted": false,
+          "observed": 52,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_4_144",
+      "group": "mixed",
+      "plain": 4933,
+      "arms": {
+        "r3": {
+          "paid": 3346,
+          "off": 5335,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1212
+        },
+        "delay4": {
+          "paid": 3461,
+          "off": 5394,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 1178
+        },
+        "gate4": {
+          "paid": 3560,
+          "off": 5493,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 1178
+        },
+        "gate8": {
+          "paid": 3744,
+          "off": 5629,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 1148
+        },
+        "gate16": {
+          "paid": 4112,
+          "off": 5901,
+          "admitted": true,
+          "observed": 124,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1477,
+          "clones": 1088
+        }
+      }
+    },
+    {
+      "id": "stable_8_6",
+      "group": "stable",
+      "plain": 199,
+      "arms": {
+        "r3": {
+          "paid": 526,
+          "off": 601,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 48
+        },
+        "delay4": {
+          "paid": 637,
+          "off": 660,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 16
+        },
+        "gate4": {
+          "paid": 736,
+          "off": 759,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 16
+        },
+        "gate8": {
+          "paid": 258,
+          "off": 258,
+          "admitted": false,
+          "observed": 48,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 258,
+          "off": 258,
+          "admitted": false,
+          "observed": 48,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_8_6",
+      "group": "rise",
+      "plain": 223,
+      "arms": {
+        "r3": {
+          "paid": 534,
+          "off": 625,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 56
+        },
+        "delay4": {
+          "paid": 645,
+          "off": 684,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 24
+        },
+        "gate4": {
+          "paid": 744,
+          "off": 783,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 24
+        },
+        "gate8": {
+          "paid": 282,
+          "off": 282,
+          "admitted": false,
+          "observed": 56,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 282,
+          "off": 282,
+          "admitted": false,
+          "observed": 56,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_8_6",
+      "group": "fall",
+      "plain": 178,
+      "arms": {
+        "r3": {
+          "paid": 519,
+          "off": 580,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 41
+        },
+        "delay4": {
+          "paid": 630,
+          "off": 639,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 9
+        },
+        "gate4": {
+          "paid": 729,
+          "off": 738,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 9
+        },
+        "gate8": {
+          "paid": 237,
+          "off": 237,
+          "admitted": false,
+          "observed": 41,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 237,
+          "off": 237,
+          "admitted": false,
+          "observed": 41,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_8_6",
+      "group": "mixed",
+      "plain": 220,
+      "arms": {
+        "r3": {
+          "paid": 533,
+          "off": 622,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 55
+        },
+        "delay4": {
+          "paid": 648,
+          "off": 681,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 21
+        },
+        "gate4": {
+          "paid": 747,
+          "off": 780,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 21
+        },
+        "gate8": {
+          "paid": 279,
+          "off": 279,
+          "admitted": false,
+          "observed": 55,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 279,
+          "off": 279,
+          "admitted": false,
+          "observed": 55,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_8_24",
+      "group": "stable",
+      "plain": 793,
+      "arms": {
+        "r3": {
+          "paid": 886,
+          "off": 1195,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 192
+        },
+        "delay4": {
+          "paid": 997,
+          "off": 1254,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 160
+        },
+        "gate4": {
+          "paid": 1096,
+          "off": 1353,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 160
+        },
+        "gate8": {
+          "paid": 1284,
+          "off": 1489,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 128
+        },
+        "gate16": {
+          "paid": 1660,
+          "off": 1761,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1489,
+          "clones": 64
+        }
+      }
+    },
+    {
+      "id": "rise_8_24",
+      "group": "rise",
+      "plain": 1081,
+      "arms": {
+        "r3": {
+          "paid": 982,
+          "off": 1483,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 288
+        },
+        "delay4": {
+          "paid": 1093,
+          "off": 1542,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 256
+        },
+        "gate4": {
+          "paid": 1192,
+          "off": 1641,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 256
+        },
+        "gate8": {
+          "paid": 1380,
+          "off": 1777,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 224
+        },
+        "gate16": {
+          "paid": 1820,
+          "off": 2049,
+          "admitted": true,
+          "observed": 160,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1585,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "fall_8_24",
+      "group": "fall",
+      "plain": 541,
+      "arms": {
+        "r3": {
+          "paid": 802,
+          "off": 943,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 108
+        },
+        "delay4": {
+          "paid": 913,
+          "off": 1002,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 76
+        },
+        "gate4": {
+          "paid": 1012,
+          "off": 1101,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 76
+        },
+        "gate8": {
+          "paid": 1200,
+          "off": 1237,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 44
+        },
+        "gate16": {
+          "paid": 1520,
+          "off": 1509,
+          "admitted": true,
+          "observed": 100,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1405,
+          "clones": 8
+        }
+      }
+    },
+    {
+      "id": "mixed_8_24",
+      "group": "mixed",
+      "plain": 817,
+      "arms": {
+        "r3": {
+          "paid": 894,
+          "off": 1219,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 200
+        },
+        "delay4": {
+          "paid": 1009,
+          "off": 1278,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 166
+        },
+        "gate4": {
+          "paid": 1108,
+          "off": 1377,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 166
+        },
+        "gate8": {
+          "paid": 1292,
+          "off": 1513,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 136
+        },
+        "gate16": {
+          "paid": 1692,
+          "off": 1785,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 60
+        }
+      }
+    },
+    {
+      "id": "stable_8_72",
+      "group": "stable",
+      "plain": 2377,
+      "arms": {
+        "r3": {
+          "paid": 1846,
+          "off": 2779,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 576
+        },
+        "delay4": {
+          "paid": 1957,
+          "off": 2838,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 544
+        },
+        "gate4": {
+          "paid": 2056,
+          "off": 2937,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 544
+        },
+        "gate8": {
+          "paid": 2244,
+          "off": 3073,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 512
+        },
+        "gate16": {
+          "paid": 2620,
+          "off": 3345,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1489,
+          "clones": 448
+        }
+      }
+    },
+    {
+      "id": "rise_8_72",
+      "group": "rise",
+      "plain": 3817,
+      "arms": {
+        "r3": {
+          "paid": 2326,
+          "off": 4219,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1056
+        },
+        "delay4": {
+          "paid": 2437,
+          "off": 4278,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 1024
+        },
+        "gate4": {
+          "paid": 2536,
+          "off": 4377,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 1024
+        },
+        "gate8": {
+          "paid": 2724,
+          "off": 4513,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 992
+        },
+        "gate16": {
+          "paid": 3164,
+          "off": 4785,
+          "admitted": true,
+          "observed": 160,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1585,
+          "clones": 896
+        }
+      }
+    },
+    {
+      "id": "fall_8_72",
+      "group": "fall",
+      "plain": 1117,
+      "arms": {
+        "r3": {
+          "paid": 1426,
+          "off": 1519,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 156
+        },
+        "delay4": {
+          "paid": 1537,
+          "off": 1578,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 124
+        },
+        "gate4": {
+          "paid": 1636,
+          "off": 1677,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 124
+        },
+        "gate8": {
+          "paid": 1824,
+          "off": 1813,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 92
+        },
+        "gate16": {
+          "paid": 2144,
+          "off": 2085,
+          "admitted": true,
+          "observed": 100,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1405,
+          "clones": 56
+        }
+      }
+    },
+    {
+      "id": "mixed_8_72",
+      "group": "mixed",
+      "plain": 2473,
+      "arms": {
+        "r3": {
+          "paid": 1878,
+          "off": 2875,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 608
+        },
+        "delay4": {
+          "paid": 1993,
+          "off": 2934,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 574
+        },
+        "gate4": {
+          "paid": 2092,
+          "off": 3033,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 574
+        },
+        "gate8": {
+          "paid": 2276,
+          "off": 3169,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 544
+        },
+        "gate16": {
+          "paid": 2676,
+          "off": 3441,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 468
+        }
+      }
+    },
+    {
+      "id": "stable_8_144",
+      "group": "stable",
+      "plain": 4753,
+      "arms": {
+        "r3": {
+          "paid": 3286,
+          "off": 5155,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1152
+        },
+        "delay4": {
+          "paid": 3397,
+          "off": 5214,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 1120
+        },
+        "gate4": {
+          "paid": 3496,
+          "off": 5313,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 1120
+        },
+        "gate8": {
+          "paid": 3684,
+          "off": 5449,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 1088
+        },
+        "gate16": {
+          "paid": 4060,
+          "off": 5721,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1489,
+          "clones": 1024
+        }
+      }
+    },
+    {
+      "id": "rise_8_144",
+      "group": "rise",
+      "plain": 7921,
+      "arms": {
+        "r3": {
+          "paid": 4342,
+          "off": 8323,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2208
+        },
+        "delay4": {
+          "paid": 4453,
+          "off": 8382,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 2176
+        },
+        "gate4": {
+          "paid": 4552,
+          "off": 8481,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 2176
+        },
+        "gate8": {
+          "paid": 4740,
+          "off": 8617,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 2144
+        },
+        "gate16": {
+          "paid": 5180,
+          "off": 8889,
+          "admitted": true,
+          "observed": 160,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1585,
+          "clones": 2048
+        }
+      }
+    },
+    {
+      "id": "fall_8_144",
+      "group": "fall",
+      "plain": 1981,
+      "arms": {
+        "r3": {
+          "paid": 2362,
+          "off": 2383,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 228
+        },
+        "delay4": {
+          "paid": 2473,
+          "off": 2442,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 586,
+          "clones": 196
+        },
+        "gate4": {
+          "paid": 2572,
+          "off": 2541,
+          "admitted": true,
+          "observed": 32,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 685,
+          "clones": 196
+        },
+        "gate8": {
+          "paid": 2760,
+          "off": 2677,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 164
+        },
+        "gate16": {
+          "paid": 3080,
+          "off": 2949,
+          "admitted": true,
+          "observed": 100,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1405,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "mixed_8_144",
+      "group": "mixed",
+      "plain": 4981,
+      "arms": {
+        "r3": {
+          "paid": 3362,
+          "off": 5383,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1228
+        },
+        "delay4": {
+          "paid": 3477,
+          "off": 5442,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 1194
+        },
+        "gate4": {
+          "paid": 3576,
+          "off": 5541,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 1194
+        },
+        "gate8": {
+          "paid": 3760,
+          "off": 5677,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 1164
+        },
+        "gate16": {
+          "paid": 4160,
+          "off": 5949,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 1088
+        }
+      }
+    },
+    {
+      "id": "stable_12_6",
+      "group": "stable",
+      "plain": 271,
+      "arms": {
+        "r3": {
+          "paid": 550,
+          "off": 673,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 72
+        },
+        "delay4": {
+          "paid": 693,
+          "off": 732,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 24
+        },
+        "gate4": {
+          "paid": 792,
+          "off": 831,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 24
+        },
+        "gate8": {
+          "paid": 330,
+          "off": 330,
+          "admitted": false,
+          "observed": 72,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 330,
+          "off": 330,
+          "admitted": false,
+          "observed": 72,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_12_6",
+      "group": "rise",
+      "plain": 283,
+      "arms": {
+        "r3": {
+          "paid": 554,
+          "off": 685,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 76
+        },
+        "delay4": {
+          "paid": 697,
+          "off": 744,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 28
+        },
+        "gate4": {
+          "paid": 796,
+          "off": 843,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 28
+        },
+        "gate8": {
+          "paid": 342,
+          "off": 342,
+          "admitted": false,
+          "observed": 76,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 342,
+          "off": 342,
+          "admitted": false,
+          "observed": 76,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_12_6",
+      "group": "fall",
+      "plain": 238,
+      "arms": {
+        "r3": {
+          "paid": 539,
+          "off": 640,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 61
+        },
+        "delay4": {
+          "paid": 682,
+          "off": 699,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 13
+        },
+        "gate4": {
+          "paid": 781,
+          "off": 798,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 13
+        },
+        "gate8": {
+          "paid": 297,
+          "off": 297,
+          "admitted": false,
+          "observed": 61,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 297,
+          "off": 297,
+          "admitted": false,
+          "observed": 61,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_12_6",
+      "group": "mixed",
+      "plain": 196,
+      "arms": {
+        "r3": {
+          "paid": 525,
+          "off": 598,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 47
+        },
+        "delay4": {
+          "paid": 640,
+          "off": 657,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 13
+        },
+        "gate4": {
+          "paid": 739,
+          "off": 756,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 13
+        },
+        "gate8": {
+          "paid": 255,
+          "off": 255,
+          "admitted": false,
+          "observed": 47,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 255,
+          "off": 255,
+          "admitted": false,
+          "observed": 47,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_12_24",
+      "group": "stable",
+      "plain": 1081,
+      "arms": {
+        "r3": {
+          "paid": 982,
+          "off": 1483,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 288
+        },
+        "delay4": {
+          "paid": 1125,
+          "off": 1542,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 240
+        },
+        "gate4": {
+          "paid": 1224,
+          "off": 1641,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 240
+        },
+        "gate8": {
+          "paid": 1444,
+          "off": 1777,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 192
+        },
+        "gate16": {
+          "paid": 1884,
+          "off": 2049,
+          "admitted": true,
+          "observed": 192,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1681,
+          "clones": 96
+        }
+      }
+    },
+    {
+      "id": "rise_12_24",
+      "group": "rise",
+      "plain": 1225,
+      "arms": {
+        "r3": {
+          "paid": 1030,
+          "off": 1627,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 336
+        },
+        "delay4": {
+          "paid": 1173,
+          "off": 1686,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 288
+        },
+        "gate4": {
+          "paid": 1272,
+          "off": 1785,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 288
+        },
+        "gate8": {
+          "paid": 1492,
+          "off": 1921,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 240
+        },
+        "gate16": {
+          "paid": 1964,
+          "off": 2193,
+          "admitted": true,
+          "observed": 208,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1729,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "fall_12_24",
+      "group": "fall",
+      "plain": 685,
+      "arms": {
+        "r3": {
+          "paid": 850,
+          "off": 1087,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 156
+        },
+        "delay4": {
+          "paid": 993,
+          "off": 1146,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 108
+        },
+        "gate4": {
+          "paid": 1092,
+          "off": 1245,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 108
+        },
+        "gate8": {
+          "paid": 1312,
+          "off": 1381,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 60
+        },
+        "gate16": {
+          "paid": 1664,
+          "off": 1653,
+          "admitted": true,
+          "observed": 148,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1549,
+          "clones": 8
+        }
+      }
+    },
+    {
+      "id": "mixed_12_24",
+      "group": "mixed",
+      "plain": 817,
+      "arms": {
+        "r3": {
+          "paid": 894,
+          "off": 1219,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 200
+        },
+        "delay4": {
+          "paid": 1009,
+          "off": 1278,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 166
+        },
+        "gate4": {
+          "paid": 1108,
+          "off": 1377,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 166
+        },
+        "gate8": {
+          "paid": 1292,
+          "off": 1513,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 136
+        },
+        "gate16": {
+          "paid": 1692,
+          "off": 1785,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 60
+        }
+      }
+    },
+    {
+      "id": "stable_12_72",
+      "group": "stable",
+      "plain": 3241,
+      "arms": {
+        "r3": {
+          "paid": 2134,
+          "off": 3643,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 864
+        },
+        "delay4": {
+          "paid": 2277,
+          "off": 3702,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 816
+        },
+        "gate4": {
+          "paid": 2376,
+          "off": 3801,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 816
+        },
+        "gate8": {
+          "paid": 2596,
+          "off": 3937,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 768
+        },
+        "gate16": {
+          "paid": 3036,
+          "off": 4209,
+          "admitted": true,
+          "observed": 192,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1681,
+          "clones": 672
+        }
+      }
+    },
+    {
+      "id": "rise_12_72",
+      "group": "rise",
+      "plain": 3961,
+      "arms": {
+        "r3": {
+          "paid": 2374,
+          "off": 4363,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1104
+        },
+        "delay4": {
+          "paid": 2517,
+          "off": 4422,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 1056
+        },
+        "gate4": {
+          "paid": 2616,
+          "off": 4521,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 1056
+        },
+        "gate8": {
+          "paid": 2836,
+          "off": 4657,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 1008
+        },
+        "gate16": {
+          "paid": 3308,
+          "off": 4929,
+          "admitted": true,
+          "observed": 208,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1729,
+          "clones": 896
+        }
+      }
+    },
+    {
+      "id": "fall_12_72",
+      "group": "fall",
+      "plain": 1261,
+      "arms": {
+        "r3": {
+          "paid": 1474,
+          "off": 1663,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 204
+        },
+        "delay4": {
+          "paid": 1617,
+          "off": 1722,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 156
+        },
+        "gate4": {
+          "paid": 1716,
+          "off": 1821,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 156
+        },
+        "gate8": {
+          "paid": 1936,
+          "off": 1957,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 108
+        },
+        "gate16": {
+          "paid": 2288,
+          "off": 2229,
+          "admitted": true,
+          "observed": 148,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1549,
+          "clones": 56
+        }
+      }
+    },
+    {
+      "id": "mixed_12_72",
+      "group": "mixed",
+      "plain": 2473,
+      "arms": {
+        "r3": {
+          "paid": 1878,
+          "off": 2875,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 608
+        },
+        "delay4": {
+          "paid": 1993,
+          "off": 2934,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 574
+        },
+        "gate4": {
+          "paid": 2092,
+          "off": 3033,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 574
+        },
+        "gate8": {
+          "paid": 2276,
+          "off": 3169,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 544
+        },
+        "gate16": {
+          "paid": 2676,
+          "off": 3441,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 468
+        }
+      }
+    },
+    {
+      "id": "stable_12_144",
+      "group": "stable",
+      "plain": 6481,
+      "arms": {
+        "r3": {
+          "paid": 3862,
+          "off": 6883,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1728
+        },
+        "delay4": {
+          "paid": 4005,
+          "off": 6942,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 1680
+        },
+        "gate4": {
+          "paid": 4104,
+          "off": 7041,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 1680
+        },
+        "gate8": {
+          "paid": 4324,
+          "off": 7177,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 1632
+        },
+        "gate16": {
+          "paid": 4764,
+          "off": 7449,
+          "admitted": true,
+          "observed": 192,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1681,
+          "clones": 1536
+        }
+      }
+    },
+    {
+      "id": "rise_12_144",
+      "group": "rise",
+      "plain": 8065,
+      "arms": {
+        "r3": {
+          "paid": 4390,
+          "off": 8467,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2256
+        },
+        "delay4": {
+          "paid": 4533,
+          "off": 8526,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 2208
+        },
+        "gate4": {
+          "paid": 4632,
+          "off": 8625,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 2208
+        },
+        "gate8": {
+          "paid": 4852,
+          "off": 8761,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 2160
+        },
+        "gate16": {
+          "paid": 5324,
+          "off": 9033,
+          "admitted": true,
+          "observed": 208,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1729,
+          "clones": 2048
+        }
+      }
+    },
+    {
+      "id": "fall_12_144",
+      "group": "fall",
+      "plain": 2125,
+      "arms": {
+        "r3": {
+          "paid": 2410,
+          "off": 2527,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 276
+        },
+        "delay4": {
+          "paid": 2553,
+          "off": 2586,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 634,
+          "clones": 228
+        },
+        "gate4": {
+          "paid": 2652,
+          "off": 2685,
+          "admitted": true,
+          "observed": 48,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 733,
+          "clones": 228
+        },
+        "gate8": {
+          "paid": 2872,
+          "off": 2821,
+          "admitted": true,
+          "observed": 96,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1049,
+          "clones": 180
+        },
+        "gate16": {
+          "paid": 3224,
+          "off": 3093,
+          "admitted": true,
+          "observed": 148,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1549,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "mixed_12_144",
+      "group": "mixed",
+      "plain": 4981,
+      "arms": {
+        "r3": {
+          "paid": 3362,
+          "off": 5383,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1228
+        },
+        "delay4": {
+          "paid": 3477,
+          "off": 5442,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 1194
+        },
+        "gate4": {
+          "paid": 3576,
+          "off": 5541,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 1194
+        },
+        "gate8": {
+          "paid": 3760,
+          "off": 5677,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 953,
+          "clones": 1164
+        },
+        "gate16": {
+          "paid": 4160,
+          "off": 5949,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 1088
+        }
+      }
+    },
+    {
+      "id": "stable_16_6",
+      "group": "stable",
+      "plain": 343,
+      "arms": {
+        "r3": {
+          "paid": 574,
+          "off": 745,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 96
+        },
+        "delay4": {
+          "paid": 749,
+          "off": 804,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 32
+        },
+        "gate4": {
+          "paid": 848,
+          "off": 903,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 32
+        },
+        "gate8": {
+          "paid": 402,
+          "off": 402,
+          "admitted": false,
+          "observed": 96,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 402,
+          "off": 402,
+          "admitted": false,
+          "observed": 96,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "rise_16_6",
+      "group": "rise",
+      "plain": 343,
+      "arms": {
+        "r3": {
+          "paid": 574,
+          "off": 745,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 96
+        },
+        "delay4": {
+          "paid": 749,
+          "off": 804,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 32
+        },
+        "gate4": {
+          "paid": 848,
+          "off": 903,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 32
+        },
+        "gate8": {
+          "paid": 402,
+          "off": 402,
+          "admitted": false,
+          "observed": 96,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 402,
+          "off": 402,
+          "admitted": false,
+          "observed": 96,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "fall_16_6",
+      "group": "fall",
+      "plain": 298,
+      "arms": {
+        "r3": {
+          "paid": 559,
+          "off": 700,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 81
+        },
+        "delay4": {
+          "paid": 734,
+          "off": 759,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 17
+        },
+        "gate4": {
+          "paid": 833,
+          "off": 858,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 17
+        },
+        "gate8": {
+          "paid": 357,
+          "off": 357,
+          "admitted": false,
+          "observed": 81,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 357,
+          "off": 357,
+          "admitted": false,
+          "observed": 81,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "mixed_16_6",
+      "group": "mixed",
+      "plain": 220,
+      "arms": {
+        "r3": {
+          "paid": 533,
+          "off": 622,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 55
+        },
+        "delay4": {
+          "paid": 648,
+          "off": 681,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 21
+        },
+        "gate4": {
+          "paid": 747,
+          "off": 780,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 21
+        },
+        "gate8": {
+          "paid": 279,
+          "off": 279,
+          "admitted": false,
+          "observed": 55,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        },
+        "gate16": {
+          "paid": 279,
+          "off": 279,
+          "admitted": false,
+          "observed": 55,
+          "nodes": 136,
+          "peak": 142,
+          "exposure": null,
+          "clones": 0
+        }
+      }
+    },
+    {
+      "id": "stable_16_24",
+      "group": "stable",
+      "plain": 1369,
+      "arms": {
+        "r3": {
+          "paid": 1078,
+          "off": 1771,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 384
+        },
+        "delay4": {
+          "paid": 1253,
+          "off": 1830,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 320
+        },
+        "gate4": {
+          "paid": 1352,
+          "off": 1929,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 320
+        },
+        "gate8": {
+          "paid": 1604,
+          "off": 2065,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 256
+        },
+        "gate16": {
+          "paid": 2108,
+          "off": 2337,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "rise_16_24",
+      "group": "rise",
+      "plain": 1369,
+      "arms": {
+        "r3": {
+          "paid": 1078,
+          "off": 1771,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 384
+        },
+        "delay4": {
+          "paid": 1253,
+          "off": 1830,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 320
+        },
+        "gate4": {
+          "paid": 1352,
+          "off": 1929,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 320
+        },
+        "gate8": {
+          "paid": 1604,
+          "off": 2065,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 256
+        },
+        "gate16": {
+          "paid": 2108,
+          "off": 2337,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "fall_16_24",
+      "group": "fall",
+      "plain": 829,
+      "arms": {
+        "r3": {
+          "paid": 898,
+          "off": 1231,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 204
+        },
+        "delay4": {
+          "paid": 1073,
+          "off": 1290,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 140
+        },
+        "gate4": {
+          "paid": 1172,
+          "off": 1389,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 140
+        },
+        "gate8": {
+          "paid": 1424,
+          "off": 1525,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 76
+        },
+        "gate16": {
+          "paid": 1808,
+          "off": 1797,
+          "admitted": true,
+          "observed": 196,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1693,
+          "clones": 8
+        }
+      }
+    },
+    {
+      "id": "mixed_16_24",
+      "group": "mixed",
+      "plain": 865,
+      "arms": {
+        "r3": {
+          "paid": 910,
+          "off": 1267,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 216
+        },
+        "delay4": {
+          "paid": 1025,
+          "off": 1326,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 182
+        },
+        "gate4": {
+          "paid": 1124,
+          "off": 1425,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 182
+        },
+        "gate8": {
+          "paid": 1340,
+          "off": 1561,
+          "admitted": true,
+          "observed": 80,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1001,
+          "clones": 136
+        },
+        "gate16": {
+          "paid": 1708,
+          "off": 1833,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 76
+        }
+      }
+    },
+    {
+      "id": "stable_16_72",
+      "group": "stable",
+      "plain": 4105,
+      "arms": {
+        "r3": {
+          "paid": 2422,
+          "off": 4507,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1152
+        },
+        "delay4": {
+          "paid": 2597,
+          "off": 4566,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 1088
+        },
+        "gate4": {
+          "paid": 2696,
+          "off": 4665,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 1088
+        },
+        "gate8": {
+          "paid": 2948,
+          "off": 4801,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 1024
+        },
+        "gate16": {
+          "paid": 3452,
+          "off": 5073,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 896
+        }
+      }
+    },
+    {
+      "id": "rise_16_72",
+      "group": "rise",
+      "plain": 4105,
+      "arms": {
+        "r3": {
+          "paid": 2422,
+          "off": 4507,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1152
+        },
+        "delay4": {
+          "paid": 2597,
+          "off": 4566,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 1088
+        },
+        "gate4": {
+          "paid": 2696,
+          "off": 4665,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 1088
+        },
+        "gate8": {
+          "paid": 2948,
+          "off": 4801,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 1024
+        },
+        "gate16": {
+          "paid": 3452,
+          "off": 5073,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 896
+        }
+      }
+    },
+    {
+      "id": "fall_16_72",
+      "group": "fall",
+      "plain": 1405,
+      "arms": {
+        "r3": {
+          "paid": 1522,
+          "off": 1807,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 252
+        },
+        "delay4": {
+          "paid": 1697,
+          "off": 1866,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 188
+        },
+        "gate4": {
+          "paid": 1796,
+          "off": 1965,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 188
+        },
+        "gate8": {
+          "paid": 2048,
+          "off": 2101,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 124
+        },
+        "gate16": {
+          "paid": 2432,
+          "off": 2373,
+          "admitted": true,
+          "observed": 196,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1693,
+          "clones": 56
+        }
+      }
+    },
+    {
+      "id": "mixed_16_72",
+      "group": "mixed",
+      "plain": 2521,
+      "arms": {
+        "r3": {
+          "paid": 1894,
+          "off": 2923,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 624
+        },
+        "delay4": {
+          "paid": 2009,
+          "off": 2982,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 590
+        },
+        "gate4": {
+          "paid": 2108,
+          "off": 3081,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 590
+        },
+        "gate8": {
+          "paid": 2324,
+          "off": 3217,
+          "admitted": true,
+          "observed": 80,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1001,
+          "clones": 544
+        },
+        "gate16": {
+          "paid": 2692,
+          "off": 3489,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 484
+        }
+      }
+    },
+    {
+      "id": "stable_16_144",
+      "group": "stable",
+      "plain": 8209,
+      "arms": {
+        "r3": {
+          "paid": 4438,
+          "off": 8611,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2304
+        },
+        "delay4": {
+          "paid": 4613,
+          "off": 8670,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 2240
+        },
+        "gate4": {
+          "paid": 4712,
+          "off": 8769,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 2240
+        },
+        "gate8": {
+          "paid": 4964,
+          "off": 8905,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 2176
+        },
+        "gate16": {
+          "paid": 5468,
+          "off": 9177,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 2048
+        }
+      }
+    },
+    {
+      "id": "rise_16_144",
+      "group": "rise",
+      "plain": 8209,
+      "arms": {
+        "r3": {
+          "paid": 4438,
+          "off": 8611,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 2304
+        },
+        "delay4": {
+          "paid": 4613,
+          "off": 8670,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 2240
+        },
+        "gate4": {
+          "paid": 4712,
+          "off": 8769,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 2240
+        },
+        "gate8": {
+          "paid": 4964,
+          "off": 8905,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 2176
+        },
+        "gate16": {
+          "paid": 5468,
+          "off": 9177,
+          "admitted": true,
+          "observed": 256,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1873,
+          "clones": 2048
+        }
+      }
+    },
+    {
+      "id": "fall_16_144",
+      "group": "fall",
+      "plain": 2269,
+      "arms": {
+        "r3": {
+          "paid": 2458,
+          "off": 2671,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 324
+        },
+        "delay4": {
+          "paid": 2633,
+          "off": 2730,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 682,
+          "clones": 260
+        },
+        "gate4": {
+          "paid": 2732,
+          "off": 2829,
+          "admitted": true,
+          "observed": 64,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 781,
+          "clones": 260
+        },
+        "gate8": {
+          "paid": 2984,
+          "off": 2965,
+          "admitted": true,
+          "observed": 128,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1145,
+          "clones": 196
+        },
+        "gate16": {
+          "paid": 3368,
+          "off": 3237,
+          "admitted": true,
+          "observed": 196,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1693,
+          "clones": 128
+        }
+      }
+    },
+    {
+      "id": "mixed_16_144",
+      "group": "mixed",
+      "plain": 4981,
+      "arms": {
+        "r3": {
+          "paid": 3362,
+          "off": 5383,
+          "admitted": true,
+          "observed": null,
+          "nodes": 116,
+          "peak": 127,
+          "exposure": 395,
+          "clones": 1228
+        },
+        "delay4": {
+          "paid": 3477,
+          "off": 5442,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 145,
+          "peak": 158,
+          "exposure": 592,
+          "clones": 1194
+        },
+        "gate4": {
+          "paid": 3576,
+          "off": 5541,
+          "admitted": true,
+          "observed": 34,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 691,
+          "clones": 1194
+        },
+        "gate8": {
+          "paid": 3792,
+          "off": 5677,
+          "admitted": true,
+          "observed": 80,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1001,
+          "clones": 1148
+        },
+        "gate16": {
+          "paid": 4160,
+          "off": 5949,
+          "admitted": true,
+          "observed": 140,
+          "nodes": 152,
+          "peak": 165,
+          "exposure": 1525,
+          "clones": 1088
+        }
+      }
+    }
+  ]
+}
