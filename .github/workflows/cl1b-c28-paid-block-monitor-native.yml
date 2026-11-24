@@ -1,0 +1,38 @@
+name: CL-1B C28 frozen paid production-block monitoring native
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cl0/crates/world/tests/cl1b_c28_paid_block_monitor_native.rs'
+      - 'cl1b/studies/CL1B-C28-PAID-BLOCK-MONITOR-frozen-60-worlds-v1.json'
+      - 'cl1b/audits/cl1b_c28_paid_block_monitor_replay.py'
+      - '.github/workflows/cl1b-c28-paid-block-monitor-native.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-and-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cl0
+      - name: Execute all frozen native worlds
+        working-directory: cl0
+        run: |
+          set -euo pipefail
+          mkdir -p cl1b-c28-evidence
+          cargo test --locked -p cl0-world --test cl1b_c28_paid_block_monitor_native -- --nocapture 2>&1 | tee cl1b-c28-evidence/native.log
+      - name: Independent charged CIL replay and matched causal prefix
+        run: |
+          set -euo pipefail
+          python3 cl1b/audits/cl1b_c28_paid_block_monitor_replay.py cl1b/studies/CL1B-C28-PAID-BLOCK-MONITOR-frozen-60-worlds-v1.json cl0/cl1b-c28-evidence > cl0/cl1b-c28-evidence/replay.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cl1b-c28-frozen-60-worlds-native
+          path: cl0/cl1b-c28-evidence/
+          if-no-files-found: warn
