@@ -1,0 +1,117 @@
+name: CL-1B preserve C29 original 80 paired arithmetic worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c29-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c29-original-evidence
+  cancel-in-progress: false
+jobs:
+  verify-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ad3e3e196953e85132e2a13d7a988150814f90d1
+          persist-credentials: true
+      - name: Verify original native artifact and independently replay exact original events
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c29/extracted
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            'https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14894165059/zip' \
+            -o /tmp/cl1b-c29/original-native-artifact.zip
+          echo 'c4657168a664f04c6fdaa137bbba1c23d8c77868e9c11ebdfb7570a4eb5add6c  /tmp/cl1b-c29/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import zipfile,json
+          from pathlib import Path
+          p=Path('/tmp/cl1b-c29')
+          with zipfile.ZipFile(p/'original-native-artifact.zip') as z:
+              names=z.namelist()
+              assert len(names)==len(set(names)) and z.testzip() is None
+              assert all('/' not in n and '..' not in n for n in names)
+              assert sum(n.endswith('.jsonl') for n in names)==80
+              s=json.loads(z.read('summary.json')); r=json.loads(z.read('replay.json'))
+              assert s['tested_sha']=='ad3e3e196953e85132e2a13d7a988150814f90d1'
+              assert s['study']==r['study']=='CL1B-C29-PAIRED-ARITHMETIC-NATIVE'
+              assert len(s['rows'])==80 and r['replayed']==80 and r['first_divergence'] is None
+              assert len(r['pairs'])==32
+              z.extractall(p/'extracted')
+          PY
+          python3 cl1b/audits/cl1b_c29_paired_arithmetic_replay.py cl1b/studies/CL1B-C29-PAIRED-ARITHMETIC-frozen-80-worlds-v1.json /tmp/cl1b-c29/extracted > /tmp/cl1b-c29/replay-reverified.json
+          cmp /tmp/cl1b-c29/replay-reverified.json /tmp/cl1b-c29/extracted/replay.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          p=Path('/tmp/cl1b-c29')
+          s=json.loads((p/'extracted/summary.json').read_text())
+          r=json.loads((p/'extracted/replay.json').read_text())
+          a={}
+          for x in r['pairs']:
+              key=x['cohort']+'_'+x['policy']
+              q=a.setdefault(key,{'n':0,'economic':0,'physical':0,'wins':0,'ties':0,'losses':0})
+              q['n']+=1;q['economic']+=x['economic_saving'];q['physical']+=x['physical_saving']
+              q['mismatched_inputs']=q.get('mismatched_inputs',0)+x['mismatched_inputs']
+              q['equal_output_mismatched_inputs']=q.get('equal_output_mismatched_inputs',0)+x['equal_output_mismatched_inputs']
+              q['wins' if x['economic_saving']>0 else 'losses' if x['economic_saving']<0 else 'ties']+=1
+          result={'tested_sha':s['tested_sha'],'worlds':len(s['rows']),'paid':sum(x['paid'] for x in s['rows']),'production':sum(x['production'] for x in s['rows']),'trials':sum(x['trials'] for x in s['rows']),'aggregate':a,'pairs':r['pairs'],'world_rows':s['rows'],'B3_B4':'NOT_MET'}
+          (p/'economic-summary.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('C29_AGGREGATE '+json.dumps({k:v for k,v in result.items() if k not in ['pairs','world_rows']}))
+          for x in r['pairs']: print('C29_PAIR '+json.dumps(x))
+          for x in s['rows']: print('C29_WORLD '+json.dumps(x))
+          PY
+      - name: Preserve original ZIP and derived summaries on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/ad3e3e196953e85132e2a13d7a988150814f90d1-45334638426-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c29/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          cp /tmp/cl1b-c29/economic-summary.json "$dest/economic-summary.json"
+          echo 'c4657168a664f04c6fdaa137bbba1c23d8c77868e9c11ebdfb7570a4eb5add6c  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C29 original 80-world paired arithmetic evidence
+          - Tested SHA: ad3e3e196953e85132e2a13d7a988150814f90d1
+          - Original native and independent replay run: https://github.com/iFrankStudio/cioc/actions/runs/45334638426
+          - Original artifact: 14894165059
+          - ZIP SHA256: c4657168a664f04c6fdaa137bbba1c23d8c77868e9c11ebdfb7570a4eb5add6c
+          - Exact original native traces, summary and independent replay. Additional economic-summary.json derived from original artifact after exact replay verification.
+          - 4 known calibration and 12 prospective selected schedules; B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C29 exact original 80 native worlds and economic summary'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          fi
+      - name: Re-read archive from remote and verify original bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/ad3e3e196953e85132e2a13d7a988150814f90d1-45334638426-1'
+          test "$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)" = 'c4657168a664f04c6fdaa137bbba1c23d8c77868e9c11ebdfb7570a4eb5add6c'
+          git show "FETCH_HEAD:$dest/economic-summary.json" | cmp - /tmp/cl1b-c29/economic-summary.json
+          echo 'C29 archive byte verification PASS'
