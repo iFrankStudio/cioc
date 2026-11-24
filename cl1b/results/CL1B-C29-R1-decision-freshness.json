@@ -1,0 +1,8149 @@
+{
+  "tier": "RETROSPECTIVE_NON_NATIVE_MODEL",
+  "rows": [
+    {
+      "id": "cal_swap",
+      "cohort": "calibration",
+      "original": {
+        "paid": 2109,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2543,
+        "prod": 48,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 1347,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 1347,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 1512,
+        "prod": 48,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 1512,
+        "prod": 48,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 1391,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 1391,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              2,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 47,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              2,
+              12
+            ],
+            "live": [
+              2,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "cal_different",
+      "cohort": "calibration",
+      "original": {
+        "paid": 1627,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 1535,
+        "prod": 48,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 1441,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 1441,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 1556,
+        "prod": 48,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 1556,
+        "prod": 48,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 1485,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 1485,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              3,
+              5
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 26,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              3,
+              5
+            ],
+            "live": [
+              3,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "cal_flip",
+      "cohort": "calibration",
+      "original": {
+        "paid": 2591,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 5157,
+        "prod": 96,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 2615,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            false
+          ],
+          [
+            24,
+            161,
+            150,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 3537,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 2621,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ],
+          [
+            24,
+            168,
+            157,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 3543,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 2617,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            false
+          ],
+          [
+            24,
+            174,
+            163,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 3526,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 59,
+            "b": 17,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              16,
+              2
+            ],
+            "live": [
+              16,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 59,
+            "outputs": [
+              32,
+              32
+            ],
+            "snapshot": [
+              2,
+              16
+            ],
+            "live": [
+              2,
+              16
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cal_stable",
+      "cohort": "calibration",
+      "original": {
+        "paid": 1385,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 1103,
+        "prod": 48,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 1409,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 2851,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            true
+          ],
+          [
+            24,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 1415,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 2857,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ],
+          [
+            24,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 1398,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 2853,
+        "prod": 48,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 17,
+            "outputs": [
+              24,
+              24
+            ],
+            "snapshot": [
+              12,
+              2
+            ],
+            "live": [
+              12,
+              2
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            true
+          ],
+          [
+            24,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_equal",
+      "cohort": "prospective",
+      "original": {
+        "paid": 3033,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "once": {
+        "paid": 2734,
+        "prod": 64,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "guard": {
+        "paid": 3057,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 3057,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "retry": {
+        "paid": 3063,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 3063,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "selective": {
+        "paid": 3033,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 3033,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 38,
+            "b": 38,
+            "outputs": [
+              81,
+              81
+            ],
+            "snapshot": [
+              9,
+              9
+            ],
+            "live": [
+              9,
+              9
+            ]
+          }
+        ],
+        "decisions": [],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_stable_a",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2195,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "once": {
+        "paid": 1819,
+        "prod": 72,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guard": {
+        "paid": 2219,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 2219,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 2225,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 2225,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 2195,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 2195,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 56,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              3,
+              15
+            ],
+            "live": [
+              3,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_stable_b",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2193,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 1819,
+        "prod": 72,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 2217,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 4811,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            true
+          ],
+          [
+            24,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 2223,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 4817,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ],
+          [
+            24,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 2206,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 4813,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 56,
+            "b": 20,
+            "outputs": [
+              45,
+              45
+            ],
+            "snapshot": [
+              15,
+              3
+            ],
+            "live": [
+              15,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            true
+          ],
+          [
+            24,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_small_flip",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2704,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2537,
+        "prod": 78,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guard": {
+        "paid": 2728,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 2890,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 2734,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            157,
+            168,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 2896,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 2717,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 2879,
+        "prod": 78,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 29,
+            "b": 26,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              6,
+              5
+            ],
+            "live": [
+              6,
+              5
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_large_flip",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2255,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 4593,
+        "prod": 90,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 2279,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            false
+          ],
+          [
+            24,
+            161,
+            150,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 3033,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 2285,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ],
+          [
+            24,
+            168,
+            157,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 3039,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 2281,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            false
+          ],
+          [
+            24,
+            174,
+            163,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 3022,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 14,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              15,
+              1
+            ],
+            "live": [
+              15,
+              1
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_late",
+      "cohort": "prospective",
+      "original": {
+        "paid": 4689,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "once": {
+        "paid": 4257,
+        "prod": 90,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guard": {
+        "paid": 4713,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 4713,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 4719,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 4719,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 4689,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 4689,
+        "prod": 90,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 14,
+            "b": 56,
+            "outputs": [
+              15,
+              15
+            ],
+            "snapshot": [
+              1,
+              15
+            ],
+            "live": [
+              1,
+              15
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_twice",
+      "cohort": "prospective",
+      "original": {
+        "paid": 4325,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 3948,
+        "prod": 96,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 4349,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            false
+          ],
+          [
+            24,
+            161,
+            150,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 4413,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 4355,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ],
+          [
+            24,
+            168,
+            157,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 4419,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 4351,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            false
+          ],
+          [
+            24,
+            174,
+            163,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 4402,
+        "prod": 96,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 20,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              14,
+              3
+            ],
+            "live": [
+              14,
+              3
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              3,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_transient",
+      "cohort": "prospective",
+      "original": {
+        "paid": 3591,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2181,
+        "prod": 72,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guard": {
+        "paid": 3615,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 2559,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 3621,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            157,
+            168,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 2565,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 3604,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 2548,
+        "prod": 72,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 47,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              4,
+              12
+            ],
+            "live": [
+              4,
+              12
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 47,
+            "b": 23,
+            "outputs": [
+              48,
+              48
+            ],
+            "snapshot": [
+              12,
+              4
+            ],
+            "live": [
+              12,
+              4
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "new_same_product_swap",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2649,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 3741,
+        "prod": 64,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 1735,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 1735,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 1914,
+        "prod": 64,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 1914,
+        "prod": 64,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 1787,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 1787,
+        "prod": 64,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 53,
+            "b": 17,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              14,
+              2
+            ],
+            "live": [
+              2,
+              14
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 17,
+            "b": 53,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              2,
+              14
+            ],
+            "live": [
+              2,
+              14
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_same_product_factor",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2445,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2276,
+        "prod": 66,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 2319,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 2319,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 2439,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 2439,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 2375,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 2375,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 56,
+            "b": 17,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              15,
+              2
+            ],
+            "live": [
+              5,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 26,
+            "b": 29,
+            "outputs": [
+              30,
+              30
+            ],
+            "snapshot": [
+              5,
+              6
+            ],
+            "live": [
+              5,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_different_product",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2384,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ],
+          [
+            24,
+            148,
+            137,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2459,
+        "prod": 66,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "guard": {
+        "paid": 2126,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guardOff": {
+        "paid": 2126,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retry": {
+        "paid": 2254,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "retryOff": {
+        "paid": 2254,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selective": {
+        "paid": 2170,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "selectiveOff": {
+        "paid": 2170,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 50,
+            "b": 20,
+            "outputs": [
+              39,
+              39
+            ],
+            "snapshot": [
+              13,
+              3
+            ],
+            "live": [
+              4,
+              7
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 23,
+            "b": 32,
+            "outputs": [
+              28,
+              28
+            ],
+            "snapshot": [
+              4,
+              7
+            ],
+            "live": [
+              4,
+              7
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "a"
+          ]
+        ],
+        "edits": []
+      }
+    },
+    {
+      "id": "new_same_product_reverse",
+      "cohort": "prospective",
+      "original": {
+        "paid": 2639,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 179,
+        "nodes": 167,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            137,
+            148,
+            false
+          ]
+        ]
+      },
+      "once": {
+        "paid": 2466,
+        "prod": 66,
+        "trial": 2,
+        "paired": 1,
+        "invalid": 0,
+        "peak": 176,
+        "nodes": 164,
+        "probes": [
+          0
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "edits": []
+      },
+      "guard": {
+        "paid": 2595,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            false
+          ]
+        ]
+      },
+      "guardOff": {
+        "paid": 2721,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 192,
+        "nodes": 180,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            150,
+            161,
+            true
+          ]
+        ]
+      },
+      "retry": {
+        "paid": 2647,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            false
+          ]
+        ]
+      },
+      "retryOff": {
+        "paid": 2847,
+        "prod": 66,
+        "trial": 6,
+        "paired": 3,
+        "invalid": 0,
+        "peak": 200,
+        "nodes": 187,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 0,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "b"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            0,
+            157,
+            168,
+            true
+          ],
+          [
+            24,
+            157,
+            168,
+            true
+          ]
+        ]
+      },
+      "selective": {
+        "paid": 2652,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            false
+          ]
+        ]
+      },
+      "selectiveOff": {
+        "paid": 2778,
+        "prod": 66,
+        "trial": 4,
+        "paired": 2,
+        "invalid": 0,
+        "peak": 205,
+        "nodes": 193,
+        "probes": [
+          0,
+          24
+        ],
+        "measurements": [
+          {
+            "stage": 0,
+            "a": 20,
+            "b": 53,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              3,
+              14
+            ],
+            "live": [
+              7,
+              6
+            ]
+          },
+          {
+            "stage": 24,
+            "a": 32,
+            "b": 29,
+            "outputs": [
+              42,
+              42
+            ],
+            "snapshot": [
+              7,
+              6
+            ],
+            "live": [
+              7,
+              6
+            ]
+          }
+        ],
+        "decisions": [
+          [
+            0,
+            "a"
+          ],
+          [
+            24,
+            "b"
+          ]
+        ],
+        "edits": [
+          [
+            24,
+            163,
+            174,
+            true
+          ]
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "guard": {
+      "nodes": 180,
+      "peak": 192,
+      "net": 878,
+      "physical": 2644,
+      "wins": 3
+    },
+    "retry": {
+      "nodes": 187,
+      "peak": 200,
+      "net": 351,
+      "physical": 2718,
+      "wins": 3
+    },
+    "selective": {
+      "nodes": 193,
+      "peak": 205,
+      "net": 770,
+      "physical": 2631,
+      "wins": 3
+    }
+  }
+}
