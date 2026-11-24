@@ -1,0 +1,116 @@
+name: CL-1B preserve C30 R3 original 51 compiled entry worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c30-r3-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c30-r3-original-evidence
+  cancel-in-progress: false
+jobs:
+  verify-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d3eaecd6cfa735e79542a10d2fc2999c70a768f4
+          persist-credentials: true
+      - name: Verify original native artifact and independently replay exact original events
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c30-r3/extracted
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            'https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14920195850/zip' \
+            -o /tmp/cl1b-c30-r3/original-native-artifact.zip
+          echo 'c4721154041b5e9dfb70ab50e030b7882c536bb0aafa5167800e90b9e7e5326c  /tmp/cl1b-c30-r3/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import zipfile,json
+          from pathlib import Path
+          p=Path('/tmp/cl1b-c30-r3')
+          with zipfile.ZipFile(p/'original-native-artifact.zip') as z:
+              names=z.namelist()
+              assert len(names)==len(set(names)) and z.testzip() is None
+              assert all('/' not in n and '..' not in n for n in names)
+              assert sum(n.endswith('.jsonl') for n in names)==51
+              s=json.loads(z.read('summary.json')); r=json.loads(z.read('replay.json'))
+              assert s['tested_sha']=='d3eaecd6cfa735e79542a10d2fc2999c70a768f4'
+              assert s['study']==r['study']=='CL1B-C30-R3-COMPILED-ENTRY-NATIVE'
+              assert len(s['rows'])==51 and r['replayed']==51 and r['first_divergence'] is None
+              assert len(r['pairs'])==17
+              z.extractall(p/'extracted')
+          PY
+          python3 cl1b/audits/cl1b_c30_r3_compiled_entry_replay.py cl1b/studies/CL1B-C30-R3-COMPILED-ENTRY-frozen-51-worlds-v1.json /tmp/cl1b-c30-r3/extracted > /tmp/cl1b-c30-r3/replay-reverified.json
+          cmp /tmp/cl1b-c30-r3/replay-reverified.json /tmp/cl1b-c30-r3/extracted/replay.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          p=Path('/tmp/cl1b-c30-r3')
+          s=json.loads((p/'extracted/summary.json').read_text())
+          r=json.loads((p/'extracted/replay.json').read_text())
+          a={}
+          for x in r['pairs']:
+              key=x['cohort']
+              q=a.setdefault(key,{'n':0,'economic':0,'physical':0,'wins':0,'ties':0,'losses':0,'clone_production_steps':0})
+              q['n']+=1;q['economic']+=x['economic_saving'];q['physical']+=x['physical_saving'];q['clone_production_steps']+=x['clone_production_steps']
+              q['wins' if x['economic_saving']>0 else 'losses' if x['economic_saving']<0 else 'ties']+=1
+          assert all(x['clone_production_steps']>0 for x in s['rows'] if x['arm']=='on')
+          result={'tested_sha':s['tested_sha'],'worlds':len(s['rows']),'paid':sum(x['paid'] for x in s['rows']),'production':sum(x['production'] for x in s['rows']),'trials':sum(len(x['trials']) for x in s['rows']),'new_nodes':sum(len(x['clones']) for x in s['rows']),'clone_trial_steps':sum(x['clone_trial_steps'] for x in s['rows']),'clone_production_steps':sum(x['clone_production_steps'] for x in s['rows']),'peak_occupied':max(x['peak_occupied'] for x in s['rows']),'max_nodes':max(x['nodes'] for x in s['rows']),'aggregate':a,'pairs':r['pairs'],'world_rows':s['rows'],'B3_B4':'NOT_MET'}
+          (p/'economic-summary.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('C30 R3_AGGREGATE '+json.dumps({k:v for k,v in result.items() if k not in ['pairs','world_rows']}))
+          for x in r['pairs']: print('C30 R3_PAIR '+json.dumps(x))
+          for x in s['rows']: print('C30 R3_WORLD '+json.dumps(x))
+          PY
+      - name: Preserve original ZIP and derived summaries on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/d3eaecd6cfa735e79542a10d2fc2999c70a768f4-45392748100-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c30-r3/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          cp /tmp/cl1b-c30-r3/economic-summary.json "$dest/economic-summary.json"
+          echo 'c4721154041b5e9dfb70ab50e030b7882c536bb0aafa5167800e90b9e7e5326c  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C30 R3 original 51-world compiled entry evidence
+          - Tested SHA: d3eaecd6cfa735e79542a10d2fc2999c70a768f4
+          - Original native and independent replay run: https://github.com/iFrankStudio/cioc/actions/runs/45392748100
+          - Original artifact: 14920195850
+          - ZIP SHA256: c4721154041b5e9dfb70ab50e030b7882c536bb0aafa5167800e90b9e7e5326c
+          - Exact original native traces, summary and independent replay. Additional economic-summary.json derived from original artifact after exact replay verification.
+          - 4 known calibration, 12 prospective and one domain check (3 arms each); B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C30 R3 exact original 51 native worlds and economic summary'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          fi
+      - name: Re-read archive from remote and verify original bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/d3eaecd6cfa735e79542a10d2fc2999c70a768f4-45392748100-1'
+          test "$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)" = 'c4721154041b5e9dfb70ab50e030b7882c536bb0aafa5167800e90b9e7e5326c'
+          git show "FETCH_HEAD:$dest/economic-summary.json" | cmp - /tmp/cl1b-c30-r3/economic-summary.json
+          echo 'C30 R3 archive byte verification PASS'
