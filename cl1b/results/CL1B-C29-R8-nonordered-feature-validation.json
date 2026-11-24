@@ -1,0 +1,1116 @@
+{
+  "tier": "NON_NATIVE_LEARNING_COMPONENT_MODEL",
+  "summary": {
+    "grid": {
+      "cross": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 177,
+          "peak": 190,
+          "paid": 93108,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 205,
+          "peak": 222,
+          "paid": 96783,
+          "net": -3675,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 192,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 209,
+          "peak": 226,
+          "paid": 112021,
+          "net": -18913,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 319,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 207,
+          "peak": 224,
+          "paid": 166944,
+          "net": -73836,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 768,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 209,
+          "peak": 242,
+          "paid": 98127,
+          "net": -5019,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 192,
+          "revoked": 0,
+          "verifiedCells": 16
+        }
+      },
+      "unroll": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 183,
+          "peak": 196,
+          "paid": 91464,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 211,
+          "peak": 228,
+          "paid": 99312,
+          "net": -7848,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 215,
+          "peak": 232,
+          "paid": 99312,
+          "net": -7848,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 213,
+          "peak": 230,
+          "paid": 99312,
+          "net": -7848,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 215,
+          "peak": 232,
+          "paid": 99312,
+          "net": -7848,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        }
+      },
+      "switch5": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 96516,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 100503,
+          "net": -3987,
+          "errors": 24,
+          "signErrors": 6,
+          "audits": 127,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 95429,
+          "net": 1087,
+          "errors": 22,
+          "signErrors": 5,
+          "audits": 84,
+          "revoked": 6,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 115391,
+          "net": -18875,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 130,
+          "revoked": 12,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 251,
+          "paid": 111173,
+          "net": -14657,
+          "errors": 6,
+          "signErrors": 2,
+          "audits": 120,
+          "revoked": 10,
+          "verifiedCells": 16
+        }
+      },
+      "switch11": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 97284,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 98505,
+          "net": -1221,
+          "errors": 39,
+          "signErrors": 24,
+          "audits": 178,
+          "revoked": 1,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 95558,
+          "net": 1726,
+          "errors": 25,
+          "signErrors": 15,
+          "audits": 104,
+          "revoked": 6,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 115699,
+          "net": -18415,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 122,
+          "revoked": 12,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 251,
+          "paid": 111226,
+          "net": -13942,
+          "errors": 6,
+          "signErrors": 4,
+          "audits": 113,
+          "revoked": 10,
+          "verifiedCells": 16
+        }
+      },
+      "switch16": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 97956,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 100350,
+          "net": -2394,
+          "errors": 24,
+          "signErrors": 23,
+          "audits": 131,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 97518,
+          "net": 438,
+          "errors": 27,
+          "signErrors": 26,
+          "audits": 127,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 115399,
+          "net": -17443,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 110,
+          "revoked": 12,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 251,
+          "paid": 112787,
+          "net": -14831,
+          "errors": 3,
+          "signErrors": 3,
+          "audits": 100,
+          "revoked": 11,
+          "verifiedCells": 16
+        }
+      },
+      "yswitch5": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 97380,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 99825,
+          "net": -2445,
+          "errors": 32,
+          "signErrors": 21,
+          "audits": 150,
+          "revoked": 3,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 96749,
+          "net": 631,
+          "errors": 24,
+          "signErrors": 16,
+          "audits": 102,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 117003,
+          "net": -19623,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 138,
+          "revoked": 12,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 251,
+          "paid": 113385,
+          "net": -16005,
+          "errors": 6,
+          "signErrors": 4,
+          "audits": 136,
+          "revoked": 10,
+          "verifiedCells": 16
+        }
+      },
+      "yswitch11": {
+        "paired_0": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 96612,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 99246,
+          "net": -2634,
+          "errors": 31,
+          "signErrors": 9,
+          "audits": 153,
+          "revoked": 3,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 97110,
+          "net": -498,
+          "errors": 14,
+          "signErrors": 6,
+          "audits": 70,
+          "revoked": 10,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 115355,
+          "net": -18743,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 130,
+          "revoked": 12,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 12,
+          "queries": 768,
+          "nodes": 218,
+          "peak": 251,
+          "paid": 110398,
+          "net": -13786,
+          "errors": 6,
+          "signErrors": 2,
+          "audits": 113,
+          "revoked": 10,
+          "verifiedCells": 16
+        }
+      }
+    },
+    "stress": {
+      "switch5": {
+        "paired_0": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 34032,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 35578,
+          "net": -1546,
+          "errors": 41,
+          "signErrors": 0,
+          "audits": 28,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 25848,
+          "net": 8184,
+          "errors": 183,
+          "signErrors": 0,
+          "audits": 7,
+          "revoked": 1,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 36565,
+          "net": -2533,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 237,
+          "paid": 36643,
+          "net": -2611,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 2
+        }
+      },
+      "switch11": {
+        "paired_0": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 40581,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 41461,
+          "net": -880,
+          "errors": 41,
+          "signErrors": 41,
+          "audits": 28,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 29565,
+          "net": 11016,
+          "errors": 182,
+          "signErrors": 182,
+          "audits": 13,
+          "revoked": 1,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 43204,
+          "net": -2623,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 237,
+          "paid": 43282,
+          "net": -2701,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 2
+        }
+      },
+      "switch16": {
+        "paired_0": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 45969,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 46294,
+          "net": -325,
+          "errors": 41,
+          "signErrors": 41,
+          "audits": 28,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 32745,
+          "net": 13224,
+          "errors": 180,
+          "signErrors": 180,
+          "audits": 18,
+          "revoked": 1,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 48667,
+          "net": -2698,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 237,
+          "paid": 48745,
+          "net": -2776,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 8,
+          "revoked": 5,
+          "verifiedCells": 2
+        }
+      },
+      "yswitch5": {
+        "paired_0": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 33690,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 35410,
+          "net": -1720,
+          "errors": 41,
+          "signErrors": 3,
+          "audits": 28,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 24066,
+          "net": 9624,
+          "errors": 185,
+          "signErrors": 32,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 31949,
+          "net": 1741,
+          "errors": 63,
+          "signErrors": 32,
+          "audits": 5,
+          "revoked": 3,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 236,
+          "paid": 32211,
+          "net": 1479,
+          "errors": 63,
+          "signErrors": 32,
+          "audits": 5,
+          "revoked": 3,
+          "verifiedCells": 1
+        }
+      },
+      "yswitch11": {
+        "paired_0": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 186,
+          "peak": 199,
+          "paid": 33621,
+          "net": 0,
+          "errors": 0,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "validated_4": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 214,
+          "peak": 231,
+          "paid": 36151,
+          "net": -2530,
+          "errors": 41,
+          "signErrors": 0,
+          "audits": 28,
+          "revoked": 4,
+          "verifiedCells": 0
+        },
+        "ordered": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 235,
+          "paid": 27306,
+          "net": 6315,
+          "errors": 184,
+          "signErrors": 0,
+          "audits": 0,
+          "revoked": 0,
+          "verifiedCells": 0
+        },
+        "recent": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 216,
+          "peak": 233,
+          "paid": 33068,
+          "net": 553,
+          "errors": 63,
+          "signErrors": 0,
+          "audits": 5,
+          "revoked": 3,
+          "verifiedCells": 0
+        },
+        "indexed": {
+          "worlds": 5,
+          "queries": 320,
+          "nodes": 218,
+          "peak": 236,
+          "paid": 33330,
+          "net": 291,
+          "errors": 63,
+          "signErrors": 0,
+          "audits": 5,
+          "revoked": 3,
+          "verifiedCells": 1
+        }
+      }
+    }
+  },
+  "metrics": {
+    "grid": {
+      "paired_0": {
+        "errors": 0,
+        "revoked": 0,
+        "net": 0,
+        "worlds": 60
+      },
+      "validated_4": {
+        "errors": 150,
+        "revoked": 17,
+        "net": -12681,
+        "worlds": 60
+      },
+      "ordered": {
+        "errors": 112,
+        "revoked": 31,
+        "net": 3384,
+        "worlds": 60
+      },
+      "recent": {
+        "errors": 0,
+        "revoked": 60,
+        "net": -93099,
+        "worlds": 60
+      },
+      "indexed": {
+        "errors": 27,
+        "revoked": 51,
+        "net": -73221,
+        "worlds": 60
+      }
+    },
+    "stress": {
+      "paired_0": {
+        "errors": 0,
+        "revoked": 0,
+        "net": 0,
+        "worlds": 25
+      },
+      "validated_4": {
+        "errors": 205,
+        "revoked": 20,
+        "net": -7001,
+        "worlds": 25
+      },
+      "ordered": {
+        "errors": 914,
+        "revoked": 3,
+        "net": 48363,
+        "worlds": 25
+      },
+      "recent": {
+        "errors": 126,
+        "revoked": 21,
+        "net": -5560,
+        "worlds": 25
+      },
+      "indexed": {
+        "errors": 126,
+        "revoked": 21,
+        "net": -6318,
+        "worlds": 25
+      }
+    }
+  },
+  "alias": [
+    {
+      "profile": "yswitch5",
+      "policy": "recent",
+      "paid": 5359,
+      "audits": [
+        {
+          "i": 0,
+          "x": 8,
+          "y": 4,
+          "pred": 7,
+          "actual": 7
+        }
+      ],
+      "errors": 32,
+      "firstError": {
+        "x": 8,
+        "y": 5,
+        "emitted": 4,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 0,
+        "paid": 76,
+        "exact": false,
+        "signCorrect": false
+      }
+    },
+    {
+      "profile": "yswitch5",
+      "policy": "indexed",
+      "paid": 5487,
+      "audits": [
+        {
+          "i": 0,
+          "x": 8,
+          "y": 4,
+          "pred": 7,
+          "actual": 7
+        }
+      ],
+      "errors": 32,
+      "firstError": {
+        "x": 8,
+        "y": 5,
+        "emitted": 4,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 1,
+        "paid": 78,
+        "exact": false,
+        "signCorrect": false
+      }
+    },
+    {
+      "profile": "yswitch11",
+      "policy": "recent",
+      "paid": 5935,
+      "audits": [
+        {
+          "i": 0,
+          "x": 8,
+          "y": 4,
+          "pred": 7,
+          "actual": 7
+        }
+      ],
+      "errors": 32,
+      "firstError": {
+        "x": 8,
+        "y": 11,
+        "emitted": -14,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 0,
+        "paid": 94,
+        "exact": false,
+        "signCorrect": true
+      }
+    },
+    {
+      "profile": "yswitch11",
+      "policy": "indexed",
+      "paid": 6063,
+      "audits": [
+        {
+          "i": 0,
+          "x": 8,
+          "y": 4,
+          "pred": 7,
+          "actual": 7
+        }
+      ],
+      "errors": 32,
+      "firstError": {
+        "x": 8,
+        "y": 11,
+        "emitted": -14,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 1,
+        "paid": 96,
+        "exact": false,
+        "signCorrect": true
+      }
+    }
+  ],
+  "missed": [
+    {
+      "profile": "switch5",
+      "id": "ascending_0",
+      "firstError": {
+        "x": 5,
+        "y": 9,
+        "emitted": -17,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 16,
+        "paid": 81,
+        "exact": false,
+        "signCorrect": true
+      },
+      "matchingAudits": [
+        {
+          "i": 4,
+          "x": 5,
+          "y": 5,
+          "pred": -5,
+          "actual": -5
+        }
+      ]
+    },
+    {
+      "profile": "switch5",
+      "id": "permuted_0",
+      "firstError": {
+        "x": 5,
+        "y": 9,
+        "emitted": -17,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 16,
+        "paid": 81,
+        "exact": false,
+        "signCorrect": true
+      },
+      "matchingAudits": [
+        {
+          "i": 4,
+          "x": 5,
+          "y": 5,
+          "pred": -5,
+          "actual": -5
+        }
+      ]
+    },
+    {
+      "profile": "switch11",
+      "id": "descending_1",
+      "firstError": {
+        "x": 11,
+        "y": 15,
+        "emitted": -17,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 16,
+        "paid": 117,
+        "exact": false,
+        "signCorrect": true
+      },
+      "matchingAudits": [
+        {
+          "i": 5,
+          "x": 11,
+          "y": 11,
+          "pred": -5,
+          "actual": -5
+        }
+      ]
+    },
+    {
+      "profile": "switch11",
+      "id": "permuted_0",
+      "firstError": {
+        "x": 11,
+        "y": 15,
+        "emitted": -17,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 16,
+        "paid": 117,
+        "exact": false,
+        "signCorrect": true
+      },
+      "matchingAudits": [
+        {
+          "i": 2,
+          "x": 11,
+          "y": 11,
+          "pred": -5,
+          "actual": -5
+        }
+      ]
+    },
+    {
+      "profile": "switch16",
+      "id": "permuted_2",
+      "firstError": {
+        "x": 16,
+        "y": 4,
+        "emitted": 31,
+        "actual": -5,
+        "trust": 1,
+        "measured": false,
+        "verifiedCells": 16,
+        "paid": 99,
+        "exact": false,
+        "signCorrect": false
+      },
+      "matchingAudits": [
+        {
+          "i": 9,
+          "x": 16,
+          "y": 16,
+          "pred": -5,
+          "actual": -5
+        }
+      ]
+    }
+  ]
+}
