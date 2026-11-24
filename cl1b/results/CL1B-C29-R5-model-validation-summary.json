@@ -1,0 +1,401 @@
+{
+  "tier": "NON_NATIVE_LEARNING_COMPONENT_MODEL",
+  "summary": {
+    "cross": {
+      "validated": {
+        "n": 251,
+        "nodes": 191,
+        "peak": 208,
+        "setup": {
+          "paid": 451,
+          "trust": 1,
+          "params": [
+            0,
+            3,
+            -3
+          ]
+        },
+        "validation": [
+          {
+            "x": 3,
+            "y": 1,
+            "pred": 6,
+            "actual": 6
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "pred": -6,
+            "actual": -6
+          }
+        ],
+        "accepted": 251,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 27754,
+        "setupTotal": 7216,
+        "trials": 160,
+        "failures": []
+      },
+      "unchecked": {
+        "n": 251,
+        "nodes": 185,
+        "peak": 202,
+        "setup": {
+          "paid": 221,
+          "trust": 1,
+          "params": [
+            0,
+            3,
+            -3
+          ]
+        },
+        "validation": [],
+        "accepted": 251,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 24074,
+        "setupTotal": 3536,
+        "trials": 96,
+        "failures": []
+      },
+      "paired": {
+        "n": 251,
+        "nodes": 185,
+        "peak": 198,
+        "setup": {
+          "paid": 6,
+          "trust": 0,
+          "params": [
+            null,
+            null,
+            null
+          ]
+        },
+        "validation": [],
+        "accepted": 0,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 30674,
+        "setupTotal": 96,
+        "trials": 502,
+        "failures": []
+      }
+    },
+    "unroll": {
+      "validated": {
+        "n": 251,
+        "nodes": 197,
+        "peak": 214,
+        "setup": {
+          "paid": 465,
+          "trust": 0,
+          "params": [
+            -3,
+            3,
+            0
+          ]
+        },
+        "validation": [
+          {
+            "x": 3,
+            "y": 1,
+            "pred": 3,
+            "actual": -2
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "pred": -3,
+            "actual": -3
+          }
+        ],
+        "accepted": 0,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 37495,
+        "setupTotal": 7440,
+        "trials": 662,
+        "failures": []
+      },
+      "unchecked": {
+        "n": 251,
+        "nodes": 191,
+        "peak": 208,
+        "setup": {
+          "paid": 227,
+          "trust": 1,
+          "params": [
+            -3,
+            3,
+            0
+          ]
+        },
+        "validation": [],
+        "accepted": 251,
+        "exact": 28,
+        "signCorrect": 204,
+        "paid": 24170,
+        "setupTotal": 3632,
+        "trials": 96,
+        "failures": [
+          {
+            "x": 3,
+            "y": 2,
+            "emitted": 3,
+            "actual": -2,
+            "trust": 1,
+            "paid": 45,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "emitted": 3,
+            "actual": -2,
+            "trust": 1,
+            "paid": 48,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "emitted": 3,
+            "actual": -2,
+            "trust": 1,
+            "paid": 51,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "emitted": 3,
+            "actual": -2,
+            "trust": 1,
+            "paid": 54,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 3,
+            "y": 6,
+            "emitted": 3,
+            "actual": -2,
+            "trust": 1,
+            "paid": 57,
+            "exact": false,
+            "signCorrect": false
+          }
+        ]
+      },
+      "paired": {
+        "n": 251,
+        "nodes": 191,
+        "peak": 204,
+        "setup": {
+          "paid": 6,
+          "trust": 0,
+          "params": [
+            null,
+            null,
+            null
+          ]
+        },
+        "validation": [],
+        "accepted": 0,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 30151,
+        "setupTotal": 96,
+        "trials": 502,
+        "failures": []
+      }
+    },
+    "switch8": {
+      "validated": {
+        "n": 251,
+        "nodes": 200,
+        "peak": 217,
+        "setup": {
+          "paid": 476,
+          "trust": 1,
+          "params": [
+            -5,
+            3,
+            -3
+          ]
+        },
+        "validation": [
+          {
+            "x": 3,
+            "y": 1,
+            "pred": 1,
+            "actual": 1
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "pred": -11,
+            "actual": -11
+          }
+        ],
+        "accepted": 251,
+        "exact": 236,
+        "signCorrect": 245,
+        "paid": 28154,
+        "setupTotal": 7616,
+        "trials": 160,
+        "failures": [
+          {
+            "x": 8,
+            "y": 1,
+            "emitted": 16,
+            "actual": -5,
+            "trust": 1,
+            "paid": 57,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 2,
+            "emitted": 13,
+            "actual": -5,
+            "trust": 1,
+            "paid": 60,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 3,
+            "emitted": 10,
+            "actual": -5,
+            "trust": 1,
+            "paid": 63,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 4,
+            "emitted": 7,
+            "actual": -5,
+            "trust": 1,
+            "paid": 66,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 5,
+            "emitted": 4,
+            "actual": -5,
+            "trust": 1,
+            "paid": 69,
+            "exact": false,
+            "signCorrect": false
+          }
+        ]
+      },
+      "unchecked": {
+        "n": 251,
+        "nodes": 194,
+        "peak": 211,
+        "setup": {
+          "paid": 236,
+          "trust": 1,
+          "params": [
+            -5,
+            3,
+            -3
+          ]
+        },
+        "validation": [],
+        "accepted": 251,
+        "exact": 236,
+        "signCorrect": 245,
+        "paid": 24314,
+        "setupTotal": 3776,
+        "trials": 96,
+        "failures": [
+          {
+            "x": 8,
+            "y": 1,
+            "emitted": 16,
+            "actual": -5,
+            "trust": 1,
+            "paid": 57,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 2,
+            "emitted": 13,
+            "actual": -5,
+            "trust": 1,
+            "paid": 60,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 3,
+            "emitted": 10,
+            "actual": -5,
+            "trust": 1,
+            "paid": 63,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 4,
+            "emitted": 7,
+            "actual": -5,
+            "trust": 1,
+            "paid": 66,
+            "exact": false,
+            "signCorrect": false
+          },
+          {
+            "x": 8,
+            "y": 5,
+            "emitted": 4,
+            "actual": -5,
+            "trust": 1,
+            "paid": 69,
+            "exact": false,
+            "signCorrect": false
+          }
+        ]
+      },
+      "paired": {
+        "n": 251,
+        "nodes": 194,
+        "peak": 207,
+        "setup": {
+          "paid": 6,
+          "trust": 0,
+          "params": [
+            null,
+            null,
+            null
+          ]
+        },
+        "validation": [],
+        "accepted": 0,
+        "exact": 251,
+        "signCorrect": 251,
+        "paid": 31905,
+        "setupTotal": 96,
+        "trials": 502,
+        "failures": []
+      }
+    }
+  }
+}
