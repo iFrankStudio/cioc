@@ -1,0 +1,17 @@
+# C31-R0 — shared generated arithmetic kernel and recurrent orientation selection
+Parent d9e58959672e3df02eb2048de3c34d6c49ee0a38. C30 closed as bounded single-product benchmark: R10 native success, R11 no improvement in execution depth. C31 begins multi-invocation dot-product task with four live positive integers 1..16, output x1*y1+x2*y2. This is a deliberately narrow first step, not a general multi-task environment or open-ended algorithm invention. Two products use the same actor-generated 16-node binary DAG and shared entry. Direct/reverse orientation of both pairs yields competing costs; conflicting pairs cannot be optimized independently in R0. Input changes only after service output, no future workload hint. No reward/refill or new opcode. Private budget30000 (new explicitly authored budget, versus C30 20000), 16 cells/200 executable nodes/220 total units. Actual clone/patch operations, shared phase and partial output cells, all instruction costs. No candidate structural/semantic certificate here, no safety promotion; observer verifies each trial and production result and exact generated path count. R10 trusted constructor certificate not yet integrated. 
+
+Adaptive recalibration at initial and every16 completed production services, paid countdown on each service. Force direct and reverse in turn with real PatchNext, measure full same-input dot-product spans via SenseOwnCredits, compare output equality and actual cost via paid subtract/branch loop; restore direct then install reverse only when strictly cheaper. On/off same source, suppress only final selection PatchNext (every epoch); all paired trials and other edits remain real. First exposure prefix exact; after effect, histories differ, not an isolated per-epoch causal estimate. Static direct/reverse and plain (parent loop) comparators share service pipeline, static policies no monitor/trial. Plain contains unused source for matched assembly, not minimal executable storage baseline. One output per full service; actual candidate paths use both products and reuse same generated nodes. No host-provided policy choice. Cadence16, grammar, static alternatives and tie preference authored; no claim of learned cadence or automatic discovery. 
+
+24 deterministic designed schedules ×5 arms =120 model worlds. Length12/48/96/144, left-favored, right-favored, conflicting pairs, one flip, fast alternating, mixed. No prior optimization on this grid but it is engineering-designed, no prospective population claim. Full cost includes generation, all paired tests, repeated resets/patches, paid comparisons and countdown. 
+| family | direct net | reverse net | adaptive net | matched off net |
+|---|---:|---:|---:|
+|all|57256|53916|26125|23389|
+|left|232|-2768|-5648|-5648|
+|right|19432|21232|15637|13837|
+|conflict|9232|8932|4093|4093|
+|flip|8782|8182|3889|2953|
+|alternating|9704|9072|3824|3824|
+|mixed|9874|9266|4330|4330|
+Adaptive selected reverse 30/114 times; actually changed orientation on flip_48, flip_96, flip_144. Net = plain total paid minus policy paid. Matched physical effect is off paid minus adaptive paid, not total economic benefit. Results only model, not native. Next use results to assess whether shared kernel with independent per-pair choice, retention of incumbent and low-cost event-driven exploration can produce repeatable advantage; do not treat fixed-cadence choice as B3. Preserve economic losses and certification requirement. B3/B4 NOT_MET.
+Reproduce node cl1b/analysis/cl1b_c31_dot_product_selection.mjs.
