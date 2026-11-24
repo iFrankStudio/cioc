@@ -1,0 +1,7032 @@
+{
+  "tested_sha": "af8af06bb86e96c5f10b449dd3a28206fff563ad",
+  "worlds": 67,
+  "paid": 171234,
+  "production": 4840,
+  "trials": 70,
+  "new_nodes": 288,
+  "clone_trial_steps": 288,
+  "clone_production_steps": 6335,
+  "peak_occupied": 117,
+  "max_nodes": 106,
+  "faults_rejected": 3,
+  "aggregate": {
+    "calibration": {
+      "n": 4,
+      "economic": 1072,
+      "physical": 2840,
+      "guard_saving": 1972,
+      "wins": 2,
+      "ties": 0,
+      "losses": 2,
+      "clone_production_steps": 1420
+    },
+    "prospective": {
+      "n": 12,
+      "economic": 3870,
+      "physical": 9830,
+      "guard_saving": 6546,
+      "wins": 6,
+      "ties": 0,
+      "losses": 6,
+      "clone_production_steps": 4915
+    }
+  },
+  "pairs": [
+    {
+      "case": "stable_1_12",
+      "cohort": "calibration",
+      "first_physical_exposure": 110,
+      "physical_saving": 24,
+      "economic_saving": -124,
+      "guard_saving": -88,
+      "on": 269,
+      "off": 293,
+      "plain": 145,
+      "guard": 181,
+      "clone_production_steps": 12
+    },
+    {
+      "case": "stable_8_96",
+      "cohort": "calibration",
+      "first_physical_exposure": 250,
+      "physical_saving": 1536,
+      "economic_saving": 996,
+      "guard_saving": 1284,
+      "on": 2173,
+      "off": 3709,
+      "plain": 3169,
+      "guard": 3457,
+      "clone_production_steps": 768
+    },
+    {
+      "case": "shift_8_96",
+      "cohort": "calibration",
+      "first_physical_exposure": 250,
+      "physical_saving": 64,
+      "economic_saving": -476,
+      "guard_saving": -188,
+      "on": 5853,
+      "off": 5917,
+      "plain": 5377,
+      "guard": 5665,
+      "clone_production_steps": 32
+    },
+    {
+      "case": "return_8_96",
+      "cohort": "calibration",
+      "first_physical_exposure": 250,
+      "physical_saving": 1216,
+      "economic_saving": 676,
+      "guard_saving": 964,
+      "on": 2973,
+      "off": 4189,
+      "plain": 3649,
+      "guard": 3937,
+      "clone_production_steps": 608
+    },
+    {
+      "case": "new_low_short",
+      "cohort": "prospective",
+      "first_physical_exposure": 130,
+      "physical_saving": 36,
+      "economic_saving": -123,
+      "guard_saving": -96,
+      "on": 259,
+      "off": 295,
+      "plain": 136,
+      "guard": 163,
+      "clone_production_steps": 18
+    },
+    {
+      "case": "new_high_long",
+      "cohort": "prospective",
+      "first_physical_exposure": 390,
+      "physical_saving": 3360,
+      "economic_saving": 2632,
+      "guard_saving": 2968,
+      "on": 3417,
+      "off": 6777,
+      "plain": 6049,
+      "guard": 6385,
+      "clone_production_steps": 1680
+    },
+    {
+      "case": "new_mid_stable",
+      "cohort": "prospective",
+      "first_physical_exposure": 210,
+      "physical_saving": 756,
+      "economic_saving": 355,
+      "guard_saving": 544,
+      "on": 1347,
+      "off": 2103,
+      "plain": 1702,
+      "guard": 1891,
+      "clone_production_steps": 378
+    },
+    {
+      "case": "new_high_short",
+      "cohort": "prospective",
+      "first_physical_exposure": 370,
+      "physical_saving": 308,
+      "economic_saving": -97,
+      "guard_saving": -64,
+      "on": 659,
+      "off": 967,
+      "plain": 562,
+      "guard": 595,
+      "clone_production_steps": 154
+    },
+    {
+      "case": "new_immediate_shift",
+      "cohort": "prospective",
+      "first_physical_exposure": 270,
+      "physical_saving": 18,
+      "economic_saving": -470,
+      "guard_saving": -254,
+      "on": 1785,
+      "off": 1803,
+      "plain": 1315,
+      "guard": 1531,
+      "clone_production_steps": 9
+    },
+    {
+      "case": "new_late_shift",
+      "cohort": "prospective",
+      "first_physical_exposure": 350,
+      "physical_saving": 2106,
+      "economic_saving": 1454,
+      "guard_saving": 1754,
+      "on": 2720,
+      "off": 4826,
+      "plain": 4174,
+      "guard": 4474,
+      "clone_production_steps": 1053
+    },
+    {
+      "case": "new_double_return",
+      "cohort": "prospective",
+      "first_physical_exposure": 230,
+      "physical_saving": 896,
+      "economic_saving": 379,
+      "guard_saving": 664,
+      "on": 2343,
+      "off": 3239,
+      "plain": 2722,
+      "guard": 3007,
+      "clone_production_steps": 448
+    },
+    {
+      "case": "new_alternating",
+      "cohort": "prospective",
+      "first_physical_exposure": 170,
+      "physical_saving": 256,
+      "economic_saving": -108,
+      "guard_saving": 84,
+      "on": 2125,
+      "off": 2381,
+      "plain": 2017,
+      "guard": 2209,
+      "clone_production_steps": 128
+    },
+    {
+      "case": "new_rare_return",
+      "cohort": "prospective",
+      "first_physical_exposure": 410,
+      "physical_saving": 128,
+      "economic_saving": -554,
+      "guard_saving": -284,
+      "on": 2847,
+      "off": 2975,
+      "plain": 2293,
+      "guard": 2563,
+      "clone_production_steps": 64
+    },
+    {
+      "case": "new_low_long",
+      "cohort": "prospective",
+      "first_physical_exposure": 110,
+      "physical_saving": 210,
+      "economic_saving": -217,
+      "guard_saving": 98,
+      "on": 1478,
+      "off": 1688,
+      "plain": 1261,
+      "guard": 1576,
+      "clone_production_steps": 105
+    },
+    {
+      "case": "new_two_late",
+      "cohort": "prospective",
+      "first_physical_exposure": 290,
+      "physical_saving": 580,
+      "economic_saving": 27,
+      "guard_saving": 288,
+      "on": 3028,
+      "off": 3608,
+      "plain": 3055,
+      "guard": 3316,
+      "clone_production_steps": 290
+    },
+    {
+      "case": "new_swap",
+      "cohort": "prospective",
+      "first_physical_exposure": 330,
+      "physical_saving": 1176,
+      "economic_saving": 592,
+      "guard_saving": 844,
+      "on": 2244,
+      "off": 3420,
+      "plain": 2836,
+      "guard": 3088,
+      "clone_production_steps": 588
+    }
+  ],
+  "world_rows": [
+    {
+      "active": 1,
+      "arm": "on",
+      "case": "stable_1_12",
+      "clone_production_steps": 12,
+      "clone_trial_steps": 1,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "stable_1_12_on",
+      "initial": 89,
+      "nodes": 90,
+      "paid": 269,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          15,
+          14,
+          29,
+          31,
+          89,
+          false
+        ],
+        [
+          58,
+          58,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          86,
+          61,
+          26,
+          1,
+          0,
+          false
+        ],
+        [
+          110,
+          83,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          113,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 101,
+      "production": 12,
+      "trials": [
+        {
+          "cost": 18,
+          "output": 3,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "cost": 16,
+          "output": 3,
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "stable_1_12",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 1,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "stable_1_12_off",
+      "initial": 89,
+      "nodes": 90,
+      "paid": 293,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          15,
+          14,
+          29,
+          31,
+          89,
+          false
+        ],
+        [
+          58,
+          58,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          86,
+          61,
+          26,
+          1,
+          0,
+          false
+        ],
+        [
+          110,
+          83,
+          26,
+          0,
+          1,
+          true
+        ],
+        [
+          113,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 101,
+      "production": 12,
+      "trials": [
+        {
+          "cost": 18,
+          "output": 3,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "cost": 16,
+          "output": 3,
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "stable_1_12",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "stable_1_12_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 145,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 12,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "stable_1_12",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "stable_1_12_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 181,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 12,
+      "trials": []
+    },
+    {
+      "active": 8,
+      "arm": "on",
+      "case": "stable_8_96",
+      "clone_production_steps": 768,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "stable_8_96_on",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 2173,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "stable_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "stable_8_96_off",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 3709,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          true
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "stable_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "stable_8_96_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 3169,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "stable_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "stable_8_96_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 3457,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 8,
+      "arm": "on",
+      "case": "shift_8_96",
+      "clone_production_steps": 32,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "shift_8_96_on",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 5853,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "shift_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "shift_8_96_off",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 5917,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          true
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "shift_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "shift_8_96_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 5377,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "shift_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "shift_8_96_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 5665,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 8,
+      "arm": "on",
+      "case": "return_8_96",
+      "clone_production_steps": 608,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "return_8_96_on",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 2973,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "return_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 8,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "return_8_96_off",
+      "initial": 89,
+      "nodes": 97,
+      "paid": 4189,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          71,
+          14,
+          29,
+          31,
+          96,
+          false
+        ],
+        [
+          135,
+          58,
+          26,
+          0,
+          8,
+          false
+        ],
+        [
+          170,
+          61,
+          26,
+          8,
+          0,
+          false
+        ],
+        [
+          250,
+          83,
+          26,
+          0,
+          8,
+          true
+        ],
+        [
+          253,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 108,
+      "production": 96,
+      "trials": [
+        {
+          "cost": 39,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        },
+        {
+          "cost": 23,
+          "output": 24,
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "return_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "return_8_96_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 3649,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "return_8_96",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "return_8_96_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 3937,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 96,
+      "trials": []
+    },
+    {
+      "active": 2,
+      "arm": "on",
+      "case": "new_low_short",
+      "clone_production_steps": 18,
+      "clone_trial_steps": 2,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_low_short_on",
+      "initial": 89,
+      "nodes": 91,
+      "paid": 259,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          23,
+          14,
+          29,
+          31,
+          90,
+          false
+        ],
+        [
+          69,
+          58,
+          26,
+          0,
+          2,
+          false
+        ],
+        [
+          98,
+          61,
+          26,
+          2,
+          0,
+          false
+        ],
+        [
+          130,
+          83,
+          26,
+          0,
+          2,
+          false
+        ],
+        [
+          133,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 102,
+      "production": 9,
+      "trials": [
+        {
+          "cost": 21,
+          "output": 32,
+          "x": 2,
+          "y": 16
+        },
+        {
+          "cost": 17,
+          "output": 32,
+          "x": 2,
+          "y": 16
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_low_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 2,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_low_short_off",
+      "initial": 89,
+      "nodes": 91,
+      "paid": 295,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          23,
+          14,
+          29,
+          31,
+          90,
+          false
+        ],
+        [
+          69,
+          58,
+          26,
+          0,
+          2,
+          false
+        ],
+        [
+          98,
+          61,
+          26,
+          2,
+          0,
+          false
+        ],
+        [
+          130,
+          83,
+          26,
+          0,
+          2,
+          true
+        ],
+        [
+          133,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 102,
+      "production": 9,
+      "trials": [
+        {
+          "cost": 21,
+          "output": 32,
+          "x": 2,
+          "y": 16
+        },
+        {
+          "cost": 17,
+          "output": 32,
+          "x": 2,
+          "y": 16
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_low_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_low_short_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 136,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 9,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_low_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_low_short_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 163,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 9,
+      "trials": []
+    },
+    {
+      "active": 15,
+      "arm": "on",
+      "case": "new_high_long",
+      "clone_production_steps": 1680,
+      "clone_trial_steps": 15,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ],
+        [
+          119,
+          31,
+          103
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_high_long_on",
+      "initial": 89,
+      "nodes": 104,
+      "paid": 3417,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          120,
+          7,
+          103,
+          32,
+          102,
+          false
+        ],
+        [
+          127,
+          14,
+          29,
+          31,
+          103,
+          false
+        ],
+        [
+          212,
+          58,
+          26,
+          0,
+          15,
+          false
+        ],
+        [
+          254,
+          61,
+          26,
+          15,
+          0,
+          false
+        ],
+        [
+          390,
+          83,
+          26,
+          0,
+          15,
+          false
+        ],
+        [
+          393,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 115,
+      "production": 112,
+      "trials": [
+        {
+          "cost": 60,
+          "output": 15,
+          "x": 15,
+          "y": 1
+        },
+        {
+          "cost": 30,
+          "output": 15,
+          "x": 15,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_high_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 15,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ],
+        [
+          119,
+          31,
+          103
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_high_long_off",
+      "initial": 89,
+      "nodes": 104,
+      "paid": 6777,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          120,
+          7,
+          103,
+          32,
+          102,
+          false
+        ],
+        [
+          127,
+          14,
+          29,
+          31,
+          103,
+          false
+        ],
+        [
+          212,
+          58,
+          26,
+          0,
+          15,
+          false
+        ],
+        [
+          254,
+          61,
+          26,
+          15,
+          0,
+          false
+        ],
+        [
+          390,
+          83,
+          26,
+          0,
+          15,
+          true
+        ],
+        [
+          393,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 115,
+      "production": 112,
+      "trials": [
+        {
+          "cost": 60,
+          "output": 15,
+          "x": 15,
+          "y": 1
+        },
+        {
+          "cost": 30,
+          "output": 15,
+          "x": 15,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_high_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_high_long_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 6049,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 112,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_high_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_high_long_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 6385,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 112,
+      "trials": []
+    },
+    {
+      "active": 6,
+      "arm": "on",
+      "case": "new_mid_stable",
+      "clone_production_steps": 378,
+      "clone_trial_steps": 6,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_mid_stable_on",
+      "initial": 89,
+      "nodes": 95,
+      "paid": 1347,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          55,
+          14,
+          29,
+          31,
+          94,
+          false
+        ],
+        [
+          113,
+          58,
+          26,
+          0,
+          6,
+          false
+        ],
+        [
+          146,
+          61,
+          26,
+          6,
+          0,
+          false
+        ],
+        [
+          210,
+          83,
+          26,
+          0,
+          6,
+          false
+        ],
+        [
+          213,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 106,
+      "production": 63,
+      "trials": [
+        {
+          "cost": 33,
+          "output": 66,
+          "x": 6,
+          "y": 11
+        },
+        {
+          "cost": 21,
+          "output": 66,
+          "x": 6,
+          "y": 11
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_mid_stable",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 6,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_mid_stable_off",
+      "initial": 89,
+      "nodes": 95,
+      "paid": 2103,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          55,
+          14,
+          29,
+          31,
+          94,
+          false
+        ],
+        [
+          113,
+          58,
+          26,
+          0,
+          6,
+          false
+        ],
+        [
+          146,
+          61,
+          26,
+          6,
+          0,
+          false
+        ],
+        [
+          210,
+          83,
+          26,
+          0,
+          6,
+          true
+        ],
+        [
+          213,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 106,
+      "production": 63,
+      "trials": [
+        {
+          "cost": 33,
+          "output": 66,
+          "x": 6,
+          "y": 11
+        },
+        {
+          "cost": 21,
+          "output": 66,
+          "x": 6,
+          "y": 11
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_mid_stable",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_mid_stable_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 1702,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 63,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_mid_stable",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_mid_stable_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 1891,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 63,
+      "trials": []
+    },
+    {
+      "active": 14,
+      "arm": "on",
+      "case": "new_high_short",
+      "clone_production_steps": 154,
+      "clone_trial_steps": 14,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_high_short_on",
+      "initial": 89,
+      "nodes": 103,
+      "paid": 659,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          119,
+          14,
+          29,
+          31,
+          102,
+          false
+        ],
+        [
+          201,
+          58,
+          26,
+          0,
+          14,
+          false
+        ],
+        [
+          242,
+          61,
+          26,
+          14,
+          0,
+          false
+        ],
+        [
+          370,
+          83,
+          26,
+          0,
+          14,
+          false
+        ],
+        [
+          373,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 114,
+      "production": 11,
+      "trials": [
+        {
+          "cost": 57,
+          "output": 126,
+          "x": 14,
+          "y": 9
+        },
+        {
+          "cost": 29,
+          "output": 126,
+          "x": 14,
+          "y": 9
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_high_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 14,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_high_short_off",
+      "initial": 89,
+      "nodes": 103,
+      "paid": 967,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          119,
+          14,
+          29,
+          31,
+          102,
+          false
+        ],
+        [
+          201,
+          58,
+          26,
+          0,
+          14,
+          false
+        ],
+        [
+          242,
+          61,
+          26,
+          14,
+          0,
+          false
+        ],
+        [
+          370,
+          83,
+          26,
+          0,
+          14,
+          true
+        ],
+        [
+          373,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 114,
+      "production": 11,
+      "trials": [
+        {
+          "cost": 57,
+          "output": 126,
+          "x": 14,
+          "y": 9
+        },
+        {
+          "cost": 29,
+          "output": 126,
+          "x": 14,
+          "y": 9
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_high_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_high_short_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 562,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 11,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_high_short",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_high_short_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 595,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 11,
+      "trials": []
+    },
+    {
+      "active": 9,
+      "arm": "on",
+      "case": "new_immediate_shift",
+      "clone_production_steps": 9,
+      "clone_trial_steps": 9,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_immediate_shift_on",
+      "initial": 89,
+      "nodes": 98,
+      "paid": 1785,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          79,
+          14,
+          29,
+          31,
+          97,
+          false
+        ],
+        [
+          146,
+          58,
+          26,
+          0,
+          9,
+          false
+        ],
+        [
+          182,
+          61,
+          26,
+          9,
+          0,
+          false
+        ],
+        [
+          270,
+          83,
+          26,
+          0,
+          9,
+          false
+        ],
+        [
+          273,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 109,
+      "production": 72,
+      "trials": [
+        {
+          "cost": 42,
+          "output": 63,
+          "x": 9,
+          "y": 7
+        },
+        {
+          "cost": 24,
+          "output": 63,
+          "x": 9,
+          "y": 7
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_immediate_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 9,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_immediate_shift_off",
+      "initial": 89,
+      "nodes": 98,
+      "paid": 1803,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          79,
+          14,
+          29,
+          31,
+          97,
+          false
+        ],
+        [
+          146,
+          58,
+          26,
+          0,
+          9,
+          false
+        ],
+        [
+          182,
+          61,
+          26,
+          9,
+          0,
+          false
+        ],
+        [
+          270,
+          83,
+          26,
+          0,
+          9,
+          true
+        ],
+        [
+          273,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 109,
+      "production": 72,
+      "trials": [
+        {
+          "cost": 42,
+          "output": 63,
+          "x": 9,
+          "y": 7
+        },
+        {
+          "cost": 24,
+          "output": 63,
+          "x": 9,
+          "y": 7
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_immediate_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_immediate_shift_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 1315,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 72,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_immediate_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_immediate_shift_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 1531,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 72,
+      "trials": []
+    },
+    {
+      "active": 13,
+      "arm": "on",
+      "case": "new_late_shift",
+      "clone_production_steps": 1053,
+      "clone_trial_steps": 13,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_late_shift_on",
+      "initial": 89,
+      "nodes": 102,
+      "paid": 2720,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          111,
+          14,
+          29,
+          31,
+          101,
+          false
+        ],
+        [
+          190,
+          58,
+          26,
+          0,
+          13,
+          false
+        ],
+        [
+          230,
+          61,
+          26,
+          13,
+          0,
+          false
+        ],
+        [
+          350,
+          83,
+          26,
+          0,
+          13,
+          false
+        ],
+        [
+          353,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 113,
+      "production": 100,
+      "trials": [
+        {
+          "cost": 54,
+          "output": 26,
+          "x": 13,
+          "y": 2
+        },
+        {
+          "cost": 28,
+          "output": 26,
+          "x": 13,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_late_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 13,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_late_shift_off",
+      "initial": 89,
+      "nodes": 102,
+      "paid": 4826,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          111,
+          14,
+          29,
+          31,
+          101,
+          false
+        ],
+        [
+          190,
+          58,
+          26,
+          0,
+          13,
+          false
+        ],
+        [
+          230,
+          61,
+          26,
+          13,
+          0,
+          false
+        ],
+        [
+          350,
+          83,
+          26,
+          0,
+          13,
+          true
+        ],
+        [
+          353,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 113,
+      "production": 100,
+      "trials": [
+        {
+          "cost": 54,
+          "output": 26,
+          "x": 13,
+          "y": 2
+        },
+        {
+          "cost": 28,
+          "output": 26,
+          "x": 13,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_late_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_late_shift_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 4174,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 100,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_late_shift",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_late_shift_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 4474,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 100,
+      "trials": []
+    },
+    {
+      "active": 7,
+      "arm": "on",
+      "case": "new_double_return",
+      "clone_production_steps": 448,
+      "clone_trial_steps": 7,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_double_return_on",
+      "initial": 89,
+      "nodes": 96,
+      "paid": 2343,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          63,
+          14,
+          29,
+          31,
+          95,
+          false
+        ],
+        [
+          124,
+          58,
+          26,
+          0,
+          7,
+          false
+        ],
+        [
+          158,
+          61,
+          26,
+          7,
+          0,
+          false
+        ],
+        [
+          230,
+          83,
+          26,
+          0,
+          7,
+          false
+        ],
+        [
+          233,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 107,
+      "production": 95,
+      "trials": [
+        {
+          "cost": 36,
+          "output": 91,
+          "x": 7,
+          "y": 13
+        },
+        {
+          "cost": 22,
+          "output": 91,
+          "x": 7,
+          "y": 13
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_double_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 7,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_double_return_off",
+      "initial": 89,
+      "nodes": 96,
+      "paid": 3239,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          63,
+          14,
+          29,
+          31,
+          95,
+          false
+        ],
+        [
+          124,
+          58,
+          26,
+          0,
+          7,
+          false
+        ],
+        [
+          158,
+          61,
+          26,
+          7,
+          0,
+          false
+        ],
+        [
+          230,
+          83,
+          26,
+          0,
+          7,
+          true
+        ],
+        [
+          233,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 107,
+      "production": 95,
+      "trials": [
+        {
+          "cost": 36,
+          "output": 91,
+          "x": 7,
+          "y": 13
+        },
+        {
+          "cost": 22,
+          "output": 91,
+          "x": 7,
+          "y": 13
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_double_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_double_return_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 2722,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 95,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_double_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_double_return_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 3007,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 95,
+      "trials": []
+    },
+    {
+      "active": 4,
+      "arm": "on",
+      "case": "new_alternating",
+      "clone_production_steps": 128,
+      "clone_trial_steps": 4,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_alternating_on",
+      "initial": 89,
+      "nodes": 93,
+      "paid": 2125,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          39,
+          14,
+          29,
+          31,
+          92,
+          false
+        ],
+        [
+          91,
+          58,
+          26,
+          0,
+          4,
+          false
+        ],
+        [
+          122,
+          61,
+          26,
+          4,
+          0,
+          false
+        ],
+        [
+          170,
+          83,
+          26,
+          0,
+          4,
+          false
+        ],
+        [
+          173,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 104,
+      "production": 64,
+      "trials": [
+        {
+          "cost": 27,
+          "output": 20,
+          "x": 4,
+          "y": 5
+        },
+        {
+          "cost": 19,
+          "output": 20,
+          "x": 4,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_alternating",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 4,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_alternating_off",
+      "initial": 89,
+      "nodes": 93,
+      "paid": 2381,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          39,
+          14,
+          29,
+          31,
+          92,
+          false
+        ],
+        [
+          91,
+          58,
+          26,
+          0,
+          4,
+          false
+        ],
+        [
+          122,
+          61,
+          26,
+          4,
+          0,
+          false
+        ],
+        [
+          170,
+          83,
+          26,
+          0,
+          4,
+          true
+        ],
+        [
+          173,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 104,
+      "production": 64,
+      "trials": [
+        {
+          "cost": 27,
+          "output": 20,
+          "x": 4,
+          "y": 5
+        },
+        {
+          "cost": 19,
+          "output": 20,
+          "x": 4,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_alternating",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_alternating_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 2017,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 64,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_alternating",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_alternating_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 2209,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 64,
+      "trials": []
+    },
+    {
+      "active": 16,
+      "arm": "on",
+      "case": "new_rare_return",
+      "clone_production_steps": 64,
+      "clone_trial_steps": 16,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ],
+        [
+          119,
+          31,
+          103
+        ],
+        [
+          127,
+          31,
+          104
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_rare_return_on",
+      "initial": 89,
+      "nodes": 105,
+      "paid": 2847,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          120,
+          7,
+          103,
+          32,
+          102,
+          false
+        ],
+        [
+          128,
+          7,
+          104,
+          32,
+          103,
+          false
+        ],
+        [
+          135,
+          14,
+          29,
+          31,
+          104,
+          false
+        ],
+        [
+          223,
+          58,
+          26,
+          0,
+          16,
+          false
+        ],
+        [
+          266,
+          61,
+          26,
+          16,
+          0,
+          false
+        ],
+        [
+          410,
+          83,
+          26,
+          0,
+          16,
+          false
+        ],
+        [
+          413,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 116,
+      "production": 90,
+      "trials": [
+        {
+          "cost": 63,
+          "output": 256,
+          "x": 16,
+          "y": 16
+        },
+        {
+          "cost": 31,
+          "output": 256,
+          "x": 16,
+          "y": 16
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_rare_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 16,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ],
+        [
+          103,
+          31,
+          101
+        ],
+        [
+          111,
+          31,
+          102
+        ],
+        [
+          119,
+          31,
+          103
+        ],
+        [
+          127,
+          31,
+          104
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_rare_return_off",
+      "initial": 89,
+      "nodes": 105,
+      "paid": 2975,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          104,
+          7,
+          101,
+          32,
+          100,
+          false
+        ],
+        [
+          112,
+          7,
+          102,
+          32,
+          101,
+          false
+        ],
+        [
+          120,
+          7,
+          103,
+          32,
+          102,
+          false
+        ],
+        [
+          128,
+          7,
+          104,
+          32,
+          103,
+          false
+        ],
+        [
+          135,
+          14,
+          29,
+          31,
+          104,
+          false
+        ],
+        [
+          223,
+          58,
+          26,
+          0,
+          16,
+          false
+        ],
+        [
+          266,
+          61,
+          26,
+          16,
+          0,
+          false
+        ],
+        [
+          410,
+          83,
+          26,
+          0,
+          16,
+          true
+        ],
+        [
+          413,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 116,
+      "production": 90,
+      "trials": [
+        {
+          "cost": 63,
+          "output": 256,
+          "x": 16,
+          "y": 16
+        },
+        {
+          "cost": 31,
+          "output": 256,
+          "x": 16,
+          "y": 16
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_rare_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_rare_return_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 2293,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 90,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_rare_return",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_rare_return_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 2563,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 90,
+      "trials": []
+    },
+    {
+      "active": 1,
+      "arm": "on",
+      "case": "new_low_long",
+      "clone_production_steps": 105,
+      "clone_trial_steps": 1,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_low_long_on",
+      "initial": 89,
+      "nodes": 90,
+      "paid": 1478,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          15,
+          14,
+          29,
+          31,
+          89,
+          false
+        ],
+        [
+          58,
+          58,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          86,
+          61,
+          26,
+          1,
+          0,
+          false
+        ],
+        [
+          110,
+          83,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          113,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 101,
+      "production": 105,
+      "trials": [
+        {
+          "cost": 18,
+          "output": 9,
+          "x": 1,
+          "y": 9
+        },
+        {
+          "cost": 16,
+          "output": 9,
+          "x": 1,
+          "y": 9
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_low_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 1,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_low_long_off",
+      "initial": 89,
+      "nodes": 90,
+      "paid": 1688,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          15,
+          14,
+          29,
+          31,
+          89,
+          false
+        ],
+        [
+          58,
+          58,
+          26,
+          0,
+          1,
+          false
+        ],
+        [
+          86,
+          61,
+          26,
+          1,
+          0,
+          false
+        ],
+        [
+          110,
+          83,
+          26,
+          0,
+          1,
+          true
+        ],
+        [
+          113,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 101,
+      "production": 105,
+      "trials": [
+        {
+          "cost": 18,
+          "output": 9,
+          "x": 1,
+          "y": 9
+        },
+        {
+          "cost": 16,
+          "output": 9,
+          "x": 1,
+          "y": 9
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_low_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_low_long_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 1261,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 105,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_low_long",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_low_long_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 1576,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 105,
+      "trials": []
+    },
+    {
+      "active": 10,
+      "arm": "on",
+      "case": "new_two_late",
+      "clone_production_steps": 290,
+      "clone_trial_steps": 10,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_two_late_on",
+      "initial": 89,
+      "nodes": 99,
+      "paid": 3028,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          87,
+          14,
+          29,
+          31,
+          98,
+          false
+        ],
+        [
+          157,
+          58,
+          26,
+          0,
+          10,
+          false
+        ],
+        [
+          194,
+          61,
+          26,
+          10,
+          0,
+          false
+        ],
+        [
+          290,
+          83,
+          26,
+          0,
+          10,
+          false
+        ],
+        [
+          293,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 110,
+      "production": 87,
+      "trials": [
+        {
+          "cost": 45,
+          "output": 40,
+          "x": 10,
+          "y": 4
+        },
+        {
+          "cost": 25,
+          "output": 40,
+          "x": 10,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_two_late",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 10,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_two_late_off",
+      "initial": 89,
+      "nodes": 99,
+      "paid": 3608,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          87,
+          14,
+          29,
+          31,
+          98,
+          false
+        ],
+        [
+          157,
+          58,
+          26,
+          0,
+          10,
+          false
+        ],
+        [
+          194,
+          61,
+          26,
+          10,
+          0,
+          false
+        ],
+        [
+          290,
+          83,
+          26,
+          0,
+          10,
+          true
+        ],
+        [
+          293,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 110,
+      "production": 87,
+      "trials": [
+        {
+          "cost": 45,
+          "output": 40,
+          "x": 10,
+          "y": 4
+        },
+        {
+          "cost": 25,
+          "output": 40,
+          "x": 10,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_two_late",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_two_late_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 3055,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 87,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_two_late",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_two_late_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 3316,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 87,
+      "trials": []
+    },
+    {
+      "active": 12,
+      "arm": "on",
+      "case": "new_swap",
+      "clone_production_steps": 588,
+      "clone_trial_steps": 12,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_swap_on",
+      "initial": 89,
+      "nodes": 101,
+      "paid": 2244,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          103,
+          14,
+          29,
+          31,
+          100,
+          false
+        ],
+        [
+          179,
+          58,
+          26,
+          0,
+          12,
+          false
+        ],
+        [
+          218,
+          61,
+          26,
+          12,
+          0,
+          false
+        ],
+        [
+          330,
+          83,
+          26,
+          0,
+          12,
+          false
+        ],
+        [
+          333,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 112,
+      "production": 84,
+      "trials": [
+        {
+          "cost": 51,
+          "output": 36,
+          "x": 12,
+          "y": 3
+        },
+        {
+          "cost": 27,
+          "output": 36,
+          "x": 12,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "off",
+      "case": "new_swap",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 12,
+      "clones": [
+        [
+          7,
+          31,
+          89
+        ],
+        [
+          15,
+          31,
+          90
+        ],
+        [
+          23,
+          31,
+          91
+        ],
+        [
+          31,
+          31,
+          92
+        ],
+        [
+          39,
+          31,
+          93
+        ],
+        [
+          47,
+          31,
+          94
+        ],
+        [
+          55,
+          31,
+          95
+        ],
+        [
+          63,
+          31,
+          96
+        ],
+        [
+          71,
+          31,
+          97
+        ],
+        [
+          79,
+          31,
+          98
+        ],
+        [
+          87,
+          31,
+          99
+        ],
+        [
+          95,
+          31,
+          100
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "new_swap_off",
+      "initial": 89,
+      "nodes": 101,
+      "paid": 3420,
+      "patches": [
+        [
+          8,
+          7,
+          89,
+          32,
+          34,
+          false
+        ],
+        [
+          16,
+          7,
+          90,
+          32,
+          89,
+          false
+        ],
+        [
+          24,
+          7,
+          91,
+          32,
+          90,
+          false
+        ],
+        [
+          32,
+          7,
+          92,
+          32,
+          91,
+          false
+        ],
+        [
+          40,
+          7,
+          93,
+          32,
+          92,
+          false
+        ],
+        [
+          48,
+          7,
+          94,
+          32,
+          93,
+          false
+        ],
+        [
+          56,
+          7,
+          95,
+          32,
+          94,
+          false
+        ],
+        [
+          64,
+          7,
+          96,
+          32,
+          95,
+          false
+        ],
+        [
+          72,
+          7,
+          97,
+          32,
+          96,
+          false
+        ],
+        [
+          80,
+          7,
+          98,
+          32,
+          97,
+          false
+        ],
+        [
+          88,
+          7,
+          99,
+          32,
+          98,
+          false
+        ],
+        [
+          96,
+          7,
+          100,
+          32,
+          99,
+          false
+        ],
+        [
+          103,
+          14,
+          29,
+          31,
+          100,
+          false
+        ],
+        [
+          179,
+          58,
+          26,
+          0,
+          12,
+          false
+        ],
+        [
+          218,
+          61,
+          26,
+          12,
+          0,
+          false
+        ],
+        [
+          330,
+          83,
+          26,
+          0,
+          12,
+          true
+        ],
+        [
+          333,
+          86,
+          34,
+          35,
+          87,
+          false
+        ]
+      ],
+      "peak_occupied": 112,
+      "production": 84,
+      "trials": [
+        {
+          "cost": 51,
+          "output": 36,
+          "x": 12,
+          "y": 3
+        },
+        {
+          "cost": 27,
+          "output": 36,
+          "x": 12,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": null,
+      "arm": "plain",
+      "case": "new_swap",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_swap_plain",
+      "initial": 13,
+      "nodes": 13,
+      "paid": 2836,
+      "patches": [],
+      "peak_occupied": 17,
+      "production": 84,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "guard",
+      "case": "new_swap",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "new_swap_guard",
+      "initial": 17,
+      "nodes": 17,
+      "paid": 3088,
+      "patches": [],
+      "peak_occupied": 21,
+      "production": 84,
+      "trials": []
+    },
+    {
+      "active": 0,
+      "arm": "fault",
+      "case": "fault_2",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 1,
+      "clones": [
+        [
+          9,
+          33,
+          91
+        ]
+      ],
+      "cohort": "fault",
+      "id": "fault_2_fault",
+      "initial": 91,
+      "nodes": 92,
+      "paid": 532,
+      "patches": [
+        [
+          10,
+          9,
+          91,
+          34,
+          36,
+          false
+        ],
+        [
+          17,
+          16,
+          31,
+          33,
+          91,
+          false
+        ],
+        [
+          63,
+          60,
+          28,
+          0,
+          2,
+          false
+        ],
+        [
+          91,
+          63,
+          28,
+          2,
+          0,
+          false
+        ],
+        [
+          100,
+          88,
+          36,
+          37,
+          89,
+          false
+        ]
+      ],
+      "peak_occupied": 103,
+      "production": 24,
+      "trials": [
+        {
+          "cost": 21,
+          "output": 6,
+          "x": 2,
+          "y": 3
+        },
+        {
+          "cost": 16,
+          "output": 3,
+          "x": 2,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "fault",
+      "case": "fault_5",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 4,
+      "clones": [
+        [
+          9,
+          33,
+          91
+        ],
+        [
+          17,
+          33,
+          92
+        ],
+        [
+          25,
+          33,
+          93
+        ],
+        [
+          33,
+          33,
+          94
+        ]
+      ],
+      "cohort": "fault",
+      "id": "fault_5_fault",
+      "initial": 91,
+      "nodes": 95,
+      "paid": 784,
+      "patches": [
+        [
+          10,
+          9,
+          91,
+          34,
+          36,
+          false
+        ],
+        [
+          18,
+          9,
+          92,
+          34,
+          91,
+          false
+        ],
+        [
+          26,
+          9,
+          93,
+          34,
+          92,
+          false
+        ],
+        [
+          34,
+          9,
+          94,
+          34,
+          93,
+          false
+        ],
+        [
+          41,
+          16,
+          31,
+          33,
+          94,
+          false
+        ],
+        [
+          96,
+          60,
+          28,
+          0,
+          5,
+          false
+        ],
+        [
+          127,
+          63,
+          28,
+          5,
+          0,
+          false
+        ],
+        [
+          136,
+          88,
+          36,
+          37,
+          89,
+          false
+        ]
+      ],
+      "peak_occupied": 106,
+      "production": 24,
+      "trials": [
+        {
+          "cost": 30,
+          "output": 15,
+          "x": 5,
+          "y": 3
+        },
+        {
+          "cost": 19,
+          "output": 12,
+          "x": 5,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "active": 0,
+      "arm": "fault",
+      "case": "fault_16",
+      "clone_production_steps": 0,
+      "clone_trial_steps": 15,
+      "clones": [
+        [
+          9,
+          33,
+          91
+        ],
+        [
+          17,
+          33,
+          92
+        ],
+        [
+          25,
+          33,
+          93
+        ],
+        [
+          33,
+          33,
+          94
+        ],
+        [
+          41,
+          33,
+          95
+        ],
+        [
+          49,
+          33,
+          96
+        ],
+        [
+          57,
+          33,
+          97
+        ],
+        [
+          65,
+          33,
+          98
+        ],
+        [
+          73,
+          33,
+          99
+        ],
+        [
+          81,
+          33,
+          100
+        ],
+        [
+          89,
+          33,
+          101
+        ],
+        [
+          97,
+          33,
+          102
+        ],
+        [
+          105,
+          33,
+          103
+        ],
+        [
+          113,
+          33,
+          104
+        ],
+        [
+          121,
+          33,
+          105
+        ]
+      ],
+      "cohort": "fault",
+      "id": "fault_16_fault",
+      "initial": 91,
+      "nodes": 106,
+      "paid": 1708,
+      "patches": [
+        [
+          10,
+          9,
+          91,
+          34,
+          36,
+          false
+        ],
+        [
+          18,
+          9,
+          92,
+          34,
+          91,
+          false
+        ],
+        [
+          26,
+          9,
+          93,
+          34,
+          92,
+          false
+        ],
+        [
+          34,
+          9,
+          94,
+          34,
+          93,
+          false
+        ],
+        [
+          42,
+          9,
+          95,
+          34,
+          94,
+          false
+        ],
+        [
+          50,
+          9,
+          96,
+          34,
+          95,
+          false
+        ],
+        [
+          58,
+          9,
+          97,
+          34,
+          96,
+          false
+        ],
+        [
+          66,
+          9,
+          98,
+          34,
+          97,
+          false
+        ],
+        [
+          74,
+          9,
+          99,
+          34,
+          98,
+          false
+        ],
+        [
+          82,
+          9,
+          100,
+          34,
+          99,
+          false
+        ],
+        [
+          90,
+          9,
+          101,
+          34,
+          100,
+          false
+        ],
+        [
+          98,
+          9,
+          102,
+          34,
+          101,
+          false
+        ],
+        [
+          106,
+          9,
+          103,
+          34,
+          102,
+          false
+        ],
+        [
+          114,
+          9,
+          104,
+          34,
+          103,
+          false
+        ],
+        [
+          122,
+          9,
+          105,
+          34,
+          104,
+          false
+        ],
+        [
+          129,
+          16,
+          31,
+          33,
+          105,
+          false
+        ],
+        [
+          217,
+          60,
+          28,
+          0,
+          16,
+          false
+        ],
+        [
+          259,
+          63,
+          28,
+          16,
+          0,
+          false
+        ],
+        [
+          268,
+          88,
+          36,
+          37,
+          89,
+          false
+        ]
+      ],
+      "peak_occupied": 117,
+      "production": 24,
+      "trials": [
+        {
+          "cost": 63,
+          "output": 48,
+          "x": 16,
+          "y": 3
+        },
+        {
+          "cost": 30,
+          "output": 45,
+          "x": 16,
+          "y": 3
+        }
+      ]
+    }
+  ],
+  "B3_B4": "NOT_MET"
+}
