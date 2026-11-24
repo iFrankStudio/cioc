@@ -1,0 +1,6797 @@
+{
+  "tier": "NON_NATIVE_LEARNING_COMPONENT_MODEL",
+  "summary": {
+    "cross": {
+      "worlds": 16,
+      "n": 253,
+      "nodes": 136,
+      "peak": 152,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "exact": 253,
+      "signCorrect": 253,
+      "meanAbsError": 0,
+      "maxAbsError": 0,
+      "paid": 48527,
+      "training": 3488,
+      "prediction": 18092,
+      "audit": 26947,
+      "worst": []
+    },
+    "unroll": {
+      "worlds": 16,
+      "n": 253,
+      "nodes": 142,
+      "peak": 158,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "exact": 29,
+      "signCorrect": 205,
+      "meanAbsError": 17.707509881422926,
+      "maxAbsError": 35,
+      "paid": 48105,
+      "training": 3584,
+      "prediction": 18092,
+      "audit": 26429,
+      "worst": [
+        {
+          "x": 3,
+          "y": 1,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 32,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 35,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 38,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 41,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 44,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        }
+      ]
+    }
+  },
+  "worlds": [
+    {
+      "profile": "cross",
+      "paid": 2150,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 1,
+          "y": 3,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 32,
+          "auditCost": 67,
+          "trialA": 14,
+          "trialB": 20
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 70,
+          "trialA": 14,
+          "trialB": 23
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 73,
+          "trialA": 14,
+          "trialB": 26
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 14,
+          "trialB": 29
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 14,
+          "trialB": 32
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 14,
+          "trialB": 35
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 14,
+          "trialB": 38
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 14,
+          "trialB": 41
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 14,
+          "trialB": 44
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "prediction": -33,
+          "actual": -33,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 14,
+          "trialB": 47
+        },
+        {
+          "x": 1,
+          "y": 13,
+          "prediction": -36,
+          "actual": -36,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 14,
+          "trialB": 50
+        },
+        {
+          "x": 1,
+          "y": 14,
+          "prediction": -39,
+          "actual": -39,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 14,
+          "trialB": 53
+        },
+        {
+          "x": 1,
+          "y": 15,
+          "prediction": -42,
+          "actual": -42,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 14,
+          "trialB": 56
+        },
+        {
+          "x": 1,
+          "y": 16,
+          "prediction": -45,
+          "actual": -45,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 14,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2333,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 2,
+          "y": 2,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 32,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 70,
+          "trialA": 17,
+          "trialB": 20
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 73,
+          "trialA": 17,
+          "trialB": 23
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 17,
+          "trialB": 26
+        },
+        {
+          "x": 2,
+          "y": 6,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 17,
+          "trialB": 29
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 17,
+          "trialB": 32
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 17,
+          "trialB": 35
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 17,
+          "trialB": 38
+        },
+        {
+          "x": 2,
+          "y": 10,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 17,
+          "trialB": 41
+        },
+        {
+          "x": 2,
+          "y": 11,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 17,
+          "trialB": 44
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 17,
+          "trialB": 47
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "prediction": -33,
+          "actual": -33,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 17,
+          "trialB": 50
+        },
+        {
+          "x": 2,
+          "y": 14,
+          "prediction": -36,
+          "actual": -36,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 17,
+          "trialB": 53
+        },
+        {
+          "x": 2,
+          "y": 15,
+          "prediction": -39,
+          "actual": -39,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 17,
+          "trialB": 56
+        },
+        {
+          "x": 2,
+          "y": 16,
+          "prediction": -42,
+          "actual": -42,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 17,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2522,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 3,
+          "y": 1,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 32,
+          "auditCost": 67,
+          "trialA": 20,
+          "trialB": 14
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 70,
+          "trialA": 20,
+          "trialB": 17
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 73,
+          "trialA": 20,
+          "trialB": 20
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 20,
+          "trialB": 23
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 20,
+          "trialB": 26
+        },
+        {
+          "x": 3,
+          "y": 6,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 20,
+          "trialB": 29
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 20,
+          "trialB": 32
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 20,
+          "trialB": 35
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 20,
+          "trialB": 38
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 20,
+          "trialB": 41
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 20,
+          "trialB": 44
+        },
+        {
+          "x": 3,
+          "y": 12,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 20,
+          "trialB": 47
+        },
+        {
+          "x": 3,
+          "y": 13,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 20,
+          "trialB": 50
+        },
+        {
+          "x": 3,
+          "y": 14,
+          "prediction": -33,
+          "actual": -33,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 20,
+          "trialB": 53
+        },
+        {
+          "x": 3,
+          "y": 15,
+          "prediction": -36,
+          "actual": -36,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 20,
+          "trialB": 56
+        },
+        {
+          "x": 3,
+          "y": 16,
+          "prediction": -39,
+          "actual": -39,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 20,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2618,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 4,
+          "y": 1,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 70,
+          "trialA": 23,
+          "trialB": 14
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 73,
+          "trialA": 23,
+          "trialB": 17
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 23,
+          "trialB": 20
+        },
+        {
+          "x": 4,
+          "y": 4,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 23,
+          "trialB": 23
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 23,
+          "trialB": 26
+        },
+        {
+          "x": 4,
+          "y": 6,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 23,
+          "trialB": 29
+        },
+        {
+          "x": 4,
+          "y": 7,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 23,
+          "trialB": 32
+        },
+        {
+          "x": 4,
+          "y": 8,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 23,
+          "trialB": 35
+        },
+        {
+          "x": 4,
+          "y": 9,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 23,
+          "trialB": 38
+        },
+        {
+          "x": 4,
+          "y": 10,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 23,
+          "trialB": 41
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 23,
+          "trialB": 44
+        },
+        {
+          "x": 4,
+          "y": 12,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 23,
+          "trialB": 47
+        },
+        {
+          "x": 4,
+          "y": 13,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 23,
+          "trialB": 50
+        },
+        {
+          "x": 4,
+          "y": 14,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 23,
+          "trialB": 53
+        },
+        {
+          "x": 4,
+          "y": 15,
+          "prediction": -33,
+          "actual": -33,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 23,
+          "trialB": 56
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "prediction": -36,
+          "actual": -36,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 23,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2714,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 5,
+          "y": 1,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 73,
+          "trialA": 26,
+          "trialB": 14
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 26,
+          "trialB": 17
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 26,
+          "trialB": 20
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 26,
+          "trialB": 23
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 26,
+          "trialB": 26
+        },
+        {
+          "x": 5,
+          "y": 6,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 26,
+          "trialB": 29
+        },
+        {
+          "x": 5,
+          "y": 7,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 26,
+          "trialB": 32
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 26,
+          "trialB": 35
+        },
+        {
+          "x": 5,
+          "y": 9,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 26,
+          "trialB": 38
+        },
+        {
+          "x": 5,
+          "y": 10,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 26,
+          "trialB": 41
+        },
+        {
+          "x": 5,
+          "y": 11,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 26,
+          "trialB": 44
+        },
+        {
+          "x": 5,
+          "y": 12,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 26,
+          "trialB": 47
+        },
+        {
+          "x": 5,
+          "y": 13,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 26,
+          "trialB": 50
+        },
+        {
+          "x": 5,
+          "y": 14,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 26,
+          "trialB": 53
+        },
+        {
+          "x": 5,
+          "y": 15,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 26,
+          "trialB": 56
+        },
+        {
+          "x": 5,
+          "y": 16,
+          "prediction": -33,
+          "actual": -33,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 26,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2810,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 6,
+          "y": 1,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 76,
+          "trialA": 29,
+          "trialB": 14
+        },
+        {
+          "x": 6,
+          "y": 2,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 29,
+          "trialB": 17
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 29,
+          "trialB": 20
+        },
+        {
+          "x": 6,
+          "y": 4,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 29,
+          "trialB": 23
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 29,
+          "trialB": 26
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 29,
+          "trialB": 29
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 29,
+          "trialB": 32
+        },
+        {
+          "x": 6,
+          "y": 8,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 29,
+          "trialB": 35
+        },
+        {
+          "x": 6,
+          "y": 9,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 29,
+          "trialB": 38
+        },
+        {
+          "x": 6,
+          "y": 10,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 29,
+          "trialB": 41
+        },
+        {
+          "x": 6,
+          "y": 11,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 29,
+          "trialB": 44
+        },
+        {
+          "x": 6,
+          "y": 12,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 29,
+          "trialB": 47
+        },
+        {
+          "x": 6,
+          "y": 13,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 29,
+          "trialB": 50
+        },
+        {
+          "x": 6,
+          "y": 14,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 29,
+          "trialB": 53
+        },
+        {
+          "x": 6,
+          "y": 15,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 29,
+          "trialB": 56
+        },
+        {
+          "x": 6,
+          "y": 16,
+          "prediction": -30,
+          "actual": -30,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 29,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 2906,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 7,
+          "y": 1,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 79,
+          "trialA": 32,
+          "trialB": 14
+        },
+        {
+          "x": 7,
+          "y": 2,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 32,
+          "trialB": 17
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 32,
+          "trialB": 20
+        },
+        {
+          "x": 7,
+          "y": 4,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 32,
+          "trialB": 23
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 32,
+          "trialB": 26
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 32,
+          "trialB": 29
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 8,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 32,
+          "trialB": 35
+        },
+        {
+          "x": 7,
+          "y": 9,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 32,
+          "trialB": 38
+        },
+        {
+          "x": 7,
+          "y": 10,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 32,
+          "trialB": 41
+        },
+        {
+          "x": 7,
+          "y": 11,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 32,
+          "trialB": 44
+        },
+        {
+          "x": 7,
+          "y": 12,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 32,
+          "trialB": 47
+        },
+        {
+          "x": 7,
+          "y": 13,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 32,
+          "trialB": 50
+        },
+        {
+          "x": 7,
+          "y": 14,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 32,
+          "trialB": 53
+        },
+        {
+          "x": 7,
+          "y": 15,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 32,
+          "trialB": 56
+        },
+        {
+          "x": 7,
+          "y": 16,
+          "prediction": -27,
+          "actual": -27,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 32,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3002,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 8,
+          "y": 1,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 82,
+          "trialA": 35,
+          "trialB": 14
+        },
+        {
+          "x": 8,
+          "y": 2,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 35,
+          "trialB": 17
+        },
+        {
+          "x": 8,
+          "y": 3,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 35,
+          "trialB": 20
+        },
+        {
+          "x": 8,
+          "y": 4,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 35,
+          "trialB": 23
+        },
+        {
+          "x": 8,
+          "y": 5,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 35,
+          "trialB": 26
+        },
+        {
+          "x": 8,
+          "y": 6,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 35,
+          "trialB": 29
+        },
+        {
+          "x": 8,
+          "y": 7,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 8,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 35,
+          "trialB": 35
+        },
+        {
+          "x": 8,
+          "y": 9,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 35,
+          "trialB": 38
+        },
+        {
+          "x": 8,
+          "y": 10,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 35,
+          "trialB": 41
+        },
+        {
+          "x": 8,
+          "y": 11,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 35,
+          "trialB": 44
+        },
+        {
+          "x": 8,
+          "y": 12,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 35,
+          "trialB": 47
+        },
+        {
+          "x": 8,
+          "y": 13,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 35,
+          "trialB": 50
+        },
+        {
+          "x": 8,
+          "y": 14,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 35,
+          "trialB": 53
+        },
+        {
+          "x": 8,
+          "y": 15,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 35,
+          "trialB": 56
+        },
+        {
+          "x": 8,
+          "y": 16,
+          "prediction": -24,
+          "actual": -24,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 35,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3098,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 9,
+          "y": 1,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 85,
+          "trialA": 38,
+          "trialB": 14
+        },
+        {
+          "x": 9,
+          "y": 2,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 38,
+          "trialB": 17
+        },
+        {
+          "x": 9,
+          "y": 3,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 38,
+          "trialB": 20
+        },
+        {
+          "x": 9,
+          "y": 4,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 38,
+          "trialB": 23
+        },
+        {
+          "x": 9,
+          "y": 5,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 38,
+          "trialB": 26
+        },
+        {
+          "x": 9,
+          "y": 6,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 38,
+          "trialB": 29
+        },
+        {
+          "x": 9,
+          "y": 7,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 38,
+          "trialB": 32
+        },
+        {
+          "x": 9,
+          "y": 8,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 38,
+          "trialB": 35
+        },
+        {
+          "x": 9,
+          "y": 9,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 38,
+          "trialB": 38
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 38,
+          "trialB": 41
+        },
+        {
+          "x": 9,
+          "y": 11,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 38,
+          "trialB": 44
+        },
+        {
+          "x": 9,
+          "y": 12,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 38,
+          "trialB": 47
+        },
+        {
+          "x": 9,
+          "y": 13,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 38,
+          "trialB": 50
+        },
+        {
+          "x": 9,
+          "y": 14,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 38,
+          "trialB": 53
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 38,
+          "trialB": 56
+        },
+        {
+          "x": 9,
+          "y": 16,
+          "prediction": -21,
+          "actual": -21,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 38,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3194,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 10,
+          "y": 1,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 88,
+          "trialA": 41,
+          "trialB": 14
+        },
+        {
+          "x": 10,
+          "y": 2,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 41,
+          "trialB": 17
+        },
+        {
+          "x": 10,
+          "y": 3,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 41,
+          "trialB": 20
+        },
+        {
+          "x": 10,
+          "y": 4,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 41,
+          "trialB": 23
+        },
+        {
+          "x": 10,
+          "y": 5,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 41,
+          "trialB": 26
+        },
+        {
+          "x": 10,
+          "y": 6,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 41,
+          "trialB": 29
+        },
+        {
+          "x": 10,
+          "y": 7,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 41,
+          "trialB": 32
+        },
+        {
+          "x": 10,
+          "y": 8,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 41,
+          "trialB": 35
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 41,
+          "trialB": 38
+        },
+        {
+          "x": 10,
+          "y": 10,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 41,
+          "trialB": 41
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 41,
+          "trialB": 44
+        },
+        {
+          "x": 10,
+          "y": 12,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 41,
+          "trialB": 47
+        },
+        {
+          "x": 10,
+          "y": 13,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 41,
+          "trialB": 50
+        },
+        {
+          "x": 10,
+          "y": 14,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 41,
+          "trialB": 53
+        },
+        {
+          "x": 10,
+          "y": 15,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 41,
+          "trialB": 56
+        },
+        {
+          "x": 10,
+          "y": 16,
+          "prediction": -18,
+          "actual": -18,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 41,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3290,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 11,
+          "y": 1,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 91,
+          "trialA": 44,
+          "trialB": 14
+        },
+        {
+          "x": 11,
+          "y": 2,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 44,
+          "trialB": 17
+        },
+        {
+          "x": 11,
+          "y": 3,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 44,
+          "trialB": 20
+        },
+        {
+          "x": 11,
+          "y": 4,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 44,
+          "trialB": 23
+        },
+        {
+          "x": 11,
+          "y": 5,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 44,
+          "trialB": 26
+        },
+        {
+          "x": 11,
+          "y": 6,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 44,
+          "trialB": 29
+        },
+        {
+          "x": 11,
+          "y": 7,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 44,
+          "trialB": 32
+        },
+        {
+          "x": 11,
+          "y": 8,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 44,
+          "trialB": 35
+        },
+        {
+          "x": 11,
+          "y": 9,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 44,
+          "trialB": 38
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 44,
+          "trialB": 41
+        },
+        {
+          "x": 11,
+          "y": 11,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 44,
+          "trialB": 44
+        },
+        {
+          "x": 11,
+          "y": 12,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 44,
+          "trialB": 47
+        },
+        {
+          "x": 11,
+          "y": 13,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 44,
+          "trialB": 50
+        },
+        {
+          "x": 11,
+          "y": 14,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 44,
+          "trialB": 53
+        },
+        {
+          "x": 11,
+          "y": 15,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 44,
+          "trialB": 56
+        },
+        {
+          "x": 11,
+          "y": 16,
+          "prediction": -15,
+          "actual": -15,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 44,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3386,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 12,
+          "y": 1,
+          "prediction": 33,
+          "actual": 33,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 94,
+          "trialA": 47,
+          "trialB": 14
+        },
+        {
+          "x": 12,
+          "y": 2,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 47,
+          "trialB": 17
+        },
+        {
+          "x": 12,
+          "y": 3,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 47,
+          "trialB": 20
+        },
+        {
+          "x": 12,
+          "y": 4,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 47,
+          "trialB": 23
+        },
+        {
+          "x": 12,
+          "y": 5,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 47,
+          "trialB": 26
+        },
+        {
+          "x": 12,
+          "y": 6,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 47,
+          "trialB": 29
+        },
+        {
+          "x": 12,
+          "y": 7,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 47,
+          "trialB": 32
+        },
+        {
+          "x": 12,
+          "y": 8,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 47,
+          "trialB": 35
+        },
+        {
+          "x": 12,
+          "y": 9,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 47,
+          "trialB": 38
+        },
+        {
+          "x": 12,
+          "y": 10,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 47,
+          "trialB": 41
+        },
+        {
+          "x": 12,
+          "y": 11,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 47,
+          "trialB": 44
+        },
+        {
+          "x": 12,
+          "y": 12,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 47,
+          "trialB": 47
+        },
+        {
+          "x": 12,
+          "y": 13,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 47,
+          "trialB": 50
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 47,
+          "trialB": 53
+        },
+        {
+          "x": 12,
+          "y": 15,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 47,
+          "trialB": 56
+        },
+        {
+          "x": 12,
+          "y": 16,
+          "prediction": -12,
+          "actual": -12,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 139,
+          "trialA": 47,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3482,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 13,
+          "y": 1,
+          "prediction": 36,
+          "actual": 36,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 50,
+          "trialB": 14
+        },
+        {
+          "x": 13,
+          "y": 2,
+          "prediction": 33,
+          "actual": 33,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 50,
+          "trialB": 17
+        },
+        {
+          "x": 13,
+          "y": 3,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 50,
+          "trialB": 20
+        },
+        {
+          "x": 13,
+          "y": 4,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 50,
+          "trialB": 23
+        },
+        {
+          "x": 13,
+          "y": 5,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 50,
+          "trialB": 26
+        },
+        {
+          "x": 13,
+          "y": 6,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 50,
+          "trialB": 29
+        },
+        {
+          "x": 13,
+          "y": 7,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 50,
+          "trialB": 32
+        },
+        {
+          "x": 13,
+          "y": 8,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 50,
+          "trialB": 35
+        },
+        {
+          "x": 13,
+          "y": 9,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 50,
+          "trialB": 38
+        },
+        {
+          "x": 13,
+          "y": 10,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 50,
+          "trialB": 41
+        },
+        {
+          "x": 13,
+          "y": 11,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 50,
+          "trialB": 44
+        },
+        {
+          "x": 13,
+          "y": 12,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 13,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 50,
+          "trialB": 50
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 50,
+          "trialB": 53
+        },
+        {
+          "x": 13,
+          "y": 15,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 139,
+          "trialA": 50,
+          "trialB": 56
+        },
+        {
+          "x": 13,
+          "y": 16,
+          "prediction": -9,
+          "actual": -9,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 142,
+          "trialA": 50,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3578,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 14,
+          "y": 1,
+          "prediction": 39,
+          "actual": 39,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 53,
+          "trialB": 14
+        },
+        {
+          "x": 14,
+          "y": 2,
+          "prediction": 36,
+          "actual": 36,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 53,
+          "trialB": 17
+        },
+        {
+          "x": 14,
+          "y": 3,
+          "prediction": 33,
+          "actual": 33,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 53,
+          "trialB": 20
+        },
+        {
+          "x": 14,
+          "y": 4,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 53,
+          "trialB": 23
+        },
+        {
+          "x": 14,
+          "y": 5,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 53,
+          "trialB": 26
+        },
+        {
+          "x": 14,
+          "y": 6,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 53,
+          "trialB": 29
+        },
+        {
+          "x": 14,
+          "y": 7,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 53,
+          "trialB": 32
+        },
+        {
+          "x": 14,
+          "y": 8,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 53,
+          "trialB": 35
+        },
+        {
+          "x": 14,
+          "y": 9,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 53,
+          "trialB": 38
+        },
+        {
+          "x": 14,
+          "y": 10,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 53,
+          "trialB": 41
+        },
+        {
+          "x": 14,
+          "y": 11,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 53,
+          "trialB": 44
+        },
+        {
+          "x": 14,
+          "y": 12,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 13,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 53,
+          "trialB": 50
+        },
+        {
+          "x": 14,
+          "y": 14,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 139,
+          "trialA": 53,
+          "trialB": 53
+        },
+        {
+          "x": 14,
+          "y": 15,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 142,
+          "trialA": 53,
+          "trialB": 56
+        },
+        {
+          "x": 14,
+          "y": 16,
+          "prediction": -6,
+          "actual": -6,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 145,
+          "trialA": 53,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3674,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 15,
+          "y": 1,
+          "prediction": 42,
+          "actual": 42,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 103,
+          "trialA": 56,
+          "trialB": 14
+        },
+        {
+          "x": 15,
+          "y": 2,
+          "prediction": 39,
+          "actual": 39,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 56,
+          "trialB": 17
+        },
+        {
+          "x": 15,
+          "y": 3,
+          "prediction": 36,
+          "actual": 36,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 56,
+          "trialB": 20
+        },
+        {
+          "x": 15,
+          "y": 4,
+          "prediction": 33,
+          "actual": 33,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 56,
+          "trialB": 23
+        },
+        {
+          "x": 15,
+          "y": 5,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 56,
+          "trialB": 26
+        },
+        {
+          "x": 15,
+          "y": 6,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 56,
+          "trialB": 29
+        },
+        {
+          "x": 15,
+          "y": 7,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 56,
+          "trialB": 32
+        },
+        {
+          "x": 15,
+          "y": 8,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 56,
+          "trialB": 35
+        },
+        {
+          "x": 15,
+          "y": 9,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 56,
+          "trialB": 38
+        },
+        {
+          "x": 15,
+          "y": 10,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 56,
+          "trialB": 41
+        },
+        {
+          "x": 15,
+          "y": 11,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 56,
+          "trialB": 44
+        },
+        {
+          "x": 15,
+          "y": 12,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 56,
+          "trialB": 47
+        },
+        {
+          "x": 15,
+          "y": 13,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 139,
+          "trialA": 56,
+          "trialB": 50
+        },
+        {
+          "x": 15,
+          "y": 14,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 142,
+          "trialA": 56,
+          "trialB": 53
+        },
+        {
+          "x": 15,
+          "y": 15,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 145,
+          "trialA": 56,
+          "trialB": 56
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 113,
+          "auditCost": 148,
+          "trialA": 56,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "cross",
+      "paid": 3770,
+      "peak": 152,
+      "nodes": 136,
+      "trainCost": 218,
+      "trained": [
+        0,
+        3,
+        -3
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          14
+        ],
+        [
+          2,
+          1,
+          17,
+          14
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 16,
+          "y": 1,
+          "prediction": 45,
+          "actual": 45,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 106,
+          "trialA": 59,
+          "trialB": 14
+        },
+        {
+          "x": 16,
+          "y": 2,
+          "prediction": 42,
+          "actual": 42,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 109,
+          "trialA": 59,
+          "trialB": 17
+        },
+        {
+          "x": 16,
+          "y": 3,
+          "prediction": 39,
+          "actual": 39,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 112,
+          "trialA": 59,
+          "trialB": 20
+        },
+        {
+          "x": 16,
+          "y": 4,
+          "prediction": 36,
+          "actual": 36,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 115,
+          "trialA": 59,
+          "trialB": 23
+        },
+        {
+          "x": 16,
+          "y": 5,
+          "prediction": 33,
+          "actual": 33,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 118,
+          "trialA": 59,
+          "trialB": 26
+        },
+        {
+          "x": 16,
+          "y": 6,
+          "prediction": 30,
+          "actual": 30,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 121,
+          "trialA": 59,
+          "trialB": 29
+        },
+        {
+          "x": 16,
+          "y": 7,
+          "prediction": 27,
+          "actual": 27,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 124,
+          "trialA": 59,
+          "trialB": 32
+        },
+        {
+          "x": 16,
+          "y": 8,
+          "prediction": 24,
+          "actual": 24,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 127,
+          "trialA": 59,
+          "trialB": 35
+        },
+        {
+          "x": 16,
+          "y": 9,
+          "prediction": 21,
+          "actual": 21,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 59,
+          "trialB": 38
+        },
+        {
+          "x": 16,
+          "y": 10,
+          "prediction": 18,
+          "actual": 18,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 59,
+          "trialB": 41
+        },
+        {
+          "x": 16,
+          "y": 11,
+          "prediction": 15,
+          "actual": 15,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 136,
+          "trialA": 59,
+          "trialB": 44
+        },
+        {
+          "x": 16,
+          "y": 12,
+          "prediction": 12,
+          "actual": 12,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 139,
+          "trialA": 59,
+          "trialB": 47
+        },
+        {
+          "x": 16,
+          "y": 13,
+          "prediction": 9,
+          "actual": 9,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 142,
+          "trialA": 59,
+          "trialB": 50
+        },
+        {
+          "x": 16,
+          "y": 14,
+          "prediction": 6,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 145,
+          "trialA": 59,
+          "trialB": 53
+        },
+        {
+          "x": 16,
+          "y": 15,
+          "prediction": 3,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 113,
+          "auditCost": 148,
+          "trialA": 59,
+          "trialB": 56
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 116,
+          "auditCost": 151,
+          "trialA": 59,
+          "trialB": 59
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 1841,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 1,
+          "y": 3,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 32,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 13,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 14,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 15,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        },
+        {
+          "x": 1,
+          "y": 16,
+          "prediction": -3,
+          "actual": -3,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 64,
+          "trialA": 14,
+          "trialB": 17
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2024,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 2,
+          "y": 2,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 32,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 6,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 10,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 11,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 14,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 15,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        },
+        {
+          "x": 2,
+          "y": 16,
+          "prediction": 0,
+          "actual": 0,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 67,
+          "trialA": 17,
+          "trialB": 17
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2296,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 3,
+          "y": 1,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 32,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 35,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 38,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 41,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 44,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 6,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 47,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 50,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 53,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 56,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 59,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 62,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 12,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 65,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 13,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 68,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 14,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 71,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 15,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 74,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        },
+        {
+          "x": 3,
+          "y": 16,
+          "prediction": 3,
+          "actual": -2,
+          "correct": false,
+          "predictionCost": 77,
+          "auditCost": 75,
+          "trialA": 20,
+          "trialB": 22
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2392,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 4,
+          "y": 1,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 35,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 38,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 4,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 6,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 7,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 8,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 9,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 10,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 12,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 13,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 14,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 15,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        },
+        {
+          "x": 4,
+          "y": 16,
+          "prediction": 6,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 78,
+          "trialA": 23,
+          "trialB": 22
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2568,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 5,
+          "y": 1,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 38,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 41,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 44,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 47,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 50,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 6,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 53,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 7,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 56,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 59,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 9,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 62,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 10,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 65,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 11,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 68,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 12,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 71,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 13,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 74,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 14,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 77,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 15,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 80,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        },
+        {
+          "x": 5,
+          "y": 16,
+          "prediction": 9,
+          "actual": -1,
+          "correct": false,
+          "predictionCost": 83,
+          "auditCost": 86,
+          "trialA": 26,
+          "trialB": 27
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2664,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 6,
+          "y": 1,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 41,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 2,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 44,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 4,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 8,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 9,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 10,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 11,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 12,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 13,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 14,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 15,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        },
+        {
+          "x": 6,
+          "y": 16,
+          "prediction": 12,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 89,
+          "trialA": 29,
+          "trialB": 27
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2840,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 7,
+          "y": 1,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 44,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 2,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 47,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 50,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 4,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 53,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 56,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 6,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 59,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 62,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 8,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 65,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 9,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 68,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 10,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 71,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 11,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 74,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 12,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 77,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 13,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 80,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 14,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 83,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 15,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 86,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        },
+        {
+          "x": 7,
+          "y": 16,
+          "prediction": 15,
+          "actual": 0,
+          "correct": false,
+          "predictionCost": 89,
+          "auditCost": 97,
+          "trialA": 32,
+          "trialB": 32
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 2936,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 8,
+          "y": 1,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 47,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 2,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 3,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 4,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 5,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 6,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 7,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 8,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 9,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 10,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 11,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 12,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 13,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 14,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 15,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        },
+        {
+          "x": 8,
+          "y": 16,
+          "prediction": 18,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 100,
+          "trialA": 35,
+          "trialB": 32
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3112,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 9,
+          "y": 1,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 50,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 2,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 3,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 4,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 5,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 6,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 7,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 8,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 9,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 11,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 12,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 13,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 14,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        },
+        {
+          "x": 9,
+          "y": 16,
+          "prediction": 21,
+          "actual": 1,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 108,
+          "trialA": 38,
+          "trialB": 37
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3208,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 10,
+          "y": 1,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 53,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 2,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 3,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 4,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 5,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 6,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 7,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 8,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 10,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 12,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 13,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 14,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 15,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        },
+        {
+          "x": 10,
+          "y": 16,
+          "prediction": 24,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 111,
+          "trialA": 41,
+          "trialB": 37
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3384,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 11,
+          "y": 1,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 56,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 2,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 3,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 4,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 5,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 6,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 7,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 8,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 9,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 11,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 12,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 13,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 14,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 15,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        },
+        {
+          "x": 11,
+          "y": 16,
+          "prediction": 27,
+          "actual": 2,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 119,
+          "trialA": 44,
+          "trialB": 42
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3480,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 12,
+          "y": 1,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 59,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 2,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 3,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 4,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 5,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 6,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 7,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 8,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 9,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 10,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 11,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 12,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 13,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 15,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        },
+        {
+          "x": 12,
+          "y": 16,
+          "prediction": 30,
+          "actual": 5,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 122,
+          "trialA": 47,
+          "trialB": 42
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3656,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 13,
+          "y": 1,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 62,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 2,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 3,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 4,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 5,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 6,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 7,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 8,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 9,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 10,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 11,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 12,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 13,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 15,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        },
+        {
+          "x": 13,
+          "y": 16,
+          "prediction": 33,
+          "actual": 3,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 130,
+          "trialA": 50,
+          "trialB": 47
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3752,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 14,
+          "y": 1,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 65,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 2,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 3,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 4,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 5,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 6,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 7,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 8,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 9,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 10,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 11,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 12,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 13,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 14,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 15,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        },
+        {
+          "x": 14,
+          "y": 16,
+          "prediction": 36,
+          "actual": 6,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 133,
+          "trialA": 53,
+          "trialB": 47
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 3928,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 15,
+          "y": 1,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 68,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 2,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 3,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 4,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 5,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 6,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 7,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 8,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 9,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 10,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 11,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 12,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 13,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 14,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 15,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        },
+        {
+          "x": 15,
+          "y": 16,
+          "prediction": 39,
+          "actual": 4,
+          "correct": true,
+          "predictionCost": 113,
+          "auditCost": 141,
+          "trialA": 56,
+          "trialB": 52
+        }
+      ]
+    },
+    {
+      "profile": "unroll",
+      "paid": 4024,
+      "peak": 158,
+      "nodes": 142,
+      "trainCost": 224,
+      "trained": [
+        -3,
+        3,
+        0
+      ],
+      "trainPairs": [
+        [
+          1,
+          1,
+          14,
+          17
+        ],
+        [
+          2,
+          1,
+          17,
+          17
+        ],
+        [
+          1,
+          2,
+          14,
+          17
+        ]
+      ],
+      "rows": [
+        {
+          "x": 16,
+          "y": 1,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 71,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 2,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 74,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 3,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 77,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 4,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 80,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 5,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 83,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 6,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 86,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 7,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 89,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 8,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 92,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 9,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 95,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 10,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 98,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 11,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 101,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 12,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 104,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 13,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 107,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 14,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 110,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 15,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 113,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "prediction": 42,
+          "actual": 7,
+          "correct": true,
+          "predictionCost": 116,
+          "auditCost": 144,
+          "trialA": 59,
+          "trialB": 52
+        }
+      ]
+    }
+  ]
+}
