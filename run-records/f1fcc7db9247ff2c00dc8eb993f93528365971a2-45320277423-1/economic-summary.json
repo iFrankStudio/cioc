@@ -1,0 +1,1676 @@
+{
+  "tested_sha": "f1fcc7db9247ff2c00dc8eb993f93528365971a2",
+  "worlds": 60,
+  "paid": 91552,
+  "production": 5880,
+  "trials": 208,
+  "aggregate": {
+    "calibration_duplicate": {
+      "n": 4,
+      "economic": 106,
+      "physical": 422,
+      "wins": 2,
+      "ties": 0,
+      "losses": 2
+    },
+    "calibration_shared": {
+      "n": 4,
+      "economic": -154,
+      "physical": 422,
+      "wins": 1,
+      "ties": 0,
+      "losses": 3
+    },
+    "prospective_duplicate": {
+      "n": 8,
+      "economic": 80,
+      "physical": 2052,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5
+    },
+    "prospective_shared": {
+      "n": 8,
+      "economic": -934,
+      "physical": 2052,
+      "wins": 2,
+      "ties": 0,
+      "losses": 6
+    }
+  },
+  "pairs": [
+    {
+      "case": "cal_middle",
+      "cohort": "calibration",
+      "policy": "duplicate",
+      "physical_saving": 96,
+      "economic_saving": 3,
+      "first_physical_exposure": 446,
+      "on": 751,
+      "off": 847,
+      "once": 754,
+      "peak_occupied": 489
+    },
+    {
+      "case": "cal_middle",
+      "cohort": "calibration",
+      "policy": "shared",
+      "physical_saving": 96,
+      "economic_saving": -49,
+      "first_physical_exposure": 472,
+      "on": 803,
+      "off": 899,
+      "once": 754,
+      "peak_occupied": 312
+    },
+    {
+      "case": "cal_reverse",
+      "cohort": "calibration",
+      "policy": "duplicate",
+      "physical_saving": 38,
+      "economic_saving": -3,
+      "first_physical_exposure": 50,
+      "on": 753,
+      "off": 791,
+      "once": 750,
+      "peak_occupied": 489
+    },
+    {
+      "case": "cal_reverse",
+      "cohort": "calibration",
+      "policy": "shared",
+      "physical_saving": 38,
+      "economic_saving": -55,
+      "first_physical_exposure": 50,
+      "on": 805,
+      "off": 843,
+      "once": 750,
+      "peak_occupied": 312
+    },
+    {
+      "case": "cal_long",
+      "cohort": "calibration",
+      "policy": "duplicate",
+      "physical_saving": 288,
+      "economic_saving": 147,
+      "first_physical_exposure": 446,
+      "on": 1375,
+      "off": 1663,
+      "once": 1522,
+      "peak_occupied": 489
+    },
+    {
+      "case": "cal_long",
+      "cohort": "calibration",
+      "policy": "shared",
+      "physical_saving": 288,
+      "economic_saving": 43,
+      "first_physical_exposure": 472,
+      "on": 1479,
+      "off": 1767,
+      "once": 1522,
+      "peak_occupied": 312
+    },
+    {
+      "case": "cal_stable",
+      "cohort": "calibration",
+      "policy": "duplicate",
+      "physical_saving": 0,
+      "economic_saving": -41,
+      "first_physical_exposure": null,
+      "on": 671,
+      "off": 671,
+      "once": 630,
+      "peak_occupied": 489
+    },
+    {
+      "case": "cal_stable",
+      "cohort": "calibration",
+      "policy": "shared",
+      "physical_saving": 0,
+      "economic_saving": -93,
+      "first_physical_exposure": null,
+      "on": 723,
+      "off": 723,
+      "once": 630,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_early",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": -58,
+      "economic_saving": 69,
+      "first_physical_exposure": 50,
+      "on": 1113,
+      "off": 1055,
+      "once": 1182,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_early",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": -58,
+      "economic_saving": -9,
+      "first_physical_exposure": 50,
+      "on": 1191,
+      "off": 1133,
+      "once": 1182,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_middle",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 288,
+      "economic_saving": 135,
+      "first_physical_exposure": 602,
+      "on": 1531,
+      "off": 1819,
+      "once": 1666,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_middle",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 288,
+      "economic_saving": 18,
+      "first_physical_exposure": 641,
+      "on": 1648,
+      "off": 1936,
+      "once": 1666,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_late",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 280,
+      "economic_saving": -77,
+      "first_physical_exposure": 50,
+      "on": 1163,
+      "off": 1443,
+      "once": 1086,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_late",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 280,
+      "economic_saving": -168,
+      "first_physical_exposure": 50,
+      "on": 1254,
+      "off": 1534,
+      "once": 1086,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_stable",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 528,
+      "economic_saving": -125,
+      "first_physical_exposure": 50,
+      "on": 1759,
+      "off": 2287,
+      "once": 1634,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_stable",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 528,
+      "economic_saving": -268,
+      "first_physical_exposure": 50,
+      "on": 1902,
+      "off": 2430,
+      "once": 1634,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_transient",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 0,
+      "economic_saving": -133,
+      "first_physical_exposure": null,
+      "on": 1227,
+      "off": 1227,
+      "once": 1094,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_transient",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 0,
+      "economic_saving": -224,
+      "first_physical_exposure": null,
+      "on": 1318,
+      "off": 1318,
+      "once": 1094,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_twice",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 294,
+      "economic_saving": -47,
+      "first_physical_exposure": 50,
+      "on": 2065,
+      "off": 2359,
+      "once": 2018,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_twice",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 294,
+      "economic_saving": -203,
+      "first_physical_exposure": 50,
+      "on": 2221,
+      "off": 2515,
+      "once": 2018,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_long",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 720,
+      "economic_saving": 459,
+      "first_physical_exposure": 578,
+      "on": 2911,
+      "off": 3631,
+      "once": 3370,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_long",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 720,
+      "economic_saving": 225,
+      "first_physical_exposure": 617,
+      "on": 3145,
+      "off": 3865,
+      "once": 3370,
+      "peak_occupied": 312
+    },
+    {
+      "case": "new_alias",
+      "cohort": "prospective",
+      "policy": "duplicate",
+      "physical_saving": 0,
+      "economic_saving": -201,
+      "first_physical_exposure": null,
+      "on": 1455,
+      "off": 1455,
+      "once": 1254,
+      "peak_occupied": 489
+    },
+    {
+      "case": "new_alias",
+      "cohort": "prospective",
+      "policy": "shared",
+      "physical_saving": 0,
+      "economic_saving": -305,
+      "first_physical_exposure": null,
+      "on": 1559,
+      "off": 1559,
+      "once": 1254,
+      "peak_occupied": 312
+    }
+  ],
+  "world_rows": [
+    {
+      "arm": "duplicate_on",
+      "case": "cal_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "cal_middle_duplicate_on",
+      "nodes": 481,
+      "paid": 751,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "cal_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_middle_duplicate_off",
+      "nodes": 481,
+      "paid": 847,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "cal_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "cal_middle_shared_on",
+      "nodes": 304,
+      "paid": 803,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "cal_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_middle_shared_off",
+      "nodes": 304,
+      "paid": 899,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_middle",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_middle_once",
+      "nodes": 113,
+      "paid": 754,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "cal_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          24,
+          131,
+          101,
+          101,
+          false
+        ]
+      ],
+      "id": "cal_reverse_duplicate_on",
+      "nodes": 481,
+      "paid": 753,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "cal_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_reverse_duplicate_off",
+      "nodes": 481,
+      "paid": 791,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "cal_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          24,
+          131,
+          101,
+          101,
+          false
+        ]
+      ],
+      "id": "cal_reverse_shared_on",
+      "nodes": 304,
+      "paid": 805,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "cal_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_reverse_shared_off",
+      "nodes": 304,
+      "paid": 843,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "cal_reverse_once",
+      "nodes": 113,
+      "paid": 750,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "cal_long",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "cal_long_duplicate_on",
+      "nodes": 481,
+      "paid": 1375,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "cal_long",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_long_duplicate_off",
+      "nodes": 481,
+      "paid": 1663,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "cal_long",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "cal_long_shared_on",
+      "nodes": 304,
+      "paid": 1479,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "cal_long",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "cal_long_shared_off",
+      "nodes": 304,
+      "paid": 1767,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_long",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_long_once",
+      "nodes": 113,
+      "paid": 1522,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 96,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_stable_duplicate_on",
+      "nodes": 481,
+      "paid": 671,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_stable_duplicate_off",
+      "nodes": 481,
+      "paid": 671,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "shared_on",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_stable_shared_on",
+      "nodes": 304,
+      "paid": 723,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "shared_off",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_stable_shared_off",
+      "nodes": 304,
+      "paid": 723,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "once",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_stable_once",
+      "nodes": 113,
+      "paid": 630,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_early",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          24,
+          131,
+          101,
+          101,
+          false
+        ]
+      ],
+      "id": "new_early_duplicate_on",
+      "nodes": 481,
+      "paid": 1113,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_early",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_early_duplicate_off",
+      "nodes": 481,
+      "paid": 1055,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_early",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          24,
+          131,
+          101,
+          101,
+          false
+        ]
+      ],
+      "id": "new_early_shared_on",
+      "nodes": 304,
+      "paid": 1191,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_early",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_early_shared_off",
+      "nodes": 304,
+      "paid": 1133,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_early",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_early_once",
+      "nodes": 113,
+      "paid": 1182,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 72,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_middle_duplicate_on",
+      "nodes": 481,
+      "paid": 1531,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 108,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_middle_duplicate_off",
+      "nodes": 481,
+      "paid": 1819,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 108,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_middle_shared_on",
+      "nodes": 304,
+      "paid": 1648,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 108,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_middle",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_middle_shared_off",
+      "nodes": 304,
+      "paid": 1936,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 108,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_middle",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_middle_once",
+      "nodes": 113,
+      "paid": 1666,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 108,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_late_duplicate_on",
+      "nodes": 481,
+      "paid": 1163,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_late_duplicate_off",
+      "nodes": 481,
+      "paid": 1443,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_late_shared_on",
+      "nodes": 304,
+      "paid": 1254,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_late_shared_off",
+      "nodes": 304,
+      "paid": 1534,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "once",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_late_once",
+      "nodes": 113,
+      "paid": 1086,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_stable_duplicate_on",
+      "nodes": 481,
+      "paid": 1759,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 132,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_stable_duplicate_off",
+      "nodes": 481,
+      "paid": 2287,
+      "peak_occupied": 489,
+      "probes": [
+        0
+      ],
+      "production": 132,
+      "trials": 2
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_stable_shared_on",
+      "nodes": 304,
+      "paid": 1902,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 132,
+      "trials": 2
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_stable_shared_off",
+      "nodes": 304,
+      "paid": 2430,
+      "peak_occupied": 312,
+      "probes": [
+        0
+      ],
+      "production": 132,
+      "trials": 2
+    },
+    {
+      "arm": "once",
+      "case": "new_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_stable_once",
+      "nodes": 113,
+      "paid": 1634,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 132,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_duplicate_on",
+      "nodes": 481,
+      "paid": 1227,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 84,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_duplicate_off",
+      "nodes": 481,
+      "paid": 1227,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 84,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_shared_on",
+      "nodes": 304,
+      "paid": 1318,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 84,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_shared_off",
+      "nodes": 304,
+      "paid": 1318,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 84,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_once",
+      "nodes": 113,
+      "paid": 1094,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 84,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          36,
+          131,
+          101,
+          101,
+          false
+        ],
+        [
+          96,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_twice_duplicate_on",
+      "nodes": 481,
+      "paid": 2065,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36,
+        96
+      ],
+      "production": 144,
+      "trials": 6
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ],
+        [
+          96,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_twice_duplicate_off",
+      "nodes": 481,
+      "paid": 2359,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36,
+        96
+      ],
+      "production": 144,
+      "trials": 6
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ],
+        [
+          36,
+          131,
+          101,
+          101,
+          false
+        ],
+        [
+          96,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_twice_shared_on",
+      "nodes": 304,
+      "paid": 2221,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36,
+        96
+      ],
+      "production": 144,
+      "trials": 6
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          101,
+          true
+        ],
+        [
+          96,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_twice_shared_off",
+      "nodes": 304,
+      "paid": 2515,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36,
+        96
+      ],
+      "production": 144,
+      "trials": 6
+    },
+    {
+      "arm": "once",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_twice_once",
+      "nodes": 113,
+      "paid": 2018,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 144,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_long",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_long_duplicate_on",
+      "nodes": 481,
+      "paid": 2911,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 216,
+      "trials": 4
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_long",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_long_duplicate_off",
+      "nodes": 481,
+      "paid": 3631,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 216,
+      "trials": 4
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_long",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          131,
+          false
+        ]
+      ],
+      "id": "new_long_shared_on",
+      "nodes": 304,
+      "paid": 3145,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 216,
+      "trials": 4
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_long",
+      "cutoff": true,
+      "edits": [
+        [
+          36,
+          101,
+          131,
+          101,
+          true
+        ]
+      ],
+      "id": "new_long_shared_off",
+      "nodes": 304,
+      "paid": 3865,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        36
+      ],
+      "production": 216,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_long",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_long_once",
+      "nodes": 113,
+      "paid": 3370,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 216,
+      "trials": 2
+    },
+    {
+      "arm": "duplicate_on",
+      "case": "new_alias",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_alias_duplicate_on",
+      "nodes": 481,
+      "paid": 1455,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24,
+        60
+      ],
+      "production": 96,
+      "trials": 6
+    },
+    {
+      "arm": "duplicate_off",
+      "case": "new_alias",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_alias_duplicate_off",
+      "nodes": 481,
+      "paid": 1455,
+      "peak_occupied": 489,
+      "probes": [
+        0,
+        24,
+        60
+      ],
+      "production": 96,
+      "trials": 6
+    },
+    {
+      "arm": "shared_on",
+      "case": "new_alias",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_alias_shared_on",
+      "nodes": 304,
+      "paid": 1559,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24,
+        60
+      ],
+      "production": 96,
+      "trials": 6
+    },
+    {
+      "arm": "shared_off",
+      "case": "new_alias",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_alias_shared_off",
+      "nodes": 304,
+      "paid": 1559,
+      "peak_occupied": 312,
+      "probes": [
+        0,
+        24,
+        60
+      ],
+      "production": 96,
+      "trials": 6
+    },
+    {
+      "arm": "once",
+      "case": "new_alias",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_alias_once",
+      "nodes": 113,
+      "paid": 1254,
+      "peak_occupied": 119,
+      "probes": [
+        0
+      ],
+      "production": 96,
+      "trials": 2
+    }
+  ],
+  "B3_B4": "NOT_MET"
+}
