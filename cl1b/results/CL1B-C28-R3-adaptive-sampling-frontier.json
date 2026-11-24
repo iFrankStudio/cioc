@@ -1,0 +1,545 @@
+{
+  "tier": "RETROSPECTIVE_NON_NATIVE_MODEL",
+  "known": {
+    "once": {
+      "n": 8,
+      "net": 0,
+      "wins": 0,
+      "ties": 8,
+      "losses": 0,
+      "worst": 0,
+      "regret": 663,
+      "physical": 0,
+      "nodes": 113
+    },
+    "original": {
+      "n": 8,
+      "net": 80,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -201,
+      "regret": 583,
+      "physical": 2052,
+      "nodes": 481
+    },
+    "gated0": {
+      "n": 8,
+      "net": -100,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -222,
+      "regret": 763,
+      "physical": 2052,
+      "nodes": 490
+    },
+    "skip1": {
+      "n": 8,
+      "net": 114,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -144,
+      "regret": 549,
+      "physical": 1908,
+      "nodes": 490
+    },
+    "skip3": {
+      "n": 8,
+      "net": -65,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -177,
+      "regret": 728,
+      "physical": 1620,
+      "nodes": 490
+    },
+    "backoff2": {
+      "n": 8,
+      "net": 6,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -154,
+      "regret": 657,
+      "physical": 1908,
+      "nodes": 500
+    },
+    "backoff4": {
+      "n": 8,
+      "net": 42,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -154,
+      "regret": 621,
+      "physical": 1908,
+      "nodes": 500
+    },
+    "backoff8": {
+      "n": 8,
+      "net": 42,
+      "wins": 3,
+      "ties": 0,
+      "losses": 5,
+      "worst": -154,
+      "regret": 621,
+      "physical": 1908,
+      "nodes": 500
+    }
+  },
+  "grid": {
+    "once": {
+      "n": 438,
+      "net": 0,
+      "wins": 0,
+      "ties": 438,
+      "losses": 0,
+      "worst": 0,
+      "regret": 33462,
+      "physical": 0,
+      "nodes": 113
+    },
+    "original": {
+      "n": 438,
+      "net": -10592,
+      "wins": 178,
+      "ties": 0,
+      "losses": 260,
+      "worst": -296,
+      "regret": 44054,
+      "physical": 111326,
+      "nodes": 481
+    },
+    "gated0": {
+      "n": 438,
+      "net": -22486,
+      "wins": 166,
+      "ties": 0,
+      "losses": 272,
+      "worst": -326,
+      "regret": 55948,
+      "physical": 111326,
+      "nodes": 490
+    },
+    "skip1": {
+      "n": 438,
+      "net": -4850,
+      "wins": 190,
+      "ties": 0,
+      "losses": 248,
+      "worst": -294,
+      "regret": 38312,
+      "physical": 105430,
+      "nodes": 490
+    },
+    "skip3": {
+      "n": 438,
+      "net": -2500,
+      "wins": 142,
+      "ties": 0,
+      "losses": 296,
+      "worst": -281,
+      "regret": 35962,
+      "physical": 95660,
+      "nodes": 490
+    },
+    "backoff2": {
+      "n": 438,
+      "net": -14448,
+      "wins": 166,
+      "ties": 0,
+      "losses": 272,
+      "worst": -312,
+      "regret": 47910,
+      "physical": 102072,
+      "nodes": 500
+    },
+    "backoff4": {
+      "n": 438,
+      "net": -12704,
+      "wins": 166,
+      "ties": 0,
+      "losses": 272,
+      "worst": -312,
+      "regret": 46166,
+      "physical": 95330,
+      "nodes": 500
+    },
+    "backoff8": {
+      "n": 438,
+      "net": -12704,
+      "wins": 166,
+      "ties": 0,
+      "losses": 272,
+      "worst": -312,
+      "regret": 46166,
+      "physical": 95330,
+      "nodes": 500
+    }
+  },
+  "groups": {
+    "stable": {
+      "once": {
+        "n": 2,
+        "net": 0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "worst": 0,
+        "regret": 0,
+        "physical": 0,
+        "nodes": 113
+      },
+      "original": {
+        "n": 2,
+        "net": -274,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -137,
+        "regret": 274,
+        "physical": 576,
+        "nodes": 481
+      },
+      "gated0": {
+        "n": 2,
+        "net": -324,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -162,
+        "regret": 324,
+        "physical": 576,
+        "nodes": 490
+      },
+      "skip1": {
+        "n": 2,
+        "net": -224,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -112,
+        "regret": 224,
+        "physical": 576,
+        "nodes": 490
+      },
+      "skip3": {
+        "n": 2,
+        "net": -178,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -89,
+        "regret": 178,
+        "physical": 576,
+        "nodes": 490
+      },
+      "backoff2": {
+        "n": 2,
+        "net": -256,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -128,
+        "regret": 256,
+        "physical": 576,
+        "nodes": 500
+      },
+      "backoff4": {
+        "n": 2,
+        "net": -226,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -113,
+        "regret": 226,
+        "physical": 576,
+        "nodes": 500
+      },
+      "backoff8": {
+        "n": 2,
+        "net": -226,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "worst": -113,
+        "regret": 226,
+        "physical": 576,
+        "nodes": 500
+      }
+    },
+    "single": {
+      "once": {
+        "n": 286,
+        "net": 0,
+        "wins": 0,
+        "ties": 286,
+        "losses": 0,
+        "worst": 0,
+        "regret": 33462,
+        "physical": 0,
+        "nodes": 113
+      },
+      "original": {
+        "n": 286,
+        "net": 20304,
+        "wins": 178,
+        "ties": 0,
+        "losses": 108,
+        "worst": -148,
+        "regret": 13158,
+        "physical": 73658,
+        "nodes": 481
+      },
+      "gated0": {
+        "n": 286,
+        "net": 12606,
+        "wins": 166,
+        "ties": 0,
+        "losses": 120,
+        "worst": -176,
+        "regret": 20856,
+        "physical": 73658,
+        "nodes": 490
+      },
+      "skip1": {
+        "n": 286,
+        "net": 20182,
+        "wins": 190,
+        "ties": 0,
+        "losses": 96,
+        "worst": -112,
+        "regret": 13280,
+        "physical": 67922,
+        "nodes": 490
+      },
+      "skip3": {
+        "n": 286,
+        "net": 16830,
+        "wins": 142,
+        "ties": 0,
+        "losses": 144,
+        "worst": -89,
+        "regret": 16632,
+        "physical": 58706,
+        "nodes": 490
+      },
+      "backoff2": {
+        "n": 286,
+        "net": 11900,
+        "wins": 166,
+        "ties": 0,
+        "losses": 120,
+        "worst": -128,
+        "regret": 21562,
+        "physical": 64466,
+        "nodes": 500
+      },
+      "backoff4": {
+        "n": 286,
+        "net": 11390,
+        "wins": 166,
+        "ties": 0,
+        "losses": 120,
+        "worst": -113,
+        "regret": 22072,
+        "physical": 57626,
+        "nodes": 500
+      },
+      "backoff8": {
+        "n": 286,
+        "net": 11390,
+        "wins": 166,
+        "ties": 0,
+        "losses": 120,
+        "worst": -113,
+        "regret": 22072,
+        "physical": 57626,
+        "nodes": 500
+      }
+    },
+    "transient": {
+      "once": {
+        "n": 126,
+        "net": 0,
+        "wins": 0,
+        "ties": 126,
+        "losses": 0,
+        "worst": 0,
+        "regret": 0,
+        "physical": 0,
+        "nodes": 113
+      },
+      "original": {
+        "n": 126,
+        "net": -25844,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -296,
+        "regret": 25844,
+        "physical": 32532,
+        "nodes": 481
+      },
+      "gated0": {
+        "n": 126,
+        "net": -29292,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -326,
+        "regret": 29292,
+        "physical": 32532,
+        "nodes": 490
+      },
+      "skip1": {
+        "n": 126,
+        "net": -20022,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -294,
+        "regret": 20022,
+        "physical": 32934,
+        "nodes": 490
+      },
+      "skip3": {
+        "n": 126,
+        "net": -14978,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -281,
+        "regret": 14978,
+        "physical": 33134,
+        "nodes": 490
+      },
+      "backoff2": {
+        "n": 126,
+        "net": -20924,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -312,
+        "regret": 20924,
+        "physical": 33034,
+        "nodes": 500
+      },
+      "backoff4": {
+        "n": 126,
+        "net": -18730,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -312,
+        "regret": 18730,
+        "physical": 33132,
+        "nodes": 500
+      },
+      "backoff8": {
+        "n": 126,
+        "net": -18730,
+        "wins": 0,
+        "ties": 0,
+        "losses": 126,
+        "worst": -312,
+        "regret": 18730,
+        "physical": 33132,
+        "nodes": 500
+      }
+    },
+    "reverse": {
+      "once": {
+        "n": 24,
+        "net": 0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "worst": 0,
+        "regret": 0,
+        "physical": 0,
+        "nodes": 113
+      },
+      "original": {
+        "n": 24,
+        "net": -4778,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -247,
+        "regret": 4778,
+        "physical": 4560,
+        "nodes": 481
+      },
+      "gated0": {
+        "n": 24,
+        "net": -5476,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -276,
+        "regret": 5476,
+        "physical": 4560,
+        "nodes": 490
+      },
+      "skip1": {
+        "n": 24,
+        "net": -4786,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -246,
+        "regret": 4786,
+        "physical": 3998,
+        "nodes": 490
+      },
+      "skip3": {
+        "n": 24,
+        "net": -4174,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -258,
+        "regret": 4174,
+        "physical": 3244,
+        "nodes": 490
+      },
+      "backoff2": {
+        "n": 24,
+        "net": -5168,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -264,
+        "regret": 5168,
+        "physical": 3996,
+        "nodes": 500
+      },
+      "backoff4": {
+        "n": 24,
+        "net": -5138,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -264,
+        "regret": 5138,
+        "physical": 3996,
+        "nodes": 500
+      },
+      "backoff8": {
+        "n": 24,
+        "net": -5138,
+        "wins": 0,
+        "ties": 0,
+        "losses": 24,
+        "worst": -264,
+        "regret": 5138,
+        "physical": 3996,
+        "nodes": 500
+      }
+    }
+  }
+}
