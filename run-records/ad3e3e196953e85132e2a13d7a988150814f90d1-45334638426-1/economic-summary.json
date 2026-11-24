@@ -1,0 +1,5494 @@
+{
+  "tested_sha": "ad3e3e196953e85132e2a13d7a988150814f90d1",
+  "worlds": 80,
+  "paid": 219570,
+  "production": 5680,
+  "trials": 288,
+  "aggregate": {
+    "calibration_snapshot": {
+      "n": 4,
+      "economic": 2626,
+      "physical": 1496,
+      "wins": 2,
+      "ties": 0,
+      "losses": 2,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    "calibration_live": {
+      "n": 4,
+      "economic": 3617,
+      "physical": 2364,
+      "wins": 3,
+      "ties": 0,
+      "losses": 1,
+      "mismatched_inputs": 2,
+      "equal_output_mismatched_inputs": 1
+    },
+    "prospective_snapshot": {
+      "n": 12,
+      "economic": -272,
+      "physical": 1486,
+      "wins": 3,
+      "ties": 0,
+      "losses": 9,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    "prospective_live": {
+      "n": 12,
+      "economic": 1122,
+      "physical": 2570,
+      "wins": 3,
+      "ties": 0,
+      "losses": 9,
+      "mismatched_inputs": 4,
+      "equal_output_mismatched_inputs": 3
+    }
+  },
+  "pairs": [
+    {
+      "case": "cal_swap",
+      "cohort": "calibration",
+      "policy": "snapshot",
+      "physical_saving": -722,
+      "economic_saving": 434,
+      "first_physical_exposure": 143,
+      "on": 2109,
+      "off": 1387,
+      "once": 2543,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_swap",
+      "cohort": "calibration",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": 1187,
+      "first_physical_exposure": null,
+      "on": 1356,
+      "off": 1356,
+      "once": 2543,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 1
+    },
+    {
+      "case": "cal_different",
+      "cohort": "calibration",
+      "policy": "snapshot",
+      "physical_saving": -146,
+      "economic_saving": -92,
+      "first_physical_exposure": 143,
+      "on": 1627,
+      "off": 1481,
+      "once": 1535,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_different",
+      "cohort": "calibration",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": 114,
+      "first_physical_exposure": null,
+      "on": 1421,
+      "off": 1421,
+      "once": 1535,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_flip",
+      "cohort": "calibration",
+      "policy": "snapshot",
+      "physical_saving": 922,
+      "economic_saving": 2566,
+      "first_physical_exposure": 171,
+      "on": 2591,
+      "off": 3513,
+      "once": 5157,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_flip",
+      "cohort": "calibration",
+      "policy": "live",
+      "physical_saving": 922,
+      "economic_saving": 2582,
+      "first_physical_exposure": 163,
+      "on": 2575,
+      "off": 3497,
+      "once": 5157,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_stable",
+      "cohort": "calibration",
+      "policy": "snapshot",
+      "physical_saving": 1442,
+      "economic_saving": -282,
+      "first_physical_exposure": 143,
+      "on": 1385,
+      "off": 2827,
+      "once": 1103,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "cal_stable",
+      "cohort": "calibration",
+      "policy": "live",
+      "physical_saving": 1442,
+      "economic_saving": -266,
+      "first_physical_exposure": 135,
+      "on": 1369,
+      "off": 2811,
+      "once": 1103,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_equal",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 0,
+      "economic_saving": -299,
+      "first_physical_exposure": null,
+      "on": 3033,
+      "off": 3033,
+      "once": 2734,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_equal",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": -283,
+      "first_physical_exposure": null,
+      "on": 3017,
+      "off": 3017,
+      "once": 2734,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_stable_a",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 0,
+      "economic_saving": -376,
+      "first_physical_exposure": null,
+      "on": 2195,
+      "off": 2195,
+      "once": 1819,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_stable_a",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": -360,
+      "first_physical_exposure": null,
+      "on": 2179,
+      "off": 2179,
+      "once": 1819,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_stable_b",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 2594,
+      "economic_saving": -374,
+      "first_physical_exposure": 163,
+      "on": 2193,
+      "off": 4787,
+      "once": 1819,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_stable_b",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 2594,
+      "economic_saving": -358,
+      "first_physical_exposure": 155,
+      "on": 2177,
+      "off": 4771,
+      "once": 1819,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_small_flip",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 162,
+      "economic_saving": -167,
+      "first_physical_exposure": 979,
+      "on": 2704,
+      "off": 2866,
+      "once": 2537,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_small_flip",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 162,
+      "economic_saving": -151,
+      "first_physical_exposure": 963,
+      "on": 2688,
+      "off": 2850,
+      "once": 2537,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_large_flip",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 754,
+      "economic_saving": 2338,
+      "first_physical_exposure": 165,
+      "on": 2255,
+      "off": 3009,
+      "once": 4593,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_large_flip",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 754,
+      "economic_saving": 2354,
+      "first_physical_exposure": 157,
+      "on": 2239,
+      "off": 2993,
+      "once": 4593,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_late",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 0,
+      "economic_saving": -432,
+      "first_physical_exposure": null,
+      "on": 4689,
+      "off": 4689,
+      "once": 4257,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_late",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": -416,
+      "first_physical_exposure": null,
+      "on": 4673,
+      "off": 4673,
+      "once": 4257,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_twice",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 64,
+      "economic_saving": -377,
+      "first_physical_exposure": 156,
+      "on": 4325,
+      "off": 4389,
+      "once": 3948,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_twice",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 64,
+      "economic_saving": -361,
+      "first_physical_exposure": 148,
+      "on": 4309,
+      "off": 4373,
+      "once": 3948,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_transient",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": -1056,
+      "economic_saving": -1410,
+      "first_physical_exposure": 1098,
+      "on": 3591,
+      "off": 2535,
+      "once": 2181,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_transient",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": -1056,
+      "economic_saving": -1394,
+      "first_physical_exposure": 1082,
+      "on": 3575,
+      "off": 2519,
+      "once": 2181,
+      "peak_occupied": 169,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_same_product_swap",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": -866,
+      "economic_saving": 1092,
+      "first_physical_exposure": 157,
+      "on": 2649,
+      "off": 1783,
+      "once": 3741,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_same_product_swap",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": 1991,
+      "first_physical_exposure": null,
+      "on": 1750,
+      "off": 1750,
+      "once": 3741,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 1
+    },
+    {
+      "case": "new_same_product_factor",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": -74,
+      "economic_saving": -169,
+      "first_physical_exposure": 164,
+      "on": 2445,
+      "off": 2371,
+      "once": 2276,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_same_product_factor",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": -74,
+      "economic_saving": -149,
+      "first_physical_exposure": 152,
+      "on": 2425,
+      "off": 2351,
+      "once": 2276,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 1
+    },
+    {
+      "case": "new_different_product",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": -218,
+      "economic_saving": 75,
+      "first_physical_exposure": 149,
+      "on": 2384,
+      "off": 2166,
+      "once": 2459,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_different_product",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 0,
+      "economic_saving": 350,
+      "first_physical_exposure": null,
+      "on": 2109,
+      "off": 2109,
+      "once": 2459,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_same_product_reverse",
+      "cohort": "prospective",
+      "policy": "snapshot",
+      "physical_saving": 126,
+      "economic_saving": -173,
+      "first_physical_exposure": 1172,
+      "on": 2639,
+      "off": 2765,
+      "once": 2466,
+      "peak_occupied": 179,
+      "mismatched_inputs": 0,
+      "equal_output_mismatched_inputs": 0
+    },
+    {
+      "case": "new_same_product_reverse",
+      "cohort": "prospective",
+      "policy": "live",
+      "physical_saving": 126,
+      "economic_saving": -101,
+      "first_physical_exposure": 1100,
+      "on": 2567,
+      "off": 2693,
+      "once": 2466,
+      "peak_occupied": 169,
+      "mismatched_inputs": 1,
+      "equal_output_mismatched_inputs": 1
+    }
+  ],
+  "world_rows": [
+    {
+      "arm": "snapshot_on",
+      "case": "cal_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "cal_swap_snapshot_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2109,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "cal_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "cal_swap_snapshot_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 1387,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "cal_swap",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_swap_live_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1356,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "cal_swap",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_swap_live_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            2,
+            12
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1356,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "cal_swap_once",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            2,
+            12
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2543,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "cal_different",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "cal_different_snapshot_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 1627,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "cal_different",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "cal_different_snapshot_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 1481,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "cal_different",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_different_live_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            24,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1421,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "cal_different",
+      "cutoff": true,
+      "edits": [],
+      "id": "cal_different_live_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            24,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            3,
+            5
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1421,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_different",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "cal_different_once",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            3,
+            5
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 1535,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "cal_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "cal_flip_snapshot_on",
+      "measurements": [
+        {
+          "a": 59,
+          "a_input": [
+            16,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            16,
+            2
+          ],
+          "live": [
+            16,
+            2
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            16
+          ],
+          "b": 59,
+          "b_input": [
+            2,
+            16
+          ],
+          "live": [
+            2,
+            16
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2591,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "cal_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "cal_flip_snapshot_off",
+      "measurements": [
+        {
+          "a": 59,
+          "a_input": [
+            16,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            16,
+            2
+          ],
+          "live": [
+            16,
+            2
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            16
+          ],
+          "b": 59,
+          "b_input": [
+            2,
+            16
+          ],
+          "live": [
+            2,
+            16
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 3513,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "cal_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ],
+        [
+          24,
+          140,
+          129,
+          129,
+          false
+        ]
+      ],
+      "id": "cal_flip_live_on",
+      "measurements": [
+        {
+          "a": 59,
+          "a_input": [
+            16,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            16,
+            2
+          ],
+          "live": [
+            16,
+            2
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            16
+          ],
+          "b": 59,
+          "b_input": [
+            2,
+            16
+          ],
+          "live": [
+            2,
+            16
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2575,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "cal_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "cal_flip_live_off",
+      "measurements": [
+        {
+          "a": 59,
+          "a_input": [
+            16,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            16,
+            2
+          ],
+          "live": [
+            16,
+            2
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            16
+          ],
+          "b": 59,
+          "b_input": [
+            2,
+            16
+          ],
+          "live": [
+            2,
+            16
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 3497,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "cal_flip_once",
+      "measurements": [
+        {
+          "a": 59,
+          "a_input": [
+            16,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            16,
+            2
+          ],
+          "live": [
+            16,
+            2
+          ],
+          "outputs": [
+            32,
+            32
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 5157,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 96,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "cal_stable_snapshot_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 1385,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ],
+        [
+          24,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "cal_stable_snapshot_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2827,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ]
+      ],
+      "id": "cal_stable_live_on",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1369,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ],
+        [
+          24,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "cal_stable_live_off",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2811,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 48,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "cal_stable",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "cal_stable_once",
+      "measurements": [
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            12,
+            2
+          ],
+          "live": [
+            12,
+            2
+          ],
+          "outputs": [
+            24,
+            24
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 1103,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 48,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_equal",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_equal_snapshot_on",
+      "measurements": [
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 0
+        },
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 3033,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_equal",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_equal_snapshot_off",
+      "measurements": [
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 0
+        },
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 3033,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_equal",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_equal_live_on",
+      "measurements": [
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 0
+        },
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 3017,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_equal",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_equal_live_off",
+      "measurements": [
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 0
+        },
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 3017,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_equal",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_equal_once",
+      "measurements": [
+        {
+          "a": 38,
+          "a_input": [
+            9,
+            9
+          ],
+          "b": 38,
+          "b_input": [
+            9,
+            9
+          ],
+          "live": [
+            9,
+            9
+          ],
+          "outputs": [
+            81,
+            81
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2734,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 64,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_stable_a",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_stable_a_snapshot_on",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2195,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_stable_a",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_stable_a_snapshot_off",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2195,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_stable_a",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_stable_a_live_on",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2179,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_stable_a",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_stable_a_live_off",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2179,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_stable_a",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_stable_a_once",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            3,
+            15
+          ],
+          "live": [
+            3,
+            15
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 1819,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 72,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_stable_b",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_stable_b_snapshot_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2193,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_stable_b",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ],
+        [
+          24,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_stable_b_snapshot_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 4787,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_stable_b",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ]
+      ],
+      "id": "new_stable_b_live_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2177,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_stable_b",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ],
+        [
+          24,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_stable_b_live_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        },
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 4771,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_stable_b",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_stable_b_once",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            15,
+            3
+          ],
+          "live": [
+            15,
+            3
+          ],
+          "outputs": [
+            45,
+            45
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 1819,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 72,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_small_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_small_flip_snapshot_on",
+      "measurements": [
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 29,
+          "a_input": [
+            6,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            6,
+            5
+          ],
+          "live": [
+            6,
+            5
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2704,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 78,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_small_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_small_flip_snapshot_off",
+      "measurements": [
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 29,
+          "a_input": [
+            6,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            6,
+            5
+          ],
+          "live": [
+            6,
+            5
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2866,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 78,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_small_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          140,
+          false
+        ]
+      ],
+      "id": "new_small_flip_live_on",
+      "measurements": [
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 29,
+          "a_input": [
+            6,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            6,
+            5
+          ],
+          "live": [
+            6,
+            5
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2688,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 78,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_small_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_small_flip_live_off",
+      "measurements": [
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 29,
+          "a_input": [
+            6,
+            5
+          ],
+          "b": 26,
+          "b_input": [
+            6,
+            5
+          ],
+          "live": [
+            6,
+            5
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2850,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 78,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_small_flip",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_small_flip_once",
+      "measurements": [
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2537,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 78,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_large_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "new_large_flip_snapshot_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            1
+          ],
+          "b": 14,
+          "b_input": [
+            15,
+            1
+          ],
+          "live": [
+            15,
+            1
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2255,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_large_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_large_flip_snapshot_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            1
+          ],
+          "b": 14,
+          "b_input": [
+            15,
+            1
+          ],
+          "live": [
+            15,
+            1
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 3009,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_large_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ],
+        [
+          24,
+          140,
+          129,
+          129,
+          false
+        ]
+      ],
+      "id": "new_large_flip_live_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            1
+          ],
+          "b": 14,
+          "b_input": [
+            15,
+            1
+          ],
+          "live": [
+            15,
+            1
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2239,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_large_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_large_flip_live_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            1
+          ],
+          "b": 14,
+          "b_input": [
+            15,
+            1
+          ],
+          "live": [
+            15,
+            1
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2993,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_large_flip",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_large_flip_once",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            1
+          ],
+          "b": 14,
+          "b_input": [
+            15,
+            1
+          ],
+          "live": [
+            15,
+            1
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 4593,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 90,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_late_snapshot_on",
+      "measurements": [
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 4689,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_late_snapshot_off",
+      "measurements": [
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 4689,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_late_live_on",
+      "measurements": [
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 4673,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_late_live_off",
+      "measurements": [
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        },
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 4673,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 90,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_late",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_late_once",
+      "measurements": [
+        {
+          "a": 14,
+          "a_input": [
+            1,
+            15
+          ],
+          "b": 56,
+          "b_input": [
+            1,
+            15
+          ],
+          "live": [
+            1,
+            15
+          ],
+          "outputs": [
+            15,
+            15
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 4257,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 90,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "new_twice_snapshot_on",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            14,
+            3
+          ],
+          "live": [
+            14,
+            3
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            3,
+            14
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 4325,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_twice_snapshot_off",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            14,
+            3
+          ],
+          "live": [
+            14,
+            3
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            3,
+            14
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 4389,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ],
+        [
+          24,
+          140,
+          129,
+          129,
+          false
+        ]
+      ],
+      "id": "new_twice_live_on",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            14,
+            3
+          ],
+          "live": [
+            14,
+            3
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            3,
+            14
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 4309,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_twice_live_off",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            14,
+            3
+          ],
+          "live": [
+            14,
+            3
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            3,
+            14
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 4373,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 96,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_twice",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_twice_once",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            14,
+            3
+          ],
+          "live": [
+            14,
+            3
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 3948,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 96,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_transient_snapshot_on",
+      "measurements": [
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            4,
+            12
+          ],
+          "live": [
+            4,
+            12
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            4
+          ],
+          "b": 23,
+          "b_input": [
+            12,
+            4
+          ],
+          "live": [
+            12,
+            4
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 3591,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_transient_snapshot_off",
+      "measurements": [
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            4,
+            12
+          ],
+          "live": [
+            4,
+            12
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            4
+          ],
+          "b": 23,
+          "b_input": [
+            12,
+            4
+          ],
+          "live": [
+            12,
+            4
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2535,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          140,
+          false
+        ]
+      ],
+      "id": "new_transient_live_on",
+      "measurements": [
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            4,
+            12
+          ],
+          "live": [
+            4,
+            12
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            4
+          ],
+          "b": 23,
+          "b_input": [
+            12,
+            4
+          ],
+          "live": [
+            12,
+            4
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 3575,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_transient_live_off",
+      "measurements": [
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            4,
+            12
+          ],
+          "live": [
+            4,
+            12
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 0
+        },
+        {
+          "a": 47,
+          "a_input": [
+            12,
+            4
+          ],
+          "b": 23,
+          "b_input": [
+            12,
+            4
+          ],
+          "live": [
+            12,
+            4
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2519,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 72,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_transient",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_transient_once",
+      "measurements": [
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            12
+          ],
+          "b": 47,
+          "b_input": [
+            4,
+            12
+          ],
+          "live": [
+            4,
+            12
+          ],
+          "outputs": [
+            48,
+            48
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2181,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 72,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_same_product_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "new_same_product_swap_snapshot_on",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            14,
+            2
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2649,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_same_product_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_same_product_swap_snapshot_off",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            14,
+            2
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 1783,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_same_product_swap",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_same_product_swap_live_on",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            2
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1750,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_same_product_swap",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_same_product_swap_live_off",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            2
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 17,
+          "a_input": [
+            2,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            2,
+            14
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 1750,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 64,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_same_product_swap",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_same_product_swap_once",
+      "measurements": [
+        {
+          "a": 53,
+          "a_input": [
+            14,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            14,
+            2
+          ],
+          "live": [
+            2,
+            14
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 3741,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 64,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_same_product_factor",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "new_same_product_factor_snapshot_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            15,
+            2
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2445,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_same_product_factor",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_same_product_factor_snapshot_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            15,
+            2
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2371,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_same_product_factor",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          140,
+          false
+        ],
+        [
+          24,
+          140,
+          129,
+          129,
+          false
+        ]
+      ],
+      "id": "new_same_product_factor_live_on",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            2
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2425,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_same_product_factor",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_same_product_factor_live_off",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            2
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        },
+        {
+          "a": 26,
+          "a_input": [
+            5,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            5,
+            6
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2351,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_same_product_factor",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_same_product_factor_once",
+      "measurements": [
+        {
+          "a": 56,
+          "a_input": [
+            15,
+            2
+          ],
+          "b": 17,
+          "b_input": [
+            15,
+            2
+          ],
+          "live": [
+            5,
+            6
+          ],
+          "outputs": [
+            30,
+            30
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2276,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 66,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_different_product",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ],
+        [
+          24,
+          148,
+          137,
+          137,
+          false
+        ]
+      ],
+      "id": "new_different_product_snapshot_on",
+      "measurements": [
+        {
+          "a": 50,
+          "a_input": [
+            13,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            13,
+            3
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            39,
+            39
+          ],
+          "stage": 0
+        },
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            7
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2384,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_different_product",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_different_product_snapshot_off",
+      "measurements": [
+        {
+          "a": 50,
+          "a_input": [
+            13,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            13,
+            3
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            39,
+            39
+          ],
+          "stage": 0
+        },
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            7
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2166,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_different_product",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_different_product_live_on",
+      "measurements": [
+        {
+          "a": 50,
+          "a_input": [
+            13,
+            3
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            39,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            7
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2109,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_different_product",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_different_product_live_off",
+      "measurements": [
+        {
+          "a": 50,
+          "a_input": [
+            13,
+            3
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            39,
+            28
+          ],
+          "stage": 0
+        },
+        {
+          "a": 23,
+          "a_input": [
+            4,
+            7
+          ],
+          "b": 32,
+          "b_input": [
+            4,
+            7
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            28,
+            28
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2109,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_different_product",
+      "cutoff": true,
+      "edits": [
+        [
+          0,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_different_product_once",
+      "measurements": [
+        {
+          "a": 50,
+          "a_input": [
+            13,
+            3
+          ],
+          "b": 20,
+          "b_input": [
+            13,
+            3
+          ],
+          "live": [
+            4,
+            7
+          ],
+          "outputs": [
+            39,
+            39
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2459,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 66,
+      "trials": 2
+    },
+    {
+      "arm": "snapshot_on",
+      "case": "new_same_product_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          148,
+          false
+        ]
+      ],
+      "id": "new_same_product_reverse_snapshot_on",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 32,
+          "a_input": [
+            7,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2639,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "snapshot_off",
+      "case": "new_same_product_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          137,
+          148,
+          137,
+          true
+        ]
+      ],
+      "id": "new_same_product_reverse_snapshot_off",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 32,
+          "a_input": [
+            7,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 167,
+      "paid": 2765,
+      "peak_occupied": 179,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_on",
+      "case": "new_same_product_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          140,
+          false
+        ]
+      ],
+      "id": "new_same_product_reverse_live_on",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 32,
+          "a_input": [
+            7,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2567,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "live_off",
+      "case": "new_same_product_reverse",
+      "cutoff": true,
+      "edits": [
+        [
+          24,
+          129,
+          140,
+          129,
+          true
+        ]
+      ],
+      "id": "new_same_product_reverse_live_off",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        },
+        {
+          "a": 32,
+          "a_input": [
+            7,
+            6
+          ],
+          "b": 29,
+          "b_input": [
+            7,
+            6
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 24
+        }
+      ],
+      "nodes": 159,
+      "paid": 2693,
+      "peak_occupied": 169,
+      "probes": [
+        0,
+        24
+      ],
+      "production": 66,
+      "trials": 4
+    },
+    {
+      "arm": "once",
+      "case": "new_same_product_reverse",
+      "cutoff": true,
+      "edits": [],
+      "id": "new_same_product_reverse_once",
+      "measurements": [
+        {
+          "a": 20,
+          "a_input": [
+            3,
+            14
+          ],
+          "b": 53,
+          "b_input": [
+            3,
+            14
+          ],
+          "live": [
+            7,
+            6
+          ],
+          "outputs": [
+            42,
+            42
+          ],
+          "stage": 0
+        }
+      ],
+      "nodes": 164,
+      "paid": 2466,
+      "peak_occupied": 176,
+      "probes": [
+        0
+      ],
+      "production": 66,
+      "trials": 2
+    }
+  ],
+  "B3_B4": "NOT_MET"
+}
