@@ -1,0 +1,14 @@
+# C31-R1 — paid independent local path selection
+Parent d91d4637ab47e03cd2685d75045741aec9f32ba7. Non-native model only, B3/B4 NOT_MET. R0 repeated whole-task trials and one common orientation were costly. R1 splits the two routing nodes and compares actual generated path lengths using charged ReadNext, Sub, Branch. Reverse orientation retains original one-instruction overhead; choose reverse only if its depth+1 is strictly below direct. Actor chases both paths until direct ends or reverse ends; in latter case read one extra direct edge to establish margin. No host-provided cost table or future input. Actual PatchNext at each route; initial-only and periodic16 policies; periodic off suppresses both paid route activation effects every epoch, same exact prefix through first exposure. Same immutable generated binary DAG reused throughout, no new code generation after initial construction. No numerical trials or structural certification by actor in R1; external observer checks each emitted product, exact dynamic entry address, actual clone count and selected direction against depth oracle (observer only). Thus **not equal assurance to R0 trial or R10 certification**, structural unit cost model valid only under intact authored DAG and routing. All instructions and storage charged. 16/200/220/30000 caps. No new world op. Fixed cadence and transformation options authored. 
+24 R0 revealed scenarios ×11 runs (R0 plain/adaptive/direct/reverse, R1 periodic/on/off/initial and four static orientations; 4+7=11). Static DD/RR paid totals asserted identical to R0 direct/reverse. R1 per-pair decisions on/off equal as input schedules and graph independent of activation. Prefix exact before first activation. Complete lifecycle costs, negative cases retained. No blind holdout.
+| family | R0 adaptive | R1 periodic | R1 off | R1 initial | DD | DR | RD | RR |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+|all|26125|41554|37618|57688|57256|56939|54233|53916|
+|left|-5648|-3026|-3026|-80|232|-968|-1568|-2768|
+|right|15637|17746|15946|20872|19432|20032|20632|21232|
+|conflict|4093|7288|6088|10144|9232|10432|7732|8932|
+|flip|3889|6556|5620|7870|8782|8482|8482|8182|
+|alternating|3824|6446|6446|9392|9704|9392|9384|9072|
+|mixed|4330|6544|6544|9490|9874|9569|9571|9266|
+Net = plain paid minus policy paid. 228 periodic decisions, 79 reverse. Independent differing route selections in conflict_12, conflict_48, conflict_96, conflict_144. 24×11=264 worlds (10 policies besides plain). Next if still expensive, exploit measured structural cost reuse with change-driven admission or a compact local exact cost representation, compare independent static controls; avoid treating authored depth inference as general autonomous evolution. B3/B4 NOT_MET.
+Reproduce node cl1b/analysis/cl1b_c31_local_path_selection.mjs.
