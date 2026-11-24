@@ -1,0 +1,638 @@
+{
+  "tier": "NON_NATIVE_LEARNING_COMPONENT_MODEL",
+  "summary": {
+    "cross": {
+      "paired_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 177,
+        "peak": 190,
+        "paid": 93108,
+        "net": 0,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 183,
+        "peak": 200,
+        "paid": 67728,
+        "net": 25380,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 0,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_4": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 205,
+        "peak": 222,
+        "paid": 96783,
+        "net": -3675,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 192,
+        "audits": 192,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_8": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 205,
+        "peak": 222,
+        "paid": 85647,
+        "net": 7461,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 96,
+        "audits": 96,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_16": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 205,
+        "peak": 222,
+        "paid": 80166,
+        "net": 12942,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 48,
+        "audits": 48,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "coverage": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 209,
+        "peak": 226,
+        "paid": 112021,
+        "net": -18913,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 319,
+        "audits": 319,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      }
+    },
+    "unroll": {
+      "paired_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 183,
+        "peak": 196,
+        "paid": 91464,
+        "net": 0,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 189,
+        "peak": 206,
+        "paid": 96972,
+        "net": -5508,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_4": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 211,
+        "peak": 228,
+        "paid": 99312,
+        "net": -7848,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_8": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 211,
+        "peak": 228,
+        "paid": 99312,
+        "net": -7848,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_16": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 211,
+        "peak": 228,
+        "paid": 99312,
+        "net": -7848,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "coverage": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 215,
+        "peak": 232,
+        "paid": 99312,
+        "net": -7848,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      }
+    },
+    "switch5": {
+      "paired_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 186,
+        "peak": 199,
+        "paid": 96516,
+        "net": 0,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 192,
+        "peak": 209,
+        "paid": 68028,
+        "net": 28488,
+        "exact": 726,
+        "signCorrect": 758,
+        "measured": 0,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "validated_4": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 100503,
+        "net": -3987,
+        "exact": 744,
+        "signCorrect": 762,
+        "measured": 387,
+        "audits": 127,
+        "revoked": 5,
+        "badBeforeRevoke": 24
+      },
+      "validated_8": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 86427,
+        "net": 10089,
+        "exact": 726,
+        "signCorrect": 758,
+        "measured": 96,
+        "audits": 96,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "validated_16": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 80706,
+        "net": 15810,
+        "exact": 726,
+        "signCorrect": 758,
+        "measured": 48,
+        "audits": 48,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "coverage": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 218,
+        "peak": 235,
+        "paid": 95429,
+        "net": 1087,
+        "exact": 746,
+        "signCorrect": 763,
+        "measured": 383,
+        "audits": 84,
+        "revoked": 6,
+        "badBeforeRevoke": 22
+      }
+    },
+    "switch11": {
+      "paired_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 186,
+        "peak": 199,
+        "paid": 97284,
+        "net": 0,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 192,
+        "peak": 209,
+        "paid": 68028,
+        "net": 29256,
+        "exact": 726,
+        "signCorrect": 742,
+        "measured": 0,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "validated_4": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 98505,
+        "net": -1221,
+        "exact": 729,
+        "signCorrect": 744,
+        "measured": 234,
+        "audits": 178,
+        "revoked": 1,
+        "badBeforeRevoke": 39
+      },
+      "validated_8": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 87822,
+        "net": 9462,
+        "exact": 729,
+        "signCorrect": 744,
+        "measured": 145,
+        "audits": 89,
+        "revoked": 1,
+        "badBeforeRevoke": 39
+      },
+      "validated_16": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 80706,
+        "net": 16578,
+        "exact": 726,
+        "signCorrect": 742,
+        "measured": 48,
+        "audits": 48,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "coverage": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 218,
+        "peak": 235,
+        "paid": 95558,
+        "net": 1726,
+        "exact": 743,
+        "signCorrect": 753,
+        "measured": 337,
+        "audits": 104,
+        "revoked": 6,
+        "badBeforeRevoke": 25
+      }
+    },
+    "switch16": {
+      "paired_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 186,
+        "peak": 199,
+        "paid": 97956,
+        "net": 0,
+        "exact": 768,
+        "signCorrect": 768,
+        "measured": 768,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 0
+      },
+      "validated_0": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 192,
+        "peak": 209,
+        "paid": 68028,
+        "net": 29928,
+        "exact": 726,
+        "signCorrect": 728,
+        "measured": 0,
+        "audits": 0,
+        "revoked": 0,
+        "badBeforeRevoke": 42
+      },
+      "validated_4": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 100350,
+        "net": -2394,
+        "exact": 744,
+        "signCorrect": 745,
+        "measured": 375,
+        "audits": 131,
+        "revoked": 5,
+        "badBeforeRevoke": 24
+      },
+      "validated_8": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 91167,
+        "net": 6789,
+        "exact": 741,
+        "signCorrect": 742,
+        "measured": 264,
+        "audits": 72,
+        "revoked": 4,
+        "badBeforeRevoke": 27
+      },
+      "validated_16": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 214,
+        "peak": 231,
+        "paid": 86904,
+        "net": 11052,
+        "exact": 741,
+        "signCorrect": 742,
+        "measured": 228,
+        "audits": 36,
+        "revoked": 4,
+        "badBeforeRevoke": 27
+      },
+      "coverage": {
+        "worlds": 12,
+        "queries": 768,
+        "nodes": 218,
+        "peak": 235,
+        "paid": 97518,
+        "net": 438,
+        "exact": 741,
+        "signCorrect": 742,
+        "measured": 319,
+        "audits": 127,
+        "revoked": 4,
+        "badBeforeRevoke": 27
+      }
+    }
+  },
+  "stressSummary": {
+    "missing_first": {
+      "paired_0": {
+        "n": 3,
+        "errors": 0,
+        "signErrors": 0,
+        "audits": 0,
+        "revoked": 0,
+        "net": 0
+      },
+      "validated_0": {
+        "n": 3,
+        "errors": 71,
+        "signErrors": 46,
+        "audits": 0,
+        "revoked": 0,
+        "net": 8601
+      },
+      "validated_4": {
+        "n": 3,
+        "errors": 3,
+        "signErrors": 2,
+        "audits": 3,
+        "revoked": 3,
+        "net": -1806
+      },
+      "validated_8": {
+        "n": 3,
+        "errors": 15,
+        "signErrors": 10,
+        "audits": 6,
+        "revoked": 3,
+        "net": -486
+      },
+      "validated_16": {
+        "n": 3,
+        "errors": 15,
+        "signErrors": 10,
+        "audits": 3,
+        "revoked": 3,
+        "net": -162
+      },
+      "coverage": {
+        "n": 3,
+        "errors": 71,
+        "signErrors": 46,
+        "audits": 0,
+        "revoked": 0,
+        "net": 7248
+      }
+    },
+    "clustered": {
+      "paired_0": {
+        "n": 3,
+        "errors": 0,
+        "signErrors": 0,
+        "audits": 0,
+        "revoked": 0,
+        "net": 0
+      },
+      "validated_0": {
+        "n": 3,
+        "errors": 102,
+        "signErrors": 68,
+        "audits": 0,
+        "revoked": 0,
+        "net": 9270
+      },
+      "validated_4": {
+        "n": 3,
+        "errors": 9,
+        "signErrors": 6,
+        "audits": 3,
+        "revoked": 3,
+        "net": -1686
+      },
+      "validated_8": {
+        "n": 3,
+        "errors": 21,
+        "signErrors": 14,
+        "audits": 3,
+        "revoked": 3,
+        "net": -978
+      },
+      "validated_16": {
+        "n": 3,
+        "errors": 45,
+        "signErrors": 30,
+        "audits": 3,
+        "revoked": 3,
+        "net": 438
+      },
+      "coverage": {
+        "n": 3,
+        "errors": 96,
+        "signErrors": 64,
+        "audits": 32,
+        "revoked": 3,
+        "net": 1689
+      }
+    },
+    "rare_first": {
+      "paired_0": {
+        "n": 3,
+        "errors": 0,
+        "signErrors": 0,
+        "audits": 0,
+        "revoked": 0,
+        "net": 0
+      },
+      "validated_0": {
+        "n": 3,
+        "errors": 189,
+        "signErrors": 126,
+        "audits": 0,
+        "revoked": 0,
+        "net": 11010
+      },
+      "validated_4": {
+        "n": 3,
+        "errors": 9,
+        "signErrors": 6,
+        "audits": 3,
+        "revoked": 3,
+        "net": -1686
+      },
+      "validated_8": {
+        "n": 3,
+        "errors": 21,
+        "signErrors": 14,
+        "audits": 3,
+        "revoked": 3,
+        "net": -978
+      },
+      "validated_16": {
+        "n": 3,
+        "errors": 45,
+        "signErrors": 30,
+        "audits": 3,
+        "revoked": 3,
+        "net": 438
+      },
+      "coverage": {
+        "n": 3,
+        "errors": 189,
+        "signErrors": 126,
+        "audits": 3,
+        "revoked": 0,
+        "net": 9381
+      }
+    },
+    "missing_middle": {
+      "paired_0": {
+        "n": 3,
+        "errors": 0,
+        "signErrors": 0,
+        "audits": 0,
+        "revoked": 0,
+        "net": 0
+      },
+      "validated_0": {
+        "n": 3,
+        "errors": 93,
+        "signErrors": 62,
+        "audits": 0,
+        "revoked": 0,
+        "net": 9090
+      },
+      "validated_4": {
+        "n": 3,
+        "errors": 93,
+        "signErrors": 62,
+        "audits": 48,
+        "revoked": 0,
+        "net": 3033
+      },
+      "validated_8": {
+        "n": 3,
+        "errors": 93,
+        "signErrors": 62,
+        "audits": 24,
+        "revoked": 0,
+        "net": 5193
+      },
+      "validated_16": {
+        "n": 3,
+        "errors": 93,
+        "signErrors": 62,
+        "audits": 12,
+        "revoked": 0,
+        "net": 6273
+      },
+      "coverage": {
+        "n": 3,
+        "errors": 93,
+        "signErrors": 62,
+        "audits": 3,
+        "revoked": 0,
+        "net": 7461
+      }
+    }
+  },
+  "matchedR6": 300
+}
