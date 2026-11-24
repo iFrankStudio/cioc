@@ -1,0 +1,3823 @@
+{
+  "tier": "NON_NATIVE_SHARED_EXECUTABLE_CHAIN_MODEL",
+  "summary": {
+    "known": {
+      "n": 12,
+      "original": 3870,
+      "generic": 4440,
+      "physical": 10030,
+      "wins": 8,
+      "accepted": 10,
+      "peak": 120,
+      "nodes": 109
+    },
+    "grid": {
+      "n": 144,
+      "original": 5040,
+      "generic": 74794,
+      "physical": 144760,
+      "wins": 87,
+      "accepted": 126,
+      "peak": 120,
+      "nodes": 109
+    },
+    "groups": {
+      "stable": {
+        "n": 48,
+        "original": 46560,
+        "generic": 32118,
+        "physical": 55440,
+        "wins": 32,
+        "accepted": 42,
+        "peak": 120,
+        "nodes": 109
+      },
+      "shift": {
+        "n": 48,
+        "original": -22800,
+        "generic": 17838,
+        "physical": 41160,
+        "wins": 25,
+        "accepted": 42,
+        "peak": 120,
+        "nodes": 109
+      },
+      "cycle": {
+        "n": 48,
+        "original": -18720,
+        "generic": 24838,
+        "physical": 48160,
+        "wins": 30,
+        "accepted": 42,
+        "peak": 120,
+        "nodes": 109
+      }
+    },
+    "exhaustive": {
+      "n": 257,
+      "distinctPairs": 256,
+      "paid": 6447,
+      "nodes": 109,
+      "peak": 120,
+      "cloneProductionSteps": 2192
+    }
+  },
+  "sources": {
+    "generated": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 1
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 2
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 3
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 4
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 34,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 31,
+          "next": 6
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 7
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 8
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 9
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 10
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 11
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 12
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 5,
+          "zero": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 29,
+          "next": 14
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 16
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 17
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 18
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 19
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 20
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 21
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 22
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 24
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 27
+        },
+        {
+          "kind": "Sub",
+          "dst": 3,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 28
+        },
+        {
+          "kind": "Branch",
+          "test": 3,
+          "nonzero": 30,
+          "zero": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 31
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 31
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 32
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 33
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 31,
+          "zero": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 35
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 36
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 37
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 39
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 40
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 44
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 45
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 59,
+          "zero": 46
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 47
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 48
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 49
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 50
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 51
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 52
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 54
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 56
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 26,
+          "next": 58
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 18
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 26,
+          "next": 60
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 63
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 65
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 66
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 67
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 84,
+          "zero": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 69
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 74
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 76,
+          "zero": 84
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 77
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 78,
+          "zero": 80
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 79
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 76,
+          "zero": 84
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 81
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 26,
+          "next": 83
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 84
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 34,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 87,
+          "next": 86
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 21
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 88
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 21
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate": 5,
+        "link": 13,
+        "measure": 18,
+        "entry": 21,
+        "guard": 26,
+        "special_entry": 29,
+        "parent": 30,
+        "parent_add": 31,
+        "out": 34,
+        "trial_out": 35,
+        "save_parent": 46,
+        "trial_compare": 59,
+        "compare_cost": 68,
+        "cmp": 76,
+        "cmp_neg": 78,
+        "install": 80,
+        "activation": 83,
+        "finish": 84,
+        "prod_out": 87
+      }
+    },
+    "generic": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 1
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 2
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 40,
+          "next": 3
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 4
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 16,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 40,
+          "next": 6
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 37,
+          "next": 7
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 8
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 10
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 12
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 6,
+          "zero": 14
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 16,
+          "next": 15
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 16
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 31,
+          "next": 17
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 18
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 19
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 20
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 21
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 22
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 23
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 24
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 25
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 27
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 30
+        },
+        {
+          "kind": "Branch",
+          "test": 3,
+          "nonzero": 31,
+          "zero": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 32
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 35,
+          "next": 34
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 35
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 37
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 38
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 39
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 37,
+          "zero": 40
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 43
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 44
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 45
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 46
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 48
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 50
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 51
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 64,
+          "zero": 52
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 53
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 54
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 55
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 57
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 58
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 47,
+          "next": 59
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 60
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 29,
+          "next": 63
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 21
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 29,
+          "next": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 66
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 67
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 68
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 69
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 70
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 71
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 72
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 88,
+          "zero": 73
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 45,
+          "next": 74
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 75
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 46,
+          "next": 76
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 77
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 78
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 80
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 81,
+          "zero": 88
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 3,
+          "next": 82
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 83,
+          "zero": 85
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 84
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 81,
+          "zero": 88
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 86
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 29,
+          "next": 87
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 88
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 40,
+          "next": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 91,
+          "next": 90
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 24
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 92
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 24
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate": 6,
+        "link": 14,
+        "measure": 21,
+        "entry": 24,
+        "guard": 29,
+        "base": 31,
+        "special_entry": 35,
+        "parent": 36,
+        "parent_add": 37,
+        "out": 40,
+        "trial_out": 41,
+        "save_parent": 52,
+        "trial_compare": 64,
+        "compare_cost": 73,
+        "cmp": 81,
+        "cmp_neg": 83,
+        "install": 85,
+        "activation": 87,
+        "finish": 88,
+        "prod_out": 91
+      }
+    },
+    "plain": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 2
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 4
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 6
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 7
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 9
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 7,
+          "zero": 10
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 12
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 1
+        }
+      ],
+      "l": {
+        "init": 0,
+        "entry": 1,
+        "parent": 6,
+        "parent_add": 7,
+        "out": 10,
+        "prod_out": 11
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "stable_1_12",
+      "group": "stable",
+      "original": {
+        "paid": 269,
+        "active": 1,
+        "nodes": 90,
+        "peak": 101,
+        "trials": [
+          {
+            "output": 3,
+            "cost": 18,
+            "x": 1,
+            "y": 3
+          },
+          {
+            "output": 3,
+            "cost": 16,
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 12
+      },
+      "generic": {
+        "paid": 403,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 3,
+            "cost": 17,
+            "x": 1,
+            "y": 3
+          },
+          {
+            "output": 3,
+            "cost": 19,
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "off": {
+        "paid": 403,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 3,
+            "cost": 17,
+            "x": 1,
+            "y": 3
+          },
+          {
+            "output": 3,
+            "cost": 19,
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 145,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "stable_8_96",
+      "group": "stable",
+      "original": {
+        "paid": 2173,
+        "active": 8,
+        "nodes": 97,
+        "peak": 108,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 39,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 23,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 768
+      },
+      "generic": {
+        "paid": 2512,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 768
+      },
+      "off": {
+        "paid": 3664,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 3169,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "shift_8_96",
+      "group": "shift",
+      "original": {
+        "paid": 5853,
+        "active": 8,
+        "nodes": 97,
+        "peak": 108,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 39,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 23,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 32
+      },
+      "generic": {
+        "paid": 3248,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 1504
+      },
+      "off": {
+        "paid": 5872,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 5377,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "return_8_96",
+      "group": "return",
+      "original": {
+        "paid": 2973,
+        "active": 8,
+        "nodes": 97,
+        "peak": 108,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 39,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 23,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 608
+      },
+      "generic": {
+        "paid": 2672,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 928
+      },
+      "off": {
+        "paid": 4144,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 24,
+            "cost": 38,
+            "x": 8,
+            "y": 3
+          },
+          {
+            "output": 24,
+            "cost": 26,
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 3649,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_low_short",
+      "group": "prospective",
+      "original": {
+        "paid": 259,
+        "active": 2,
+        "nodes": 91,
+        "peak": 102,
+        "trials": [
+          {
+            "output": 32,
+            "cost": 21,
+            "x": 2,
+            "y": 16
+          },
+          {
+            "output": 32,
+            "cost": 17,
+            "x": 2,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 18
+      },
+      "generic": {
+        "paid": 384,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 32,
+            "cost": 20,
+            "x": 2,
+            "y": 16
+          },
+          {
+            "output": 32,
+            "cost": 20,
+            "x": 2,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "off": {
+        "paid": 384,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 32,
+            "cost": 20,
+            "x": 2,
+            "y": 16
+          },
+          {
+            "output": 32,
+            "cost": 20,
+            "x": 2,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 136,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_high_long",
+      "group": "prospective",
+      "original": {
+        "paid": 3417,
+        "active": 15,
+        "nodes": 104,
+        "peak": 115,
+        "trials": [
+          {
+            "output": 15,
+            "cost": 60,
+            "x": 15,
+            "y": 1
+          },
+          {
+            "output": 15,
+            "cost": 30,
+            "x": 15,
+            "y": 1
+          }
+        ],
+        "cloneProductionSteps": 1680
+      },
+      "generic": {
+        "paid": 3748,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 15,
+            "cost": 59,
+            "x": 15,
+            "y": 1
+          },
+          {
+            "output": 15,
+            "cost": 33,
+            "x": 15,
+            "y": 1
+          }
+        ],
+        "cloneProductionSteps": 1680
+      },
+      "off": {
+        "paid": 6660,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 15,
+            "cost": 59,
+            "x": 15,
+            "y": 1
+          },
+          {
+            "output": 15,
+            "cost": 33,
+            "x": 15,
+            "y": 1
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 6049,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_mid_stable",
+      "group": "prospective",
+      "original": {
+        "paid": 1347,
+        "active": 6,
+        "nodes": 95,
+        "peak": 106,
+        "trials": [
+          {
+            "output": 66,
+            "cost": 33,
+            "x": 6,
+            "y": 11
+          },
+          {
+            "output": 66,
+            "cost": 21,
+            "x": 6,
+            "y": 11
+          }
+        ],
+        "cloneProductionSteps": 378
+      },
+      "generic": {
+        "paid": 1603,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 66,
+            "cost": 32,
+            "x": 6,
+            "y": 11
+          },
+          {
+            "output": 66,
+            "cost": 24,
+            "x": 6,
+            "y": 11
+          }
+        ],
+        "cloneProductionSteps": 378
+      },
+      "off": {
+        "paid": 2107,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 66,
+            "cost": 32,
+            "x": 6,
+            "y": 11
+          },
+          {
+            "output": 66,
+            "cost": 24,
+            "x": 6,
+            "y": 11
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 1702,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_high_short",
+      "group": "prospective",
+      "original": {
+        "paid": 659,
+        "active": 14,
+        "nodes": 103,
+        "peak": 114,
+        "trials": [
+          {
+            "output": 126,
+            "cost": 57,
+            "x": 14,
+            "y": 9
+          },
+          {
+            "output": 126,
+            "cost": 29,
+            "x": 14,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 154
+      },
+      "generic": {
+        "paid": 695,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 126,
+            "cost": 56,
+            "x": 14,
+            "y": 9
+          },
+          {
+            "output": 126,
+            "cost": 32,
+            "x": 14,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 154
+      },
+      "off": {
+        "paid": 959,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 126,
+            "cost": 56,
+            "x": 14,
+            "y": 9
+          },
+          {
+            "output": 126,
+            "cost": 32,
+            "x": 14,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 562,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_immediate_shift",
+      "group": "prospective",
+      "original": {
+        "paid": 1785,
+        "active": 9,
+        "nodes": 98,
+        "peak": 109,
+        "trials": [
+          {
+            "output": 63,
+            "cost": 42,
+            "x": 9,
+            "y": 7
+          },
+          {
+            "output": 63,
+            "cost": 24,
+            "x": 9,
+            "y": 7
+          }
+        ],
+        "cloneProductionSteps": 9
+      },
+      "generic": {
+        "paid": 1618,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 63,
+            "cost": 41,
+            "x": 9,
+            "y": 7
+          },
+          {
+            "output": 63,
+            "cost": 27,
+            "x": 9,
+            "y": 7
+          }
+        ],
+        "cloneProductionSteps": 222
+      },
+      "off": {
+        "paid": 1774,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 63,
+            "cost": 41,
+            "x": 9,
+            "y": 7
+          },
+          {
+            "output": 63,
+            "cost": 27,
+            "x": 9,
+            "y": 7
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 1315,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_late_shift",
+      "group": "prospective",
+      "original": {
+        "paid": 2720,
+        "active": 13,
+        "nodes": 102,
+        "peak": 113,
+        "trials": [
+          {
+            "output": 26,
+            "cost": 54,
+            "x": 13,
+            "y": 2
+          },
+          {
+            "output": 26,
+            "cost": 28,
+            "x": 13,
+            "y": 2
+          }
+        ],
+        "cloneProductionSteps": 1053
+      },
+      "generic": {
+        "paid": 2955,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 26,
+            "cost": 53,
+            "x": 13,
+            "y": 2
+          },
+          {
+            "output": 26,
+            "cost": 31,
+            "x": 13,
+            "y": 2
+          }
+        ],
+        "cloneProductionSteps": 1091
+      },
+      "off": {
+        "paid": 4737,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 26,
+            "cost": 53,
+            "x": 13,
+            "y": 2
+          },
+          {
+            "output": 26,
+            "cost": 31,
+            "x": 13,
+            "y": 2
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 4174,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_double_return",
+      "group": "prospective",
+      "original": {
+        "paid": 2343,
+        "active": 7,
+        "nodes": 96,
+        "peak": 107,
+        "trials": [
+          {
+            "output": 91,
+            "cost": 36,
+            "x": 7,
+            "y": 13
+          },
+          {
+            "output": 91,
+            "cost": 22,
+            "x": 7,
+            "y": 13
+          }
+        ],
+        "cloneProductionSteps": 448
+      },
+      "generic": {
+        "paid": 2339,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 91,
+            "cost": 35,
+            "x": 7,
+            "y": 13
+          },
+          {
+            "output": 91,
+            "cost": 25,
+            "x": 7,
+            "y": 13
+          }
+        ],
+        "cloneProductionSteps": 622
+      },
+      "off": {
+        "paid": 3203,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 91,
+            "cost": 35,
+            "x": 7,
+            "y": 13
+          },
+          {
+            "output": 91,
+            "cost": 25,
+            "x": 7,
+            "y": 13
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 2722,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_alternating",
+      "group": "prospective",
+      "original": {
+        "paid": 2125,
+        "active": 4,
+        "nodes": 93,
+        "peak": 104,
+        "trials": [
+          {
+            "output": 20,
+            "cost": 27,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "output": 20,
+            "cost": 19,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "cloneProductionSteps": 128
+      },
+      "generic": {
+        "paid": 1696,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 20,
+            "cost": 26,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "output": 20,
+            "cost": 22,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "cloneProductionSteps": 480
+      },
+      "off": {
+        "paid": 2400,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 20,
+            "cost": 26,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "output": 20,
+            "cost": 22,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 2017,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_rare_return",
+      "group": "prospective",
+      "original": {
+        "paid": 2847,
+        "active": 16,
+        "nodes": 105,
+        "peak": 116,
+        "trials": [
+          {
+            "output": 256,
+            "cost": 63,
+            "x": 16,
+            "y": 16
+          },
+          {
+            "output": 256,
+            "cost": 31,
+            "x": 16,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 64
+      },
+      "generic": {
+        "paid": 2244,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 256,
+            "cost": 62,
+            "x": 16,
+            "y": 16
+          },
+          {
+            "output": 256,
+            "cost": 34,
+            "x": 16,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 494
+      },
+      "off": {
+        "paid": 2872,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 256,
+            "cost": 62,
+            "x": 16,
+            "y": 16
+          },
+          {
+            "output": 256,
+            "cost": 34,
+            "x": 16,
+            "y": 16
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 2293,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_low_long",
+      "group": "prospective",
+      "original": {
+        "paid": 1478,
+        "active": 1,
+        "nodes": 90,
+        "peak": 101,
+        "trials": [
+          {
+            "output": 9,
+            "cost": 18,
+            "x": 1,
+            "y": 9
+          },
+          {
+            "output": 9,
+            "cost": 16,
+            "x": 1,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 105
+      },
+      "generic": {
+        "paid": 1705,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 9,
+            "cost": 17,
+            "x": 1,
+            "y": 9
+          },
+          {
+            "output": 9,
+            "cost": 19,
+            "x": 1,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "off": {
+        "paid": 1705,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 9,
+            "cost": 17,
+            "x": 1,
+            "y": 9
+          },
+          {
+            "output": 9,
+            "cost": 19,
+            "x": 1,
+            "y": 9
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 1261,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_two_late",
+      "group": "prospective",
+      "original": {
+        "paid": 3028,
+        "active": 10,
+        "nodes": 99,
+        "peak": 110,
+        "trials": [
+          {
+            "output": 40,
+            "cost": 45,
+            "x": 10,
+            "y": 4
+          },
+          {
+            "output": 40,
+            "cost": 25,
+            "x": 10,
+            "y": 4
+          }
+        ],
+        "cloneProductionSteps": 290
+      },
+      "generic": {
+        "paid": 2390,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 40,
+            "cost": 44,
+            "x": 10,
+            "y": 4
+          },
+          {
+            "output": 40,
+            "cost": 28,
+            "x": 10,
+            "y": 4
+          }
+        ],
+        "cloneProductionSteps": 757
+      },
+      "off": {
+        "paid": 3556,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 40,
+            "cost": 44,
+            "x": 10,
+            "y": 4
+          },
+          {
+            "output": 40,
+            "cost": 28,
+            "x": 10,
+            "y": 4
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 3055,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    },
+    {
+      "id": "new_swap",
+      "group": "prospective",
+      "original": {
+        "paid": 2244,
+        "active": 12,
+        "nodes": 101,
+        "peak": 112,
+        "trials": [
+          {
+            "output": 36,
+            "cost": 51,
+            "x": 12,
+            "y": 3
+          },
+          {
+            "output": 36,
+            "cost": 27,
+            "x": 12,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 588
+      },
+      "generic": {
+        "paid": 2305,
+        "active": 1,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 36,
+            "cost": 50,
+            "x": 12,
+            "y": 3
+          },
+          {
+            "output": 36,
+            "cost": 30,
+            "x": 12,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 693
+      },
+      "off": {
+        "paid": 3355,
+        "active": 0,
+        "nodes": 109,
+        "peak": 120,
+        "trials": [
+          {
+            "output": 36,
+            "cost": 50,
+            "x": 12,
+            "y": 3
+          },
+          {
+            "output": 36,
+            "cost": 30,
+            "x": 12,
+            "y": 3
+          }
+        ],
+        "cloneProductionSteps": 0
+      },
+      "plain": {
+        "paid": 2836,
+        "active": null,
+        "nodes": 13,
+        "peak": 17,
+        "trials": [],
+        "cloneProductionSteps": 0
+      }
+    }
+  ],
+  "grid": [
+    {
+      "id": "stable_1_24",
+      "group": "stable",
+      "original": 425,
+      "generic": 571,
+      "off": 571,
+      "plain": 289,
+      "active": 0
+    },
+    {
+      "id": "shift_1_24",
+      "group": "shift",
+      "original": 1412,
+      "generic": 1516,
+      "off": 1516,
+      "plain": 1234,
+      "active": 0
+    },
+    {
+      "id": "cycle_1_24",
+      "group": "cycle",
+      "original": 957,
+      "generic": 1063,
+      "off": 1063,
+      "plain": 781,
+      "active": 0
+    },
+    {
+      "id": "stable_1_96",
+      "group": "stable",
+      "original": 1361,
+      "generic": 1579,
+      "off": 1579,
+      "plain": 1153,
+      "active": 0
+    },
+    {
+      "id": "shift_1_96",
+      "group": "shift",
+      "original": 5732,
+      "generic": 5764,
+      "off": 5764,
+      "plain": 5338,
+      "active": 0
+    },
+    {
+      "id": "cycle_1_96",
+      "group": "cycle",
+      "original": 3601,
+      "generic": 3643,
+      "off": 3643,
+      "plain": 3217,
+      "active": 0
+    },
+    {
+      "id": "stable_1_144",
+      "group": "stable",
+      "original": 1985,
+      "generic": 2251,
+      "off": 2251,
+      "plain": 1729,
+      "active": 0
+    },
+    {
+      "id": "shift_1_144",
+      "group": "shift",
+      "original": 8612,
+      "generic": 8596,
+      "off": 8596,
+      "plain": 8074,
+      "active": 0
+    },
+    {
+      "id": "cycle_1_144",
+      "group": "cycle",
+      "original": 5441,
+      "generic": 5443,
+      "off": 5443,
+      "plain": 4921,
+      "active": 0
+    },
+    {
+      "id": "stable_2_24",
+      "group": "stable",
+      "original": 469,
+      "generic": 639,
+      "off": 639,
+      "plain": 361,
+      "active": 0
+    },
+    {
+      "id": "shift_2_24",
+      "group": "shift",
+      "original": 1372,
+      "generic": 1458,
+      "off": 1458,
+      "plain": 1180,
+      "active": 0
+    },
+    {
+      "id": "cycle_2_24",
+      "group": "cycle",
+      "original": 1041,
+      "generic": 1131,
+      "off": 1131,
+      "plain": 853,
+      "active": 0
+    },
+    {
+      "id": "stable_2_96",
+      "group": "stable",
+      "original": 1477,
+      "generic": 1863,
+      "off": 1863,
+      "plain": 1441,
+      "active": 0
+    },
+    {
+      "id": "shift_2_96",
+      "group": "shift",
+      "original": 5476,
+      "generic": 5490,
+      "off": 5490,
+      "plain": 5068,
+      "active": 0
+    },
+    {
+      "id": "cycle_2_96",
+      "group": "cycle",
+      "original": 3701,
+      "generic": 3735,
+      "off": 3735,
+      "plain": 3313,
+      "active": 0
+    },
+    {
+      "id": "stable_2_144",
+      "group": "stable",
+      "original": 2149,
+      "generic": 2679,
+      "off": 2679,
+      "plain": 2161,
+      "active": 0
+    },
+    {
+      "id": "shift_2_144",
+      "group": "shift",
+      "original": 8212,
+      "generic": 8178,
+      "off": 8178,
+      "plain": 7660,
+      "active": 0
+    },
+    {
+      "id": "cycle_2_144",
+      "group": "cycle",
+      "original": 5485,
+      "generic": 5487,
+      "off": 5487,
+      "plain": 4969,
+      "active": 0
+    },
+    {
+      "id": "stable_3_24",
+      "group": "stable",
+      "original": 513,
+      "generic": 676,
+      "off": 724,
+      "plain": 433,
+      "active": 1
+    },
+    {
+      "id": "shift_3_24",
+      "group": "shift",
+      "original": 1332,
+      "generic": 907,
+      "off": 1417,
+      "plain": 1126,
+      "active": 1
+    },
+    {
+      "id": "cycle_3_24",
+      "group": "cycle",
+      "original": 933,
+      "generic": 776,
+      "off": 1024,
+      "plain": 733,
+      "active": 1
+    },
+    {
+      "id": "stable_3_96",
+      "group": "stable",
+      "original": 1593,
+      "generic": 1972,
+      "off": 2164,
+      "plain": 1729,
+      "active": 1
+    },
+    {
+      "id": "shift_3_96",
+      "group": "shift",
+      "original": 5220,
+      "generic": 2995,
+      "off": 5233,
+      "plain": 4798,
+      "active": 1
+    },
+    {
+      "id": "cycle_3_96",
+      "group": "cycle",
+      "original": 3609,
+      "generic": 2468,
+      "off": 3652,
+      "plain": 3217,
+      "active": 1
+    },
+    {
+      "id": "stable_3_144",
+      "group": "stable",
+      "original": 2313,
+      "generic": 2836,
+      "off": 3124,
+      "plain": 2593,
+      "active": 1
+    },
+    {
+      "id": "shift_3_144",
+      "group": "shift",
+      "original": 7812,
+      "generic": 4387,
+      "off": 7777,
+      "plain": 7246,
+      "active": 1
+    },
+    {
+      "id": "cycle_3_144",
+      "group": "cycle",
+      "original": 5337,
+      "generic": 3580,
+      "off": 5356,
+      "plain": 4825,
+      "active": 1
+    },
+    {
+      "id": "stable_4_24",
+      "group": "stable",
+      "original": 557,
+      "generic": 712,
+      "off": 808,
+      "plain": 505,
+      "active": 1
+    },
+    {
+      "id": "shift_4_24",
+      "group": "shift",
+      "original": 1292,
+      "generic": 901,
+      "off": 1375,
+      "plain": 1072,
+      "active": 1
+    },
+    {
+      "id": "cycle_4_24",
+      "group": "cycle",
+      "original": 1017,
+      "generic": 812,
+      "off": 1108,
+      "plain": 805,
+      "active": 1
+    },
+    {
+      "id": "stable_4_96",
+      "group": "stable",
+      "original": 1709,
+      "generic": 2080,
+      "off": 2464,
+      "plain": 2017,
+      "active": 1
+    },
+    {
+      "id": "shift_4_96",
+      "group": "shift",
+      "original": 4964,
+      "generic": 2917,
+      "off": 4975,
+      "plain": 4528,
+      "active": 1
+    },
+    {
+      "id": "cycle_4_96",
+      "group": "cycle",
+      "original": 3709,
+      "generic": 2512,
+      "off": 3760,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_4_144",
+      "group": "stable",
+      "original": 2477,
+      "generic": 2992,
+      "off": 3568,
+      "plain": 3025,
+      "active": 1
+    },
+    {
+      "id": "shift_4_144",
+      "group": "shift",
+      "original": 7412,
+      "generic": 4261,
+      "off": 7375,
+      "plain": 6832,
+      "active": 1
+    },
+    {
+      "id": "cycle_4_144",
+      "group": "cycle",
+      "original": 5381,
+      "generic": 3608,
+      "off": 5416,
+      "plain": 4873,
+      "active": 1
+    },
+    {
+      "id": "stable_5_24",
+      "group": "stable",
+      "original": 601,
+      "generic": 748,
+      "off": 892,
+      "plain": 577,
+      "active": 1
+    },
+    {
+      "id": "shift_5_24",
+      "group": "shift",
+      "original": 1252,
+      "generic": 895,
+      "off": 1333,
+      "plain": 1018,
+      "active": 1
+    },
+    {
+      "id": "cycle_5_24",
+      "group": "cycle",
+      "original": 909,
+      "generic": 784,
+      "off": 1000,
+      "plain": 685,
+      "active": 1
+    },
+    {
+      "id": "stable_5_96",
+      "group": "stable",
+      "original": 1825,
+      "generic": 2188,
+      "off": 2764,
+      "plain": 2305,
+      "active": 1
+    },
+    {
+      "id": "shift_5_96",
+      "group": "shift",
+      "original": 4708,
+      "generic": 2839,
+      "off": 4717,
+      "plain": 4258,
+      "active": 1
+    },
+    {
+      "id": "cycle_5_96",
+      "group": "cycle",
+      "original": 3617,
+      "generic": 2492,
+      "off": 3676,
+      "plain": 3217,
+      "active": 1
+    },
+    {
+      "id": "stable_5_144",
+      "group": "stable",
+      "original": 2641,
+      "generic": 3148,
+      "off": 4012,
+      "plain": 3457,
+      "active": 1
+    },
+    {
+      "id": "shift_5_144",
+      "group": "shift",
+      "original": 7012,
+      "generic": 4135,
+      "off": 6973,
+      "plain": 6418,
+      "active": 1
+    },
+    {
+      "id": "cycle_5_144",
+      "group": "cycle",
+      "original": 5425,
+      "generic": 3636,
+      "off": 5476,
+      "plain": 4921,
+      "active": 1
+    },
+    {
+      "id": "stable_6_24",
+      "group": "stable",
+      "original": 645,
+      "generic": 784,
+      "off": 976,
+      "plain": 649,
+      "active": 1
+    },
+    {
+      "id": "shift_6_24",
+      "group": "shift",
+      "original": 1212,
+      "generic": 889,
+      "off": 1291,
+      "plain": 964,
+      "active": 1
+    },
+    {
+      "id": "cycle_6_24",
+      "group": "cycle",
+      "original": 993,
+      "generic": 820,
+      "off": 1084,
+      "plain": 757,
+      "active": 1
+    },
+    {
+      "id": "stable_6_96",
+      "group": "stable",
+      "original": 1941,
+      "generic": 2296,
+      "off": 3064,
+      "plain": 2593,
+      "active": 1
+    },
+    {
+      "id": "shift_6_96",
+      "group": "shift",
+      "original": 4452,
+      "generic": 2761,
+      "off": 4459,
+      "plain": 3988,
+      "active": 1
+    },
+    {
+      "id": "cycle_6_96",
+      "group": "cycle",
+      "original": 3717,
+      "generic": 2536,
+      "off": 3784,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_6_144",
+      "group": "stable",
+      "original": 2805,
+      "generic": 3304,
+      "off": 4456,
+      "plain": 3889,
+      "active": 1
+    },
+    {
+      "id": "shift_6_144",
+      "group": "shift",
+      "original": 6612,
+      "generic": 4009,
+      "off": 6571,
+      "plain": 6004,
+      "active": 1
+    },
+    {
+      "id": "cycle_6_144",
+      "group": "cycle",
+      "original": 5469,
+      "generic": 3664,
+      "off": 5536,
+      "plain": 4969,
+      "active": 1
+    },
+    {
+      "id": "stable_7_24",
+      "group": "stable",
+      "original": 689,
+      "generic": 820,
+      "off": 1060,
+      "plain": 721,
+      "active": 1
+    },
+    {
+      "id": "shift_7_24",
+      "group": "shift",
+      "original": 1172,
+      "generic": 883,
+      "off": 1249,
+      "plain": 910,
+      "active": 1
+    },
+    {
+      "id": "cycle_7_24",
+      "group": "cycle",
+      "original": 1077,
+      "generic": 856,
+      "off": 1168,
+      "plain": 829,
+      "active": 1
+    },
+    {
+      "id": "stable_7_96",
+      "group": "stable",
+      "original": 2057,
+      "generic": 2404,
+      "off": 3364,
+      "plain": 2881,
+      "active": 1
+    },
+    {
+      "id": "shift_7_96",
+      "group": "shift",
+      "original": 4196,
+      "generic": 2683,
+      "off": 4201,
+      "plain": 3718,
+      "active": 1
+    },
+    {
+      "id": "cycle_7_96",
+      "group": "cycle",
+      "original": 3625,
+      "generic": 2516,
+      "off": 3700,
+      "plain": 3217,
+      "active": 1
+    },
+    {
+      "id": "stable_7_144",
+      "group": "stable",
+      "original": 2969,
+      "generic": 3460,
+      "off": 4900,
+      "plain": 4321,
+      "active": 1
+    },
+    {
+      "id": "shift_7_144",
+      "group": "shift",
+      "original": 6212,
+      "generic": 3883,
+      "off": 6169,
+      "plain": 5590,
+      "active": 1
+    },
+    {
+      "id": "cycle_7_144",
+      "group": "cycle",
+      "original": 5513,
+      "generic": 3692,
+      "off": 5596,
+      "plain": 5017,
+      "active": 1
+    },
+    {
+      "id": "stable_8_24",
+      "group": "stable",
+      "original": 733,
+      "generic": 856,
+      "off": 1144,
+      "plain": 793,
+      "active": 1
+    },
+    {
+      "id": "shift_8_24",
+      "group": "shift",
+      "original": 1132,
+      "generic": 877,
+      "off": 1207,
+      "plain": 856,
+      "active": 1
+    },
+    {
+      "id": "cycle_8_24",
+      "group": "cycle",
+      "original": 1161,
+      "generic": 892,
+      "off": 1252,
+      "plain": 901,
+      "active": 1
+    },
+    {
+      "id": "stable_8_96",
+      "group": "stable",
+      "original": 2173,
+      "generic": 2512,
+      "off": 3664,
+      "plain": 3169,
+      "active": 1
+    },
+    {
+      "id": "shift_8_96",
+      "group": "shift",
+      "original": 3940,
+      "generic": 2605,
+      "off": 3943,
+      "plain": 3448,
+      "active": 1
+    },
+    {
+      "id": "cycle_8_96",
+      "group": "cycle",
+      "original": 3725,
+      "generic": 2560,
+      "off": 3808,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_8_144",
+      "group": "stable",
+      "original": 3133,
+      "generic": 3616,
+      "off": 5344,
+      "plain": 4753,
+      "active": 1
+    },
+    {
+      "id": "shift_8_144",
+      "group": "shift",
+      "original": 5812,
+      "generic": 3757,
+      "off": 5767,
+      "plain": 5176,
+      "active": 1
+    },
+    {
+      "id": "cycle_8_144",
+      "group": "cycle",
+      "original": 5557,
+      "generic": 3720,
+      "off": 5656,
+      "plain": 5065,
+      "active": 1
+    },
+    {
+      "id": "stable_9_24",
+      "group": "stable",
+      "original": 777,
+      "generic": 892,
+      "off": 1228,
+      "plain": 865,
+      "active": 1
+    },
+    {
+      "id": "shift_9_24",
+      "group": "shift",
+      "original": 1092,
+      "generic": 871,
+      "off": 1165,
+      "plain": 802,
+      "active": 1
+    },
+    {
+      "id": "cycle_9_24",
+      "group": "cycle",
+      "original": 1245,
+      "generic": 928,
+      "off": 1336,
+      "plain": 973,
+      "active": 1
+    },
+    {
+      "id": "stable_9_96",
+      "group": "stable",
+      "original": 2289,
+      "generic": 2620,
+      "off": 3964,
+      "plain": 3457,
+      "active": 1
+    },
+    {
+      "id": "shift_9_96",
+      "group": "shift",
+      "original": 3684,
+      "generic": 2527,
+      "off": 3685,
+      "plain": 3178,
+      "active": 1
+    },
+    {
+      "id": "cycle_9_96",
+      "group": "cycle",
+      "original": 3825,
+      "generic": 2604,
+      "off": 3916,
+      "plain": 3409,
+      "active": 1
+    },
+    {
+      "id": "stable_9_144",
+      "group": "stable",
+      "original": 3297,
+      "generic": 3772,
+      "off": 5788,
+      "plain": 5185,
+      "active": 1
+    },
+    {
+      "id": "shift_9_144",
+      "group": "shift",
+      "original": 5412,
+      "generic": 3631,
+      "off": 5365,
+      "plain": 4762,
+      "active": 1
+    },
+    {
+      "id": "cycle_9_144",
+      "group": "cycle",
+      "original": 5601,
+      "generic": 3748,
+      "off": 5716,
+      "plain": 5113,
+      "active": 1
+    },
+    {
+      "id": "stable_10_24",
+      "group": "stable",
+      "original": 821,
+      "generic": 928,
+      "off": 1312,
+      "plain": 937,
+      "active": 1
+    },
+    {
+      "id": "shift_10_24",
+      "group": "shift",
+      "original": 1052,
+      "generic": 865,
+      "off": 1123,
+      "plain": 748,
+      "active": 1
+    },
+    {
+      "id": "cycle_10_24",
+      "group": "cycle",
+      "original": 1137,
+      "generic": 900,
+      "off": 1228,
+      "plain": 853,
+      "active": 1
+    },
+    {
+      "id": "stable_10_96",
+      "group": "stable",
+      "original": 2405,
+      "generic": 2728,
+      "off": 4264,
+      "plain": 3745,
+      "active": 1
+    },
+    {
+      "id": "shift_10_96",
+      "group": "shift",
+      "original": 3428,
+      "generic": 2449,
+      "off": 3427,
+      "plain": 2908,
+      "active": 1
+    },
+    {
+      "id": "cycle_10_96",
+      "group": "cycle",
+      "original": 3733,
+      "generic": 2584,
+      "off": 3832,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_10_144",
+      "group": "stable",
+      "original": 3461,
+      "generic": 3928,
+      "off": 6232,
+      "plain": 5617,
+      "active": 1
+    },
+    {
+      "id": "shift_10_144",
+      "group": "shift",
+      "original": 5012,
+      "generic": 3505,
+      "off": 4963,
+      "plain": 4348,
+      "active": 1
+    },
+    {
+      "id": "cycle_10_144",
+      "group": "cycle",
+      "original": 5453,
+      "generic": 3712,
+      "off": 5584,
+      "plain": 4969,
+      "active": 1
+    },
+    {
+      "id": "stable_11_24",
+      "group": "stable",
+      "original": 865,
+      "generic": 964,
+      "off": 1396,
+      "plain": 1009,
+      "active": 1
+    },
+    {
+      "id": "shift_11_24",
+      "group": "shift",
+      "original": 1012,
+      "generic": 859,
+      "off": 1081,
+      "plain": 694,
+      "active": 1
+    },
+    {
+      "id": "cycle_11_24",
+      "group": "cycle",
+      "original": 1221,
+      "generic": 936,
+      "off": 1312,
+      "plain": 925,
+      "active": 1
+    },
+    {
+      "id": "stable_11_96",
+      "group": "stable",
+      "original": 2521,
+      "generic": 2836,
+      "off": 4564,
+      "plain": 4033,
+      "active": 1
+    },
+    {
+      "id": "shift_11_96",
+      "group": "shift",
+      "original": 3172,
+      "generic": 2371,
+      "off": 3169,
+      "plain": 2638,
+      "active": 1
+    },
+    {
+      "id": "cycle_11_96",
+      "group": "cycle",
+      "original": 3833,
+      "generic": 2628,
+      "off": 3940,
+      "plain": 3409,
+      "active": 1
+    },
+    {
+      "id": "stable_11_144",
+      "group": "stable",
+      "original": 3625,
+      "generic": 4084,
+      "off": 6676,
+      "plain": 6049,
+      "active": 1
+    },
+    {
+      "id": "shift_11_144",
+      "group": "shift",
+      "original": 4612,
+      "generic": 3379,
+      "off": 4561,
+      "plain": 3934,
+      "active": 1
+    },
+    {
+      "id": "cycle_11_144",
+      "group": "cycle",
+      "original": 5497,
+      "generic": 3740,
+      "off": 5644,
+      "plain": 5017,
+      "active": 1
+    },
+    {
+      "id": "stable_12_24",
+      "group": "stable",
+      "original": 909,
+      "generic": 1000,
+      "off": 1480,
+      "plain": 1081,
+      "active": 1
+    },
+    {
+      "id": "shift_12_24",
+      "group": "shift",
+      "original": 972,
+      "generic": 853,
+      "off": 1039,
+      "plain": 640,
+      "active": 1
+    },
+    {
+      "id": "cycle_12_24",
+      "group": "cycle",
+      "original": 1113,
+      "generic": 908,
+      "off": 1204,
+      "plain": 805,
+      "active": 1
+    },
+    {
+      "id": "stable_12_96",
+      "group": "stable",
+      "original": 2637,
+      "generic": 2944,
+      "off": 4864,
+      "plain": 4321,
+      "active": 1
+    },
+    {
+      "id": "shift_12_96",
+      "group": "shift",
+      "original": 2916,
+      "generic": 2293,
+      "off": 2911,
+      "plain": 2368,
+      "active": 1
+    },
+    {
+      "id": "cycle_12_96",
+      "group": "cycle",
+      "original": 3741,
+      "generic": 2608,
+      "off": 3856,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_12_144",
+      "group": "stable",
+      "original": 3789,
+      "generic": 4240,
+      "off": 7120,
+      "plain": 6481,
+      "active": 1
+    },
+    {
+      "id": "shift_12_144",
+      "group": "shift",
+      "original": 4212,
+      "generic": 3253,
+      "off": 4159,
+      "plain": 3520,
+      "active": 1
+    },
+    {
+      "id": "cycle_12_144",
+      "group": "cycle",
+      "original": 5349,
+      "generic": 3704,
+      "off": 5512,
+      "plain": 4873,
+      "active": 1
+    },
+    {
+      "id": "stable_13_24",
+      "group": "stable",
+      "original": 953,
+      "generic": 1036,
+      "off": 1564,
+      "plain": 1153,
+      "active": 1
+    },
+    {
+      "id": "shift_13_24",
+      "group": "shift",
+      "original": 932,
+      "generic": 847,
+      "off": 997,
+      "plain": 586,
+      "active": 1
+    },
+    {
+      "id": "cycle_13_24",
+      "group": "cycle",
+      "original": 1197,
+      "generic": 944,
+      "off": 1288,
+      "plain": 877,
+      "active": 1
+    },
+    {
+      "id": "stable_13_96",
+      "group": "stable",
+      "original": 2753,
+      "generic": 3052,
+      "off": 5164,
+      "plain": 4609,
+      "active": 1
+    },
+    {
+      "id": "shift_13_96",
+      "group": "shift",
+      "original": 2660,
+      "generic": 2215,
+      "off": 2653,
+      "plain": 2098,
+      "active": 1
+    },
+    {
+      "id": "cycle_13_96",
+      "group": "cycle",
+      "original": 3841,
+      "generic": 2652,
+      "off": 3964,
+      "plain": 3409,
+      "active": 1
+    },
+    {
+      "id": "stable_13_144",
+      "group": "stable",
+      "original": 3953,
+      "generic": 4396,
+      "off": 7564,
+      "plain": 6913,
+      "active": 1
+    },
+    {
+      "id": "shift_13_144",
+      "group": "shift",
+      "original": 3812,
+      "generic": 3127,
+      "off": 3757,
+      "plain": 3106,
+      "active": 1
+    },
+    {
+      "id": "cycle_13_144",
+      "group": "cycle",
+      "original": 5393,
+      "generic": 3732,
+      "off": 5572,
+      "plain": 4921,
+      "active": 1
+    },
+    {
+      "id": "stable_14_24",
+      "group": "stable",
+      "original": 997,
+      "generic": 1072,
+      "off": 1648,
+      "plain": 1225,
+      "active": 1
+    },
+    {
+      "id": "shift_14_24",
+      "group": "shift",
+      "original": 892,
+      "generic": 841,
+      "off": 955,
+      "plain": 532,
+      "active": 1
+    },
+    {
+      "id": "cycle_14_24",
+      "group": "cycle",
+      "original": 1089,
+      "generic": 916,
+      "off": 1180,
+      "plain": 757,
+      "active": 1
+    },
+    {
+      "id": "stable_14_96",
+      "group": "stable",
+      "original": 2869,
+      "generic": 3160,
+      "off": 5464,
+      "plain": 4897,
+      "active": 1
+    },
+    {
+      "id": "shift_14_96",
+      "group": "shift",
+      "original": 2404,
+      "generic": 2137,
+      "off": 2395,
+      "plain": 1828,
+      "active": 1
+    },
+    {
+      "id": "cycle_14_96",
+      "group": "cycle",
+      "original": 3749,
+      "generic": 2632,
+      "off": 3880,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_14_144",
+      "group": "stable",
+      "original": 4117,
+      "generic": 4552,
+      "off": 8008,
+      "plain": 7345,
+      "active": 1
+    },
+    {
+      "id": "shift_14_144",
+      "group": "shift",
+      "original": 3412,
+      "generic": 3001,
+      "off": 3355,
+      "plain": 2692,
+      "active": 1
+    },
+    {
+      "id": "cycle_14_144",
+      "group": "cycle",
+      "original": 5437,
+      "generic": 3760,
+      "off": 5632,
+      "plain": 4969,
+      "active": 1
+    },
+    {
+      "id": "stable_15_24",
+      "group": "stable",
+      "original": 1041,
+      "generic": 1108,
+      "off": 1732,
+      "plain": 1297,
+      "active": 1
+    },
+    {
+      "id": "shift_15_24",
+      "group": "shift",
+      "original": 852,
+      "generic": 835,
+      "off": 913,
+      "plain": 478,
+      "active": 1
+    },
+    {
+      "id": "cycle_15_24",
+      "group": "cycle",
+      "original": 1173,
+      "generic": 952,
+      "off": 1264,
+      "plain": 829,
+      "active": 1
+    },
+    {
+      "id": "stable_15_96",
+      "group": "stable",
+      "original": 2985,
+      "generic": 3268,
+      "off": 5764,
+      "plain": 5185,
+      "active": 1
+    },
+    {
+      "id": "shift_15_96",
+      "group": "shift",
+      "original": 2148,
+      "generic": 2059,
+      "off": 2137,
+      "plain": 1558,
+      "active": 1
+    },
+    {
+      "id": "cycle_15_96",
+      "group": "cycle",
+      "original": 3849,
+      "generic": 2676,
+      "off": 3988,
+      "plain": 3409,
+      "active": 1
+    },
+    {
+      "id": "stable_15_144",
+      "group": "stable",
+      "original": 4281,
+      "generic": 4708,
+      "off": 8452,
+      "plain": 7777,
+      "active": 1
+    },
+    {
+      "id": "shift_15_144",
+      "group": "shift",
+      "original": 3012,
+      "generic": 2875,
+      "off": 2953,
+      "plain": 2278,
+      "active": 1
+    },
+    {
+      "id": "cycle_15_144",
+      "group": "cycle",
+      "original": 5481,
+      "generic": 3788,
+      "off": 5692,
+      "plain": 5017,
+      "active": 1
+    },
+    {
+      "id": "stable_16_24",
+      "group": "stable",
+      "original": 1085,
+      "generic": 1144,
+      "off": 1816,
+      "plain": 1369,
+      "active": 1
+    },
+    {
+      "id": "shift_16_24",
+      "group": "shift",
+      "original": 812,
+      "generic": 829,
+      "off": 871,
+      "plain": 424,
+      "active": 1
+    },
+    {
+      "id": "cycle_16_24",
+      "group": "cycle",
+      "original": 1257,
+      "generic": 988,
+      "off": 1348,
+      "plain": 901,
+      "active": 1
+    },
+    {
+      "id": "stable_16_96",
+      "group": "stable",
+      "original": 3101,
+      "generic": 3376,
+      "off": 6064,
+      "plain": 5473,
+      "active": 1
+    },
+    {
+      "id": "shift_16_96",
+      "group": "shift",
+      "original": 1892,
+      "generic": 1981,
+      "off": 1879,
+      "plain": 1288,
+      "active": 1
+    },
+    {
+      "id": "cycle_16_96",
+      "group": "cycle",
+      "original": 3757,
+      "generic": 2656,
+      "off": 3904,
+      "plain": 3313,
+      "active": 1
+    },
+    {
+      "id": "stable_16_144",
+      "group": "stable",
+      "original": 4445,
+      "generic": 4864,
+      "off": 8896,
+      "plain": 8209,
+      "active": 1
+    },
+    {
+      "id": "shift_16_144",
+      "group": "shift",
+      "original": 2612,
+      "generic": 2749,
+      "off": 2551,
+      "plain": 1864,
+      "active": 1
+    },
+    {
+      "id": "cycle_16_144",
+      "group": "cycle",
+      "original": 5525,
+      "generic": 3816,
+      "off": 5752,
+      "plain": 5065,
+      "active": 1
+    }
+  ]
+}
