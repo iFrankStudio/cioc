@@ -1,0 +1,5686 @@
+{
+  "tier": "NON_NATIVE_FUSED_REUSE_PROVENANCE",
+  "summary": {
+    "all": {
+      "old": {
+        "net": 10614,
+        "wins": 12,
+        "paid": 140209,
+        "proofSteps": 0,
+        "reused": 168,
+        "rejections": 0,
+        "peak": 151,
+        "nodes": 139
+      },
+      "r2": {
+        "net": 7254,
+        "wins": 10,
+        "paid": 143569,
+        "proofSteps": 3528,
+        "reused": 168,
+        "rejections": 0,
+        "peak": 172,
+        "nodes": 160
+      },
+      "on": {
+        "net": 8422,
+        "wins": 10,
+        "paid": 142401,
+        "proofSteps": 6528,
+        "reused": 168,
+        "rejections": 340,
+        "peak": 161,
+        "nodes": 149
+      },
+      "off": {
+        "net": -1978,
+        "wins": 0,
+        "paid": 152801,
+        "proofSteps": 0,
+        "reused": 0,
+        "rejections": 0,
+        "peak": 161,
+        "nodes": 149
+      },
+      "static": {
+        "net": 8518,
+        "wins": 10,
+        "paid": 142305,
+        "proofSteps": 7584,
+        "reused": 168,
+        "rejections": 460,
+        "peak": 161,
+        "nodes": 149
+      }
+    },
+    "cohorts": {
+      "calibration": {
+        "old": {
+          "net": 1416,
+          "wins": 2,
+          "paid": 21702,
+          "proofSteps": 0,
+          "reused": 36,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": 696,
+          "wins": 2,
+          "paid": 22422,
+          "proofSteps": 756,
+          "reused": 36,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 1068,
+          "wins": 2,
+          "paid": 22050,
+          "proofSteps": 828,
+          "reused": 36,
+          "rejections": 12,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -570,
+          "wins": 0,
+          "paid": 23688,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 1020,
+          "wins": 2,
+          "paid": 22098,
+          "proofSteps": 1260,
+          "reused": 36,
+          "rejections": 60,
+          "peak": 161,
+          "nodes": 149
+        }
+      },
+      "prospective": {
+        "old": {
+          "net": 9198,
+          "wins": 10,
+          "paid": 118507,
+          "proofSteps": 0,
+          "reused": 132,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": 6558,
+          "wins": 8,
+          "paid": 121147,
+          "proofSteps": 2772,
+          "reused": 132,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 7354,
+          "wins": 8,
+          "paid": 120351,
+          "proofSteps": 5700,
+          "reused": 132,
+          "rejections": 328,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -1408,
+          "wins": 0,
+          "paid": 129113,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 7498,
+          "wins": 8,
+          "paid": 120207,
+          "proofSteps": 6324,
+          "reused": 132,
+          "rejections": 400,
+          "peak": 161,
+          "nodes": 149
+        }
+      }
+    },
+    "scales": {
+      "1": {
+        "old": {
+          "net": 702,
+          "wins": 3,
+          "paid": 15016,
+          "proofSteps": 0,
+          "reused": 57,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": -438,
+          "wins": 2,
+          "paid": 16156,
+          "proofSteps": 1197,
+          "reused": 57,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 25,
+          "wins": 2,
+          "paid": 15693,
+          "proofSteps": 1929,
+          "reused": 57,
+          "rejections": 82,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -397,
+          "wins": 0,
+          "paid": 16115,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 85,
+          "wins": 2,
+          "paid": 15633,
+          "proofSteps": 2085,
+          "reused": 57,
+          "rejections": 100,
+          "peak": 161,
+          "nodes": 149
+        }
+      },
+      "2": {
+        "old": {
+          "net": 676,
+          "wins": 2,
+          "paid": 23099,
+          "proofSteps": 0,
+          "reused": 33,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": 16,
+          "wins": 2,
+          "paid": 23759,
+          "proofSteps": 693,
+          "reused": 33,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 215,
+          "wins": 2,
+          "paid": 23560,
+          "proofSteps": 1425,
+          "reused": 33,
+          "rejections": 82,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -520,
+          "wins": 0,
+          "paid": 24295,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 203,
+          "wins": 2,
+          "paid": 23572,
+          "proofSteps": 1725,
+          "reused": 33,
+          "rejections": 124,
+          "peak": 161,
+          "nodes": 149
+        }
+      },
+      "4": {
+        "old": {
+          "net": 3634,
+          "wins": 4,
+          "paid": 35965,
+          "proofSteps": 0,
+          "reused": 45,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": 2734,
+          "wins": 3,
+          "paid": 36865,
+          "proofSteps": 945,
+          "reused": 45,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 3041,
+          "wins": 3,
+          "paid": 36558,
+          "proofSteps": 1749,
+          "reused": 45,
+          "rejections": 94,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -397,
+          "wins": 0,
+          "paid": 39996,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 3101,
+          "wins": 3,
+          "paid": 36498,
+          "proofSteps": 1905,
+          "reused": 45,
+          "rejections": 112,
+          "peak": 161,
+          "nodes": 149
+        }
+      },
+      "8": {
+        "old": {
+          "net": 5602,
+          "wins": 3,
+          "paid": 66129,
+          "proofSteps": 0,
+          "reused": 33,
+          "rejections": 0,
+          "peak": 151,
+          "nodes": 139
+        },
+        "r2": {
+          "net": 4942,
+          "wins": 3,
+          "paid": 66789,
+          "proofSteps": 693,
+          "reused": 33,
+          "rejections": 0,
+          "peak": 172,
+          "nodes": 160
+        },
+        "on": {
+          "net": 5141,
+          "wins": 3,
+          "paid": 66590,
+          "proofSteps": 1425,
+          "reused": 33,
+          "rejections": 82,
+          "peak": 161,
+          "nodes": 149
+        },
+        "off": {
+          "net": -664,
+          "wins": 0,
+          "paid": 72395,
+          "proofSteps": 0,
+          "reused": 0,
+          "rejections": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "static": {
+          "net": 5129,
+          "wins": 3,
+          "paid": 66602,
+          "proofSteps": 1869,
+          "reused": 33,
+          "rejections": 124,
+          "peak": 161,
+          "nodes": 149
+        }
+      }
+    },
+    "faults": [
+      {
+        "id": "skip_probe_bias",
+        "paid": 366,
+        "rejections": 1,
+        "kernels": 8,
+        "wrong": null,
+        "outputs": [
+          [
+            242,
+            605
+          ]
+        ],
+        "proofSteps": 12,
+        "activations": [
+          {
+            "at": 0,
+            "paid": 227,
+            "suppressed": false
+          }
+        ]
+      },
+      {
+        "id": "wrong_cache_cell",
+        "paid": 357,
+        "rejections": 1,
+        "kernels": 8,
+        "wrong": null,
+        "outputs": [
+          [
+            242,
+            242
+          ]
+        ],
+        "proofSteps": 21,
+        "activations": []
+      },
+      {
+        "id": "skip_verify_bias",
+        "paid": 234,
+        "rejections": 0,
+        "kernels": 4,
+        "wrong": {
+          "actual": 242,
+          "expected": 605
+        },
+        "outputs": [
+          [
+            242,
+            242
+          ]
+        ],
+        "proofSteps": 15,
+        "activations": []
+      },
+      {
+        "id": "post_check",
+        "paid": 240,
+        "rejections": 0,
+        "kernels": 4,
+        "wrong": {
+          "actual": 0,
+          "expected": 242
+        },
+        "outputs": [
+          [
+            242,
+            0
+          ]
+        ],
+        "proofSteps": 21,
+        "activations": []
+      }
+    ],
+    "worlds": 100
+  },
+  "rows": [
+    {
+      "id": "1_24_all",
+      "cohort": "calibration",
+      "k": 1,
+      "shared": {
+        "paid": 2438,
+        "kernels": 48,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 1710,
+        "kernels": 24,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 24,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 2190,
+        "kernels": 24,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 24,
+        "proofSteps": 504,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 1926,
+        "kernels": 24,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 24,
+        "proofSteps": 504,
+        "rejections": 0
+      },
+      "off": {
+        "paid": 2483,
+        "kernels": 48,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 1902,
+        "kernels": 24,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 24,
+        "proofSteps": 504,
+        "rejections": 0
+      }
+    },
+    {
+      "id": "2_24_none",
+      "cohort": "calibration",
+      "k": 2,
+      "shared": {
+        "paid": 3660,
+        "kernels": 96,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "off": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 3876,
+        "kernels": 96,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 144,
+        "rejections": 24
+      }
+    },
+    {
+      "id": "4_24_half",
+      "cohort": "calibration",
+      "k": 4,
+      "shared": {
+        "paid": 6070,
+        "kernels": 192,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 4902,
+        "kernels": 144,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 12,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 5142,
+        "kernels": 144,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 12,
+        "proofSteps": 252,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 5034,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 324,
+        "rejections": 12
+      },
+      "off": {
+        "paid": 6115,
+        "kernels": 192,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 5010,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 324,
+        "rejections": 12
+      }
+    },
+    {
+      "id": "8_24_second_only_mismatch",
+      "cohort": "calibration",
+      "k": 8,
+      "shared": {
+        "paid": 10950,
+        "kernels": 384,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "off": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 11310,
+        "kernels": 384,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 288,
+        "rejections": 24
+      }
+    },
+    {
+      "id": "fresh_0",
+      "cohort": "prospective",
+      "k": 1,
+      "shared": {
+        "paid": 1945,
+        "kernels": 38,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 1661,
+        "kernels": 26,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 12,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 1901,
+        "kernels": 26,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 12,
+        "proofSteps": 252,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 1781,
+        "kernels": 26,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "rejections": 6
+      },
+      "off": {
+        "paid": 1991,
+        "kernels": 38,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 1759,
+        "kernels": 26,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 312,
+        "rejections": 7
+      }
+    },
+    {
+      "id": "fresh_1",
+      "cohort": "prospective",
+      "k": 2,
+      "shared": {
+        "paid": 2939,
+        "kernels": 76,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 2336,
+        "kernels": 52,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 12,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 2576,
+        "kernels": 52,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 12,
+        "proofSteps": 252,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 2456,
+        "kernels": 52,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "rejections": 6
+      },
+      "off": {
+        "paid": 2985,
+        "kernels": 76,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 2434,
+        "kernels": 52,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 312,
+        "rejections": 7
+      }
+    },
+    {
+      "id": "fresh_2",
+      "cohort": "prospective",
+      "k": 4,
+      "shared": {
+        "paid": 4847,
+        "kernels": 152,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 3638,
+        "kernels": 104,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 12,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 3878,
+        "kernels": 104,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 12,
+        "proofSteps": 252,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 3758,
+        "kernels": 104,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "rejections": 6
+      },
+      "off": {
+        "paid": 4893,
+        "kernels": 152,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 3736,
+        "kernels": 104,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 312,
+        "rejections": 7
+      }
+    },
+    {
+      "id": "fresh_3",
+      "cohort": "prospective",
+      "k": 8,
+      "shared": {
+        "paid": 8763,
+        "kernels": 304,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 6318,
+        "kernels": 208,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 12,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 6558,
+        "kernels": 208,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 12,
+        "proofSteps": 252,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 6438,
+        "kernels": 208,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "rejections": 6
+      },
+      "off": {
+        "paid": 8809,
+        "kernels": 304,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 6416,
+        "kernels": 208,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 312,
+        "rejections": 7
+      }
+    },
+    {
+      "id": "fresh_4",
+      "cohort": "prospective",
+      "k": 1,
+      "shared": {
+        "paid": 4302,
+        "kernels": 86,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 4168,
+        "kernels": 72,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 14,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 4448,
+        "kernels": 72,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 14,
+        "proofSteps": 294,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 4324,
+        "kernels": 72,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "rejections": 15
+      },
+      "off": {
+        "paid": 4492,
+        "kernels": 86,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 4328,
+        "kernels": 72,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 552,
+        "rejections": 29
+      }
+    },
+    {
+      "id": "fresh_5",
+      "cohort": "prospective",
+      "k": 2,
+      "shared": {
+        "paid": 6505,
+        "kernels": 172,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 6022,
+        "kernels": 144,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 14,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 6302,
+        "kernels": 144,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 14,
+        "proofSteps": 294,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 6178,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "rejections": 15
+      },
+      "off": {
+        "paid": 6695,
+        "kernels": 172,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 6182,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 552,
+        "rejections": 29
+      }
+    },
+    {
+      "id": "fresh_6",
+      "cohort": "prospective",
+      "k": 4,
+      "shared": {
+        "paid": 10843,
+        "kernels": 344,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 9646,
+        "kernels": 288,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 14,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 9926,
+        "kernels": 288,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 14,
+        "proofSteps": 294,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 9802,
+        "kernels": 288,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "rejections": 15
+      },
+      "off": {
+        "paid": 11033,
+        "kernels": 344,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 9806,
+        "kernels": 288,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 552,
+        "rejections": 29
+      }
+    },
+    {
+      "id": "fresh_7",
+      "cohort": "prospective",
+      "k": 8,
+      "shared": {
+        "paid": 19627,
+        "kernels": 688,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 17006,
+        "kernels": 576,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 14,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 17286,
+        "kernels": 576,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 14,
+        "proofSteps": 294,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 17162,
+        "kernels": 576,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "rejections": 15
+      },
+      "off": {
+        "paid": 19817,
+        "kernels": 688,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 17166,
+        "kernels": 576,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 552,
+        "rejections": 29
+      }
+    },
+    {
+      "id": "fresh_8",
+      "cohort": "prospective",
+      "k": 1,
+      "shared": {
+        "paid": 7033,
+        "kernels": 142,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 7477,
+        "kernels": 135,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 7,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 7617,
+        "kernels": 135,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 7,
+        "proofSteps": 147,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 7662,
+        "kernels": 135,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "rejections": 61
+      },
+      "off": {
+        "paid": 7149,
+        "kernels": 142,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 7644,
+        "kernels": 135,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 717,
+        "rejections": 64
+      }
+    },
+    {
+      "id": "fresh_9",
+      "cohort": "prospective",
+      "k": 2,
+      "shared": {
+        "paid": 10671,
+        "kernels": 284,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 10913,
+        "kernels": 270,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 7,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 11053,
+        "kernels": 270,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 7,
+        "proofSteps": 147,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 11098,
+        "kernels": 270,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "rejections": 61
+      },
+      "off": {
+        "paid": 10787,
+        "kernels": 284,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 11080,
+        "kernels": 270,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 717,
+        "rejections": 64
+      }
+    },
+    {
+      "id": "fresh_10",
+      "cohort": "prospective",
+      "k": 4,
+      "shared": {
+        "paid": 17839,
+        "kernels": 568,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 17779,
+        "kernels": 540,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 7,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 17919,
+        "kernels": 540,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 7,
+        "proofSteps": 147,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 17964,
+        "kernels": 540,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "rejections": 61
+      },
+      "off": {
+        "paid": 17955,
+        "kernels": 568,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 17946,
+        "kernels": 540,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 717,
+        "rejections": 64
+      }
+    },
+    {
+      "id": "fresh_11",
+      "cohort": "prospective",
+      "k": 8,
+      "shared": {
+        "paid": 32391,
+        "kernels": 1136,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "old": {
+        "paid": 31543,
+        "kernels": 1080,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 7,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "r2": {
+        "paid": 31683,
+        "kernels": 1080,
+        "nodes": 160,
+        "peak": 172,
+        "reused": 7,
+        "proofSteps": 147,
+        "rejections": 0
+      },
+      "on": {
+        "paid": 31728,
+        "kernels": 1080,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "rejections": 61
+      },
+      "off": {
+        "paid": 32507,
+        "kernels": 1136,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "rejections": 0
+      },
+      "static": {
+        "paid": 31710,
+        "kernels": 1080,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 717,
+        "rejections": 64
+      }
+    }
+  ],
+  "sources": {
+    "none": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 131,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 108
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 109
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 111
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 112
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 117
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 118
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 121
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 124
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 125
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 126
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 127
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 128
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 130,
+          "zero": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 132
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "verify_a": 108,
+        "verify_b": 114,
+        "verify_done": 120,
+        "candidate": 123,
+        "reuse": 129,
+        "reject": 130,
+        "second_result": 131
+      }
+    },
+    "skip_probe_bias": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 131,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 108
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 109
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 111
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 112
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 117
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 118
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 121
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 124
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 125
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 126
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 127
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 128
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 130,
+          "zero": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 132
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "verify_a": 108,
+        "verify_b": 114,
+        "verify_done": 120,
+        "candidate": 123,
+        "reuse": 129,
+        "reject": 130,
+        "second_result": 131
+      }
+    },
+    "wrong_cache_cell": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 131,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 108
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 109
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 111
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 112
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 117
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 118
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 121
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 124
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 125
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 126
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 127
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 128
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 130,
+          "zero": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 132
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "verify_a": 108,
+        "verify_b": 114,
+        "verify_done": 120,
+        "candidate": 123,
+        "reuse": 129,
+        "reject": 130,
+        "second_result": 131
+      }
+    },
+    "skip_verify_bias": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 131,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 108
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 109
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 111
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 112
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 117
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 118
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 121
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 124
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 125
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 126
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 127
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 128
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 130,
+          "zero": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 132
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "verify_a": 108,
+        "verify_b": 114,
+        "verify_done": 120,
+        "candidate": 123,
+        "reuse": 129,
+        "reject": 130,
+        "second_result": 131
+      }
+    },
+    "post_check": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 131,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 108
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 109
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 111
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 112
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 113
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 117
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 118
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 119
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 120
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 121
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 130,
+          "zero": 123
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 124
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 125
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 126
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 127
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 128
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 130,
+          "zero": 129
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 131
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 132
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "verify_a": 108,
+        "verify_b": 114,
+        "verify_done": 120,
+        "candidate": 123,
+        "reuse": 129,
+        "reject": 130,
+        "second_result": 131
+      }
+    }
+  }
+}
