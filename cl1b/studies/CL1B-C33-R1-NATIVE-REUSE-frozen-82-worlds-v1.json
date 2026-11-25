@@ -1,0 +1,9367 @@
+{
+  "study": "CL1B-C33-R1-NATIVE-REUSE",
+  "model_source_sha": "8a56557d093a36d9c86383ee33d4f96fe71bcd2c",
+  "sources": {
+    "plain": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 113
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    },
+    "shared": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 113
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    },
+    "static": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 113
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    },
+    "evolve": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 113
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    },
+    "skip_bias_guard": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    },
+    "wrong_cache_cell": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 121,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 106,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 106,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 107,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 108
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 110
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 111
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 112
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 113
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 114
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 115
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 116
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 117
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 118
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 119
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 120
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 121
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 122
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "gate": 106,
+        "check": 107,
+        "check_b": 113,
+        "reuse": 119,
+        "second_result": 121
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "1_24_all",
+      "k": 1,
+      "n": 24,
+      "pattern": "all",
+      "xy": [
+        8,
+        5,
+        8,
+        5
+      ],
+      "changes": [
+        [
+          1,
+          13,
+          12,
+          13,
+          12
+        ],
+        [
+          2,
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          3,
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          4,
+          12,
+          1,
+          12,
+          1
+        ],
+        [
+          5,
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          6,
+          6,
+          15,
+          6,
+          15
+        ],
+        [
+          7,
+          11,
+          6,
+          11,
+          6
+        ],
+        [
+          8,
+          16,
+          13,
+          16,
+          13
+        ],
+        [
+          9,
+          5,
+          4,
+          5,
+          4
+        ],
+        [
+          10,
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          11,
+          15,
+          2,
+          15,
+          2
+        ],
+        [
+          12,
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          13,
+          9,
+          16,
+          9,
+          16
+        ],
+        [
+          14,
+          14,
+          7,
+          14,
+          7
+        ],
+        [
+          15,
+          3,
+          14,
+          3,
+          14
+        ],
+        [
+          16,
+          8,
+          5,
+          8,
+          5
+        ],
+        [
+          17,
+          13,
+          12,
+          13,
+          12
+        ],
+        [
+          18,
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          19,
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          20,
+          12,
+          1,
+          12,
+          1
+        ],
+        [
+          21,
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          22,
+          6,
+          15,
+          6,
+          15
+        ],
+        [
+          23,
+          11,
+          6,
+          11,
+          6
+        ]
+      ],
+      "cohort": "calibration"
+    },
+    {
+      "id": "2_24_none",
+      "k": 2,
+      "n": 24,
+      "pattern": "none",
+      "xy": [
+        8,
+        5,
+        9,
+        6
+      ],
+      "changes": [
+        [
+          1,
+          13,
+          12,
+          14,
+          13
+        ],
+        [
+          2,
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          3,
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          4,
+          12,
+          1,
+          13,
+          2
+        ],
+        [
+          5,
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          6,
+          6,
+          15,
+          7,
+          16
+        ],
+        [
+          7,
+          11,
+          6,
+          12,
+          7
+        ],
+        [
+          8,
+          16,
+          13,
+          1,
+          14
+        ],
+        [
+          9,
+          5,
+          4,
+          6,
+          5
+        ],
+        [
+          10,
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          11,
+          15,
+          2,
+          16,
+          3
+        ],
+        [
+          12,
+          4,
+          9,
+          5,
+          10
+        ],
+        [
+          13,
+          9,
+          16,
+          10,
+          1
+        ],
+        [
+          14,
+          14,
+          7,
+          15,
+          8
+        ],
+        [
+          15,
+          3,
+          14,
+          4,
+          15
+        ],
+        [
+          16,
+          8,
+          5,
+          9,
+          6
+        ],
+        [
+          17,
+          13,
+          12,
+          14,
+          13
+        ],
+        [
+          18,
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          19,
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          20,
+          12,
+          1,
+          13,
+          2
+        ],
+        [
+          21,
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          22,
+          6,
+          15,
+          7,
+          16
+        ],
+        [
+          23,
+          11,
+          6,
+          12,
+          7
+        ]
+      ],
+      "cohort": "calibration"
+    },
+    {
+      "id": "4_24_half",
+      "k": 4,
+      "n": 24,
+      "pattern": "half",
+      "xy": [
+        8,
+        5,
+        8,
+        5
+      ],
+      "changes": [
+        [
+          1,
+          13,
+          12,
+          14,
+          13
+        ],
+        [
+          2,
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          3,
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          4,
+          12,
+          1,
+          12,
+          1
+        ],
+        [
+          5,
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          6,
+          6,
+          15,
+          6,
+          15
+        ],
+        [
+          7,
+          11,
+          6,
+          12,
+          7
+        ],
+        [
+          8,
+          16,
+          13,
+          16,
+          13
+        ],
+        [
+          9,
+          5,
+          4,
+          6,
+          5
+        ],
+        [
+          10,
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          11,
+          15,
+          2,
+          16,
+          3
+        ],
+        [
+          12,
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          13,
+          9,
+          16,
+          10,
+          1
+        ],
+        [
+          14,
+          14,
+          7,
+          14,
+          7
+        ],
+        [
+          15,
+          3,
+          14,
+          4,
+          15
+        ],
+        [
+          16,
+          8,
+          5,
+          8,
+          5
+        ],
+        [
+          17,
+          13,
+          12,
+          14,
+          13
+        ],
+        [
+          18,
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          19,
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          20,
+          12,
+          1,
+          12,
+          1
+        ],
+        [
+          21,
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          22,
+          6,
+          15,
+          6,
+          15
+        ],
+        [
+          23,
+          11,
+          6,
+          12,
+          7
+        ]
+      ],
+      "cohort": "calibration"
+    },
+    {
+      "id": "8_24_second_only_mismatch",
+      "k": 8,
+      "n": 24,
+      "pattern": "second_only_mismatch",
+      "xy": [
+        8,
+        5,
+        8,
+        6
+      ],
+      "changes": [
+        [
+          1,
+          13,
+          12,
+          13,
+          13
+        ],
+        [
+          2,
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          7,
+          10,
+          7,
+          11
+        ],
+        [
+          4,
+          12,
+          1,
+          12,
+          2
+        ],
+        [
+          5,
+          1,
+          8,
+          1,
+          9
+        ],
+        [
+          6,
+          6,
+          15,
+          6,
+          16
+        ],
+        [
+          7,
+          11,
+          6,
+          11,
+          7
+        ],
+        [
+          8,
+          16,
+          13,
+          16,
+          14
+        ],
+        [
+          9,
+          5,
+          4,
+          5,
+          5
+        ],
+        [
+          10,
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          11,
+          15,
+          2,
+          15,
+          3
+        ],
+        [
+          12,
+          4,
+          9,
+          4,
+          10
+        ],
+        [
+          13,
+          9,
+          16,
+          9,
+          1
+        ],
+        [
+          14,
+          14,
+          7,
+          14,
+          8
+        ],
+        [
+          15,
+          3,
+          14,
+          3,
+          15
+        ],
+        [
+          16,
+          8,
+          5,
+          8,
+          6
+        ],
+        [
+          17,
+          13,
+          12,
+          13,
+          13
+        ],
+        [
+          18,
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          19,
+          7,
+          10,
+          7,
+          11
+        ],
+        [
+          20,
+          12,
+          1,
+          12,
+          2
+        ],
+        [
+          21,
+          1,
+          8,
+          1,
+          9
+        ],
+        [
+          22,
+          6,
+          15,
+          6,
+          16
+        ],
+        [
+          23,
+          11,
+          6,
+          11,
+          7
+        ]
+      ],
+      "cohort": "calibration"
+    },
+    {
+      "id": "fresh_0",
+      "k": 1,
+      "n": 19,
+      "cohort": "prospective",
+      "xy": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "changes": [
+        [
+          1,
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          2,
+          7,
+          11,
+          7,
+          11
+        ],
+        [
+          3,
+          10,
+          16,
+          10,
+          1
+        ],
+        [
+          4,
+          13,
+          5,
+          13,
+          5
+        ],
+        [
+          5,
+          16,
+          10,
+          16,
+          10
+        ],
+        [
+          6,
+          3,
+          15,
+          4,
+          15
+        ],
+        [
+          7,
+          6,
+          4,
+          6,
+          4
+        ],
+        [
+          8,
+          9,
+          9,
+          9,
+          9
+        ],
+        [
+          9,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          10,
+          15,
+          3,
+          15,
+          3
+        ],
+        [
+          11,
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          12,
+          5,
+          13,
+          6,
+          13
+        ],
+        [
+          13,
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          14,
+          11,
+          7,
+          11,
+          7
+        ],
+        [
+          15,
+          14,
+          12,
+          14,
+          13
+        ],
+        [
+          16,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          17,
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          18,
+          7,
+          11,
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "id": "fresh_1",
+      "k": 2,
+      "n": 19,
+      "cohort": "prospective",
+      "xy": [
+        8,
+        12,
+        9,
+        12
+      ],
+      "changes": [
+        [
+          1,
+          11,
+          1,
+          11,
+          1
+        ],
+        [
+          2,
+          14,
+          6,
+          14,
+          6
+        ],
+        [
+          3,
+          1,
+          11,
+          1,
+          12
+        ],
+        [
+          4,
+          4,
+          16,
+          4,
+          16
+        ],
+        [
+          5,
+          7,
+          5,
+          7,
+          5
+        ],
+        [
+          6,
+          10,
+          10,
+          11,
+          10
+        ],
+        [
+          7,
+          13,
+          15,
+          13,
+          15
+        ],
+        [
+          8,
+          16,
+          4,
+          16,
+          4
+        ],
+        [
+          9,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          10,
+          6,
+          14,
+          6,
+          14
+        ],
+        [
+          11,
+          9,
+          3,
+          9,
+          3
+        ],
+        [
+          12,
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          13,
+          15,
+          13,
+          15,
+          13
+        ],
+        [
+          14,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          15,
+          5,
+          7,
+          5,
+          8
+        ],
+        [
+          16,
+          8,
+          12,
+          8,
+          12
+        ],
+        [
+          17,
+          11,
+          1,
+          11,
+          1
+        ],
+        [
+          18,
+          14,
+          6,
+          15,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "fresh_2",
+      "k": 4,
+      "n": 19,
+      "cohort": "prospective",
+      "xy": [
+        15,
+        7,
+        16,
+        7
+      ],
+      "changes": [
+        [
+          1,
+          2,
+          12,
+          2,
+          12
+        ],
+        [
+          2,
+          5,
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          8,
+          6,
+          8,
+          7
+        ],
+        [
+          4,
+          11,
+          11,
+          11,
+          11
+        ],
+        [
+          5,
+          14,
+          16,
+          14,
+          16
+        ],
+        [
+          6,
+          1,
+          5,
+          2,
+          5
+        ],
+        [
+          7,
+          4,
+          10,
+          4,
+          10
+        ],
+        [
+          8,
+          7,
+          15,
+          7,
+          15
+        ],
+        [
+          9,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          10,
+          13,
+          9,
+          13,
+          9
+        ],
+        [
+          11,
+          16,
+          14,
+          16,
+          14
+        ],
+        [
+          12,
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          13,
+          6,
+          8,
+          6,
+          8
+        ],
+        [
+          14,
+          9,
+          13,
+          9,
+          13
+        ],
+        [
+          15,
+          12,
+          2,
+          12,
+          3
+        ],
+        [
+          16,
+          15,
+          7,
+          15,
+          7
+        ],
+        [
+          17,
+          2,
+          12,
+          2,
+          12
+        ],
+        [
+          18,
+          5,
+          1,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "fresh_3",
+      "k": 8,
+      "n": 19,
+      "cohort": "prospective",
+      "xy": [
+        6,
+        2,
+        7,
+        2
+      ],
+      "changes": [
+        [
+          1,
+          9,
+          7,
+          9,
+          7
+        ],
+        [
+          2,
+          12,
+          12,
+          12,
+          12
+        ],
+        [
+          3,
+          15,
+          1,
+          15,
+          2
+        ],
+        [
+          4,
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          5,
+          5,
+          11,
+          5,
+          11
+        ],
+        [
+          6,
+          8,
+          16,
+          9,
+          16
+        ],
+        [
+          7,
+          11,
+          5,
+          11,
+          5
+        ],
+        [
+          8,
+          14,
+          10,
+          14,
+          10
+        ],
+        [
+          9,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          10,
+          4,
+          4,
+          4,
+          4
+        ],
+        [
+          11,
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          12,
+          10,
+          14,
+          11,
+          14
+        ],
+        [
+          13,
+          13,
+          3,
+          13,
+          3
+        ],
+        [
+          14,
+          16,
+          8,
+          16,
+          8
+        ],
+        [
+          15,
+          3,
+          13,
+          3,
+          14
+        ],
+        [
+          16,
+          6,
+          2,
+          6,
+          2
+        ],
+        [
+          17,
+          9,
+          7,
+          9,
+          7
+        ],
+        [
+          18,
+          12,
+          12,
+          13,
+          12
+        ]
+      ]
+    },
+    {
+      "id": "fresh_4",
+      "k": 1,
+      "n": 43,
+      "cohort": "prospective",
+      "xy": [
+        13,
+        13,
+        14,
+        13
+      ],
+      "changes": [
+        [
+          1,
+          16,
+          2,
+          16,
+          3
+        ],
+        [
+          2,
+          3,
+          7,
+          4,
+          7
+        ],
+        [
+          3,
+          6,
+          12,
+          6,
+          13
+        ],
+        [
+          4,
+          9,
+          1,
+          10,
+          1
+        ],
+        [
+          5,
+          12,
+          6,
+          12,
+          7
+        ],
+        [
+          6,
+          15,
+          11,
+          16,
+          11
+        ],
+        [
+          7,
+          2,
+          16,
+          2,
+          1
+        ],
+        [
+          8,
+          5,
+          5,
+          6,
+          5
+        ],
+        [
+          9,
+          8,
+          10,
+          8,
+          11
+        ],
+        [
+          10,
+          11,
+          15,
+          12,
+          15
+        ],
+        [
+          11,
+          14,
+          4,
+          14,
+          5
+        ],
+        [
+          12,
+          1,
+          9,
+          2,
+          9
+        ],
+        [
+          13,
+          4,
+          14,
+          4,
+          15
+        ],
+        [
+          14,
+          7,
+          3,
+          7,
+          3
+        ],
+        [
+          15,
+          10,
+          8,
+          10,
+          8
+        ],
+        [
+          16,
+          13,
+          13,
+          13,
+          13
+        ],
+        [
+          17,
+          16,
+          2,
+          16,
+          2
+        ],
+        [
+          18,
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          19,
+          6,
+          12,
+          6,
+          12
+        ],
+        [
+          20,
+          9,
+          1,
+          9,
+          1
+        ],
+        [
+          21,
+          12,
+          6,
+          12,
+          6
+        ],
+        [
+          22,
+          15,
+          11,
+          15,
+          11
+        ],
+        [
+          23,
+          2,
+          16,
+          2,
+          16
+        ],
+        [
+          24,
+          5,
+          5,
+          5,
+          5
+        ],
+        [
+          25,
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          26,
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          27,
+          14,
+          4,
+          14,
+          4
+        ],
+        [
+          28,
+          1,
+          9,
+          2,
+          9
+        ],
+        [
+          29,
+          4,
+          14,
+          4,
+          15
+        ],
+        [
+          30,
+          7,
+          3,
+          8,
+          3
+        ],
+        [
+          31,
+          10,
+          8,
+          10,
+          9
+        ],
+        [
+          32,
+          13,
+          13,
+          14,
+          13
+        ],
+        [
+          33,
+          16,
+          2,
+          16,
+          3
+        ],
+        [
+          34,
+          3,
+          7,
+          4,
+          7
+        ],
+        [
+          35,
+          6,
+          12,
+          6,
+          13
+        ],
+        [
+          36,
+          9,
+          1,
+          10,
+          1
+        ],
+        [
+          37,
+          12,
+          6,
+          12,
+          7
+        ],
+        [
+          38,
+          15,
+          11,
+          16,
+          11
+        ],
+        [
+          39,
+          2,
+          16,
+          2,
+          1
+        ],
+        [
+          40,
+          5,
+          5,
+          6,
+          5
+        ],
+        [
+          41,
+          8,
+          10,
+          8,
+          11
+        ],
+        [
+          42,
+          11,
+          15,
+          12,
+          15
+        ]
+      ]
+    },
+    {
+      "id": "fresh_5",
+      "k": 2,
+      "n": 43,
+      "cohort": "prospective",
+      "xy": [
+        4,
+        8,
+        5,
+        8
+      ],
+      "changes": [
+        [
+          1,
+          7,
+          13,
+          7,
+          14
+        ],
+        [
+          2,
+          10,
+          2,
+          11,
+          2
+        ],
+        [
+          3,
+          13,
+          7,
+          13,
+          8
+        ],
+        [
+          4,
+          16,
+          12,
+          1,
+          12
+        ],
+        [
+          5,
+          3,
+          1,
+          3,
+          2
+        ],
+        [
+          6,
+          6,
+          6,
+          7,
+          6
+        ],
+        [
+          7,
+          9,
+          11,
+          9,
+          12
+        ],
+        [
+          8,
+          12,
+          16,
+          13,
+          16
+        ],
+        [
+          9,
+          15,
+          5,
+          15,
+          6
+        ],
+        [
+          10,
+          2,
+          10,
+          3,
+          10
+        ],
+        [
+          11,
+          5,
+          15,
+          5,
+          16
+        ],
+        [
+          12,
+          8,
+          4,
+          9,
+          4
+        ],
+        [
+          13,
+          11,
+          9,
+          11,
+          10
+        ],
+        [
+          14,
+          14,
+          14,
+          14,
+          14
+        ],
+        [
+          15,
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          16,
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          17,
+          7,
+          13,
+          7,
+          13
+        ],
+        [
+          18,
+          10,
+          2,
+          10,
+          2
+        ],
+        [
+          19,
+          13,
+          7,
+          13,
+          7
+        ],
+        [
+          20,
+          16,
+          12,
+          16,
+          12
+        ],
+        [
+          21,
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          22,
+          6,
+          6,
+          6,
+          6
+        ],
+        [
+          23,
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          24,
+          12,
+          16,
+          12,
+          16
+        ],
+        [
+          25,
+          15,
+          5,
+          15,
+          5
+        ],
+        [
+          26,
+          2,
+          10,
+          2,
+          10
+        ],
+        [
+          27,
+          5,
+          15,
+          5,
+          15
+        ],
+        [
+          28,
+          8,
+          4,
+          9,
+          4
+        ],
+        [
+          29,
+          11,
+          9,
+          11,
+          10
+        ],
+        [
+          30,
+          14,
+          14,
+          15,
+          14
+        ],
+        [
+          31,
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          32,
+          4,
+          8,
+          5,
+          8
+        ],
+        [
+          33,
+          7,
+          13,
+          7,
+          14
+        ],
+        [
+          34,
+          10,
+          2,
+          11,
+          2
+        ],
+        [
+          35,
+          13,
+          7,
+          13,
+          8
+        ],
+        [
+          36,
+          16,
+          12,
+          1,
+          12
+        ],
+        [
+          37,
+          3,
+          1,
+          3,
+          2
+        ],
+        [
+          38,
+          6,
+          6,
+          7,
+          6
+        ],
+        [
+          39,
+          9,
+          11,
+          9,
+          12
+        ],
+        [
+          40,
+          12,
+          16,
+          13,
+          16
+        ],
+        [
+          41,
+          15,
+          5,
+          15,
+          6
+        ],
+        [
+          42,
+          2,
+          10,
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "fresh_6",
+      "k": 4,
+      "n": 43,
+      "cohort": "prospective",
+      "xy": [
+        11,
+        3,
+        12,
+        3
+      ],
+      "changes": [
+        [
+          1,
+          14,
+          8,
+          14,
+          9
+        ],
+        [
+          2,
+          1,
+          13,
+          2,
+          13
+        ],
+        [
+          3,
+          4,
+          2,
+          4,
+          3
+        ],
+        [
+          4,
+          7,
+          7,
+          8,
+          7
+        ],
+        [
+          5,
+          10,
+          12,
+          10,
+          13
+        ],
+        [
+          6,
+          13,
+          1,
+          14,
+          1
+        ],
+        [
+          7,
+          16,
+          6,
+          16,
+          7
+        ],
+        [
+          8,
+          3,
+          11,
+          4,
+          11
+        ],
+        [
+          9,
+          6,
+          16,
+          6,
+          1
+        ],
+        [
+          10,
+          9,
+          5,
+          10,
+          5
+        ],
+        [
+          11,
+          12,
+          10,
+          12,
+          11
+        ],
+        [
+          12,
+          15,
+          15,
+          16,
+          15
+        ],
+        [
+          13,
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          14,
+          5,
+          9,
+          5,
+          9
+        ],
+        [
+          15,
+          8,
+          14,
+          8,
+          14
+        ],
+        [
+          16,
+          11,
+          3,
+          11,
+          3
+        ],
+        [
+          17,
+          14,
+          8,
+          14,
+          8
+        ],
+        [
+          18,
+          1,
+          13,
+          1,
+          13
+        ],
+        [
+          19,
+          4,
+          2,
+          4,
+          2
+        ],
+        [
+          20,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          21,
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          22,
+          13,
+          1,
+          13,
+          1
+        ],
+        [
+          23,
+          16,
+          6,
+          16,
+          6
+        ],
+        [
+          24,
+          3,
+          11,
+          3,
+          11
+        ],
+        [
+          25,
+          6,
+          16,
+          6,
+          16
+        ],
+        [
+          26,
+          9,
+          5,
+          9,
+          5
+        ],
+        [
+          27,
+          12,
+          10,
+          12,
+          10
+        ],
+        [
+          28,
+          15,
+          15,
+          16,
+          15
+        ],
+        [
+          29,
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          30,
+          5,
+          9,
+          6,
+          9
+        ],
+        [
+          31,
+          8,
+          14,
+          8,
+          15
+        ],
+        [
+          32,
+          11,
+          3,
+          12,
+          3
+        ],
+        [
+          33,
+          14,
+          8,
+          14,
+          9
+        ],
+        [
+          34,
+          1,
+          13,
+          2,
+          13
+        ],
+        [
+          35,
+          4,
+          2,
+          4,
+          3
+        ],
+        [
+          36,
+          7,
+          7,
+          8,
+          7
+        ],
+        [
+          37,
+          10,
+          12,
+          10,
+          13
+        ],
+        [
+          38,
+          13,
+          1,
+          14,
+          1
+        ],
+        [
+          39,
+          16,
+          6,
+          16,
+          7
+        ],
+        [
+          40,
+          3,
+          11,
+          4,
+          11
+        ],
+        [
+          41,
+          6,
+          16,
+          6,
+          1
+        ],
+        [
+          42,
+          9,
+          5,
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "fresh_7",
+      "k": 8,
+      "n": 43,
+      "cohort": "prospective",
+      "xy": [
+        2,
+        14,
+        3,
+        14
+      ],
+      "changes": [
+        [
+          1,
+          5,
+          3,
+          5,
+          4
+        ],
+        [
+          2,
+          8,
+          8,
+          9,
+          8
+        ],
+        [
+          3,
+          11,
+          13,
+          11,
+          14
+        ],
+        [
+          4,
+          14,
+          2,
+          15,
+          2
+        ],
+        [
+          5,
+          1,
+          7,
+          1,
+          8
+        ],
+        [
+          6,
+          4,
+          12,
+          5,
+          12
+        ],
+        [
+          7,
+          7,
+          1,
+          7,
+          2
+        ],
+        [
+          8,
+          10,
+          6,
+          11,
+          6
+        ],
+        [
+          9,
+          13,
+          11,
+          13,
+          12
+        ],
+        [
+          10,
+          16,
+          16,
+          1,
+          16
+        ],
+        [
+          11,
+          3,
+          5,
+          3,
+          6
+        ],
+        [
+          12,
+          6,
+          10,
+          7,
+          10
+        ],
+        [
+          13,
+          9,
+          15,
+          9,
+          16
+        ],
+        [
+          14,
+          12,
+          4,
+          12,
+          4
+        ],
+        [
+          15,
+          15,
+          9,
+          15,
+          9
+        ],
+        [
+          16,
+          2,
+          14,
+          2,
+          14
+        ],
+        [
+          17,
+          5,
+          3,
+          5,
+          3
+        ],
+        [
+          18,
+          8,
+          8,
+          8,
+          8
+        ],
+        [
+          19,
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          20,
+          14,
+          2,
+          14,
+          2
+        ],
+        [
+          21,
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          22,
+          4,
+          12,
+          4,
+          12
+        ],
+        [
+          23,
+          7,
+          1,
+          7,
+          1
+        ],
+        [
+          24,
+          10,
+          6,
+          10,
+          6
+        ],
+        [
+          25,
+          13,
+          11,
+          13,
+          11
+        ],
+        [
+          26,
+          16,
+          16,
+          16,
+          16
+        ],
+        [
+          27,
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          28,
+          6,
+          10,
+          7,
+          10
+        ],
+        [
+          29,
+          9,
+          15,
+          9,
+          16
+        ],
+        [
+          30,
+          12,
+          4,
+          13,
+          4
+        ],
+        [
+          31,
+          15,
+          9,
+          15,
+          10
+        ],
+        [
+          32,
+          2,
+          14,
+          3,
+          14
+        ],
+        [
+          33,
+          5,
+          3,
+          5,
+          4
+        ],
+        [
+          34,
+          8,
+          8,
+          9,
+          8
+        ],
+        [
+          35,
+          11,
+          13,
+          11,
+          14
+        ],
+        [
+          36,
+          14,
+          2,
+          15,
+          2
+        ],
+        [
+          37,
+          1,
+          7,
+          1,
+          8
+        ],
+        [
+          38,
+          4,
+          12,
+          5,
+          12
+        ],
+        [
+          39,
+          7,
+          1,
+          7,
+          2
+        ],
+        [
+          40,
+          10,
+          6,
+          11,
+          6
+        ],
+        [
+          41,
+          13,
+          11,
+          13,
+          12
+        ],
+        [
+          42,
+          16,
+          16,
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "fresh_8",
+      "k": 1,
+      "n": 71,
+      "cohort": "prospective",
+      "xy": [
+        9,
+        9,
+        10,
+        9
+      ],
+      "changes": [
+        [
+          1,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          2,
+          15,
+          3,
+          16,
+          3
+        ],
+        [
+          3,
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          4,
+          5,
+          13,
+          6,
+          13
+        ],
+        [
+          5,
+          8,
+          2,
+          8,
+          3
+        ],
+        [
+          6,
+          11,
+          7,
+          12,
+          7
+        ],
+        [
+          7,
+          14,
+          12,
+          14,
+          13
+        ],
+        [
+          8,
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          9,
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          10,
+          7,
+          11,
+          8,
+          11
+        ],
+        [
+          11,
+          10,
+          16,
+          10,
+          1
+        ],
+        [
+          12,
+          13,
+          5,
+          14,
+          5
+        ],
+        [
+          13,
+          16,
+          10,
+          16,
+          11
+        ],
+        [
+          14,
+          3,
+          15,
+          3,
+          15
+        ],
+        [
+          15,
+          6,
+          4,
+          6,
+          5
+        ],
+        [
+          16,
+          9,
+          9,
+          10,
+          9
+        ],
+        [
+          17,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          18,
+          15,
+          3,
+          16,
+          3
+        ],
+        [
+          19,
+          2,
+          8,
+          2,
+          9
+        ],
+        [
+          20,
+          5,
+          13,
+          6,
+          13
+        ],
+        [
+          21,
+          8,
+          2,
+          8,
+          3
+        ],
+        [
+          22,
+          11,
+          7,
+          12,
+          7
+        ],
+        [
+          23,
+          14,
+          12,
+          14,
+          13
+        ],
+        [
+          24,
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          25,
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          26,
+          7,
+          11,
+          8,
+          11
+        ],
+        [
+          27,
+          10,
+          16,
+          10,
+          1
+        ],
+        [
+          28,
+          13,
+          5,
+          14,
+          5
+        ],
+        [
+          29,
+          16,
+          10,
+          16,
+          11
+        ],
+        [
+          30,
+          3,
+          15,
+          4,
+          15
+        ],
+        [
+          31,
+          6,
+          4,
+          6,
+          5
+        ],
+        [
+          32,
+          9,
+          9,
+          10,
+          9
+        ],
+        [
+          33,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          34,
+          15,
+          3,
+          16,
+          3
+        ],
+        [
+          35,
+          2,
+          8,
+          2,
+          9
+        ],
+        [
+          36,
+          5,
+          13,
+          5,
+          13
+        ],
+        [
+          37,
+          8,
+          2,
+          8,
+          3
+        ],
+        [
+          38,
+          11,
+          7,
+          12,
+          7
+        ],
+        [
+          39,
+          14,
+          12,
+          14,
+          13
+        ],
+        [
+          40,
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          41,
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          42,
+          7,
+          11,
+          8,
+          11
+        ],
+        [
+          43,
+          10,
+          16,
+          10,
+          1
+        ],
+        [
+          44,
+          13,
+          5,
+          14,
+          5
+        ],
+        [
+          45,
+          16,
+          10,
+          16,
+          11
+        ],
+        [
+          46,
+          3,
+          15,
+          4,
+          15
+        ],
+        [
+          47,
+          6,
+          4,
+          6,
+          4
+        ],
+        [
+          48,
+          9,
+          9,
+          10,
+          9
+        ],
+        [
+          49,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          50,
+          15,
+          3,
+          16,
+          3
+        ],
+        [
+          51,
+          2,
+          8,
+          2,
+          9
+        ],
+        [
+          52,
+          5,
+          13,
+          6,
+          13
+        ],
+        [
+          53,
+          8,
+          2,
+          8,
+          3
+        ],
+        [
+          54,
+          11,
+          7,
+          12,
+          7
+        ],
+        [
+          55,
+          14,
+          12,
+          14,
+          13
+        ],
+        [
+          56,
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          57,
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          58,
+          7,
+          11,
+          7,
+          11
+        ],
+        [
+          59,
+          10,
+          16,
+          10,
+          1
+        ],
+        [
+          60,
+          13,
+          5,
+          14,
+          5
+        ],
+        [
+          61,
+          16,
+          10,
+          16,
+          11
+        ],
+        [
+          62,
+          3,
+          15,
+          4,
+          15
+        ],
+        [
+          63,
+          6,
+          4,
+          6,
+          5
+        ],
+        [
+          64,
+          9,
+          9,
+          10,
+          9
+        ],
+        [
+          65,
+          12,
+          14,
+          12,
+          15
+        ],
+        [
+          66,
+          15,
+          3,
+          16,
+          3
+        ],
+        [
+          67,
+          2,
+          8,
+          2,
+          9
+        ],
+        [
+          68,
+          5,
+          13,
+          6,
+          13
+        ],
+        [
+          69,
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          70,
+          11,
+          7,
+          12,
+          7
+        ]
+      ]
+    },
+    {
+      "id": "fresh_9",
+      "k": 2,
+      "n": 71,
+      "cohort": "prospective",
+      "xy": [
+        16,
+        4,
+        1,
+        4
+      ],
+      "changes": [
+        [
+          1,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          2,
+          6,
+          14,
+          7,
+          14
+        ],
+        [
+          3,
+          9,
+          3,
+          9,
+          3
+        ],
+        [
+          4,
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          5,
+          15,
+          13,
+          15,
+          14
+        ],
+        [
+          6,
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          7,
+          5,
+          7,
+          5,
+          8
+        ],
+        [
+          8,
+          8,
+          12,
+          9,
+          12
+        ],
+        [
+          9,
+          11,
+          1,
+          11,
+          2
+        ],
+        [
+          10,
+          14,
+          6,
+          15,
+          6
+        ],
+        [
+          11,
+          1,
+          11,
+          1,
+          12
+        ],
+        [
+          12,
+          4,
+          16,
+          5,
+          16
+        ],
+        [
+          13,
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          14,
+          10,
+          10,
+          10,
+          10
+        ],
+        [
+          15,
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          16,
+          16,
+          4,
+          1,
+          4
+        ],
+        [
+          17,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          18,
+          6,
+          14,
+          7,
+          14
+        ],
+        [
+          19,
+          9,
+          3,
+          9,
+          4
+        ],
+        [
+          20,
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          21,
+          15,
+          13,
+          15,
+          14
+        ],
+        [
+          22,
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          23,
+          5,
+          7,
+          5,
+          8
+        ],
+        [
+          24,
+          8,
+          12,
+          9,
+          12
+        ],
+        [
+          25,
+          11,
+          1,
+          11,
+          1
+        ],
+        [
+          26,
+          14,
+          6,
+          15,
+          6
+        ],
+        [
+          27,
+          1,
+          11,
+          1,
+          12
+        ],
+        [
+          28,
+          4,
+          16,
+          5,
+          16
+        ],
+        [
+          29,
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          30,
+          10,
+          10,
+          11,
+          10
+        ],
+        [
+          31,
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          32,
+          16,
+          4,
+          1,
+          4
+        ],
+        [
+          33,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          34,
+          6,
+          14,
+          7,
+          14
+        ],
+        [
+          35,
+          9,
+          3,
+          9,
+          4
+        ],
+        [
+          36,
+          12,
+          8,
+          12,
+          8
+        ],
+        [
+          37,
+          15,
+          13,
+          15,
+          14
+        ],
+        [
+          38,
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          39,
+          5,
+          7,
+          5,
+          8
+        ],
+        [
+          40,
+          8,
+          12,
+          9,
+          12
+        ],
+        [
+          41,
+          11,
+          1,
+          11,
+          2
+        ],
+        [
+          42,
+          14,
+          6,
+          15,
+          6
+        ],
+        [
+          43,
+          1,
+          11,
+          1,
+          12
+        ],
+        [
+          44,
+          4,
+          16,
+          5,
+          16
+        ],
+        [
+          45,
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          46,
+          10,
+          10,
+          11,
+          10
+        ],
+        [
+          47,
+          13,
+          15,
+          13,
+          15
+        ],
+        [
+          48,
+          16,
+          4,
+          1,
+          4
+        ],
+        [
+          49,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          50,
+          6,
+          14,
+          7,
+          14
+        ],
+        [
+          51,
+          9,
+          3,
+          9,
+          4
+        ],
+        [
+          52,
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          53,
+          15,
+          13,
+          15,
+          14
+        ],
+        [
+          54,
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          55,
+          5,
+          7,
+          5,
+          8
+        ],
+        [
+          56,
+          8,
+          12,
+          9,
+          12
+        ],
+        [
+          57,
+          11,
+          1,
+          11,
+          2
+        ],
+        [
+          58,
+          14,
+          6,
+          14,
+          6
+        ],
+        [
+          59,
+          1,
+          11,
+          1,
+          12
+        ],
+        [
+          60,
+          4,
+          16,
+          5,
+          16
+        ],
+        [
+          61,
+          7,
+          5,
+          7,
+          6
+        ],
+        [
+          62,
+          10,
+          10,
+          11,
+          10
+        ],
+        [
+          63,
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          64,
+          16,
+          4,
+          1,
+          4
+        ],
+        [
+          65,
+          3,
+          9,
+          3,
+          10
+        ],
+        [
+          66,
+          6,
+          14,
+          7,
+          14
+        ],
+        [
+          67,
+          9,
+          3,
+          9,
+          4
+        ],
+        [
+          68,
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          69,
+          15,
+          13,
+          15,
+          13
+        ],
+        [
+          70,
+          2,
+          2,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "fresh_10",
+      "k": 4,
+      "n": 71,
+      "cohort": "prospective",
+      "xy": [
+        7,
+        15,
+        8,
+        15
+      ],
+      "changes": [
+        [
+          1,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          2,
+          13,
+          9,
+          14,
+          9
+        ],
+        [
+          3,
+          16,
+          14,
+          16,
+          14
+        ],
+        [
+          4,
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          8,
+          6,
+          9
+        ],
+        [
+          6,
+          9,
+          13,
+          10,
+          13
+        ],
+        [
+          7,
+          12,
+          2,
+          12,
+          3
+        ],
+        [
+          8,
+          15,
+          7,
+          16,
+          7
+        ],
+        [
+          9,
+          2,
+          12,
+          2,
+          13
+        ],
+        [
+          10,
+          5,
+          1,
+          6,
+          1
+        ],
+        [
+          11,
+          8,
+          6,
+          8,
+          7
+        ],
+        [
+          12,
+          11,
+          11,
+          12,
+          11
+        ],
+        [
+          13,
+          14,
+          16,
+          14,
+          1
+        ],
+        [
+          14,
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          15,
+          4,
+          10,
+          4,
+          11
+        ],
+        [
+          16,
+          7,
+          15,
+          8,
+          15
+        ],
+        [
+          17,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          18,
+          13,
+          9,
+          14,
+          9
+        ],
+        [
+          19,
+          16,
+          14,
+          16,
+          15
+        ],
+        [
+          20,
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          21,
+          6,
+          8,
+          6,
+          9
+        ],
+        [
+          22,
+          9,
+          13,
+          10,
+          13
+        ],
+        [
+          23,
+          12,
+          2,
+          12,
+          3
+        ],
+        [
+          24,
+          15,
+          7,
+          16,
+          7
+        ],
+        [
+          25,
+          2,
+          12,
+          2,
+          12
+        ],
+        [
+          26,
+          5,
+          1,
+          6,
+          1
+        ],
+        [
+          27,
+          8,
+          6,
+          8,
+          7
+        ],
+        [
+          28,
+          11,
+          11,
+          12,
+          11
+        ],
+        [
+          29,
+          14,
+          16,
+          14,
+          1
+        ],
+        [
+          30,
+          1,
+          5,
+          2,
+          5
+        ],
+        [
+          31,
+          4,
+          10,
+          4,
+          11
+        ],
+        [
+          32,
+          7,
+          15,
+          8,
+          15
+        ],
+        [
+          33,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          34,
+          13,
+          9,
+          14,
+          9
+        ],
+        [
+          35,
+          16,
+          14,
+          16,
+          15
+        ],
+        [
+          36,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          37,
+          6,
+          8,
+          6,
+          9
+        ],
+        [
+          38,
+          9,
+          13,
+          10,
+          13
+        ],
+        [
+          39,
+          12,
+          2,
+          12,
+          3
+        ],
+        [
+          40,
+          15,
+          7,
+          16,
+          7
+        ],
+        [
+          41,
+          2,
+          12,
+          2,
+          13
+        ],
+        [
+          42,
+          5,
+          1,
+          6,
+          1
+        ],
+        [
+          43,
+          8,
+          6,
+          8,
+          7
+        ],
+        [
+          44,
+          11,
+          11,
+          12,
+          11
+        ],
+        [
+          45,
+          14,
+          16,
+          14,
+          1
+        ],
+        [
+          46,
+          1,
+          5,
+          2,
+          5
+        ],
+        [
+          47,
+          4,
+          10,
+          4,
+          10
+        ],
+        [
+          48,
+          7,
+          15,
+          8,
+          15
+        ],
+        [
+          49,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          50,
+          13,
+          9,
+          14,
+          9
+        ],
+        [
+          51,
+          16,
+          14,
+          16,
+          15
+        ],
+        [
+          52,
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          53,
+          6,
+          8,
+          6,
+          9
+        ],
+        [
+          54,
+          9,
+          13,
+          10,
+          13
+        ],
+        [
+          55,
+          12,
+          2,
+          12,
+          3
+        ],
+        [
+          56,
+          15,
+          7,
+          16,
+          7
+        ],
+        [
+          57,
+          2,
+          12,
+          2,
+          13
+        ],
+        [
+          58,
+          5,
+          1,
+          5,
+          1
+        ],
+        [
+          59,
+          8,
+          6,
+          8,
+          7
+        ],
+        [
+          60,
+          11,
+          11,
+          12,
+          11
+        ],
+        [
+          61,
+          14,
+          16,
+          14,
+          1
+        ],
+        [
+          62,
+          1,
+          5,
+          2,
+          5
+        ],
+        [
+          63,
+          4,
+          10,
+          4,
+          11
+        ],
+        [
+          64,
+          7,
+          15,
+          8,
+          15
+        ],
+        [
+          65,
+          10,
+          4,
+          10,
+          5
+        ],
+        [
+          66,
+          13,
+          9,
+          14,
+          9
+        ],
+        [
+          67,
+          16,
+          14,
+          16,
+          15
+        ],
+        [
+          68,
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          69,
+          6,
+          8,
+          6,
+          8
+        ],
+        [
+          70,
+          9,
+          13,
+          10,
+          13
+        ]
+      ]
+    },
+    {
+      "id": "fresh_11",
+      "k": 8,
+      "n": 71,
+      "cohort": "prospective",
+      "xy": [
+        14,
+        10,
+        15,
+        10
+      ],
+      "changes": [
+        [
+          1,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          2,
+          4,
+          4,
+          5,
+          4
+        ],
+        [
+          3,
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          4,
+          10,
+          14,
+          11,
+          14
+        ],
+        [
+          5,
+          13,
+          3,
+          13,
+          4
+        ],
+        [
+          6,
+          16,
+          8,
+          1,
+          8
+        ],
+        [
+          7,
+          3,
+          13,
+          3,
+          14
+        ],
+        [
+          8,
+          6,
+          2,
+          7,
+          2
+        ],
+        [
+          9,
+          9,
+          7,
+          9,
+          8
+        ],
+        [
+          10,
+          12,
+          12,
+          13,
+          12
+        ],
+        [
+          11,
+          15,
+          1,
+          15,
+          2
+        ],
+        [
+          12,
+          2,
+          6,
+          3,
+          6
+        ],
+        [
+          13,
+          5,
+          11,
+          5,
+          12
+        ],
+        [
+          14,
+          8,
+          16,
+          8,
+          16
+        ],
+        [
+          15,
+          11,
+          5,
+          11,
+          6
+        ],
+        [
+          16,
+          14,
+          10,
+          15,
+          10
+        ],
+        [
+          17,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          18,
+          4,
+          4,
+          5,
+          4
+        ],
+        [
+          19,
+          7,
+          9,
+          7,
+          10
+        ],
+        [
+          20,
+          10,
+          14,
+          11,
+          14
+        ],
+        [
+          21,
+          13,
+          3,
+          13,
+          4
+        ],
+        [
+          22,
+          16,
+          8,
+          1,
+          8
+        ],
+        [
+          23,
+          3,
+          13,
+          3,
+          14
+        ],
+        [
+          24,
+          6,
+          2,
+          7,
+          2
+        ],
+        [
+          25,
+          9,
+          7,
+          9,
+          7
+        ],
+        [
+          26,
+          12,
+          12,
+          13,
+          12
+        ],
+        [
+          27,
+          15,
+          1,
+          15,
+          2
+        ],
+        [
+          28,
+          2,
+          6,
+          3,
+          6
+        ],
+        [
+          29,
+          5,
+          11,
+          5,
+          12
+        ],
+        [
+          30,
+          8,
+          16,
+          9,
+          16
+        ],
+        [
+          31,
+          11,
+          5,
+          11,
+          6
+        ],
+        [
+          32,
+          14,
+          10,
+          15,
+          10
+        ],
+        [
+          33,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          34,
+          4,
+          4,
+          5,
+          4
+        ],
+        [
+          35,
+          7,
+          9,
+          7,
+          10
+        ],
+        [
+          36,
+          10,
+          14,
+          10,
+          14
+        ],
+        [
+          37,
+          13,
+          3,
+          13,
+          4
+        ],
+        [
+          38,
+          16,
+          8,
+          1,
+          8
+        ],
+        [
+          39,
+          3,
+          13,
+          3,
+          14
+        ],
+        [
+          40,
+          6,
+          2,
+          7,
+          2
+        ],
+        [
+          41,
+          9,
+          7,
+          9,
+          8
+        ],
+        [
+          42,
+          12,
+          12,
+          13,
+          12
+        ],
+        [
+          43,
+          15,
+          1,
+          15,
+          2
+        ],
+        [
+          44,
+          2,
+          6,
+          3,
+          6
+        ],
+        [
+          45,
+          5,
+          11,
+          5,
+          12
+        ],
+        [
+          46,
+          8,
+          16,
+          9,
+          16
+        ],
+        [
+          47,
+          11,
+          5,
+          11,
+          5
+        ],
+        [
+          48,
+          14,
+          10,
+          15,
+          10
+        ],
+        [
+          49,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          50,
+          4,
+          4,
+          5,
+          4
+        ],
+        [
+          51,
+          7,
+          9,
+          7,
+          10
+        ],
+        [
+          52,
+          10,
+          14,
+          11,
+          14
+        ],
+        [
+          53,
+          13,
+          3,
+          13,
+          4
+        ],
+        [
+          54,
+          16,
+          8,
+          1,
+          8
+        ],
+        [
+          55,
+          3,
+          13,
+          3,
+          14
+        ],
+        [
+          56,
+          6,
+          2,
+          7,
+          2
+        ],
+        [
+          57,
+          9,
+          7,
+          9,
+          8
+        ],
+        [
+          58,
+          12,
+          12,
+          12,
+          12
+        ],
+        [
+          59,
+          15,
+          1,
+          15,
+          2
+        ],
+        [
+          60,
+          2,
+          6,
+          3,
+          6
+        ],
+        [
+          61,
+          5,
+          11,
+          5,
+          12
+        ],
+        [
+          62,
+          8,
+          16,
+          9,
+          16
+        ],
+        [
+          63,
+          11,
+          5,
+          11,
+          6
+        ],
+        [
+          64,
+          14,
+          10,
+          15,
+          10
+        ],
+        [
+          65,
+          1,
+          15,
+          1,
+          16
+        ],
+        [
+          66,
+          4,
+          4,
+          5,
+          4
+        ],
+        [
+          67,
+          7,
+          9,
+          7,
+          10
+        ],
+        [
+          68,
+          10,
+          14,
+          11,
+          14
+        ],
+        [
+          69,
+          13,
+          3,
+          13,
+          3
+        ],
+        [
+          70,
+          16,
+          8,
+          1,
+          8
+        ]
+      ]
+    }
+  ],
+  "arms": [
+    {
+      "id": "plain",
+      "source": "plain",
+      "off": false
+    },
+    {
+      "id": "shared",
+      "source": "shared",
+      "off": false
+    },
+    {
+      "id": "static",
+      "source": "static",
+      "off": false
+    },
+    {
+      "id": "on",
+      "source": "evolve",
+      "off": false
+    },
+    {
+      "id": "off",
+      "source": "evolve",
+      "off": true
+    }
+  ],
+  "faults": [
+    {
+      "id": "skip_bias_guard",
+      "k": 4,
+      "n": 1,
+      "xy": [
+        3,
+        2,
+        3,
+        5
+      ],
+      "changes": [],
+      "cohort": "out_of_contract",
+      "source": "skip_bias_guard",
+      "wrong": true
+    },
+    {
+      "id": "wrong_cache_cell",
+      "k": 4,
+      "n": 1,
+      "xy": [
+        3,
+        2,
+        3,
+        2
+      ],
+      "changes": [],
+      "cohort": "out_of_contract",
+      "source": "wrong_cache_cell",
+      "wrong": true
+    }
+  ],
+  "calibration_expected": {
+    "1_24_all": {
+      "plain": 3122,
+      "shared": 2438,
+      "static": 1686,
+      "on": 1710,
+      "off": 2483
+    },
+    "2_24_none": {
+      "plain": 5162,
+      "shared": 3660,
+      "static": 3828,
+      "on": 3828,
+      "off": 3828
+    },
+    "4_24_half": {
+      "plain": 9242,
+      "shared": 6070,
+      "static": 4878,
+      "on": 4902,
+      "off": 6115
+    },
+    "8_24_second_only_mismatch": {
+      "plain": 17066,
+      "shared": 10950,
+      "static": 11262,
+      "on": 11262,
+      "off": 11262
+    }
+  }
+}
