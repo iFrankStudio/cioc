@@ -1,0 +1,118 @@
+name: CL-1B preserve C33 R1 original 82 subprogram reuse worlds
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c33-r1-preserve-original-evidence.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: cl1b-c33-r1-original-evidence
+  cancel-in-progress: false
+jobs:
+  verify-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 9869f34de6f83951b23ee0452bd3682a61253de1
+          persist-credentials: true
+      - name: Verify original native artifact and independently replay exact original events
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cl1b-c33-r1/extracted
+          curl --fail --location --retry 3 --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            'https://api.github.com/repos/iFrankStudio/cioc/actions/artifacts/14997845640/zip' \
+            -o /tmp/cl1b-c33-r1/original-native-artifact.zip
+          echo '57ac5c34ede6c8b55633d87235523ca98e390b8e8a93bc8b8bc440fbaa70b490  /tmp/cl1b-c33-r1/original-native-artifact.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import zipfile,json
+          from pathlib import Path
+          p=Path('/tmp/cl1b-c33-r1')
+          with zipfile.ZipFile(p/'original-native-artifact.zip') as z:
+              names=z.namelist()
+              assert len(names)==len(set(names)) and z.testzip() is None
+              assert all('/' not in n and '..' not in n for n in names)
+              assert sum(n.endswith('.jsonl') for n in names)==82
+              s=json.loads(z.read('summary.json')); r=json.loads(z.read('replay.json'))
+              assert s['tested_sha']=='9869f34de6f83951b23ee0452bd3682a61253de1'
+              assert s['study']==r['study']=='CL1B-C33-R1-NATIVE-REUSE'
+              assert len(s['rows'])==82 and r['replayed']==82
+              assert len(r['pairs'])==16 and len(r['falsifiers'])==2
+              z.extractall(p/'extracted')
+          PY
+          python3 cl1b/audits/cl1b_c33_r1_native_reuse_replay.py cl1b/studies/CL1B-C33-R1-NATIVE-REUSE-frozen-82-worlds-v1.json /tmp/cl1b-c33-r1/extracted > /tmp/cl1b-c33-r1/replay-reverified.json
+          cmp /tmp/cl1b-c33-r1/replay-reverified.json /tmp/cl1b-c33-r1/extracted/replay.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          p=Path('/tmp/cl1b-c33-r1')
+          s=json.loads((p/'extracted/summary.json').read_text())
+          r=json.loads((p/'extracted/replay.json').read_text())
+          a={}
+          for x in r['pairs']:
+              q=a.setdefault(x['cohort'],dict(n=0,net=0,physical=0,static_delta=0,kernels_saved=0,wins=0,ties=0,losses=0))
+              q['n']+=1
+              for key in ('net','physical','static_delta','kernels_saved'):q[key]+=x[key]
+              q['wins' if x['net']>0 else 'losses' if x['net']<0 else 'ties']+=1
+          faults=[x for x in s['rows'] if x['arm']=='fault']
+          assert len(faults)==2 and all(x['wrong'] is not None for x in faults)
+          assert {x['case'] for x in faults}=={'skip_bias_guard','wrong_cache_cell'}
+          assert all(x['wrong'] is None for x in s['rows'] if x['arm']!='fault')
+          result=dict(tested_sha=s['tested_sha'],worlds=len(s['rows']),paid=sum(x['paid'] for x in s['rows']),correct_outputs=2*sum(x['batches'] for x in s['rows'])-len(faults),wrong_outputs=len(faults),kernels=sum(x['kernels'] for x in s['rows']),reused=sum(x['reused'] for x in s['rows'] if x['arm']!='fault'),clone_steps=sum(x['clone_steps'] for x in s['rows']),new_nodes=sum(len(x['clones']) for x in s['rows']),peak_occupied=max(x['peak'] for x in s['rows']),max_nodes=max(x['nodes'] for x in s['rows']),aggregate=a,pairs=r['pairs'],falsifiers=faults,world_rows=s['rows'],B3_B4='NOT_MET')
+          (p/'economic-summary.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('C33 R1_AGGREGATE '+json.dumps({k:v for k,v in result.items() if k not in ['pairs','world_rows']}))
+          for x in r['pairs']:print('C33 R1_PAIR '+json.dumps(x))
+          PY
+      - name: Preserve original ZIP and derived summaries on evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/9869f34de6f83951b23ee0452bd3682a61253de1-45560214401-1'
+          git sparse-checkout init --cone
+          git sparse-checkout set "$dest"
+          git checkout -B cl1b-ci-evidence FETCH_HEAD
+          mkdir -p "$dest"
+          cp /tmp/cl1b-c33-r1/original-native-artifact.zip "$dest/original-native-artifact.zip"
+          cp /tmp/cl1b-c33-r1/economic-summary.json "$dest/economic-summary.json"
+          echo '57ac5c34ede6c8b55633d87235523ca98e390b8e8a93bc8b8bc440fbaa70b490  original-native-artifact.zip' > "$dest/original-native-artifact.sha256"
+          cat > "$dest/archive-integrity.md" <<'EOF'
+          # C33 R1 original 82-world subprogram reuse evidence
+          - Tested SHA: 9869f34de6f83951b23ee0452bd3682a61253de1
+          - Original native and independent replay run: https://github.com/iFrankStudio/cioc/actions/runs/45560214401
+          - Original artifact: 14997845640
+          - ZIP SHA256: 57ac5c34ede6c8b55633d87235523ca98e390b8e8a93bc8b8bc440fbaa70b490
+          - Exact original native traces, summary and independent replay. Additional economic-summary.json derived from original artifact after exact replay verification.
+          - 4 calibration and 12 prospective (5 arms each), 2 expected incorrect out-of-contract second outputs; no guest fault rejection claim; B3/B4 NOT_MET.
+          EOF
+          git add "$dest"
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'evidence(cl1b): preserve C33 R1 exact original 82 native worlds and economic summary'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:cl1b-ci-evidence; then break; fi
+              if [ "$attempt" = 5 ]; then exit 1; fi
+              git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+              git rebase FETCH_HEAD
+            done
+          fi
+      - name: Re-read archive from remote and verify original bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c protocol.version=2 fetch --depth=1 --filter=blob:none origin cl1b-ci-evidence
+          dest='run-records/9869f34de6f83951b23ee0452bd3682a61253de1-45560214401-1'
+          test "$(git show "FETCH_HEAD:$dest/original-native-artifact.zip" | sha256sum | cut -d' ' -f1)" = '57ac5c34ede6c8b55633d87235523ca98e390b8e8a93bc8b8bc440fbaa70b490'
+          git show "FETCH_HEAD:$dest/economic-summary.json" | cmp - /tmp/cl1b-c33-r1/economic-summary.json
+          echo 'C33 R1 archive byte verification PASS'
