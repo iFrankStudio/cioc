@@ -1,0 +1,19 @@
+# C32-R2 — paid rule balance and counterfactual cost accounting
+Parent 4d5077d423da7789cdf066ad869d99992b904152. R1 fixed misses ignore useful hits. R2 uses real paid rule-local balance updates in cells54/55, initial4, +1 on actual factor hit, -1 on actual guard miss (weighted arm decrements up to two via additional paid instructions and zero checks). At zero, same paid retirement and sampled wake as R1. No cap: historical hits can sustain a now-unprofitable rule; this is a **proxy ledger, not compute currency or measured monetary credit**. An exploratory static cost sweep (256 matched input pairs for each axis, other factor fixed16) found actual static marginal hit savings vary (x10..16, y7..19); no constant reward equals actual gain. Weight1/2 authored not learned. No new op, no host verdict, all actual paid hit/miss bookkeeping charged. Guards, precedence, one-time shared DAG and R1 cadence unchanged. Matched weighted off suppresses activation only (retired probes remain), initial prefix checked; after effect, histories diverge. No guest semantic certification.
+
+For each world, independent static shared/x/y/both runs with same inputs provide actual paid service deltas, including first service initialization. Match dynamic arm's post-service guard configuration to static comparator. Decompose exact total net vs shared into ordered x contribution (shared→x), y contribution (shared→y or x→both), and residual (matching static policy paid minus dynamic paid). Residual includes all lifecycle costs, different startup and post-service guard-state timing (retirement can have executed an extra guard); not pure ledger expense, not independently isolated causal rule contributions. Exact identity asserted per world. Observer only, not actor access to future or counterfactual. LedgerPaid counts only executed bookkeeping ranges, excludes installation/retirement/wake/guards. Off has no actual guard hits/misses. Correct service, path, addresses and capacity assertions retained. 38 revealed schedules×11 arms=418 worlds, no blind holdout. 
+| family | R0 vs shared | sampled vs shared | R1 life vs shared | R2 +1/-1 | R2 +1/-2 | weighted off |
+|---|---:|---:|---:|---:|---:|---:|
+|all|9580|5891|6379|-10251|-9220|-34121|
+|x_stable|4334|3712|3712|1392|1392|-3475|
+|y_stable|2733|3099|3174|777|817|-3475|
+|none|-6496|-3485|-3485|-3485|-3485|-3485|
+|both|5271|3768|3768|1448|1448|-3447|
+|x_to_y|4088|3559|4499|-113|674|-3473|
+|y_to_x|5248|4711|4701|2383|2381|-3473|
+|rare|-6456|-4549|-3614|-3662|-3614|-3492|
+|alternating|5088|-914|-2450|-3466|-3650|-3466|
+|mixed|-3200|-3616|-3579|-3611|-3579|-3493|
+|return|-1030|-394|-347|-1914|-1604|-2842|
+R2 ledger {"net":181624,"vsShared":-10251,"winsShared":17,"paid":265999,"peak":208,"nodes":197,"factored":2750,"activations":45,"deactivations":8,"hitUpdates":2750,"missUpdates":629,"ledgerPaid":17524,"account":{"x":20963,"y":14303,"management":-45517,"actual":-10251,"missed":387,"negativeHit":0}}. Weighted {"net":182655,"vsShared":-9220,"winsShared":18,"paid":264968,"peak":208,"nodes":197,"factored":2637,"activations":57,"deactivations":29,"hitUpdates":2637,"missUpdates":311,"ledgerPaid":15966,"account":{"x":21719,"y":14110,"management":-45049,"actual":-9220,"missed":162,"negativeHit":0}}. R1 {"net":198254,"vsShared":6379,"winsShared":18,"paid":249369,"peak":192,"nodes":181,"factored":2605,"activations":58,"deactivations":31,"hitUpdates":0,"missUpdates":0,"ledgerPaid":0,"account":{"x":22587,"y":13901,"management":-30109,"actual":6379,"missed":81,"negativeHit":0}}. If paid hit accounting destroys margin, do not tune tokens as if actual resource contribution; use coarser amortized measurement, or choose substantially more costly shared computational substructures. Need actual guest-measured cost comparison for a true resource ledger; this study explicitly does not establish it. B3/B4 NOT_MET, no native.
+Reproduce node cl1b/analysis/cl1b_c32_rule_balance_accounting.mjs.
