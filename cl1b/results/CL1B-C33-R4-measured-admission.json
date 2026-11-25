@@ -1,0 +1,6518 @@
+{
+  "tier": "NON_NATIVE_MEASURED_ADMISSION",
+  "summary": {
+    "all": {
+      "r3": {
+        "net": 24871,
+        "wins": 23,
+        "paid": 494192,
+        "measured": 0,
+        "admitted": 0,
+        "comparePaid": 0,
+        "reused": 532,
+        "peak": 161,
+        "nodes": 149
+      },
+      "low": {
+        "net": 13634,
+        "wins": 18,
+        "paid": 505429,
+        "measured": 38,
+        "admitted": 32,
+        "comparePaid": 7280,
+        "reused": 392,
+        "peak": 184,
+        "nodes": 171
+      },
+      "high": {
+        "net": 6444,
+        "wins": 13,
+        "paid": 512619,
+        "measured": 38,
+        "admitted": 19,
+        "comparePaid": 11890,
+        "reused": 241,
+        "peak": 184,
+        "nodes": 171
+      },
+      "lowOff": {
+        "net": -18560,
+        "wins": 0,
+        "paid": 537623,
+        "measured": 38,
+        "admitted": 32,
+        "comparePaid": 7280,
+        "reused": 0,
+        "peak": 184,
+        "nodes": 171
+      },
+      "highOff": {
+        "net": -23105,
+        "wins": 0,
+        "paid": 542168,
+        "measured": 38,
+        "admitted": 19,
+        "comparePaid": 11890,
+        "reused": 0,
+        "peak": 184,
+        "nodes": 171
+      }
+    },
+    "cohorts": {
+      "calibration": {
+        "r3": {
+          "net": 1068,
+          "wins": 2,
+          "paid": 22050,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 36,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 543,
+          "wins": 2,
+          "paid": 22575,
+          "measured": 2,
+          "admitted": 2,
+          "comparePaid": 384,
+          "reused": 34,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": -180,
+          "wins": 1,
+          "paid": 23298,
+          "measured": 2,
+          "admitted": 1,
+          "comparePaid": 578,
+          "reused": 11,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -974,
+          "wins": 0,
+          "paid": 24092,
+          "measured": 2,
+          "admitted": 2,
+          "comparePaid": 384,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -1163,
+          "wins": 0,
+          "paid": 24281,
+          "measured": 2,
+          "admitted": 1,
+          "comparePaid": 578,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "prospective": {
+        "r3": {
+          "net": 7354,
+          "wins": 8,
+          "paid": 120351,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 132,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 4165,
+          "wins": 7,
+          "paid": 123540,
+          "measured": 12,
+          "admitted": 10,
+          "comparePaid": 2296,
+          "reused": 103,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 1956,
+          "wins": 5,
+          "paid": 125749,
+          "measured": 12,
+          "admitted": 6,
+          "comparePaid": 3800,
+          "reused": 60,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -3814,
+          "wins": 0,
+          "paid": 131519,
+          "measured": 12,
+          "admitted": 10,
+          "comparePaid": 2296,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -5298,
+          "wins": 0,
+          "paid": 133003,
+          "measured": 12,
+          "admitted": 6,
+          "comparePaid": 3800,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "designed_grid": {
+        "r3": {
+          "net": 16449,
+          "wins": 13,
+          "paid": 351791,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 364,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 8926,
+          "wins": 9,
+          "paid": 359314,
+          "measured": 24,
+          "admitted": 20,
+          "comparePaid": 4600,
+          "reused": 255,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 4668,
+          "wins": 7,
+          "paid": 363572,
+          "measured": 24,
+          "admitted": 12,
+          "comparePaid": 7512,
+          "reused": 170,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -13772,
+          "wins": 0,
+          "paid": 382012,
+          "measured": 24,
+          "admitted": 20,
+          "comparePaid": 4600,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -16644,
+          "wins": 0,
+          "paid": 384884,
+          "measured": 24,
+          "admitted": 12,
+          "comparePaid": 7512,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      }
+    },
+    "scales": {
+      "1": {
+        "r3": {
+          "net": -2196,
+          "wins": 4,
+          "paid": 56250,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 148,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": -4581,
+          "wins": 1,
+          "paid": 58635,
+          "measured": 10,
+          "admitted": 4,
+          "comparePaid": 1904,
+          "reused": 36,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": -4609,
+          "wins": 0,
+          "paid": 58663,
+          "measured": 10,
+          "admitted": 0,
+          "comparePaid": 1924,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -4609,
+          "wins": 0,
+          "paid": 58663,
+          "measured": 10,
+          "admitted": 4,
+          "comparePaid": 1904,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -4609,
+          "wins": 0,
+          "paid": 58663,
+          "measured": 10,
+          "admitted": 0,
+          "comparePaid": 1924,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "2": {
+        "r3": {
+          "net": 297,
+          "wins": 5,
+          "paid": 81350,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 124,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": -1959,
+          "wins": 4,
+          "paid": 83606,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 1728,
+          "reused": 115,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": -5473,
+          "wins": 0,
+          "paid": 87120,
+          "measured": 9,
+          "admitted": 0,
+          "comparePaid": 2670,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -4576,
+          "wins": 0,
+          "paid": 86223,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 1728,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -5473,
+          "wins": 0,
+          "paid": 87120,
+          "measured": 9,
+          "admitted": 0,
+          "comparePaid": 2670,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "4": {
+        "r3": {
+          "net": 7729,
+          "wins": 7,
+          "paid": 128814,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 136,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 4741,
+          "wins": 6,
+          "paid": 131802,
+          "measured": 10,
+          "admitted": 10,
+          "comparePaid": 1920,
+          "reused": 126,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 2821,
+          "wins": 6,
+          "paid": 133722,
+          "measured": 10,
+          "admitted": 10,
+          "comparePaid": 3840,
+          "reused": 126,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -4655,
+          "wins": 0,
+          "paid": 141198,
+          "measured": 10,
+          "admitted": 10,
+          "comparePaid": 1920,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -6575,
+          "wins": 0,
+          "paid": 143118,
+          "measured": 10,
+          "admitted": 10,
+          "comparePaid": 3840,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "8": {
+        "r3": {
+          "net": 19041,
+          "wins": 7,
+          "paid": 227778,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 124,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 15433,
+          "wins": 7,
+          "paid": 231386,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 1728,
+          "reused": 115,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 13705,
+          "wins": 7,
+          "paid": 233114,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 3456,
+          "reused": 115,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -4720,
+          "wins": 0,
+          "paid": 251539,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 1728,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -6448,
+          "wins": 0,
+          "paid": 253267,
+          "measured": 9,
+          "admitted": 9,
+          "comparePaid": 3456,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      }
+    },
+    "patterns": {
+      "dense": {
+        "r3": {
+          "net": 21798,
+          "wins": 8,
+          "paid": 70262,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 260,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 18464,
+          "wins": 6,
+          "paid": 73596,
+          "measured": 8,
+          "admitted": 6,
+          "comparePaid": 1532,
+          "reused": 189,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 14896,
+          "wins": 4,
+          "paid": 77164,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2488,
+          "reused": 126,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -2154,
+          "wins": 0,
+          "paid": 94214,
+          "measured": 8,
+          "admitted": 6,
+          "comparePaid": 1532,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -3100,
+          "wins": 0,
+          "paid": 95160,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2488,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "rare": {
+        "r3": {
+          "net": -4692,
+          "wins": 0,
+          "paid": 96752,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 8,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": -7072,
+          "wins": 0,
+          "paid": 99132,
+          "measured": 8,
+          "admitted": 8,
+          "comparePaid": 1536,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": -6752,
+          "wins": 0,
+          "paid": 98812,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2536,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -4472,
+          "wins": 0,
+          "paid": 96532,
+          "measured": 8,
+          "admitted": 8,
+          "comparePaid": 1536,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -5452,
+          "wins": 0,
+          "paid": 97512,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2536,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      },
+      "none": {
+        "r3": {
+          "net": -5160,
+          "wins": 0,
+          "paid": 100880,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 0,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": -5160,
+          "wins": 0,
+          "paid": 100880,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 0,
+          "peak": 183,
+          "nodes": 171
+        },
+        "high": {
+          "net": -5160,
+          "wins": 0,
+          "paid": 100880,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 0,
+          "peak": 183,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -5160,
+          "wins": 0,
+          "paid": 100880,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 0,
+          "peak": 183,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -5160,
+          "wins": 0,
+          "paid": 100880,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 0,
+          "peak": 183,
+          "nodes": 171
+        }
+      },
+      "fall": {
+        "r3": {
+          "net": 4335,
+          "wins": 5,
+          "paid": 87725,
+          "measured": 0,
+          "admitted": 0,
+          "comparePaid": 0,
+          "reused": 96,
+          "peak": 161,
+          "nodes": 149
+        },
+        "low": {
+          "net": 2526,
+          "wins": 3,
+          "paid": 89534,
+          "measured": 8,
+          "admitted": 6,
+          "comparePaid": 1532,
+          "reused": 66,
+          "peak": 184,
+          "nodes": 171
+        },
+        "high": {
+          "net": 1516,
+          "wins": 3,
+          "paid": 90544,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2488,
+          "reused": 44,
+          "peak": 184,
+          "nodes": 171
+        },
+        "lowOff": {
+          "net": -2154,
+          "wins": 0,
+          "paid": 94214,
+          "measured": 8,
+          "admitted": 6,
+          "comparePaid": 1532,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        },
+        "highOff": {
+          "net": -3100,
+          "wins": 0,
+          "paid": 95160,
+          "measured": 8,
+          "admitted": 4,
+          "comparePaid": 2488,
+          "reused": 0,
+          "peak": 184,
+          "nodes": 171
+        }
+      }
+    },
+    "worlds": 288
+  },
+  "rows": [
+    {
+      "id": "1_24_all",
+      "cohort": "calibration",
+      "k": 1,
+      "n": 24,
+      "pattern": "all",
+      "shared": {
+        "paid": 2438,
+        "kernels": 48,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1926,
+        "kernels": 24,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 24,
+        "proofSteps": 504,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2151,
+        "kernels": 25,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 23,
+        "proofSteps": 483,
+        "measurement": {
+          "at": 0,
+          "cost": 49,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 2682,
+        "kernels": 48,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 49,
+          "admitted": false
+        },
+        "comparePaid": 194
+      },
+      "lowOff": {
+        "paid": 2685,
+        "kernels": 48,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 49,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 2682,
+        "kernels": 48,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 49,
+          "admitted": false
+        },
+        "comparePaid": 194
+      }
+    },
+    {
+      "id": "2_24_none",
+      "cohort": "calibration",
+      "k": 2,
+      "n": 24,
+      "pattern": "none",
+      "shared": {
+        "paid": 3660,
+        "kernels": 96,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 3828,
+        "kernels": 96,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "4_24_half",
+      "cohort": "calibration",
+      "k": 4,
+      "n": 24,
+      "pattern": "half",
+      "shared": {
+        "paid": 6070,
+        "kernels": 192,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 5034,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 324,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 5334,
+        "kernels": 148,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 303,
+        "measurement": {
+          "at": 0,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 5526,
+        "kernels": 148,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 303,
+        "measurement": {
+          "at": 0,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 6317,
+        "kernels": 192,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 6509,
+        "kernels": 192,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "8_24_second_only_mismatch",
+      "cohort": "calibration",
+      "k": 8,
+      "n": 24,
+      "pattern": "second_only_mismatch",
+      "shared": {
+        "paid": 10950,
+        "kernels": 384,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 11262,
+        "kernels": 384,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "fresh_0",
+      "cohort": "prospective",
+      "k": 1,
+      "n": 19,
+      "pattern": null,
+      "shared": {
+        "paid": 1945,
+        "kernels": 38,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1781,
+        "kernels": 26,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2186,
+        "kernels": 38,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "high": {
+        "paid": 2186,
+        "kernels": 38,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "lowOff": {
+        "paid": 2186,
+        "kernels": 38,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "highOff": {
+        "paid": 2186,
+        "kernels": 38,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      }
+    },
+    {
+      "id": "fresh_1",
+      "cohort": "prospective",
+      "k": 2,
+      "n": 19,
+      "pattern": null,
+      "shared": {
+        "paid": 2939,
+        "kernels": 76,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 2456,
+        "kernels": 52,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2710,
+        "kernels": 54,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 285,
+        "measurement": {
+          "at": 1,
+          "cost": 78,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 3300,
+        "kernels": 76,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 78,
+          "admitted": false
+        },
+        "comparePaid": 310
+      },
+      "lowOff": {
+        "paid": 3187,
+        "kernels": 76,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 78,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 3300,
+        "kernels": 76,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 78,
+          "admitted": false
+        },
+        "comparePaid": 310
+      }
+    },
+    {
+      "id": "fresh_2",
+      "cohort": "prospective",
+      "k": 4,
+      "n": 19,
+      "pattern": null,
+      "shared": {
+        "paid": 4847,
+        "kernels": 152,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 3758,
+        "kernels": 104,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 4050,
+        "kernels": 108,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 285,
+        "measurement": {
+          "at": 1,
+          "cost": 116,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 4242,
+        "kernels": 108,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 285,
+        "measurement": {
+          "at": 1,
+          "cost": 116,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 5095,
+        "kernels": 152,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 116,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 5287,
+        "kernels": 152,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 116,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "fresh_3",
+      "cohort": "prospective",
+      "k": 8,
+      "n": 19,
+      "pattern": null,
+      "shared": {
+        "paid": 8763,
+        "kernels": 304,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 6438,
+        "kernels": 208,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 12,
+        "proofSteps": 306,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 6846,
+        "kernels": 216,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 285,
+        "measurement": {
+          "at": 1,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 7038,
+        "kernels": 216,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 11,
+        "proofSteps": 285,
+        "measurement": {
+          "at": 1,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 9011,
+        "kernels": 304,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 9203,
+        "kernels": 304,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 1,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "fresh_4",
+      "cohort": "prospective",
+      "k": 1,
+      "n": 43,
+      "pattern": null,
+      "shared": {
+        "paid": 4302,
+        "kernels": 86,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 4324,
+        "kernels": 72,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 4550,
+        "kernels": 73,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 4695,
+        "kernels": 86,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      },
+      "lowOff": {
+        "paid": 4694,
+        "kernels": 86,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 4695,
+        "kernels": 86,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      }
+    },
+    {
+      "id": "fresh_5",
+      "cohort": "prospective",
+      "k": 2,
+      "n": 43,
+      "pattern": null,
+      "shared": {
+        "paid": 6505,
+        "kernels": 172,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 6178,
+        "kernels": 144,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 6432,
+        "kernels": 146,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 78,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 7010,
+        "kernels": 172,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 78,
+          "admitted": false
+        },
+        "comparePaid": 310
+      },
+      "lowOff": {
+        "paid": 6897,
+        "kernels": 172,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 78,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 7010,
+        "kernels": 172,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 78,
+          "admitted": false
+        },
+        "comparePaid": 310
+      }
+    },
+    {
+      "id": "fresh_6",
+      "cohort": "prospective",
+      "k": 4,
+      "n": 43,
+      "pattern": null,
+      "shared": {
+        "paid": 10843,
+        "kernels": 344,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 9802,
+        "kernels": 288,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 10102,
+        "kernels": 292,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 10294,
+        "kernels": 292,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 11235,
+        "kernels": 344,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 11427,
+        "kernels": 344,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 124,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "fresh_7",
+      "cohort": "prospective",
+      "k": 8,
+      "n": 43,
+      "pattern": null,
+      "shared": {
+        "paid": 19627,
+        "kernels": 688,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 17162,
+        "kernels": 576,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 14,
+        "proofSteps": 426,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 17570,
+        "kernels": 584,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 17762,
+        "kernels": 584,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 13,
+        "proofSteps": 405,
+        "measurement": {
+          "at": 14,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 20019,
+        "kernels": 688,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 20211,
+        "kernels": 688,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 14,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "fresh_8",
+      "cohort": "prospective",
+      "k": 1,
+      "n": 71,
+      "pattern": null,
+      "shared": {
+        "paid": 7033,
+        "kernels": 142,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 7662,
+        "kernels": 135,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 7340,
+        "kernels": 142,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 47,
+          "admitted": false
+        },
+        "comparePaid": 186
+      },
+      "high": {
+        "paid": 7340,
+        "kernels": 142,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 47,
+          "admitted": false
+        },
+        "comparePaid": 186
+      },
+      "lowOff": {
+        "paid": 7340,
+        "kernels": 142,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 47,
+          "admitted": false
+        },
+        "comparePaid": 186
+      },
+      "highOff": {
+        "paid": 7340,
+        "kernels": 142,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 47,
+          "admitted": false
+        },
+        "comparePaid": 186
+      }
+    },
+    {
+      "id": "fresh_9",
+      "cohort": "prospective",
+      "k": 2,
+      "n": 71,
+      "pattern": null,
+      "shared": {
+        "paid": 10671,
+        "kernels": 284,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 11098,
+        "kernels": 270,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 11350,
+        "kernels": 272,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 6,
+        "proofSteps": 672,
+        "measurement": {
+          "at": 3,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 11094,
+        "kernels": 284,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      },
+      "lowOff": {
+        "paid": 10989,
+        "kernels": 284,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 11094,
+        "kernels": 284,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      }
+    },
+    {
+      "id": "fresh_10",
+      "cohort": "prospective",
+      "k": 4,
+      "n": 71,
+      "pattern": null,
+      "shared": {
+        "paid": 17839,
+        "kernels": 568,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 17964,
+        "kernels": 540,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 18268,
+        "kernels": 544,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 6,
+        "proofSteps": 672,
+        "measurement": {
+          "at": 3,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 18460,
+        "kernels": 544,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 6,
+        "proofSteps": 672,
+        "measurement": {
+          "at": 3,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 18157,
+        "kernels": 568,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 18349,
+        "kernels": 568,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "fresh_11",
+      "cohort": "prospective",
+      "k": 8,
+      "n": 71,
+      "pattern": null,
+      "shared": {
+        "paid": 32391,
+        "kernels": 1136,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 31728,
+        "kernels": 1080,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 7,
+        "proofSteps": 693,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 32136,
+        "kernels": 1088,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 6,
+        "proofSteps": 672,
+        "measurement": {
+          "at": 3,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 32328,
+        "kernels": 1088,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 6,
+        "proofSteps": 672,
+        "measurement": {
+          "at": 3,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 32709,
+        "kernels": 1136,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 32901,
+        "kernels": 1136,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 3,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_1_16_dense",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 16,
+      "pattern": "dense",
+      "shared": {
+        "paid": 1660,
+        "kernels": 32,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1518,
+        "kernels": 21,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 11,
+        "proofSteps": 291,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "high": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "lowOff": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "highOff": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      }
+    },
+    {
+      "id": "grid_1_16_rare",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 16,
+      "pattern": "rare",
+      "shared": {
+        "paid": 1660,
+        "kernels": 32,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1870,
+        "kernels": 31,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 105,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2096,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 1996,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      },
+      "lowOff": {
+        "paid": 1995,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 1996,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      }
+    },
+    {
+      "id": "grid_1_16_none",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 16,
+      "pattern": "none",
+      "shared": {
+        "paid": 1660,
+        "kernels": 32,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1868,
+        "kernels": 32,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 1868,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 1868,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 1868,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 1868,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_1_16_fall",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 16,
+      "pattern": "fall",
+      "shared": {
+        "paid": 1660,
+        "kernels": 32,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 1775,
+        "kernels": 28,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 4,
+        "proofSteps": 228,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "high": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "lowOff": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "highOff": {
+        "paid": 1892,
+        "kernels": 32,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      }
+    },
+    {
+      "id": "grid_1_80_dense",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 80,
+      "pattern": "dense",
+      "shared": {
+        "paid": 7924,
+        "kernels": 160,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 7132,
+        "kernels": 106,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 54,
+        "proofSteps": 1446,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "high": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "lowOff": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "highOff": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      }
+    },
+    {
+      "id": "grid_1_80_rare",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 80,
+      "pattern": "rare",
+      "shared": {
+        "paid": 7924,
+        "kernels": 160,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 9030,
+        "kernels": 159,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 489,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 9256,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 8708,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      },
+      "lowOff": {
+        "paid": 8707,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 50,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 8708,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 50,
+          "admitted": false
+        },
+        "comparePaid": 198
+      }
+    },
+    {
+      "id": "grid_1_80_none",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 80,
+      "pattern": "none",
+      "shared": {
+        "paid": 7924,
+        "kernels": 160,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 8964,
+        "kernels": 160,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 8964,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 8964,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 8964,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 8964,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_1_80_fall",
+      "cohort": "designed_grid",
+      "k": 1,
+      "n": 80,
+      "pattern": "fall",
+      "shared": {
+        "paid": 7924,
+        "kernels": 160,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 8400,
+        "kernels": 140,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 20,
+        "proofSteps": 1140,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "high": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "lowOff": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      },
+      "highOff": {
+        "paid": 8220,
+        "kernels": 160,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 48,
+          "admitted": false
+        },
+        "comparePaid": 190
+      }
+    },
+    {
+      "id": "grid_2_16_dense",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 16,
+      "pattern": "dense",
+      "shared": {
+        "paid": 2474,
+        "kernels": 64,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 2058,
+        "kernels": 42,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 11,
+        "proofSteps": 291,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2306,
+        "kernels": 44,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 10,
+        "proofSteps": 270,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 2802,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      },
+      "lowOff": {
+        "paid": 2713,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 2802,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      }
+    },
+    {
+      "id": "grid_2_16_rare",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 16,
+      "pattern": "rare",
+      "shared": {
+        "paid": 2474,
+        "kernels": 64,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 2658,
+        "kernels": 62,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 105,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2910,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 2914,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      },
+      "lowOff": {
+        "paid": 2809,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 2914,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      }
+    },
+    {
+      "id": "grid_2_16_none",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 16,
+      "pattern": "none",
+      "shared": {
+        "paid": 2474,
+        "kernels": 64,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 2682,
+        "kernels": 64,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2682,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 2682,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 2682,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 2682,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_2_16_fall",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 16,
+      "pattern": "fall",
+      "shared": {
+        "paid": 2474,
+        "kernels": 64,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 2488,
+        "kernels": 56,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 4,
+        "proofSteps": 228,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 2736,
+        "kernels": 58,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 3,
+        "proofSteps": 207,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 2802,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      },
+      "lowOff": {
+        "paid": 2713,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 2802,
+        "kernels": 64,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      }
+    },
+    {
+      "id": "grid_2_80_dense",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 80,
+      "pattern": "dense",
+      "shared": {
+        "paid": 11994,
+        "kernels": 320,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 9834,
+        "kernels": 212,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 54,
+        "proofSteps": 1446,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 10082,
+        "kernels": 214,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 53,
+        "proofSteps": 1425,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 12386,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      },
+      "lowOff": {
+        "paid": 12297,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 12386,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      }
+    },
+    {
+      "id": "grid_2_80_rare",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 80,
+      "pattern": "rare",
+      "shared": {
+        "paid": 11994,
+        "kernels": 320,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 13074,
+        "kernels": 318,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 489,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 13326,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 12882,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      },
+      "lowOff": {
+        "paid": 12777,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 76,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 12882,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 76,
+          "admitted": false
+        },
+        "comparePaid": 302
+      }
+    },
+    {
+      "id": "grid_2_80_none",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 80,
+      "pattern": "none",
+      "shared": {
+        "paid": 11994,
+        "kernels": 320,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 13034,
+        "kernels": 320,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 13034,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 13034,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 13034,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 13034,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_2_80_fall",
+      "cohort": "designed_grid",
+      "k": 2,
+      "n": 80,
+      "pattern": "fall",
+      "shared": {
+        "paid": 11994,
+        "kernels": 320,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 11962,
+        "kernels": 280,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 20,
+        "proofSteps": 1140,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 12210,
+        "kernels": 282,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 19,
+        "proofSteps": 1119,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 12386,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      },
+      "lowOff": {
+        "paid": 12297,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 12386,
+        "kernels": 320,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 72,
+          "admitted": false
+        },
+        "comparePaid": 286
+      }
+    },
+    {
+      "id": "grid_4_16_dense",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 16,
+      "pattern": "dense",
+      "shared": {
+        "paid": 4102,
+        "kernels": 128,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 3138,
+        "kernels": 84,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 11,
+        "proofSteps": 291,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 3434,
+        "kernels": 88,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 10,
+        "proofSteps": 270,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 3626,
+        "kernels": 88,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 10,
+        "proofSteps": 270,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 4341,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 4533,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_4_16_rare",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 16,
+      "pattern": "rare",
+      "shared": {
+        "paid": 4102,
+        "kernels": 128,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 4234,
+        "kernels": 124,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 105,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 4538,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 4730,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 4437,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 4629,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_4_16_none",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 16,
+      "pattern": "none",
+      "shared": {
+        "paid": 4102,
+        "kernels": 128,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 4310,
+        "kernels": 128,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 4310,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 4310,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 4310,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 4310,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_4_16_fall",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 16,
+      "pattern": "fall",
+      "shared": {
+        "paid": 4102,
+        "kernels": 128,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 3914,
+        "kernels": 112,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 4,
+        "proofSteps": 228,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 4210,
+        "kernels": 116,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 3,
+        "proofSteps": 207,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 4402,
+        "kernels": 116,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 3,
+        "proofSteps": 207,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 4341,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 4533,
+        "kernels": 128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_4_80_dense",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 80,
+      "pattern": "dense",
+      "shared": {
+        "paid": 20134,
+        "kernels": 640,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 15238,
+        "kernels": 424,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 54,
+        "proofSteps": 1446,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 15534,
+        "kernels": 428,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 53,
+        "proofSteps": 1425,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 15726,
+        "kernels": 428,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 53,
+        "proofSteps": 1425,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 20437,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 20629,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_4_80_rare",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 80,
+      "pattern": "rare",
+      "shared": {
+        "paid": 20134,
+        "kernels": 640,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 21162,
+        "kernels": 636,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 489,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 21466,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 21658,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 20917,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 21109,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 128,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_4_80_none",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 80,
+      "pattern": "none",
+      "shared": {
+        "paid": 20134,
+        "kernels": 640,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 21174,
+        "kernels": 640,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 21174,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 21174,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 21174,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 21174,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_4_80_fall",
+      "cohort": "designed_grid",
+      "k": 4,
+      "n": 80,
+      "pattern": "fall",
+      "shared": {
+        "paid": 20134,
+        "kernels": 640,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 19086,
+        "kernels": 560,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 20,
+        "proofSteps": 1140,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 19382,
+        "kernels": 564,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 19,
+        "proofSteps": 1119,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 19574,
+        "kernels": 564,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 19,
+        "proofSteps": 1119,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 20437,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 20629,
+        "kernels": 640,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 120,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_16_dense",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 16,
+      "pattern": "dense",
+      "shared": {
+        "paid": 7358,
+        "kernels": 256,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 5298,
+        "kernels": 168,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 11,
+        "proofSteps": 291,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 5690,
+        "kernels": 176,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 10,
+        "proofSteps": 270,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 5882,
+        "kernels": 176,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 10,
+        "proofSteps": 270,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 7597,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 7789,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_16_rare",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 16,
+      "pattern": "rare",
+      "shared": {
+        "paid": 7358,
+        "kernels": 256,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 7386,
+        "kernels": 248,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 105,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 7794,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 7986,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 84,
+        "measurement": {
+          "at": 8,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 7693,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 7885,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 8,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_16_none",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 16,
+      "pattern": "none",
+      "shared": {
+        "paid": 7358,
+        "kernels": 256,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 7566,
+        "kernels": 256,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 7566,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 7566,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 7566,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 7566,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_8_16_fall",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 16,
+      "pattern": "fall",
+      "shared": {
+        "paid": 7358,
+        "kernels": 256,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 6766,
+        "kernels": 224,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 4,
+        "proofSteps": 228,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 7158,
+        "kernels": 232,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 3,
+        "proofSteps": 207,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 7350,
+        "kernels": 232,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 3,
+        "proofSteps": 207,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 7597,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 7789,
+        "kernels": 256,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_80_dense",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 80,
+      "pattern": "dense",
+      "shared": {
+        "paid": 36414,
+        "kernels": 1280,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 26046,
+        "kernels": 848,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 54,
+        "proofSteps": 1446,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 26438,
+        "kernels": 856,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 53,
+        "proofSteps": 1425,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 26630,
+        "kernels": 856,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 53,
+        "proofSteps": 1425,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 36717,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 36909,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_80_rare",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 80,
+      "pattern": "rare",
+      "shared": {
+        "paid": 36414,
+        "kernels": 1280,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 37338,
+        "kernels": 1272,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 1,
+        "proofSteps": 489,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 37746,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 37938,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 468,
+        "measurement": {
+          "at": 40,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 37197,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 37389,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 40,
+          "cost": 232,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    },
+    {
+      "id": "grid_8_80_none",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 80,
+      "pattern": "none",
+      "shared": {
+        "paid": 36414,
+        "kernels": 1280,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 37454,
+        "kernels": 1280,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 37454,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "high": {
+        "paid": 37454,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "lowOff": {
+        "paid": 37454,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "highOff": {
+        "paid": 37454,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 183,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      }
+    },
+    {
+      "id": "grid_8_80_fall",
+      "cohort": "designed_grid",
+      "k": 8,
+      "n": 80,
+      "pattern": "fall",
+      "shared": {
+        "paid": 36414,
+        "kernels": 1280,
+        "nodes": 139,
+        "peak": 151,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "r3": {
+        "paid": 33334,
+        "kernels": 1120,
+        "nodes": 149,
+        "peak": 161,
+        "reused": 20,
+        "proofSteps": 1140,
+        "measurement": null,
+        "comparePaid": 0
+      },
+      "low": {
+        "paid": 33726,
+        "kernels": 1128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 19,
+        "proofSteps": 1119,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "high": {
+        "paid": 33918,
+        "kernels": 1128,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 19,
+        "proofSteps": 1119,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      },
+      "lowOff": {
+        "paid": 36717,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 192
+      },
+      "highOff": {
+        "paid": 36909,
+        "kernels": 1280,
+        "nodes": 171,
+        "peak": 184,
+        "reused": 0,
+        "proofSteps": 0,
+        "measurement": {
+          "at": 0,
+          "cost": 216,
+          "admitted": true
+        },
+        "comparePaid": 384
+      }
+    }
+  ],
+  "sources": {
+    "low": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 153,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 128,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 126
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 128,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 129,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 126
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 59,
+          "next": 108
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 113,
+          "next": 111
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 112
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 59,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 117
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 48,
+          "next": 118
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 119
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 120
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 121,
+          "zero": 123
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 119,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 124
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 128,
+          "next": 125
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 126
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 127
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 130
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 131
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 132
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 133
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 134
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 135
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 137
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 138
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 139
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 140
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 141
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 142
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 143
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 144
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 145
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 146
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 147
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 148
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 149
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 150
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 152,
+          "zero": 151
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 154
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "measure": 106,
+        "measure_end": 113,
+        "compare": 119,
+        "compare_threshold": 121,
+        "deny": 123,
+        "publish": 126,
+        "gate": 128,
+        "check": 129,
+        "verify_a": 130,
+        "verify_b": 136,
+        "verify_done": 142,
+        "candidate": 145,
+        "reuse": 151,
+        "reject": 152,
+        "second_result": 153
+      }
+    },
+    "high": {
+      "g": [
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 1
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 8,
+          "next": 2
+        },
+        {
+          "kind": "Add",
+          "dst": 2,
+          "lhs": 2,
+          "rhs": 2,
+          "next": 3
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 57,
+          "next": 4
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 1,
+          "next": 5
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 65,
+          "next": 6
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 2,
+          "next": 7
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 8
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 9
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 60,
+          "next": 10
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 2,
+          "next": 11
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 0,
+          "next": 12
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 3,
+          "rhs": 2,
+          "next": 13
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 7,
+          "next": 14
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 2,
+          "next": 16
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 3,
+          "source": 2,
+          "next": 17
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 0,
+          "next": 18
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 19
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 20,
+          "zero": 25
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 57,
+          "next": 21
+        },
+        {
+          "kind": "CloneNode",
+          "dst": 2,
+          "source": 2,
+          "next": 22
+        },
+        {
+          "kind": "PatchNext",
+          "node": 2,
+          "target": 3,
+          "next": 23
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 24
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 15
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 55,
+          "next": 26
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 60,
+          "next": 27
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 28
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 29
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 30
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 79,
+          "next": 31
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 32
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 37
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 34
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 153,
+          "next": 35
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 36
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 38
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 39
+        },
+        {
+          "kind": "Add",
+          "dst": 3,
+          "lhs": 3,
+          "rhs": 0,
+          "next": 40
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 41
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 42
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 43
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 44
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 45
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 46
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 2,
+          "next": 47
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 58,
+          "next": 48
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 49
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 50
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 51
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 52
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 53
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 54
+        },
+        {
+          "kind": "Read",
+          "dst": 2,
+          "address": 3,
+          "next": 55
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 56
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 1,
+          "next": 57
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 58
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 59
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 57,
+          "zero": 65
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 0,
+          "next": 61
+        },
+        {
+          "kind": "Add",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 3,
+          "next": 62
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 64,
+          "next": 63
+        },
+        {
+          "kind": "PatchNext",
+          "node": 3,
+          "target": 1,
+          "next": 64
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 57
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 66
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 67
+        },
+        {
+          "kind": "Add",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 68
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 69
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 70
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 71
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 72
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 73
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 74
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 1,
+          "next": 75
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 51,
+          "zero": 76
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 77
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 78
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 0,
+          "next": 79
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 80
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 81
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 82
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 83
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 50,
+          "next": 84
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 85
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 86
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 87
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 88
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 89
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 51,
+          "next": 90
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 91
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 92
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 93
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 94
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 33,
+          "zero": 106
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 96
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 128,
+          "next": 97
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 98
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 101,
+          "next": 99
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 1,
+          "next": 100
+        },
+        {
+          "kind": "PatchConst",
+          "node": 1,
+          "value": 0,
+          "next": 101
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 102
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 103,
+          "zero": 126
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 128,
+          "next": 104
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 129,
+          "next": 105
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 126
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 107
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 59,
+          "next": 108
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 109
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 78,
+          "next": 110
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 113,
+          "next": 111
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 112
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 37
+        },
+        {
+          "kind": "SenseOwnCredits",
+          "dst": 0,
+          "next": 114
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 59,
+          "next": 115
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 116
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 1,
+          "rhs": 0,
+          "next": 117
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 96,
+          "next": 118
+        },
+        {
+          "kind": "Const",
+          "dst": 2,
+          "value": 1,
+          "next": 119
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 2,
+          "next": 120
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 121,
+          "zero": 123
+        },
+        {
+          "kind": "Sub",
+          "dst": 1,
+          "lhs": 1,
+          "rhs": 2,
+          "next": 122
+        },
+        {
+          "kind": "Branch",
+          "test": 1,
+          "nonzero": 119,
+          "zero": 95
+        },
+        {
+          "kind": "Const",
+          "dst": 1,
+          "value": 81,
+          "next": 124
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 128,
+          "next": 125
+        },
+        {
+          "kind": "PatchNext",
+          "node": 1,
+          "target": 0,
+          "next": 126
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 127
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 130
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 43,
+          "next": 131
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 132
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 52,
+          "next": 133
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 134
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 135
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 136
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 44,
+          "next": 137
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 138
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 53,
+          "next": 139
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 140
+        },
+        {
+          "kind": "Sub",
+          "dst": 0,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 141
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 142
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 42,
+          "next": 143
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 144
+        },
+        {
+          "kind": "Branch",
+          "test": 0,
+          "nonzero": 152,
+          "zero": 145
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 11,
+          "next": 146
+        },
+        {
+          "kind": "Read",
+          "dst": 0,
+          "address": 3,
+          "next": 147
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 41,
+          "next": 148
+        },
+        {
+          "kind": "Read",
+          "dst": 1,
+          "address": 3,
+          "next": 149
+        },
+        {
+          "kind": "Sub",
+          "dst": 2,
+          "lhs": 0,
+          "rhs": 1,
+          "next": 150
+        },
+        {
+          "kind": "Branch",
+          "test": 2,
+          "nonzero": 152,
+          "zero": 151
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 153
+        },
+        {
+          "kind": "Const",
+          "dst": 0,
+          "value": 0,
+          "next": 33
+        },
+        {
+          "kind": "Const",
+          "dst": 3,
+          "value": 12,
+          "next": 154
+        },
+        {
+          "kind": "Write",
+          "address": 3,
+          "value": 0,
+          "next": 29
+        }
+      ],
+      "l": {
+        "init": 0,
+        "generate_init": 1,
+        "double_src": 2,
+        "generate_even": 15,
+        "generate_odd": 20,
+        "generate_done": 25,
+        "prod_init": 28,
+        "batch": 29,
+        "second": 33,
+        "prepare": 37,
+        "loop": 51,
+        "kernel_dispatch": 55,
+        "parent": 56,
+        "parent_add": 57,
+        "base": 60,
+        "special_entry": 64,
+        "out": 65,
+        "done": 76,
+        "return_route": 78,
+        "first_result": 79,
+        "decision": 81,
+        "probe": 82,
+        "observe": 83,
+        "observe_b": 89,
+        "install": 95,
+        "activate": 100,
+        "flag": 101,
+        "compile": 103,
+        "measure": 106,
+        "measure_end": 113,
+        "compare": 119,
+        "compare_threshold": 121,
+        "deny": 123,
+        "publish": 126,
+        "gate": 128,
+        "check": 129,
+        "verify_a": 130,
+        "verify_b": 136,
+        "verify_done": 142,
+        "candidate": 145,
+        "reuse": 151,
+        "reject": 152,
+        "second_result": 153
+      }
+    }
+  }
+}
