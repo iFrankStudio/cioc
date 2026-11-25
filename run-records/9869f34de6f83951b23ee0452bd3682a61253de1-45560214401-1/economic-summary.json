@@ -1,0 +1,7450 @@
+{
+  "tested_sha": "9869f34de6f83951b23ee0452bd3682a61253de1",
+  "worlds": 82,
+  "paid": 812736,
+  "correct_outputs": 6282,
+  "wrong_outputs": 2,
+  "kernels": 22424,
+  "reused": 336,
+  "clone_steps": 78494,
+  "new_nodes": 1056,
+  "peak_occupied": 151,
+  "max_nodes": 139,
+  "aggregate": {
+    "calibration": {
+      "n": 4,
+      "net": 1416,
+      "physical": 1986,
+      "static_delta": -48,
+      "kernels_saved": 72,
+      "wins": 2,
+      "ties": 0,
+      "losses": 2
+    },
+    "prospective": {
+      "n": 12,
+      "net": 9198,
+      "physical": 10606,
+      "static_delta": -288,
+      "kernels_saved": 495,
+      "wins": 10,
+      "ties": 0,
+      "losses": 2
+    }
+  },
+  "pairs": [
+    {
+      "case": "1_24_all",
+      "cohort": "calibration",
+      "k": 1,
+      "first_exposure": 162,
+      "net": 728,
+      "physical": 773,
+      "static_delta": -24,
+      "kernels_saved": 24,
+      "on": 1710,
+      "off": 2483,
+      "shared": 2438
+    },
+    {
+      "case": "2_24_none",
+      "cohort": "calibration",
+      "k": 2,
+      "first_exposure": null,
+      "net": -168,
+      "physical": 0,
+      "static_delta": 0,
+      "kernels_saved": 0,
+      "on": 3828,
+      "off": 3828,
+      "shared": 3660
+    },
+    {
+      "case": "4_24_half",
+      "cohort": "calibration",
+      "k": 4,
+      "first_exposure": 237,
+      "net": 1168,
+      "physical": 1213,
+      "static_delta": -24,
+      "kernels_saved": 48,
+      "on": 4902,
+      "off": 6115,
+      "shared": 6070
+    },
+    {
+      "case": "8_24_second_only_mismatch",
+      "cohort": "calibration",
+      "k": 8,
+      "first_exposure": null,
+      "net": -312,
+      "physical": 0,
+      "static_delta": 0,
+      "kernels_saved": 0,
+      "on": 11262,
+      "off": 11262,
+      "shared": 10950
+    },
+    {
+      "case": "fresh_0",
+      "cohort": "prospective",
+      "k": 1,
+      "first_exposure": 260,
+      "net": 284,
+      "physical": 330,
+      "static_delta": -24,
+      "kernels_saved": 12,
+      "on": 1661,
+      "off": 1991,
+      "shared": 1945
+    },
+    {
+      "case": "fresh_1",
+      "cohort": "prospective",
+      "k": 2,
+      "first_exposure": 347,
+      "net": 603,
+      "physical": 649,
+      "static_delta": -24,
+      "kernels_saved": 24,
+      "on": 2336,
+      "off": 2985,
+      "shared": 2939
+    },
+    {
+      "case": "fresh_2",
+      "cohort": "prospective",
+      "k": 4,
+      "first_exposure": 499,
+      "net": 1209,
+      "physical": 1255,
+      "static_delta": -24,
+      "kernels_saved": 48,
+      "on": 3638,
+      "off": 4893,
+      "shared": 4847
+    },
+    {
+      "case": "fresh_3",
+      "cohort": "prospective",
+      "k": 8,
+      "first_exposure": 807,
+      "net": 2445,
+      "physical": 2491,
+      "static_delta": -24,
+      "kernels_saved": 96,
+      "on": 6318,
+      "off": 8809,
+      "shared": 8763
+    },
+    {
+      "case": "fresh_4",
+      "cohort": "prospective",
+      "k": 1,
+      "first_exposure": 1669,
+      "net": 134,
+      "physical": 324,
+      "static_delta": -24,
+      "kernels_saved": 14,
+      "on": 4168,
+      "off": 4492,
+      "shared": 4302
+    },
+    {
+      "case": "fresh_5",
+      "cohort": "prospective",
+      "k": 2,
+      "first_exposure": 2425,
+      "net": 483,
+      "physical": 673,
+      "static_delta": -24,
+      "kernels_saved": 28,
+      "on": 6022,
+      "off": 6695,
+      "shared": 6505
+    },
+    {
+      "case": "fresh_6",
+      "cohort": "prospective",
+      "k": 4,
+      "first_exposure": 3879,
+      "net": 1197,
+      "physical": 1387,
+      "static_delta": -24,
+      "kernels_saved": 56,
+      "on": 9646,
+      "off": 11033,
+      "shared": 10843
+    },
+    {
+      "case": "fresh_7",
+      "cohort": "prospective",
+      "k": 8,
+      "first_exposure": 6807,
+      "net": 2621,
+      "physical": 2811,
+      "static_delta": -24,
+      "kernels_saved": 112,
+      "on": 17006,
+      "off": 19817,
+      "shared": 19627
+    },
+    {
+      "case": "fresh_8",
+      "cohort": "prospective",
+      "k": 1,
+      "first_exposure": 486,
+      "net": -444,
+      "physical": -328,
+      "static_delta": -24,
+      "kernels_saved": 7,
+      "on": 7477,
+      "off": 7149,
+      "shared": 7033
+    },
+    {
+      "case": "fresh_9",
+      "cohort": "prospective",
+      "k": 2,
+      "first_exposure": 651,
+      "net": -242,
+      "physical": -126,
+      "static_delta": -24,
+      "kernels_saved": 14,
+      "on": 10913,
+      "off": 10787,
+      "shared": 10671
+    },
+    {
+      "case": "fresh_10",
+      "cohort": "prospective",
+      "k": 4,
+      "first_exposure": 1037,
+      "net": 60,
+      "physical": 176,
+      "static_delta": -24,
+      "kernels_saved": 28,
+      "on": 17779,
+      "off": 17955,
+      "shared": 17839
+    },
+    {
+      "case": "fresh_11",
+      "cohort": "prospective",
+      "k": 8,
+      "first_exposure": 1697,
+      "net": 848,
+      "physical": 964,
+      "static_delta": -24,
+      "kernels_saved": 56,
+      "on": 31543,
+      "off": 32507,
+      "shared": 32391
+    }
+  ],
+  "falsifiers": [
+    {
+      "activations": [],
+      "arm": "fault",
+      "batches": 1,
+      "case": "skip_bias_guard",
+      "clone_steps": 12,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "out_of_contract",
+      "id": "skip_bias_guard_fault",
+      "initial": 123,
+      "k": 4,
+      "kernels": 4,
+      "nodes": 139,
+      "paid": 225,
+      "peak": 151,
+      "reused": 1,
+      "wrong": {
+        "actual": 242,
+        "expected": 605
+      }
+    },
+    {
+      "activations": [],
+      "arm": "fault",
+      "batches": 1,
+      "case": "wrong_cache_cell",
+      "clone_steps": 12,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "out_of_contract",
+      "id": "wrong_cache_cell_fault",
+      "initial": 123,
+      "k": 4,
+      "kernels": 4,
+      "nodes": 139,
+      "paid": 231,
+      "peak": 151,
+      "reused": 1,
+      "wrong": {
+        "actual": 2,
+        "expected": 242
+      }
+    }
+  ],
+  "world_rows": [
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 24,
+      "case": "1_24_all",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "1_24_all_plain",
+      "initial": 123,
+      "k": 1,
+      "kernels": 48,
+      "nodes": 123,
+      "paid": 3122,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 24,
+      "case": "1_24_all",
+      "clone_steps": 208,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "1_24_all_shared",
+      "initial": 123,
+      "k": 1,
+      "kernels": 48,
+      "nodes": 139,
+      "paid": 2438,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 24,
+      "case": "1_24_all",
+      "clone_steps": 104,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "1_24_all_static",
+      "initial": 123,
+      "k": 1,
+      "kernels": 24,
+      "nodes": 139,
+      "paid": 1686,
+      "peak": 151,
+      "reused": 24,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          162,
+          0,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 24,
+      "case": "1_24_all",
+      "clone_steps": 104,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "1_24_all_on",
+      "initial": 123,
+      "k": 1,
+      "kernels": 24,
+      "nodes": 139,
+      "paid": 1710,
+      "peak": 151,
+      "reused": 24,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          162,
+          0,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 24,
+      "case": "1_24_all",
+      "clone_steps": 208,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "1_24_all_off",
+      "initial": 123,
+      "k": 1,
+      "kernels": 48,
+      "nodes": 139,
+      "paid": 2483,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 24,
+      "case": "2_24_none",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "2_24_none_plain",
+      "initial": 123,
+      "k": 2,
+      "kernels": 96,
+      "nodes": 123,
+      "paid": 5162,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 24,
+      "case": "2_24_none",
+      "clone_steps": 422,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "2_24_none_shared",
+      "initial": 123,
+      "k": 2,
+      "kernels": 96,
+      "nodes": 139,
+      "paid": 3660,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 24,
+      "case": "2_24_none",
+      "clone_steps": 422,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "2_24_none_static",
+      "initial": 123,
+      "k": 2,
+      "kernels": 96,
+      "nodes": 139,
+      "paid": 3828,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "on",
+      "batches": 24,
+      "case": "2_24_none",
+      "clone_steps": 422,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "2_24_none_on",
+      "initial": 123,
+      "k": 2,
+      "kernels": 96,
+      "nodes": 139,
+      "paid": 3828,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "off",
+      "batches": 24,
+      "case": "2_24_none",
+      "clone_steps": 422,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "2_24_none_off",
+      "initial": 123,
+      "k": 2,
+      "kernels": 96,
+      "nodes": 139,
+      "paid": 3828,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 24,
+      "case": "4_24_half",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "4_24_half_plain",
+      "initial": 123,
+      "k": 4,
+      "kernels": 192,
+      "nodes": 123,
+      "paid": 9242,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 24,
+      "case": "4_24_half",
+      "clone_steps": 816,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "4_24_half_shared",
+      "initial": 123,
+      "k": 4,
+      "kernels": 192,
+      "nodes": 139,
+      "paid": 6070,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 24,
+      "case": "4_24_half",
+      "clone_steps": 620,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "4_24_half_static",
+      "initial": 123,
+      "k": 4,
+      "kernels": 144,
+      "nodes": 139,
+      "paid": 4878,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          237,
+          0,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 24,
+      "case": "4_24_half",
+      "clone_steps": 620,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "4_24_half_on",
+      "initial": 123,
+      "k": 4,
+      "kernels": 144,
+      "nodes": 139,
+      "paid": 4902,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          237,
+          0,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 24,
+      "case": "4_24_half",
+      "clone_steps": 816,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "4_24_half_off",
+      "initial": 123,
+      "k": 4,
+      "kernels": 192,
+      "nodes": 139,
+      "paid": 6115,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 24,
+      "case": "8_24_second_only_mismatch",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "calibration",
+      "id": "8_24_second_only_mismatch_plain",
+      "initial": 123,
+      "k": 8,
+      "kernels": 384,
+      "nodes": 123,
+      "paid": 17066,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 24,
+      "case": "8_24_second_only_mismatch",
+      "clone_steps": 1664,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "8_24_second_only_mismatch_shared",
+      "initial": 123,
+      "k": 8,
+      "kernels": 384,
+      "nodes": 139,
+      "paid": 10950,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 24,
+      "case": "8_24_second_only_mismatch",
+      "clone_steps": 1664,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "8_24_second_only_mismatch_static",
+      "initial": 123,
+      "k": 8,
+      "kernels": 384,
+      "nodes": 139,
+      "paid": 11262,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "on",
+      "batches": 24,
+      "case": "8_24_second_only_mismatch",
+      "clone_steps": 1664,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "8_24_second_only_mismatch_on",
+      "initial": 123,
+      "k": 8,
+      "kernels": 384,
+      "nodes": 139,
+      "paid": 11262,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "off",
+      "batches": 24,
+      "case": "8_24_second_only_mismatch",
+      "clone_steps": 1664,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "calibration",
+      "id": "8_24_second_only_mismatch_off",
+      "initial": 123,
+      "k": 8,
+      "kernels": 384,
+      "nodes": 139,
+      "paid": 11262,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 19,
+      "case": "fresh_0",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_0_plain",
+      "initial": 123,
+      "k": 1,
+      "kernels": 38,
+      "nodes": 123,
+      "paid": 2441,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 19,
+      "case": "fresh_0",
+      "clone_steps": 160,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_0_shared",
+      "initial": 123,
+      "k": 1,
+      "kernels": 38,
+      "nodes": 139,
+      "paid": 1945,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 19,
+      "case": "fresh_0",
+      "clone_steps": 109,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_0_static",
+      "initial": 123,
+      "k": 1,
+      "kernels": 26,
+      "nodes": 139,
+      "paid": 1637,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          260,
+          1,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 19,
+      "case": "fresh_0",
+      "clone_steps": 109,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_0_on",
+      "initial": 123,
+      "k": 1,
+      "kernels": 26,
+      "nodes": 139,
+      "paid": 1661,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          260,
+          1,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 19,
+      "case": "fresh_0",
+      "clone_steps": 160,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_0_off",
+      "initial": 123,
+      "k": 1,
+      "kernels": 38,
+      "nodes": 139,
+      "paid": 1991,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 19,
+      "case": "fresh_1",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_1_plain",
+      "initial": 123,
+      "k": 2,
+      "kernels": 76,
+      "nodes": 123,
+      "paid": 4239,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 19,
+      "case": "fresh_1",
+      "clone_steps": 356,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_1_shared",
+      "initial": 123,
+      "k": 2,
+      "kernels": 76,
+      "nodes": 139,
+      "paid": 2939,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 19,
+      "case": "fresh_1",
+      "clone_steps": 238,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_1_static",
+      "initial": 123,
+      "k": 2,
+      "kernels": 52,
+      "nodes": 139,
+      "paid": 2312,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          347,
+          1,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 19,
+      "case": "fresh_1",
+      "clone_steps": 238,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_1_on",
+      "initial": 123,
+      "k": 2,
+      "kernels": 52,
+      "nodes": 139,
+      "paid": 2336,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          347,
+          1,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 19,
+      "case": "fresh_1",
+      "clone_steps": 356,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_1_off",
+      "initial": 123,
+      "k": 2,
+      "kernels": 76,
+      "nodes": 139,
+      "paid": 2985,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 19,
+      "case": "fresh_2",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_2_plain",
+      "initial": 123,
+      "k": 4,
+      "kernels": 152,
+      "nodes": 123,
+      "paid": 7319,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 19,
+      "case": "fresh_2",
+      "clone_steps": 668,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_2_shared",
+      "initial": 123,
+      "k": 4,
+      "kernels": 152,
+      "nodes": 139,
+      "paid": 4847,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 19,
+      "case": "fresh_2",
+      "clone_steps": 448,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_2_static",
+      "initial": 123,
+      "k": 4,
+      "kernels": 104,
+      "nodes": 139,
+      "paid": 3614,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          499,
+          1,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 19,
+      "case": "fresh_2",
+      "clone_steps": 448,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_2_on",
+      "initial": 123,
+      "k": 4,
+      "kernels": 104,
+      "nodes": 139,
+      "paid": 3638,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          499,
+          1,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 19,
+      "case": "fresh_2",
+      "clone_steps": 668,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_2_off",
+      "initial": 123,
+      "k": 4,
+      "kernels": 152,
+      "nodes": 139,
+      "paid": 4893,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 19,
+      "case": "fresh_3",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_3_plain",
+      "initial": 123,
+      "k": 8,
+      "kernels": 304,
+      "nodes": 123,
+      "paid": 13983,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 19,
+      "case": "fresh_3",
+      "clone_steps": 1392,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_3_shared",
+      "initial": 123,
+      "k": 8,
+      "kernels": 304,
+      "nodes": 139,
+      "paid": 8763,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 19,
+      "case": "fresh_3",
+      "clone_steps": 944,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_3_static",
+      "initial": 123,
+      "k": 8,
+      "kernels": 208,
+      "nodes": 139,
+      "paid": 6294,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          807,
+          1,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 19,
+      "case": "fresh_3",
+      "clone_steps": 944,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_3_on",
+      "initial": 123,
+      "k": 8,
+      "kernels": 208,
+      "nodes": 139,
+      "paid": 6318,
+      "peak": 151,
+      "reused": 12,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          807,
+          1,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 19,
+      "case": "fresh_3",
+      "clone_steps": 1392,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_3_off",
+      "initial": 123,
+      "k": 8,
+      "kernels": 304,
+      "nodes": 139,
+      "paid": 8809,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 43,
+      "case": "fresh_4",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_4_plain",
+      "initial": 123,
+      "k": 1,
+      "kernels": 86,
+      "nodes": 123,
+      "paid": 5762,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 43,
+      "case": "fresh_4",
+      "clone_steps": 381,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_4_shared",
+      "initial": 123,
+      "k": 1,
+      "kernels": 86,
+      "nodes": 139,
+      "paid": 4302,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 43,
+      "case": "fresh_4",
+      "clone_steps": 314,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_4_static",
+      "initial": 123,
+      "k": 1,
+      "kernels": 72,
+      "nodes": 139,
+      "paid": 4144,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1669,
+          14,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 43,
+      "case": "fresh_4",
+      "clone_steps": 314,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_4_on",
+      "initial": 123,
+      "k": 1,
+      "kernels": 72,
+      "nodes": 139,
+      "paid": 4168,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1669,
+          14,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 43,
+      "case": "fresh_4",
+      "clone_steps": 381,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_4_off",
+      "initial": 123,
+      "k": 1,
+      "kernels": 86,
+      "nodes": 139,
+      "paid": 4492,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 43,
+      "case": "fresh_5",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_5_plain",
+      "initial": 123,
+      "k": 2,
+      "kernels": 172,
+      "nodes": 123,
+      "paid": 9273,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 43,
+      "case": "fresh_5",
+      "clone_steps": 778,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_5_shared",
+      "initial": 123,
+      "k": 2,
+      "kernels": 172,
+      "nodes": 139,
+      "paid": 6505,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 43,
+      "case": "fresh_5",
+      "clone_steps": 656,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_5_static",
+      "initial": 123,
+      "k": 2,
+      "kernels": 144,
+      "nodes": 139,
+      "paid": 5998,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          2425,
+          14,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 43,
+      "case": "fresh_5",
+      "clone_steps": 656,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_5_on",
+      "initial": 123,
+      "k": 2,
+      "kernels": 144,
+      "nodes": 139,
+      "paid": 6022,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          2425,
+          14,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 43,
+      "case": "fresh_5",
+      "clone_steps": 778,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_5_off",
+      "initial": 123,
+      "k": 2,
+      "kernels": 172,
+      "nodes": 139,
+      "paid": 6695,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 43,
+      "case": "fresh_6",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_6_plain",
+      "initial": 123,
+      "k": 4,
+      "kernels": 344,
+      "nodes": 123,
+      "paid": 16835,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 43,
+      "case": "fresh_6",
+      "clone_steps": 1504,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_6_shared",
+      "initial": 123,
+      "k": 4,
+      "kernels": 344,
+      "nodes": 139,
+      "paid": 10843,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 43,
+      "case": "fresh_6",
+      "clone_steps": 1256,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_6_static",
+      "initial": 123,
+      "k": 4,
+      "kernels": 288,
+      "nodes": 139,
+      "paid": 9622,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          3879,
+          14,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 43,
+      "case": "fresh_6",
+      "clone_steps": 1256,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_6_on",
+      "initial": 123,
+      "k": 4,
+      "kernels": 288,
+      "nodes": 139,
+      "paid": 9646,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          3879,
+          14,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 43,
+      "case": "fresh_6",
+      "clone_steps": 1504,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_6_off",
+      "initial": 123,
+      "k": 4,
+      "kernels": 344,
+      "nodes": 139,
+      "paid": 11033,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 43,
+      "case": "fresh_7",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_7_plain",
+      "initial": 123,
+      "k": 8,
+      "kernels": 688,
+      "nodes": 123,
+      "paid": 30735,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 43,
+      "case": "fresh_7",
+      "clone_steps": 3064,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_7_shared",
+      "initial": 123,
+      "k": 8,
+      "kernels": 688,
+      "nodes": 139,
+      "paid": 19627,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 43,
+      "case": "fresh_7",
+      "clone_steps": 2568,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_7_static",
+      "initial": 123,
+      "k": 8,
+      "kernels": 576,
+      "nodes": 139,
+      "paid": 16982,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          6807,
+          14,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 43,
+      "case": "fresh_7",
+      "clone_steps": 2568,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_7_on",
+      "initial": 123,
+      "k": 8,
+      "kernels": 576,
+      "nodes": 139,
+      "paid": 17006,
+      "peak": 151,
+      "reused": 14,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          6807,
+          14,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 43,
+      "case": "fresh_7",
+      "clone_steps": 3064,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_7_off",
+      "initial": 123,
+      "k": 8,
+      "kernels": 688,
+      "nodes": 139,
+      "paid": 19817,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 71,
+      "case": "fresh_8",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_8_plain",
+      "initial": 123,
+      "k": 1,
+      "kernels": 142,
+      "nodes": 123,
+      "paid": 9488,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 71,
+      "case": "fresh_8",
+      "clone_steps": 620,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_8_shared",
+      "initial": 123,
+      "k": 1,
+      "kernels": 142,
+      "nodes": 139,
+      "paid": 7033,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 71,
+      "case": "fresh_8",
+      "clone_steps": 595,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_8_static",
+      "initial": 123,
+      "k": 1,
+      "kernels": 135,
+      "nodes": 139,
+      "paid": 7453,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          486,
+          3,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 71,
+      "case": "fresh_8",
+      "clone_steps": 595,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_8_on",
+      "initial": 123,
+      "k": 1,
+      "kernels": 135,
+      "nodes": 139,
+      "paid": 7477,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          486,
+          3,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 71,
+      "case": "fresh_8",
+      "clone_steps": 620,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_8_off",
+      "initial": 123,
+      "k": 1,
+      "kernels": 142,
+      "nodes": 139,
+      "paid": 7149,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 71,
+      "case": "fresh_9",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_9_plain",
+      "initial": 123,
+      "k": 2,
+      "kernels": 284,
+      "nodes": 123,
+      "paid": 15169,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 71,
+      "case": "fresh_9",
+      "clone_steps": 1276,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_9_shared",
+      "initial": 123,
+      "k": 2,
+      "kernels": 284,
+      "nodes": 139,
+      "paid": 10671,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 71,
+      "case": "fresh_9",
+      "clone_steps": 1196,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_9_static",
+      "initial": 123,
+      "k": 2,
+      "kernels": 270,
+      "nodes": 139,
+      "paid": 10889,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          651,
+          3,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 71,
+      "case": "fresh_9",
+      "clone_steps": 1196,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_9_on",
+      "initial": 123,
+      "k": 2,
+      "kernels": 270,
+      "nodes": 139,
+      "paid": 10913,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          651,
+          3,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 71,
+      "case": "fresh_9",
+      "clone_steps": 1276,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_9_off",
+      "initial": 123,
+      "k": 2,
+      "kernels": 284,
+      "nodes": 139,
+      "paid": 10787,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 71,
+      "case": "fresh_10",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_10_plain",
+      "initial": 123,
+      "k": 4,
+      "kernels": 568,
+      "nodes": 123,
+      "paid": 27983,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 71,
+      "case": "fresh_10",
+      "clone_steps": 2480,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_10_shared",
+      "initial": 123,
+      "k": 4,
+      "kernels": 568,
+      "nodes": 139,
+      "paid": 17839,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 71,
+      "case": "fresh_10",
+      "clone_steps": 2392,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_10_static",
+      "initial": 123,
+      "k": 4,
+      "kernels": 540,
+      "nodes": 139,
+      "paid": 17755,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1037,
+          3,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 71,
+      "case": "fresh_10",
+      "clone_steps": 2392,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_10_on",
+      "initial": 123,
+      "k": 4,
+      "kernels": 540,
+      "nodes": 139,
+      "paid": 17779,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1037,
+          3,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 71,
+      "case": "fresh_10",
+      "clone_steps": 2480,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_10_off",
+      "initial": 123,
+      "k": 4,
+      "kernels": 568,
+      "nodes": 139,
+      "paid": 17955,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "plain",
+      "batches": 71,
+      "case": "fresh_11",
+      "clone_steps": 0,
+      "clones": [],
+      "cohort": "prospective",
+      "id": "fresh_11_plain",
+      "initial": 123,
+      "k": 8,
+      "kernels": 1136,
+      "nodes": 123,
+      "paid": 50755,
+      "peak": 135,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "shared",
+      "batches": 71,
+      "case": "fresh_11",
+      "clone_steps": 5104,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_11_shared",
+      "initial": 123,
+      "k": 8,
+      "kernels": 1136,
+      "nodes": 139,
+      "paid": 32391,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "static",
+      "batches": 71,
+      "case": "fresh_11",
+      "clone_steps": 4816,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_11_static",
+      "initial": 123,
+      "k": 8,
+      "kernels": 1080,
+      "nodes": 139,
+      "paid": 31519,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1697,
+          3,
+          false
+        ]
+      ],
+      "arm": "on",
+      "batches": 71,
+      "case": "fresh_11",
+      "clone_steps": 4816,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_11_on",
+      "initial": 123,
+      "k": 8,
+      "kernels": 1080,
+      "nodes": 139,
+      "paid": 31543,
+      "peak": 151,
+      "reused": 7,
+      "wrong": null
+    },
+    {
+      "activations": [
+        [
+          1697,
+          3,
+          true
+        ]
+      ],
+      "arm": "off",
+      "batches": 71,
+      "case": "fresh_11",
+      "clone_steps": 5104,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "prospective",
+      "id": "fresh_11_off",
+      "initial": 123,
+      "k": 8,
+      "kernels": 1136,
+      "nodes": 139,
+      "paid": 32507,
+      "peak": 151,
+      "reused": 0,
+      "wrong": null
+    },
+    {
+      "activations": [],
+      "arm": "fault",
+      "batches": 1,
+      "case": "skip_bias_guard",
+      "clone_steps": 12,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "out_of_contract",
+      "id": "skip_bias_guard_fault",
+      "initial": 123,
+      "k": 4,
+      "kernels": 4,
+      "nodes": 139,
+      "paid": 225,
+      "peak": 151,
+      "reused": 1,
+      "wrong": {
+        "actual": 242,
+        "expected": 605
+      }
+    },
+    {
+      "activations": [],
+      "arm": "fault",
+      "batches": 1,
+      "case": "wrong_cache_cell",
+      "clone_steps": 12,
+      "clones": [
+        [
+          5,
+          57,
+          123
+        ],
+        [
+          17,
+          2,
+          124
+        ],
+        [
+          22,
+          57,
+          125
+        ],
+        [
+          27,
+          2,
+          126
+        ],
+        [
+          32,
+          57,
+          127
+        ],
+        [
+          37,
+          2,
+          128
+        ],
+        [
+          42,
+          57,
+          129
+        ],
+        [
+          47,
+          2,
+          130
+        ],
+        [
+          52,
+          57,
+          131
+        ],
+        [
+          57,
+          2,
+          132
+        ],
+        [
+          62,
+          57,
+          133
+        ],
+        [
+          67,
+          2,
+          134
+        ],
+        [
+          72,
+          57,
+          135
+        ],
+        [
+          77,
+          2,
+          136
+        ],
+        [
+          82,
+          57,
+          137
+        ],
+        [
+          87,
+          2,
+          138
+        ]
+      ],
+      "cohort": "out_of_contract",
+      "id": "wrong_cache_cell_fault",
+      "initial": 123,
+      "k": 4,
+      "kernels": 4,
+      "nodes": 139,
+      "paid": 231,
+      "peak": 151,
+      "reused": 1,
+      "wrong": {
+        "actual": 2,
+        "expected": 242
+      }
+    }
+  ],
+  "B3_B4": "NOT_MET"
+}
