@@ -25,11 +25,11 @@ function run(s,mode){
   first=0;while(first<5){pay("data");pay("branch");if(masks[first])break;pay("alu");first++;}
   if(compiled){
    // Cheap conservative admission BEFORE exact planning. Maximum eleven ops.
-   pay("policy",3);const reserve=50,upper=12+11*(s.tariff+1)+1;
+   pay("policy",3);const reserve=50,upper=12+11*(s.tariff+2)+1;
    if(base+11>s.cap||credit<reserve+upper){denied++;return;}
-   const p=[];for(let j=first;j<6;j++){pay("data");pay("branch");if(j>first){pay("synth");p.push(0);}if(masks[j]){pay("synth");p.push(masks[j]);}}
+   const before=paid;const p=[];for(let j=first;j<6;j++){pay("data");pay("branch");if(j>first){pay("synth");p.push(0);}if(masks[j]){pay("synth");p.push(masks[j]);}}
    for(const op of p){pay("install",s.tariff);pay("data");graph.push(op);space();}
-   pay("install");installs++;events.push({t,kind:"install",length:graph.length});
+   pay("install");assert(paid-before<=upper,"admission upper bound");installs++;events.push({t,kind:"install",length:graph.length});
   }
  }
  function produce(x,y){
