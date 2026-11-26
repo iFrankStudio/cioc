@@ -1,0 +1,20 @@
+name: CL1B C36-R6 native paid exchange
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cl1b-c36-r6-native-paid-exchange.yml'
+      - 'cl0/crates/world/tests/cl1b_c36_r6_native_paid_exchange.rs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run native gate
+        working-directory: cl0
+        run: cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange -- --nocapture
