@@ -1,10 +1,11 @@
-name: CL1B C36-R6 native paid exchange
+name: CL1B C36 native exchange and publication
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/cl1b-c36-r6-native-paid-exchange.yml'
       - 'cl0/crates/world/tests/cl1b_c36_r6_native_paid_exchange.rs'
+      - 'cl0/crates/world/tests/cl1b_c36_r7_native_verified_publication.rs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: Run native gate
+      - name: Run both native gates
         working-directory: cl0
-        run: cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange -- --nocapture
+        run: cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange --test cl1b_c36_r7_native_verified_publication -- --nocapture
