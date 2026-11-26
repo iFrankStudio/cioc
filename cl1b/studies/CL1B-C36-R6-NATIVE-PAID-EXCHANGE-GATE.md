@@ -1,0 +1,16 @@
+# C36-R6 — native paid exchange mechanism gate
+
+Status: native test and targeted workflow committed; JS engineering preflight executed; native outcome UNVERIFIED. Parent 9ef5acaee2e87321cdf325fe424874b1d6eec007. Frozen test 7c4fda58639719aeecf237d14bcec5d51bcc112c; workflow 3135d63174869901c78916af4164833ad3201b48. No kernel modification or special fitness opcode. Test uses actual CL-0 World, two ordinary CIL actors, strict capacity 80, max nodes64, six preallocated data cells, four registers per actor. Initial private credits PID1=120, PID2=3000, neutral pool=0, no host credit interventions. PID1 pays PID2 six credits via TransferCompute before each offset observation; ordinary paid mailbox reads/writes and polling; PID2 returns offset and checks candidate x+a with Add/Sub/Branch; only on correct candidate executes TransferCompute to PID1. PID1 reads actual ack and SenseOwnCredits. Actor-targeted host refill prohibited. Environment changes offset and x only between completed requests, fixed 12-offer schedule frozen in test. Every native world.step must reduce total combined inventory by exactly one; both actors pay their own instruction fees. Every transfer checked via both actors' pre/post balances. Capacity and no trap asserted. Two controls: reward literal zero, deliberately wrong producer Sub instead of Add. These are different initial source arms, not matched physical-effect suppression. Wrong candidate is submitted to buyer before validation, so not yet a zero-wrong-publication mechanism.
+
+## Disclosed non-native predictions (not Rust evidence)
+
+| arm | completed | correct | wrong | charged steps | probes paid | buyer transfer ops | producer end | buyer end |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| reward100 correct |12|12|0|1461|12|12|517|1142|
+| reward0 correct |1|1|0|215|2|2|0|2905|
+| reward100 wrong |1|0|1|215|2|0|0|2905|
+
+Preflight checks every step inventory identity; predicted producer/buyer paid731/730 in positive arm; producer net+397. Zero reward arm may have a second verified candidate without completed receipt; sale op count is not completed request count. Zero transfer allowed by source; no credit created. Test expects these exact results, so a successful CI would be an engineering mechanism confirmation, not blind discovery. Buyer is finite-budget authored service, not a self-maintaining environment; total inventory decreases. Probe has no malicious-client authentication; shared cells not access-isolated, hidden offset means not read directly by this authored producer, not secret. Source inspection confirms native scheduler, transfer and strict accounting APIs. No autonomous algorithm synthesis, reusable executable slot experiment, or B3/B4 promotion. Native independent replay and permanent trace archive remain outstanding.
+
+Reproduce from repository root: `cd cl0 && cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange -- --nocapture`. Targeted workflow path `.github/workflows/cl1b-c36-r6-native-paid-exchange.yml`. Local environment lacks cargo/rustc and GitHub DNS; current connector exposes no push-run listing (commit run wrapper PR-only), public workflow fetch unavailable; no native pass/fail claim. Next obtain native CI result and trace, correct any discrepancy before adding prepublication validation or dynamic reusable code.
+
