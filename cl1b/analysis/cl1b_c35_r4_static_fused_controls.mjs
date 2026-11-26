@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+import {readFileSync} from "node:fs";
+let s=readFileSync(new URL("./cl1b_c35_r2_unit_path_witness.mjs",import.meta.url),"utf8");
+const r3=readFileSync(new URL("./cl1b_c35_r3_persistent_quarantine.mjs",import.meta.url),"utf8");
+s=new Function("s",r3.slice(r3.indexOf("s=s.slice"),r3.indexOf("const tail="))+"\nreturn s;")(s);
+
+function replace(a,b){if(!s.includes(a))throw Error(a);s=s.replace(a,b)}
+replace('witness=false,quarantine=false){','witness=false,quarantine=false,prebuilt=false,fused=false){');
+replace('policy==="direct"?"prod_init":"generate_init"','policy==="direct"||prebuilt?"prod_init":"generate_init"');
+replace('W(3,0,"second_call");','W(3,0,fused?"fused_second":"second_call");if(fused){label("fused_second");C(3,51);R(2,3);A(0,0,2,"second");}');
+replace('witness=false,quarantine=false,routeOff=false){','witness=false,quarantine=false,routeOff=false,prebuilt=false,fused=false){');
+replace('build(policy,cadence,witness,quarantine),initial=g.length','build(policy,cadence,witness,quarantine,prebuilt,fused),initial=g.length');
+replace('load(0);','load(0);if(prebuilt){for(let i=1;i<=16;i++){const from=i%2?l.parent_add:l.double_src;g.push({...g[from],next:expectedEdge(i,initial,l)});}g[l.base].value=initial-1;g[l.repair_anchor].value=initial-1;g[l.repair_last].value=initial+15;g[l.kernel_dispatch].next=l.base;}');
+replace('peak=initial+1+d.size','peak=g.length+1+d.size');
+replace('g[l.return_route].next===l.audit_result&&witness?x:sk%2===1?x:x+1','g[l.return_route].next===l.audit_result&&witness?x:fused?x:sk%2===1?x:x+1');
+replace('const a=sk%2===0?x:x+1;','const a=fused?x:sk%2===0?x:x+1;');
+
+const tail="\nfor(let node=1;node<=16;node++){const n=32,requests=Array.from({length:n},(_,i)=>[i<8?1:Math.min(node,15),1+i%16]);scenarios.push({id:\"opcode_\"+node,n,pattern:\"opcode_sweep\",requests,faults:[{at:4,node,kind:\"opcode\"}]});}\nconst cfg=[[\"direct\",\"direct\",false,0,false,false,false,false,false],[\"direct_fused\",\"direct\",false,0,false,false,false,false,true],[\"generated\",\"reactive\",false,1,true,true,false,false,false],[\"static\",\"reactive\",false,1,true,true,false,true,false],[\"generated_fused\",\"reactive\",false,1,true,true,false,false,true],[\"static_fused\",\"reactive\",false,1,true,true,false,true,true]];\nconst rows=scenarios.map(s=>{\n const a=Object.fromEntries(cfg.map(([name,...args])=>[name,runWorld(s,...args)]));\n for(const k of Object.keys(a))if(a[k].services.some(x=>!x.correct))throw Error(k+s.id);\n for(const [g,b] of [[\"generated\",\"static\"],[\"generated_fused\",\"static_fused\"]]){\n if(JSON.stringify(a[g].outputs)!==JSON.stringify(a[b].outputs)||a[g].repairs!==a[b].repairs||a[g].quarantineAt!==a[b].quarantineAt)throw Error(\"paired mismatch \"+s.id);\n if(a[g].clones!==16||a[b].clones!==0||a[g].paid<=a[b].paid)throw Error(\"boot \"+s.id);\n }\n return {id:s.id,n:s.n,...Object.fromEntries(cfg.map(([k])=>[k,{paid:a[k].paid,wrong:a[k].services.filter(x=>!x.correct).length,repairs:a[k].repairs,quarantines:a[k].quarantines,peak:a[k].peak,clones:a[k].clones}]))};\n});\nfunction agg(rr){return Object.fromEntries(cfg.map(([k])=>[k,{paid:rr.reduce((a,r)=>a+r[k].paid,0),wrong:rr.reduce((a,r)=>a+r[k].wrong,0),repairs:rr.reduce((a,r)=>a+r[k].repairs,0),quarantines:rr.reduce((a,r)=>a+r[k].quarantines,0),peak:Math.max(...rr.map(r=>r[k].peak)),clones:rr.reduce((a,r)=>a+r[k].clones,0)}]))}\nconst summary={repairable:agg(rows.slice(0,24)),opcode:agg(rows.slice(24)),all:agg(rows),worlds:rows.length*cfg.length,requestsPerArm:scenarios.reduce((a,r)=>a+r.n,0),generationDelta:[...new Set(rows.map(r=>r.generated.paid-r.static.paid))],fusedGenerationDelta:[...new Set(rows.map(r=>r.generated_fused.paid-r.static_fused.paid))]};\nreturn {summary,rows};\n";
+console.log(JSON.stringify(new Function(s.replace(/^#![^\n]*\n/,"")+tail)(),null,2));
