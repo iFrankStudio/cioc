@@ -1,4 +1,4 @@
-name: CL1B C36 native exchange and publication
+name: CL1B C36 native exchange, publication and sensing edits
 on:
   push:
     branches: [main]
@@ -6,6 +6,7 @@ on:
       - '.github/workflows/cl1b-c36-r6-native-paid-exchange.yml'
       - 'cl0/crates/world/tests/cl1b_c36_r6_native_paid_exchange.rs'
       - 'cl0/crates/world/tests/cl1b_c36_r7_native_verified_publication.rs'
+      - 'cl0/crates/world/tests/cl1b_c36_r8_native_sensing_path_edit.rs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,6 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: Run both native gates
+      - name: Run three frozen native gates
         working-directory: cl0
-        run: cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange --test cl1b_c36_r7_native_verified_publication -- --nocapture
+        run: cargo test --locked -p cl0-world --test cl1b_c36_r6_native_paid_exchange --test cl1b_c36_r7_native_verified_publication --test cl1b_c36_r8_native_sensing_path_edit -- --nocapture
